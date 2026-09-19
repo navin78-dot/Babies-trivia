@@ -95,6 +95,10 @@ select{font:inherit;padding:8px 12px;border-radius:10px;border:1px solid var(--l
 .rcard .rmeta{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px;font-size:13px;color:var(--muted);grid-column:1 / -1}
 .rcard .go{font-weight:600;color:var(--ra);white-space:nowrap;font-size:14px}
 .rcard.closed{opacity:.75}
+.live{display:inline-flex;align-items:center;gap:7px;font-size:13px;font-weight:600;color:var(--good);margin-top:8px;text-align:left}
+.live i{width:8px;height:8px;border-radius:50%;background:var(--good);flex:none;animation:pulse 1.6s ease-in-out infinite}
+.live span{font-weight:400;color:var(--muted)}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.45;transform:scale(.8)}}
 .rcard.closed .go{color:var(--muted)}
 
 .board{border:1px solid var(--line);border-radius:14px;overflow:hidden;background:var(--surface)}
@@ -144,7 +148,7 @@ select{font:inherit;padding:8px 12px;border-radius:10px;border:1px solid var(--l
 .banner.err{background:var(--bad-bg);border-color:var(--bad)}
 .roundlist .r{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:12px 0;border-top:1px solid var(--line);flex-wrap:wrap}
 .roundlist .r:first-child{border-top:0}
-@media (prefers-reduced-motion: reduce){*{transition:none!important}}
+@media (prefers-reduced-motion: reduce){*{transition:none!important;animation:none!important}}
 @media (max-width:420px){.lb{grid-template-columns:28px 32px 1fr auto auto;gap:8px;padding:10px 10px}.pts{font-size:19px}.rcard .rn{font-size:28px}}
 </style>
 </head>
@@ -455,7 +459,11 @@ let me = null, isHost = false;
 let openIds = null;            // null = not loaded yet; Set of open round ids once loaded
 let scores = [];               // every score doc
 let scoresReady = false;
-let unsubScores = null, unsubSite = null;
+let unsubScores = null, unsubSite = null, unsubPresence = null;
+let presence = [];            // who is mid-quiz right now (from the presence collection)
+let presenceRound = null;      // round id this device has announced, or null
+let hbTimer = null;
+const PRESENCE_TTL = 2 * 60 * 1000; // ignore heartbeats older than this
 let round = null;              // selected round, or null for the lobby
 let boardSel = null;           // which board the Leaderboard tab shows: a round id or ALL
 let S = { tab: "play", screen: "home", i: 0, picks: [], order: [], started: 0, chosen: null, review: false, lastResult: null, saved: "none", saveErr: "" };
@@ -506,8 +514,8 @@ async function signIn(){
 auth.getRedirectResult().catch(() => {});
 auth.onAuthStateChanged(async u => {
   me = u; isHost = false; fatal = "";
-  if (me) { isHost = await probeHost(); subscribeSite(); subscribeScores(); }
-  else { if (unsubScores) { unsubScores(); unsubScores = null; } if (unsubSite) { unsubSite(); unsubSite = null; } round = null; S.tab = "play"; }
+  if (me) { isHost = await probeHost(); subscribeSite(); subscribeScores(); subscribePresence(); }
+  else { if (unsubScores) { unsubScores(); unsubScores = null; } if (unsubSite) { unsubSite(); unsubSite = null; } if (unsubPresence) { unsubPresence(); unsubPresence = null; } presence = []; presenceRound = null; if (hbTimer) { clearInterval(hbTimer); hbTimer = null; } round = null; S.tab = "play"; }
   renderAll();
 });
 async function probeHost(){
@@ -527,6 +535,38 @@ function subscribeScores(){
   unsubScores = dbf.collection("scores").onSnapshot(snap => { scores = snap.docs.map(d => ({ id: d.id, ...d.data() })); scoresReady = true; render(); },
     err => { fatal = "Couldn't load scores: " + (err.code || err.message); render(); });
 }
+/* --- presence: who is mid-quiz right now --- */
+function subscribePresence(){
+  if (unsubPresence) unsubPresence();
+  unsubPresence = dbf.collection("presence").onSnapshot(snap => { presence = snap.docs.map(d => d.data()); if (showsPresence()) render(); }, () => {});
+}
+const showsPresence = () => !!me && !fatal && (!round || (S.tab === "play" && S.screen === "home"));
+const playingNow = rid => presence.filter(p => p.roundId === rid && p.uid !== (me && me.uid) && (Date.now() - (p.at || 0)) < PRESENCE_TTL);
+function namesHtml(list){ const n = list.map(p => esc((p.name || "Someone").split(" ")[0])); return n.length <= 3 ? n.join(", ") : n.slice(0, 3).join(", ") + " and " + (n.length - 3) + " more"; }
+function liveHtml(rid){ const l = playingNow(rid); return l.length ? `<div class="live"><i></i>Playing now <span>${namesHtml(l)}</span></div>` : ""; }
+async function writePresence(){
+  if (!me || !presenceRound) return;
+  const rid = presenceRound, uid = me.uid;
+  try { await dbf.collection("presence").doc(uid).set({ uid, name: me.displayName || "Someone", photo: me.photoURL || "", roundId: rid, at: Date.now(), updatedAt: firebase.firestore.FieldValue.serverTimestamp() });
+    if (presenceRound !== rid) await dbf.collection("presence").doc(uid).delete(); } catch (e) {}
+}
+async function clearPresence(){
+  if (hbTimer) { clearInterval(hbTimer); hbTimer = null; }
+  if (!me || !presenceRound) return;
+  presenceRound = null;
+  try { await dbf.collection("presence").doc(me.uid).delete(); } catch (e) {}
+}
+function syncPresence(){
+  const want = (me && round && S.screen === "quiz") ? round.id : null;
+  if (want === presenceRound) return;
+  if (!want) { clearPresence(); return; }
+  presenceRound = want; writePresence();
+  if (hbTimer) clearInterval(hbTimer);
+  hbTimer = setInterval(writePresence, 30 * 1000);
+}
+window.addEventListener("pagehide", () => { clearPresence(); });
+setInterval(() => { if (showsPresence()) render(); }, 30 * 1000); // lets stale heartbeats drop off
+
 const boardFor = rid => scores.filter(s => s.roundId === rid);
 const myOfficial = (rid = round && round.id) => rid ? boardFor(rid).find(b => b.uid === (me && me.uid)) || null : null;
 function sorted(list){ return [...list].sort((a, b) => (b.score - a.score) || (SETTINGS.timeBreaksTies ? (a.elapsedMs - b.elapsedMs) : 0) || String(a.finishedAt).localeCompare(String(b.finishedAt))); }
@@ -555,9 +595,10 @@ function renderAccount(){
   const a = $("account");
   if (!me) { a.innerHTML = ""; return; }
   a.innerHTML = `<img src="${esc(me.photoURL || "")}" alt="" onerror="this.style.visibility='hidden'"><span>${esc(me.displayName || "You")}</span><button class="linkbtn" id="signout">Sign out</button>`;
-  $("signout").onclick = () => auth.signOut();
+  $("signout").onclick = async () => { await clearPresence(); auth.signOut(); };
 }
 function render(){
+  syncPresence();
   if (fatal) { $view.innerHTML = `<div class="banner err">${esc(fatal)}</div>` + (me ? "" : gateHtml()); if (!me) wireGate(); return; }
   if (!me) { $view.innerHTML = gateHtml(); wireGate(); return; }
   if (!round) return renderLobby();
@@ -581,7 +622,7 @@ function renderLobby(){
     const status = mine ? `<span class="pill done">You: ${mine.score} / ${mine.total}</span>` : (open ? `<span class="pill live">Not played yet</span>` : `<span class="pill">Closed</span>`);
     const lead = top ? `<span>Leader: ${esc(top.name || "Someone")} ${top.score} / ${top.total}</span>` : `<span>No scores yet</span>`;
     return `<button class="rcard${open ? "" : " closed"}" data-r="${esc(r.id)}" style="--ra:${t.a};--rb:${t.b};${t.font ? `--rf:'${t.font}','Archivo Black',sans-serif` : ""}">
-      <div><h2 class="rn">${esc(r.name)}</h2><div class="rs">${esc(r.subject || "")} · ${r.questions.length} questions</div></div>
+      <div><h2 class="rn">${esc(r.name)}</h2><div class="rs">${esc(r.subject || "")} · ${r.questions.length} questions</div>${liveHtml(r.id)}</div>
       <div class="go">${open ? (mine ? "Practice or view board →" : "Play →") : "View board →"}</div>
       <div class="rmeta">${status}${lead}<span>${b.length} played</span></div>
     </button>`;
@@ -617,7 +658,8 @@ function renderHome(){
       <div class="card lift">
         <h2>${mine ? "Practice run" : "Ready?"}</h2>
         <p>${n} questions, four choices each, instant answers with a line of context.${SETTINGS.timeBreaksTies ? " The clock runs from your first question to your last and breaks ties on the board." : ""}</p>
-        <div class="row">
+        ${liveHtml(round.id)}
+        <div class="row" style="margin-top:${playingNow(round.id).length ? "12px" : "0"}">
           <button class="btn" id="start">${mine ? "Start a practice run" : "Start the quiz"}</button>
           ${b.length ? `<button class="btn ghost" id="toBoard">See the leaderboard</button>` : ""}
         </div>
