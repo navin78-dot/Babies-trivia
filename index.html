@@ -41,6 +41,8 @@ img{max-width:100%}
 .account{display:flex;align-items:center;gap:8px;font-size:13px;color:var(--muted)}
 .account img{width:28px;height:28px;border-radius:50%;background:var(--surface2)}
 .linkbtn{background:none;border:0;padding:4px 6px;color:var(--muted);cursor:pointer;text-decoration:underline;font-size:13px}
+.hint{margin:0 0 6px;font-size:12px;color:var(--muted)}
+.hint b{font-weight:600;color:var(--text)}
 
 header.masthead{position:relative;padding:22px 0 16px;overflow:hidden}
 header.masthead::before{content:"";position:absolute;inset:-40px -20px auto -20px;height:220px;pointer-events:none;
@@ -149,9 +151,10 @@ select{font:inherit;padding:8px 12px;border-radius:10px;border:1px solid var(--l
 <body>
 <div class="wrap">
   <div class="topbar">
-    <button class="wordmark" id="home">Babies<span>'</span> Trivia</button>
+    <button class="wordmark" id="home" title="Back to the homepage">Babies<span>'</span> Trivia</button>
     <div class="account" id="account"></div>
   </div>
+  <p class="hint" id="homeHint" hidden>Tip: click <b>Babies' Trivia</b> at the top any time to go back to the homepage.</p>
 
   <header class="masthead">
     <p class="eyebrow" id="eyebrow"></p>
@@ -543,6 +546,7 @@ function renderAll(){
   applyTheme(round);
   renderAccount();
   $("nav").hidden = !(me && round);
+  $("homeHint").hidden = !me;
   $("hostTab").hidden = !isHost;
   document.querySelectorAll(".tab").forEach(b => b.setAttribute("aria-selected", String(b.dataset.tab === S.tab)));
   render();
