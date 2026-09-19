@@ -75,6 +75,7 @@ select{font:inherit;padding:8px 12px;border-radius:10px;border:1px solid var(--l
 .btn{border:0;border-radius:999px;padding:12px 22px;font-weight:600;cursor:pointer;background:var(--accent);color:var(--accent-ink);letter-spacing:.02em;transition:transform .08s ease,filter .15s ease;display:inline-flex;align-items:center;gap:10px}
 .btn:hover{filter:brightness(1.06)}.btn:active{transform:translateY(1px)}
 .btn.ghost{background:transparent;color:var(--text);border:1px solid var(--line)}
+a.btn{text-decoration:none}
 .btn.danger{background:transparent;color:var(--bad);border:1px solid var(--bad)}
 .btn.small{padding:8px 14px;font-size:14px}
 .btn[disabled]{opacity:.5;cursor:default}
@@ -148,6 +149,9 @@ select{font:inherit;padding:8px 12px;border-radius:10px;border:1px solid var(--l
 .banner.err{background:var(--bad-bg);border-color:var(--bad)}
 .roundlist .r{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:12px 0;border-top:1px solid var(--line);flex-wrap:wrap}
 .roundlist .r:first-child{border-top:0}
+.share{margin-top:18px;padding:16px;border-radius:12px;background:var(--surface2)}
+.share img{display:block;width:100%;max-width:340px;margin:0 auto 14px;border-radius:14px;box-shadow:var(--shadow)}
+.share .msg{min-height:1.2em}
 @media (prefers-reduced-motion: reduce){*{transition:none!important;animation:none!important}}
 @media (max-width:420px){.lb{grid-template-columns:28px 32px 1fr auto auto;gap:8px;padding:10px 10px}.pts{font-size:19px}.rcard .rn{font-size:28px}}
 </style>
@@ -535,7 +539,7 @@ let hbTimer = null;
 const PRESENCE_TTL = 2 * 60 * 1000; // ignore heartbeats older than this
 let round = null;              // selected round, or null for the lobby
 let boardSel = null;           // which board the Leaderboard tab shows: a round id or ALL
-let S = { tab: "play", screen: "home", i: 0, picks: [], order: [], started: 0, chosen: null, review: false, lastResult: null, saved: "none", saveErr: "" };
+let S = { tab: "play", screen: "home", i: 0, picks: [], order: [], started: 0, chosen: null, review: false, lastResult: null, saved: "none", saveErr: "", share: false, shareUrl: "", shareFile: null, shareMsg: "" };
 let fatal = "";
 
 const $ = id => document.getElementById(id);
@@ -799,7 +803,7 @@ function startQuiz(){
   const all = round.questions.map((_, k) => k);
   if (SETTINGS.shuffleQuestions) for (let k = all.length - 1; k > 0; k--) { const j = Math.floor(Math.random() * (k + 1)); [all[k], all[j]] = [all[j], all[k]]; }
   S.order = all.slice(0, gameLength());
-  S.screen = "quiz"; S.i = 0; S.picks = []; S.chosen = null; S.started = Date.now(); S.review = false; S.lastResult = null;
+  S.screen = "quiz"; S.i = 0; S.picks = []; S.chosen = null; S.started = Date.now(); S.review = false; S.lastResult = null; S.share = false; S.shareUrl = ""; S.shareFile = null; S.shareMsg = "";
   saveProgress(); render(); window.scrollTo({ top: 0 });
 }
 function renderQuiz(){
@@ -848,17 +852,96 @@ function renderResult(){
       ${saveLine}
       <div class="row" style="margin-top:14px">
         <button class="btn" id="toBoard">See the leaderboard</button>
+        <button class="btn ghost" id="share">${S.share ? "Hide share card" : "Share my score"}</button>
         <button class="btn ghost" id="review">${S.review ? "Hide answers" : "Review my answers"}</button>
         <button class="btn ghost" id="again">Play again</button>
         <button class="btn ghost" id="lobby">All rounds</button>
       </div>
+      ${S.share ? sharePanelHtml() : ""}
       ${S.review ? `<div class="review" style="margin-top:18px">${r.order.map((qi, k) => { const it = round.questions[qi]; const p = r.picks[k]; const ok = p === it.ans;
         return `<div class="item"><div class="q">${k + 1}. ${esc(it.q)}</div><div class="ans ${ok ? "good" : "bad"}">${ok ? "✓ " + esc(it.opts[it.ans]) : "✗ You said " + esc(it.opts[p] ?? "nothing") + " · Answer: " + esc(it.opts[it.ans])}</div></div>`; }).join("")}</div>` : ""}
     </div>`;
   $("toBoard").onclick = () => { boardSel = round.id; setTab("board"); };
   $("review").onclick = () => { S.review = !S.review; renderResult(); };
+  $("share").onclick = () => { S.share = !S.share; renderResult(); if (S.share && !S.shareUrl) prepareShare(); };
+  wireShare();
   $("again").onclick = startQuiz;
   $("lobby").onclick = goLobby;
+}
+
+/* --- share your score as an image --- */
+const siteUrl = () => location.origin + location.pathname.replace(/index\.html$/, "");
+function shareContext(){
+  const r = S.lastResult; const b = boardFor(round.id);
+  const official = S.saved === "saved"; const mine = official ? rankOf(b).find(x => x.uid === me.uid) : null;
+  return { r, official, rank: mine ? mine.rank : 0, of: b.length };
+}
+function shareText(){
+  const { r, official, rank, of } = shareContext();
+  const grid = r.order.map((qi, k) => r.picks[k] === round.questions[qi].ans ? "🟩" : "🟥").join("").replace(/(.{20})(?=.)/gu, "$1\n");
+  const where = official && rank ? ` That's #${rank} of ${of} on the board.` : (official ? "" : " (practice run)");
+  return `I scored ${r.score}/${r.total} on "${round.name}" at Babies' Trivia in ${fmtTime(r.elapsedMs)}.${where}\n${grid}\nThink you can beat me? ${siteUrl()}`;
+}
+function rrect(x, X, Y, W, H, R){ x.beginPath(); x.moveTo(X + R, Y); x.arcTo(X + W, Y, X + W, Y + H, R); x.arcTo(X + W, Y + H, X, Y + H, R); x.arcTo(X, Y + H, X, Y, R); x.arcTo(X, Y, X + W, Y, R); x.closePath(); }
+function fitText(x, text, family, size, maxW, min = 30){ for (;;) { x.font = `${size}px ${family}`; if (x.measureText(text).width <= maxW || size <= min) return size; size -= 4; } }
+async function drawShareCard(){
+  const { r, official, rank, of } = shareContext();
+  const t = (round.theme || {}); const A = t.accent || "#D81B60", B = t.accent2 || "#F4B400";
+  const fam = `${t.font ? `"${t.font}",` : ""}"Archivo Black","Arial Black",sans-serif`;
+  const body = `"Work Sans","Helvetica Neue",Arial,sans-serif`;
+  try { await Promise.all([document.fonts.load(`80px "Archivo Black"`), document.fonts.load(`80px "Work Sans"`), document.fonts.load(`600 80px "Work Sans"`), t.font ? document.fonts.load(`80px "${t.font}"`) : Promise.resolve()]); } catch (e) {}
+  const W = 1080, H = 1080, c = document.createElement("canvas"); c.width = W; c.height = H; const x = c.getContext("2d");
+  const g = x.createLinearGradient(0, 0, W, H); g.addColorStop(0, A); g.addColorStop(1, B); x.fillStyle = g; x.fillRect(0, 0, W, H);
+  x.fillStyle = "rgba(0,0,0,.38)"; rrect(x, 64, 64, W - 128, H - 128, 44); x.fill();
+  x.textAlign = "center"; x.textBaseline = "alphabetic"; x.fillStyle = "#fff";
+  x.font = `34px ${body}`; x.globalAlpha = .85; x.fillText("BABIES' TRIVIA", W / 2, 150); x.globalAlpha = 1;
+  const nameSize = fitText(x, round.name, fam, 88, W - 220); x.font = `${nameSize}px ${fam}`; x.fillText(round.name, W / 2, 262);
+  x.font = `30px ${body}`; x.globalAlpha = .8; x.fillText((round.subject || "").toUpperCase(), W / 2, 312); x.globalAlpha = 1;
+  x.font = `250px ${fam}`; x.fillText(String(r.score), W / 2 - 60, 590);
+  const sw = x.measureText(String(r.score)).width;
+  x.font = `70px ${fam}`; x.globalAlpha = .75; x.textAlign = "left"; x.fillText(`/ ${r.total}`, W / 2 - 60 + sw / 2 + 24, 590); x.textAlign = "center"; x.globalAlpha = 1;
+  x.font = `600 40px ${body}`; x.fillText(verdict(r.score, r.total), W / 2, 668);
+  const n = r.order.length, per = Math.min(n, 10), rows = Math.ceil(n / per), gap = 54, rad = 18, y0 = 748;
+  r.order.forEach((qi, k) => { const row = Math.floor(k / per), col = k % per, count = Math.min(per, n - row * per);
+    const cx = W / 2 - ((count - 1) * gap) / 2 + col * gap, cy = y0 + row * gap; const ok = r.picks[k] === round.questions[qi].ans;
+    x.beginPath(); x.arc(cx, cy, rad, 0, Math.PI * 2); x.fillStyle = ok ? "#34D399" : "rgba(255,255,255,.22)"; x.fill(); if (!ok) { x.lineWidth = 3; x.strokeStyle = "rgba(255,255,255,.55)"; x.stroke(); } });
+  const metaY = y0 + rows * gap + 30;
+  x.fillStyle = "#fff"; x.font = `600 34px ${body}`;
+  const meta = official && rank ? `#${rank} of ${of} on the board  ·  ${fmtTime(r.elapsedMs)}` : (official ? fmtTime(r.elapsedMs) : `Practice run  ·  ${fmtTime(r.elapsedMs)}`);
+  x.fillText(meta, W / 2, metaY);
+  x.font = `600 34px ${body}`; x.globalAlpha = .9; x.fillText("Think you can beat me?", W / 2, 940); x.globalAlpha = 1;
+  const host = siteUrl().replace(/^https?:\/\//, "").replace(/\/$/, ""); const hs = fitText(x, host, body, 28, W - 220, 18); x.font = `${hs}px ${body}`; x.globalAlpha = .7; x.fillText(hs <= 18 && x.measureText(host).width > W - 220 ? location.host : host, W / 2, 984); x.globalAlpha = 1;
+  const blob = await new Promise(res => c.toBlob(res, "image/png"));
+  return { url: c.toDataURL("image/png"), file: blob ? new File([blob], "babies-trivia-score.png", { type: "image/png" }) : null };
+}
+async function prepareShare(){
+  try { const out = await drawShareCard(); S.shareUrl = out.url; S.shareFile = out.file; }
+  catch (e) { S.shareMsg = "Couldn't build the image on this device, but you can still text the score."; }
+  if (S.screen === "result" && S.share) renderResult();
+}
+function sharePanelHtml(){
+  const canFiles = !!(navigator.canShare && S.shareFile && navigator.canShare({ files: [S.shareFile] }));
+  const canShare = !!navigator.share;
+  return `<div class="share" id="sharePanel">
+    ${S.shareUrl ? `<img src="${S.shareUrl}" alt="Score card: ${S.lastResult.score} out of ${S.lastResult.total} on ${esc(round.name)}">` : `<p class="note" style="text-align:center">Building your score card…</p>`}
+    <div class="row" style="justify-content:center">
+      ${canShare ? `<button class="btn small" id="shareNative">${canFiles ? "Share image" : "Share"}</button>` : ""}
+      <a class="btn ghost small" id="shareSms" href="sms:?&body=${encodeURIComponent(shareText())}">Text it</a>
+      ${S.shareUrl ? `<a class="btn ghost small" id="shareSave" href="${S.shareUrl}" download="babies-trivia-score.png">Save image</a>` : ""}
+      <button class="btn ghost small" id="shareCopy">Copy text</button>
+    </div>
+    <p class="note msg" id="shareMsg" style="text-align:center">${esc(S.shareMsg)}</p>
+    ${!canFiles && S.shareUrl ? `<p class="note" style="text-align:center;margin-top:4px">To text the picture, save the image and attach it to your message.</p>` : ""}
+  </div>`;
+}
+function wireShare(){
+  const say = m => { S.shareMsg = m; const el = $("shareMsg"); if (el) el.textContent = m; };
+  const n = $("shareNative"); if (n) n.onclick = async () => {
+    const text = shareText(); const files = S.shareFile && navigator.canShare && navigator.canShare({ files: [S.shareFile] }) ? [S.shareFile] : undefined;
+    try { await navigator.share(files ? { files, text, title: "Babies' Trivia" } : { text, title: "Babies' Trivia" }); say("Shared."); }
+    catch (e) { if (!e || e.name !== "AbortError") { try { await navigator.share({ text, title: "Babies' Trivia" }); say("Shared the text. Save the image to send the picture too."); } catch (e2) { say("Sharing didn't open. Try Text it or Save image."); } } }
+  };
+  const c = $("shareCopy"); if (c) c.onclick = async () => { try { await navigator.clipboard.writeText(shareText()); say("Copied. Paste it into any message."); } catch (e) { say("Couldn't copy on this device."); } };
 }
 
 applyTheme(null);
