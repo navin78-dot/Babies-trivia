@@ -1,0 +1,684 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Babies' Trivia</title>
+<meta name="description" content="Trivia rounds for friends. One board per round, first run counts.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Work+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap">
+<style>
+:root{
+  --bg:#F7F4F1; --surface:#FFFFFF; --surface2:#EFEAE5; --line:#E2DAD2;
+  --text:#1C1815; --muted:#6E655E;
+  --accent:#D81B60; --accent2:#F4B400; --accent-ink:#FFFFFF;
+  --good:#1E8A57; --good-bg:#E3F6EC; --bad:#C62B2B; --bad-bg:#FBE6E6;
+  --shadow:0 10px 30px rgba(40,30,20,.10);
+  --site:"Archivo Black","Arial Black",sans-serif;
+  --display:"Archivo Black","Arial Black",sans-serif;
+  --body:"Work Sans","Helvetica Neue",Arial,sans-serif;
+}
+@media (prefers-color-scheme: dark){
+  :root{
+    --bg:#141110; --surface:#1E1A18; --surface2:#2A2422; --line:#3A322E;
+    --text:#F5F0EA; --muted:#B0A499; --accent-ink:#141110;
+    --good:#4FD18A; --good-bg:#15301F; --bad:#FF6B6B; --bad-bg:#3A1717;
+    --shadow:0 12px 34px rgba(0,0,0,.45);
+  }
+}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{background:var(--bg);color:var(--text);font-family:var(--body);font-size:16px;line-height:1.5;-webkit-font-smoothing:antialiased;
+  padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+button{font:inherit;color:inherit}
+img{max-width:100%}
+[hidden]{display:none!important}
+.wrap{max-width:680px;margin:0 auto;padding-block:16px 64px;padding-inline:16px}
+
+.topbar{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:4px 0 10px}
+.wordmark{font-family:var(--site);font-size:18px;letter-spacing:.01em;text-decoration:none;color:var(--text);background:none;border:0;padding:0;cursor:pointer}
+.wordmark span{color:var(--accent)}
+.account{display:flex;align-items:center;gap:8px;font-size:13px;color:var(--muted)}
+.account img{width:28px;height:28px;border-radius:50%;background:var(--surface2)}
+.linkbtn{background:none;border:0;padding:4px 6px;color:var(--muted);cursor:pointer;text-decoration:underline;font-size:13px}
+
+header.masthead{position:relative;padding:22px 0 16px;overflow:hidden}
+header.masthead::before{content:"";position:absolute;inset:-40px -20px auto -20px;height:220px;pointer-events:none;
+  background:radial-gradient(60% 80% at 20% 20%, color-mix(in srgb,var(--accent) 22%, transparent), transparent 70%),
+             radial-gradient(40% 60% at 85% 30%, color-mix(in srgb,var(--accent2) 18%, transparent), transparent 70%)}
+.eyebrow{font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);margin:0 0 6px}
+h1{font-family:var(--display);font-size:clamp(48px,13vw,92px);line-height:.92;margin:0;letter-spacing:.01em;text-wrap:balance;
+  background:linear-gradient(100deg,var(--accent) 0%,var(--accent) 55%,var(--accent2) 100%);-webkit-background-clip:text;background-clip:text;color:transparent}
+h1.site{font-family:var(--site);font-size:clamp(40px,10vw,68px)}
+.sub{margin:10px 0 0;color:var(--muted);max-width:52ch}
+.back{display:inline-flex;align-items:center;gap:6px;background:none;border:0;padding:6px 0;color:var(--muted);cursor:pointer;font-size:14px}
+.back:hover{color:var(--text)}
+
+.tabs{display:flex;gap:4px;margin:8px 0 20px;border-bottom:1px solid var(--line);overflow-x:auto}
+.tab{background:none;border:0;padding:10px 14px;font-weight:600;color:var(--muted);border-bottom:2px solid transparent;margin-bottom:-1px;cursor:pointer;white-space:nowrap}
+.tab[aria-selected="true"]{color:var(--text);border-bottom-color:var(--accent)}
+.tab:focus-visible,.btn:focus-visible,.opt:focus-visible,select:focus-visible,.rcard:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+
+.card{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:20px}
+.card.lift{box-shadow:var(--shadow)}
+h2{font-family:var(--display);font-size:26px;margin:0 0 10px;line-height:1.1}
+h3{font-size:13px;text-transform:uppercase;letter-spacing:.12em;color:var(--muted);margin:0 0 10px;font-weight:600}
+p{margin:0 0 12px}
+.stack{display:grid;gap:14px}
+.row{display:flex;gap:12px;align-items:center;flex-wrap:wrap}
+.spread{justify-content:space-between}
+.note{font-size:13px;color:var(--muted);margin-top:10px}
+select{font:inherit;padding:8px 12px;border-radius:10px;border:1px solid var(--line);background:var(--surface);color:var(--text);max-width:100%}
+
+.btn{border:0;border-radius:999px;padding:12px 22px;font-weight:600;cursor:pointer;background:var(--accent);color:var(--accent-ink);letter-spacing:.02em;transition:transform .08s ease,filter .15s ease;display:inline-flex;align-items:center;gap:10px}
+.btn:hover{filter:brightness(1.06)}.btn:active{transform:translateY(1px)}
+.btn.ghost{background:transparent;color:var(--text);border:1px solid var(--line)}
+.btn.danger{background:transparent;color:var(--bad);border:1px solid var(--bad)}
+.btn.small{padding:8px 14px;font-size:14px}
+.btn[disabled]{opacity:.5;cursor:default}
+.gicon{width:18px;height:18px;background:#fff;border-radius:50%;display:grid;place-items:center}
+
+.gate{text-align:center;padding:36px 20px}
+.gate h2{font-size:30px}
+.gate p{max-width:40ch;margin:0 auto 20px;color:var(--muted)}
+
+/* Lobby: one card per round, each in its own colors */
+.lobby{display:grid;gap:14px}
+.rcard{--ra:var(--accent);--rb:var(--accent2);position:relative;display:grid;grid-template-columns:1fr auto;gap:8px 14px;align-items:center;text-align:left;width:100%;
+  background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:18px 18px 16px;cursor:pointer;overflow:hidden;box-shadow:var(--shadow);transition:transform .1s ease}
+.rcard::before{content:"";position:absolute;inset:0 auto 0 0;width:6px;background:linear-gradient(180deg,var(--ra),var(--rb))}
+.rcard:hover{transform:translateY(-1px)}
+.rcard .rn{font-family:var(--rf,var(--display));font-size:32px;line-height:1;margin:0;background:linear-gradient(100deg,var(--ra),var(--ra) 60%,var(--rb));-webkit-background-clip:text;background-clip:text;color:transparent;text-wrap:balance}
+.rcard .rs{color:var(--muted);font-size:14px;margin-top:4px}
+.rcard .rmeta{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px;font-size:13px;color:var(--muted);grid-column:1 / -1}
+.rcard .go{font-weight:600;color:var(--ra);white-space:nowrap;font-size:14px}
+.rcard.closed{opacity:.75}
+.rcard.closed .go{color:var(--muted)}
+
+.board{border:1px solid var(--line);border-radius:14px;overflow:hidden;background:var(--surface)}
+.lb{display:grid;grid-template-columns:34px 36px 1fr auto auto;gap:12px;align-items:center;padding:12px 14px;border-top:1px solid var(--line)}
+.lb:first-child{border-top:0}
+.lb.me{background:color-mix(in srgb,var(--accent) 8%, var(--surface))}
+.rank{font-family:var(--display);font-size:20px;color:var(--muted);text-align:center;line-height:1}
+.lb:nth-child(1) .rank{color:var(--accent2)}
+.av{width:36px;height:36px;border-radius:50%;object-fit:cover;background:var(--surface2)}
+.who{font-weight:600;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.who small{display:block;font-weight:400;color:var(--muted);font-size:12px}
+.pts{font-family:var(--display);font-size:22px;line-height:1;font-variant-numeric:tabular-nums}
+.pts span{font-size:13px;color:var(--muted);font-family:var(--body);font-weight:600}
+.time{color:var(--muted);font-variant-numeric:tabular-nums;font-size:14px;min-width:44px;text-align:right}
+.empty{padding:26px 16px;color:var(--muted);text-align:center}
+
+.progress{height:6px;background:var(--surface2);border-radius:99px;overflow:hidden;margin:6px 0 16px}
+.progress i{display:block;height:100%;background:linear-gradient(90deg,var(--accent),var(--accent2));border-radius:99px;transition:width .3s ease}
+.qnum{font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);font-variant-numeric:tabular-nums}
+.q{font-size:22px;font-weight:600;line-height:1.3;margin:6px 0 18px;text-wrap:balance}
+.opts{display:grid;gap:10px}
+.opt{display:flex;gap:12px;align-items:center;text-align:left;width:100%;background:var(--surface2);border:1.5px solid transparent;border-radius:12px;padding:13px 14px;cursor:pointer;transition:border-color .12s ease,background .12s ease}
+.opt:hover:not([disabled]){border-color:var(--accent)}
+.opt .k{font-family:var(--display);font-size:14px;width:26px;height:26px;border-radius:50%;display:grid;place-items:center;background:var(--surface);color:var(--muted);flex:none;line-height:1}
+.opt[data-state="right"]{background:var(--good-bg);border-color:var(--good)}
+.opt[data-state="right"] .k{background:var(--good);color:#fff}
+.opt[data-state="wrong"]{background:var(--bad-bg);border-color:var(--bad)}
+.opt[data-state="wrong"] .k{background:var(--bad);color:#fff}
+.opt[disabled]{cursor:default}
+.why{margin-top:14px;padding:14px;border-radius:12px;background:var(--surface2);border-left:4px solid var(--accent2)}
+.why b{display:block;margin-bottom:4px}
+.why.good{border-left-color:var(--good)}.why.bad{border-left-color:var(--bad)}
+.stat{font-family:var(--display);font-size:clamp(64px,18vw,110px);line-height:.95;
+  background:linear-gradient(100deg,var(--accent),var(--accent2));-webkit-background-clip:text;background-clip:text;color:transparent}
+.stat small{font-size:.32em;font-family:var(--body);font-weight:600;color:var(--muted);-webkit-text-fill-color:var(--muted)}
+.verdict{font-size:18px;font-weight:600;margin:6px 0 4px}
+.pill{display:inline-block;padding:3px 10px;border-radius:99px;font-size:12px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;background:var(--surface2);color:var(--muted)}
+.pill.official{background:color-mix(in srgb,var(--accent2) 25%, var(--surface));color:var(--text)}
+.pill.live{background:color-mix(in srgb,var(--good) 20%, var(--surface));color:var(--good)}
+.pill.done{background:color-mix(in srgb,var(--accent) 14%, var(--surface));color:var(--text)}
+.review .item{padding:12px 0;border-top:1px solid var(--line)}
+.review .item:first-child{border-top:0}
+.review .item .q{font-size:16px;margin:0 0 4px}
+.review .ans{font-size:14px}
+.review .ans.good{color:var(--good)}.review .ans.bad{color:var(--bad)}
+.banner{padding:12px 14px;border-radius:12px;background:color-mix(in srgb,var(--accent2) 18%, var(--surface));border:1px solid color-mix(in srgb,var(--accent2) 40%, var(--line));font-size:14px;margin-bottom:14px}
+.banner.err{background:var(--bad-bg);border-color:var(--bad)}
+.roundlist .r{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:12px 0;border-top:1px solid var(--line);flex-wrap:wrap}
+.roundlist .r:first-child{border-top:0}
+@media (prefers-reduced-motion: reduce){*{transition:none!important}}
+@media (max-width:420px){.lb{grid-template-columns:28px 32px 1fr auto auto;gap:8px;padding:10px 10px}.pts{font-size:19px}.rcard .rn{font-size:28px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="topbar">
+    <button class="wordmark" id="home">Babies<span>'</span> Trivia</button>
+    <div class="account" id="account"></div>
+  </div>
+
+  <header class="masthead">
+    <p class="eyebrow" id="eyebrow"></p>
+    <h1 id="roundName" class="site">Babies' Trivia</h1>
+    <p class="sub" id="roundSub"></p>
+  </header>
+
+  <div id="nav" hidden>
+    <button class="back" id="back">← All rounds</button>
+    <div class="tabs" role="tablist" id="tabs">
+      <button class="tab" role="tab" aria-selected="true" data-tab="play">Play</button>
+      <button class="tab" role="tab" aria-selected="false" data-tab="board">Leaderboard</button>
+      <button class="tab" role="tab" aria-selected="false" data-tab="host" id="hostTab" hidden>Host</button>
+    </div>
+  </div>
+
+  <main id="view" aria-live="polite"></main>
+</div>
+
+<script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-auth-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore-compat.js"></script>
+
+<script>
+/* =====================================================================
+   1. FIREBASE CONFIG  (from the Firebase console; safe to be public)
+   ===================================================================== */
+const firebaseConfig = {
+  apiKey: "AIzaSyCSX-DFjOt_GgT8i9PfpuH6VeF62QdIepA",
+  authDomain: "babies-trivia.firebaseapp.com",
+  projectId: "babies-trivia",
+  storageBucket: "babies-trivia.firebasestorage.app",
+  messagingSenderId: "692693528249",
+  appId: "1:692693528249:web:bf9168672de6bfac25b568"
+};
+
+/* =====================================================================
+   2. GAME SETTINGS  (change a line, re-upload the file)
+   ===================================================================== */
+const SETTINGS = {
+  siteTagline: "Pick a round. Your first finished run of each round is your official score; after that you can practice all you like.",
+  questionsPerGame: null,   // null = every question in the round; or a number like 15
+  timeBreaksTies: true,     // true = faster time wins a tie; false = ties share a rank
+  shuffleQuestions: false,  // true = each player gets a different question order (same set, scores stay comparable)
+  shuffleAnswers: true,     // true = answer choices are shuffled (same shuffle for everyone, seeded)
+  newRoundsOpenByDefault: true, // rounds added to this file are open until the host closes them
+};
+
+/* =====================================================================
+   3. ROUNDS  (each has its own name, look and question bank)
+   Add a round: copy one block, give it a new id, fill in questions.
+   Each question: q = the question, o = four options, a = index of the
+   correct option in o (0 = first), w = the explanation shown after answering.
+   theme.font is any Google Fonts family name; accent / accent2 are hex colors
+   (the Dark versions are used when the player's device is in dark mode).
+   ===================================================================== */
+const ROUNDS = [
+  {
+    id: "strike-a-pose",
+    name: "Strike a Pose",
+    subject: "Madonna",
+    tagline: "Twenty questions across four decades of Madonna.",
+    theme: { font: "Bebas Neue", accent: "#E0177A", accent2: "#D4A017", accentDark: "#FF2E88", accent2Dark: "#F3C25B" },
+    questions: [
+      {q:"Where was Madonna born?",
+       o:["Bay City, Michigan","Detroit, Michigan","Rochester Hills, Michigan","Pontiac, Michigan"],a:0,
+       w:"Madonna Louise Ciccone was born in Bay City on August 16, 1958, and grew up in Pontiac and Rochester Hills."},
+      {q:"Before going solo, Madonna played drums in which New York band?",
+       o:["Breakfast Club","Blondie","The Slits","Talking Heads"],a:0,
+       w:"She started on drums in Breakfast Club with Dan Gilroy, then moved to guitar and vocals before forming Emmy."},
+      {q:"What was her first single, released in 1982?",
+       o:["Everybody","Holiday","Burning Up","Lucky Star"],a:0,
+       w:"\"Everybody\" came out on Sire Records in October 1982 and became a club hit before her debut album arrived in 1983."},
+      {q:"Who produced the 1984 album \"Like a Virgin\"?",
+       o:["Nile Rodgers","Quincy Jones","Jellybean Benitez","Patrick Leonard"],a:0,
+       w:"Chic's Nile Rodgers produced the album, which was recorded at the Power Station in New York."},
+      {q:"What was Madonna's first number one on the Billboard Hot 100?",
+       o:["Like a Virgin","Holiday","Borderline","Material Girl"],a:0,
+       w:"\"Like a Virgin\" hit number one in December 1984 and stayed there for six weeks."},
+      {q:"The \"Material Girl\" video recreates a famous number by which screen star?",
+       o:["Marilyn Monroe","Rita Hayworth","Jean Harlow","Marlene Dietrich"],a:0,
+       w:"It restages Marilyn Monroe's \"Diamonds Are a Girl's Best Friend\" from \"Gentlemen Prefer Blondes\" (1953)."},
+      {q:"In \"Desperately Seeking Susan\" (1985), who played Roberta, the bored housewife who becomes obsessed with Susan?",
+       o:["Rosanna Arquette","Jennifer Grey","Molly Ringwald","Melanie Griffith"],a:0,
+       w:"Rosanna Arquette played Roberta. The film also gave us \"Into the Groove.\""},
+      {q:"Which company pulled its Madonna commercial in 1989 after the \"Like a Prayer\" video caused an uproar?",
+       o:["Pepsi","Coca-Cola","Dr Pepper","7 Up"],a:0,
+       w:"Pepsi paid a reported five million dollars for the deal, aired the ad once, and dropped it after religious groups protested the video's imagery."},
+      {q:"Who designed the cone bra for the 1990 Blond Ambition tour?",
+       o:["Jean Paul Gaultier","Gianni Versace","Thierry Mugler","Dolce & Gabbana"],a:0,
+       w:"Gaultier designed the tour wardrobe, and the pink satin cone corset became one of the most recognizable outfits in pop."},
+      {q:"Who directed the black and white \"Vogue\" video (1990)?",
+       o:["David Fincher","Herb Ritts","Mary Lambert","Jean-Baptiste Mondino"],a:0,
+       w:"Fincher also directed \"Express Yourself,\" \"Oh Father\" and \"Bad Girl\" before moving to feature films."},
+      {q:"\"Justify My Love\" (1990) was co-written by which rock musician?",
+       o:["Lenny Kravitz","Prince","Babyface","Shep Pettibone"],a:0,
+       w:"Kravitz co-wrote and produced it, with a writing credit for Ingrid Chavez. MTV refused to air the video."},
+      {q:"What was the title of the coffee table book she released in 1992 alongside the \"Erotica\" album?",
+       o:["Sex","Erotica","Bedtime Stories","Confessions"],a:0,
+       w:"\"Sex\" was photographed by Steven Meisel, shipped in a mylar wrapper, and sold out its first printing in days."},
+      {q:"Which of her singles spent the longest stretch at number one on the Hot 100, seven weeks in 1995?",
+       o:["Take a Bow","Vogue","Like a Virgin","Music"],a:0,
+       w:"\"Take a Bow,\" co-written with Babyface, held number one for seven weeks in early 1995."},
+      {q:"Which Icelandic artist co-wrote the 1994 track \"Bedtime Story\"?",
+       o:["Björk","Sigur Rós","Emilíana Torrini","Of Monsters and Men"],a:0,
+       w:"Björk wrote it with Nellee Hooper and Marius de Vries. The video was directed by Mark Romanek."},
+      {q:"Which award did Madonna win for playing Eva Perón in \"Evita\" (1996)?",
+       o:["Golden Globe for Best Actress in a Musical or Comedy","Academy Award for Best Actress","BAFTA for Best Actress","Screen Actors Guild Award"],a:0,
+       w:"She won the Golden Globe in January 1997. The film's Oscar went to \"You Must Love Me\" for Best Original Song, credited to Andrew Lloyd Webber and Tim Rice."},
+      {q:"Who produced the 1998 album \"Ray of Light\"?",
+       o:["William Orbit","Mirwais","Stuart Price","Timbaland"],a:0,
+       w:"William Orbit produced it, and the album took home three Grammys in 1999 including Best Pop Album."},
+      {q:"In \"Die Another Day\" (2002), Madonna sang the theme and appeared on screen as what?",
+       o:["A fencing instructor","A casino dealer","An MI6 analyst","A hotel concierge"],a:0,
+       w:"She played Verity, the fencing instructor at Blades, in a short scene with Pierce Brosnan."},
+      {q:"\"Hung Up\" (2005) is built on a sample of which ABBA song?",
+       o:["Gimme! Gimme! Gimme! (A Man After Midnight)","Dancing Queen","Voulez-Vous","Lay All Your Love on Me"],a:0,
+       w:"Benny Andersson and Björn Ulvaeus rarely clear samples; Madonna sent a personal letter to ask."},
+      {q:"Who gave the induction speech when Madonna entered the Rock and Roll Hall of Fame in 2008?",
+       o:["Justin Timberlake","Elton John","Stevie Wonder","Cher"],a:0,
+       w:"Timberlake inducted her in her first year of eligibility. Iggy Pop and the Stooges performed in her place."},
+      {q:"Her 2023 to 2024 Celebration Tour ended with a free concert on which beach?",
+       o:["Copacabana, Rio de Janeiro","Ipanema, Rio de Janeiro","Bondi Beach, Sydney","South Beach, Miami"],a:0,
+       w:"The May 4, 2024 show on Copacabana Beach drew a reported 1.6 million people, the largest crowd of her career."},
+    ]
+  },
+  {
+    id: "over-the-millennia",
+    name: "Over the Millennia",
+    subject: "World history",
+    tagline: "Twenty questions from the first written words to the fall of the Wall. Five thousand years, in order.",
+    theme: { font: "Cinzel", accent: "#8B1E2D", accent2: "#A8843F", accentDark: "#E0566A", accent2Dark: "#D9B76B" },
+    questions: [
+      {q:"Which people of ancient Mesopotamia developed cuneiform, one of the earliest known writing systems, around 3200 BCE?",
+       o:["The Sumerians","The Phoenicians","The Hittites","The Assyrians"],a:0,
+       w:"Sumerian scribes in cities like Uruk pressed wedge shaped marks into wet clay, first to keep accounts and later to record laws, myths and kings."},
+      {q:"The Great Pyramid of Giza was built as the tomb of which pharaoh?",
+       o:["Khufu","Ramesses II","Tutankhamun","Djoser"],a:0,
+       w:"Khufu, called Cheops by the Greeks, ruled in the 26th century BCE. His pyramid was the tallest structure on Earth for nearly four thousand years."},
+      {q:"Which Babylonian king issued one of the earliest surviving written law codes, around 1750 BCE?",
+       o:["Hammurabi","Nebuchadnezzar II","Sargon of Akkad","Gilgamesh"],a:0,
+       w:"The Code of Hammurabi, carved on a black stone pillar now in the Louvre, laid out nearly 300 laws with the famous eye for an eye principle."},
+      {q:"Who unified China in 221 BCE, became its first emperor, and was buried with the Terracotta Army?",
+       o:["Qin Shi Huang","Kublai Khan","Emperor Wu of Han","Confucius"],a:0,
+       w:"Qin Shi Huang standardized weights, writing and roads, began linking walls that became the Great Wall, and built a vast tomb guarded by some 8,000 clay soldiers."},
+      {q:"At Thermopylae in 480 BCE, King Leonidas of Sparta faced the invading army of which Persian king?",
+       o:["Xerxes I","Darius I","Cyrus the Great","Cambyses II"],a:0,
+       w:"Xerxes led the second Persian invasion of Greece. His father Darius had been turned back at Marathon ten years earlier."},
+      {q:"Which philosopher tutored the young Alexander the Great?",
+       o:["Aristotle","Plato","Socrates","Diogenes"],a:0,
+       w:"Philip II of Macedon hired Aristotle to teach his son from about 343 BCE. Alexander went on to conquer an empire stretching from Greece to India."},
+      {q:"Who became the first Roman emperor in 27 BCE?",
+       o:["Augustus","Julius Caesar","Nero","Marcus Aurelius"],a:0,
+       w:"Octavian, Caesar's adopted heir, took the name Augustus after defeating Antony and Cleopatra. Julius Caesar was a dictator but never emperor."},
+      {q:"Cleopatra VII, who died in 30 BCE, was the last ruler of which dynasty?",
+       o:["The Ptolemaic dynasty","The Seleucid dynasty","The Achaemenid dynasty","The Antonine dynasty"],a:0,
+       w:"The Ptolemies were Greek, descended from Ptolemy I, one of Alexander's generals. Cleopatra was reportedly the first of them to learn Egyptian."},
+      {q:"The Hagia Sophia in Constantinople was completed in 537 under which Byzantine emperor?",
+       o:["Justinian I","Constantine the Great","Theodosius I","Heraclius"],a:0,
+       w:"Justinian's church had the largest dome in the world for centuries. It later became a mosque, then a museum, and in 2020 a mosque again."},
+      {q:"The Islamic calendar counts from the Hijra, the migration of Muhammad in 622 from Mecca to which city?",
+       o:["Medina","Jerusalem","Damascus","Baghdad"],a:0,
+       w:"The move to Medina, then called Yathrib, marked the founding of the first Muslim community and is year one of the Islamic calendar."},
+      {q:"Who crowned Charlemagne emperor in Rome on Christmas Day in the year 800?",
+       o:["Pope Leo III","Pope Gregory the Great","Pope Urban II","Pope Innocent III"],a:0,
+       w:"Leo III placed the crown on Charlemagne's head at St. Peter's, reviving the idea of a Western Roman emperor three centuries after the last one."},
+      {q:"Whom did William the Conqueror defeat at the Battle of Hastings in 1066?",
+       o:["Harold Godwinson","Edward the Confessor","Harald Hardrada","Alfred the Great"],a:0,
+       w:"Harold had beaten a Norwegian invasion under Harald Hardrada at Stamford Bridge just three weeks earlier, then marched south to meet William."},
+      {q:"Which English king was forced to seal Magna Carta at Runnymede in 1215?",
+       o:["King John","Richard the Lionheart","Henry II","Edward I"],a:0,
+       w:"Rebel barons made John agree to limits on royal power. The pope annulled it within months, but it was reissued and became a foundation of English law."},
+      {q:"Mansa Musa, whose 1324 pilgrimage to Mecca famously flooded Cairo with gold, ruled which empire?",
+       o:["The Mali Empire","The Songhai Empire","The Kingdom of Aksum","The Ghana Empire"],a:0,
+       w:"Mali controlled the West African gold and salt trade. Musa's spending on the journey reportedly depressed the price of gold in Egypt for years."},
+      {q:"Which Ottoman sultan captured Constantinople in 1453, ending the Byzantine Empire?",
+       o:["Mehmed II","Suleiman the Magnificent","Osman I","Bayezid I"],a:0,
+       w:"Mehmed was 21. His giant cannon breached walls that had stood for a thousand years, and the city became the Ottoman capital."},
+      {q:"In which German city did Johannes Gutenberg print his Bible in the 1450s?",
+       o:["Mainz","Nuremberg","Cologne","Wittenberg"],a:0,
+       w:"Gutenberg's press with movable metal type in Mainz made books cheap enough to spread ideas faster than any censor could stop them."},
+      {q:"Where did Martin Luther post his Ninety-five Theses in 1517, setting off the Reformation?",
+       o:["Wittenberg","Worms","Geneva","Augsburg"],a:0,
+       w:"Luther, a monk and professor, challenged the sale of indulgences. Gutenberg's press carried his arguments across Europe within weeks."},
+      {q:"The Taj Mahal was built by which Mughal emperor as a tomb for his wife Mumtaz Mahal?",
+       o:["Shah Jahan","Akbar","Aurangzeb","Babur"],a:0,
+       w:"Construction began in 1632 in Agra and took about twenty years. Shah Jahan was later deposed by his son Aurangzeb and spent his last years under house arrest within sight of it."},
+      {q:"The assassination that set off the First World War in 1914 took place in which city?",
+       o:["Sarajevo","Vienna","Belgrade","Budapest"],a:0,
+       w:"Archduke Franz Ferdinand, heir to the Austro-Hungarian throne, was shot by Gavrilo Princip on June 28, 1914. Within six weeks the great powers were at war."},
+      {q:"In which year did the Berlin Wall fall?",
+       o:["1989","1987","1991","1985"],a:0,
+       w:"On November 9, 1989, a muddled East German press conference led crowds to the checkpoints, and the guards opened the gates. Germany reunified less than a year later."},
+    ]
+  },
+  /* Next round goes here, e.g.
+  {
+    id: "round-3",
+    name: "Round Name",
+    subject: "What it's about",
+    tagline: "One or two sentences shown under the title.",
+    theme: { font: "Anton", accent: "#0F766E", accent2: "#F59E0B", accentDark: "#2DD4BF", accent2Dark: "#FCD34D" },
+    questions: [ {q:"…", o:["…","…","…","…"], a:0, w:"…"} ]
+  },
+  */
+];
+
+/* =====================================================================
+   4. THE APP  (nothing below needs editing for new rounds or rules)
+   ===================================================================== */
+firebase.initializeApp(firebaseConfig);
+const auth = firebase.auth();
+const dbf = firebase.firestore();
+const LETTERS = ["A","B","C","D"];
+const ALL = "__all__";
+
+function seeded(seedStr){ let x = 0; for (const c of seedStr) x = (x * 31 + c.charCodeAt(0)) >>> 0; x = x || 7; return () => { x = (x * 1103515245 + 12345) % 2147483648; return x / 2147483648; }; }
+ROUNDS.forEach(r => {
+  r.questions.forEach((it, i) => {
+    const idx = it.o.map((_, k) => k);
+    if (SETTINGS.shuffleAnswers) { const rnd = seeded(r.id + ":" + i); for (let k = idx.length - 1; k > 0; k--) { const j = Math.floor(rnd() * (k + 1)); [idx[k], idx[j]] = [idx[j], idx[k]]; } }
+    it.opts = idx.map(k => it.o[k]); it.ans = idx.indexOf(it.a);
+  });
+});
+const roundById = id => ROUNDS.find(r => r.id === id) || null;
+
+/* --- state --- */
+let me = null, isHost = false;
+let openIds = null;            // null = not loaded yet; Set of open round ids once loaded
+let scores = [];               // every score doc
+let scoresReady = false;
+let unsubScores = null, unsubSite = null;
+let round = null;              // selected round, or null for the lobby
+let boardSel = null;           // which board the Leaderboard tab shows: a round id or ALL
+let S = { tab: "play", screen: "home", i: 0, picks: [], order: [], started: 0, chosen: null, review: false, lastResult: null, saved: "none", saveErr: "" };
+let fatal = "";
+
+const $ = id => document.getElementById(id);
+const $view = $("view");
+const esc = s => String(s).replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+const fmtTime = ms => { const s = Math.max(0, Math.round(ms / 1000)); return Math.floor(s / 60) + ":" + String(s % 60).padStart(2, "0"); };
+const fmtDate = iso => { try { return new Date(iso).toLocaleDateString(undefined, { month: "short", day: "numeric" }); } catch (e) { return ""; } };
+const isOpen = r => openIds ? openIds.has(r.id) : SETTINGS.newRoundsOpenByDefault;
+const isDark = () => window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;
+const themeOf = r => { const t = (r && r.theme) || {}; const d = isDark(); return { a: (d && t.accentDark) || t.accent || "#D81B60", b: (d && t.accent2Dark) || t.accent2 || "#F4B400", font: t.font || "" }; };
+
+/* --- theme --- */
+const loadedFonts = new Set();
+function ensureFont(f){ if (!f || loadedFonts.has(f)) return; const l = document.createElement("link"); l.rel = "stylesheet"; l.href = "https://fonts.googleapis.com/css2?family=" + encodeURIComponent(f).replace(/%20/g, "+") + "&display=swap"; document.head.appendChild(l); loadedFonts.add(f); }
+ROUNDS.forEach(r => ensureFont(r.theme && r.theme.font));
+function applyTheme(r){
+  const root = document.documentElement.style; const h = $("roundName");
+  if (!r) { root.removeProperty("--accent"); root.removeProperty("--accent2"); root.removeProperty("--display"); h.className = "site"; h.textContent = "Babies' Trivia"; $("eyebrow").textContent = me ? (openCount() === 1 ? "1 round open" : openCount() + " rounds open") : "Trivia for friends"; $("roundSub").textContent = SETTINGS.siteTagline; return; }
+  const t = themeOf(r);
+  root.setProperty("--accent", t.a); root.setProperty("--accent2", t.b);
+  if (t.font) root.setProperty("--display", `"${t.font}","Archivo Black","Arial Black",sans-serif`); else root.removeProperty("--display");
+  h.className = ""; h.textContent = r.name;
+  $("eyebrow").textContent = (r.subject ? r.subject + " · " : "") + (isOpen(r) ? "Open" : "Closed");
+  $("roundSub").textContent = r.tagline || "";
+}
+const openCount = () => ROUNDS.filter(isOpen).length;
+if (window.matchMedia) window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", renderAll);
+
+/* --- progress persistence (per player, per round, this device) --- */
+const progKey = () => "bt.progress." + (round ? round.id : "none") + "." + (me ? me.uid : "anon");
+function saveProgress(){ try { localStorage.setItem(progKey(), JSON.stringify({ i: S.i, picks: S.picks, order: S.order, started: S.started })); } catch (e) {} }
+function loadProgress(){ S.screen = "home"; S.chosen = null; S.lastResult = null; try { const p = JSON.parse(localStorage.getItem(progKey()) || "null"); if (p && Array.isArray(p.picks) && Array.isArray(p.order) && p.order.length) { S.i = p.i; S.picks = p.picks; S.order = p.order; S.started = p.started; S.screen = "quiz"; } } catch (e) {} }
+function clearProgress(){ try { localStorage.removeItem(progKey()); } catch (e) {} }
+
+/* --- auth --- */
+async function signIn(){
+  const provider = new firebase.auth.GoogleAuthProvider();
+  try { await auth.signInWithPopup(provider); }
+  catch (e) {
+    if (e && (e.code === "auth/popup-blocked" || e.code === "auth/operation-not-supported-in-this-environment" || e.code === "auth/cancelled-popup-request")) { await auth.signInWithRedirect(provider); }
+    else if (e && e.code === "auth/unauthorized-domain") { fatal = "This web address isn't on the Firebase authorized domains list yet. Host: add it under Authentication → Settings → Authorized domains."; renderAll(); }
+    else if (e && e.code !== "auth/popup-closed-by-user") { fatal = "Sign in failed: " + (e.message || e.code); renderAll(); }
+  }
+}
+auth.getRedirectResult().catch(() => {});
+auth.onAuthStateChanged(async u => {
+  me = u; isHost = false; fatal = "";
+  if (me) { isHost = await probeHost(); subscribeSite(); subscribeScores(); }
+  else { if (unsubScores) { unsubScores(); unsubScores = null; } if (unsubSite) { unsubSite(); unsubSite = null; } round = null; S.tab = "play"; }
+  renderAll();
+});
+async function probeHost(){
+  try { await dbf.collection("site").doc("config").set({ hostSeenAt: firebase.firestore.FieldValue.serverTimestamp() }, { merge: true }); return true; }
+  catch (e) { return false; }
+}
+function subscribeSite(){
+  if (unsubSite) unsubSite();
+  unsubSite = dbf.collection("site").doc("config").onSnapshot(snap => {
+    const d = snap.exists ? snap.data() : {};
+    openIds = Array.isArray(d.openRounds) ? new Set(d.openRounds) : (SETTINGS.newRoundsOpenByDefault ? new Set(ROUNDS.map(r => r.id)) : new Set());
+    renderAll();
+  }, err => { fatal = "Couldn't reach the database: " + (err.code || err.message); renderAll(); });
+}
+function subscribeScores(){
+  if (unsubScores) unsubScores();
+  unsubScores = dbf.collection("scores").onSnapshot(snap => { scores = snap.docs.map(d => ({ id: d.id, ...d.data() })); scoresReady = true; render(); },
+    err => { fatal = "Couldn't load scores: " + (err.code || err.message); render(); });
+}
+const boardFor = rid => scores.filter(s => s.roundId === rid);
+const myOfficial = (rid = round && round.id) => rid ? boardFor(rid).find(b => b.uid === (me && me.uid)) || null : null;
+function sorted(list){ return [...list].sort((a, b) => (b.score - a.score) || (SETTINGS.timeBreaksTies ? (a.elapsedMs - b.elapsedMs) : 0) || String(a.finishedAt).localeCompare(String(b.finishedAt))); }
+function rankOf(list){ const s = sorted(list); let last = null, rank = 0; return s.map((b, i) => { const key = b.score + (SETTINGS.timeBreaksTies ? ":" + b.elapsedMs : ""); if (key !== last) { rank = i + 1; last = key; } return { ...b, rank }; }); }
+function combined(){ const by = {}; scores.forEach(s => { const c = by[s.uid] || (by[s.uid] = { uid: s.uid, name: s.name, photo: s.photo, score: 0, total: 0, elapsedMs: 0, rounds: 0, finishedAt: "" }); c.score += s.score; c.total += s.total; c.elapsedMs += s.elapsedMs; c.rounds++; if (s.finishedAt > c.finishedAt) { c.finishedAt = s.finishedAt; c.name = s.name; c.photo = s.photo; } }); return Object.values(by); }
+
+/* --- navigation --- */
+$("home").onclick = () => goLobby();
+$("back").onclick = () => goLobby();
+function goLobby(){ round = null; S.tab = "play"; renderAll(); window.scrollTo({ top: 0 }); }
+function selectRound(id, tab = "play"){ round = roundById(id); boardSel = id; S.tab = tab; loadProgress(); renderAll(); window.scrollTo({ top: 0 }); }
+document.querySelectorAll(".tab").forEach(b => b.addEventListener("click", () => setTab(b.dataset.tab)));
+function setTab(t){ S.tab = t; renderAll(); }
+
+/* --- render --- */
+function renderAll(){
+  applyTheme(round);
+  renderAccount();
+  $("nav").hidden = !(me && round);
+  $("hostTab").hidden = !isHost;
+  document.querySelectorAll(".tab").forEach(b => b.setAttribute("aria-selected", String(b.dataset.tab === S.tab)));
+  render();
+}
+function renderAccount(){
+  const a = $("account");
+  if (!me) { a.innerHTML = ""; return; }
+  a.innerHTML = `<img src="${esc(me.photoURL || "")}" alt="" onerror="this.style.visibility='hidden'"><span>${esc(me.displayName || "You")}</span><button class="linkbtn" id="signout">Sign out</button>`;
+  $("signout").onclick = () => auth.signOut();
+}
+function render(){
+  if (fatal) { $view.innerHTML = `<div class="banner err">${esc(fatal)}</div>` + (me ? "" : gateHtml()); if (!me) wireGate(); return; }
+  if (!me) { $view.innerHTML = gateHtml(); wireGate(); return; }
+  if (!round) return renderLobby();
+  if (S.tab === "board") return renderBoard();
+  if (S.tab === "host") return renderHost();
+  if (!isOpen(round) && S.screen !== "result") return renderClosed();
+  if (S.screen === "quiz") return renderQuiz();
+  if (S.screen === "result") return renderResult();
+  return renderHome();
+}
+function gateHtml(){
+  return `<div class="card lift gate"><h2>Sign in to play</h2><p>One tap with Google. Your name and photo go on the leaderboard, nothing else is used.</p>
+    <button class="btn" id="signin"><span class="gicon"><svg width="12" height="12" viewBox="0 0 48 48"><path fill="#EA4335" d="M24 9.5c3.5 0 6.6 1.2 9.1 3.6l6.8-6.8C35.8 2.4 30.3 0 24 0 14.6 0 6.5 5.4 2.6 13.3l7.9 6.1C12.4 13.6 17.7 9.5 24 9.5z"/><path fill="#4285F4" d="M46.5 24.5c0-1.6-.1-3.1-.4-4.5H24v9h12.7c-.6 3-2.2 5.5-4.7 7.2l7.6 5.9c4.4-4.1 6.9-10.1 6.9-17.6z"/><path fill="#FBBC05" d="M10.5 28.6A14.5 14.5 0 0 1 9.7 24c0-1.6.3-3.1.8-4.6l-7.9-6.1A24 24 0 0 0 0 24c0 3.9.9 7.5 2.6 10.7l7.9-6.1z"/><path fill="#34A853" d="M24 48c6.5 0 11.9-2.1 15.9-5.8l-7.6-5.9c-2.1 1.4-4.9 2.3-8.3 2.3-6.3 0-11.6-4.1-13.5-9.9l-7.9 6.1C6.5 42.6 14.6 48 24 48z"/></svg></span>Continue with Google</button></div>`;
+}
+function wireGate(){ const b = $("signin"); if (b) b.onclick = signIn; }
+
+function renderLobby(){
+  const order = [...ROUNDS].sort((a, b) => (isOpen(b) ? 1 : 0) - (isOpen(a) ? 1 : 0));
+  const cards = order.map(r => {
+    const t = themeOf(r); const b = boardFor(r.id); const mine = b.find(s => s.uid === me.uid); const top = rankOf(b)[0]; const open = isOpen(r);
+    const status = mine ? `<span class="pill done">You: ${mine.score} / ${mine.total}</span>` : (open ? `<span class="pill live">Not played yet</span>` : `<span class="pill">Closed</span>`);
+    const lead = top ? `<span>Leader: ${esc(top.name || "Someone")} ${top.score} / ${top.total}</span>` : `<span>No scores yet</span>`;
+    return `<button class="rcard${open ? "" : " closed"}" data-r="${esc(r.id)}" style="--ra:${t.a};--rb:${t.b};${t.font ? `--rf:'${t.font}','Archivo Black',sans-serif` : ""}">
+      <div><h2 class="rn">${esc(r.name)}</h2><div class="rs">${esc(r.subject || "")} · ${r.questions.length} questions</div></div>
+      <div class="go">${open ? (mine ? "Practice or view board →" : "Play →") : "View board →"}</div>
+      <div class="rmeta">${status}${lead}<span>${b.length} played</span></div>
+    </button>`;
+  }).join("");
+  const hostLink = isHost ? `<p class="note">Host: open a round, then use its Host tab to open or close rounds and wipe scores. Or <button class="linkbtn" id="hostAll">go to host controls</button>.</p>` : "";
+  $view.innerHTML = `<div class="lobby">${cards}</div>${hostLink}${!scoresReady ? `<p class="note">Loading scores…</p>` : ""}`;
+  document.querySelectorAll(".rcard").forEach(c => c.onclick = () => selectRound(c.dataset.r));
+  const h = $("hostAll"); if (h) h.onclick = () => selectRound(ROUNDS[0].id, "host");
+}
+
+function verdict(score, total){
+  const pct = total ? score / total : 0;
+  if (pct === 1) return "Flawless.";
+  if (pct >= .85) return "Expert. You have clearly done the reading.";
+  if (pct >= .65) return "Solid. You know your stuff.";
+  if (pct >= .45) return "Respectable.";
+  return "Time to study.";
+}
+function gameLength(){ const all = round.questions.length; return SETTINGS.questionsPerGame ? Math.min(SETTINGS.questionsPerGame, all) : all; }
+
+function renderClosed(){
+  const mine = myOfficial();
+  $view.innerHTML = `<div class="card"><h2>This round is closed</h2><p>${mine ? `Your official score of ${mine.score} / ${mine.total} stands.` : "It isn't taking new scores right now."} You can still look at the board.</p><button class="btn ghost" id="toBoard">See the leaderboard</button></div>`;
+  $("toBoard").onclick = () => setTab("board");
+}
+function renderHome(){
+  const mine = myOfficial(); const n = gameLength(); const b = boardFor(round.id);
+  let mineHtml = "";
+  if (mine) mineHtml = `<div class="card"><h3>Your official score</h3>
+      <div class="row spread"><div class="pts">${mine.score}<span> / ${mine.total}</span></div><div class="time">${fmtTime(mine.elapsedMs)}</div></div>
+      <p class="note">Play again for practice. It won't change the board.</p></div>`;
+  $view.innerHTML = `<div class="stack">
+      <div class="card lift">
+        <h2>${mine ? "Practice run" : "Ready?"}</h2>
+        <p>${n} questions, four choices each, instant answers with a line of context.${SETTINGS.timeBreaksTies ? " The clock runs from your first question to your last and breaks ties on the board." : ""}</p>
+        <div class="row">
+          <button class="btn" id="start">${mine ? "Start a practice run" : "Start the quiz"}</button>
+          ${b.length ? `<button class="btn ghost" id="toBoard">See the leaderboard</button>` : ""}
+        </div>
+      </div>
+      ${mineHtml}
+      ${b.length ? `<div><h3>Top of the board</h3><div class="board">${rankOf(b).slice(0, 3).map(rowHtml).join("")}</div></div>` : ""}
+    </div>`;
+  $("start").onclick = startQuiz;
+  const tb = $("toBoard"); if (tb) tb.onclick = () => setTab("board");
+}
+function rowHtml(b){
+  const isMe = me && b.uid === me.uid;
+  const sub = b.rounds != null ? `${b.rounds} round${b.rounds === 1 ? "" : "s"}` : (isMe ? "you" : fmtDate(b.finishedAt));
+  return `<div class="lb${isMe ? " me" : ""}">
+    <div class="rank">${b.rank}</div>
+    <img class="av" src="${esc(b.photo || "")}" alt="" onerror="this.style.visibility='hidden'">
+    <div class="who">${esc(b.name || "Someone")}<small>${sub}</small></div>
+    <div class="pts">${b.score}<span> / ${b.total}</span></div>
+    <div class="time">${fmtTime(b.elapsedMs)}</div>
+  </div>`;
+}
+function renderBoard(){
+  if (!boardSel) boardSel = round.id;
+  const picker = `<div class="row spread" style="margin-bottom:12px"><label for="boardPick" class="note" style="margin:0">Show</label><select id="boardPick">${ROUNDS.map(x => `<option value="${esc(x.id)}" ${x.id === boardSel ? "selected" : ""}>${esc(x.name)}${isOpen(x) ? "" : " (closed)"}</option>`).join("")}<option value="${ALL}" ${boardSel === ALL ? "selected" : ""}>All rounds combined</option></select></div>`;
+  let body, title;
+  if (boardSel === ALL) {
+    title = "All rounds combined"; const list = combined();
+    body = !list.length ? `<div class="board"><div class="empty">No scores yet.</div></div>` : `<div class="board">${rankOf(list).map(rowHtml).join("")}</div><p class="note">Points added up across every round a player has finished${SETTINGS.timeBreaksTies ? ", ties broken by total time" : ""}.</p>`;
+  } else {
+    const r = roundById(boardSel); title = r.name; const b = boardFor(r.id);
+    body = !scoresReady ? `<div class="board"><div class="empty">Loading scores…</div></div>` : !b.length ? `<div class="board"><div class="empty">Nobody has played ${esc(r.name)} yet. Be first.</div></div>` : `<div class="board">${rankOf(b).map(rowHtml).join("")}</div><p class="note">Ranked by score${SETTINGS.timeBreaksTies ? ", then by fastest time" : ""}. Each player's first finished run counts.</p>`;
+  }
+  $view.innerHTML = `<h2>Leaderboard</h2>${picker}${body}`;
+  $("boardPick").onchange = e => { boardSel = e.target.value; renderBoard(); };
+}
+function renderHost(){
+  $view.innerHTML = `<div class="stack">
+    <div class="card"><h2>Host controls</h2>
+      <h3>Rounds</h3>
+      <p class="note" style="margin:0 0 8px">Open rounds take new scores and show first in the lobby. Closing a round keeps its board but stops new official runs.</p>
+      <div class="roundlist">${ROUNDS.map(x => `<div class="r"><div><b>${esc(x.name)}</b><br><span class="note" style="margin:0">${esc(x.subject || "")} · ${x.questions.length} questions · ${boardFor(x.id).length} played</span></div>
+        <div class="row">${isOpen(x) ? `<span class="pill live">Open</span><button class="btn ghost small" data-toggle="${esc(x.id)}" data-to="close">Close</button>` : `<span class="pill">Closed</span><button class="btn small" data-toggle="${esc(x.id)}" data-to="open">Open</button>`}</div></div>`).join("")}</div>
+      <p class="note" id="hostMsg"></p>
+      <p class="note">To add a round or change questions, edit the ROUNDS block at the top of index.html and re-upload the file.</p>
+    </div>
+    <div class="card"><h3>Wipe a round's scores</h3>
+      <p class="note" style="margin:0 0 8px">Deletes every score for the chosen round so people can play it fresh. Can't be undone.</p>
+      <div class="row"><select id="wipeSel">${ROUNDS.map(x => `<option value="${esc(x.id)}">${esc(x.name)}</option>`).join("")}</select><button class="btn danger small" id="wipe">Wipe scores</button></div>
+    </div>
+  </div>`;
+  document.querySelectorAll("[data-toggle]").forEach(b => b.onclick = async () => {
+    const id = b.dataset.toggle; const next = new Set(openIds || []); if (b.dataset.to === "open") next.add(id); else next.delete(id);
+    try { await dbf.collection("site").doc("config").set({ openRounds: [...next] }, { merge: true }); $("hostMsg").textContent = roundById(id).name + (b.dataset.to === "open" ? " is open." : " is closed."); }
+    catch (e) { $("hostMsg").textContent = "Couldn't change it: " + (e.code || e.message); }
+  });
+  $("wipe").onclick = async () => {
+    const id = $("wipeSel").value; const r = roundById(id);
+    if (!confirm(`Delete every score for "${r.name}"?`)) return;
+    const btn = $("wipe"); btn.disabled = true;
+    try { const snap = await dbf.collection("scores").where("roundId", "==", id).get(); const batch = dbf.batch(); snap.docs.forEach(d => batch.delete(d.ref)); await batch.commit(); alert(`Cleared ${snap.size} score${snap.size === 1 ? "" : "s"} for ${r.name}.`); }
+    catch (e) { alert("Couldn't clear: " + (e.code || e.message)); }
+    btn.disabled = false;
+  };
+}
+
+/* --- quiz --- */
+function startQuiz(){
+  const all = round.questions.map((_, k) => k);
+  if (SETTINGS.shuffleQuestions) for (let k = all.length - 1; k > 0; k--) { const j = Math.floor(Math.random() * (k + 1)); [all[k], all[j]] = [all[j], all[k]]; }
+  S.order = all.slice(0, gameLength());
+  S.screen = "quiz"; S.i = 0; S.picks = []; S.chosen = null; S.started = Date.now(); S.review = false; S.lastResult = null;
+  saveProgress(); render(); window.scrollTo({ top: 0 });
+}
+function renderQuiz(){
+  const total = S.order.length; const it = round.questions[S.order[S.i]];
+  const answered = S.chosen !== null; const official = !myOfficial();
+  $view.innerHTML = `<div class="card lift">
+      <div class="row spread"><span class="qnum">Question ${S.i + 1} of ${total}</span><span class="pill ${official ? "official" : ""}">${official ? "Official run" : "Practice"}</span></div>
+      <div class="progress"><i style="width:${(S.i / total) * 100}%"></i></div>
+      <div class="q">${esc(it.q)}</div>
+      <div class="opts">${it.opts.map((o, k) => { let st = ""; if (answered) { if (k === it.ans) st = "right"; else if (k === S.chosen) st = "wrong"; }
+        return `<button class="opt" data-k="${k}" ${answered ? "disabled" : ""} ${st ? `data-state="${st}"` : ""}><span class="k">${LETTERS[k]}</span><span>${esc(o)}</span></button>`; }).join("")}</div>
+      ${answered ? `<div class="why ${S.chosen === it.ans ? "good" : "bad"}"><b>${S.chosen === it.ans ? "Correct." : "Not quite. It's " + esc(it.opts[it.ans]) + "."}</b>${esc(it.w || "")}</div>
+      <div class="row" style="margin-top:16px;justify-content:flex-end"><button class="btn" id="next">${S.i + 1 === total ? "See my score" : "Next question"}</button></div>` : ""}
+    </div>`;
+  if (!answered) document.querySelectorAll(".opt").forEach(b => b.onclick = () => { S.chosen = +b.dataset.k; S.picks[S.i] = S.chosen; saveProgress(); renderQuiz(); });
+  else $("next").onclick = advance;
+}
+async function advance(){
+  S.chosen = null;
+  if (S.i + 1 < S.order.length) { S.i++; saveProgress(); renderQuiz(); window.scrollTo({ top: 0 }); return; }
+  const finished = Date.now(); S.screen = "result"; clearProgress();
+  const score = S.order.reduce((n, qi, k) => n + (S.picks[k] === round.questions[qi].ans ? 1 : 0), 0);
+  const result = { uid: me.uid, name: me.displayName || "Someone", photo: me.photoURL || "", roundId: round.id, score, total: S.order.length, elapsedMs: finished - S.started, finishedAt: new Date().toISOString(), order: S.order, picks: S.picks.slice(), createdAt: firebase.firestore.FieldValue.serverTimestamp() };
+  S.lastResult = result; S.saved = "none";
+  if (!myOfficial() && isOpen(round)) {
+    S.saved = "saving"; render();
+    try { await dbf.collection("scores").doc(round.id + "_" + me.uid).set(result); S.saved = "saved"; }
+    catch (e) { S.saved = "failed"; S.saveErr = (e && e.code) || "error"; }
+  } else if (!isOpen(round)) S.saved = "closed";
+  render(); window.scrollTo({ top: 0 });
+}
+function renderResult(){
+  const r = S.lastResult; if (!r) { S.screen = "home"; return renderHome(); }
+  const b = boardFor(round.id); const mine = rankOf(b).find(x => x.uid === me.uid);
+  let saveLine = "";
+  if (S.saved === "saving") saveLine = `<p class="note">Posting your score to the board…</p>`;
+  else if (S.saved === "saved") saveLine = `<p class="note">Posted to the leaderboard${mine ? ` — you're #${mine.rank} of ${b.length}` : ""}.</p>`;
+  else if (S.saved === "failed") saveLine = `<p class="note">Couldn't post your score (${esc(S.saveErr)}).${S.saveErr === "permission-denied" ? " You may already have an official score for this round." : ""}</p>`;
+  else if (S.saved === "closed") saveLine = `<p class="note">This round is closed, so this run doesn't post.</p>`;
+  else if (myOfficial()) saveLine = `<p class="note">Practice run. Your official score of ${myOfficial().score} / ${myOfficial().total} stands.</p>`;
+  $view.innerHTML = `<div class="card lift">
+      <h3>Your score</h3>
+      <div class="stat">${r.score}<small> / ${r.total}</small></div>
+      <div class="verdict">${verdict(r.score, r.total)}</div>
+      <p class="note" style="margin-top:0">Time: ${fmtTime(r.elapsedMs)}</p>
+      ${saveLine}
+      <div class="row" style="margin-top:14px">
+        <button class="btn" id="toBoard">See the leaderboard</button>
+        <button class="btn ghost" id="review">${S.review ? "Hide answers" : "Review my answers"}</button>
+        <button class="btn ghost" id="again">Play again</button>
+        <button class="btn ghost" id="lobby">All rounds</button>
+      </div>
+      ${S.review ? `<div class="review" style="margin-top:18px">${r.order.map((qi, k) => { const it = round.questions[qi]; const p = r.picks[k]; const ok = p === it.ans;
+        return `<div class="item"><div class="q">${k + 1}. ${esc(it.q)}</div><div class="ans ${ok ? "good" : "bad"}">${ok ? "✓ " + esc(it.opts[it.ans]) : "✗ You said " + esc(it.opts[p] ?? "nothing") + " · Answer: " + esc(it.opts[it.ans])}</div></div>`; }).join("")}</div>` : ""}
+    </div>`;
+  $("toBoard").onclick = () => { boardSel = round.id; setTab("board"); };
+  $("review").onclick = () => { S.review = !S.review; renderResult(); };
+  $("again").onclick = startQuiz;
+  $("lobby").onclick = goLobby;
+}
+
+applyTheme(null);
+$view.innerHTML = `<div class="card gate"><p>Loading…</p></div>`;
+</script>
+</body>
+</html>
