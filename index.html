@@ -124,6 +124,30 @@ a.btn{text-decoration:none}
 .progress i{display:block;height:100%;background:linear-gradient(90deg,var(--accent),var(--accent2));border-radius:99px;transition:width .3s ease}
 .qnum{font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);font-variant-numeric:tabular-nums}
 .q{font-size:22px;font-weight:600;line-height:1.3;margin:6px 0 18px;text-wrap:balance}
+.timerbar{position:sticky;top:0;z-index:5;display:flex;align-items:center;gap:10px;margin:0 0 12px;padding:10px 14px;
+  border-radius:12px;background:var(--surface);border:1px solid var(--line);box-shadow:var(--shadow)}
+.timerbar .tleft{font-family:var(--display);font-size:22px;line-height:1;font-variant-numeric:tabular-nums;min-width:62px}
+.timerbar .tnote{font-size:12px;color:var(--muted);text-transform:uppercase;letter-spacing:.1em}
+.timerbar .tprog{flex:1;height:6px;border-radius:99px;background:var(--surface2);overflow:hidden}
+.timerbar .tprog i{display:block;height:100%;width:100%;border-radius:99px;background:linear-gradient(90deg,var(--accent),var(--accent2))}
+.timerbar.warn{border-color:var(--accent2)}
+.timerbar.warn .tleft{color:var(--accent2)}
+.timerbar.warn .tprog i{background:var(--accent2)}
+.timerbar.danger{border-color:var(--bad);background:var(--bad-bg)}
+.timerbar.danger .tleft{color:var(--bad)}
+.timerbar.danger .tprog i{background:var(--bad)}
+.pollopt{display:block;width:100%;text-align:left;background:var(--surface);border:1.5px solid var(--line);border-radius:14px;
+  padding:14px 16px;cursor:pointer;margin-bottom:10px;transition:border-color .12s ease}
+.pollopt:hover:not([disabled]){border-color:var(--accent)}
+.pollopt:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.pollopt[data-mine="1"]{border-color:var(--accent);background:color-mix(in srgb,var(--accent) 7%, var(--surface))}
+.pollopt .prow{display:flex;justify-content:space-between;align-items:baseline;gap:10px}
+.pollopt .pname{font-weight:600;font-size:16px}
+.pollopt .pcount{font-size:12px;color:var(--muted);white-space:nowrap;font-variant-numeric:tabular-nums}
+.pollopt .pbar{height:8px;border-radius:99px;background:var(--surface2);overflow:hidden;margin:8px 0 8px}
+.pollopt .pbar i{display:block;height:100%;border-radius:99px;background:linear-gradient(90deg,var(--accent),var(--accent2));transition:width .35s ease}
+.pollopt .pblurb{font-size:13px;color:var(--muted);line-height:1.45}
+.tabdot{display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--accent);margin-left:6px;vertical-align:middle}
 .qvis{font-size:clamp(34px,11vw,52px);line-height:1.35;text-align:center;letter-spacing:.12em;margin:14px 0 4px;
   background:var(--surface2);border-radius:14px;padding:22px 14px;word-break:break-word}
 .qimg{margin:14px 0 4px}
@@ -218,6 +242,7 @@ const SETTINGS = {
   shuffleQuestions: false,  // true = each player gets a different question order (same set, scores stay comparable)
   shuffleAnswers: true,     // true = answer choices are shuffled (same shuffle for everyone, seeded)
   newRoundsOpenByDefault: true, // rounds added to this file are open until the host closes them
+  timeLimitMs: 5 * 60 * 1000,   // countdown shown during a run; 0 or null = no limit. A round can override with its own timeLimitMs.
 };
 
 /* =====================================================================
@@ -225,7 +250,11 @@ const SETTINGS = {
    Add a round: copy one block, give it a new id, fill in questions.
    Each question: q = the question, o = four options, a = index of the
    correct option in o (0 = first), w = the explanation shown after answering,
-   d = optional difficulty label ("easy", "medium" or "hard") shown on the question.
+   d = difficulty label ("easy", "medium" or "hard") shown on the question.
+
+   HOUSE RULE for every round: exactly 20 questions, mixed easy, medium and
+   hard, with at least 4 of each. The usual split is 7 easy, 7 medium, 6 hard.
+   A round that breaks this logs a warning in the browser console at startup.
    A question can also carry a picture shown above it, either
    emoji: "🐝 👑 🎤"  (emoji clues, rendered large), or
    img: "images/name.jpg" with optional alt and credit (a file committed
@@ -233,6 +262,20 @@ const SETTINGS = {
    theme.font is any Google Fonts family name; accent / accent2 are hex colors
    (the Dark versions are used when the player's device is in dark mode).
    ===================================================================== */
+/* Poll shown on the front page. Change the options, or set open:false to close it. */
+const POLL = {
+  open: true,
+  question: "What should the next round be?",
+  note: "One vote each, and you can change it any time. Whatever wins gets built.",
+  options: [
+    { id:"one-hit-wonders", name:"One Hit Wonders", blurb:"Songs that went to number one and were never followed. Come On Eileen, Macarena, Tainted Love." },
+    { id:"plate-to-place",  name:"Plate to Place",  blurb:"Dishes and where they actually come from. Croissants aren't French and chicken tikka masala isn't Indian." },
+    { id:"great-heists",    name:"Great Heists and Cons", blurb:"Real robberies and frauds, from the Antwerp diamond vault to the man who sold the Eiffel Tower twice." },
+    { id:"to-the-moon",     name:"To the Moon and Mars", blurb:"Spaceflight from Sputnik to the rovers. Rockets, crews, and the near misses nobody planned for." },
+    { id:"word-origins",    name:"Where Words Come From", blurb:"Quarantine, salary, sandwich, assassin. Everyday words with much stranger pasts than you'd guess." },
+  ]
+};
+
 const ROUNDS = [
   {
     id: "strike-a-pose",
@@ -241,64 +284,64 @@ const ROUNDS = [
     tagline: "Twenty questions across four decades of Madonna.",
     theme: { font: "Bebas Neue", accent: "#E0177A", accent2: "#D4A017", accentDark: "#FF2E88", accent2Dark: "#F3C25B" },
     questions: [
-      {q:"Where was Madonna born?",
+      {d:"hard",q:"Where was Madonna born?",
        o:["Bay City, Michigan","Detroit, Michigan","Rochester Hills, Michigan","Pontiac, Michigan"],a:0,
        w:"Madonna Louise Ciccone was born in Bay City on August 16, 1958, and grew up in Pontiac and Rochester Hills."},
-      {q:"Before going solo, Madonna played drums in which New York band?",
+      {d:"hard",q:"Before going solo, Madonna played drums in which New York band?",
        o:["Breakfast Club","Blondie","The Slits","Talking Heads"],a:0,
        w:"She started on drums in Breakfast Club with Dan Gilroy, then moved to guitar and vocals before forming Emmy."},
-      {q:"What was her first single, released in 1982?",
+      {d:"medium",q:"What was her first single, released in 1982?",
        o:["Everybody","Holiday","Burning Up","Lucky Star"],a:0,
        w:"\"Everybody\" came out on Sire Records in October 1982 and became a club hit before her debut album arrived in 1983."},
-      {q:"Who produced the 1984 album \"Like a Virgin\"?",
+      {d:"hard",q:"Who produced the 1984 album \"Like a Virgin\"?",
        o:["Nile Rodgers","Quincy Jones","Jellybean Benitez","Patrick Leonard"],a:0,
        w:"Chic's Nile Rodgers produced the album, which was recorded at the Power Station in New York."},
-      {q:"What was Madonna's first number one on the Billboard Hot 100?",
+      {d:"easy",q:"What was Madonna's first number one on the Billboard Hot 100?",
        o:["Like a Virgin","Holiday","Borderline","Material Girl"],a:0,
        w:"\"Like a Virgin\" hit number one in December 1984 and stayed there for six weeks."},
-      {q:"The \"Material Girl\" video recreates a famous number by which screen star?",
+      {d:"easy",q:"The \"Material Girl\" video recreates a famous number by which screen star?",
        o:["Marilyn Monroe","Rita Hayworth","Jean Harlow","Marlene Dietrich"],a:0,
        w:"It restages Marilyn Monroe's \"Diamonds Are a Girl's Best Friend\" from \"Gentlemen Prefer Blondes\" (1953)."},
-      {q:"In \"Desperately Seeking Susan\" (1985), who played Roberta, the bored housewife who becomes obsessed with Susan?",
+      {d:"medium",q:"In \"Desperately Seeking Susan\" (1985), who played Roberta, the bored housewife who becomes obsessed with Susan?",
        o:["Rosanna Arquette","Jennifer Grey","Molly Ringwald","Melanie Griffith"],a:0,
        w:"Rosanna Arquette played Roberta. The film also gave us \"Into the Groove.\""},
-      {q:"Which company pulled its Madonna commercial in 1989 after the \"Like a Prayer\" video caused an uproar?",
+      {d:"medium",q:"Which company pulled its Madonna commercial in 1989 after the \"Like a Prayer\" video caused an uproar?",
        o:["Pepsi","Coca-Cola","Dr Pepper","7 Up"],a:0,
        w:"Pepsi paid a reported five million dollars for the deal, aired the ad once, and dropped it after religious groups protested the video's imagery."},
-      {q:"Who designed the cone bra for the 1990 Blond Ambition tour?",
+      {d:"medium",q:"Who designed the cone bra for the 1990 Blond Ambition tour?",
        o:["Jean Paul Gaultier","Gianni Versace","Thierry Mugler","Dolce & Gabbana"],a:0,
        w:"Gaultier designed the tour wardrobe, and the pink satin cone corset became one of the most recognizable outfits in pop."},
-      {q:"Who directed the black and white \"Vogue\" video (1990)?",
+      {d:"hard",q:"Who directed the black and white \"Vogue\" video (1990)?",
        o:["David Fincher","Herb Ritts","Mary Lambert","Jean-Baptiste Mondino"],a:0,
        w:"Fincher also directed \"Express Yourself,\" \"Oh Father\" and \"Bad Girl\" before moving to feature films."},
-      {q:"\"Justify My Love\" (1990) was co-written by which rock musician?",
+      {d:"hard",q:"\"Justify My Love\" (1990) was co-written by which rock musician?",
        o:["Lenny Kravitz","Prince","Babyface","Shep Pettibone"],a:0,
        w:"Kravitz co-wrote and produced it, with a writing credit for Ingrid Chavez. MTV refused to air the video."},
-      {q:"What was the title of the coffee table book she released in 1992 alongside the \"Erotica\" album?",
+      {d:"easy",q:"What was the title of the coffee table book she released in 1992 alongside the \"Erotica\" album?",
        o:["Sex","Erotica","Bedtime Stories","Confessions"],a:0,
        w:"\"Sex\" was photographed by Steven Meisel, shipped in a mylar wrapper, and sold out its first printing in days."},
-      {q:"Which of her singles spent the longest stretch at number one on the Hot 100, seven weeks in 1995?",
+      {d:"hard",q:"Which of her singles spent the longest stretch at number one on the Hot 100, seven weeks in 1995?",
        o:["Take a Bow","Vogue","Like a Virgin","Music"],a:0,
        w:"\"Take a Bow,\" co-written with Babyface, held number one for seven weeks in early 1995."},
-      {q:"Which Icelandic artist co-wrote the 1994 track \"Bedtime Story\"?",
+      {d:"hard",q:"Which Icelandic artist co-wrote the 1994 track \"Bedtime Story\"?",
        o:["Björk","Sigur Rós","Emilíana Torrini","Of Monsters and Men"],a:0,
        w:"Björk wrote it with Nellee Hooper and Marius de Vries. The video was directed by Mark Romanek."},
-      {q:"Which award did Madonna win for playing Eva Perón in \"Evita\" (1996)?",
+      {d:"medium",q:"Which award did Madonna win for playing Eva Perón in \"Evita\" (1996)?",
        o:["Golden Globe for Best Actress in a Musical or Comedy","Academy Award for Best Actress","BAFTA for Best Actress","Screen Actors Guild Award"],a:0,
        w:"She won the Golden Globe in January 1997. The film's Oscar went to \"You Must Love Me\" for Best Original Song, credited to Andrew Lloyd Webber and Tim Rice."},
-      {q:"Who produced the 1998 album \"Ray of Light\"?",
+      {d:"medium",q:"Who produced the 1998 album \"Ray of Light\"?",
        o:["William Orbit","Mirwais","Stuart Price","Timbaland"],a:0,
        w:"William Orbit produced it, and the album took home three Grammys in 1999 including Best Pop Album."},
-      {q:"In \"Die Another Day\" (2002), Madonna sang the theme and appeared on screen as what?",
+      {d:"medium",q:"In \"Die Another Day\" (2002), Madonna sang the theme and appeared on screen as what?",
        o:["A fencing instructor","A casino dealer","An MI6 analyst","A hotel concierge"],a:0,
        w:"She played Verity, the fencing instructor at Blades, in a short scene with Pierce Brosnan."},
-      {q:"\"Hung Up\" (2005) is built on a sample of which ABBA song?",
+      {d:"easy",q:"\"Hung Up\" (2005) is built on a sample of which ABBA song?",
        o:["Gimme! Gimme! Gimme! (A Man After Midnight)","Dancing Queen","Voulez-Vous","Lay All Your Love on Me"],a:0,
        w:"Benny Andersson and Björn Ulvaeus rarely clear samples; Madonna sent a personal letter to ask."},
-      {q:"Who gave the induction speech when Madonna entered the Rock and Roll Hall of Fame in 2008?",
+      {d:"hard",q:"Who gave the induction speech when Madonna entered the Rock and Roll Hall of Fame in 2008?",
        o:["Justin Timberlake","Elton John","Stevie Wonder","Cher"],a:0,
        w:"Timberlake inducted her in her first year of eligibility. Iggy Pop and the Stooges performed in her place."},
-      {q:"Her 2023 to 2024 Celebration Tour ended with a free concert on which beach?",
+      {d:"easy",q:"Her 2023 to 2024 Celebration Tour ended with a free concert on which beach?",
        o:["Copacabana, Rio de Janeiro","Ipanema, Rio de Janeiro","Bondi Beach, Sydney","South Beach, Miami"],a:0,
        w:"The May 4, 2024 show on Copacabana Beach drew a reported 1.6 million people, the largest crowd of her career."},
     ]
@@ -310,64 +353,64 @@ const ROUNDS = [
     tagline: "Twenty questions from the first written words to the fall of the Wall. Five thousand years, in order.",
     theme: { font: "Cinzel", accent: "#8B1E2D", accent2: "#A8843F", accentDark: "#E0566A", accent2Dark: "#D9B76B" },
     questions: [
-      {q:"Which people of ancient Mesopotamia developed cuneiform, one of the earliest known writing systems, around 3200 BCE?",
+      {d:"medium",q:"Which people of ancient Mesopotamia developed cuneiform, one of the earliest known writing systems, around 3200 BCE?",
        o:["The Sumerians","The Phoenicians","The Hittites","The Assyrians"],a:0,
        w:"Sumerian scribes in cities like Uruk pressed wedge shaped marks into wet clay, first to keep accounts and later to record laws, myths and kings."},
-      {q:"The Great Pyramid of Giza was built as the tomb of which pharaoh?",
+      {d:"medium",q:"The Great Pyramid of Giza was built as the tomb of which pharaoh?",
        o:["Khufu","Ramesses II","Tutankhamun","Djoser"],a:0,
        w:"Khufu, called Cheops by the Greeks, ruled in the 26th century BCE. His pyramid was the tallest structure on Earth for nearly four thousand years."},
-      {q:"Which Babylonian king issued one of the earliest surviving written law codes, around 1750 BCE?",
+      {d:"medium",q:"Which Babylonian king issued one of the earliest surviving written law codes, around 1750 BCE?",
        o:["Hammurabi","Nebuchadnezzar II","Sargon of Akkad","Gilgamesh"],a:0,
        w:"The Code of Hammurabi, carved on a black stone pillar now in the Louvre, laid out nearly 300 laws with the famous eye for an eye principle."},
-      {q:"Who unified China in 221 BCE, became its first emperor, and was buried with the Terracotta Army?",
+      {d:"easy",q:"Who unified China in 221 BCE, became its first emperor, and was buried with the Terracotta Army?",
        o:["Qin Shi Huang","Kublai Khan","Emperor Wu of Han","Confucius"],a:0,
        w:"Qin Shi Huang standardized weights, writing and roads, began linking walls that became the Great Wall, and built a vast tomb guarded by some 8,000 clay soldiers."},
-      {q:"At Thermopylae in 480 BCE, King Leonidas of Sparta faced the invading army of which Persian king?",
+      {d:"medium",q:"At Thermopylae in 480 BCE, King Leonidas of Sparta faced the invading army of which Persian king?",
        o:["Xerxes I","Darius I","Cyrus the Great","Cambyses II"],a:0,
        w:"Xerxes led the second Persian invasion of Greece. His father Darius had been turned back at Marathon ten years earlier."},
-      {q:"Which philosopher tutored the young Alexander the Great?",
+      {d:"easy",q:"Which philosopher tutored the young Alexander the Great?",
        o:["Aristotle","Plato","Socrates","Diogenes"],a:0,
        w:"Philip II of Macedon hired Aristotle to teach his son from about 343 BCE. Alexander went on to conquer an empire stretching from Greece to India."},
-      {q:"Who became the first Roman emperor in 27 BCE?",
+      {d:"medium",q:"Who became the first Roman emperor in 27 BCE?",
        o:["Augustus","Julius Caesar","Nero","Marcus Aurelius"],a:0,
        w:"Octavian, Caesar's adopted heir, took the name Augustus after defeating Antony and Cleopatra. Julius Caesar was a dictator but never emperor."},
-      {q:"Cleopatra VII, who died in 30 BCE, was the last ruler of which dynasty?",
+      {d:"hard",q:"Cleopatra VII, who died in 30 BCE, was the last ruler of which dynasty?",
        o:["The Ptolemaic dynasty","The Seleucid dynasty","The Achaemenid dynasty","The Antonine dynasty"],a:0,
        w:"The Ptolemies were Greek, descended from Ptolemy I, one of Alexander's generals. Cleopatra was reportedly the first of them to learn Egyptian."},
-      {q:"The Hagia Sophia in Constantinople was completed in 537 under which Byzantine emperor?",
+      {d:"hard",q:"The Hagia Sophia in Constantinople was completed in 537 under which Byzantine emperor?",
        o:["Justinian I","Constantine the Great","Theodosius I","Heraclius"],a:0,
        w:"Justinian's church had the largest dome in the world for centuries. It later became a mosque, then a museum, and in 2020 a mosque again."},
-      {q:"The Islamic calendar counts from the Hijra, the migration of Muhammad in 622 from Mecca to which city?",
+      {d:"medium",q:"The Islamic calendar counts from the Hijra, the migration of Muhammad in 622 from Mecca to which city?",
        o:["Medina","Jerusalem","Damascus","Baghdad"],a:0,
        w:"The move to Medina, then called Yathrib, marked the founding of the first Muslim community and is year one of the Islamic calendar."},
-      {q:"Who crowned Charlemagne emperor in Rome on Christmas Day in the year 800?",
+      {d:"hard",q:"Who crowned Charlemagne emperor in Rome on Christmas Day in the year 800?",
        o:["Pope Leo III","Pope Gregory the Great","Pope Urban II","Pope Innocent III"],a:0,
        w:"Leo III placed the crown on Charlemagne's head at St. Peter's, reviving the idea of a Western Roman emperor three centuries after the last one."},
-      {q:"Whom did William the Conqueror defeat at the Battle of Hastings in 1066?",
+      {d:"easy",q:"Whom did William the Conqueror defeat at the Battle of Hastings in 1066?",
        o:["Harold Godwinson","Edward the Confessor","Harald Hardrada","Alfred the Great"],a:0,
        w:"Harold had beaten a Norwegian invasion under Harald Hardrada at Stamford Bridge just three weeks earlier, then marched south to meet William."},
-      {q:"Which English king was forced to seal Magna Carta at Runnymede in 1215?",
+      {d:"easy",q:"Which English king was forced to seal Magna Carta at Runnymede in 1215?",
        o:["King John","Richard the Lionheart","Henry II","Edward I"],a:0,
        w:"Rebel barons made John agree to limits on royal power. The pope annulled it within months, but it was reissued and became a foundation of English law."},
-      {q:"Mansa Musa, whose 1324 pilgrimage to Mecca famously flooded Cairo with gold, ruled which empire?",
+      {d:"medium",q:"Mansa Musa, whose 1324 pilgrimage to Mecca famously flooded Cairo with gold, ruled which empire?",
        o:["The Mali Empire","The Songhai Empire","The Kingdom of Aksum","The Ghana Empire"],a:0,
        w:"Mali controlled the West African gold and salt trade. Musa's spending on the journey reportedly depressed the price of gold in Egypt for years."},
-      {q:"Which Ottoman sultan captured Constantinople in 1453, ending the Byzantine Empire?",
+      {d:"hard",q:"Which Ottoman sultan captured Constantinople in 1453, ending the Byzantine Empire?",
        o:["Mehmed II","Suleiman the Magnificent","Osman I","Bayezid I"],a:0,
        w:"Mehmed was 21. His giant cannon breached walls that had stood for a thousand years, and the city became the Ottoman capital."},
-      {q:"In which German city did Johannes Gutenberg print his Bible in the 1450s?",
+      {d:"medium",q:"In which German city did Johannes Gutenberg print his Bible in the 1450s?",
        o:["Mainz","Nuremberg","Cologne","Wittenberg"],a:0,
        w:"Gutenberg's press with movable metal type in Mainz made books cheap enough to spread ideas faster than any censor could stop them."},
-      {q:"Where did Martin Luther post his Ninety-five Theses in 1517, setting off the Reformation?",
+      {d:"easy",q:"Where did Martin Luther post his Ninety-five Theses in 1517, setting off the Reformation?",
        o:["Wittenberg","Worms","Geneva","Augsburg"],a:0,
        w:"Luther, a monk and professor, challenged the sale of indulgences. Gutenberg's press carried his arguments across Europe within weeks."},
-      {q:"The Taj Mahal was built by which Mughal emperor as a tomb for his wife Mumtaz Mahal?",
+      {d:"easy",q:"The Taj Mahal was built by which Mughal emperor as a tomb for his wife Mumtaz Mahal?",
        o:["Shah Jahan","Akbar","Aurangzeb","Babur"],a:0,
        w:"Construction began in 1632 in Agra and took about twenty years. Shah Jahan was later deposed by his son Aurangzeb and spent his last years under house arrest within sight of it."},
-      {q:"The assassination that set off the First World War in 1914 took place in which city?",
+      {d:"easy",q:"The assassination that set off the First World War in 1914 took place in which city?",
        o:["Sarajevo","Vienna","Belgrade","Budapest"],a:0,
        w:"Archduke Franz Ferdinand, heir to the Austro-Hungarian throne, was shot by Gavrilo Princip on June 28, 1914. Within six weeks the great powers were at war."},
-      {q:"In which year did the Berlin Wall fall?",
+      {d:"easy",q:"In which year did the Berlin Wall fall?",
        o:["1989","1987","1991","1985"],a:0,
        w:"On November 9, 1989, a muddled East German press conference led crowds to the checkpoints, and the guards opened the gates. Germany reunified less than a year later."},
     ]
@@ -379,64 +422,64 @@ const ROUNDS = [
     tagline: "Twenty questions on the movies, music and TV everybody was talking about. Eighties to now.",
     theme: { font: "Righteous", accent: "#7C3AED", accent2: "#F97316", accentDark: "#A78BFA", accent2Dark: "#FDBA74" },
     questions: [
-      {q:"Who directed the fourteen minute \"Thriller\" video in 1983?",
+      {d:"hard",q:"Who directed the fourteen minute \"Thriller\" video in 1983?",
        o:["John Landis","Martin Scorsese","Spike Lee","David Fincher"],a:0,
        w:"Landis had just made \"An American Werewolf in London.\" Scorsese later directed Michael Jackson's \"Bad\" video in 1987."},
-      {q:"The 1983 finale of which sitcom is still the most watched scripted broadcast in US television history?",
+      {d:"hard",q:"The 1983 finale of which sitcom is still the most watched scripted broadcast in US television history?",
        o:["M*A*S*H","Cheers","Seinfeld","Friends"],a:0,
        w:"\"Goodbye, Farewell and Amen\" drew about 106 million viewers on February 28, 1983. Only a handful of Super Bowls have beaten it."},
-      {q:"Who played Vivian Ward opposite Richard Gere in \"Pretty Woman\" (1990)?",
+      {d:"easy",q:"Who played Vivian Ward opposite Richard Gere in \"Pretty Woman\" (1990)?",
        o:["Julia Roberts","Meg Ryan","Demi Moore","Sandra Bullock"],a:0,
        w:"Roberts earned her second Oscar nomination for the role. Garry Marshall directed, and the original script was a much darker story called \"3,000.\""},
-      {q:"\"Smells Like Teen Spirit\" opens which Nirvana album?",
+      {d:"medium",q:"\"Smells Like Teen Spirit\" opens which Nirvana album?",
        o:["Nevermind","In Utero","Bleach","Incesticide"],a:0,
        w:"The title came from graffiti Kathleen Hanna of Bikini Kill wrote on Kurt Cobain's wall. He didn't know Teen Spirit was a deodorant."},
-      {q:"In \"Forrest Gump\" (1994), what does Forrest's mother say life is like?",
+      {d:"easy",q:"In \"Forrest Gump\" (1994), what does Forrest's mother say life is like?",
        o:["A box of chocolates","A bowl of cherries","A long road","A river"],a:0,
        w:"Tom Hanks won his second straight Best Actor Oscar, and the film took Best Picture over \"Pulp Fiction\" and \"The Shawshank Redemption.\""},
-      {q:"What is the name of the coffee shop in \"Friends\"?",
+      {d:"easy",q:"What is the name of the coffee shop in \"Friends\"?",
        o:["Central Perk","Café Nervosa","Monk's","The Grind"],a:0,
        w:"Café Nervosa is where Frasier and Niles drink, and Monk's is the diner in \"Seinfeld.\" \"Friends\" ran on NBC from 1994 to 2004."},
-      {q:"What is Kramer's first name in \"Seinfeld\"?",
+      {d:"hard",q:"What is Kramer's first name in \"Seinfeld\"?",
        o:["Cosmo","Jerome","Arthur","Newman"],a:0,
        w:"It stayed a secret until the 1995 episode \"The Switch,\" when Kramer's mother Babs lets it slip."},
-      {q:"What was Pixar's first feature length film?",
+      {d:"easy",q:"What was Pixar's first feature length film?",
        o:["Toy Story","A Bug's Life","Monsters, Inc.","Finding Nemo"],a:0,
        w:"\"Toy Story\" (1995) was the first feature made entirely with computer animation. John Lasseter received a Special Achievement Oscar for it."},
-      {q:"Which Spice Girl was Posh Spice?",
+      {d:"medium",q:"Which Spice Girl was Posh Spice?",
        o:["Victoria Beckham","Geri Halliwell","Emma Bunton","Melanie Chisholm"],a:0,
        w:"The nicknames came from a 1996 issue of Top of the Pops magazine. Geri was Ginger, Emma was Baby, Mel C was Sporty and Mel B was Scary."},
-      {q:"Beyoncé was a member of which group before going solo?",
+      {d:"easy",q:"Beyoncé was a member of which group before going solo?",
        o:["Destiny's Child","TLC","En Vogue","3LW"],a:0,
        w:"The final lineup was Beyoncé, Kelly Rowland and Michelle Williams. \"Say My Name\" and \"Survivor\" both hit number one."},
-      {q:"Richard Hatch won the first US season of which reality show in 2000?",
+      {d:"hard",q:"Richard Hatch won the first US season of which reality show in 2000?",
        o:["Survivor","Big Brother","The Amazing Race","The Bachelor"],a:0,
        w:"About 51 million people watched the \"Survivor: Borneo\" finale. Hatch later served prison time for not paying tax on the million dollar prize."},
-      {q:"What is the name of Harry Potter's owl?",
+      {d:"medium",q:"What is the name of Harry Potter's owl?",
        o:["Hedwig","Errol","Pigwidgeon","Crookshanks"],a:0,
        w:"Errol is the Weasley family owl, Pigwidgeon is Ron's, and Crookshanks is Hermione's cat."},
-      {q:"What instrument does Lisa Simpson play?",
+      {d:"easy",q:"What instrument does Lisa Simpson play?",
        o:["Saxophone","Trumpet","Clarinet","Violin"],a:0,
        w:"A baritone sax, specifically. Her hero is the jazz musician Bleeding Gums Murphy. \"The Simpsons\" premiered as a series in December 1989."},
-      {q:"Who played the Joker in \"The Dark Knight\" (2008)?",
+      {d:"easy",q:"Who played the Joker in \"The Dark Knight\" (2008)?",
        o:["Heath Ledger","Jack Nicholson","Joaquin Phoenix","Jared Leto"],a:0,
        w:"Ledger won a posthumous Oscar for Best Supporting Actor in 2009. Nicholson played the Joker in 1989, Leto in 2016 and Phoenix in 2019."},
-      {q:"In \"Game of Thrones,\" what is the ancestral home of House Stark?",
+      {d:"medium",q:"In \"Game of Thrones,\" what is the ancestral home of House Stark?",
        o:["Winterfell","Casterly Rock","Dragonstone","Highgarden"],a:0,
        w:"Casterly Rock belongs to the Lannisters, Dragonstone to the Targaryens and Highgarden to the Tyrells. The show ran on HBO from 2011 to 2019."},
-      {q:"Which video was the first to reach one billion views on YouTube?",
+      {d:"medium",q:"Which video was the first to reach one billion views on YouTube?",
        o:["Gangnam Style","Baby","Despacito","Bad Romance"],a:0,
        w:"Psy's video crossed a billion in December 2012, five months after release. It broke YouTube's view counter, which had to be upgraded to a 64-bit integer."},
-      {q:"Who shared the Super Bowl halftime stage with Jennifer Lopez in 2020?",
+      {d:"medium",q:"Who shared the Super Bowl halftime stage with Jennifer Lopez in 2020?",
        o:["Shakira","Rihanna","Lady Gaga","Katy Perry"],a:0,
        w:"Super Bowl LIV in Miami, February 2, 2020. Rihanna headlined in 2023, Lady Gaga in 2017 and Katy Perry in 2015."},
-      {q:"Which film became the first non-English-language movie to win the Oscar for Best Picture?",
+      {d:"medium",q:"Which film became the first non-English-language movie to win the Oscar for Best Picture?",
        o:["Parasite","Roma","Crouching Tiger, Hidden Dragon","Life Is Beautiful"],a:0,
        w:"Bong Joon-ho's film took four Oscars in February 2020, including Best Director. \"Roma\" had come close the year before."},
-      {q:"Who directed \"Barbie\" (2023)?",
+      {d:"medium",q:"Who directed \"Barbie\" (2023)?",
        o:["Greta Gerwig","Sofia Coppola","Olivia Wilde","Emerald Fennell"],a:0,
        w:"It was the highest grossing film of 2023 and the first billion dollar film directed solely by a woman. Margot Robbie also produced."},
-      {q:"What was the name of Taylor Swift's 2023 to 2024 world tour?",
+      {d:"easy",q:"What was the name of Taylor Swift's 2023 to 2024 world tour?",
        o:["The Eras Tour","The Reputation Stadium Tour","Lover Fest","The 1989 World Tour"],a:0,
        w:"It became the first tour to gross over one billion dollars and finished at around two billion, the highest grossing tour ever, after 149 shows."},
     ]
@@ -448,64 +491,64 @@ const ROUNDS = [
     tagline: "Twenty questions from the first powered flight to the pandemic. 1900 to now, in order.",
     theme: { font: "Oswald", accent: "#1D4ED8", accent2: "#DC2626", accentDark: "#60A5FA", accent2Dark: "#F87171" },
     questions: [
-      {q:"Where did the Wright brothers make the first powered flight in December 1903?",
+      {d:"easy",q:"Where did the Wright brothers make the first powered flight in December 1903?",
        o:["Kitty Hawk, North Carolina","Dayton, Ohio","Cape Cod, Massachusetts","Pensacola, Florida"],a:0,
        w:"Orville flew first, for 12 seconds and 120 feet, on December 17, 1903. The brothers were bicycle makers from Dayton who chose the Outer Banks for its steady wind and soft sand."},
-      {q:"Which ship answered the Titanic's distress calls and picked up the survivors in April 1912?",
+      {d:"hard",q:"Which ship answered the Titanic's distress calls and picked up the survivors in April 1912?",
        o:["Carpathia","Californian","Olympic","Lusitania"],a:0,
        w:"The Cunard liner Carpathia raced 58 miles through the ice and rescued about 705 people. The Californian was much closer, but its only radio operator had gone to bed."},
-      {q:"The 1918 influenza pandemic is commonly named after which country?",
+      {d:"easy",q:"The 1918 influenza pandemic is commonly named after which country?",
        o:["Spain","Russia","China","France"],a:0,
        w:"Spain was neutral in the war, so its newspapers reported the outbreak freely while the fighting nations censored theirs. It killed an estimated 50 million people worldwide."},
-      {q:"Which amendment gave women the vote across the United States in 1920?",
+      {d:"medium",q:"Which amendment gave women the vote across the United States in 1920?",
        o:["The 19th","The 15th","The 18th","The 21st"],a:0,
        w:"Tennessee became the 36th state to ratify it in August 1920, by one vote. The 18th brought in Prohibition, the 21st repealed it, and the 15th barred voting restrictions based on race."},
-      {q:"Gandhi's 1930 Salt March ended at the sea at which village?",
+      {d:"hard",q:"Gandhi's 1930 Salt March ended at the sea at which village?",
        o:["Dandi","Ahmedabad","Surat","Porbandar"],a:0,
        w:"He walked 240 miles from his ashram in Ahmedabad over 24 days and picked up a handful of salt on April 6, 1930, breaking the British monopoly. Porbandar is where he was born."},
-      {q:"Germany's invasion of which country in September 1939 led Britain and France to declare war?",
+      {d:"easy",q:"Germany's invasion of which country in September 1939 led Britain and France to declare war?",
        o:["Poland","Czechoslovakia","Austria","Belgium"],a:0,
        w:"The invasion began on September 1 and the declarations came on September 3. The Soviet Union invaded Poland from the east sixteen days later under its secret pact with Hitler."},
-      {q:"The D-Day landings of June 6, 1944 took place in which region of France?",
+      {d:"easy",q:"The D-Day landings of June 6, 1944 took place in which region of France?",
        o:["Normandy","Brittany","Provence","Pas-de-Calais"],a:0,
        w:"Troops landed on five beaches: Utah, Omaha, Gold, Juno and Sword. The Allies had spent months faking a buildup opposite Calais, and the Germans kept reserves there for weeks."},
-      {q:"What was the name of the B-29 that dropped the atomic bomb on Hiroshima on August 6, 1945?",
+      {d:"medium",q:"What was the name of the B-29 that dropped the atomic bomb on Hiroshima on August 6, 1945?",
        o:["Enola Gay","Bockscar","Memphis Belle","Spirit of St. Louis"],a:0,
        w:"Pilot Paul Tibbets named it after his mother. Bockscar dropped the second bomb on Nagasaki three days later, and Japan announced its surrender on August 15."},
-      {q:"Who became India's first prime minister at independence in 1947?",
+      {d:"medium",q:"Who became India's first prime minister at independence in 1947?",
        o:["Jawaharlal Nehru","Mahatma Gandhi","Sardar Patel","Muhammad Ali Jinnah"],a:0,
        w:"Nehru served until his death in 1964. Jinnah became Pakistan's first governor general, and Gandhi never held office. Partition displaced around 15 million people."},
-      {q:"Which city was kept supplied entirely by air for nearly a year after the Soviets cut its ground routes in 1948?",
+      {d:"medium",q:"Which city was kept supplied entirely by air for nearly a year after the Soviets cut its ground routes in 1948?",
        o:["West Berlin","Vienna","Prague","Warsaw"],a:0,
        w:"The Berlin Airlift ran from June 1948 to May 1949: about 280,000 flights carrying 2.3 million tons of food and coal. Pilot Gail Halvorsen became the \"candy bomber\" for dropping sweets to children."},
-      {q:"Who was the first human in space, on April 12, 1961?",
+      {d:"easy",q:"Who was the first human in space, on April 12, 1961?",
        o:["Yuri Gagarin","Alan Shepard","John Glenn","Valentina Tereshkova"],a:0,
        w:"Gagarin made one orbit in Vostok 1 in 108 minutes. Shepard's suborbital flight came three weeks later, Glenn was the first American to orbit in 1962, and Tereshkova was the first woman in space in 1963."},
-      {q:"Which Soviet leader faced John F. Kennedy during the Cuban Missile Crisis in October 1962?",
+      {d:"medium",q:"Which Soviet leader faced John F. Kennedy during the Cuban Missile Crisis in October 1962?",
        o:["Nikita Khrushchev","Leonid Brezhnev","Joseph Stalin","Yuri Andropov"],a:0,
        w:"After thirteen days the Soviets withdrew the missiles in return for a US pledge not to invade Cuba and a secret promise to remove American missiles from Turkey."},
-      {q:"Martin Luther King Jr. gave his \"I Have a Dream\" speech in 1963 on the steps of which monument?",
+      {d:"easy",q:"Martin Luther King Jr. gave his \"I Have a Dream\" speech in 1963 on the steps of which monument?",
        o:["The Lincoln Memorial","The Washington Monument","The US Capitol","The Jefferson Memorial"],a:0,
        w:"About 250,000 people came to the March on Washington on August 28, 1963. The dream passage was partly improvised after Mahalia Jackson called out, \"Tell them about the dream, Martin.\""},
-      {q:"Who was the Apollo 11 astronaut who stayed in lunar orbit while Armstrong and Aldrin walked on the Moon?",
+      {d:"hard",q:"Who was the Apollo 11 astronaut who stayed in lunar orbit while Armstrong and Aldrin walked on the Moon?",
        o:["Michael Collins","Jim Lovell","Pete Conrad","Frank Borman"],a:0,
        w:"Collins circled alone in the command module Columbia on July 20, 1969, out of radio contact on each pass behind the Moon. Conrad commanded Apollo 12 and Lovell Apollo 13."},
-      {q:"Which country did Richard Nixon visit in February 1972 in a trip he called \"the week that changed the world\"?",
+      {d:"medium",q:"Which country did Richard Nixon visit in February 1972 in a trip he called \"the week that changed the world\"?",
        o:["China","The Soviet Union","Cuba","North Vietnam"],a:0,
        w:"He met Mao Zedong and Zhou Enlai, ending more than twenty years of no contact between the two countries. He went on to Moscow that May to sign the first SALT arms treaty."},
-      {q:"Nelson Mandela was released in February 1990 after how many years in prison?",
+      {d:"medium",q:"Nelson Mandela was released in February 1990 after how many years in prison?",
        o:["27","18","32","21"],a:0,
        w:"Eighteen of those years were on Robben Island. Four years after his release he was elected president in South Africa's first election open to all races."},
-      {q:"In which year was the Soviet Union formally dissolved?",
+      {d:"easy",q:"In which year was the Soviet Union formally dissolved?",
        o:["1991","1989","1993","1990"],a:0,
        w:"Mikhail Gorbachev resigned on December 25, 1991 and the Soviet flag over the Kremlin came down that evening. Fifteen republics became independent states."},
-      {q:"The collapse of which investment bank in September 2008 marked the height of the global financial crisis?",
+      {d:"medium",q:"The collapse of which investment bank in September 2008 marked the height of the global financial crisis?",
        o:["Lehman Brothers","Bear Stearns","Merrill Lynch","Goldman Sachs"],a:0,
        w:"Lehman filed on September 15, 2008, the largest bankruptcy in US history. Bear Stearns had been sold to JPMorgan in March, and Merrill Lynch was sold to Bank of America the same weekend Lehman fell."},
-      {q:"The Arab Spring began in December 2010 in which country?",
+      {d:"hard",q:"The Arab Spring began in December 2010 in which country?",
        o:["Tunisia","Egypt","Libya","Syria"],a:0,
        w:"It started after a street vendor, Mohamed Bouazizi, set himself on fire in protest at police harassment. President Ben Ali fled within four weeks, and Egypt's Hosni Mubarak fell a month after that."},
-      {q:"In which month of 2020 did the World Health Organization declare COVID-19 a pandemic?",
+      {d:"easy",q:"In which month of 2020 did the World Health Organization declare COVID-19 a pandemic?",
        o:["March","January","February","April"],a:0,
        w:"The declaration came on March 11, 2020. The WHO had already declared a global health emergency on January 30, about a month after the first cases were reported in Wuhan."},
     ]
@@ -746,6 +789,12 @@ ROUNDS.forEach(r => {
     it.opts = idx.map(k => it.o[k]); it.ans = idx.indexOf(it.a);
   });
 });
+ROUNDS.forEach(r => {
+  const n = r.questions.length, c = { easy: 0, medium: 0, hard: 0 };
+  r.questions.forEach(q => { if (q.d && c[q.d] != null) c[q.d]++; });
+  const bad = n !== 20 || c.easy < 4 || c.medium < 4 || c.hard < 4;
+  if (bad) console.warn(`Round "${r.id}" breaks the house rule (20 questions, at least 4 each of easy/medium/hard). It has ${n} questions: ${c.easy} easy, ${c.medium} medium, ${c.hard} hard.`);
+});
 const roundById = id => ROUNDS.find(r => r.id === id) || null;
 
 /* --- state --- */
@@ -753,7 +802,9 @@ let me = null, isHost = false;
 let openIds = null;            // null = not loaded yet; Set of open round ids once loaded
 let scores = [];               // every score doc
 let scoresReady = false;
-let unsubScores = null, unsubSite = null, unsubPresence = null;
+let unsubScores = null, unsubSite = null, unsubPresence = null, unsubVotes = null;
+let votes = [], votesReady = false;   // poll votes, one doc per player
+let tickTimer = null;                 // countdown interval while a run is in progress
 let presence = [];            // who is mid-quiz right now (from the presence collection)
 let presenceRound = null;      // round id this device has announced, or null
 let hbTimer = null;
@@ -809,9 +860,9 @@ async function signIn(){
 auth.getRedirectResult().catch(() => {});
 auth.onAuthStateChanged(async u => {
   me = u; isHost = false; fatal = "";
-  if (me) { isHost = await probeHost(); subscribeSite(); subscribeScores(); subscribePresence();
+  if (me) { isHost = await probeHost(); subscribeSite(); subscribeScores(); subscribePresence(); subscribeVotes();
     if (pendingRound && roundById(pendingRound)) { const id = pendingRound; pendingRound = null; selectRound(id); return; } pendingRound = null; }
-  else { if (unsubScores) { unsubScores(); unsubScores = null; } if (unsubSite) { unsubSite(); unsubSite = null; } if (unsubPresence) { unsubPresence(); unsubPresence = null; } presence = []; presenceRound = null; if (hbTimer) { clearInterval(hbTimer); hbTimer = null; } round = null; S.tab = "play"; }
+  else { if (unsubScores) { unsubScores(); unsubScores = null; } if (unsubSite) { unsubSite(); unsubSite = null; } if (unsubPresence) { unsubPresence(); unsubPresence = null; } if (unsubVotes) { unsubVotes(); unsubVotes = null; } votes = []; votesReady = false; presence = []; presenceRound = null; stopTimer(); if (hbTimer) { clearInterval(hbTimer); hbTimer = null; } round = null; S.tab = "play"; }
   renderAll();
 });
 async function probeHost(){
@@ -863,6 +914,19 @@ function syncPresence(){
 window.addEventListener("pagehide", () => { clearPresence(); });
 setInterval(() => { if (showsPresence()) render(); }, 30 * 1000); // lets stale heartbeats drop off
 
+/* --- poll --- */
+function subscribeVotes(){
+  if (unsubVotes) unsubVotes();
+  unsubVotes = dbf.collection("votes").onSnapshot(snap => { votes = snap.docs.map(d => d.data()); votesReady = true; if (!round && lobbyTab === "poll") render(); }, () => { votesReady = true; });
+}
+const myVote = () => { const v = votes.find(v => v.uid === (me && me.uid)); return v ? v.choice : null; };
+const voteCount = id => votes.filter(v => v.choice === id).length;
+async function castVote(id){
+  if (!me || !POLL.open) return;
+  try { await dbf.collection("votes").doc(me.uid).set({ uid: me.uid, name: me.displayName || "Someone", photo: me.photoURL || "", choice: id, at: firebase.firestore.FieldValue.serverTimestamp() }); }
+  catch (e) { const el = $("pollMsg"); if (el) el.textContent = "Couldn't save your vote (" + (e.code || e.message) + ")."; }
+}
+
 const boardFor = rid => scores.filter(s => s.roundId === rid);
 const myOfficial = (rid = round && round.id) => rid ? boardFor(rid).find(b => b.uid === (me && me.uid)) || null : null;
 function sorted(list){ return [...list].sort((a, b) => (b.score - a.score) || (SETTINGS.timeBreaksTies ? (a.elapsedMs - b.elapsedMs) : 0) || String(a.finishedAt).localeCompare(String(b.finishedAt))); }
@@ -872,8 +936,8 @@ function combined(){ const by = {}; scores.forEach(s => { const c = by[s.uid] ||
 /* --- navigation --- */
 $("home").onclick = () => goLobby();
 $("back").onclick = () => goLobby();
-function goLobby(){ round = null; S.tab = "play"; resetShare(); renderAll(); window.scrollTo({ top: 0 }); }
-function selectRound(id, tab = "play"){ round = roundById(id); boardSel = id; S.tab = tab; resetShare(); loadProgress(); renderAll(); window.scrollTo({ top: 0 }); }
+function goLobby(){ stopTimer(); round = null; S.tab = "play"; resetShare(); renderAll(); window.scrollTo({ top: 0 }); }
+function selectRound(id, tab = "play"){ stopTimer(); round = roundById(id); boardSel = id; S.tab = tab; resetShare(); loadProgress(); renderAll(); window.scrollTo({ top: 0 }); }
 document.querySelectorAll(".tab").forEach(b => b.addEventListener("click", () => setTab(b.dataset.tab)));
 function setTab(t){ S.tab = t; renderAll(); }
 
@@ -902,7 +966,7 @@ function render(){
   if (S.tab === "board") return renderBoard();
   if (S.tab === "host") return renderHost();
   if (!isOpen(round) && S.screen !== "result") return renderClosed();
-  if (S.screen === "quiz") return renderQuiz();
+  if (S.screen === "quiz") { const l = timeLeft(); if (l !== null && l <= 0) { finishRun(true); return; } return renderQuiz(); }
   if (S.screen === "result") return renderResult();
   return renderHome();
 }
@@ -912,12 +976,41 @@ function gateHtml(){
 }
 function wireGate(){ const b = $("signin"); if (b) b.onclick = signIn; }
 
-let lobbySel = ALL, lobbyAll = false;
+let lobbySel = ALL, lobbyAll = false, lobbyTab = "rounds";
 function pickerHtml(id, sel){
   return `<select id="${id}" aria-label="Which leaderboard to show"><option value="${ALL}" ${sel === ALL ? "selected" : ""}>All rounds combined</option>${ROUNDS.map(x => `<option value="${esc(x.id)}" ${x.id === sel ? "selected" : ""}>${esc(x.name)}${isOpen(x) ? "" : " (closed)"}</option>`).join("")}</select>`;
 }
 function boardList(sel){ return sel === ALL ? combined() : boardFor(sel); }
 function renderLobby(){
+  const needsVote = POLL.open && votesReady && !myVote();
+  const tabs = `<div class="tabs" role="tablist">
+    <button class="tab" role="tab" aria-selected="${lobbyTab === "rounds"}" data-ltab="rounds">Rounds</button>
+    <button class="tab" role="tab" aria-selected="${lobbyTab === "poll"}" data-ltab="poll">Next round${needsVote ? `<span class="tabdot" title="You haven't voted"></span>` : ""}</button>
+  </div>`;
+  const wire = () => document.querySelectorAll("[data-ltab]").forEach(b => b.onclick = () => { lobbyTab = b.dataset.ltab; renderLobby(); window.scrollTo({ top: 0 }); });
+  if (lobbyTab === "poll") { $view.innerHTML = tabs + pollHtml(); wire(); wirePoll(); return; }
+  return renderRounds(tabs, wire);
+}
+function pollHtml(){
+  const total = votes.length, mine = myVote();
+  const best = Math.max(0, ...POLL.options.map(o => voteCount(o.id)));
+  const rows = POLL.options.map(o => {
+    const c = voteCount(o.id), pct = total ? Math.round((c / total) * 100) : 0;
+    return `<button class="pollopt" data-p="${esc(o.id)}" data-mine="${mine === o.id ? 1 : 0}"${POLL.open ? "" : " disabled"}>
+      <div class="prow"><span class="pname">${esc(o.name)}${mine === o.id ? " ✓" : ""}${c && c === best && total ? ` <span class="pill live">Leading</span>` : ""}</span><span class="pcount">${c} vote${c === 1 ? "" : "s"}${total ? " · " + pct + "%" : ""}</span></div>
+      <div class="pbar"><i style="width:${pct}%"></i></div>
+      <div class="pblurb">${esc(o.blurb)}</div>
+    </button>`;
+  }).join("");
+  const status = !votesReady ? `<p class="note">Loading votes…</p>`
+    : !POLL.open ? `<p class="note">Voting is closed.</p>`
+    : mine ? `<p class="note">Your vote is in. Tap another to change it. ${total} vote${total === 1 ? "" : "s"} so far.</p>`
+    : `<p class="note">Tap one to vote. ${total ? total + (total === 1 ? " vote" : " votes") + " so far." : "Be the first."}</p>`;
+  return `<div class="card lift" style="margin-bottom:14px"><h2>${esc(POLL.question)}</h2><p class="note" style="margin:0">${esc(POLL.note)}</p></div>
+    ${rows}${status}<p class="note" id="pollMsg"></p>`;
+}
+function wirePoll(){ document.querySelectorAll("[data-p]").forEach(b => b.onclick = () => castVote(b.dataset.p)); }
+function renderRounds(tabs, wire){
   const ranked = rankOf(boardList(lobbySel)); const shown = lobbyAll ? ranked : ranked.slice(0, 5); const mine = ranked.find(x => x.uid === me.uid);
   const board = !scoresReady ? `<div class="board"><div class="empty">Loading scores…</div></div>`
     : !ranked.length ? `<div class="board"><div class="empty">No scores yet. Play a round to get on the board.</div></div>`
@@ -936,11 +1029,12 @@ function renderLobby(){
   const played = id => boardFor(id).some(x => x.uid === me.uid);
   const open = ROUNDS.filter(isOpen), next = open.filter(r => !played(r.id)), done = open.filter(r => played(r.id)), closed = ROUNDS.filter(r => !isOpen(r));
   const group = (title, rs, sub) => rs.length ? `<div class="section"><h3>${title}</h3><span class="note">${sub}</span></div><div class="grid">${rs.map(tile).join("")}</div>` : "";
-  $view.innerHTML = `
+  $view.innerHTML = tabs + `
     <div class="section"><h3>Leaderboard</h3>${pickerHtml("lobbyPick", lobbySel)}</div>${board}
     ${group("Play next", next, next.length === 1 ? "1 round you haven't played" : next.length + " rounds you haven't played")}
     ${group("Played", done, next.length ? "Tap to practice or see the board" : "You've played every open round. Practice doesn't change the board.")}
     ${group("Closed", closed, "Boards only")}`;
+  wire();
   document.querySelectorAll(".tile").forEach(c => c.onclick = () => selectRound(c.dataset.r));
   $("lobbyPick").onchange = e => { lobbySel = e.target.value; lobbyAll = false; renderLobby(); };
   const m = $("lobbyMore"); if (m) m.onclick = () => { lobbyAll = !lobbyAll; renderLobby(); };
@@ -970,7 +1064,7 @@ function renderHome(){
   $view.innerHTML = `<div class="stack">
       <div class="card lift">
         <h2>${mine ? "Practice run" : "Ready?"}</h2>
-        <p>${n} questions, four choices each, instant answers with a line of context.${SETTINGS.timeBreaksTies ? " The clock runs from your first question to your last and breaks ties on the board." : ""}</p>
+        <p>${n} questions, four choices each, instant answers with a line of context.${timeLimit() ? ` You get ${fmtLimit()}, counting down on screen from question one. When it hits zero the run ends and whatever is unanswered counts wrong.` : ""}${SETTINGS.timeBreaksTies ? " A faster time breaks ties on the board." : ""}</p>
         ${liveHtml(round.id)}
         <div class="row" style="margin-top:${playingNow(round.id).length ? "12px" : "0"}">
           <button class="btn" id="start">${mine ? "Start a practice run" : "Start the quiz"}</button>
@@ -1042,6 +1136,34 @@ function renderHost(){
   };
 }
 
+/* --- countdown --- */
+const timeLimit = () => { const v = (round && round.timeLimitMs != null) ? round.timeLimitMs : SETTINGS.timeLimitMs; return v > 0 ? v : 0; };
+const timeLeft = () => { const l = timeLimit(); return l ? Math.max(0, S.started + l - Date.now()) : null; };
+const fmtLeft = ms => { const s = Math.ceil(Math.max(0, ms) / 1000); return Math.floor(s / 60) + ":" + String(s % 60).padStart(2, "0"); };
+const fmtLimit = () => { const l = timeLimit(); if (!l) return ""; const m = Math.round(l / 60000); return m === 1 ? "one minute" : m + " minutes"; };
+function stopTimer(){ if (tickTimer) { clearInterval(tickTimer); tickTimer = null; } }
+function timerHtml(){
+  const l = timeLimit(); if (!l) return "";
+  return `<div class="timerbar" id="timerBar" role="timer" aria-live="off"><span class="tleft" id="tLeft">${fmtLeft(timeLeft())}</span><span class="tnote">left</span><div class="tprog"><i id="tFill"></i></div></div>`;
+}
+function paintTimer(){
+  const l = timeLimit(); if (!l) return;
+  const el = $("tLeft"); if (!el) return;
+  const ms = timeLeft();
+  el.textContent = fmtLeft(ms);
+  const fill = $("tFill"); if (fill) fill.style.width = Math.max(0, Math.min(100, (ms / l) * 100)) + "%";
+  const bar = $("timerBar"); if (bar) bar.className = "timerbar" + (ms <= 20000 ? " danger" : ms <= 60000 ? " warn" : "");
+}
+function startTimer(){
+  stopTimer(); if (!timeLimit()) return;
+  paintTimer();
+  tickTimer = setInterval(() => {
+    if (!(me && round && S.screen === "quiz")) { stopTimer(); return; }
+    if (timeLeft() <= 0) { stopTimer(); finishRun(true); return; }
+    paintTimer();
+  }, 250);
+}
+
 /* --- quiz --- */
 function startQuiz(){
   const all = round.questions.map((_, k) => k);
@@ -1058,7 +1180,7 @@ function visualHtml(it){
 function renderQuiz(){
   const total = S.order.length; const it = round.questions[S.order[S.i]];
   const answered = S.chosen !== null; const official = !myOfficial();
-  $view.innerHTML = `<div class="card lift">
+  $view.innerHTML = `${timerHtml()}<div class="card lift">
       <div class="row spread"><span class="row" style="gap:8px"><span class="qnum">Question ${S.i + 1} of ${total}</span>${it.d ? `<span class="pill">${esc(it.d)}</span>` : ""}</span><span class="pill ${official ? "official" : ""}">${official ? "Official run" : "Practice"}</span></div>
       <div class="progress"><i style="width:${(S.i / total) * 100}%"></i></div>
       ${visualHtml(it)}
@@ -1070,14 +1192,23 @@ function renderQuiz(){
     </div>`;
   if (!answered) document.querySelectorAll(".opt").forEach(b => b.onclick = () => { S.chosen = +b.dataset.k; S.picks[S.i] = S.chosen; saveProgress(); renderQuiz(); });
   else $("next").onclick = advance;
+  startTimer();
 }
 async function advance(){
   S.chosen = null;
   if (S.i + 1 < S.order.length) { S.i++; saveProgress(); renderQuiz(); window.scrollTo({ top: 0 }); return; }
-  const finished = Date.now(); S.screen = "result"; clearProgress();
+  return finishRun(false);
+}
+async function finishRun(timedOut){
+  if (S.screen === "result") return;
+  stopTimer();
+  const finished = Date.now(); S.screen = "result"; S.chosen = null; clearProgress();
+  const limit = timeLimit();
+  const elapsedMs = limit ? Math.min(finished - S.started, limit) : finished - S.started;
   const score = S.order.reduce((n, qi, k) => n + (S.picks[k] === round.questions[qi].ans ? 1 : 0), 0);
-  const result = { uid: me.uid, name: me.displayName || "Someone", photo: me.photoURL || "", roundId: round.id, score, total: S.order.length, elapsedMs: finished - S.started, finishedAt: new Date().toISOString(), order: S.order, picks: S.picks.slice(), createdAt: firebase.firestore.FieldValue.serverTimestamp() };
-  S.lastResult = result; S.saved = "none";
+  const unanswered = S.order.filter((_, k) => S.picks[k] == null).length;
+  const result = { uid: me.uid, name: me.displayName || "Someone", photo: me.photoURL || "", roundId: round.id, score, total: S.order.length, elapsedMs, timedOut: !!timedOut, finishedAt: new Date().toISOString(), order: S.order, picks: S.picks.slice(), createdAt: firebase.firestore.FieldValue.serverTimestamp() };
+  S.lastResult = result; S.timedOut = !!timedOut; S.unanswered = unanswered; S.saved = "none";
   if (!myOfficial() && isOpen(round)) {
     S.saved = "saving"; render();
     try { await dbf.collection("scores").doc(round.id + "_" + me.uid).set(result); S.saved = "saved"; }
@@ -1097,8 +1228,8 @@ function renderResult(){
   $view.innerHTML = `<div class="card lift">
       <h3>Your score</h3>
       <div class="stat">${r.score}<small> / ${r.total}</small></div>
-      <div class="verdict">${verdict(r.score, r.total)}</div>
-      <p class="note" style="margin-top:0">Time: ${fmtTime(r.elapsedMs)}</p>
+      <div class="verdict">${r.timedOut ? "Time." : verdict(r.score, r.total)}</div>
+      <p class="note" style="margin-top:0">Time: ${fmtTime(r.elapsedMs)}${r.timedOut ? ` — the clock ran out${S.unanswered ? ` with ${S.unanswered} question${S.unanswered === 1 ? "" : "s"} unanswered` : ""}.` : ""}</p>
       ${saveLine}
       <div class="row" style="margin-top:14px">
         <button class="btn" id="toBoard">See the leaderboard</button>
