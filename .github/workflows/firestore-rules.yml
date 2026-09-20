@@ -1,0 +1,41 @@
+name: Publish Firestore rules
+
+# Runs whenever firestore.rules changes on main, and can be started by hand
+# from the Actions tab. Needs one repository secret, FIREBASE_SERVICE_ACCOUNT,
+# holding the JSON key of a Firebase service account for project babies-trivia.
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - firestore.rules
+      - firebase.json
+      - .github/workflows/firestore-rules.yml
+  workflow_dispatch:
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Check the secret is present
+        env:
+          KEY: ${{ secrets.FIREBASE_SERVICE_ACCOUNT }}
+        run: |
+          if [ -z "$KEY" ]; then
+            echo "::error::Repository secret FIREBASE_SERVICE_ACCOUNT is not set. Add it under Settings > Secrets and variables > Actions, then re-run this workflow."
+            exit 1
+          fi
+          printf '%s' "$KEY" > "$RUNNER_TEMP/service-account.json"
+          node -e "JSON.parse(require('fs').readFileSync(process.env.RUNNER_TEMP + '/service-account.json','utf8'))" \
+            || { echo "::error::FIREBASE_SERVICE_ACCOUNT is not valid JSON. Paste the entire contents of the downloaded key file."; exit 1; }
+
+      - name: Publish rules to Firestore
+        env:
+          GOOGLE_APPLICATION_CREDENTIALS: ${{ runner.temp }}/service-account.json
+        run: npx --yes firebase-tools@latest deploy --only firestore:rules --project babies-trivia --non-interactive

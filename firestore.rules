@@ -1,0 +1,44 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    function signedIn() {
+      return request.auth != null;
+    }
+
+    // Anyone in this list gets the Host tab (open/close rounds, wipe scores).
+    function isHost() {
+      return signedIn() && request.auth.token.email in [
+        'navin78@gmail.com'
+      ];
+    }
+
+    // Round open/closed state. Everyone reads it, only the host changes it.
+    match /site/config {
+      allow read: if signedIn();
+      allow write: if isHost();
+    }
+
+    // One official score per player per round. Doc id is "<roundId>_<uid>".
+    match /scores/{scoreId} {
+      allow read: if signedIn();
+      allow create: if signedIn()
+        && request.resource.data.uid == request.auth.uid
+        && scoreId == request.resource.data.roundId + '_' + request.auth.uid;
+      allow update: if false;
+      allow delete: if isHost();
+    }
+
+    // Who is mid-quiz right now. Each player owns the doc keyed by their uid.
+    match /presence/{uid} {
+      allow read: if signedIn();
+      allow write, delete: if signedIn() && request.auth.uid == uid;
+    }
+
+    // Next-round poll. One vote per player, changeable.
+    match /votes/{uid} {
+      allow read: if signedIn();
+      allow write, delete: if signedIn() && request.auth.uid == uid;
+    }
+  }
+}
