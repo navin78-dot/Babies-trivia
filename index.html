@@ -147,6 +147,10 @@ a.btn{text-decoration:none}
 .pollopt .pbar{height:8px;border-radius:99px;background:var(--surface2);overflow:hidden;margin:8px 0 8px}
 .pollopt .pbar i{display:block;height:100%;border-radius:99px;background:linear-gradient(90deg,var(--accent),var(--accent2));transition:width .35s ease}
 .pollopt .pblurb{font-size:13px;color:var(--muted);line-height:1.45}
+.pollrow{margin-bottom:10px}
+.pollrow .pollopt{margin-bottom:0}
+.polladmin{display:flex;align-items:center;gap:10px;flex-wrap:wrap;padding:8px 4px 2px}
+.polladmin .note{margin:0}
 .tabdot{display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--accent);margin-left:6px;vertical-align:middle}
 .qvis{font-size:clamp(34px,11vw,52px);line-height:1.35;text-align:center;letter-spacing:.12em;margin:14px 0 4px;
   background:var(--surface2);border-radius:14px;padding:22px 14px;word-break:break-word}
@@ -760,6 +764,356 @@ const ROUNDS = [
        w:"\"Migrant Mother,\" taken in a California pea pickers' camp in 1936, became the defining image of the Great Depression. She shot it for a federal agency, so it was never copyrighted."},
     ]
   },
+  {
+    id: "one-hit-wonders",
+    name: "One Hit Wonders",
+    subject: "One hit wonders",
+    tagline: "Twenty songs everyone knows by artists you can barely name. Starts easy, ends hard.",
+    draft: true,
+    theme: { font: "Alfa Slab One", accent: "#E11D48", accent2: "#7C3AED", accentDark: "#FB7185", accent2Dark: "#A78BFA" },
+    questions: [
+      {d:"easy",q:"Which Spanish duo's 1996 song 'Macarena' spent 14 weeks at number one in the US?",
+       o:["Los del Río","Gipsy Kings","Los Lobos","Ricky Martin"],a:0,
+       w:"Antonio Romero and Rafael Ruiz. The chart-topping version was the Bayside Boys remix."},
+      {d:"easy",q:"'Who Let the Dogs Out' was a 2000 novelty smash for which group?",
+       o:["Baha Men","Shaggy","Wyclef Jean","Sean Paul"],a:0,
+       w:"The Bahamian group won a Grammy for it, though the song had been recorded by others first."},
+      {d:"easy",q:"'Tubthumping,' with its 'I get knocked down' chorus, was a 1997 hit for which band?",
+       o:["Chumbawamba","The Verve","Blur","Oasis"],a:0,
+       w:"Chumbawamba were a British anarchist collective who had been going since 1982."},
+      {d:"easy",q:"'99 Luftballons' (1983) was a global hit for which German singer?",
+       o:["Nena","Falco","Trio","Kraftwerk"],a:0,
+       w:"A song about balloons setting off a nuclear panic. The English version was '99 Red Balloons.'"},
+      {d:"easy",q:"'Mambo No. 5' returned to the charts in 1999 in a version by which artist?",
+       o:["Lou Bega","Ricky Martin","Marc Anthony","Enrique Iglesias"],a:0,
+       w:"Lou Bega built it on a 1949 instrumental by the Cuban bandleader Pérez Prado."},
+      {d:"easy",q:"The 1981 synth-pop version of 'Tainted Love' was recorded by which duo?",
+       o:["Soft Cell","Depeche Mode","Erasure","Yazoo"],a:0,
+       w:"A cover of Gloria Jones's 1964 northern-soul track. Soft Cell never matched it."},
+      {d:"easy",q:"'I'm Too Sexy' (1991) was the breakout hit for which British group?",
+       o:["Right Said Fred","Wham!","Culture Club","Frankie Goes to Hollywood"],a:0,
+       w:"Brothers Fred and Richard Fairbrass, both notably bald, fronted the group."},
+      {d:"medium",q:"'Come On Eileen' (1982) topped charts on both sides of the Atlantic for which band?",
+       o:["Dexys Midnight Runners","Madness","The Specials","The Housemartins"],a:0,
+       w:"Kevin Rowland's band, known for their dungarees. It knocked Michael Jackson off the US number one."},
+      {d:"medium",q:"'Video Killed the Radio Star,' the first music video shown on MTV in 1981, was by which group?",
+       o:["The Buggles","The Cars","Devo","Talking Heads"],a:0,
+       w:"Trevor Horn and Geoff Downes. The song was already two years old by the time MTV launched."},
+      {d:"medium",q:"'Somebody That I Used to Know' (2011), featuring Kimbra, was a worldwide hit for whom?",
+       o:["Gotye","Hozier","James Blake","Sia"],a:0,
+       w:"The Belgian-Australian musician Wouter De Backer. It won the Grammy for Record of the Year."},
+      {d:"medium",q:"'Blue (Da Ba Dee)' (1998) was the signature hit of which Italian dance group?",
+       o:["Eiffel 65","Aqua","Alice Deejay","Cascada"],a:0,
+       w:"A Eurodance act from Turin. Aqua, of 'Barbie Girl' fame, were Danish."},
+      {d:"medium",q:"'A Thousand Miles' (2002), built on an insistent piano riff, was the hit that defined which singer?",
+       o:["Vanessa Carlton","Michelle Branch","Dido","Avril Lavigne"],a:0,
+       w:"Its most famous later appearance was Terry Crews singing along in 'White Chicks.'"},
+      {d:"medium",q:"The fuzz-guitar gospel-rock song 'Spirit in the Sky' (1969) was a hit for which artist?",
+       o:["Norman Greenbaum","Creedence Clearwater Revival","Steppenwolf","The Byrds"],a:0,
+       w:"Greenbaum, who was Jewish, wrote a song full of Christian imagery and never had another hit."},
+      {d:"medium",q:"'How Bizarre' (1995), by the group OMC, came from which country?",
+       o:["New Zealand","Australia","Ireland","Canada"],a:0,
+       w:"OMC stood for Otara Millionaires Club, led by the late Pauly Fuemana."},
+      {d:"hard",q:"'Mickey' (1982), with its cheerleader chant, was the one big hit for which singer and choreographer?",
+       o:["Toni Basil","Kim Carnes","Irene Cara","Bonnie Tyler"],a:0,
+       w:"Basil was a noted choreographer. The song was a reworking of an earlier track called 'Kitty.'"},
+      {d:"hard",q:"'867-5309/Jenny' (1982) was a hit for which band?",
+       o:["Tommy Tutone","The Knack","The Romantics","The Cars"],a:0,
+       w:"The phone number in the title led to prank calls across America for decades."},
+      {d:"hard",q:"'Kung Fu Fighting' (1974) topped charts worldwide for which singer?",
+       o:["Carl Douglas","Barry White","Isaac Hayes","KC"],a:0,
+       w:"The Jamaican-British singer recorded it in about ten minutes as an intended B-side."},
+      {d:"hard",q:"'Bad Day' (2005), played to death on American Idol, was the hit of which Canadian singer?",
+       o:["Daniel Powter","Daniel Bedingfield","Gavin DeGraw","James Blunt"],a:0,
+       w:"It was Billboard's number one single of all of 2006, then Powter vanished from the charts."},
+      {d:"hard",q:"'Because I Got High' (2001) was a novelty hit for which rapper?",
+       o:["Afroman","Coolio","Tone Lōc","Sir Mix-a-Lot"],a:0,
+       w:"Joseph Foreman, known as Afroman. The song earned a surprise Grammy nomination."},
+      {d:"hard",q:"'Turning Japanese' (1980) was the one hit for which British band?",
+       o:["The Vapors","The Jam","The Undertones","The Members"],a:0,
+       w:"A new-wave one-off from Guildford. The band split within a few years."},
+    ]
+  },
+  {
+    id: "plate-to-place",
+    name: "Plate to Place",
+    subject: "Food origins",
+    tagline: "Twenty dishes and where they really come from. It is almost never where you think. Starts easy, ends hard.",
+    draft: true,
+    theme: { font: "Pacifico", accent: "#B45309", accent2: "#15803D", accentDark: "#FBBF24", accent2Dark: "#4ADE80" },
+    questions: [
+      {d:"easy",q:"The Hawaiian pizza, topped with pineapple and ham, was actually invented in which country?",
+       o:["Canada","United States","Italy","Australia"],a:0,
+       w:"Sam Panopoulos, a Greek-Canadian, first made it in Ontario in 1962."},
+      {d:"easy",q:"French fries are, by most accounts, originally from which country?",
+       o:["Belgium","France","United States","Netherlands"],a:0,
+       w:"Belgians say potatoes were fried in the Meuse valley in the 1600s. The 'French' may come from US soldiers in WWI."},
+      {d:"easy",q:"Chili peppers, now central to Indian and Thai cooking, are native to which part of the world?",
+       o:["The Americas","India","Thailand","China"],a:0,
+       w:"Portuguese traders carried them from the New World to Asia in the 1500s."},
+      {d:"easy",q:"Fortune cookies, served in American Chinese restaurants, most likely originated in which country?",
+       o:["Japan","China","United States","Taiwan"],a:0,
+       w:"They descend from Japanese senbei crackers and were popularized in California."},
+      {d:"easy",q:"The croissant is a symbol of France but is thought to descend from a pastry from which country?",
+       o:["Austria","France","Switzerland","Germany"],a:0,
+       w:"From the Viennese kipferl. French bakers call such pastries 'viennoiserie' for that reason."},
+      {d:"easy",q:"Tempura, the light battered-and-fried dish, was introduced to Japan by traders from where?",
+       o:["Portugal","China","Netherlands","Spain"],a:0,
+       w:"Portuguese Jesuits brought the frying technique in the 16th century."},
+      {d:"easy",q:"Vindaloo, the fiery curry, comes from Goa and fuses Indian cooking with which cuisine?",
+       o:["Portuguese","British","Dutch","French"],a:0,
+       w:"From 'carne de vinha d'alhos,' meat in wine and garlic. Goa was a Portuguese colony."},
+      {d:"medium",q:"Sweden's own government has said its famous meatballs are based on a recipe brought from where?",
+       o:["Turkey","Norway","Germany","Denmark"],a:0,
+       w:"An official 2018 tweet credited King Charles XII with bringing the recipe from the Ottoman Empire."},
+      {d:"medium",q:"Chicken tikka masala is often claimed to have been invented in which country?",
+       o:["Scotland","India","Pakistan","Bangladesh"],a:0,
+       w:"A popular story credits a Glasgow restaurant. The origin is disputed but strongly tied to Britain."},
+      {d:"medium",q:"'German' chocolate cake is named after a person, not the country. Who was German?",
+       o:["A man named Sam German","A German duke","A town called German","A baker's guild"],a:0,
+       w:"Samuel German developed a dark baking chocolate for the Baker's company in 1852."},
+      {d:"medium",q:"Spaghetti and meatballs as a single plate is largely an invention of which country?",
+       o:["United States","Italy","Argentina","France"],a:0,
+       w:"Italian immigrants created it in America. In Italy, meat and pasta are usually separate courses."},
+      {d:"medium",q:"The kiwifruit, once called the Chinese gooseberry, was renamed for export by which country?",
+       o:["New Zealand","China","Australia","United States"],a:0,
+       w:"Native to China, it was renamed after New Zealand's national bird in the 1950s to help sales."},
+      {d:"medium",q:"Nachos were invented in the 1940s by a maître d' nicknamed Nacho in which country?",
+       o:["Mexico","United States","Spain","Guatemala"],a:0,
+       w:"Ignacio Anaya made them in Piedras Negras for American customers from across the border."},
+      {d:"medium",q:"The doner kebab in its modern bread-wrapped sandwich form was popularized in which city?",
+       o:["Berlin","Istanbul","London","Athens"],a:0,
+       w:"Turkish immigrants in 1970s West Berlin created the version now sold across Europe."},
+      {d:"hard",q:"The Margherita pizza is said to honor Queen Margherita of Savoy in which year, per the popular story?",
+       o:["1889","1861","1901","1830"],a:0,
+       w:"The Naples pizzaiolo Raffaele Esposito is credited, though historians doubt the tidy legend."},
+      {d:"hard",q:"Ketchup takes its name and origin from a fermented sauce from which region?",
+       o:["Southeast Asia","England","Mexico","India"],a:0,
+       w:"From the Hokkien 'kê-tsiap,' a fish or soy sauce. Tomatoes were an American addition."},
+      {d:"hard",q:"'Bombay duck,' a dish of the Indian coast, is actually made from what?",
+       o:["A fish","Duck","Chicken","Lentils"],a:0,
+       w:"It is a dried lizardfish called bombil. There is no duck in it at all."},
+      {d:"hard",q:"Worcestershire sauce was bottled by two English chemists but was based on a sauce from where?",
+       o:["India","China","France","Malaysia"],a:0,
+       w:"Lea and Perrins were asked to recreate an Indian recipe. The first batch was left to mature in a cellar."},
+      {d:"hard",q:"The samosa, a staple of Indian snacking, is believed to have originated in which region?",
+       o:["The Middle East and Central Asia","Southern India","China","East Africa"],a:0,
+       w:"From the Persian 'sanbosag.' It reached India with Central Asian traders in the Middle Ages."},
+      {d:"hard",q:"Balti curry, served in a pressed-steel bowl, is associated with which British city?",
+       o:["Birmingham","London","Bradford","Manchester"],a:0,
+       w:"South Asian restaurateurs developed it in Birmingham's 'Balti Triangle' in the 1970s."},
+    ]
+  },
+  {
+    id: "great-heists",
+    name: "Great Heists and Cons",
+    subject: "Heists and frauds",
+    tagline: "Twenty real robberies and swindles, from tunnels under banks to men who sold monuments. Starts easy, ends hard.",
+    draft: true,
+    theme: { font: "Special Elite", accent: "#334155", accent2: "#B91C1C", accentDark: "#94A3B8", accent2Dark: "#F87171" },
+    questions: [
+      {d:"easy",q:"Which con man famously 'sold' the Eiffel Tower for scrap metal, twice, in the 1920s?",
+       o:["Victor Lustig","Frank Abagnale","Charles Ponzi","Bernie Madoff"],a:0,
+       w:"Lustig posed as a government official arranging the tower's secret demolition."},
+      {d:"easy",q:"The term 'Ponzi scheme' comes from Charles Ponzi, who ran his fraud in which decade?",
+       o:["1920s","1890s","1950s","1970s"],a:0,
+       w:"He promised huge returns supposedly from international postal coupons in 1920 Boston."},
+      {d:"easy",q:"Frank Abagnale's cons inspired which 2002 Spielberg film starring Leonardo DiCaprio?",
+       o:["Catch Me If You Can","The Sting","American Hustle","The Wolf of Wall Street"],a:0,
+       w:"He claimed to have posed as a pilot, doctor and lawyer, though some of his story is now doubted."},
+      {d:"easy",q:"Bernie Madoff ran the largest Ponzi scheme in history, uncovered in which year?",
+       o:["2008","2001","2005","2011"],a:0,
+       w:"About $65 billion in paper losses. He was sentenced to 150 years and died in prison in 2021."},
+      {d:"easy",q:"The 2003 diamond heist that stole an estimated $100 million in gems hit a vault in which city?",
+       o:["Antwerp","Amsterdam","Geneva","Paris"],a:0,
+       w:"The Italian 'School of Turin' gang cracked a vault thought to be impregnable."},
+      {d:"easy",q:"In 1990, thieves dressed as police stole masterpieces from which Boston museum?",
+       o:["Isabella Stewart Gardner Museum","Museum of Modern Art","The Getty","The Frick"],a:0,
+       w:"Thirteen works, including a Vermeer, are still missing. Empty frames hang where they were."},
+      {d:"easy",q:"The 'Great Train Robbery' of 1963, which took £2.6 million, happened in which country?",
+       o:["England","United States","France","Ireland"],a:0,
+       w:"Ronnie Biggs became its most famous member after escaping from prison and fleeing abroad."},
+      {d:"medium",q:"The Mona Lisa was stolen from the Louvre in 1911 by Vincenzo Peruggia, who was what there?",
+       o:["A handyman","A curator","A guard","A painter"],a:0,
+       w:"He had helped build the painting's glass case, then walked out with it under his smock."},
+      {d:"medium",q:"Which forger confessed to selling a fake Vermeer to Hermann Göring during WWII?",
+       o:["Han van Meegeren","Elmyr de Hory","Tom Keating","Eric Hebborn"],a:0,
+       w:"To escape a treason charge, he proved his innocence by painting a 'Vermeer' in front of the court."},
+      {d:"medium",q:"The 1971 tunnel robbery of a Lloyds Bank vault in London, later filmed as 'The Bank Job,' was on which street?",
+       o:["Baker Street","Bond Street","Fleet Street","Oxford Street"],a:0,
+       w:"Thieves dug into the vault over a weekend. A ham-radio hobbyist overheard their walkie-talkies."},
+      {d:"medium",q:"Charles Ponzi's scheme claimed to profit from price gaps in what?",
+       o:["International postal reply coupons","Gold","Railroad stocks","Florida land"],a:0,
+       w:"In theory it was arbitrage. In practice he simply paid old investors with new investors' money."},
+      {d:"medium",q:"The 2015 Hatton Garden safe-deposit raid in London was notable because many of the thieves were what?",
+       o:["Elderly","Teenagers","Ex-police","Foreign nationals"],a:0,
+       w:"Several were pensioners in their 60s and 70s. They drilled through a vault wall over a holiday weekend."},
+      {d:"medium",q:"Anna Sorokin conned New York's elite by posing as a German heiress under what fake surname?",
+       o:["Delvey","Devereux","Rothschild","von Trapp"],a:0,
+       w:"As 'Anna Delvey' she talked her way through luxury hotels. Her story became the series 'Inventing Anna.'"},
+      {d:"medium",q:"The 1983 Brink's-Mat robbery at Heathrow saw thieves make off with three tonnes of what?",
+       o:["Gold bullion","Cash","Diamonds","Silver"],a:0,
+       w:"Worth £26 million. So much was laundered that people joke anyone wearing gold since owns 'a bit of Brink's-Mat.'"},
+      {d:"hard",q:"In 1971 a hijacker known as D. B. Cooper took $200,000 and escaped a jet by doing what?",
+       o:["Parachuting out","Landing in Cuba","Swapping planes","Driving away"],a:0,
+       w:"He jumped over the Pacific Northwest and was never identified. Some of the cash later turned up on a riverbank."},
+      {d:"hard",q:"Victor Lustig's 'ten commandments for con men' opened with the advice to be a good what?",
+       o:["Listener","Liar","Dresser","Gambler"],a:0,
+       w:"'Be a patient listener' was the first rule. He also once conned Al Capone."},
+      {d:"hard",q:"The 1978 Lufthansa heist at JFK Airport, shown in 'Goodfellas,' was masterminded by whom?",
+       o:["Jimmy Burke","Henry Hill","Paul Vario","Tommy DeSimone"],a:0,
+       w:"About $6 million in cash and jewels. Many people connected to it were later murdered."},
+      {d:"hard",q:"The forger Wolfgang Beltracchi fooled the art world for years until he was undone by a flaw in his what?",
+       o:["Paint pigment","Signature","Canvas size","Frame"],a:0,
+       w:"A tube of white paint held titanium, which the artist he was imitating could not have used. It exposed him in 2010."},
+      {d:"hard",q:"The Isabella Stewart Gardner Museum offers a reward of how much for its stolen art?",
+       o:["$10 million","$1 million","$5 million","$50 million"],a:0,
+       w:"Doubled to $10 million. The FBI has said it believes it knows the thieves, who are now dead."},
+      {d:"hard",q:"In the 1963 'Salad Oil' swindle that rocked Wall Street, the fraudster's tanks were mostly full of what?",
+       o:["Seawater","Sand","Corn syrup","Air"],a:0,
+       w:"Tino De Angelis floated a thin layer of oil on water to fool inspectors. The collapse hurt major banks."},
+    ]
+  },
+  {
+    id: "to-the-moon",
+    name: "To the Moon and Mars",
+    subject: "Spaceflight",
+    tagline: "Twenty questions from Sputnik to the far side of the Moon and the surface of Mars. Starts easy, ends hard.",
+    draft: true,
+    theme: { font: "Orbitron", accent: "#1E3A8A", accent2: "#DC2626", accentDark: "#60A5FA", accent2Dark: "#F87171" },
+    questions: [
+      {d:"easy",q:"What was the first artificial satellite, launched by the Soviet Union in 1957?",
+       o:["Sputnik 1","Explorer 1","Vostok 1","Luna 1"],a:0,
+       w:"Its steady beeping, picked up by radios worldwide, kicked off the Space Race."},
+      {d:"easy",q:"Who was the first person to walk on the Moon, in July 1969?",
+       o:["Neil Armstrong","Buzz Aldrin","Yuri Gagarin","Michael Collins"],a:0,
+       w:"Aboard Apollo 11. Aldrin followed him onto the surface about twenty minutes later."},
+      {d:"easy",q:"Which US program put astronauts on the Moon between 1969 and 1972?",
+       o:["Apollo","Gemini","Mercury","Artemis"],a:0,
+       w:"Six landings succeeded and twelve men walked on the Moon. Artemis is the modern return program."},
+      {d:"easy",q:"The rovers Spirit, Opportunity, Curiosity and Perseverance have all explored which planet?",
+       o:["Mars","Venus","The Moon","Jupiter"],a:0,
+       w:"Perseverance landed in 2021 carrying Ingenuity, the first helicopter to fly on another planet."},
+      {d:"easy",q:"The first woman in space, in 1963, was which Soviet cosmonaut?",
+       o:["Valentina Tereshkova","Sally Ride","Mae Jemison","Svetlana Savitskaya"],a:0,
+       w:"She orbited 48 times aboard Vostok 6. Sally Ride became the first American woman in space in 1983."},
+      {d:"easy",q:"The reusable NASA spacecraft that flew from 1981 to 2011 was called the Space what?",
+       o:["Shuttle","Station","Capsule","Glider"],a:0,
+       w:"Five orbiters flew missions. Challenger and Columbia were lost with their crews."},
+      {d:"easy",q:"Which private company, founded by Elon Musk, builds the Falcon 9 rocket?",
+       o:["SpaceX","Blue Origin","Virgin Galactic","Boeing"],a:0,
+       w:"Falcon 9 boosters fly back and land upright to be reused, once thought impractical."},
+      {d:"medium",q:"Which Apollo mission suffered an oxygen tank explosion but brought its crew home safely in 1970?",
+       o:["Apollo 13","Apollo 11","Apollo 1","Apollo 8"],a:0,
+       w:"Commanded by Jim Lovell. The crew used the lunar module as a lifeboat to get back to Earth."},
+      {d:"medium",q:"The world's first space station, launched by the Soviets in 1971, was called what?",
+       o:["Salyut 1","Mir","Skylab","Tiangong"],a:0,
+       w:"Its first visiting crew, from Soyuz 11, died during their return to Earth."},
+      {d:"medium",q:"The International Space Station has been continuously occupied by crews since which year?",
+       o:["2000","1998","1995","2005"],a:0,
+       w:"The first resident crew arrived in November 2000. People have lived aboard ever since."},
+      {d:"medium",q:"The first American to orbit the Earth, in 1962, was who?",
+       o:["John Glenn","Alan Shepard","Gus Grissom","Neil Armstrong"],a:0,
+       w:"Aboard Friendship 7. He returned to space aboard the shuttle in 1998 at the age of 77."},
+      {d:"medium",q:"The Hubble Space Telescope, launched in 1990, at first had a flaw in its what?",
+       o:["Mirror","Solar panels","Antenna","Gyroscopes"],a:0,
+       w:"The main mirror was ground slightly wrong. A 1993 servicing mission fitted corrective optics."},
+      {d:"medium",q:"Which two-person NASA program of the mid-1960s tested spacewalks and docking before Apollo?",
+       o:["Gemini","Mercury","Vostok","Soyuz"],a:0,
+       w:"It bridged the one-man Mercury flights and the Moon-bound Apollo missions."},
+      {d:"medium",q:"The first close-up photographs of the far side of the Moon, in 1959, came from which Soviet program?",
+       o:["Luna","Zond","Venera","Soyuz"],a:0,
+       w:"Luna 3 sent back grainy images of the hemisphere no one had ever seen."},
+      {d:"hard",q:"The first soft landing on the Moon by any spacecraft was achieved in 1966 by which Soviet probe?",
+       o:["Luna 9","Luna 2","Surveyor 1","Ranger 7"],a:0,
+       w:"It returned the first panoramas taken from the lunar surface. The US Surveyor 1 followed months later."},
+      {d:"hard",q:"Which spacecraft, launched in 1977, became the first human-made object to reach interstellar space?",
+       o:["Voyager 1","Pioneer 10","Voyager 2","New Horizons"],a:0,
+       w:"It crossed the heliopause in 2012 and still sends back faint signals."},
+      {d:"hard",q:"The last two people to walk on the Moon, in 1972, flew on which Apollo mission?",
+       o:["Apollo 17","Apollo 16","Apollo 15","Apollo 14"],a:0,
+       w:"Gene Cernan and Harrison Schmitt. Schmitt was a geologist, the only scientist to walk on the Moon."},
+      {d:"hard",q:"The first probe to land on Mars and send back any data from the surface was which Soviet craft, in 1971?",
+       o:["Mars 3","Viking 1","Mars 2","Pathfinder"],a:0,
+       w:"It transmitted for only about 20 seconds. Viking 1 was the first lander to operate for a long time, in 1976."},
+      {d:"hard",q:"China's rover that landed on the far side of the Moon in 2019, a world first, was named what?",
+       o:["Yutu-2","Chang'e","Tianwen","Zhurong"],a:0,
+       w:"Yutu means Jade Rabbit. It was carried by the Chang'e 4 mission. Zhurong is China's Mars rover."},
+      {d:"hard",q:"The Huygens probe made the first landing in the outer solar system in 2005, touching down on which moon?",
+       o:["Titan","Enceladus","Europa","Rhea"],a:0,
+       w:"Saturn's moon Titan. Huygens rode there aboard the Cassini orbiter and sampled its thick orange haze."},
+    ]
+  },
+  {
+    id: "word-origins",
+    name: "Where Words Come From",
+    subject: "Word origins",
+    tagline: "Twenty everyday words with much stranger pasts than you would guess. Starts easy, ends hard.",
+    draft: true,
+    theme: { font: "Playfair Display", accent: "#6D28D9", accent2: "#0891B2", accentDark: "#A78BFA", accent2Dark: "#22D3EE" },
+    questions: [
+      {d:"easy",q:"The word 'quarantine' comes from an Italian word for which number?",
+       o:["Forty","Four","Fourteen","Four hundred"],a:0,
+       w:"'Quaranta giorni,' the forty days ships waited off Venice during plague outbreaks."},
+      {d:"easy",q:"'Salary' derives from the Latin word for which substance, tied to paying Roman soldiers?",
+       o:["Salt","Silver","Gold","Grain"],a:0,
+       w:"From 'salarium.' It is also behind the phrase 'worth his salt.'"},
+      {d:"easy",q:"The 'sandwich' is named after an earl who reputedly wanted to eat without leaving what?",
+       o:["A card table","His horse","Church","His bed"],a:0,
+       w:"The 4th Earl of Sandwich, John Montagu, in the 1700s, so he could keep gambling."},
+      {d:"easy",q:"'Robot' entered English from a 1920 Czech play, from a word meaning what?",
+       o:["Forced labor","Metal man","Servant","Machine"],a:0,
+       w:"From 'robota,' meaning drudgery, in Karel Čapek's play 'R.U.R.'"},
+      {d:"easy",q:"The word 'jeans' comes from the name of which Italian city?",
+       o:["Genoa","Turin","Milan","Naples"],a:0,
+       w:"From 'Gênes,' the French name for Genoa, where the cloth was made. Denim is a separate word."},
+      {d:"easy",q:"'Denim' fabric takes its name from a town in which country?",
+       o:["France","Italy","United States","Germany"],a:0,
+       w:"From 'serge de Nîmes,' the sturdy cloth of the town of Nîmes."},
+      {d:"easy",q:"'Hello' became a common greeting largely thanks to the spread of which invention?",
+       o:["The telephone","The radio","The telegraph","Television"],a:0,
+       w:"Edison pushed 'hello' as the way to answer a call. Bell preferred 'ahoy.'"},
+      {d:"medium",q:"'Assassin' is often traced to a medieval sect and an Arabic word linked to which substance?",
+       o:["Hashish","Wine","Opium","Coffee"],a:0,
+       w:"From 'hashshashin.' The exact link is debated, but the word entered Europe from tales of the sect."},
+      {d:"medium",q:"In 'nightmare,' the 'mare' originally referred to a kind of what?",
+       o:["Evil spirit","Female horse","Storm","Fever"],a:0,
+       w:"A 'mare' was a goblin thought to sit on a sleeper's chest. It has nothing to do with horses."},
+      {d:"medium",q:"Borrowed from Latin 'nescius,' the word 'nice' originally meant what in Middle English?",
+       o:["Foolish","Kind","Clean","Pleasant"],a:0,
+       w:"It drifted from 'ignorant' through 'precise' before arriving at 'agreeable.'"},
+      {d:"medium",q:"The word 'clue' comes from 'clew,' an old word for what?",
+       o:["A ball of thread","A footprint","A whisper","A key"],a:0,
+       w:"From the myth of Theseus, who unwound thread to find his way out of the labyrinth."},
+      {d:"medium",q:"'Disaster' comes from roots that literally mean 'bad' what?",
+       o:["Star","Luck","Road","Day"],a:0,
+       w:"From 'dis-astro.' People once blamed misfortune on the alignment of the stars."},
+      {d:"medium",q:"The word 'muscle' comes from a Latin word meaning 'little' what?",
+       o:["Mouse","Rope","Hill","Knot"],a:0,
+       w:"From 'musculus.' A muscle flexing under the skin looked like a small mouse moving."},
+      {d:"medium",q:"'Companion' is built from Latin roots meaning a person you share what with?",
+       o:["Bread","A road","A home","A name"],a:0,
+       w:"From 'com-panis,' literally 'with bread.'"},
+      {d:"hard",q:"The word 'tragedy' comes from Greek roots that literally mean the song of which animal?",
+       o:["Goat","Swan","Crow","Lamb"],a:0,
+       w:"From 'tragos' (goat) and 'oide' (song). Why exactly is still argued by scholars."},
+      {d:"hard",q:"'Sabotage' is popularly linked to workers throwing what into machinery?",
+       o:["Wooden shoes","Sand","Hammers","Rags"],a:0,
+       w:"From the French 'sabot,' a wooden shoe. The shoe-throwing tale is likely a colorful myth."},
+      {d:"hard",q:"'Malaria' comes from medieval Italian meaning what?",
+       o:["Bad air","Bad water","Swamp fever","Night chill"],a:0,
+       w:"From 'mala aria.' The disease was blamed on foul air before mosquitoes were understood."},
+      {d:"hard",q:"'Gymnasium' comes from a Greek word describing exercising in what state?",
+       o:["Naked","Silence","Groups","Sandals"],a:0,
+       w:"From 'gymnos,' naked. Ancient Greek athletes trained and competed without clothes."},
+      {d:"hard",q:"The word 'trivia' itself comes from a Latin word meaning the meeting of how many roads?",
+       o:["Three","Two","Four","Seven"],a:0,
+       w:"From 'tri-via,' three roads. A crossroads was where people swapped common gossip."},
+      {d:"hard",q:"'Avocado' derives, through Spanish, from an Aztec word for which body part?",
+       o:["Testicle","Heart","Hand","Eye"],a:0,
+       w:"From the Nahuatl 'ahuacatl,' likely for the fruit's shape and the way it hangs in pairs."},
+    ]
+  },
   /* Next round goes here, e.g.
   {
     id: "round-3",
@@ -800,6 +1154,7 @@ const roundById = id => ROUNDS.find(r => r.id === id) || null;
 /* --- state --- */
 let me = null, isHost = false;
 let openIds = null;            // null = not loaded yet; Set of open round ids once loaded
+let liveIds = new Set();       // draft rounds the host has promoted to the lobby (site config liveRounds)
 let scores = [];               // every score doc
 let scoresReady = false;
 let unsubScores = null, unsubSite = null, unsubPresence = null, unsubVotes = null;
@@ -820,7 +1175,8 @@ const $view = $("view");
 const esc = s => String(s).replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
 const fmtTime = ms => { const s = Math.max(0, Math.round(ms / 1000)); return Math.floor(s / 60) + ":" + String(s % 60).padStart(2, "0"); };
 const fmtDate = iso => { try { return new Date(iso).toLocaleDateString(undefined, { month: "short", day: "numeric" }); } catch (e) { return ""; } };
-const isOpen = r => openIds ? openIds.has(r.id) : SETTINGS.newRoundsOpenByDefault;
+const isPublished = r => !r.draft || liveIds.has(r.id);
+const isOpen = r => r.draft ? isPublished(r) : (openIds ? openIds.has(r.id) : SETTINGS.newRoundsOpenByDefault);
 const isDark = () => window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;
 const themeOf = r => { const t = (r && r.theme) || {}; const d = isDark(); return { a: (d && t.accentDark) || t.accent || "#D81B60", b: (d && t.accent2Dark) || t.accent2 || "#F4B400", font: t.font || "" }; };
 
@@ -838,7 +1194,7 @@ function applyTheme(r){
   $("eyebrow").textContent = (r.subject ? r.subject + " · " : "") + (isOpen(r) ? "Open" : "Closed");
   $("roundSub").textContent = r.tagline || "";
 }
-const openCount = () => ROUNDS.filter(isOpen).length;
+const openCount = () => ROUNDS.filter(r => isPublished(r) && isOpen(r)).length;
 if (window.matchMedia) window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", renderAll);
 
 /* --- progress persistence (per player, per round, this device) --- */
@@ -861,7 +1217,7 @@ auth.getRedirectResult().catch(() => {});
 auth.onAuthStateChanged(async u => {
   me = u; isHost = false; fatal = "";
   if (me) { isHost = await probeHost(); subscribeSite(); subscribeScores(); subscribePresence(); subscribeVotes();
-    if (pendingRound && roundById(pendingRound)) { const id = pendingRound; pendingRound = null; selectRound(id); return; } pendingRound = null; }
+    if (pendingRound && roundById(pendingRound) && isPublished(roundById(pendingRound))) { const id = pendingRound; pendingRound = null; selectRound(id); return; } pendingRound = null; }
   else { if (unsubScores) { unsubScores(); unsubScores = null; } if (unsubSite) { unsubSite(); unsubSite = null; } if (unsubPresence) { unsubPresence(); unsubPresence = null; } if (unsubVotes) { unsubVotes(); unsubVotes = null; } votes = []; votesReady = false; presence = []; presenceRound = null; stopTimer(); if (hbTimer) { clearInterval(hbTimer); hbTimer = null; } round = null; S.tab = "play"; }
   renderAll();
 });
@@ -874,6 +1230,7 @@ function subscribeSite(){
   unsubSite = dbf.collection("site").doc("config").onSnapshot(snap => {
     const d = snap.exists ? snap.data() : {};
     openIds = Array.isArray(d.openRounds) ? new Set(d.openRounds) : (SETTINGS.newRoundsOpenByDefault ? new Set(ROUNDS.map(r => r.id)) : new Set());
+    liveIds = new Set(Array.isArray(d.liveRounds) ? d.liveRounds : []);
     renderAll();
   }, err => { fatal = "Couldn't reach the database: " + (err.code || err.message); renderAll(); });
 }
@@ -921,6 +1278,13 @@ function subscribeVotes(){
 }
 const myVote = () => { const v = votes.find(v => v.uid === (me && me.uid)); return v ? v.choice : null; };
 const voteCount = id => votes.filter(v => v.choice === id).length;
+async function setLive(id, on){
+  if (!me) return;
+  const r = roundById(id); if (!r || !r.draft) return;
+  const next = new Set(liveIds); on ? next.add(id) : next.delete(id);
+  try { await dbf.collection("site").doc("config").set({ liveRounds: [...next] }, { merge: true }); }
+  catch (e) { const el = $("pollMsg"); if (el) el.textContent = "Couldn't update the lobby: " + (e.code || e.message); }
+}
 async function castVote(id){
   if (!me || !POLL.open) return;
   try { await dbf.collection("votes").doc(me.uid).set({ uid: me.uid, name: me.displayName || "Someone", photo: me.photoURL || "", choice: id, at: firebase.firestore.FieldValue.serverTimestamp() }); }
@@ -937,7 +1301,7 @@ function combined(){ const by = {}; scores.forEach(s => { const c = by[s.uid] ||
 $("home").onclick = () => goLobby();
 $("back").onclick = () => goLobby();
 function goLobby(){ stopTimer(); round = null; S.tab = "play"; resetShare(); renderAll(); window.scrollTo({ top: 0 }); }
-function selectRound(id, tab = "play"){ stopTimer(); round = roundById(id); boardSel = id; S.tab = tab; resetShare(); loadProgress(); renderAll(); window.scrollTo({ top: 0 }); }
+function selectRound(id, tab = "play"){ const r = roundById(id); if (!r || !isPublished(r)) return goLobby(); stopTimer(); round = r; boardSel = id; S.tab = tab; resetShare(); loadProgress(); renderAll(); window.scrollTo({ top: 0 }); }
 document.querySelectorAll(".tab").forEach(b => b.addEventListener("click", () => setTab(b.dataset.tab)));
 function setTab(t){ S.tab = t; renderAll(); }
 
@@ -978,7 +1342,7 @@ function wireGate(){ const b = $("signin"); if (b) b.onclick = signIn; }
 
 let lobbySel = ALL, lobbyAll = false, lobbyTab = "rounds";
 function pickerHtml(id, sel){
-  return `<select id="${id}" aria-label="Which leaderboard to show"><option value="${ALL}" ${sel === ALL ? "selected" : ""}>All rounds combined</option>${ROUNDS.map(x => `<option value="${esc(x.id)}" ${x.id === sel ? "selected" : ""}>${esc(x.name)}${isOpen(x) ? "" : " (closed)"}</option>`).join("")}</select>`;
+  return `<select id="${id}" aria-label="Which leaderboard to show"><option value="${ALL}" ${sel === ALL ? "selected" : ""}>All rounds combined</option>${ROUNDS.filter(isPublished).map(x => `<option value="${esc(x.id)}" ${x.id === sel ? "selected" : ""}>${esc(x.name)}${isOpen(x) ? "" : " (closed)"}</option>`).join("")}</select>`;
 }
 function boardList(sel){ return sel === ALL ? combined() : boardFor(sel); }
 function renderLobby(){
@@ -996,20 +1360,33 @@ function pollHtml(){
   const best = Math.max(0, ...POLL.options.map(o => voteCount(o.id)));
   const rows = POLL.options.map(o => {
     const c = voteCount(o.id), pct = total ? Math.round((c / total) * 100) : 0;
-    return `<button class="pollopt" data-p="${esc(o.id)}" data-mine="${mine === o.id ? 1 : 0}"${POLL.open ? "" : " disabled"}>
+    const r = roundById(o.id);
+    let admin = "";
+    if (isHost && r && r.draft) {
+      admin = isPublished(r)
+        ? `<div class="polladmin"><span class="pill live">In the lobby</span><button class="linkbtn" data-unpub="${esc(o.id)}">Remove</button></div>`
+        : `<div class="polladmin"><button class="btn small" data-pub="${esc(o.id)}">Add to lobby</button><span class="note">Ready to go, ${r.questions.length} questions written.</span></div>`;
+    } else if (isHost && !r) {
+      admin = `<div class="polladmin"><span class="note">No round written for this theme yet.</span></div>`;
+    }
+    return `<div class="pollrow"><button class="pollopt" data-p="${esc(o.id)}" data-mine="${mine === o.id ? 1 : 0}"${POLL.open ? "" : " disabled"}>
       <div class="prow"><span class="pname">${esc(o.name)}${mine === o.id ? " ✓" : ""}${c && c === best && total ? ` <span class="pill live">Leading</span>` : ""}</span><span class="pcount">${c} vote${c === 1 ? "" : "s"}${total ? " · " + pct + "%" : ""}</span></div>
       <div class="pbar"><i style="width:${pct}%"></i></div>
       <div class="pblurb">${esc(o.blurb)}</div>
-    </button>`;
+    </button>${admin}</div>`;
   }).join("");
   const status = !votesReady ? `<p class="note">Loading votes…</p>`
     : !POLL.open ? `<p class="note">Voting is closed.</p>`
     : mine ? `<p class="note">Your vote is in. Tap another to change it. ${total} vote${total === 1 ? "" : "s"} so far.</p>`
     : `<p class="note">Tap one to vote. ${total ? total + (total === 1 ? " vote" : " votes") + " so far." : "Be the first."}</p>`;
-  return `<div class="card lift" style="margin-bottom:14px"><h2>${esc(POLL.question)}</h2><p class="note" style="margin:0">${esc(POLL.note)}</p></div>
+  return `<div class="card lift" style="margin-bottom:14px"><h2>${esc(POLL.question)}</h2><p class="note" style="margin:0">${esc(POLL.note)}</p>${isHost ? `<p class="note" style="margin:8px 0 0">Host: use <b>Add to lobby</b> on any theme to make its round playable right away.</p>` : ""}</div>
     ${rows}${status}<p class="note" id="pollMsg"></p>`;
 }
-function wirePoll(){ document.querySelectorAll("[data-p]").forEach(b => b.onclick = () => castVote(b.dataset.p)); }
+function wirePoll(){
+  document.querySelectorAll("[data-p]").forEach(b => b.onclick = () => castVote(b.dataset.p));
+  document.querySelectorAll("[data-pub]").forEach(b => b.onclick = () => setLive(b.dataset.pub, true));
+  document.querySelectorAll("[data-unpub]").forEach(b => b.onclick = () => { if (confirm("Remove this round from the lobby? Its board is hidden while it's out.")) setLive(b.dataset.unpub, false); });
+}
 function renderRounds(tabs, wire){
   const ranked = rankOf(boardList(lobbySel)); const shown = lobbyAll ? ranked : ranked.slice(0, 5); const mine = ranked.find(x => x.uid === me.uid);
   const board = !scoresReady ? `<div class="board"><div class="empty">Loading scores…</div></div>`
@@ -1027,7 +1404,7 @@ function renderRounds(tabs, wire){
     </button>`;
   };
   const played = id => boardFor(id).some(x => x.uid === me.uid);
-  const open = ROUNDS.filter(isOpen), next = open.filter(r => !played(r.id)), done = open.filter(r => played(r.id)), closed = ROUNDS.filter(r => !isOpen(r));
+  const vis = ROUNDS.filter(isPublished); const open = vis.filter(isOpen), next = open.filter(r => !played(r.id)), done = open.filter(r => played(r.id)), closed = vis.filter(r => !isOpen(r));
   const group = (title, rs, sub) => rs.length ? `<div class="section"><h3>${title}</h3><span class="note">${sub}</span></div><div class="grid">${rs.map(tile).join("")}</div>` : "";
   $view.innerHTML = tabs + `
     <div class="section"><h3>Leaderboard</h3>${pickerHtml("lobbyPick", lobbySel)}</div>${board}
@@ -1111,14 +1488,14 @@ function renderHost(){
     <div class="card"><h2>Host controls</h2>
       <h3>Rounds</h3>
       <p class="note" style="margin:0 0 8px">Open rounds take new scores and show first in the lobby. Closing a round keeps its board but stops new official runs.</p>
-      <div class="roundlist">${ROUNDS.map(x => `<div class="r"><div><b>${esc(x.name)}</b><br><span class="note" style="margin:0">${esc(x.subject || "")} · ${x.questions.length} questions · ${boardFor(x.id).length} played</span></div>
+      <div class="roundlist">${ROUNDS.filter(x => !x.draft).map(x => `<div class="r"><div><b>${esc(x.name)}</b><br><span class="note" style="margin:0">${esc(x.subject || "")} · ${x.questions.length} questions · ${boardFor(x.id).length} played</span></div>
         <div class="row">${isOpen(x) ? `<span class="pill live">Open</span><button class="btn ghost small" data-toggle="${esc(x.id)}" data-to="close">Close</button>` : `<span class="pill">Closed</span><button class="btn small" data-toggle="${esc(x.id)}" data-to="open">Open</button>`}</div></div>`).join("")}</div>
       <p class="note" id="hostMsg"></p>
       <p class="note">To add a round or change questions, edit the ROUNDS block at the top of index.html and re-upload the file.</p>
     </div>
     <div class="card"><h3>Wipe a round's scores</h3>
       <p class="note" style="margin:0 0 8px">Deletes every score for the chosen round so people can play it fresh. Can't be undone.</p>
-      <div class="row"><select id="wipeSel">${ROUNDS.map(x => `<option value="${esc(x.id)}">${esc(x.name)}</option>`).join("")}</select><button class="btn danger small" id="wipe">Wipe scores</button></div>
+      <div class="row"><select id="wipeSel">${ROUNDS.filter(isPublished).map(x => `<option value="${esc(x.id)}">${esc(x.name)}</option>`).join("")}</select><button class="btn danger small" id="wipe">Wipe scores</button></div>
     </div>
   </div>`;
   document.querySelectorAll("[data-toggle]").forEach(b => b.onclick = async () => {
