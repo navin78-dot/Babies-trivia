@@ -36,9 +36,15 @@ img{max-width:100%}
 .wrap{max-width:680px;margin:0 auto;padding-block:16px 64px;padding-inline:16px}
 
 .topbar{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:4px 0 10px}
-.wordmark{font-family:var(--site);font-size:18px;letter-spacing:.01em;text-decoration:none;color:var(--text);background:none;border:0;padding:0;cursor:pointer}
+.wordmark{font-family:var(--site);font-size:18px;letter-spacing:.01em;text-decoration:none;color:var(--text);background:none;border:0;padding:0;cursor:pointer;white-space:nowrap}
 .wordmark span{color:var(--accent)}
 .account{display:flex;align-items:center;gap:8px;font-size:13px;color:var(--muted)}
+.topright{display:flex;align-items:center;gap:12px;flex-wrap:wrap;justify-content:flex-end}
+.refresh{display:flex;flex-direction:column;align-items:center;gap:2px;background:none;border:0;cursor:pointer;color:var(--muted);padding:2px 2px;line-height:1}
+.refresh:hover{color:var(--accent)}
+.refresh:active svg{transform:rotate(90deg)}
+.refresh svg{width:20px;height:20px;transition:transform .3s ease}
+.refresh span{font-size:9px;text-transform:uppercase;letter-spacing:.1em;font-weight:600}
 .account img{width:28px;height:28px;border-radius:50%;background:var(--surface2)}
 .linkbtn{background:none;border:0;padding:4px 6px;color:var(--muted);cursor:pointer;text-decoration:underline;font-size:13px}
 .hint{margin:0 0 6px;font-size:12px;color:var(--muted)}
@@ -197,7 +203,13 @@ a.btn{text-decoration:none}
 <div class="wrap">
   <div class="topbar">
     <button class="wordmark" id="home" title="Back to the homepage">Babies<span>'</span> Trivia</button>
-    <div class="account" id="account"></div>
+    <div class="topright">
+      <button class="refresh" id="refreshBtn" title="Refresh the page" aria-label="Refresh the page">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a9 9 0 1 1-2.64-6.36"></path><path d="M21 3v6h-6"></path></svg>
+        <span>Refresh</span>
+      </button>
+      <div class="account" id="account"></div>
+    </div>
   </div>
   <p class="hint" id="homeHint" hidden>Tip: click <b>Babies' Trivia</b> at the top any time to go back to the homepage.</p>
 
@@ -1299,6 +1311,7 @@ function combined(){ const by = {}; scores.forEach(s => { const c = by[s.uid] ||
 
 /* --- navigation --- */
 $("home").onclick = () => goLobby();
+$("refreshBtn").onclick = () => location.reload();
 $("back").onclick = () => goLobby();
 function goLobby(){ stopTimer(); round = null; S.tab = "play"; resetShare(); renderAll(); window.scrollTo({ top: 0 }); }
 function selectRound(id, tab = "play"){ const r = roundById(id); if (!r || !isPublished(r)) return goLobby(); stopTimer(); round = r; boardSel = id; S.tab = tab; resetShare(); loadProgress(); renderAll(); window.scrollTo({ top: 0 }); }
