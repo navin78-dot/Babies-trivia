@@ -59,7 +59,7 @@ h1.site{font-family:var(--site);font-size:clamp(40px,10vw,68px)}
 .tabs{display:flex;gap:4px;margin:8px 0 20px;border-bottom:1px solid var(--line);overflow-x:auto}
 .tab{background:none;border:0;padding:10px 14px;font-weight:600;color:var(--muted);border-bottom:2px solid transparent;margin-bottom:-1px;cursor:pointer;white-space:nowrap}
 .tab[aria-selected="true"]{color:var(--text);border-bottom-color:var(--accent)}
-.tab:focus-visible,.btn:focus-visible,.opt:focus-visible,select:focus-visible,.rcard:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.tab:focus-visible,.btn:focus-visible,.opt:focus-visible,select:focus-visible,.tile:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
 
 .card{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:20px}
 .card.lift{box-shadow:var(--shadow)}
@@ -85,22 +85,26 @@ a.btn{text-decoration:none}
 .gate h2{font-size:30px}
 .gate p{max-width:40ch;margin:0 auto 20px;color:var(--muted)}
 
-/* Lobby: one card per round, each in its own colors */
-.lobby{display:grid;gap:14px}
-.rcard{--ra:var(--accent);--rb:var(--accent2);position:relative;display:grid;grid-template-columns:1fr auto;gap:8px 14px;align-items:center;text-align:left;width:100%;
-  background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:18px 18px 16px;cursor:pointer;overflow:hidden;box-shadow:var(--shadow);transition:transform .1s ease}
-.rcard::before{content:"";position:absolute;inset:0 auto 0 0;width:6px;background:linear-gradient(180deg,var(--ra),var(--rb))}
-.rcard:hover{transform:translateY(-1px)}
-.rcard .rn{font-family:var(--rf,var(--display));font-size:32px;line-height:1;margin:0;background:linear-gradient(100deg,var(--ra),var(--ra) 60%,var(--rb));-webkit-background-clip:text;background-clip:text;color:transparent;text-wrap:balance}
-.rcard .rs{color:var(--muted);font-size:14px;margin-top:4px}
-.rcard .rmeta{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px;font-size:13px;color:var(--muted);grid-column:1 / -1}
-.rcard .go{font-weight:600;color:var(--ra);white-space:nowrap;font-size:14px}
-.rcard.closed{opacity:.75}
+/* Lobby: standings up top, then compact tiles grouped by what to do next */
+.section{display:flex;align-items:center;justify-content:space-between;gap:12px;margin:24px 0 10px;flex-wrap:wrap}
+.section:first-child{margin-top:4px}
+.section h3{margin:0}
+.section .note{margin:0}
+.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+@media (max-width:360px){.grid{grid-template-columns:1fr}}
+.tile{--ra:var(--accent);--rb:var(--accent2);position:relative;display:flex;flex-direction:column;gap:5px;text-align:left;min-height:124px;
+  background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:14px 14px 12px 18px;cursor:pointer;overflow:hidden;box-shadow:var(--shadow);transition:transform .1s ease}
+.tile::before{content:"";position:absolute;inset:0 auto 0 0;width:5px;background:linear-gradient(180deg,var(--ra),var(--rb))}
+.tile:hover{transform:translateY(-1px)}
+.tile .tn{font-family:var(--rf,var(--display));font-size:22px;line-height:1.05;background:linear-gradient(100deg,var(--ra),var(--ra) 60%,var(--rb));-webkit-background-clip:text;background-clip:text;color:transparent;text-wrap:balance}
+.tile .ts{font-size:12px;color:var(--muted)}
+.tile .tf{margin-top:auto;padding-top:6px;display:flex;align-items:center;justify-content:space-between;gap:8px;font-size:12px;color:var(--muted)}
+.tile.closed{opacity:.6}
+.tile .live{margin-top:0;font-size:12px}
 .live{display:inline-flex;align-items:center;gap:7px;font-size:13px;font-weight:600;color:var(--good);margin-top:8px;text-align:left}
 .live i{width:8px;height:8px;border-radius:50%;background:var(--good);flex:none;animation:pulse 1.6s ease-in-out infinite}
 .live span{font-weight:400;color:var(--muted)}
 @keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.45;transform:scale(.8)}}
-.rcard.closed .go{color:var(--muted)}
 
 .board{border:1px solid var(--line);border-radius:14px;overflow:hidden;background:var(--surface)}
 .lb{display:grid;grid-template-columns:34px 36px 1fr auto auto;gap:12px;align-items:center;padding:12px 14px;border-top:1px solid var(--line)}
@@ -153,7 +157,7 @@ a.btn{text-decoration:none}
 .share img{display:block;width:100%;max-width:340px;margin:0 auto 14px;border-radius:14px;box-shadow:var(--shadow)}
 .share .msg{min-height:1.2em}
 @media (prefers-reduced-motion: reduce){*{transition:none!important;animation:none!important}}
-@media (max-width:420px){.lb{grid-template-columns:28px 32px 1fr auto auto;gap:8px;padding:10px 10px}.pts{font-size:19px}.rcard .rn{font-size:28px}}
+@media (max-width:420px){.lb{grid-template-columns:28px 32px 1fr auto auto;gap:8px;padding:10px 10px}.pts{font-size:19px}}
 </style>
 </head>
 <body>
@@ -808,8 +812,9 @@ function renderAll(){
 function renderAccount(){
   const a = $("account");
   if (!me) { a.innerHTML = ""; return; }
-  a.innerHTML = `<img src="${esc(me.photoURL || "")}" alt="" onerror="this.style.visibility='hidden'"><span>${esc(me.displayName || "You")}</span><button class="linkbtn" id="signout">Sign out</button>`;
+  a.innerHTML = `<img src="${esc(me.photoURL || "")}" alt="" onerror="this.style.visibility='hidden'"><span>${esc(me.displayName || "You")}</span>${isHost ? `<button class="linkbtn" id="hostBtn">Host</button>` : ""}<button class="linkbtn" id="signout">Sign out</button>`;
   $("signout").onclick = async () => { await clearPresence(); auth.signOut(); };
+  const hb = $("hostBtn"); if (hb) hb.onclick = () => selectRound(round ? round.id : ROUNDS[0].id, "host");
 }
 function render(){
   syncPresence();
@@ -829,22 +834,38 @@ function gateHtml(){
 }
 function wireGate(){ const b = $("signin"); if (b) b.onclick = signIn; }
 
+let lobbySel = ALL, lobbyAll = false;
+function pickerHtml(id, sel){
+  return `<select id="${id}" aria-label="Which leaderboard to show"><option value="${ALL}" ${sel === ALL ? "selected" : ""}>All rounds combined</option>${ROUNDS.map(x => `<option value="${esc(x.id)}" ${x.id === sel ? "selected" : ""}>${esc(x.name)}${isOpen(x) ? "" : " (closed)"}</option>`).join("")}</select>`;
+}
+function boardList(sel){ return sel === ALL ? combined() : boardFor(sel); }
 function renderLobby(){
-  const order = [...ROUNDS].sort((a, b) => (isOpen(b) ? 1 : 0) - (isOpen(a) ? 1 : 0));
-  const cards = order.map(r => {
-    const t = themeOf(r); const b = boardFor(r.id); const mine = b.find(s => s.uid === me.uid); const top = rankOf(b)[0]; const open = isOpen(r);
-    const status = mine ? `<span class="pill done">You: ${mine.score} / ${mine.total}</span>` : (open ? `<span class="pill live">Not played yet</span>` : `<span class="pill">Closed</span>`);
-    const lead = top ? `<span>Leader: ${esc(top.name || "Someone")} ${top.score} / ${top.total}</span>` : `<span>No scores yet</span>`;
-    return `<button class="rcard${open ? "" : " closed"}" data-r="${esc(r.id)}" style="--ra:${t.a};--rb:${t.b};${t.font ? `--rf:'${t.font}','Archivo Black',sans-serif` : ""}">
-      <div><h2 class="rn">${esc(r.name)}</h2><div class="rs">${esc(r.subject || "")} · ${r.questions.length} questions</div>${liveHtml(r.id)}</div>
-      <div class="go">${open ? (mine ? "Practice or view board →" : "Play →") : "View board →"}</div>
-      <div class="rmeta">${status}${lead}<span>${b.length} played</span></div>
+  const ranked = rankOf(boardList(lobbySel)); const shown = lobbyAll ? ranked : ranked.slice(0, 5); const mine = ranked.find(x => x.uid === me.uid);
+  const board = !scoresReady ? `<div class="board"><div class="empty">Loading scores…</div></div>`
+    : !ranked.length ? `<div class="board"><div class="empty">No scores yet. Play a round to get on the board.</div></div>`
+    : `<div class="board">${shown.map(rowHtml).join("")}</div>
+       ${mine && mine.rank > shown.length ? `<p class="note">You're #${mine.rank} of ${ranked.length}.</p>` : ""}
+       ${ranked.length > 5 ? `<p class="note"><button class="linkbtn" id="lobbyMore">${lobbyAll ? "Show top 5 only" : `Show all ${ranked.length}`}</button></p>` : ""}`;
+  const tile = r => {
+    const t = themeOf(r); const b = boardFor(r.id); const my = b.find(x => x.uid === me.uid); const open = isOpen(r); const live = playingNow(r.id);
+    const foot = my ? `<span class="pill done">You: ${my.score} / ${my.total}</span>` : open ? `<span class="pill live">Play</span>` : `<span class="pill">Closed</span>`;
+    const who = live.length ? `<div class="live"><i></i>${live.length === 1 ? esc((live[0].name || "Someone").split(" ")[0]) + " is playing" : live.length + " playing now"}</div>` : "";
+    return `<button class="tile${open ? "" : " closed"}" data-r="${esc(r.id)}" style="--ra:${t.a};--rb:${t.b};${t.font ? `--rf:'${t.font}','Archivo Black',sans-serif` : ""}">
+      <div class="tn">${esc(r.name)}</div><div class="ts">${esc(r.subject || "")} · ${r.questions.length} questions</div>${who}
+      <div class="tf">${foot}<span>${b.length ? b.length + " played" : "Be first"}</span></div>
     </button>`;
-  }).join("");
-  const hostLink = isHost ? `<p class="note">Host: open a round, then use its Host tab to open or close rounds and wipe scores. Or <button class="linkbtn" id="hostAll">go to host controls</button>.</p>` : "";
-  $view.innerHTML = `<div class="lobby">${cards}</div>${hostLink}${!scoresReady ? `<p class="note">Loading scores…</p>` : ""}`;
-  document.querySelectorAll(".rcard").forEach(c => c.onclick = () => selectRound(c.dataset.r));
-  const h = $("hostAll"); if (h) h.onclick = () => selectRound(ROUNDS[0].id, "host");
+  };
+  const played = id => boardFor(id).some(x => x.uid === me.uid);
+  const open = ROUNDS.filter(isOpen), next = open.filter(r => !played(r.id)), done = open.filter(r => played(r.id)), closed = ROUNDS.filter(r => !isOpen(r));
+  const group = (title, rs, sub) => rs.length ? `<div class="section"><h3>${title}</h3><span class="note">${sub}</span></div><div class="grid">${rs.map(tile).join("")}</div>` : "";
+  $view.innerHTML = `
+    <div class="section"><h3>Leaderboard</h3>${pickerHtml("lobbyPick", lobbySel)}</div>${board}
+    ${group("Play next", next, next.length === 1 ? "1 round you haven't played" : next.length + " rounds you haven't played")}
+    ${group("Played", done, next.length ? "Tap to practice or see the board" : "You've played every open round. Practice doesn't change the board.")}
+    ${group("Closed", closed, "Boards only")}`;
+  document.querySelectorAll(".tile").forEach(c => c.onclick = () => selectRound(c.dataset.r));
+  $("lobbyPick").onchange = e => { lobbySel = e.target.value; lobbyAll = false; renderLobby(); };
+  const m = $("lobbyMore"); if (m) m.onclick = () => { lobbyAll = !lobbyAll; renderLobby(); };
 }
 
 function verdict(score, total){
@@ -901,7 +922,7 @@ function rowHtml(b){
 }
 function renderBoard(){
   if (!boardSel) boardSel = round.id;
-  const picker = `<div class="row spread" style="margin-bottom:12px"><label for="boardPick" class="note" style="margin:0">Show</label><select id="boardPick">${ROUNDS.map(x => `<option value="${esc(x.id)}" ${x.id === boardSel ? "selected" : ""}>${esc(x.name)}${isOpen(x) ? "" : " (closed)"}</option>`).join("")}<option value="${ALL}" ${boardSel === ALL ? "selected" : ""}>All rounds combined</option></select></div>`;
+  const picker = `<div class="row spread" style="margin-bottom:12px"><label for="boardPick" class="note" style="margin:0">Show</label>${pickerHtml("boardPick", boardSel)}</div>`;
   let body, title;
   if (boardSel === ALL) {
     title = "All rounds combined"; const list = combined();
