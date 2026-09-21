@@ -25,21 +25,31 @@ Shorter rounds are fine. Formats can be mixed, but at most **3 questions per
 round** may be anything other than standard multiple choice; true/false,
 select-all and put-in-order all count toward that cap.
 
-Optional round fields: `"draft": true` hides the round until the host adds it to
-the lobby; `"added"` is stamped automatically on first publish and drives the
-"recent" ordering in the lobby and picker.
+Optional round fields: `"draft": true` puts the round in the nightly-drop queue
+instead of straight into the lobby (use it for every new round); `"added"` is
+stamped automatically on first publish; `"emblem": "🎬"` sets the big emoji on
+the round's poster tile.
 
-## The poll
+## The nightly drop and the queue
 
-A `poll.json` at the repository root is published to Firestore as the poll:
+Every round file here should carry `"draft": true`. Draft rounds form the
+queue. Each night at midnight New York time one round leaves the queue and goes
+live: the poll on the site shows the first three rounds waiting (oldest first),
+the most-voted one drops, the host can override. So the queue needs topping up.
 
-```json
-{ "open": true, "question": "What should the next round be?", "note": "One vote each.",
-  "options": [ { "id": "round-id", "name": "Shown name", "blurb": "One line." } ] }
+The **Queue status** workflow (Actions tab, run it by hand) prints how many
+rounds are waiting, tonight's poll, recent drops, and any theme requests the
+host typed on the Host tab. A daily Claude session runs it and writes enough
+rounds to keep five waiting. See `scripts/QUEUE.md`.
+
+A round written for a host request should carry `"requestId": "<the request id>"`
+so the request is ticked off when the round publishes.
+
+Validate files locally without publishing:
+
 ```
-
-Each option id should match a draft round's id so the host can add it to the
-lobby. A promoted theme disappears from the poll automatically.
+npm install firebase-admin@^12 --no-save && node scripts/publish-rounds.mjs --check
+```
 
 ## Question formats
 

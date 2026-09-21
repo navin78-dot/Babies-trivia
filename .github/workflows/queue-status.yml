@@ -1,0 +1,32 @@
+name: Queue status
+
+# Reports how many written rounds are waiting for the nightly drop, tonight's poll,
+# and any theme requests. Started by hand or by the daily top-up session.
+
+on:
+  workflow_dispatch:
+
+jobs:
+  status:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: Write the service-account key
+        env:
+          KEY: ${{ secrets.FIREBASE_SERVICE_ACCOUNT }}
+        run: |
+          if [ -z "$KEY" ]; then echo "::error::Repository secret FIREBASE_SERVICE_ACCOUNT is not set."; exit 1; fi
+          printf '%s' "$KEY" > "$RUNNER_TEMP/service-account.json"
+      - name: Report the queue
+        env:
+          GOOGLE_APPLICATION_CREDENTIALS: ${{ runner.temp }}/service-account.json
+        run: |
+          npm install firebase-admin@^12 --no-save --no-audit --no-fund
+          node scripts/queue-status.mjs
+      - uses: actions/upload-artifact@v4
+        with:
+          name: queue-status
+          path: queue-status.json
