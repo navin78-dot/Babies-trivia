@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Babies' Trivia</title>
+<title>B👶🏽bies' Trivia</title>
 <meta name="description" content="Trivia rounds for friends. One board per round, first run counts.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,700;12..96,800&family=Manrope:wght@400;500;600;700;800&family=Archivo+Black&display=swap">
@@ -55,6 +55,9 @@ img{max-width:100%}
 .topbar{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:8px 0 14px}
 .wordmark{font-family:var(--site);font-size:20px;font-weight:800;letter-spacing:-.01em;text-decoration:none;color:var(--cream);background:none;border:0;padding:0;cursor:pointer;white-space:nowrap}
 .wordmark span{color:var(--glow2)}
+.bt-baby{font-style:normal;color:initial;-webkit-text-fill-color:initial;background:none;display:inline-block;vertical-align:-.06em;font-size:.95em;line-height:1}
+h1 .bt-baby{font-size:.86em;vertical-align:-.02em;margin:0 -.02em}
+.sr{position:absolute;width:1px;height:1px;margin:-1px;padding:0;overflow:hidden;clip:rect(0 0 0 0);clip-path:inset(50%);white-space:nowrap;border:0}
 .topright{display:flex;align-items:center;gap:6px;justify-content:flex-end}
 .refresh{display:flex;flex-direction:column;align-items:center;gap:2px;background:none;border:0;cursor:pointer;color:var(--cream2);padding:4px 6px;line-height:1;border-radius:10px}
 .refresh:hover{color:var(--cream);background:rgba(255,255,255,.06)}
@@ -386,7 +389,7 @@ input[type=range]{width:100%;accent-color:var(--accent)}
 <body>
 <div class="wrap">
   <div class="topbar">
-    <button class="wordmark" id="home" title="Back to the homepage">Babies<span>'</span> Trivia</button>
+    <button class="wordmark" id="home" title="Back to the homepage" aria-label="Babies' Trivia, back to the homepage">B<i class="bt-baby" aria-hidden="true">👶🏽</i>bies<span>'</span> Trivia</button>
     <div class="topright">
       <button class="refresh" id="soundBtn" title="Sound" aria-label="Sound on or off" aria-pressed="true">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 9v6h4l5 4V5L8 9H4z"/><path class="sw1" d="M16 9a4 4 0 0 1 0 6"/><path class="sw2" d="M18.5 6.5a8 8 0 0 1 0 11"/><path class="smute" d="M17 9l4 6M21 9l-4 6"/></svg>
@@ -403,7 +406,7 @@ input[type=range]{width:100%;accent-color:var(--accent)}
   <header class="masthead">
     <div class="emblem" id="emblem" aria-hidden="true"></div>
     <p class="eyebrow" id="eyebrow"></p>
-    <h1 id="roundName" class="site">Babies' Trivia</h1>
+    <h1 id="roundName" class="site"><span class="sr">Babies' Trivia</span></h1>
     <p class="sub" id="roundSub"></p>
   </header>
 
@@ -1388,6 +1391,9 @@ let fatal = "";
 
 const $ = id => document.getElementById(id);
 const $view = $("view");
+const BABY = "👶🏽";                      // the baby in the wordmark; change the tone modifier to restyle it
+const SITE_NAME = "B" + BABY + "bies' Trivia";   // plain text: page title, share text
+const SITE_NAME_HTML = `B<i class="bt-baby" aria-hidden="true">${BABY}</i>bies' Trivia<span class="sr">Babies' Trivia</span>`;
 const esc = s => String(s).replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
 const fmtTime = ms => { const s = Math.max(0, Math.round(ms / 1000)); return Math.floor(s / 60) + ":" + String(s % 60).padStart(2, "0"); };
 const fmtDate = iso => { try { return new Date(iso).toLocaleDateString(undefined, { month: "short", day: "numeric" }); } catch (e) { return ""; } };
@@ -1406,7 +1412,7 @@ ROUNDS.forEach(r => ensureFont(r.theme && r.theme.font));
 function applyTheme(r){
   const root = document.documentElement.style; const h = $("roundName");
   $("emblem").textContent = r ? emblemOf(r) : "";
-  if (!r) { ["--accent", "--accent2", "--glow", "--glow2", "--display"].forEach(k => root.removeProperty(k)); h.className = "site"; h.textContent = "Babies' Trivia"; $("eyebrow").textContent = me ? `Season ${currentSeason()} · ${seasonEndsText()}` : "Trivia for friends"; $("roundSub").textContent = (siteCfg.tagline || "").trim() || SETTINGS.siteTagline; return; }
+  if (!r) { ["--accent", "--accent2", "--glow", "--glow2", "--display"].forEach(k => root.removeProperty(k)); h.className = "site"; h.innerHTML = SITE_NAME_HTML; $("eyebrow").textContent = me ? `Season ${currentSeason()} · ${seasonEndsText()}` : "Trivia for friends"; $("roundSub").textContent = (siteCfg.tagline || "").trim() || SETTINGS.siteTagline; return; }
   const t = themeOf(r);
   root.setProperty("--accent", t.a); root.setProperty("--accent2", t.b); root.setProperty("--glow", t.ga); root.setProperty("--glow2", t.gb);
   if (t.font) root.setProperty("--display", `"${t.font}","Bricolage Grotesque","Archivo Black",sans-serif`); else root.removeProperty("--display");
@@ -2602,15 +2608,15 @@ function shareText(){
   if (S.shareKind === "recap" || S.shareKind === "season") {
     const P = podiumEntries(S.shareKind); const medals = ["🥇", "🥈", "🥉"];
     const lines = P.list.map((p, i) => `${medals[i]} ${(p.name || "Someone").split(" ")[0]} ${fmtScore(p.score)}/${p.total}`).join("  ·  ");
-    return `${P.title} on Babies' Trivia is done.\n${lines}${P.foot ? "\n" + P.foot : ""}\n${P.link}`;
+    return `${P.title} on ${SITE_NAME} is done.\n${lines}${P.foot ? "\n" + P.foot : ""}\n${P.link}`;
   }
   if (S.shareKind === "invite") {
-    return `New round on Babies' Trivia: "${round.name}". ${round.questions.length} questions on ${(round.subject || "").toLowerCase() || "everything"}. ${round.tagline || ""}\nPlay now: ${roundLink(round)}`;
+    return `New round on ${SITE_NAME}: "${round.name}". ${round.questions.length} questions on ${(round.subject || "").toLowerCase() || "everything"}. ${round.tagline || ""}\nPlay now: ${roundLink(round)}`;
   }
   const { r, official, rank, of } = shareContext();
   const grid = r.order.map((qi, k) => { const st = qState(round.questions[qi], r.picks[k]); return st === "right" ? "🟩" : st === "part" ? "🟨" : "🟥"; }).join("").replace(/(.{20})(?=.)/gu, "$1\n");
   const where = official && rank ? ` That's #${rank} of ${of} on the board.` : "";
-  return `I scored ${fmtScore(r.score)}/${r.total} on "${round.name}" at Babies' Trivia in ${fmtTime(r.elapsedMs)}.${where}\n${grid}\nThink you can beat me? ${roundLink(round)}`;
+  return `I scored ${fmtScore(r.score)}/${r.total} on "${round.name}" at ${SITE_NAME} in ${fmtTime(r.elapsedMs)}.${where}\n${grid}\nThink you can beat me? ${roundLink(round)}`;
 }
 const reducedMotion = () => window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 function countUp(el, target){
@@ -2650,7 +2656,7 @@ async function drawShareCard(kind){
   const g = x.createLinearGradient(0, 0, W, H); g.addColorStop(0, A); g.addColorStop(1, B); x.fillStyle = g; x.fillRect(0, 0, W, H);
   x.fillStyle = "rgba(0,0,0,.38)"; rrect(x, 64, 64, W - 128, H - 128, 44); x.fill();
   x.textAlign = "center"; x.textBaseline = "alphabetic"; x.fillStyle = "#fff";
-  x.font = `34px ${body}`; x.globalAlpha = .85; x.fillText("BABIES' TRIVIA", W / 2, 150); x.globalAlpha = 1;
+  x.font = `34px ${body}`; x.globalAlpha = .85; x.fillText("B" + BABY + "BIES' TRIVIA", W / 2, 150); x.globalAlpha = 1;
   const host = siteUrl().replace(/^https?:\/\//, "").replace(/\/$/, "");
   const footer = () => { const hs = fitText(x, host, body, 28, W - 220, 18); x.font = `${hs}px ${body}`; x.globalAlpha = .7; x.fillText(hs <= 18 && x.measureText(host).width > W - 220 ? location.host : host, W / 2, 984); x.globalAlpha = 1; };
   if (kind === "recap" || kind === "season") {
@@ -2715,7 +2721,7 @@ function sharePanelHtml(){
   const canFiles = !!(navigator.canShare && S.shareFile && navigator.canShare({ files: [S.shareFile] }));
   const canShare = !!navigator.share;
   const k = S.shareKind;
-  const alt = k === "invite" ? `Invite card: play ${esc(round.name)} on Babies' Trivia` : k === "score" ? `Score card: ${S.lastResult.score} out of ${S.lastResult.total} on ${esc(round.name)}` : k === "recap" ? `Recap card for ${esc(round.name)}` : `Season ${S.shareSeason} recap card`;
+  const alt = k === "invite" ? `Invite card: play ${esc(round.name)} on ${SITE_NAME}` : k === "score" ? `Score card: ${S.lastResult.score} out of ${S.lastResult.total} on ${esc(round.name)}` : k === "recap" ? `Recap card for ${esc(round.name)}` : `Season ${S.shareSeason} recap card`;
   const fname = k === "invite" ? `babies-trivia-${esc(round.id)}.png` : k === "score" ? "babies-trivia-score.png" : k === "recap" ? `babies-trivia-${esc(round.id)}-recap.png` : `babies-trivia-season-${S.shareSeason}.png`;
   return `<div class="share" id="sharePanel">
     ${S.shareUrl ? `<img src="${S.shareUrl}" alt="${alt}">` : `<p class="note" style="text-align:center">Building the card…</p>`}
@@ -2733,8 +2739,8 @@ function wireShare(){
   const say = m => { S.shareMsg = m; const el = $("shareMsg"); if (el) el.textContent = m; };
   const n = $("shareNative"); if (n) n.onclick = async () => {
     const text = shareText(); const files = S.shareFile && navigator.canShare && navigator.canShare({ files: [S.shareFile] }) ? [S.shareFile] : undefined;
-    try { await navigator.share(files ? { files, text, title: "Babies' Trivia" } : { text, title: "Babies' Trivia" }); say("Shared."); }
-    catch (e) { if (!e || e.name !== "AbortError") { try { await navigator.share({ text, title: "Babies' Trivia" }); say("Shared the text. Save the image to send the picture too."); } catch (e2) { say("Sharing didn't open. Try Text it or Save image."); } } }
+    try { await navigator.share(files ? { files, text, title: SITE_NAME } : { text, title: SITE_NAME }); say("Shared."); }
+    catch (e) { if (!e || e.name !== "AbortError") { try { await navigator.share({ text, title: SITE_NAME }); say("Shared the text. Save the image to send the picture too."); } catch (e2) { say("Sharing didn't open. Try Text it or Save image."); } } }
   };
   const c = $("shareCopy"); if (c) c.onclick = async () => { try { await navigator.clipboard.writeText(shareText()); say("Copied. Paste it into any message."); } catch (e) { say("Couldn't copy on this device."); } };
 }
