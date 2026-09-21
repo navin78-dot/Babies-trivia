@@ -149,7 +149,8 @@ a.btn{text-decoration:none}
 .sh-clock{text-align:right;min-width:150px}
 .sh-label{font-size:11px;letter-spacing:.18em;text-transform:uppercase;font-weight:800;color:var(--cream2)}
 .sh-count{font-family:var(--display);font-size:28px;line-height:1.1;font-variant-numeric:tabular-nums;letter-spacing:-.01em;color:var(--cream);text-shadow:0 0 18px color-mix(in srgb,var(--gold) 50%, transparent)}
-.sh-foot{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;margin-top:12px;padding-top:10px;border-top:1px solid rgba(255,255,255,.1);font-size:13px;color:var(--cream2);font-weight:600}
+.sh-foot{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;margin-top:12px;padding-top:10px;border-top:1px solid rgba(255,255,255,.1);font-size:13px;color:var(--cream2);font-weight:600;line-height:1.45}
+.sh-foot b{color:var(--cream)}
 .sh-foot .linkbtn{color:var(--gold);padding:0;white-space:nowrap}
 .sh-body{margin-top:10px;font-size:14px;color:var(--cream);line-height:1.5}
 .sh-body p{margin:0 0 8px}
@@ -1756,11 +1757,11 @@ function seasonHeroHtml(){
   return `<div class="season-hero">
     <div class="sh-top"><div><div class="sh-kicker">Now playing</div><div class="sh-title">Season ${I.n}</div><div class="sh-sub">Ends ${esc(I.ny)}, New York time${I.sameTz ? "" : `<br>${esc(I.loc)} where you are`}</div></div>
       <div class="sh-clock"><div class="sh-label">Time left</div><div class="sh-count szc" data-end="${I.end}">${countdownText(I.end)}</div></div></div>
-    <div class="sh-foot"><span>${rs ? `${rs} round${rs === 1 ? "" : "s"} count${rs === 1 ? "s" : ""} toward this season so far.` : "No rounds added this season yet."} Season ${I.n + 1} starts the moment the clock hits zero.</span><button class="linkbtn" id="seasonHow">${S.seasonHow ? "Hide" : "How seasons work"}</button></div>
-    ${S.seasonHow ? `<div class="sh-body"><p><b>A season is one week.</b> Midnight going into Sunday to the next, New York time.</p><p><b>Every round added during that week counts.</b> Your season score is your scores on those rounds added together, so play all of them. One run each.</p><p><b>When the clock hits zero, the top total takes the crown.</b> It sits on their avatar all through the next season, and the next season starts at once with a fresh board.</p><p><b>When a season ends, its rounds close.</b> You can still see their boards, but nobody can add a run, so the standings and the crown are final.</p></div>` : ""}
+    <div class="sh-foot"><span>${rs ? `${rs} round${rs === 1 ? "" : "s"} count${rs === 1 ? "s" : ""} toward this season so far.` : "No rounds added this season yet."} <b>When the clock hits zero every round from this season closes and stops counting, so play all your rounds before then.</b> Season ${I.n + 1} starts at that moment.</span><button class="linkbtn" id="seasonHow">${S.seasonHow ? "Hide" : "How seasons work"}</button></div>
+    ${S.seasonHow ? `<div class="sh-body"><p><b>A season is one week.</b> Midnight going into Sunday to the next, New York time.</p><p><b>Every round added during that week counts.</b> Your season score is your scores on those rounds added together. One run each.</p><p><b>When the clock hits zero, the top total takes the crown.</b> It sits on their avatar all through the next season, and the next season starts at once with a fresh board.</p><p><b>When the season ends, its rounds close.</b> They can't be played any more and nothing played later counts, so play all your rounds before the clock hits zero. The boards stay up and the crown is final.</p></div>` : ""}
   </div>`;
 }
-function seasonLineHtml(){ const I = seasonEndInfo(); return `<div class="season-line"><span><b>Season ${I.n}</b> · ends ${esc(I.ny)} NY time</span><span class="szc" data-end="${I.end}">${countdownText(I.end)}</span></div>`; }
+function seasonLineHtml(){ const I = seasonEndInfo(); return `<div class="season-line"><span><b>Season ${I.n}</b> · rounds close ${esc(I.ny)} NY time</span><span class="szc" data-end="${I.end}">${countdownText(I.end)}</span></div>`; }
 let seasonFlipped = false;
 setInterval(() => { document.querySelectorAll(".szc").forEach(el => { const end = +el.dataset.end; el.textContent = countdownText(end); if (end - Date.now() <= 0 && !seasonFlipped) { seasonFlipped = true; renderAll(); } }); }, 1000);
 let champCache = null;
@@ -2075,7 +2076,7 @@ function renderClosed(){
   const sr = $("shareRecap"); if (sr) sr.onclick = () => toggleShare("recap");
   wireShare();
 }
-function seasonNoteFor(r){ const n = seasonOfRound(r), cur = currentSeason(); return n === cur ? `Counts toward <b>Season ${n}</b>, which ends ${esc(seasonEndInfo().ny)} NY time.` : `Belonged to <b>Season ${n}</b>, which is over, so it's closed.`; }
+function seasonNoteFor(r){ const n = seasonOfRound(r), cur = currentSeason(); return n === cur ? `Counts toward <b>Season ${n}</b>. It closes for good when the season ends, ${esc(seasonEndInfo().ny)} NY time.` : `Belonged to <b>Season ${n}</b>, which is over, so it's closed.`; }
 function renderHome(){
   const mine = myOfficial(); const n = gameLength(); const b = boardFor(round.id);
   const mineRank = mine ? rankOf(b).find(x => x.uid === me.uid) : null;
