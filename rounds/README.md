@@ -60,6 +60,10 @@ npm install firebase-admin@^12 --no-save && node scripts/publish-rounds.mjs --ch
 - Select all that apply: `"type":"select"`, and `a` is an array of correct indices, e.g. `"a":[0,2,3]`.
 - Put in order: `"type":"order"`, and `o` lists the items already in the correct order.
 - Optional visuals on any question: `"emoji":"🐝 👑 🎤"` or `"img":"https://..."` with `"credit":"..."`.
+- Optional `"more"`: two or three extra sentences of background, shown in the
+  **Learn** tab when a player taps the eye on a question they got wrong. `w` is
+  the short "why it's right" shown during the round; `more` is the story around
+  it, so write something a person would enjoy knowing, not a restatement of `w`.
 
 Scoring: multiple choice and true/false are one point or zero. Select-all gives
 a share of the point for each correct tick, minus one share for each wrong tick,

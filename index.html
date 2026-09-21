@@ -49,7 +49,7 @@ img{max-width:100%}
 .wrap{max-width:680px;margin:0 auto;padding-block:12px 72px;padding-inline:16px}
 
 /* surfaces: anything paper flips the text tokens */
-.card,.board,.stile,.pcard,.pollopt,.share,.timerbar.paper{--text:var(--ink);--muted:var(--ink2);--ghost-bg:var(--paper3);--ghost-sh:var(--line);--ghost-line:transparent;color:var(--ink)}
+.card,.board,.stile,.pcard,.pollopt,.share,.lcard,.timerbar.paper{--text:var(--ink);--muted:var(--ink2);--ghost-bg:var(--paper3);--ghost-sh:var(--line);--ghost-line:transparent;color:var(--ink)}
 
 /* ---------- top bar ---------- */
 .topbar{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:8px 0 14px}
@@ -371,6 +371,24 @@ input[type=range]{width:100%;accent-color:var(--accent)}
 .sbar i{display:block;height:100%;border-radius:99px;background:linear-gradient(90deg,var(--accent),color-mix(in srgb,var(--accent) 55%, var(--accent2)))}
 .sval{font-size:14px;font-variant-numeric:tabular-nums;min-width:74px;text-align:right;font-weight:700}
 .sval small{color:var(--muted);font-size:11px;font-weight:600}
+.lcard{background:var(--paper);border-radius:20px;padding:16px 18px;margin-bottom:12px;box-shadow:var(--shadow);position:relative;overflow:hidden}
+.lcard::before{content:"";position:absolute;inset:0 auto 0 0;width:5px;background:var(--ra,var(--accent))}
+.lhead{display:flex;align-items:center;gap:9px;margin-bottom:10px}
+.lround{flex:1;min-width:0;font-size:12px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.eye{width:34px;height:34px;flex:none;border-radius:50%;border:1.5px solid var(--line);background:var(--paper2);color:var(--ink2);cursor:pointer;display:grid;place-items:center;padding:0}
+.eye svg{width:19px;height:19px}
+.eye:hover{border-color:var(--accent);color:var(--accent)}
+.eye[aria-expanded="true"]{background:var(--ink);border-color:var(--ink);color:var(--cream)}
+.lcard .q{font-size:18px;margin:0 0 12px;line-height:1.35}
+.lcard .qvis{font-size:clamp(28px,8vw,40px);padding:16px 12px;margin:0 0 12px}
+.lcard .qimg{margin:0 0 12px}
+.lrow{display:flex;gap:9px;align-items:baseline;font-size:14px;padding:5px 0;line-height:1.45}
+.lrow b{flex:none;font-size:10px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;padding:3px 8px;border-radius:99px;position:relative;top:-1px}
+.lrow.bad b{background:var(--bad-bg);color:var(--bad)}
+.lrow.good b{background:var(--good-bg);color:var(--good)}
+.lrow.good{font-weight:700}
+.lwhy{margin-top:12px}
+.lmore{display:block;margin-top:8px}
 .pcard{background:var(--paper);border-radius:18px;padding:12px 14px;margin-bottom:10px;box-shadow:var(--shadow)}
 .pcard.me{box-shadow:var(--shadow),0 0 0 2px var(--accent)}
 .pollopt{display:block;width:100%;text-align:left;background:var(--paper);border:2px solid transparent;border-radius:18px;padding:14px 16px;cursor:pointer;margin-bottom:10px;transition:border-color .12s ease,transform .12s ease;box-shadow:var(--shadow)}
@@ -1935,14 +1953,16 @@ function renderLobby(){
   const P = dropPlan(); const needsVote = votesReady && P.options.length > 0 && !P.options.some(o => o.id === myVote(P.today));
   const tabs = `<div class="tabs" role="tablist">
     <button class="tab" role="tab" aria-selected="${lobbyTab === "rounds"}" data-ltab="rounds">Rounds</button>
-    <button class="tab" role="tab" aria-selected="${lobbyTab === "poll"}" data-ltab="poll">Next round${needsVote ? `<span class="tabdot" title="You haven't voted"></span>` : ""}</button>
+    <button class="tab" role="tab" aria-selected="${lobbyTab === "poll"}" data-ltab="poll">Vote${needsVote ? `<span class="tabdot" title="You haven't voted"></span>` : ""}</button>
     <button class="tab" role="tab" aria-selected="${lobbyTab === "stats"}" data-ltab="stats">Stats</button>
+    <button class="tab" role="tab" aria-selected="${lobbyTab === "learn"}" data-ltab="learn">Learn</button>
     <button class="tab" role="tab" aria-selected="${lobbyTab === "me"}" data-ltab="me">Me</button>
   </div>`;
   const wire = () => { wirePending(); document.querySelectorAll("[data-ltab]").forEach(b => b.onclick = () => { sfx("click"); lobbyTab = b.dataset.ltab; renderLobby(); window.scrollTo({ top: 0 }); }); };
   const ann = (siteCfg.announcement || "").trim(); const strip = pendingBannerHtml() + (ann ? `<div class="banner ann">${esc(ann)}</div>` : "");
   if (lobbyTab === "poll") { $view.innerHTML = strip + tabs + seasonLineHtml() + pollHtml(); wire(); wirePoll(); return; }
   if (lobbyTab === "stats") { $view.innerHTML = strip + tabs + seasonLineHtml() + statsHtml(); wire(); return; }
+  if (lobbyTab === "learn") { $view.innerHTML = strip + tabs + seasonLineHtml() + learnHtml(); wire(); wireLearn(); return; }
   if (lobbyTab === "me") { $view.innerHTML = strip + tabs + seasonLineHtml() + meHtml(); wire(); wireMe(); return; }
   return renderRounds(strip + tabs + seasonHeroHtml(), wire);
 }
@@ -2022,7 +2042,68 @@ function statsHtml(){
       <div class="chips"><span class="pill">Easy ${pct(p.diff.easy[0], p.diff.easy[1])}%</span><span class="pill">Medium ${pct(p.diff.medium[0], p.diff.medium[1])}%</span><span class="pill">Hard ${pct(p.diff.hard[0], p.diff.hard[1])}%</span><span class="pill">${spq}s per question</span><span class="pill">Best run ${p.streak}</span><span class="pill">Only they got it: ${p.solo}</span><span class="pill">${p.runs} round${p.runs === 1 ? "" : "s"}</span>${p.timeouts ? `<span class="pill">${p.timeouts} timed out</span>` : ""}</div></div>`; }).join("");
   return tiles + diff + typ + toughHtml + soloHtml + `<div class="section"><h3>Player stats</h3><span class="note">Each of you, ranked by accuracy</span></div>${cards}`;
 }
-/* --- Me: emoji avatar, your numbers, your rounds --- */
+/* --- Learn: every question you got wrong or only part right, with the answer.
+   The eye reveals the explanation written with the question, plus any longer
+   background the round carries in a "more" field. --- */
+const EYE_OPEN = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M1.5 12S5.5 5 12 5s10.5 7 10.5 7-4 7-10.5 7S1.5 12 1.5 12z"/><circle cx="12" cy="12" r="3.2"/></svg>`;
+const EYE_SHUT = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17.9 17.9A10.5 10.5 0 0 1 12 19.5C5.5 19.5 1.5 12 1.5 12a18.3 18.3 0 0 1 4.9-5.6M9.9 4.7A10.8 10.8 0 0 1 12 4.5c6.5 0 10.5 7.5 10.5 7.5a18.4 18.4 0 0 1-2.1 3.1M9.9 9.9a3.2 3.2 0 0 0 4.3 4.3"/><path d="M2 2l20 20"/></svg>`;
+function myAnswerText(it, p){
+  const t = qType(it);
+  if (t === "select") return (Array.isArray(p) && p.length) ? p.map(k => it.opts[k]).join(", ") : "nothing";
+  if (t === "order") return (Array.isArray(p) && p.length) ? p.map(k => it.opts[k]).join(" → ") : "nothing";
+  return it.opts[p] != null ? it.opts[p] : "nothing";
+}
+function learnItems(){
+  const out = [];
+  scores.filter(s => s.uid === (me && me.uid)).forEach(sc => {
+    const r = roundById(sc.roundId); if (!r || !Array.isArray(sc.order)) return;
+    const picks = unpackPicks(sc.picks);
+    sc.order.forEach((qi, k) => {
+      const q = r.questions[qi]; if (!q) return;
+      const st = qState(q, picks[k]); if (st === "right") return;
+      out.push({ key: r.id + ":" + qi, r, q, st, pick: picks[k], when: sc.finishedAt || "" });
+    });
+  });
+  return out.sort((a, b) => (b.when || "").localeCompare(a.when || "") || a.r.name.localeCompare(b.r.name));
+}
+function learnHtml(){
+  if (!scoresReady) return `<div class="board"><div class="empty">Loading…</div></div>`;
+  const all = learnItems();
+  if (!all.length) return `<div class="section"><h3>Learn</h3><span class="note">Questions you missed</span></div>
+    <div class="board"><div class="empty">Nothing here yet. Every question you get wrong lands here with its answer and the story behind it.</div></div>`;
+  const rounds = []; all.forEach(x => { if (!rounds.some(r => r.id === x.r.id)) rounds.push(x.r); });
+  if (S.learnSel && S.learnSel !== ALL && !rounds.some(r => r.id === S.learnSel)) S.learnSel = ALL;
+  const sel = S.learnSel || ALL;
+  const list = sel === ALL ? all : all.filter(x => x.r.id === sel);
+  const picker = rounds.length > 1 ? `<select id="learnPick" aria-label="Which round to learn from"><option value="${ALL}">All rounds (${all.length})</option>${rounds.map(r => `<option value="${esc(r.id)}" ${sel === r.id ? "selected" : ""}>${esc(r.name)} (${all.filter(x => x.r.id === r.id).length})</option>`).join("")}</select>` : "";
+  const cards = list.map(x => {
+    const open = !!(S.learnOpen && S.learnOpen[x.key]);
+    const t = themeOf(x.r);
+    return `<div class="lcard" style="--ra:${t.ga}">
+      <div class="lhead"><span class="pill ${esc(x.q.d || "")}">${esc(x.q.d || "question")}</span><span class="lround">${esc(x.r.name)}</span>
+        <button class="eye" data-learn="${esc(x.key)}" aria-expanded="${open}" aria-label="${open ? "Hide" : "Show"} the story behind this answer" title="${open ? "Hide the story" : "Show the story"}">${open ? EYE_SHUT : EYE_OPEN}</button></div>
+      ${visualHtml(x.q)}
+      <div class="q">${esc(x.q.q)}</div>
+      <div class="lrow bad"><b>You said</b>${esc(myAnswerText(x.q, x.pick))}</div>
+      <div class="lrow good"><b>Answer</b>${esc(answerText(x.q))}</div>
+      ${open ? `<div class="why good lwhy">${esc(x.q.w || "")}${x.q.more ? `<span class="lmore">${esc(x.q.more)}</span>` : ""}</div>` : ""}
+    </div>`;
+  }).join("");
+  const n = list.length;
+  return `<div class="section"><h3>Learn</h3><span class="note">${n === 1 ? "1 question to go back over" : n + " questions to go back over"}</span></div>
+    ${picker ? `<div class="row" style="margin-bottom:12px">${picker}</div>` : ""}
+    <p class="note" style="margin:0 0 12px">Every question you missed, with the right answer. Tap the eye for the story behind it.</p>
+    ${cards}`;
+}
+function wireLearn(){
+  document.querySelectorAll("[data-learn]").forEach(b => b.onclick = () => {
+    S.learnOpen = S.learnOpen || {};
+    const k = b.dataset.learn; S.learnOpen[k] = !S.learnOpen[k]; sfx("click"); renderLobby();
+  });
+  const p = $("learnPick"); if (p) p.onchange = e => { S.learnSel = e.target.value; renderLobby(); window.scrollTo({ top: 0 }); };
+}
+
+/* --- Me: your avatar, sound, your numbers, your rounds --- */
 const AV_TABS = [["hair","Hair"],["eyes","Eyes"],["mouth","Mouth"],["brow","Brows"],["beard","Beard"],["acc","Extra"],["colors","Colors"]];
 function builderHtml(){
   const saved = avatarOf(me.uid); if (!S.av) S.av = Object.assign({}, AV_DEFAULT, saved || {});

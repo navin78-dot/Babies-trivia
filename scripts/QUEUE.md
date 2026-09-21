@@ -20,7 +20,9 @@ Steps the daily session follows:
    accent, accent2, accentDark, accent2Dark), `emblem`, and 20 questions:
    7 easy, 7 medium, 6 hard, at most 3 non-multiple-choice (true/false,
    select-all, put-in-order all count). Every question needs `w`, a one- or
-   two-sentence explanation with the fact that makes it right. Facts must be
+   two-sentence explanation with the fact that makes it right, and a `more`
+   field of two or three sentences of background for the Learn tab (the story
+   around the answer, not a restatement of `w`). Facts must be
    real and checkable; when unsure of a detail, choose a different question.
    Options should be plausible, no joke answers, no "all of the above".
 4. Validate: `npm install firebase-admin@^12 --no-save --no-audit --no-fund && node scripts/publish-rounds.mjs --check`.
