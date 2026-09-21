@@ -221,9 +221,13 @@ a.btn{text-decoration:none}
 .plinth span{font-family:var(--display);font-size:26px;color:#fff;text-shadow:0 2px 8px rgba(0,0,0,.4)}
 .pod.me .podname{color:var(--glow2)}
 .champs{display:grid;gap:8px}
-.champrow{display:grid;grid-template-columns:auto 1fr auto;gap:12px;align-items:center;padding:10px 14px;border-radius:18px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.08)}
-.champrow .emoav{box-shadow:0 0 0 3px var(--gold),0 0 20px color-mix(in srgb,var(--gold) 50%, transparent)}
-.champrow .who{color:var(--cream)}
+.trophies{display:grid;gap:6px}
+.trow{display:grid;grid-template-columns:auto 1fr auto auto;gap:12px;align-items:center;padding:9px 14px;border-radius:16px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.08)}
+.trow .who{color:var(--cream)}
+.trow.now{grid-template-columns:auto 1fr auto;background:linear-gradient(120deg,color-mix(in srgb,var(--gold) 22%, var(--stage3)),var(--stage2));border-color:color-mix(in srgb,var(--gold) 45%, transparent)}
+.trow .tnow{font-size:26px;line-height:1;filter:drop-shadow(0 0 10px color-mix(in srgb,var(--gold) 70%, transparent))}
+.tcups{font-size:18px;letter-spacing:-.08em;white-space:nowrap;text-align:right}
+.tcups .none{color:var(--cream2);font-size:14px}
 
 /* ---------- avatars ---------- */
 .emoav{width:36px;height:36px;border-radius:50%;background:var(--paper3);display:grid;place-items:center;font-size:22px;line-height:1;flex:none;position:relative;box-shadow:0 0 0 2px rgba(255,255,255,.25),0 4px 10px rgba(0,0,0,.25)}
@@ -1382,7 +1386,8 @@ const fmtTime = ms => { const s = Math.max(0, Math.round(ms / 1000)); return Mat
 const fmtDate = iso => { try { return new Date(iso).toLocaleDateString(undefined, { month: "short", day: "numeric" }); } catch (e) { return ""; } };
 const isPublished = r => !r.draft || liveIds.has(r.id) || !!promotedDay(r);
 const everyonePlayed = r => SETTINGS.playersInGroup > 0 && boardFor(r.id).length >= SETTINGS.playersInGroup;
-const isOpen = r => r.draft ? isPublished(r) : (!closedIds.has(r.id) && !everyonePlayed(r));
+const seasonOver = r => seasonOfRound(r) < currentSeason();
+const isOpen = r => isPublished(r) && !seasonOver(r) && !closedIds.has(r.id) && !everyonePlayed(r);
 const themeOf = r => { const t = (r && r.theme) || {}; const a = t.accent || "#FF3D71", b = t.accent2 || "#FFC533"; return { a, b, ga: t.accentDark || a, gb: t.accent2Dark || b, font: t.font || "" }; };
 const EMBLEMS = { "strike-a-pose": "🎤", "over-the-millennia": "🏛️", "pop-quiz": "🍿", "living-memory": "🕰️", "incredible-india": "🪷", "must-see-tv": "📺", "famous-faces": "🎬", "one-hit-wonders": "🎵", "plate-to-place": "🍽️", "great-heists": "💎", "to-the-moon": "🚀", "word-origins": "📚", "corner-office": "🏢" };
 const emblemOf = r => (r.theme && r.theme.emblem) || r.emblem || EMBLEMS[r.id] || "🎲";
@@ -1399,7 +1404,7 @@ function applyTheme(r){
   root.setProperty("--accent", t.a); root.setProperty("--accent2", t.b); root.setProperty("--glow", t.ga); root.setProperty("--glow2", t.gb);
   if (t.font) root.setProperty("--display", `"${t.font}","Bricolage Grotesque","Archivo Black",sans-serif`); else root.removeProperty("--display");
   h.className = ""; h.textContent = r.name;
-  $("eyebrow").textContent = `Season ${seasonOfRound(r)} · ` + (r.subject ? r.subject + " · " : "") + (isOpen(r) ? "Open" : everyonePlayed(r) ? "Everyone has played" : "Closed");
+  $("eyebrow").textContent = `Season ${seasonOfRound(r)} · ` + (r.subject ? r.subject + " · " : "") + (isOpen(r) ? "Open" : seasonOver(r) ? `Season ${seasonOfRound(r)} is over` : everyonePlayed(r) ? "Everyone has played" : "Closed");
   $("roundSub").textContent = r.tagline || "";
 }
 const openCount = () => ROUNDS.filter(r => isPublished(r) && isOpen(r)).length;
@@ -1423,7 +1428,7 @@ async function signIn(){
 auth.getRedirectResult().catch(() => {});
 auth.onAuthStateChanged(async u => {
   me = u; isHost = false; fatal = "";
-  if (me) { isHost = await probeHost(); subscribeSite(); subscribeScores(); subscribePresence(); subscribeVotes(); subscribeRounds(); subscribeProfiles(); if (isHost) subscribeHostData();
+  if (me) { setTimeout(flushPending, 1500); isHost = await probeHost(); subscribeSite(); subscribeScores(); subscribePresence(); subscribeVotes(); subscribeRounds(); subscribeProfiles(); if (isHost) subscribeHostData();
     if (pendingRound && roundById(pendingRound) && isPublished(roundById(pendingRound))) { const id = pendingRound; pendingRound = null; selectRound(id); return; } pendingRound = null; }
   else { if (unsubScores) { unsubScores(); unsubScores = null; } if (unsubSite) { unsubSite(); unsubSite = null; } if (unsubPresence) { unsubPresence(); unsubPresence = null; } if (unsubVotes) { unsubVotes(); unsubVotes = null; } if (unsubRounds) { unsubRounds(); unsubRounds = null; } if (unsubSugg) { unsubSugg(); unsubSugg = null; } if (unsubReq) { unsubReq(); unsubReq = null; } suggestions = []; requests = []; if (unsubProfiles) { unsubProfiles(); unsubProfiles = null; } profiles = {}; votes = []; votesReady = false; presence = []; presenceRound = null; stopTimer(); if (hbTimer) { clearInterval(hbTimer); hbTimer = null; } round = null; S.tab = "play"; }
   renderAll();
@@ -1752,7 +1757,7 @@ function seasonHeroHtml(){
     <div class="sh-top"><div><div class="sh-kicker">Now playing</div><div class="sh-title">Season ${I.n}</div><div class="sh-sub">Ends ${esc(I.ny)}, New York time${I.sameTz ? "" : `<br>${esc(I.loc)} where you are`}</div></div>
       <div class="sh-clock"><div class="sh-label">Time left</div><div class="sh-count szc" data-end="${I.end}">${countdownText(I.end)}</div></div></div>
     <div class="sh-foot"><span>${rs ? `${rs} round${rs === 1 ? "" : "s"} count${rs === 1 ? "s" : ""} toward this season so far.` : "No rounds added this season yet."} Season ${I.n + 1} starts the moment the clock hits zero.</span><button class="linkbtn" id="seasonHow">${S.seasonHow ? "Hide" : "How seasons work"}</button></div>
-    ${S.seasonHow ? `<div class="sh-body"><p><b>A season is one week.</b> Midnight going into Sunday to the next, New York time.</p><p><b>Every round added during that week counts.</b> Your season score is your scores on those rounds added together, so play all of them. One run each.</p><p><b>When the clock hits zero, the top total takes the crown.</b> It sits on their avatar all through the next season, and the next season starts at once with a fresh board.</p><p><b>Older rounds stay open</b> until everyone has played, but they count for the season they were added in, not the one you play them in.</p></div>` : ""}
+    ${S.seasonHow ? `<div class="sh-body"><p><b>A season is one week.</b> Midnight going into Sunday to the next, New York time.</p><p><b>Every round added during that week counts.</b> Your season score is your scores on those rounds added together, so play all of them. One run each.</p><p><b>When the clock hits zero, the top total takes the crown.</b> It sits on their avatar all through the next season, and the next season starts at once with a fresh board.</p><p><b>When a season ends, its rounds close.</b> You can still see their boards, but nobody can add a run, so the standings and the crown are final.</p></div>` : ""}
   </div>`;
 }
 function seasonLineHtml(){ const I = seasonEndInfo(); return `<div class="season-line"><span><b>Season ${I.n}</b> · ends ${esc(I.ny)} NY time</span><span class="szc" data-end="${I.end}">${countdownText(I.end)}</span></div>`; }
@@ -1766,11 +1771,18 @@ function champMap(){
   return (champCache = out);
 }
 const isChampion = uid => !!champMap()[uid];
-function champsHtml(){
-  const m = champMap(); const list = Object.values(m).flat().sort((a, b) => b.n - a.n); if (!list.length) return "";
-  return `<div class="section"><h3>Hall of champions</h3><span class="note">One crown per season</span></div>
-    <div class="champs">${list.map(c => `<div class="champrow"><div class="champav">${avatarHtml(c.uid, c.photo, "lg")}</div><div class="who">${esc((c.name || "Someone").split(" ")[0])}<small>Season ${c.n} · ${fmtScore(c.score)} pts</small></div><button class="btn ghost small" data-season="${c.n}">${S.shareKind === "season" && S.shareSeason === c.n ? "Hide" : "Recap"}</button></div>`).join("")}</div>
-    ${S.shareKind === "season" ? sharePanelHtml() : ""}`;
+function trophyHtml(){
+  const cur = currentSeason(), m = champMap(); const first = s => (s || "Someone").split(" ")[0];
+  const players = {}; scores.forEach(s => { players[s.uid] = players[s.uid] || { uid: s.uid, name: s.name, photo: s.photo }; });
+  Object.values(m).flat().forEach(c => { players[c.uid] = players[c.uid] || { uid: c.uid, name: c.name, photo: c.photo }; });
+  const rows = Object.values(players).map(p => ({ ...p, wins: (m[p.uid] || []).map(c => c.n).sort((a, b) => a - b) })).sort((a, b) => b.wins.length - a.wins.length || first(a.name).localeCompare(first(b.name)));
+  const lead = rankOf(combinedFor(seasonRounds(cur)))[0]; const I = seasonEndInfo();
+  if (!rows.length) return "";
+  return `<div class="section"><h3>Trophy case</h3><span class="note">One trophy per season won</span></div>
+    <div class="trophies">
+      <div class="trow now"><div class="tnow">🏆</div><div class="who">Season ${cur} · in play<small>${lead ? `${esc(first(lead.name))} leads with ${fmtScore(lead.score)} pts · ` : "No scores yet · "}<span class="szc" data-end="${I.end}">${countdownText(I.end)}</span> left</small></div>${lead ? avatarHtml(lead.uid, lead.photo, "sm") : ""}</div>
+      ${rows.map(p => `<div class="trow">${avatarHtml(p.uid, p.photo, "sm")}<div class="who">${esc(first(p.name))}<small>${p.wins.length ? "Won season" + (p.wins.length > 1 ? "s " : " ") + p.wins.join(", ") : "No seasons won yet"}</small></div><div class="tcups" title="${p.wins.length} season${p.wins.length === 1 ? "" : "s"} won">${p.wins.length ? "🏆".repeat(Math.min(p.wins.length, 6)) + (p.wins.length > 6 ? ` ×${p.wins.length}` : "") : "<span class='none'>–</span>"}</div>${p.wins.length ? `<button class="linkbtn" data-season="${p.wins[p.wins.length - 1]}">${S.shareKind === "season" && S.shareSeason === p.wins[p.wins.length - 1] ? "Hide" : "Recap"}</button>` : ""}</div>`).join("")}
+    </div>${S.shareKind === "season" ? sharePanelHtml() : ""}`;
 }
 function podiumHtml(ranked){
   const top = ranked.slice(0, 3); if (top.length < 2) return "";
@@ -1869,8 +1881,8 @@ function renderLobby(){
     <button class="tab" role="tab" aria-selected="${lobbyTab === "stats"}" data-ltab="stats">Stats</button>
     <button class="tab" role="tab" aria-selected="${lobbyTab === "me"}" data-ltab="me">Me</button>
   </div>`;
-  const wire = () => document.querySelectorAll("[data-ltab]").forEach(b => b.onclick = () => { sfx("click"); lobbyTab = b.dataset.ltab; renderLobby(); window.scrollTo({ top: 0 }); });
-  const ann = (siteCfg.announcement || "").trim(); const strip = ann ? `<div class="banner ann">${esc(ann)}</div>` : "";
+  const wire = () => { wirePending(); document.querySelectorAll("[data-ltab]").forEach(b => b.onclick = () => { sfx("click"); lobbyTab = b.dataset.ltab; renderLobby(); window.scrollTo({ top: 0 }); }); };
+  const ann = (siteCfg.announcement || "").trim(); const strip = pendingBannerHtml() + (ann ? `<div class="banner ann">${esc(ann)}</div>` : "");
   if (lobbyTab === "poll") { $view.innerHTML = strip + tabs + seasonLineHtml() + pollHtml(); wire(); wirePoll(); return; }
   if (lobbyTab === "stats") { $view.innerHTML = strip + tabs + seasonLineHtml() + statsHtml(); wire(); return; }
   if (lobbyTab === "me") { $view.innerHTML = strip + tabs + seasonLineHtml() + meHtml(); wire(); wireMe(); return; }
@@ -2016,7 +2028,7 @@ function renderRounds(tabs, wire){
        ${rest.length > shown.length || (lobbyAll && rest.length > (pod ? 2 : 5)) ? `<p class="note"><button class="linkbtn" id="lobbyMore">${lobbyAll ? "Show fewer" : `Show all ${ranked.length}`}</button></p>` : ""}${seasonNote}`;
   const tile = r => {
     const t = themeOf(r); const b = boardFor(r.id); const my = b.find(x => x.uid === me.uid); const open = isOpen(r); const live = playingNow(r.id);
-    const foot = my ? `<span class="pill done">You: ${fmtScore(my.score)} / ${my.total}</span>` : open ? `<span class="pill live">Play</span>` : `<span class="pill">${everyonePlayed(r) ? "Everyone played" : "Closed"}</span>`;
+    const foot = my ? `<span class="pill done">You: ${fmtScore(my.score)} / ${my.total}</span>` : open ? `<span class="pill live">Play</span>` : `<span class="pill">${seasonOver(r) ? "Season " + seasonOfRound(r) + " over" : everyonePlayed(r) ? "Everyone played" : "Closed"}</span>`;
     const who = live.length ? `<div class="live"><i></i>${live.length === 1 ? avatarMini(live[0].uid) + esc((live[0].name || "Someone").split(" ")[0]) + " is playing" : live.length + " playing now"}</div>` : "";
     return `<button class="tile${open ? "" : " closed"}" data-r="${esc(r.id)}" data-emblem="${esc(emblemOf(r))}" style="--ra:${t.ga};--rb:${t.gb};${t.font ? `--rf:'${t.font}','Archivo Black',sans-serif` : ""}">
       <div class="tn">${esc(r.name)}</div><div class="ts">${esc(r.subject || "")} · ${r.questions.length} questions</div>${who}
@@ -2032,7 +2044,7 @@ function renderRounds(tabs, wire){
   const older = olderCount > 0 ? `<p class="note" style="text-align:center;margin-top:18px"><button class="btn ghost small" id="lobbyOld">${lobbyOld ? "Hide older games" : `Older games (${olderCount})`}</button></p>` : "";
   $view.innerHTML = tabs + `
     <div class="section"><h3>Leaderboard</h3>${pickerHtml("lobbyPick", lobbySel)}</div>${board}
-    ${champsHtml()}
+    ${trophyHtml()}
     ${group("Play next", next, next.length === 1 ? "1 round you haven't played" : next.length + " rounds you haven't played")}
     ${group("Played", done, next.length ? "Tap one to see its board" : "You've played every open round.")}
     ${group("Closed", closed, "Boards only")}${older}`;
@@ -2058,12 +2070,12 @@ function gameLength(){ const all = round.questions.length; return SETTINGS.quest
 
 function renderClosed(){
   const mine = myOfficial(); const recap = recapHtml(round);
-  $view.innerHTML = `<div class="card"><h2>${everyonePlayed(round) ? "Everyone has played this one" : "This round is closed"}</h2><p>${mine ? `Your score of ${fmtScore(mine.score)} / ${mine.total} stands.` : everyonePlayed(round) ? "All " + SETTINGS.playersInGroup + " of you have finished it, so it closed itself." : "It isn't taking new scores right now."}${recap ? "" : " You can still look at the board."}</p>${recap ? "" : `<button class="btn ghost" id="toBoard">See the leaderboard</button>`}</div>${recap}`;
+  $view.innerHTML = `<div class="card"><h2>${seasonOver(round) ? `Season ${seasonOfRound(round)} is over` : everyonePlayed(round) ? "Everyone has played this one" : "This round is closed"}</h2><p>${mine ? `Your score of ${fmtScore(mine.score)} / ${mine.total} stands.` : seasonOver(round) ? "This round belonged to a season that has ended, so it no longer takes runs." : everyonePlayed(round) ? "All " + SETTINGS.playersInGroup + " of you have finished it, so it closed itself." : "It isn't taking new scores right now."}${recap ? "" : " You can still look at the board."}</p>${recap ? "" : `<button class="btn ghost" id="toBoard">See the leaderboard</button>`}</div>${recap}`;
   const tb = $("toBoard"); if (tb) tb.onclick = () => setTab("board");
   const sr = $("shareRecap"); if (sr) sr.onclick = () => toggleShare("recap");
   wireShare();
 }
-function seasonNoteFor(r){ const n = seasonOfRound(r), cur = currentSeason(); return n === cur ? `Counts toward <b>Season ${n}</b>, which ends ${esc(seasonEndInfo().ny)} NY time.` : `Counts toward <b>Season ${n}</b>, which is over; play it for the board and the all-time total.`; }
+function seasonNoteFor(r){ const n = seasonOfRound(r), cur = currentSeason(); return n === cur ? `Counts toward <b>Season ${n}</b>, which ends ${esc(seasonEndInfo().ny)} NY time.` : `Belonged to <b>Season ${n}</b>, which is over, so it's closed.`; }
 function renderHome(){
   const mine = myOfficial(); const n = gameLength(); const b = boardFor(round.id);
   const mineRank = mine ? rankOf(b).find(x => x.uid === me.uid) : null;
@@ -2130,12 +2142,14 @@ function hostDropHtml(){
       <p class="note" style="margin:0 0 8px">At midnight New York time (<span class="szc" data-end="${dropAt}">${countdownText(dropAt)}</span> from now) the lobby gets: ${plan}.</p>
       <label class="row" style="gap:10px;cursor:pointer;margin:6px 0 8px"><span class="switch"><input type="checkbox" id="ovOn" ${ovR ? "checked" : ""}><i></i></span><b>Override the poll tonight</b></label>
       <div class="row"><select id="ovSel" ${ovR ? "" : "disabled"}>${choices.length ? choices.map(r => `<option value="${esc(r.id)}" ${ovR && ovR.id === r.id ? "selected" : ""}>${esc(r.name)}${P.retired.has(r.id) ? " (off the poll)" : ""}</option>`).join("") : `<option value="">Nothing in the queue</option>`}</select><button class="btn small" id="ovSave">Save</button><span class="note" id="ovMsg" style="margin:0"></span></div>
-      <p class="note">Queue: ${P.queue.length} round${P.queue.length === 1 ? "" : "s"} written and waiting${P.queue.length ? `, ${P.queue.length === 1 ? "one night" : P.queue.length + " nights"} of drops` : ""}. ${P.queue.length < 3 ? "Ask Claude for more rounds; that's a data push, not a deploy." : ""}</p>
+      <h3 style="margin-top:16px">The queue</h3>
+      <p class="note" style="margin:0 0 6px">${P.queue.length} round${P.queue.length === 1 ? "" : "s"} written and waiting${P.queue.length ? `, ${P.queue.length === 1 ? "one night" : P.queue.length + " nights"} of drops` : ""}. The daily top-up keeps it at five. The three that have waited longest are tonight's poll; anything here can be picked with the override above.</p>
+      ${P.queue.length ? `<div class="roundlist">${P.queue.map(r => `<div class="r"><div><b>${esc(r.name)}</b><br><span class="note" style="margin:0">${esc(r.subject || "")} · ${r.questions.length} questions${r.requestId ? " · written for your request" : ""}</span></div>${P.options.some(o => o.id === r.id) ? `<span class="pill live">On the poll</span>` : P.retired.has(r.id) ? `<span class="pill">Off the poll</span>` : `<span class="pill">Waiting</span>`}</div>`).join("")}</div>` : ""}
       <h3 style="margin-top:16px">Suggest a theme</h3>
-      <p class="note" style="margin:0 0 6px">Type a theme and press Enter. It goes on the request list here and Claude writes the round into the queue on the next data push. The site can't write questions by itself.</p>
+      <p class="note" style="margin:0 0 6px">Type a theme and press Enter. It goes on the list below. The daily top-up (every morning) writes it as a round, it lands in the queue above, and the entry here turns to “written”. From the queue it reaches the poll in turn, or you can pick it with the override.</p>
       <input id="reqIn" class="field" maxlength="200" placeholder="e.g. Bollywood villains, or 1980s video games">
       <p class="note" id="reqMsg" style="margin:6px 0 0"></p>
-      ${reqs.length ? `<div class="roundlist" style="margin-top:6px">${reqs.map(x => `<div class="r"><div><b>${esc(x.theme)}</b><br><span class="note" style="margin:0">${fmtDate(x.finishedAt)} · ${esc(x.status || "waiting")}</span></div><button class="linkbtn" data-delreq="${esc(x.id)}">Delete</button></div>`).join("")}</div>` : ""}
+      ${reqs.length ? `<div class="roundlist" style="margin-top:6px">${reqs.map(x => { const wr = x.roundId ? roundById(x.roundId) : null; const where = wr && P.queue.some(q => q.id === wr.id) ? ", in the queue" : wr && isPublished(wr) ? ", in the lobby" : ""; return `<div class="r"><div><b>${esc(x.theme)}</b><br><span class="note" style="margin:0">${fmtDate(x.finishedAt)} · ${x.status === "written" ? `written${wr ? " as " + esc(wr.name) : ""}${where}` : "waiting for the next daily top-up"}</span></div><button class="linkbtn" data-delreq="${esc(x.id)}">Delete</button></div>`; }).join("")}</div>` : ""}
     </div>
     <div class="card">
       <h3>Suggestion box</h3>
@@ -2165,7 +2179,7 @@ function renderHost(){
       <h3>Rounds</h3>
       <p class="note" style="margin:0 0 8px">Open rounds take new scores and show first in the lobby. Closing a round keeps its board but stops new official runs.</p>
       <div class="roundlist">${ROUNDS.filter(x => !x.draft).sort((a, b) => (isOpen(b) - isOpen(a)) || byRecent(a, b)).map(x => `<div class="r"><div><b>${esc(x.name)}</b><br><span class="note" style="margin:0">${esc(x.subject || "")} · ${x.questions.length} questions · ${boardFor(x.id).length} played</span></div>
-        <div class="row">${isOpen(x) ? `<span class="pill live">Open</span><button class="btn ghost small" data-toggle="${esc(x.id)}" data-to="close">Close</button>` : everyonePlayed(x) ? `<span class="pill">Everyone has played</span>` : `<span class="pill">Closed</span><button class="btn small" data-toggle="${esc(x.id)}" data-to="open">Open</button>`}</div></div>`).join("")}</div>
+        <div class="row">${isOpen(x) ? `<span class="pill live">Open</span><button class="btn ghost small" data-toggle="${esc(x.id)}" data-to="close">Close</button>` : seasonOver(x) ? `<span class="pill">Season ${seasonOfRound(x)} over</span>` : everyonePlayed(x) ? `<span class="pill">Everyone has played</span>` : `<span class="pill">Closed</span><button class="btn small" data-toggle="${esc(x.id)}" data-to="open">Open</button>`}</div></div>`).join("")}</div>
       <p class="note" id="hostMsg"></p>
     </div>
     <div class="card"><h3>Wipe a round's scores</h3>
@@ -2391,6 +2405,35 @@ function qCorrect(it, pick){
 /* Firestore can't store an array inside an array (select / order picks) or an undefined
    gap (unanswered in a timed-out run). Pack picks for storage, unpack when reading. */
 const packPicks = (order, picks) => order.map((_, k) => { const p = picks[k]; return Array.isArray(p) ? { v: p.slice() } : p == null ? null : p; });
+/* Belt and braces: whatever shape a result has, make it something Firestore accepts
+   (no undefined, no array directly inside an array) before it is sent. */
+const isPlain = v => v && typeof v === "object" && Object.getPrototypeOf(v) === Object.prototype;
+function cleanDoc(v, inArray){
+  if (v === undefined) return null;
+  if (Array.isArray(v)) { const a = v.map(x => cleanDoc(x, true)); return inArray ? { v: a } : a; }
+  if (isPlain(v)) { const o = {}; Object.keys(v).forEach(k => { o[k] = cleanDoc(v[k], false); }); return o; }
+  return v;
+}
+/* A finished run is written to this phone first and posted to the board from there. If the post
+   fails for any reason it stays on the phone and is retried on every load, when the connection
+   comes back, every minute, and on demand. Nothing about a finished run lives only in memory. */
+const pendingKey = () => "bt.pending." + (me ? me.uid : "anon");
+function loadPending(){ try { const l = JSON.parse(localStorage.getItem(pendingKey()) || "[]"); return Array.isArray(l) ? l : []; } catch (e) { return []; } }
+function savePending(list){ try { if (list.length) localStorage.setItem(pendingKey(), JSON.stringify(list)); else localStorage.removeItem(pendingKey()); } catch (e) {} }
+let flushing = false, lastFlushErr = "";
+async function flushPending(){
+  if (!me || flushing) return; const list = loadPending(); if (!list.length) return; flushing = true;
+  for (const item of list) {
+    if (boardFor(item.roundId).some(s => s.uid === me.uid)) { savePending(loadPending().filter(x => x.id !== item.id)); continue; } // already on the board
+    try { await dbf.collection("scores").doc(item.id).set(cleanDoc({ ...item.doc, createdAt: firebase.firestore.FieldValue.serverTimestamp() })); savePending(loadPending().filter(x => x.id !== item.id)); lastFlushErr = ""; if (round && round.id === item.roundId && S.screen === "result") S.saved = "saved"; }
+    catch (e) { lastFlushErr = (e && e.code) || "error"; if (round && round.id === item.roundId && S.screen === "result") { S.saved = "queued"; S.saveErr = lastFlushErr; } }
+  }
+  flushing = false; render();
+}
+window.addEventListener("online", () => flushPending());
+setInterval(() => { if (loadPending().length) flushPending(); }, 60 * 1000);
+function pendingBannerHtml(){ const n = loadPending().length; if (!n) return ""; return `<div class="banner"><b>${n === 1 ? "One finished run hasn't posted to the board yet." : n + " finished runs haven't posted to the board yet."}</b> It's saved on this phone${lastFlushErr ? ` (last error: ${esc(lastFlushErr)})` : ""} and keeps retrying. <button class="linkbtn" id="retryPost">Retry now</button></div>`; }
+function wirePending(){ const b = $("retryPost"); if (b) b.onclick = () => { b.textContent = "Retrying…"; flushPending(); }; }
 const unpackPicks = picks => Array.isArray(picks) ? picks.map(p => p && typeof p === "object" && Array.isArray(p.v) ? p.v : p) : [];
 function qScore(it, pick){
   const t = qType(it);
@@ -2476,9 +2519,12 @@ async function finishRun(timedOut){
   const result = { uid: me.uid, name: me.displayName || "Someone", photo: me.photoURL || "", roundId: round.id, score, total: S.order.length, elapsedMs, timedOut: !!timedOut, bestStreak, finishedAt: new Date().toISOString(), order: S.order, picks: S.picks.slice(), createdAt: firebase.firestore.FieldValue.serverTimestamp() };
   S.lastResult = result; S.timedOut = !!timedOut; S.unanswered = unanswered; S.saved = "none";
   if (!myOfficial() && isOpen(round)) {
+    const { createdAt, ...doc } = result; doc.picks = packPicks(S.order, S.picks);
+    const id = round.id + "_" + me.uid;
+    savePending(loadPending().filter(x => x.id !== id).concat([{ id, roundId: round.id, doc, at: Date.now() }])); // on the phone before anything else
     S.saved = "saving"; render();
-    try { await dbf.collection("scores").doc(round.id + "_" + me.uid).set({ ...result, picks: packPicks(S.order, S.picks) }); S.saved = "saved"; }
-    catch (e) { S.saved = "failed"; S.saveErr = (e && e.code) || "error"; }
+    try { await dbf.collection("scores").doc(id).set(cleanDoc({ ...doc, createdAt: firebase.firestore.FieldValue.serverTimestamp() })); savePending(loadPending().filter(x => x.id !== id)); S.saved = "saved"; }
+    catch (e) { S.saved = "queued"; S.saveErr = (e && e.code) || "error"; lastFlushErr = S.saveErr; }
   } else if (!isOpen(round)) S.saved = "closed";
   render(); window.scrollTo({ top: 0 });
 }
@@ -2488,7 +2534,7 @@ function renderResult(){
   let saveLine = "";
   if (S.saved === "saving") saveLine = `<p class="note">Posting your score to the board…</p>`;
   else if (S.saved === "saved") saveLine = `<p class="note">Posted to the leaderboard${mine ? ` — you're #${mine.rank} of ${b.length}` : ""}. ${seasonNoteFor(round)}</p>`;
-  else if (S.saved === "failed") saveLine = `<p class="note">Couldn't post your score (${esc(S.saveErr)}).${S.saveErr === "permission-denied" ? " You may already have an official score for this round." : ""}</p>`;
+  else if (S.saved === "queued") saveLine = `<p class="note"><b>Your run is saved on this phone.</b> The board couldn't be reached (${esc(S.saveErr)}). It will keep retrying on its own; you can also <button class="linkbtn" id="retryPost">retry now</button>. Don't clear your browser data until it posts.</p>`;
   else if (S.saved === "closed") saveLine = `<p class="note">This round is closed, so this run doesn't post.</p>`;
 
   $view.innerHTML = `<div class="stack"><div class="card lift">
@@ -2509,6 +2555,7 @@ function renderResult(){
     </div>${b.length ? `<div><div class="section" style="margin-top:6px"><h3>The board</h3><span class="note">${b.length} played${everyonePlayed(round) ? " · everyone's in" : ""}</span></div><div class="board">${rankOf(b).slice(0, 5).map(rowHtml).join("")}</div></div>` : ""}</div>`;
   if (!S.celebrated) { S.celebrated = true; const big = !r.timedOut && r.total && r.score / r.total >= 0.85; sfx(big ? "fanfare" : "reveal"); countUp($("statNum"), r.score); if (big) confetti(); }
   $("toBoard").onclick = () => { boardSel = round.id; setTab("board"); };
+  wirePending();
   $("review").onclick = () => { S.review = !S.review; renderResult(); };
   $("share").onclick = () => toggleShare("score");
   wireShare();

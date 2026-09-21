@@ -64,3 +64,14 @@ npm install firebase-admin@^12 --no-save && node scripts/publish-rounds.mjs --ch
 Scoring: multiple choice and true/false are one point or zero. Select-all gives
 a share of the point for each correct tick, minus one share for each wrong tick,
 never below zero. Put-in-order gives a share for each item in its correct slot.
+
+## Before a deploy of index.html
+
+A finished run is written to the player's phone first and posted to the board
+from there, with retries, so a failed post is never lost. Still, before deploying
+a change to the quiz or scoring code, prove the score document is one Firestore
+accepts for every question format:
+
+```
+npm install firebase@10 --no-save && node scripts/check-score-shape.mjs
+```
