@@ -149,6 +149,11 @@ a.btn{text-decoration:none}
 .sh-clock{text-align:right;min-width:150px}
 .sh-label{font-size:11px;letter-spacing:.18em;text-transform:uppercase;font-weight:800;color:var(--cream2)}
 .sh-count{font-family:var(--display);font-size:28px;line-height:1.1;font-variant-numeric:tabular-nums;letter-spacing:-.01em;color:var(--cream);text-shadow:0 0 18px color-mix(in srgb,var(--gold) 50%, transparent)}
+.sh-you{display:flex;align-items:center;gap:12px;margin-top:14px;padding:10px 12px;border-radius:14px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.12);font-size:14px;line-height:1.4;color:var(--cream2)}
+.sh-you b{color:var(--cream)}
+.sh-you .shy-msg{flex:1;min-width:0}
+.sh-you .emoav{flex:0 0 auto}
+.sh-you .btn{white-space:nowrap}
 .sh-foot{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;margin-top:12px;padding-top:10px;border-top:1px solid rgba(255,255,255,.1);font-size:13px;color:var(--cream2);font-weight:600;line-height:1.45}
 .sh-foot b{color:var(--cream)}
 .sh-foot .linkbtn{color:var(--gold);padding:0;white-space:nowrap}
@@ -1753,11 +1758,21 @@ const fmtLocal = ms => new Date(ms).toLocaleString(undefined, { weekday: "long",
 function seasonEndInfo(){ const n = currentSeason(); const end = seasonStart(n + 1); let sameTz = false; try { sameTz = Intl.DateTimeFormat().resolvedOptions().timeZone === SEASON.tz; } catch (e) {} return { n, end, ny: fmtNY(end), loc: fmtLocal(end), sameTz }; }
 function countdownText(end){ const s = Math.max(0, Math.floor((end - Date.now()) / 1000)); const d = Math.floor(s / 86400), hh = Math.floor(s % 86400 / 3600), m = Math.floor(s % 3600 / 60), sec = s % 60; return (d ? d + "d " : "") + String(hh).padStart(2, "0") + "h " + String(m).padStart(2, "0") + "m " + String(sec).padStart(2, "0") + "s"; }
 const seasonWhenText = () => { const I = seasonEndInfo(); return `${I.ny} New York time${I.sameTz ? "" : ` (${I.loc} where you are)`}`; };
+function myProgressHtml(){
+  const cur = currentSeason(); const rs = seasonRounds(cur); const played = rs.filter(r => boardFor(r.id).some(s => s.uid === me.uid)); const todo = rs.filter(r => isOpen(r) && !boardFor(r.id).some(s => s.uid === me.uid));
+  const dropAt = keyMs(nextKey(dropPlan().today));
+  let msg;
+  if (!rs.length) msg = `<b>No rounds this season yet.</b> The first one drops at midnight.`;
+  else if (!todo.length) msg = `<b>You've played all ${rs.length} round${rs.length === 1 ? "" : "s"} this season.</b> Nothing left to play until the next drop at midnight.`;
+  else msg = `<b>You've played ${played.length} of ${rs.length} round${rs.length === 1 ? "" : "s"} this season.</b> ${todo.length === 1 ? "One still to play" : todo.length + " still to play"} before the season ends.`;
+  return `<div class="sh-you">${avatarHtml(me.uid, me.photoURL, "sm")}<span class="shy-msg">${msg}</span>${todo.length ? `<button class="btn small" id="playNextBtn">Play ${todo.length === 1 ? "it" : "one"}</button>` : ""}</div>`;
+}
 function seasonHeroHtml(){
   const I = seasonEndInfo(); const rs = seasonRounds(I.n).length;
   return `<div class="season-hero">
     <div class="sh-top"><div><div class="sh-kicker">Now playing</div><div class="sh-title">Season ${I.n}</div><div class="sh-sub">Ends ${esc(I.ny)}, New York time${I.sameTz ? "" : `<br>${esc(I.loc)} where you are`}</div></div>
       <div class="sh-clock"><div class="sh-label">Time left</div><div class="sh-count szc" data-end="${I.end}">${countdownText(I.end)}</div></div></div>
+    ${myProgressHtml()}
     <div class="sh-foot"><span>${rs ? `${rs} round${rs === 1 ? "" : "s"} count${rs === 1 ? "s" : ""} toward this season so far.` : "No rounds added this season yet."} <b>When the clock hits zero every round from this season closes and stops counting, so play all your rounds before then.</b> Season ${I.n + 1} starts at that moment.</span><button class="linkbtn" id="seasonHow">${S.seasonHow ? "Hide" : "How seasons work"}</button></div>
     ${S.seasonHow ? `<div class="sh-body"><p><b>A season is one week.</b> Midnight going into Sunday to the next, New York time.</p><p><b>Every round added during that week counts.</b> Your season score is your scores on those rounds added together. One run each.</p><p><b>When the clock hits zero, the top total takes the crown.</b> It sits on their avatar all through the next season, and the next season starts at once with a fresh board.</p><p><b>When the season ends, its rounds close.</b> They can't be played any more and nothing played later counts, so play all your rounds before the clock hits zero. The boards stay up and the crown is final.</p></div>` : ""}
   </div>`;
@@ -2053,6 +2068,7 @@ function renderRounds(tabs, wire){
   wire();
   const ob = $("lobbyOld"); if (ob) ob.onclick = () => { lobbyOld = !lobbyOld; renderLobby(); };
   const sh = $("seasonHow"); if (sh) sh.onclick = () => { S.seasonHow = !S.seasonHow; renderLobby(); };
+  const pn = $("playNextBtn"); if (pn) pn.onclick = () => { const r = seasonRounds(currentSeason()).sort(byRecent).find(x => isOpen(x) && !boardFor(x.id).some(s => s.uid === me.uid)); if (r) selectRound(r.id); };
   document.querySelectorAll(".tile").forEach(c => c.onclick = () => selectRound(c.dataset.r));
   $("lobbyPick").onchange = e => { lobbySel = e.target.value; lobbyAll = false; renderLobby(); };
   const m = $("lobbyMore"); if (m) m.onclick = () => { lobbyAll = !lobbyAll; renderLobby(); };
