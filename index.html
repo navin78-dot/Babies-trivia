@@ -156,6 +156,13 @@ a.btn{text-decoration:none}
 .sh-you b{color:var(--cream)}
 .sh-you .shy-msg{flex:1;min-width:0}
 .sh-you .emoav{flex:0 0 auto}
+.sh-here{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}
+.pchip{display:inline-flex;align-items:center;padding:5px 11px;border-radius:999px;font-size:12px;font-weight:600;color:var(--cream2);background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.1)}
+.pchip b{color:var(--cream);font-weight:800}
+.pchip.playing{background:color-mix(in srgb,var(--good) 22%, transparent);border-color:color-mix(in srgb,var(--good) 50%, transparent);color:var(--cream)}
+.pchip.playing::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--good);box-shadow:0 0 8px var(--good);animation:pulse 1.6s ease-in-out infinite;margin-right:7px;flex:none}
+.pchip.quiet{opacity:.7}
+.pchip .emoav.xs{margin-right:5px}
 .sh-you .btn{white-space:nowrap}
 .sh-foot{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;margin-top:12px;padding-top:10px;border-top:1px solid rgba(255,255,255,.1);font-size:13px;color:var(--cream2);font-weight:600;line-height:1.45}
 .sh-foot b{color:var(--cream)}
@@ -1476,24 +1483,34 @@ const playingNow = rid => presence.filter(p => p.roundId === rid && p.uid !== (m
 function namesHtml(list){ const n = list.map(p => avatarMini(p.uid) + esc((p.name || "Someone").split(" ")[0])); return n.length <= 3 ? n.join(", ") : n.slice(0, 3).join(", ") + " and " + (n.length - 3) + " more"; }
 function liveHtml(rid){ const l = playingNow(rid); return l.length ? `<div class="live"><i></i>Playing now <span>${namesHtml(l)}</span></div>` : ""; }
 async function writePresence(){
-  if (!me || !presenceRound) return;
+  if (!me || presenceRound === null) return;
   const rid = presenceRound, uid = me.uid;
   try { await dbf.collection("presence").doc(uid).set({ uid, name: me.displayName || "Someone", photo: me.photoURL || "", roundId: rid, at: Date.now(), updatedAt: firebase.firestore.FieldValue.serverTimestamp() });
-    if (presenceRound !== rid) await dbf.collection("presence").doc(uid).delete(); } catch (e) {}
+    if (presenceRound === null) await dbf.collection("presence").doc(uid).delete(); } catch (e) {}
 }
 async function clearPresence(){
   if (hbTimer) { clearInterval(hbTimer); hbTimer = null; }
-  if (!me || !presenceRound) return;
+  if (!me || presenceRound === null) return;
   presenceRound = null;
   try { await dbf.collection("presence").doc(me.uid).delete(); } catch (e) {}
 }
 function syncPresence(){
-  const want = (me && round && S.screen === "quiz") ? round.id : null;
+  const want = (me && !fatal && !document.hidden) ? ((round && S.screen === "quiz") ? round.id : "") : null;
   if (want === presenceRound) return;
-  if (!want) { clearPresence(); return; }
+  if (want === null) { clearPresence(); return; }
   presenceRound = want; writePresence();
   if (hbTimer) clearInterval(hbTimer);
   hbTimer = setInterval(writePresence, 30 * 1000);
+}
+document.addEventListener("visibilitychange", () => { if (document.hidden) clearPresence(); else render(); });
+/* everyone on the site right now, whoever they are and whatever they are doing */
+const aroundNow = () => presence.filter(p => p.uid !== (me && me.uid) && (Date.now() - (p.at || 0)) < PRESENCE_TTL);
+function aroundHtml(){
+  const all = aroundNow(), playing = all.filter(p => p.roundId), here = all.filter(p => !p.roundId);
+  const chip = (p, label, live) => `<span class="pchip${live ? " playing" : ""}">${avatarMini(p.uid)}<b>${esc((p.name || "Someone").split(" ")[0])}</b>&nbsp;${esc(label)}</span>`;
+  const bits = playing.map(p => { const r = roundById(p.roundId); return chip(p, r ? "is playing " + r.name : "is playing", true); })
+    .concat(here.map(p => chip(p, "is here", false)));
+  return `<div class="sh-here">${bits.length ? bits.join("") : `<span class="pchip quiet">You're the only one here right now</span>`}</div>`;
 }
 window.addEventListener("pagehide", () => { clearPresence(); });
 setInterval(() => { if (showsPresence()) render(); }, 30 * 1000); // lets stale heartbeats drop off
@@ -1779,6 +1796,7 @@ function seasonHeroHtml(){
     <div class="sh-top"><div><div class="sh-kicker">Now playing</div><div class="sh-title">Season ${I.n}</div><div class="sh-sub">Ends ${esc(I.ny)}, New York time${I.sameTz ? "" : `<br>${esc(I.loc)} where you are`}</div></div>
       <div class="sh-clock"><div class="sh-label">Time left</div><div class="sh-count szc" data-end="${I.end}">${countdownText(I.end)}</div></div></div>
     ${myProgressHtml()}
+    ${aroundHtml()}
     <div class="sh-foot"><span>${rs ? `${rs} round${rs === 1 ? "" : "s"} count${rs === 1 ? "s" : ""} toward this season so far.` : "No rounds added this season yet."} <b>When the clock hits zero every round from this season closes and stops counting, so play all your rounds before then.</b> Season ${I.n + 1} starts at that moment.</span><button class="linkbtn" id="seasonHow">${S.seasonHow ? "Hide" : "How seasons work"}</button></div>
     ${S.seasonHow ? `<div class="sh-body"><p><b>A season is one week.</b> Midnight going into Sunday to the next, New York time.</p><p><b>Every round added during that week counts.</b> Your season score is your scores on those rounds added together. One run each.</p><p><b>When the clock hits zero, the top total takes the crown.</b> It sits on their avatar all through the next season, and the next season starts at once with a fresh board.</p><p><b>When the season ends, its rounds close.</b> They can't be played any more and nothing played later counts, so play all your rounds before the clock hits zero. The boards stay up and the crown is final.</p></div>` : ""}
   </div>`;
