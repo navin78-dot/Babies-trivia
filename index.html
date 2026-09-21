@@ -136,6 +136,29 @@ a.btn{text-decoration:none}
 .banner.ann{background:linear-gradient(120deg,color-mix(in srgb,var(--glow) 28%, var(--stage2)),color-mix(in srgb,var(--glow2) 24%, var(--stage2)));border-color:color-mix(in srgb,var(--glow) 45%, transparent);font-weight:800;box-shadow:0 10px 30px color-mix(in srgb,var(--glow) 18%, transparent)}
 .banner.err{background:color-mix(in srgb,var(--bad) 22%, var(--stage2));border-color:var(--bad)}
 
+/* ---------- season panel ---------- */
+.season-hero{position:relative;margin:0 0 20px;padding:18px 18px 14px;border-radius:22px;color:var(--cream);overflow:hidden;
+  background:linear-gradient(135deg,color-mix(in srgb,var(--gold) 22%, var(--stage3)),var(--stage2) 60%,color-mix(in srgb,var(--glow) 18%, var(--stage2)));
+  border:1px solid color-mix(in srgb,var(--gold) 45%, transparent);box-shadow:0 16px 40px rgba(0,0,0,.45),inset 0 1px 0 color-mix(in srgb,var(--gold) 60%, transparent),0 0 40px color-mix(in srgb,var(--gold) 14%, transparent)}
+.season-hero::before{content:"🏆";position:absolute;right:-10px;bottom:-22px;font-size:120px;opacity:.1;transform:rotate(-12deg);pointer-events:none}
+.sh-top{display:flex;justify-content:space-between;gap:14px;align-items:flex-start;flex-wrap:wrap}
+.sh-kicker{font-size:11px;letter-spacing:.2em;text-transform:uppercase;font-weight:800;color:var(--gold)}
+.sh-title{font-family:var(--display);font-size:40px;line-height:1;letter-spacing:-.02em;margin:2px 0 6px;background:linear-gradient(100deg,#FFE28A,var(--gold) 60%,#E08A2E);-webkit-background-clip:text;background-clip:text;color:transparent}
+.sh-sub{font-size:13px;color:var(--cream2);font-weight:600;line-height:1.4}
+.sh-clock{text-align:right;min-width:150px}
+.sh-label{font-size:11px;letter-spacing:.18em;text-transform:uppercase;font-weight:800;color:var(--cream2)}
+.sh-count{font-family:var(--display);font-size:28px;line-height:1.1;font-variant-numeric:tabular-nums;letter-spacing:-.01em;color:var(--cream);text-shadow:0 0 18px color-mix(in srgb,var(--gold) 50%, transparent)}
+.sh-foot{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;margin-top:12px;padding-top:10px;border-top:1px solid rgba(255,255,255,.1);font-size:13px;color:var(--cream2);font-weight:600}
+.sh-foot .linkbtn{color:var(--gold);padding:0;white-space:nowrap}
+.sh-body{margin-top:10px;font-size:14px;color:var(--cream);line-height:1.5}
+.sh-body p{margin:0 0 8px}
+.sh-body b{color:var(--gold)}
+.season-line{display:flex;justify-content:space-between;align-items:center;gap:10px;margin:-6px 0 16px;padding:9px 14px;border-radius:12px;font-size:13px;color:var(--cream2);font-weight:600;
+  background:rgba(255,255,255,.06);border:1px solid color-mix(in srgb,var(--gold) 30%, transparent)}
+.season-line b{color:var(--gold)}
+.season-line .szc{font-family:var(--display);font-size:15px;color:var(--cream);font-variant-numeric:tabular-nums;white-space:nowrap}
+@media (max-width:420px){.sh-title{font-size:34px}.sh-count{font-size:24px}.sh-clock{min-width:0}}
+
 /* ---------- round posters ---------- */
 .grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
 @media (max-width:360px){.grid{grid-template-columns:1fr}}
@@ -1384,7 +1407,7 @@ function applyTheme(r){
   root.setProperty("--accent", t.a); root.setProperty("--accent2", t.b); root.setProperty("--glow", t.ga); root.setProperty("--glow2", t.gb);
   if (t.font) root.setProperty("--display", `"${t.font}","Bricolage Grotesque","Archivo Black",sans-serif`); else root.removeProperty("--display");
   h.className = ""; h.textContent = r.name;
-  $("eyebrow").textContent = (r.subject ? r.subject + " · " : "") + (isOpen(r) ? "Open" : everyonePlayed(r) ? "Everyone has played" : "Closed");
+  $("eyebrow").textContent = `Season ${seasonOfRound(r)} · ` + (r.subject ? r.subject + " · " : "") + (isOpen(r) ? "Open" : everyonePlayed(r) ? "Everyone has played" : "Closed");
   $("roundSub").textContent = r.tagline || "";
 }
 const openCount = () => ROUNDS.filter(r => isPublished(r) && isOpen(r)).length;
@@ -1678,6 +1701,23 @@ function seasonEndsText(){
   const h = Math.ceil(ms / 36e5); if (h <= 1) return "ends within the hour"; if (h < 24) return `ends in ${h} hours`;
   const d = Math.round(ms / 864e5); return d === 1 ? "ends tomorrow at 6am" : `ends in ${d} days`;
 }
+const fmtNY = ms => new Date(ms).toLocaleString("en-US", { timeZone: SEASON.tz, weekday: "long", month: "short", day: "numeric", hour: "numeric", minute: "2-digit" });
+const fmtLocal = ms => new Date(ms).toLocaleString(undefined, { weekday: "long", month: "short", day: "numeric", hour: "numeric", minute: "2-digit" });
+function seasonEndInfo(){ const n = currentSeason(); const end = seasonStart(n + 1); let sameTz = false; try { sameTz = Intl.DateTimeFormat().resolvedOptions().timeZone === SEASON.tz; } catch (e) {} return { n, end, ny: fmtNY(end), loc: fmtLocal(end), sameTz }; }
+function countdownText(end){ const s = Math.max(0, Math.floor((end - Date.now()) / 1000)); const d = Math.floor(s / 86400), hh = Math.floor(s % 86400 / 3600), m = Math.floor(s % 3600 / 60), sec = s % 60; return (d ? d + "d " : "") + String(hh).padStart(2, "0") + "h " + String(m).padStart(2, "0") + "m " + String(sec).padStart(2, "0") + "s"; }
+const seasonWhenText = () => { const I = seasonEndInfo(); return `${I.ny} New York time${I.sameTz ? "" : ` (${I.loc} where you are)`}`; };
+function seasonHeroHtml(){
+  const I = seasonEndInfo(); const rs = seasonRounds(I.n).length;
+  return `<div class="season-hero">
+    <div class="sh-top"><div><div class="sh-kicker">Now playing</div><div class="sh-title">Season ${I.n}</div><div class="sh-sub">Ends ${esc(I.ny)}, New York time${I.sameTz ? "" : `<br>${esc(I.loc)} where you are`}</div></div>
+      <div class="sh-clock"><div class="sh-label">Time left</div><div class="sh-count szc" data-end="${I.end}">${countdownText(I.end)}</div></div></div>
+    <div class="sh-foot"><span>${rs ? `${rs} round${rs === 1 ? "" : "s"} count${rs === 1 ? "s" : ""} toward this season so far.` : "No rounds added this season yet."} Season ${I.n + 1} starts the moment the clock hits zero.</span><button class="linkbtn" id="seasonHow">${S.seasonHow ? "Hide" : "How seasons work"}</button></div>
+    ${S.seasonHow ? `<div class="sh-body"><p><b>A season is one week.</b> Sunday 6am to Sunday 6am, New York time.</p><p><b>Every round added during that week counts.</b> Your season score is your scores on those rounds added together, so play all of them. One run each.</p><p><b>When the clock hits zero, the top total takes the crown.</b> It sits on their avatar all through the next season, and the next season starts at once with a fresh board.</p><p><b>Older rounds stay open</b> until everyone has played, but they count for the season they were added in, not the one you play them in.</p></div>` : ""}
+  </div>`;
+}
+function seasonLineHtml(){ const I = seasonEndInfo(); return `<div class="season-line"><span><b>Season ${I.n}</b> · ends ${esc(I.ny)} NY time</span><span class="szc" data-end="${I.end}">${countdownText(I.end)}</span></div>`; }
+let seasonFlipped = false;
+setInterval(() => { document.querySelectorAll(".szc").forEach(el => { const end = +el.dataset.end; el.textContent = countdownText(end); if (end - Date.now() <= 0 && !seasonFlipped) { seasonFlipped = true; renderAll(); } }); }, 1000);
 let champCache = null;
 function champMap(){
   if (champCache) return champCache;
@@ -1791,10 +1831,10 @@ function renderLobby(){
   </div>`;
   const wire = () => document.querySelectorAll("[data-ltab]").forEach(b => b.onclick = () => { sfx("click"); lobbyTab = b.dataset.ltab; renderLobby(); window.scrollTo({ top: 0 }); });
   const ann = (siteCfg.announcement || "").trim(); const strip = ann ? `<div class="banner ann">${esc(ann)}</div>` : "";
-  if (lobbyTab === "poll") { $view.innerHTML = strip + tabs + pollHtml(); wire(); wirePoll(); return; }
-  if (lobbyTab === "stats") { $view.innerHTML = strip + tabs + statsHtml(); wire(); return; }
-  if (lobbyTab === "me") { $view.innerHTML = strip + tabs + meHtml(); wire(); wireMe(); return; }
-  return renderRounds(strip + tabs, wire);
+  if (lobbyTab === "poll") { $view.innerHTML = strip + tabs + seasonLineHtml() + pollHtml(); wire(); wirePoll(); return; }
+  if (lobbyTab === "stats") { $view.innerHTML = strip + tabs + seasonLineHtml() + statsHtml(); wire(); return; }
+  if (lobbyTab === "me") { $view.innerHTML = strip + tabs + seasonLineHtml() + meHtml(); wire(); wireMe(); return; }
+  return renderRounds(strip + tabs + seasonHeroHtml(), wire);
 }
 function pollHtml(){
   const P = pollNow(), opts = pollOptions(), visIds = new Set(opts.map(o => o.id));
@@ -1951,6 +1991,7 @@ function renderRounds(tabs, wire){
     ${group("Closed", closed, "Boards only")}${older}`;
   wire();
   const ob = $("lobbyOld"); if (ob) ob.onclick = () => { lobbyOld = !lobbyOld; renderLobby(); };
+  const sh = $("seasonHow"); if (sh) sh.onclick = () => { S.seasonHow = !S.seasonHow; renderLobby(); };
   document.querySelectorAll(".tile").forEach(c => c.onclick = () => selectRound(c.dataset.r));
   $("lobbyPick").onchange = e => { lobbySel = e.target.value; lobbyAll = false; renderLobby(); };
   const m = $("lobbyMore"); if (m) m.onclick = () => { lobbyAll = !lobbyAll; renderLobby(); };
@@ -1975,14 +2016,16 @@ function renderClosed(){
   const sr = $("shareRecap"); if (sr) sr.onclick = () => toggleShare("recap");
   wireShare();
 }
+function seasonNoteFor(r){ const n = seasonOfRound(r), cur = currentSeason(); return n === cur ? `Counts toward <b>Season ${n}</b>, which ends ${esc(seasonEndInfo().ny)} NY time.` : `Counts toward <b>Season ${n}</b>, which is over; play it for the board and the all-time total.`; }
 function renderHome(){
   const mine = myOfficial(); const n = gameLength(); const b = boardFor(round.id);
   const mineRank = mine ? rankOf(b).find(x => x.uid === me.uid) : null;
   const intro = mine
     ? `<h2>You've played this one</h2>
         <div class="row spread" style="margin:6px 0 10px"><div class="pts">${fmtScore(mine.score)}<span> / ${mine.total}</span></div><div class="time">${fmtTime(mine.elapsedMs)}${mineRank ? ` · #${mineRank.rank} of ${b.length}` : ""}</div></div>
-        <p class="note">One run per round, and that was yours. ${everyonePlayed(round) ? "Everyone has played now, so this round is done." : "The board updates as the others finish."}</p>`
+        <p class="note">One run per round, and that was yours. ${everyonePlayed(round) ? "Everyone has played now, so this round is done." : "The board updates as the others finish."} ${seasonNoteFor(round)}</p>`
     : `<h2>Ready?</h2>
+        <p class="note" style="margin:-4px 0 10px">${seasonNoteFor(round)}</p>
         <p>${n} questions, one run, and it counts.${timeLimit() ? ` You get ${fmtLimit()}, counting down from question one. When it hits zero the run ends and whatever is unanswered counts wrong.` : ""}${SETTINGS.timeBreaksTies ? " A faster time breaks ties on the board." : ""}</p>`;
   $view.innerHTML = `<div class="stack">
       <div class="card lift">
@@ -2027,6 +2070,7 @@ function renderBoard(){
   $view.innerHTML = `<h2>Leaderboard</h2>${picker}${body}`;
   $("boardPick").onchange = e => { boardSel = e.target.value; renderBoard(); };
 }
+const seasonAnnText = () => { const I = seasonEndInfo(); return `Season ${I.n} is on. It ends ${I.ny} New York time. Every round you play this week counts toward the crown.`; };
 function renderHost(){
   $view.innerHTML = `<div class="stack">
     <div class="card"><h2>Host controls</h2>
@@ -2037,6 +2081,12 @@ function renderHost(){
       <label class="note" for="cfgAnn" style="margin-top:8px;display:block">Announcement</label>
       <input id="cfgAnn" class="field" value="${esc(siteCfg.announcement || "")}" placeholder="e.g. New round tonight at 8">
       <div class="row" style="margin-top:10px"><button class="btn small" id="cfgSave">Save front page</button><span class="note" id="cfgMsg"></span></div>
+    </div>
+    <div class="card">
+      <h3>Seasons</h3>
+      <p class="note" style="margin:0 0 8px">Weekly, Sunday 6am New York time. <b>Season ${currentSeason()}</b> is on now and ends ${esc(seasonWhenText())}. Season ${currentSeason() + 1} starts at that moment. The countdown on the front page runs on its own.</p>
+      <div class="row"><button class="btn small" id="seasonAnn">Post a season announcement</button><span class="note" id="seasonMsg" style="margin:0"></span></div>
+      <p class="note" style="margin:8px 0 0">Puts this in the announcement strip, which you can edit above: “${esc(seasonAnnText())}”</p>
     </div>
     <div class="card">
       <h3>Rounds</h3>
@@ -2055,6 +2105,10 @@ function renderHost(){
     try { await dbf.collection("site").doc("config").set({ closedRounds: [...next] }, { merge: true }); $("hostMsg").textContent = roundById(id).name + (b.dataset.to === "open" ? " is open." : " is closed."); }
     catch (e) { $("hostMsg").textContent = "Couldn't change it: " + (e.code || e.message); }
   });
+  $("seasonAnn").onclick = async () => {
+    try { await dbf.collection("site").doc("config").set({ announcement: seasonAnnText() }, { merge: true }); $("seasonMsg").textContent = "Posted."; }
+    catch (e) { $("seasonMsg").textContent = "Couldn't post: " + (e.code || e.message); }
+  };
   $("cfgSave").onclick = async () => {
     const tagline = $("cfgTag").value.trim(), announcement = $("cfgAnn").value.trim();
     try { await dbf.collection("site").doc("config").set({ tagline, announcement }, { merge: true }); $("cfgMsg").textContent = "Saved."; }
@@ -2355,7 +2409,7 @@ function renderResult(){
   const b = boardFor(round.id); const mine = rankOf(b).find(x => x.uid === me.uid);
   let saveLine = "";
   if (S.saved === "saving") saveLine = `<p class="note">Posting your score to the board…</p>`;
-  else if (S.saved === "saved") saveLine = `<p class="note">Posted to the leaderboard${mine ? ` — you're #${mine.rank} of ${b.length}` : ""}.</p>`;
+  else if (S.saved === "saved") saveLine = `<p class="note">Posted to the leaderboard${mine ? ` — you're #${mine.rank} of ${b.length}` : ""}. ${seasonNoteFor(round)}</p>`;
   else if (S.saved === "failed") saveLine = `<p class="note">Couldn't post your score (${esc(S.saveErr)}).${S.saveErr === "permission-denied" ? " You may already have an official score for this round." : ""}</p>`;
   else if (S.saved === "closed") saveLine = `<p class="note">This round is closed, so this run doesn't post.</p>`;
 
