@@ -16,7 +16,8 @@ const settings = html.match(/const SETTINGS = \{[\s\S]*?\n\};/)[0];
 const code = settings + "\n" + slice("const SEASON = SETTINGS.season;", "const SEASON_KEY") + slice("const myVote = day =>", "async function castVote(id){")
   + "\nreturn { dropPlan, seasonOf, currentSeason, addedMs };";
 // rounds baked into index.html count too (they are never drafts, but the plan needs the list)
-const builtin = [...html.matchAll(/\n    id: "([a-z0-9-]+)",\n    added: "([^"]+)",\n    name: "([^"]+)",\n    subject: "([^"]*)",/g)].map(m => ({ id: m[1], added: m[2], name: m[3], subject: m[4], questions: [] }));
+const builtin = [...html.matchAll(/\n    id: "([a-z0-9-]+)",\n    added: "([^"]+)",\n    name: "([^"]+)",\n    subject: "([^"]*)",/g)]
+  .map(m => { const head = html.slice(m.index, html.indexOf("questions: [", m.index)); return { id: m[1], added: m[2], name: m[3], subject: m[4], draft: /\n    draft: true,/.test(head), questions: [] }; });
 const dbRounds = roundsSnap.docs.map(d => ({ id: d.id, ...d.data() }));
 const ROUNDS = builtin.filter(b => !dbRounds.some(r => r.id === b.id)).concat(dbRounds);
 const cfg = cfgSnap.exists ? cfgSnap.data() : {};
