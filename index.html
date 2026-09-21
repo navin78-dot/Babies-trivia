@@ -158,6 +158,19 @@ a.btn{text-decoration:none}
 .polladmin{display:flex;align-items:center;gap:10px;flex-wrap:wrap;padding:8px 4px 2px}
 .polladmin .note{margin:0}
 .tabdot{display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--accent);margin-left:6px;vertical-align:middle}
+.stat-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin-top:4px}
+.stile{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:14px 14px 12px}
+.stile b{display:block;font-family:var(--display);font-size:30px;line-height:1;font-variant-numeric:tabular-nums}
+.stile span{display:block;font-size:11px;color:var(--muted);margin-top:6px;text-transform:uppercase;letter-spacing:.08em}
+.srow{display:grid;grid-template-columns:104px 1fr auto;gap:10px;align-items:center;padding:7px 0}
+.slab{font-size:14px;font-weight:600}
+.sbar{height:8px;border-radius:99px;background:var(--surface2);overflow:hidden}
+.sbar i{display:block;height:100%;border-radius:4px;background:var(--accent)}
+.sval{font-size:14px;font-variant-numeric:tabular-nums;min-width:74px;text-align:right}
+.sval small{color:var(--muted);font-size:11px}
+.pcard{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:12px 14px;margin-bottom:10px}
+.pcard.me{border-color:var(--accent);background:color-mix(in srgb,var(--accent) 6%, var(--surface))}
+.chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}
 .qvis{font-size:clamp(34px,11vw,52px);line-height:1.35;text-align:center;letter-spacing:.12em;margin:14px 0 4px;
   background:var(--surface2);border-radius:14px;padding:22px 14px;word-break:break-word}
 .qimg{margin:14px 0 4px}
@@ -271,9 +284,11 @@ const SETTINGS = {
    correct option in o (0 = first), w = the explanation shown after answering,
    d = difficulty label ("easy", "medium" or "hard") shown on the question.
 
-   HOUSE RULE for every round: exactly 20 questions, mixed easy, medium and
-   hard, with at least 4 of each. The usual split is 7 easy, 7 medium, 6 hard.
-   A round that breaks this logs a warning in the browser console at startup.
+   HOUSE RULE for every round: at least 6 questions, mixed easy, medium and
+   hard, with each difficulty making up at least a fifth of the round (never
+   fewer than 2). The standard round is 20: 7 easy, 7 medium, 6 hard. Shorter
+   rounds are fine. A round that breaks this logs a console warning at startup.
+   Formats can be mixed freely inside one round; see rounds/README.md.
    A question can also carry a picture shown above it, either
    emoji: "🐝 👑 🎤"  (emoji clues, rendered large), or
    img: "images/name.jpg" with optional alt and credit (a file committed
@@ -288,16 +303,16 @@ const POLL = {
   note: "One vote each, and you can change it any time. Whatever wins gets built.",
   options: [
     { id:"one-hit-wonders", name:"One Hit Wonders", blurb:"Songs that went to number one and were never followed. Come On Eileen, Macarena, Tainted Love." },
-    { id:"plate-to-place",  name:"Plate to Place",  blurb:"Dishes and where they actually come from. Croissants aren't French and chicken tikka masala isn't Indian." },
     { id:"great-heists",    name:"Great Heists and Cons", blurb:"Real robberies and frauds, from the Antwerp diamond vault to the man who sold the Eiffel Tower twice." },
     { id:"to-the-moon",     name:"To the Moon and Mars", blurb:"Spaceflight from Sputnik to the rovers. Rockets, crews, and the near misses nobody planned for." },
-    { id:"word-origins",    name:"Where Words Come From", blurb:"Quarantine, salary, sandwich, assassin. Everyday words with much stranger pasts than you'd guess." },
   ]
 };
+/* A poll.json published to Firestore (site/poll) overrides the block above without a deploy. */
 
 let ROUNDS = [
   {
     id: "strike-a-pose",
+    added: "2026-09-19T21:26:00Z",
     name: "Strike a Pose",
     subject: "Madonna",
     tagline: "Twenty questions across four decades of Madonna.",
@@ -367,6 +382,7 @@ let ROUNDS = [
   },
   {
     id: "over-the-millennia",
+    added: "2026-09-19T21:27:00Z",
     name: "Over the Millennia",
     subject: "World history",
     tagline: "Twenty questions from the first written words to the fall of the Wall. Five thousand years, in order.",
@@ -436,6 +452,7 @@ let ROUNDS = [
   },
   {
     id: "pop-quiz",
+    added: "2026-09-19T21:53:00Z",
     name: "Pop Quiz",
     subject: "Pop culture",
     tagline: "Twenty questions on the movies, music and TV everybody was talking about. Eighties to now.",
@@ -505,6 +522,7 @@ let ROUNDS = [
   },
   {
     id: "living-memory",
+    added: "2026-09-19T22:08:00Z",
     name: "Living Memory",
     subject: "Modern history",
     tagline: "Twenty questions from the first powered flight to the pandemic. 1900 to now, in order.",
@@ -574,6 +592,7 @@ let ROUNDS = [
   },
   {
     id: "incredible-india",
+    added: "2026-09-19T23:24:00Z",
     name: "Incredible India",
     subject: "India",
     tagline: "Twenty questions from the Taj Mahal to the Moon. Starts easy, ends hard.",
@@ -643,6 +662,7 @@ let ROUNDS = [
   },
   {
     id: "must-see-tv",
+    added: "2026-09-20T00:40:00Z",
     name: "Must See TV",
     subject: "1990s television",
     tagline: "Twenty questions from Twin Peaks to The Sopranos. Starts easy, ends hard.",
@@ -712,6 +732,7 @@ let ROUNDS = [
   },
   {
     id: "famous-faces",
+    added: "2026-09-20T02:00:00Z",
     name: "Who Am I",
     subject: "Celebrities in emoji",
     tagline: "Twenty people described only in pictures. Read the clues, name the name. Starts easy, ends hard.",
@@ -781,6 +802,7 @@ let ROUNDS = [
   },
   {
     id: "one-hit-wonders",
+    added: "2026-09-20T17:30:00Z",
     name: "One Hit Wonders",
     subject: "One hit wonders",
     tagline: "Twenty songs everyone knows by artists you can barely name. Starts easy, ends hard.",
@@ -851,6 +873,7 @@ let ROUNDS = [
   },
   {
     id: "plate-to-place",
+    added: "2026-09-20T17:31:00Z",
     name: "Plate to Place",
     subject: "Food origins",
     tagline: "Twenty dishes and where they really come from. It is almost never where you think. Starts easy, ends hard.",
@@ -921,6 +944,7 @@ let ROUNDS = [
   },
   {
     id: "great-heists",
+    added: "2026-09-20T17:32:00Z",
     name: "Great Heists and Cons",
     subject: "Heists and frauds",
     tagline: "Twenty real robberies and swindles, from tunnels under banks to men who sold monuments. Starts easy, ends hard.",
@@ -991,6 +1015,7 @@ let ROUNDS = [
   },
   {
     id: "to-the-moon",
+    added: "2026-09-20T17:33:00Z",
     name: "To the Moon and Mars",
     subject: "Spaceflight",
     tagline: "Twenty questions from Sputnik to the far side of the Moon and the surface of Mars. Starts easy, ends hard.",
@@ -1061,6 +1086,7 @@ let ROUNDS = [
   },
   {
     id: "word-origins",
+    added: "2026-09-20T17:34:00Z",
     name: "Where Words Come From",
     subject: "Word origins",
     tagline: "Twenty everyday words with much stranger pasts than you would guess. Starts easy, ends hard.",
@@ -1165,8 +1191,9 @@ ROUNDS.forEach(processQuestions);
 ROUNDS.forEach(r => {
   const n = r.questions.length, c = { easy: 0, medium: 0, hard: 0 };
   r.questions.forEach(q => { if (q.d && c[q.d] != null) c[q.d]++; });
-  const bad = n !== 20 || c.easy < 4 || c.medium < 4 || c.hard < 4;
-  if (bad) console.warn(`Round "${r.id}" breaks the house rule (20 questions, at least 4 each of easy/medium/hard). It has ${n} questions: ${c.easy} easy, ${c.medium} medium, ${c.hard} hard.`);
+  const min = Math.max(2, Math.ceil(n * 0.2));
+  const bad = n < 6 || c.easy < min || c.medium < min || c.hard < min;
+  if (bad) console.warn(`Round "${r.id}" breaks the house rule (at least 6 questions, each difficulty at least ${min} of them). It has ${n} questions: ${c.easy} easy, ${c.medium} medium, ${c.hard} hard.`);
 });
 const roundById = id => ROUNDS.find(r => r.id === id) || null;
 
@@ -1176,7 +1203,8 @@ let openIds = null;            // null = not loaded yet; Set of open round ids o
 let liveIds = new Set();       // draft rounds the host has promoted to the lobby (site config liveRounds)
 let scores = [];               // every score doc
 let scoresReady = false;
-let unsubScores = null, unsubSite = null, unsubPresence = null, unsubVotes = null, unsubRounds = null;
+let unsubScores = null, unsubSite = null, unsubPresence = null, unsubVotes = null, unsubRounds = null, unsubPollCfg = null;
+let pollCfg = null;                   // poll options from Firestore site/poll, if published
 let votes = [], votesReady = false;   // poll votes, one doc per player
 let tickTimer = null;                 // countdown interval while a run is in progress
 let presence = [];            // who is mid-quiz right now (from the presence collection)
@@ -1235,9 +1263,9 @@ async function signIn(){
 auth.getRedirectResult().catch(() => {});
 auth.onAuthStateChanged(async u => {
   me = u; isHost = false; fatal = "";
-  if (me) { isHost = await probeHost(); subscribeSite(); subscribeScores(); subscribePresence(); subscribeVotes(); subscribeRounds();
+  if (me) { isHost = await probeHost(); subscribeSite(); subscribeScores(); subscribePresence(); subscribeVotes(); subscribeRounds(); subscribePollCfg();
     if (pendingRound && roundById(pendingRound) && isPublished(roundById(pendingRound))) { const id = pendingRound; pendingRound = null; selectRound(id); return; } pendingRound = null; }
-  else { if (unsubScores) { unsubScores(); unsubScores = null; } if (unsubSite) { unsubSite(); unsubSite = null; } if (unsubPresence) { unsubPresence(); unsubPresence = null; } if (unsubVotes) { unsubVotes(); unsubVotes = null; } if (unsubRounds) { unsubRounds(); unsubRounds = null; } votes = []; votesReady = false; presence = []; presenceRound = null; stopTimer(); if (hbTimer) { clearInterval(hbTimer); hbTimer = null; } round = null; S.tab = "play"; }
+  else { if (unsubScores) { unsubScores(); unsubScores = null; } if (unsubSite) { unsubSite(); unsubSite = null; } if (unsubPresence) { unsubPresence(); unsubPresence = null; } if (unsubVotes) { unsubVotes(); unsubVotes = null; } if (unsubRounds) { unsubRounds(); unsubRounds = null; } if (unsubPollCfg) { unsubPollCfg(); unsubPollCfg = null; } pollCfg = null; votes = []; votesReady = false; presence = []; presenceRound = null; stopTimer(); if (hbTimer) { clearInterval(hbTimer); hbTimer = null; } round = null; S.tab = "play"; }
   renderAll();
 });
 async function probeHost(){
@@ -1305,6 +1333,12 @@ function subscribeRounds(){
     if (added) renderAll();
   }, () => {});
 }
+function subscribePollCfg(){
+  if (unsubPollCfg) unsubPollCfg();
+  unsubPollCfg = dbf.collection("site").doc("poll").onSnapshot(snap => { pollCfg = snap.exists ? snap.data() : null; if (!round) render(); }, () => {});
+}
+const pollNow = () => (pollCfg && Array.isArray(pollCfg.options) && pollCfg.options.length) ? pollCfg : POLL;
+const pollOptions = () => pollNow().options.filter(o => { const r = roundById(o.id); return !(r && r.draft && isPublished(r)); });
 function subscribeVotes(){
   if (unsubVotes) unsubVotes();
   unsubVotes = dbf.collection("votes").onSnapshot(snap => { votes = snap.docs.map(d => d.data()); votesReady = true; if (!round && lobbyTab === "poll") render(); }, () => { votesReady = true; });
@@ -1319,7 +1353,7 @@ async function setLive(id, on){
   catch (e) { const el = $("pollMsg"); if (el) el.textContent = "Couldn't update the lobby: " + (e.code || e.message); }
 }
 async function castVote(id){
-  if (!me || !POLL.open) return;
+  if (!me || !pollNow().open) return;
   try { await dbf.collection("votes").doc(me.uid).set({ uid: me.uid, name: me.displayName || "Someone", photo: me.photoURL || "", choice: id, at: firebase.firestore.FieldValue.serverTimestamp() }); }
   catch (e) { const el = $("pollMsg"); if (el) el.textContent = "Couldn't save your vote (" + (e.code || e.message) + ")."; }
 }
@@ -1374,47 +1408,98 @@ function gateHtml(){
 }
 function wireGate(){ const b = $("signin"); if (b) b.onclick = signIn; }
 
-let lobbySel = ALL, lobbyAll = false, lobbyTab = "rounds";
+let lobbySel = ALL, lobbyAll = false, lobbyTab = "rounds", lobbyOld = false;
+const RECENT_IN_PICKER = 7, RECENT_IN_LOBBY = 12;
+const addedKey = r => r.added || "";
+const byRecent = (a, b) => addedKey(a) === addedKey(b) ? ROUNDS.indexOf(b) - ROUNDS.indexOf(a) : (addedKey(b) > addedKey(a) ? 1 : -1);
 function pickerHtml(id, sel){
-  return `<select id="${id}" aria-label="Which leaderboard to show"><option value="${ALL}" ${sel === ALL ? "selected" : ""}>All rounds combined</option>${ROUNDS.filter(isPublished).map(x => `<option value="${esc(x.id)}" ${x.id === sel ? "selected" : ""}>${esc(x.name)}${isOpen(x) ? "" : " (closed)"}</option>`).join("")}</select>`;
+  const vis = ROUNDS.filter(isPublished).sort(byRecent);
+  const opt = x => `<option value="${esc(x.id)}" ${x.id === sel ? "selected" : ""}>${esc(x.name)}${isOpen(x) ? "" : " (closed)"}</option>`;
+  const recent = vis.slice(0, RECENT_IN_PICKER), older = vis.slice(RECENT_IN_PICKER);
+  return `<select id="${id}" aria-label="Which leaderboard to show"><option value="${ALL}" ${sel === ALL ? "selected" : ""}>All rounds combined</option>${older.length ? `<optgroup label="Recent">${recent.map(opt).join("")}</optgroup><optgroup label="Older">${older.map(opt).join("")}</optgroup>` : recent.map(opt).join("")}</select>`;
 }
 function boardList(sel){ return sel === ALL ? combined() : boardFor(sel); }
 function renderLobby(){
-  const needsVote = POLL.open && votesReady && !myVote();
+  const pv = pollOptions(); const needsVote = pollNow().open && votesReady && pv.length > 0 && !pv.some(o => o.id === myVote());
   const tabs = `<div class="tabs" role="tablist">
     <button class="tab" role="tab" aria-selected="${lobbyTab === "rounds"}" data-ltab="rounds">Rounds</button>
     <button class="tab" role="tab" aria-selected="${lobbyTab === "poll"}" data-ltab="poll">Next round${needsVote ? `<span class="tabdot" title="You haven't voted"></span>` : ""}</button>
+    <button class="tab" role="tab" aria-selected="${lobbyTab === "stats"}" data-ltab="stats">Stats</button>
   </div>`;
   const wire = () => document.querySelectorAll("[data-ltab]").forEach(b => b.onclick = () => { lobbyTab = b.dataset.ltab; renderLobby(); window.scrollTo({ top: 0 }); });
   if (lobbyTab === "poll") { $view.innerHTML = tabs + pollHtml(); wire(); wirePoll(); return; }
+  if (lobbyTab === "stats") { $view.innerHTML = tabs + statsHtml(); wire(); return; }
   return renderRounds(tabs, wire);
 }
 function pollHtml(){
-  const total = votes.length, mine = myVote();
-  const best = Math.max(0, ...POLL.options.map(o => voteCount(o.id)));
-  const rows = POLL.options.map(o => {
+  const P = pollNow(), opts = pollOptions(), visIds = new Set(opts.map(o => o.id));
+  const myV = myVote(), mine = visIds.has(myV) ? myV : null;
+  const total = opts.reduce((n, o) => n + voteCount(o.id), 0);
+  const best = Math.max(0, ...opts.map(o => voteCount(o.id)));
+  const rows = opts.map(o => {
     const c = voteCount(o.id), pct = total ? Math.round((c / total) * 100) : 0;
     const r = roundById(o.id);
-    let admin = "";
-    if (isHost && r && r.draft) {
-      admin = isPublished(r)
-        ? `<div class="polladmin"><span class="pill live">In the lobby</span><button class="linkbtn" data-unpub="${esc(o.id)}">Remove</button></div>`
-        : `<div class="polladmin"><button class="btn small" data-pub="${esc(o.id)}">Add to lobby</button><span class="note">Ready to go, ${r.questions.length} questions written.</span></div>`;
-    } else if (isHost && !r) {
-      admin = `<div class="polladmin"><span class="note">No round written for this theme yet.</span></div>`;
-    }
-    return `<div class="pollrow"><button class="pollopt" data-p="${esc(o.id)}" data-mine="${mine === o.id ? 1 : 0}"${POLL.open ? "" : " disabled"}>
+    const admin = !isHost ? "" : (r && r.draft
+      ? `<div class="polladmin"><button class="btn small" data-pub="${esc(o.id)}">Add to lobby</button><span class="note">Ready, ${r.questions.length} questions written.</span></div>`
+      : `<div class="polladmin"><span class="note">No round written for this theme yet.</span></div>`);
+    return `<div class="pollrow"><button class="pollopt" data-p="${esc(o.id)}" data-mine="${mine === o.id ? 1 : 0}"${P.open ? "" : " disabled"}>
       <div class="prow"><span class="pname">${esc(o.name)}${mine === o.id ? " ✓" : ""}${c && c === best && total ? ` <span class="pill live">Leading</span>` : ""}</span><span class="pcount">${c} vote${c === 1 ? "" : "s"}${total ? " · " + pct + "%" : ""}</span></div>
       <div class="pbar"><i style="width:${pct}%"></i></div>
-      <div class="pblurb">${esc(o.blurb)}</div>
+      <div class="pblurb">${esc(o.blurb || "")}</div>
     </button>${admin}</div>`;
   }).join("");
   const status = !votesReady ? `<p class="note">Loading votes…</p>`
-    : !POLL.open ? `<p class="note">Voting is closed.</p>`
+    : !opts.length ? `<p class="note">Nothing to vote on right now. New themes will appear here.</p>`
+    : !P.open ? `<p class="note">Voting is closed.</p>`
     : mine ? `<p class="note">Your vote is in. Tap another to change it. ${total} vote${total === 1 ? "" : "s"} so far.</p>`
     : `<p class="note">Tap one to vote. ${total ? total + (total === 1 ? " vote" : " votes") + " so far." : "Be the first."}</p>`;
-  return `<div class="card lift" style="margin-bottom:14px"><h2>${esc(POLL.question)}</h2><p class="note" style="margin:0">${esc(POLL.note)}</p>${isHost ? `<p class="note" style="margin:8px 0 0">Host: use <b>Add to lobby</b> on any theme to make its round playable right away.</p>` : ""}</div>
-    ${rows}${status}<p class="note" id="pollMsg"></p>`;
+  const drafts = isHost ? ROUNDS.filter(r => r.draft) : [];
+  const hostList = drafts.length ? `<div class="section"><h3>Rounds you've written</h3><span class="note">Only you see this</span></div><div class="card"><div class="roundlist">${drafts.map(r => `<div class="r"><div><b>${esc(r.name)}</b><br><span class="note" style="margin:0">${esc(r.subject || "")} · ${r.questions.length} questions · ${boardFor(r.id).length} played</span></div>${isPublished(r) ? `<div class="row"><span class="pill live">In the lobby</span><button class="linkbtn" data-unpub="${esc(r.id)}">Remove</button></div>` : `<button class="btn small" data-pub="${esc(r.id)}">Add to lobby</button>`}</div>`).join("")}</div></div>` : "";
+  return `<div class="card lift" style="margin-bottom:14px"><h2>${esc(P.question || "What should the next round be?")}</h2><p class="note" style="margin:0">${esc(P.note || "")}</p>${isHost ? `<p class="note" style="margin:8px 0 0">Host: <b>Add to lobby</b> makes a round playable at once and takes it off this poll.</p>` : ""}</div>
+    ${rows}${status}<p class="note" id="pollMsg"></p>${hostList}`;
+}
+/* --- stats: computed from official runs; nothing extra is stored --- */
+const pct = (a, b) => b ? Math.round((a / b) * 100) : 0;
+function typeLabel(q){ const t = qType(q); if (t === "select") return "Select all"; if (t === "order") return "Put in order"; return (q.o && q.o.length === 2) ? "True or false" : "Multiple choice"; }
+function computeStats(){
+  const players = {}, byDiff = { easy: [0, 0], medium: [0, 0], hard: [0, 0] }, byType = {}, perQ = {};
+  let runs = 0, totalMs = 0, totalQ = 0;
+  scores.forEach(sc => {
+    const r = roundById(sc.roundId); if (!r || !Array.isArray(sc.order) || !Array.isArray(sc.picks)) return;
+    runs++; totalMs += sc.elapsedMs || 0; totalQ += sc.order.length;
+    const p = players[sc.uid] || (players[sc.uid] = { uid: sc.uid, name: sc.name, photo: sc.photo, runs: 0, q: 0, ok: 0, ms: 0, timeouts: 0, last: "", diff: { easy: [0, 0], medium: [0, 0], hard: [0, 0] } });
+    p.runs++; p.ms += sc.elapsedMs || 0; if (sc.timedOut) p.timeouts++; if ((sc.finishedAt || "") > p.last) { p.last = sc.finishedAt; p.name = sc.name; p.photo = sc.photo; }
+    sc.order.forEach((qi, k) => { const q = r.questions[qi]; if (!q) return; const ok = qCorrect(q, sc.picks[k]) ? 1 : 0;
+      p.q++; p.ok += ok; if (q.d && p.diff[q.d]) { p.diff[q.d][0] += ok; p.diff[q.d][1]++; }
+      if (q.d && byDiff[q.d]) { byDiff[q.d][0] += ok; byDiff[q.d][1]++; }
+      const tl = typeLabel(q); const bt = byType[tl] || (byType[tl] = [0, 0]); bt[0] += ok; bt[1]++;
+      const key = r.id + ":" + qi; const pq = perQ[key] || (perQ[key] = { r, q, ok: 0, n: 0 }); pq.ok += ok; pq.n++;
+    });
+  });
+  return { players: Object.values(players), byDiff, byType, perQ: Object.values(perQ), runs, totalMs, totalQ };
+}
+function barHtml(label, a, b){ const v = pct(a, b); return `<div class="srow"><div class="slab">${esc(label)}</div><div class="sbar" title="${v}% right across ${b} answers"><i style="width:${v}%"></i></div><div class="sval">${v}%<small> of ${b}</small></div></div>`; }
+function statsHtml(){
+  if (!scoresReady) return `<div class="board"><div class="empty">Loading…</div></div>`;
+  const st = computeStats();
+  if (!st.runs) return `<div class="board"><div class="empty">No finished runs yet. Stats appear once someone completes a round.</div></div>`;
+  const totalOk = Object.values(st.byDiff).reduce((n, x) => n + x[0], 0), totalN = Object.values(st.byDiff).reduce((n, x) => n + x[1], 0);
+  const tiles = `<div class="stat-grid">
+    <div class="stile"><b>${st.runs}</b><span>runs finished</span></div>
+    <div class="stile"><b>${st.players.length}</b><span>players</span></div>
+    <div class="stile"><b>${pct(totalOk, totalN)}%</b><span>overall accuracy</span></div>
+    <div class="stile"><b>${st.totalQ ? (st.totalMs / st.totalQ / 1000).toFixed(1) : "0"}s</b><span>per question</span></div>
+  </div>`;
+  const diff = `<div class="section"><h3>By difficulty</h3><span class="note">Share answered right</span></div><div class="card">${["easy", "medium", "hard"].map(d => barHtml(d[0].toUpperCase() + d.slice(1), st.byDiff[d][0], st.byDiff[d][1])).join("")}</div>`;
+  const types = Object.entries(st.byType).sort((a, b) => b[1][1] - a[1][1]);
+  const typ = types.length > 1 ? `<div class="section"><h3>By question style</h3></div><div class="card">${types.map(([k, v]) => barHtml(k, v[0], v[1])).join("")}</div>` : "";
+  const tough = st.perQ.filter(x => x.n >= 2).sort((a, b) => (a.ok / a.n) - (b.ok / b.n) || b.n - a.n).slice(0, 5);
+  const toughHtml = tough.length ? `<div class="section"><h3>Toughest questions</h3><span class="note">Fewest got these right, at least 2 tries</span></div><div class="board">${tough.map(x => `<div class="lb" style="grid-template-columns:52px 1fr auto"><div class="rank" style="font-size:16px;color:var(--text)">${pct(x.ok, x.n)}%</div><div class="who" style="white-space:normal">${esc(x.q.q)}<small>${esc(x.r.name)}</small></div><div class="time">${x.ok}/${x.n}</div></div>`).join("")}</div>` : "";
+  const ps = st.players.slice().sort((a, b) => pct(b.ok, b.q) - pct(a.ok, a.q) || b.q - a.q);
+  const cards = ps.map(p => { const isMe = me && p.uid === me.uid; const spq = p.q ? (p.ms / p.q / 1000).toFixed(1) : "0";
+    return `<div class="pcard${isMe ? " me" : ""}"><div class="row spread"><div class="who">${esc(p.name || "Someone")}${isMe ? "<small>you</small>" : ""}</div><div class="pts">${pct(p.ok, p.q)}<span>%</span></div></div>
+      <div class="chips"><span class="pill">Easy ${pct(p.diff.easy[0], p.diff.easy[1])}%</span><span class="pill">Medium ${pct(p.diff.medium[0], p.diff.medium[1])}%</span><span class="pill">Hard ${pct(p.diff.hard[0], p.diff.hard[1])}%</span><span class="pill">${spq}s per question</span><span class="pill">${p.runs} round${p.runs === 1 ? "" : "s"}</span>${p.timeouts ? `<span class="pill">${p.timeouts} timed out</span>` : ""}</div></div>`; }).join("");
+  return tiles + diff + typ + toughHtml + `<div class="section"><h3>Players</h3><span class="note">Official runs only, ranked by accuracy</span></div>${cards}`;
 }
 function wirePoll(){
   document.querySelectorAll("[data-p]").forEach(b => b.onclick = () => castVote(b.dataset.p));
@@ -1438,14 +1523,19 @@ function renderRounds(tabs, wire){
     </button>`;
   };
   const played = id => boardFor(id).some(x => x.uid === me.uid);
-  const vis = ROUNDS.filter(isPublished); const open = vis.filter(isOpen), next = open.filter(r => !played(r.id)), done = open.filter(r => played(r.id)), closed = vis.filter(r => !isOpen(r));
+  const all = ROUNDS.filter(isPublished).sort(byRecent);
+  const recentIds = new Set(all.slice(0, RECENT_IN_LOBBY).map(r => r.id)); const olderCount = all.length - recentIds.size;
+  const vis = lobbyOld ? all : all.filter(r => recentIds.has(r.id));
+  const open = vis.filter(isOpen), next = open.filter(r => !played(r.id)), done = open.filter(r => played(r.id)), closed = vis.filter(r => !isOpen(r));
   const group = (title, rs, sub) => rs.length ? `<div class="section"><h3>${title}</h3><span class="note">${sub}</span></div><div class="grid">${rs.map(tile).join("")}</div>` : "";
+  const older = olderCount > 0 ? `<p class="note" style="text-align:center;margin-top:18px"><button class="btn ghost small" id="lobbyOld">${lobbyOld ? "Hide older games" : `Older games (${olderCount})`}</button></p>` : "";
   $view.innerHTML = tabs + `
     <div class="section"><h3>Leaderboard</h3>${pickerHtml("lobbyPick", lobbySel)}</div>${board}
     ${group("Play next", next, next.length === 1 ? "1 round you haven't played" : next.length + " rounds you haven't played")}
     ${group("Played", done, next.length ? "Tap to practice or see the board" : "You've played every open round. Practice doesn't change the board.")}
-    ${group("Closed", closed, "Boards only")}`;
+    ${group("Closed", closed, "Boards only")}${older}`;
   wire();
+  const ob = $("lobbyOld"); if (ob) ob.onclick = () => { lobbyOld = !lobbyOld; renderLobby(); };
   document.querySelectorAll(".tile").forEach(c => c.onclick = () => selectRound(c.dataset.r));
   $("lobbyPick").onchange = e => { lobbySel = e.target.value; lobbyAll = false; renderLobby(); };
   const m = $("lobbyMore"); if (m) m.onclick = () => { lobbyAll = !lobbyAll; renderLobby(); };

@@ -19,7 +19,25 @@ deploy, so use `[skip netlify]` in the commit message.
 }
 ```
 
-House rule: 20 questions, at least 4 each of easy, medium and hard.
+House rule: at least 6 questions, and each difficulty makes up at least a fifth
+of the round (never fewer than 2). The standard is 20: 7 easy, 7 medium, 6 hard.
+Shorter rounds are fine. Formats can be mixed freely inside one round.
+
+Optional round fields: `"draft": true` hides the round until the host adds it to
+the lobby; `"added"` is stamped automatically on first publish and drives the
+"recent" ordering in the lobby and picker.
+
+## The poll
+
+A `poll.json` at the repository root is published to Firestore as the poll:
+
+```json
+{ "open": true, "question": "What should the next round be?", "note": "One vote each.",
+  "options": [ { "id": "round-id", "name": "Shown name", "blurb": "One line." } ] }
+```
+
+Each option id should match a draft round's id so the host can add it to the
+lobby. A promoted theme disappears from the poll automatically.
 
 ## Question formats
 

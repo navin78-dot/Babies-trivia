@@ -19,6 +19,12 @@ service cloud.firestore {
       allow write: if isHost();
     }
 
+    // Poll options published from the repo (poll.json). Everyone reads, host writes.
+    match /site/poll {
+      allow read: if signedIn();
+      allow write: if isHost();
+    }
+
     // One official score per player per round. Doc id is "<roundId>_<uid>".
     match /scores/{scoreId} {
       allow read: if signedIn();

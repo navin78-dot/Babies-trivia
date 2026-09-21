@@ -9,6 +9,7 @@ on:
     branches: [main]
     paths:
       - rounds/**
+      - poll.json
       - scripts/publish-rounds.mjs
       - .github/workflows/publish-rounds.yml
   workflow_dispatch:
