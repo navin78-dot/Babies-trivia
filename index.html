@@ -108,6 +108,7 @@ select option{color:#111;background:#fff}
 .card select{background-color:var(--paper2);color:var(--ink);border-color:var(--line)}
 .field{font:inherit;width:100%;padding:10px 12px;border:1px solid var(--line);border-radius:12px;background:var(--paper2);color:var(--ink);margin-top:4px}
 .field:focus{outline:2px solid var(--accent);outline-offset:1px}
+textarea.field{resize:vertical;min-height:72px;line-height:1.45}
 
 /* ---------- buttons: chunky, pressable ---------- */
 .btn{border:0;border-radius:14px;padding:12px 22px;font-weight:800;cursor:pointer;background:var(--accent);color:var(--accent-ink);letter-spacing:.01em;display:inline-flex;align-items:center;gap:10px;position:relative;
@@ -436,7 +437,8 @@ const SETTINGS = {
   shuffleAnswers: true,     // true = answer choices are shuffled (same shuffle for everyone, seeded)
   newRoundsOpenByDefault: true, // kept for reference: every round is open until the host closes it on the Host tab
   timeLimitMs: 5 * 60 * 1000,   // countdown shown during a run; 0 or null = no limit. A round can override with its own timeLimitMs.
-  season: { firstBoundary: "2026-09-27", hour: 6, days: 7, tz: "America/New_York" }, // Season 2 starts Sunday 27 Sep 2026 at 06:00 New York; a new season every 7 days after
+  season: { firstBoundary: "2026-09-27", hour: 0, days: 7, tz: "America/New_York" }, // Season 2 starts at midnight going into Sunday 27 Sep 2026, New York time; a new season every 7 days after
+  drop: { start: "2026-09-21", hour: 0, options: 3, retireAfterDays: 7 }, // one new round every midnight New York time, chosen by the poll unless the host overrides
 };
 
 /* =====================================================================
@@ -459,18 +461,8 @@ const SETTINGS = {
    theme.font is any Google Fonts family name; accent / accent2 are hex colors
    (the Dark versions are used when the player's device is in dark mode).
    ===================================================================== */
-/* Poll shown on the front page. Change the options, or set open:false to close it. */
-const POLL = {
-  open: true,
-  question: "What should the next round be?",
-  note: "One vote each, and you can change it any time. Whatever wins gets built.",
-  options: [
-    { id:"one-hit-wonders", name:"One Hit Wonders", blurb:"Songs that went to number one and were never followed. Come On Eileen, Macarena, Tainted Love." },
-    { id:"great-heists",    name:"Great Heists and Cons", blurb:"Real robberies and frauds, from the Antwerp diamond vault to the man who sold the Eiffel Tower twice." },
-    { id:"to-the-moon",     name:"To the Moon and Mars", blurb:"Spaceflight from Sputnik to the rovers. Rockets, crews, and the near misses nobody planned for." },
-  ]
-};
-/* A poll.json published to Firestore (site/poll) overrides the block above without a deploy. */
+/* Wording for the nightly poll. The options are the rounds written and waiting in the queue. */
+const POLL = { question: "What drops tonight?", note: "One new round every night at midnight New York time. Most votes wins; the host can override." };
 
 let ROUNDS = [
   {
@@ -1368,8 +1360,8 @@ let siteCfg = {};              // site/config document (tagline, announcement, l
 let liveIds = new Set();       // draft rounds the host has promoted to the lobby (site config liveRounds)
 let scores = [];               // every score doc
 let scoresReady = false;
-let unsubScores = null, unsubSite = null, unsubPresence = null, unsubVotes = null, unsubRounds = null, unsubPollCfg = null;
-let pollCfg = null;                   // poll options from Firestore site/poll, if published
+let unsubScores = null, unsubSite = null, unsubPresence = null, unsubVotes = null, unsubRounds = null, unsubSugg = null, unsubReq = null;
+let suggestions = [], requests = [];  // host only: the suggestion box and theme requests
 let profiles = {}, unsubProfiles = null; // uid -> { emoji, name } from the profiles collection
 let votes = [], votesReady = false;   // poll votes, one doc per player
 let tickTimer = null;                 // countdown interval while a run is in progress
@@ -1388,7 +1380,7 @@ const $view = $("view");
 const esc = s => String(s).replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
 const fmtTime = ms => { const s = Math.max(0, Math.round(ms / 1000)); return Math.floor(s / 60) + ":" + String(s % 60).padStart(2, "0"); };
 const fmtDate = iso => { try { return new Date(iso).toLocaleDateString(undefined, { month: "short", day: "numeric" }); } catch (e) { return ""; } };
-const isPublished = r => !r.draft || liveIds.has(r.id);
+const isPublished = r => !r.draft || liveIds.has(r.id) || !!promotedDay(r);
 const everyonePlayed = r => SETTINGS.playersInGroup > 0 && boardFor(r.id).length >= SETTINGS.playersInGroup;
 const isOpen = r => r.draft ? isPublished(r) : (!closedIds.has(r.id) && !everyonePlayed(r));
 const themeOf = r => { const t = (r && r.theme) || {}; const a = t.accent || "#FF3D71", b = t.accent2 || "#FFC533"; return { a, b, ga: t.accentDark || a, gb: t.accent2Dark || b, font: t.font || "" }; };
@@ -1431,9 +1423,9 @@ async function signIn(){
 auth.getRedirectResult().catch(() => {});
 auth.onAuthStateChanged(async u => {
   me = u; isHost = false; fatal = "";
-  if (me) { isHost = await probeHost(); subscribeSite(); subscribeScores(); subscribePresence(); subscribeVotes(); subscribeRounds(); subscribePollCfg(); subscribeProfiles();
+  if (me) { isHost = await probeHost(); subscribeSite(); subscribeScores(); subscribePresence(); subscribeVotes(); subscribeRounds(); subscribeProfiles(); if (isHost) subscribeHostData();
     if (pendingRound && roundById(pendingRound) && isPublished(roundById(pendingRound))) { const id = pendingRound; pendingRound = null; selectRound(id); return; } pendingRound = null; }
-  else { if (unsubScores) { unsubScores(); unsubScores = null; } if (unsubSite) { unsubSite(); unsubSite = null; } if (unsubPresence) { unsubPresence(); unsubPresence = null; } if (unsubVotes) { unsubVotes(); unsubVotes = null; } if (unsubRounds) { unsubRounds(); unsubRounds = null; } if (unsubPollCfg) { unsubPollCfg(); unsubPollCfg = null; } if (unsubProfiles) { unsubProfiles(); unsubProfiles = null; } profiles = {}; pollCfg = null; votes = []; votesReady = false; presence = []; presenceRound = null; stopTimer(); if (hbTimer) { clearInterval(hbTimer); hbTimer = null; } round = null; S.tab = "play"; }
+  else { if (unsubScores) { unsubScores(); unsubScores = null; } if (unsubSite) { unsubSite(); unsubSite = null; } if (unsubPresence) { unsubPresence(); unsubPresence = null; } if (unsubVotes) { unsubVotes(); unsubVotes = null; } if (unsubRounds) { unsubRounds(); unsubRounds = null; } if (unsubSugg) { unsubSugg(); unsubSugg = null; } if (unsubReq) { unsubReq(); unsubReq = null; } suggestions = []; requests = []; if (unsubProfiles) { unsubProfiles(); unsubProfiles = null; } profiles = {}; votes = []; votesReady = false; presence = []; presenceRound = null; stopTimer(); if (hbTimer) { clearInterval(hbTimer); hbTimer = null; } round = null; S.tab = "play"; }
   renderAll();
 });
 async function probeHost(){
@@ -1647,29 +1639,77 @@ async function saveAvatar(cfg){
   try { await dbf.collection("profiles").doc(me.uid).set({ uid: me.uid, avatar: cfg || null, name: me.displayName || "", at: firebase.firestore.FieldValue.serverTimestamp() }, { merge: true }); const m = $("avMsg"); if (m) m.textContent = cfg ? "Saved. That's you now." : "Avatar removed."; }
   catch (err) { const m = $("avMsg"); if (m) m.textContent = "Couldn't save (" + (err.code || err.message) + ")."; }
 }
-function subscribePollCfg(){
-  if (unsubPollCfg) unsubPollCfg();
-  unsubPollCfg = dbf.collection("site").doc("poll").onSnapshot(snap => { pollCfg = snap.exists ? snap.data() : null; if (!round) render(); }, () => {});
+function subscribeHostData(){
+  if (unsubSugg) unsubSugg(); if (unsubReq) unsubReq();
+  unsubSugg = dbf.collection("suggestions").onSnapshot(snap => { suggestions = snap.docs.map(d => ({ id: d.id, ...d.data() })); if (round && S.tab === "host") render(); }, () => {});
+  unsubReq = dbf.collection("requests").onSnapshot(snap => { requests = snap.docs.map(d => ({ id: d.id, ...d.data() })); if (round && S.tab === "host") render(); }, () => {});
 }
-const pollNow = () => (pollCfg && Array.isArray(pollCfg.options) && pollCfg.options.length) ? pollCfg : POLL;
-const pollOptions = () => pollNow().options.filter(o => { const r = roundById(o.id); return !(r && r.draft && isPublished(r)); });
 function subscribeVotes(){
   if (unsubVotes) unsubVotes();
-  unsubVotes = dbf.collection("votes").onSnapshot(snap => { votes = snap.docs.map(d => d.data()); votesReady = true; if (!round && lobbyTab === "poll") render(); }, () => { votesReady = true; });
+  unsubVotes = dbf.collection("votes").onSnapshot(snap => { votes = snap.docs.map(d => d.data()); votesReady = true; render(); }, () => { votesReady = true; });
 }
-const myVote = () => { const v = votes.find(v => v.uid === (me && me.uid)); return v ? v.choice : null; };
-const voteCount = id => votes.filter(v => v.choice === id).length;
+const myVote = day => { const v = votes.find(v => v.uid === (me && me.uid) && v.day === day); return v ? v.choice : null; };
+const voteCount = (id, day) => votes.filter(v => v.choice === id && v.day === day).length;
+/* --- nightly drop: every midnight New York time one round leaves the queue and goes live.
+   The poll each day is the first few rounds waiting in the queue. Whoever leads at midnight wins,
+   ties go to the round that has waited longest, and a host override beats the poll. All of this is
+   worked out from the data by every phone the same way, so nothing has to run at midnight. --- */
+const DROP = SETTINGS.drop;
+function nyDay(ms){ const f = new Intl.DateTimeFormat("en-US", { timeZone: SEASON.tz, year: "numeric", month: "2-digit", day: "2-digit" }); const p = {}; f.formatToParts(new Date(ms)).forEach(x => { p[x.type] = x.value; }); return `${p.year}-${p.month}-${p.day}`; }
+const keyMs = key => { const [y, m, d] = key.split("-").map(Number); return zonedUtc(y, m - 1, d, DROP.hour, SEASON.tz); };
+const nextKey = key => { const [y, m, d] = key.split("-").map(Number); return new Date(Date.UTC(y, m - 1, d + 1)).toISOString().slice(0, 10); };
+const dayDiff = (a, b) => { const u = k => { const [y, m, d] = k.split("-").map(Number); return Date.UTC(y, m - 1, d); }; return Math.round((u(b) - u(a)) / 864e5); };
+const fmtKey = key => { const [y, m, d] = key.split("-").map(Number); return new Date(Date.UTC(y, m - 1, d)).toLocaleDateString("en-US", { timeZone: "UTC", month: "short", day: "numeric" }); };
+let planCache = null;
+function dropPlan(){
+  if (planCache) return planCache;
+  const today = nyDay(Date.now());
+  const pool = ROUNDS.filter(r => r.draft && !liveIds.has(r.id)).sort((a, b) => (a.added || "").localeCompare(b.added || "") || ROUNDS.indexOf(a) - ROUNDS.indexOf(b));
+  const overrides = (siteCfg.overrides && typeof siteCfg.overrides === "object") ? siteCfg.overrides : {};
+  const promoted = {}, retired = new Set(), first = {}, history = [];
+  const eligible = day => pool.filter(r => !promoted[r.id] && !retired.has(r.id) && (!r.added || Date.parse(r.added) < keyMs(nextKey(day))));
+  let day = DROP.start, guard = 0, out = null;
+  while (guard++ < 4000) {
+    const opts = eligible(day).slice(0, DROP.options);
+    opts.forEach(o => { if (!first[o.id]) first[o.id] = day; });
+    if (day >= today) { out = { today, options: opts, ov: overrides[today] || null }; break; }
+    let winner = null; const ov = overrides[day];
+    if (ov && pool.some(r => r.id === ov) && !promoted[ov]) winner = ov;
+    else if (opts.length) { const c = opts.map(o => voteCount(o.id, day)); winner = opts[c.indexOf(Math.max(...c))].id; }
+    if (winner) { promoted[winner] = nextKey(day); history.push({ day: nextKey(day), id: winner, how: ov === winner ? "override" : "poll" }); }
+    opts.forEach(o => { if (o.id !== winner && dayDiff(first[o.id], day) + 1 >= DROP.retireAfterDays) retired.add(o.id); });
+    day = nextKey(day);
+  }
+  return (planCache = Object.assign({ pool, promoted, retired, first, history, overrides, queue: pool.filter(r => !promoted[r.id]) }, out || { today, options: [], ov: null }));
+}
+const promotedDay = r => dropPlan().promoted[r.id] || null;
+const addedMs = r => { const d = promotedDay(r); return d ? keyMs(d) : (r.added ? Date.parse(r.added) : 0); };
+async function castVote(id){
+  if (!me) return;
+  const day = dropPlan().today;
+  try { await dbf.collection("votes").doc(me.uid + "_" + day).set({ uid: me.uid, name: me.displayName || "Someone", photo: me.photoURL || "", choice: id, day, at: firebase.firestore.FieldValue.serverTimestamp() }); }
+  catch (e) { const el = $("pollMsg"); if (el) el.textContent = "Couldn't save your vote (" + (e.code || e.message) + ")."; }
+}
+async function setOverride(day, id){
+  const next = Object.assign({}, dropPlan().overrides); if (id) next[day] = id; else delete next[day];
+  try { await dbf.collection("site").doc("config").set({ overrides: next }, { merge: true }); return ""; } catch (e) { return "Couldn't save: " + (e.code || e.message); }
+}
+async function sendSuggestion(text){
+  if (!me || !text.trim()) return "";
+  try { await dbf.collection("suggestions").add({ uid: me.uid, name: me.displayName || "Someone", text: text.trim().slice(0, 600), at: firebase.firestore.FieldValue.serverTimestamp(), finishedAt: new Date().toISOString() }); return "Sent to the host. Thank you."; }
+  catch (e) { return "Couldn't send (" + (e.code || e.message) + ")."; }
+}
+async function requestTheme(theme){
+  if (!me || !theme.trim()) return "";
+  try { await dbf.collection("requests").add({ uid: me.uid, theme: theme.trim().slice(0, 200), at: firebase.firestore.FieldValue.serverTimestamp(), finishedAt: new Date().toISOString(), status: "waiting" }); return "Queued."; }
+  catch (e) { return "Couldn't queue it (" + (e.code || e.message) + ")."; }
+}
 async function setLive(id, on){
   if (!me) return;
   const r = roundById(id); if (!r || !r.draft) return;
   const next = new Set(liveIds); on ? next.add(id) : next.delete(id);
   try { await dbf.collection("site").doc("config").set({ liveRounds: [...next] }, { merge: true }); }
   catch (e) { const el = $("pollMsg"); if (el) el.textContent = "Couldn't update the lobby: " + (e.code || e.message); }
-}
-async function castVote(id){
-  if (!me || !pollNow().open) return;
-  try { await dbf.collection("votes").doc(me.uid).set({ uid: me.uid, name: me.displayName || "Someone", photo: me.photoURL || "", choice: id, at: firebase.firestore.FieldValue.serverTimestamp() }); }
-  catch (e) { const el = $("pollMsg"); if (el) el.textContent = "Couldn't save your vote (" + (e.code || e.message) + ")."; }
 }
 
 const boardFor = rid => scores.filter(s => s.roundId === rid);
@@ -1691,7 +1731,7 @@ function zonedUtc(y, m, d, h, tz){ const guess = Date.UTC(y, m, d, h); const off
 const seasonStart = n => { if (n <= 1) return -Infinity; const [y, m, d] = SEASON.firstBoundary.split("-").map(Number); const base = new Date(Date.UTC(y, m - 1, d)); base.setUTCDate(base.getUTCDate() + (n - 2) * SEASON.days); return zonedUtc(base.getUTCFullYear(), base.getUTCMonth(), base.getUTCDate(), SEASON.hour, SEASON.tz); };
 function seasonOf(ms){ if (!(ms >= seasonStart(2))) return 1; let n = 2 + Math.floor((ms - seasonStart(2)) / (SEASON.days * 864e5)); while (ms < seasonStart(n)) n--; while (ms >= seasonStart(n + 1)) n++; return n; }
 const currentSeason = () => seasonOf(Date.now());
-const seasonOfRound = r => seasonOf(r.added ? Date.parse(r.added) : 0);
+const seasonOfRound = r => seasonOf(addedMs(r));
 const seasonRounds = n => ROUNDS.filter(r => isPublished(r) && seasonOfRound(r) === n);
 const SEASON_KEY = "season:";
 const isSeasonKey = s => typeof s === "string" && s.startsWith(SEASON_KEY);
@@ -1699,7 +1739,7 @@ function combinedFor(rounds){ const ids = new Set(rounds.map(r => r.id)); return
 function seasonEndsText(){
   const ms = seasonStart(currentSeason() + 1) - Date.now(); if (!isFinite(ms)) return "";
   const h = Math.ceil(ms / 36e5); if (h <= 1) return "ends within the hour"; if (h < 24) return `ends in ${h} hours`;
-  const d = Math.round(ms / 864e5); return d === 1 ? "ends tomorrow at 6am" : `ends in ${d} days`;
+  const d = Math.round(ms / 864e5); return d === 1 ? "ends tomorrow at midnight" : `ends in ${d} days`;
 }
 const fmtNY = ms => new Date(ms).toLocaleString("en-US", { timeZone: SEASON.tz, weekday: "long", month: "short", day: "numeric", hour: "numeric", minute: "2-digit" });
 const fmtLocal = ms => new Date(ms).toLocaleString(undefined, { weekday: "long", month: "short", day: "numeric", hour: "numeric", minute: "2-digit" });
@@ -1712,7 +1752,7 @@ function seasonHeroHtml(){
     <div class="sh-top"><div><div class="sh-kicker">Now playing</div><div class="sh-title">Season ${I.n}</div><div class="sh-sub">Ends ${esc(I.ny)}, New York time${I.sameTz ? "" : `<br>${esc(I.loc)} where you are`}</div></div>
       <div class="sh-clock"><div class="sh-label">Time left</div><div class="sh-count szc" data-end="${I.end}">${countdownText(I.end)}</div></div></div>
     <div class="sh-foot"><span>${rs ? `${rs} round${rs === 1 ? "" : "s"} count${rs === 1 ? "s" : ""} toward this season so far.` : "No rounds added this season yet."} Season ${I.n + 1} starts the moment the clock hits zero.</span><button class="linkbtn" id="seasonHow">${S.seasonHow ? "Hide" : "How seasons work"}</button></div>
-    ${S.seasonHow ? `<div class="sh-body"><p><b>A season is one week.</b> Sunday 6am to Sunday 6am, New York time.</p><p><b>Every round added during that week counts.</b> Your season score is your scores on those rounds added together, so play all of them. One run each.</p><p><b>When the clock hits zero, the top total takes the crown.</b> It sits on their avatar all through the next season, and the next season starts at once with a fresh board.</p><p><b>Older rounds stay open</b> until everyone has played, but they count for the season they were added in, not the one you play them in.</p></div>` : ""}
+    ${S.seasonHow ? `<div class="sh-body"><p><b>A season is one week.</b> Midnight going into Sunday to the next, New York time.</p><p><b>Every round added during that week counts.</b> Your season score is your scores on those rounds added together, so play all of them. One run each.</p><p><b>When the clock hits zero, the top total takes the crown.</b> It sits on their avatar all through the next season, and the next season starts at once with a fresh board.</p><p><b>Older rounds stay open</b> until everyone has played, but they count for the season they were added in, not the one you play them in.</p></div>` : ""}
   </div>`;
 }
 function seasonLineHtml(){ const I = seasonEndInfo(); return `<div class="season-line"><span><b>Season ${I.n}</b> · ends ${esc(I.ny)} NY time</span><span class="szc" data-end="${I.end}">${countdownText(I.end)}</span></div>`; }
@@ -1790,7 +1830,7 @@ function renderAccount(){
   const hb = $("hostBtn"); if (hb) hb.onclick = () => selectRound(round ? round.id : (ROUNDS.filter(isPublished).sort(byRecent)[0] || ROUNDS[0]).id, "host");
 }
 function render(){
-  champCache = null; syncPresence(); setDuck(!!(me && round && S.screen === "quiz" && !fatal));
+  champCache = null; planCache = null; syncPresence(); setDuck(!!(me && round && S.screen === "quiz" && !fatal));
   if (fatal) { $view.innerHTML = `<div class="banner err">${esc(fatal)}</div>` + (me ? "" : gateHtml()); if (!me) wireGate(); return; }
   if (!me) { $view.innerHTML = gateHtml(); wireGate(); return; }
   if (!round) return renderLobby();
@@ -1809,7 +1849,7 @@ function wireGate(){ const b = $("signin"); if (b) b.onclick = signIn; }
 
 let lobbySel = null, lobbyAll = false, lobbyTab = "rounds", lobbyOld = false;
 const RECENT_IN_PICKER = 7, RECENT_IN_LOBBY = 12;
-const addedKey = r => r.added || "";
+const addedKey = r => addedMs(r) ? new Date(addedMs(r)).toISOString() : "";
 const byRecent = (a, b) => addedKey(a) === addedKey(b) ? ROUNDS.indexOf(b) - ROUNDS.indexOf(a) : (addedKey(b) > addedKey(a) ? 1 : -1);
 function pickerHtml(id, sel){
   const vis = ROUNDS.filter(isPublished).sort(byRecent);
@@ -1822,7 +1862,7 @@ function pickerHtml(id, sel){
 function boardList(sel){ return sel === ALL ? combined() : isSeasonKey(sel) ? combinedFor(seasonRounds(+sel.slice(SEASON_KEY.length))) : boardFor(sel); }
 const boardTitle = sel => sel === ALL ? "All time" : isSeasonKey(sel) ? "Season " + sel.slice(SEASON_KEY.length) : (roundById(sel) || {}).name || "";
 function renderLobby(){
-  const pv = pollOptions(); const needsVote = pollNow().open && votesReady && pv.length > 0 && !pv.some(o => o.id === myVote());
+  const P = dropPlan(); const needsVote = votesReady && P.options.length > 0 && !P.options.some(o => o.id === myVote(P.today));
   const tabs = `<div class="tabs" role="tablist">
     <button class="tab" role="tab" aria-selected="${lobbyTab === "rounds"}" data-ltab="rounds">Rounds</button>
     <button class="tab" role="tab" aria-selected="${lobbyTab === "poll"}" data-ltab="poll">Next round${needsVote ? `<span class="tabdot" title="You haven't voted"></span>` : ""}</button>
@@ -1837,31 +1877,29 @@ function renderLobby(){
   return renderRounds(strip + tabs + seasonHeroHtml(), wire);
 }
 function pollHtml(){
-  const P = pollNow(), opts = pollOptions(), visIds = new Set(opts.map(o => o.id));
-  const myV = myVote(), mine = visIds.has(myV) ? myV : null;
-  const total = opts.reduce((n, o) => n + voteCount(o.id), 0);
-  const best = Math.max(0, ...opts.map(o => voteCount(o.id)));
-  const rows = opts.map(o => {
-    const c = voteCount(o.id), pct = total ? Math.round((c / total) * 100) : 0;
-    const r = roundById(o.id);
-    const admin = !isHost ? "" : (r && r.draft
-      ? `<div class="polladmin"><button class="btn small" data-pub="${esc(o.id)}">Add to lobby</button><span class="note">Ready, ${r.questions.length} questions written.</span></div>`
-      : `<div class="polladmin"><span class="note">No round written for this theme yet.</span></div>`);
-    return `<div class="pollrow"><button class="pollopt" data-p="${esc(o.id)}" data-mine="${mine === o.id ? 1 : 0}"${P.open ? "" : " disabled"}>
-      <div class="prow"><span class="pname">${esc(o.name)}${mine === o.id ? " ✓" : ""}${c && c === best && total ? ` <span class="pill live">Leading</span>` : ""}</span><span class="pcount">${c} vote${c === 1 ? "" : "s"}${total ? " · " + pct + "%" : ""}</span></div>
+  const P = dropPlan(), opts = P.options, today = P.today, dropAt = keyMs(nextKey(today));
+  const mine = myVote(today); const counts = opts.map(o => voteCount(o.id, today)); const total = counts.reduce((n, c) => n + c, 0); const best = Math.max(0, ...counts);
+  const ovR = P.ov ? roundById(P.ov) : null; const leadIdx = opts.length ? counts.indexOf(best) : -1; const leader = leadIdx >= 0 ? opts[leadIdx] : null;
+  const tonight = ovR ? `The host has picked <b>${esc(ovR.name)}</b> for tonight, so this vote is for the record only.`
+    : !opts.length ? "Nothing is waiting in the queue, so nothing drops tonight."
+    : total ? `Leading right now: <b>${esc(leader.name)}</b>${counts.filter(c => c === best).length > 1 ? " (tied, so the one that has waited longest wins)" : ""}.`
+    : `No votes yet. With no votes, <b>${esc(leader.name)}</b> drops because it has waited longest.`;
+  const rows = opts.map((r, i) => { const c = counts[i], pct = total ? Math.round((c / total) * 100) : 0; const waited = dayDiff(P.first[r.id], today);
+    return `<div class="pollrow"><button class="pollopt" data-p="${esc(r.id)}" data-mine="${mine === r.id ? 1 : 0}">
+      <div class="prow"><span class="pname">${esc(r.name)}${mine === r.id ? " ✓" : ""}${c && c === best && total ? ` <span class="pill live">Leading</span>` : ""}</span><span class="pcount">${c} vote${c === 1 ? "" : "s"}${total ? " · " + pct + "%" : ""}</span></div>
       <div class="pbar"><i style="width:${pct}%"></i></div>
-      <div class="pblurb">${esc(o.blurb || "")}</div>
-    </button>${admin}</div>`;
-  }).join("");
+      <div class="pblurb">${esc(r.subject || "")} · ${r.questions.length} questions. ${esc(r.tagline || "")}${waited >= DROP.retireAfterDays - 2 ? ` <span class="pill">${DROP.retireAfterDays - waited === 1 ? "Last night on the poll" : "Leaves the poll in " + (DROP.retireAfterDays - waited) + " days"}</span>` : ""}</div>
+    </button>${isHost ? `<div class="polladmin"><button class="linkbtn" data-pub="${esc(r.id)}">Drop it now</button></div>` : ""}</div>`; }).join("");
   const status = !votesReady ? `<p class="note">Loading votes…</p>`
-    : !opts.length ? `<p class="note">Nothing to vote on right now. New themes will appear here.</p>`
-    : !P.open ? `<p class="note">Voting is closed.</p>`
-    : mine ? `<p class="note">Your vote is in. Tap another to change it. ${total} vote${total === 1 ? "" : "s"} so far.</p>`
+    : !opts.length ? `<p class="note">New rounds appear here as they are written.</p>`
+    : mine ? `<p class="note">Your vote is in. Tap another to change it before midnight. ${total} vote${total === 1 ? "" : "s"} so far.</p>`
     : `<p class="note">Tap one to vote. ${total ? total + (total === 1 ? " vote" : " votes") + " so far." : "Be the first."}</p>`;
-  const drafts = isHost ? ROUNDS.filter(r => r.draft) : [];
-  const hostList = drafts.length ? `<div class="section"><h3>Rounds you've written</h3><span class="note">Only you see this</span></div><div class="card"><div class="roundlist">${drafts.map(r => `<div class="r"><div><b>${esc(r.name)}</b><br><span class="note" style="margin:0">${esc(r.subject || "")} · ${r.questions.length} questions · ${boardFor(r.id).length} played</span></div>${isPublished(r) ? `<div class="row"><span class="pill live">In the lobby</span><button class="linkbtn" data-unpub="${esc(r.id)}">Remove</button></div>` : `<button class="btn small" data-pub="${esc(r.id)}">Add to lobby</button>`}</div>`).join("")}</div></div>` : "";
-  return `<div class="card lift" style="margin-bottom:14px"><h2>${esc(P.question || "What should the next round be?")}</h2><p class="note" style="margin:0">${esc(P.note || "")}</p>${isHost ? `<p class="note" style="margin:8px 0 0">Host: <b>Add to lobby</b> makes a round playable at once and takes it off this poll.</p>` : ""}</div>
-    ${rows}${status}<p class="note" id="pollMsg"></p>${hostList}`;
+  const hist = P.history.slice(-5).reverse();
+  const histHtml = hist.length ? `<div class="section"><h3>Recent drops</h3><span class="note">One a night</span></div><div class="board">${hist.map(x => { const r = roundById(x.id); return `<div class="lb" data-r="${esc(x.id)}" style="grid-template-columns:1fr auto;cursor:pointer"><div class="who">${esc(r ? r.name : x.id)}<small>${fmtKey(x.day)} · ${x.how === "override" ? "host's pick" : "won the vote"}</small></div><div class="time">${r ? boardFor(r.id).length + " played" : ""}</div></div>`; }).join("")}</div>` : "";
+  return `<div class="card lift" style="margin-bottom:14px"><h2>${esc(POLL.question)}</h2><p class="note" style="margin:0 0 10px">${esc(POLL.note)}</p>
+      <div class="row spread" style="gap:8px"><span class="note" style="margin:0">${tonight}</span><span class="pill" style="white-space:nowrap">Drops in <span class="szc" data-end="${dropAt}">${countdownText(dropAt)}</span></span></div></div>
+    ${rows}${status}<p class="note" id="pollMsg"></p>
+    <p class="note">${P.queue.length} round${P.queue.length === 1 ? "" : "s"} written and waiting in the queue.</p>${histHtml}`;
 }
 /* --- stats: computed from official runs; nothing extra is stored --- */
 const pct = (a, b) => b ? Math.round((a / b) * 100) : 0;
@@ -1873,7 +1911,7 @@ function computeStats(){
     const r = roundById(sc.roundId); if (!r || !Array.isArray(sc.order) || !Array.isArray(sc.picks)) return;
     const picks = unpackPicks(sc.picks);
     runs++; totalMs += sc.elapsedMs || 0; totalQ += sc.order.length;
-    const p = players[sc.uid] || (players[sc.uid] = { uid: sc.uid, name: sc.name, photo: sc.photo, runs: 0, q: 0, ok: 0, ms: 0, timeouts: 0, streak: 0, last: "", diff: { easy: [0, 0], medium: [0, 0], hard: [0, 0] } });
+    const p = players[sc.uid] || (players[sc.uid] = { uid: sc.uid, name: sc.name, photo: sc.photo, runs: 0, q: 0, ok: 0, ms: 0, timeouts: 0, streak: 0, solo: 0, last: "", diff: { easy: [0, 0], medium: [0, 0], hard: [0, 0] } });
     p.runs++; p.ms += sc.elapsedMs || 0; if (sc.timedOut) p.timeouts++; if ((sc.finishedAt || "") > p.last) { p.last = sc.finishedAt; p.name = sc.name; p.photo = sc.photo; }
     let cur = 0, best = 0;
     sc.order.forEach((qi, k) => { const q = r.questions[qi]; if (!q) return; const ok = qScore(q, picks[k]);
@@ -1881,11 +1919,13 @@ function computeStats(){
       p.q++; p.ok += ok; if (q.d && p.diff[q.d]) { p.diff[q.d][0] += ok; p.diff[q.d][1]++; }
       if (q.d && byDiff[q.d]) { byDiff[q.d][0] += ok; byDiff[q.d][1]++; }
       const tl = typeLabel(q); const bt = byType[tl] || (byType[tl] = [0, 0]); bt[0] += ok; bt[1]++;
-      const key = r.id + ":" + qi; const pq = perQ[key] || (perQ[key] = { r, q, ok: 0, n: 0 }); pq.ok += ok; pq.n++;
+      const key = r.id + ":" + qi; const pq = perQ[key] || (perQ[key] = { r, q, ok: 0, n: 0, solvers: [] }); pq.ok += ok; pq.n++; if (ok >= 1) pq.solvers.push({ uid: sc.uid, name: sc.name });
     });
     best = Math.max(best, sc.bestStreak || 0); if (best > p.streak) p.streak = best; if (best > longest.n) longest = { n: best, name: sc.name || "Someone" };
   });
-  return { players: Object.values(players), byDiff, byType, perQ: Object.values(perQ), runs, totalMs, totalQ, longest };
+  const solo = Object.values(perQ).filter(x => x.n >= 2 && x.solvers.length === 1);
+  solo.forEach(x => { const p = players[x.solvers[0].uid]; if (p) p.solo++; });
+  return { players: Object.values(players), byDiff, byType, perQ: Object.values(perQ), runs, totalMs, totalQ, longest, solo };
 }
 function barHtml(label, a, b){ const v = pct(a, b); return `<div class="srow"><div class="slab">${esc(label)}</div><div class="sbar" title="${v}% right across ${b} answers"><i style="width:${v}%"></i></div><div class="sval">${v}%<small> of ${b}</small></div></div>`; }
 function statsHtml(){
@@ -1893,22 +1933,24 @@ function statsHtml(){
   const st = computeStats();
   if (!st.runs) return `<div class="board"><div class="empty">No finished runs yet. Stats appear once someone completes a round.</div></div>`;
   const totalOk = Object.values(st.byDiff).reduce((n, x) => n + x[0], 0), totalN = Object.values(st.byDiff).reduce((n, x) => n + x[1], 0);
-  const tiles = `<div class="stat-grid">
+  const tiles = `<div class="section"><h3>Group stats</h3><span class="note">All five of you, every official run</span></div><div class="stat-grid">
     <div class="stile"><b>${st.runs}</b><span>runs finished</span></div>
     <div class="stile"><b>${st.players.length}</b><span>players</span></div>
     <div class="stile"><b>${pct(totalOk, totalN)}%</b><span>overall accuracy</span></div>
     <div class="stile"><b>${st.totalQ ? (st.totalMs / st.totalQ / 1000).toFixed(1) : "0"}s</b><span>per question</span></div>
   </div>${st.longest.n ? `<p class="note" style="margin:10px 0 0">Longest run of right answers: <b>${st.longest.n} in a row</b>, by ${esc(st.longest.name)}.</p>` : ""}`;
-  const diff = `<div class="section"><h3>By difficulty</h3><span class="note">Share answered right</span></div><div class="card">${["easy", "medium", "hard"].map(d => barHtml(d[0].toUpperCase() + d.slice(1), st.byDiff[d][0], st.byDiff[d][1])).join("")}</div>`;
+  const diff = `<div class="section"><h3>Group · by difficulty</h3><span class="note">Share the group answered right</span></div><div class="card">${["easy", "medium", "hard"].map(d => barHtml(d[0].toUpperCase() + d.slice(1), st.byDiff[d][0], st.byDiff[d][1])).join("")}</div>`;
   const types = Object.entries(st.byType).sort((a, b) => b[1][1] - a[1][1]);
-  const typ = types.length > 1 ? `<div class="section"><h3>By question style</h3></div><div class="card">${types.map(([k, v]) => barHtml(k, v[0], v[1])).join("")}</div>` : "";
+  const typ = types.length > 1 ? `<div class="section"><h3>Group · by question style</h3><span class="note">Share the group answered right</span></div><div class="card">${types.map(([k, v]) => barHtml(k, v[0], v[1])).join("")}</div>` : "";
   const tough = st.perQ.filter(x => x.n >= 2).sort((a, b) => (a.ok / a.n) - (b.ok / b.n) || b.n - a.n).slice(0, 5);
-  const toughHtml = tough.length ? `<div class="section"><h3>Toughest questions</h3><span class="note">Fewest got these right, at least 2 tries</span></div><div class="board">${tough.map(x => `<div class="lb" style="grid-template-columns:52px 1fr auto"><div class="rank" style="font-size:16px;color:var(--text)">${pct(x.ok, x.n)}%</div><div class="who" style="white-space:normal">${esc(qLabel(x.q))}<small>${esc(x.r.name)} · Answer: ${esc(answerText(x.q))}</small></div><div class="time">${x.ok}/${x.n}</div></div>`).join("")}</div>` : "";
+  const soloList = st.solo.slice().sort((a, b) => b.n - a.n).slice(0, 8);
+  const soloHtml = soloList.length ? `<div class="section"><h3>Only one got it</h3><span class="note">Right for exactly one of you</span></div><div class="board">${soloList.map(x => `<div class="lb" style="grid-template-columns:40px 1fr auto"><div>${avatarHtml(x.solvers[0].uid, "", "sm")}</div><div class="who" style="white-space:normal">${esc(qLabel(x.q))}<small>${esc(x.r.name)} · ${esc((x.solvers[0].name || "Someone").split(" ")[0])} alone, of ${x.n} · Answer: ${esc(answerText(x.q))}</small></div></div>`).join("")}</div>` : "";
+  const toughHtml = tough.length ? `<div class="section"><h3>Group · toughest questions</h3><span class="note">Fewest got these right, at least 2 tries</span></div><div class="board">${tough.map(x => `<div class="lb" style="grid-template-columns:52px 1fr auto"><div class="rank" style="font-size:16px;color:var(--text)">${pct(x.ok, x.n)}%</div><div class="who" style="white-space:normal">${esc(qLabel(x.q))}<small>${esc(x.r.name)} · Answer: ${esc(answerText(x.q))}</small></div><div class="time">${x.ok}/${x.n}</div></div>`).join("")}</div>` : "";
   const ps = st.players.slice().sort((a, b) => pct(b.ok, b.q) - pct(a.ok, a.q) || b.q - a.q);
   const cards = ps.map(p => { const isMe = me && p.uid === me.uid; const spq = p.q ? (p.ms / p.q / 1000).toFixed(1) : "0";
     return `<div class="pcard${isMe ? " me" : ""}"><div class="row spread"><div class="row" style="gap:10px;min-width:0">${avatarHtml(p.uid, p.photo)}<div class="who">${esc(p.name || "Someone")}${isMe ? "<small>you</small>" : ""}</div></div><div class="pts">${pct(p.ok, p.q)}<span>%</span></div></div>
-      <div class="chips"><span class="pill">Easy ${pct(p.diff.easy[0], p.diff.easy[1])}%</span><span class="pill">Medium ${pct(p.diff.medium[0], p.diff.medium[1])}%</span><span class="pill">Hard ${pct(p.diff.hard[0], p.diff.hard[1])}%</span><span class="pill">${spq}s per question</span><span class="pill">Best run ${p.streak}</span><span class="pill">${p.runs} round${p.runs === 1 ? "" : "s"}</span>${p.timeouts ? `<span class="pill">${p.timeouts} timed out</span>` : ""}</div></div>`; }).join("");
-  return tiles + diff + typ + toughHtml + `<div class="section"><h3>Players</h3><span class="note">Official runs only, ranked by accuracy</span></div>${cards}`;
+      <div class="chips"><span class="pill">Easy ${pct(p.diff.easy[0], p.diff.easy[1])}%</span><span class="pill">Medium ${pct(p.diff.medium[0], p.diff.medium[1])}%</span><span class="pill">Hard ${pct(p.diff.hard[0], p.diff.hard[1])}%</span><span class="pill">${spq}s per question</span><span class="pill">Best run ${p.streak}</span><span class="pill">Only they got it: ${p.solo}</span><span class="pill">${p.runs} round${p.runs === 1 ? "" : "s"}</span>${p.timeouts ? `<span class="pill">${p.timeouts} timed out</span>` : ""}</div></div>`; }).join("");
+  return tiles + diff + typ + toughHtml + soloHtml + `<div class="section"><h3>Player stats</h3><span class="note">Each of you, ranked by accuracy</span></div>${cards}`;
 }
 /* --- Me: emoji avatar, your numbers, your rounds --- */
 const AV_TABS = [["hair","Hair"],["eyes","Eyes"],["mouth","Mouth"],["brow","Brows"],["beard","Beard"],["acc","Extra"],["colors","Colors"]];
@@ -1931,11 +1973,15 @@ function meHtml(){
   const rounds = mine.length ? `<div class="board">${mine.map(x => { const r = roundById(x.roundId); return `<div class="lb" data-r="${esc(x.roundId)}" style="grid-template-columns:1fr auto auto;cursor:pointer"><div class="who">${esc(r ? r.name : x.roundId)}<small>${fmtDate(x.finishedAt)}${x.timedOut ? " · timed out" : ""}</small></div><div class="pts">${fmtScore(x.score)}<span> / ${x.total}</span></div><div class="time">${fmtTime(x.elapsedMs)}</div></div>`; }).join("")}</div>` : `<p class="note">You haven't finished an official run yet.</p>`;
   const sr = rankOf(combinedFor(seasonRounds(currentSeason()))); const myS = sr.find(x => x.uid === me.uid);
   const seasonTile = `<div class="stile season"><b>${myS ? "#" + myS.rank : "–"}</b><span>Season ${currentSeason()}${myS ? ` · ${fmtScore(myS.score)} pts · ${sr.length} playing` : " · not on the board yet"}</span></div>`;
-  const numbers = p ? `<div class="stat-grid">${seasonTile}<div class="stile"><b>${pct(p.ok, p.q)}%</b><span>accuracy</span></div><div class="stile"><b>${p.streak}</b><span>best run in a row</span></div><div class="stile"><b>${p.q ? (p.ms / p.q / 1000).toFixed(1) : "0"}s</b><span>per question</span></div><div class="stile"><b>${p.runs}</b><span>rounds</span></div></div>
+  const numbers = p ? `<div class="stat-grid">${seasonTile}<div class="stile"><b>${pct(p.ok, p.q)}%</b><span>accuracy</span></div><div class="stile"><b>${p.solo}</b><span>only you got it</span></div><div class="stile"><b>${p.streak}</b><span>best run in a row</span></div><div class="stile"><b>${p.q ? (p.ms / p.q / 1000).toFixed(1) : "0"}s</b><span>per question</span></div><div class="stile"><b>${p.runs}</b><span>rounds</span></div></div>
     <div class="card" style="margin-top:10px">${barHtml("Easy", p.diff.easy[0], p.diff.easy[1])}${barHtml("Medium", p.diff.medium[0], p.diff.medium[1])}${barHtml("Hard", p.diff.hard[0], p.diff.hard[1])}</div>` : `<p class="note">Your numbers appear after your first official run.</p>`;
   return builderHtml() + `
     ${soundCardHtml()}
     <div class="section"><h3>Your numbers</h3><span class="note">Official runs only</span></div>${numbers}
+    <div class="section"><h3>Future suggestion box</h3><span class="note">Goes straight to the host</span></div>
+    <div class="card"><p class="note" style="margin:0 0 8px">Themes you want, formats you'd change, anything. Only the host sees it.</p>
+      <textarea id="suggIn" class="field" rows="3" maxlength="600" placeholder="e.g. A round on 90s hip hop. And can we get harder hard questions?"></textarea>
+      <div class="row" style="margin-top:10px"><button class="btn small" id="suggSend">Send</button><span class="note" id="suggMsg" style="margin:0"></span></div></div>
     <div class="section"><h3>Your rounds</h3><span class="note">Tap one for its board</span></div>${rounds}
     <div class="section"><h3>Account</h3></div>
     <div class="card"><div class="row spread"><div class="row" style="gap:10px;min-width:0">${avatarHtml(me.uid, me.photoURL)}<div class="who">${esc(me.displayName || "You")}<small>${esc(me.email || "")}</small></div></div><button class="btn ghost small" id="signoutMe">Sign out</button></div></div>`;
@@ -1949,19 +1995,20 @@ function wireMe(){
   const sv2 = $("avSave"); if (sv2) sv2.onclick = () => saveAvatar(Object.assign({}, S.av));
   const rm = $("avRemove"); if (rm) rm.onclick = () => { S.av = null; saveAvatar(null); };
   wireSoundCard();
+  const sg = $("suggSend"); if (sg) sg.onclick = async () => { const t = $("suggIn").value; if (!t.trim()) return; sg.disabled = true; $("suggMsg").textContent = "Sending…"; const m = await sendSuggestion(t); $("suggMsg").textContent = m; if (m.startsWith("Sent")) $("suggIn").value = ""; sg.disabled = false; };
   const so = $("signoutMe"); if (so) so.onclick = async () => { await clearPresence(); auth.signOut(); };
   document.querySelectorAll(".lb[data-r]").forEach(el => el.onclick = () => selectRound(el.dataset.r, "board"));
 }
 function wirePoll(){
-  document.querySelectorAll("[data-p]").forEach(b => b.onclick = () => castVote(b.dataset.p));
-  document.querySelectorAll("[data-pub]").forEach(b => b.onclick = () => setLive(b.dataset.pub, true));
-  document.querySelectorAll("[data-unpub]").forEach(b => b.onclick = () => { if (confirm("Remove this round from the lobby? Its board is hidden while it's out.")) setLive(b.dataset.unpub, false); });
+  document.querySelectorAll("[data-p]").forEach(b => b.onclick = () => { sfx("click"); castVote(b.dataset.p); });
+  document.querySelectorAll("[data-pub]").forEach(b => b.onclick = () => { if (confirm("Put this round in the lobby right now, ahead of tonight's drop?")) setLive(b.dataset.pub, true); });
+  document.querySelectorAll(".lb[data-r]").forEach(el => el.onclick = () => selectRound(el.dataset.r));
 }
 function renderRounds(tabs, wire){
   if (lobbySel == null) lobbySel = SEASON_KEY + currentSeason();
   const ranked = rankOf(boardList(lobbySel)); const mine = ranked.find(x => x.uid === me.uid);
   const pod = podiumHtml(ranked); const rest = pod ? ranked.slice(3) : ranked; const shown = lobbyAll ? rest : rest.slice(0, pod ? 2 : 5);
-  const seasonNote = isSeasonKey(lobbySel) ? `<p class="note">Points from rounds added ${lobbySel === SEASON_KEY + currentSeason() ? "this season" : "that season"}. A new season starts every Sunday at 6am New York time.</p>` : "";
+  const seasonNote = isSeasonKey(lobbySel) ? `<p class="note">Points from rounds added ${lobbySel === SEASON_KEY + currentSeason() ? "this season" : "that season"}. A new season starts every Sunday at midnight New York time.</p>` : "";
   const board = !scoresReady ? `<div class="board"><div class="empty">Loading scores…</div></div>`
     : !ranked.length ? `<div class="board"><div class="empty">${isSeasonKey(lobbySel) ? "No scores this season yet. The first run of a round added this week starts the board." : "No scores yet. Play a round to get on the board."}</div></div>${seasonNote}`
     : `${pod}${shown.length ? `<div class="board">${shown.map(rowHtml).join("")}</div>` : ""}
@@ -2071,6 +2118,31 @@ function renderBoard(){
   $("boardPick").onchange = e => { boardSel = e.target.value; renderBoard(); };
 }
 const seasonAnnText = () => { const I = seasonEndInfo(); return `Season ${I.n} is on. It ends ${I.ny} New York time. Every round you play this week counts toward the crown.`; };
+function hostDropHtml(){
+  const P = dropPlan(), today = P.today, dropAt = keyMs(nextKey(today));
+  const counts = P.options.map(o => voteCount(o.id, today)); const best = Math.max(0, ...counts); const leader = P.options.length ? P.options[counts.indexOf(best)] : null;
+  const ovR = P.ov ? roundById(P.ov) : null; const choices = P.queue;
+  const plan = ovR ? `<b>${esc(ovR.name)}</b> (your override)` : leader ? `<b>${esc(leader.name)}</b> (${counts.filter(c => c === best).length > 1 && best ? "tied on the poll, waited longest" : best ? "leading the poll with " + best : "no votes yet, waited longest"})` : "nothing, the queue is empty";
+  const reqs = requests.slice().sort((a, b) => (b.finishedAt || "").localeCompare(a.finishedAt || ""));
+  const sugg = suggestions.slice().sort((a, b) => (b.finishedAt || "").localeCompare(a.finishedAt || ""));
+  return `<div class="card">
+      <h3>Tonight's drop</h3>
+      <p class="note" style="margin:0 0 8px">At midnight New York time (<span class="szc" data-end="${dropAt}">${countdownText(dropAt)}</span> from now) the lobby gets: ${plan}.</p>
+      <label class="row" style="gap:10px;cursor:pointer;margin:6px 0 8px"><span class="switch"><input type="checkbox" id="ovOn" ${ovR ? "checked" : ""}><i></i></span><b>Override the poll tonight</b></label>
+      <div class="row"><select id="ovSel" ${ovR ? "" : "disabled"}>${choices.length ? choices.map(r => `<option value="${esc(r.id)}" ${ovR && ovR.id === r.id ? "selected" : ""}>${esc(r.name)}${P.retired.has(r.id) ? " (off the poll)" : ""}</option>`).join("") : `<option value="">Nothing in the queue</option>`}</select><button class="btn small" id="ovSave">Save</button><span class="note" id="ovMsg" style="margin:0"></span></div>
+      <p class="note">Queue: ${P.queue.length} round${P.queue.length === 1 ? "" : "s"} written and waiting${P.queue.length ? `, ${P.queue.length === 1 ? "one night" : P.queue.length + " nights"} of drops` : ""}. ${P.queue.length < 3 ? "Ask Claude for more rounds; that's a data push, not a deploy." : ""}</p>
+      <h3 style="margin-top:16px">Suggest a theme</h3>
+      <p class="note" style="margin:0 0 6px">Type a theme and press Enter. It goes on the request list here and Claude writes the round into the queue on the next data push. The site can't write questions by itself.</p>
+      <input id="reqIn" class="field" maxlength="200" placeholder="e.g. Bollywood villains, or 1980s video games">
+      <p class="note" id="reqMsg" style="margin:6px 0 0"></p>
+      ${reqs.length ? `<div class="roundlist" style="margin-top:6px">${reqs.map(x => `<div class="r"><div><b>${esc(x.theme)}</b><br><span class="note" style="margin:0">${fmtDate(x.finishedAt)} · ${esc(x.status || "waiting")}</span></div><button class="linkbtn" data-delreq="${esc(x.id)}">Delete</button></div>`).join("")}</div>` : ""}
+    </div>
+    <div class="card">
+      <h3>Suggestion box</h3>
+      <p class="note" style="margin:0 0 6px">What people typed on their Me tab. Only you see this.</p>
+      ${sugg.length ? `<div class="roundlist">${sugg.map(x => `<div class="r"><div style="min-width:0"><b>${esc((x.name || "Someone"))}</b> <span class="note" style="margin:0">· ${fmtDate(x.finishedAt)}</span><br><span style="white-space:pre-wrap">${esc(x.text || "")}</span></div><button class="linkbtn" data-delsugg="${esc(x.id)}">Delete</button></div>`).join("")}</div>` : `<p class="note" style="margin:0">Nothing yet.</p>`}
+    </div>`;
+}
 function renderHost(){
   $view.innerHTML = `<div class="stack">
     <div class="card"><h2>Host controls</h2>
@@ -2082,9 +2154,10 @@ function renderHost(){
       <input id="cfgAnn" class="field" value="${esc(siteCfg.announcement || "")}" placeholder="e.g. New round tonight at 8">
       <div class="row" style="margin-top:10px"><button class="btn small" id="cfgSave">Save front page</button><span class="note" id="cfgMsg"></span></div>
     </div>
+    ${hostDropHtml()}
     <div class="card">
       <h3>Seasons</h3>
-      <p class="note" style="margin:0 0 8px">Weekly, Sunday 6am New York time. <b>Season ${currentSeason()}</b> is on now and ends ${esc(seasonWhenText())}. Season ${currentSeason() + 1} starts at that moment. The countdown on the front page runs on its own.</p>
+      <p class="note" style="margin:0 0 8px">Weekly, midnight going into Sunday, New York time. <b>Season ${currentSeason()}</b> is on now and ends ${esc(seasonWhenText())}. Season ${currentSeason() + 1} starts at that moment. The countdown on the front page runs on its own.</p>
       <div class="row"><button class="btn small" id="seasonAnn">Post a season announcement</button><span class="note" id="seasonMsg" style="margin:0"></span></div>
       <p class="note" style="margin:8px 0 0">Puts this in the announcement strip, which you can edit above: “${esc(seasonAnnText())}”</p>
     </div>
@@ -2105,6 +2178,11 @@ function renderHost(){
     try { await dbf.collection("site").doc("config").set({ closedRounds: [...next] }, { merge: true }); $("hostMsg").textContent = roundById(id).name + (b.dataset.to === "open" ? " is open." : " is closed."); }
     catch (e) { $("hostMsg").textContent = "Couldn't change it: " + (e.code || e.message); }
   });
+  const ovOn = $("ovOn"), ovSel = $("ovSel"); ovOn.onchange = () => { ovSel.disabled = !ovOn.checked; };
+  $("ovSave").onclick = async () => { const P = dropPlan(); const m = await setOverride(P.today, ovOn.checked ? ovSel.value : null); $("ovMsg").textContent = m || (ovOn.checked ? "Saved. That's tonight's drop." : "Saved. The poll decides tonight."); };
+  const ri = $("reqIn"); ri.onkeydown = async e => { if (e.key !== "Enter") return; e.preventDefault(); const t = ri.value; if (!t.trim()) return; $("reqMsg").textContent = "Queuing…"; const m = await requestTheme(t); $("reqMsg").textContent = m; if (m === "Queued.") ri.value = ""; };
+  document.querySelectorAll("[data-delreq]").forEach(b => b.onclick = async () => { try { await dbf.collection("requests").doc(b.dataset.delreq).delete(); } catch (e) { alert("Couldn't delete: " + (e.code || e.message)); } });
+  document.querySelectorAll("[data-delsugg]").forEach(b => b.onclick = async () => { if (!confirm("Delete this suggestion?")) return; try { await dbf.collection("suggestions").doc(b.dataset.delsugg).delete(); } catch (e) { alert("Couldn't delete: " + (e.code || e.message)); } });
   $("seasonAnn").onclick = async () => {
     try { await dbf.collection("site").doc("config").set({ announcement: seasonAnnText() }, { merge: true }); $("seasonMsg").textContent = "Posted."; }
     catch (e) { $("seasonMsg").textContent = "Couldn't post: " + (e.code || e.message); }

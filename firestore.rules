@@ -41,10 +41,26 @@ service cloud.firestore {
       allow write, delete: if signedIn() && request.auth.uid == uid;
     }
 
-    // Next-round poll. One vote per player, changeable.
-    match /votes/{uid} {
+    // Nightly poll. One vote per player per day, doc id "<uid>_<YYYY-MM-DD>", changeable until midnight.
+    // (The old one-doc-per-player ids are still allowed so nothing breaks.)
+    match /votes/{voteId} {
       allow read: if signedIn();
-      allow write, delete: if signedIn() && request.auth.uid == uid;
+      allow create, update: if signedIn()
+        && request.resource.data.uid == request.auth.uid
+        && (voteId == request.auth.uid || voteId == request.auth.uid + '_' + request.resource.data.day);
+      allow delete: if signedIn() && (voteId == request.auth.uid || voteId.matches('^' + request.auth.uid + '_.*'));
+    }
+
+    // Future suggestion box. Anyone signed in can drop one in; only the host reads or deletes.
+    match /suggestions/{id} {
+      allow read, delete: if isHost();
+      allow create: if signedIn() && request.resource.data.uid == request.auth.uid;
+      allow update: if false;
+    }
+
+    // Theme requests the host queues for the next data push.
+    match /requests/{id} {
+      allow read, write: if isHost();
     }
 
     // Player profiles (emoji avatar). Everyone reads, each player writes their own.
