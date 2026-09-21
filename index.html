@@ -6,7 +6,7 @@
 <title>Babies' Trivia</title>
 <meta name="description" content="Trivia rounds for friends. One board per round, first run counts.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Work+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,700;12..96,800&family=Manrope:wght@400;500;600;700;800&family=Archivo+Black&display=swap">
 <style>
 :root{
   --bg:#F7F4F1; --surface:#FFFFFF; --surface2:#EFEAE5; --line:#E2DAD2;
@@ -14,9 +14,9 @@
   --accent:#D81B60; --accent2:#F4B400; --accent-ink:#FFFFFF;
   --good:#1E8A57; --good-bg:#E3F6EC; --bad:#C62B2B; --bad-bg:#FBE6E6; --part:#B45309; --part-bg:#FDF1E1;
   --shadow:0 10px 30px rgba(40,30,20,.10);
-  --site:"Archivo Black","Arial Black",sans-serif;
-  --display:"Archivo Black","Arial Black",sans-serif;
-  --body:"Work Sans","Helvetica Neue",Arial,sans-serif;
+  --site:"Bricolage Grotesque","Archivo Black","Arial Black",sans-serif;
+  --display:"Bricolage Grotesque","Archivo Black","Arial Black",sans-serif;
+  --body:"Manrope","Helvetica Neue",Arial,sans-serif;
 }
 @media (prefers-color-scheme: dark){
   :root{
@@ -174,10 +174,24 @@ a.btn{text-decoration:none}
 .emoav{width:36px;height:36px;border-radius:50%;background:var(--surface2);display:grid;place-items:center;font-size:22px;line-height:1;flex:none}
 .emoav.sm{width:28px;height:28px;font-size:17px}
 .emoav.lg{width:56px;height:56px;font-size:34px}
+.emoav.xs{width:20px;height:20px;font-size:13px;display:inline-grid;vertical-align:-5px;margin-right:4px}
+.emoav svg{width:100%;height:100%;display:block;border-radius:50%}
+.avprev{width:120px;height:120px;border-radius:50%;box-shadow:var(--shadow);flex:none}
+.avprev svg{width:100%;height:100%;display:block;border-radius:50%}
+.avrow{display:grid;grid-template-columns:88px 1fr;gap:10px;align-items:center;padding:6px 0;border-top:1px solid var(--line)}
+.avrow:first-of-type{border-top:0}
+.avrow .lab{font-size:13px;font-weight:600}
+.stepper{display:flex;align-items:center;gap:8px}
+.stepper button{width:34px;height:34px;border-radius:50%;border:1px solid var(--line);background:var(--surface);cursor:pointer;font-size:18px;line-height:1}
+.stepper span{flex:1;text-align:center;font-size:13px;color:var(--muted);text-transform:capitalize}
+.swatches{display:flex;flex-wrap:wrap;gap:8px}
+.swatches button{width:28px;height:28px;border-radius:50%;border:2px solid transparent;cursor:pointer;padding:0}
+.swatches button[aria-pressed="true"]{border-color:var(--text);box-shadow:0 0 0 2px var(--surface)}
 .egrid{display:grid;grid-template-columns:repeat(8,minmax(0,1fr));gap:6px}
 .egrid button{font-size:24px;line-height:1.2;background:var(--surface2);border:1.5px solid transparent;border-radius:10px;padding:6px 0;cursor:pointer}
 .egrid button[aria-pressed="true"]{border-color:var(--accent);background:color-mix(in srgb,var(--accent) 14%, var(--surface2))}
 .emoin{font:inherit;font-size:20px;width:130px;padding:6px 10px;border:1px solid var(--line);border-radius:10px;background:var(--surface);color:var(--text)}
+.field{font:inherit;width:100%;padding:9px 12px;border:1px solid var(--line);border-radius:10px;background:var(--surface);color:var(--text);margin-top:4px}
 .qvis{font-size:clamp(34px,11vw,52px);line-height:1.35;text-align:center;letter-spacing:.12em;margin:14px 0 4px;
   background:var(--surface2);border-radius:14px;padding:22px 14px;word-break:break-word}
 .qimg{margin:14px 0 4px}
@@ -220,6 +234,135 @@ a.btn{text-decoration:none}
 .share .msg{min-height:1.2em}
 @media (prefers-reduced-motion: reduce){*{transition:none!important;animation:none!important}}
 @media (max-width:420px){.lb{grid-template-columns:28px 32px 1fr auto auto;gap:8px;padding:10px 10px}.pts{font-size:19px}}
+
+/* ===================== production polish layer ===================== */
+:root{
+  --shadow-sm:0 1px 2px rgba(28,20,14,.05),0 4px 14px rgba(28,20,14,.06);
+  --shadow:0 2px 4px rgba(28,20,14,.05),0 14px 36px rgba(28,20,14,.10);
+  --shadow-lg:0 4px 10px rgba(28,20,14,.06),0 26px 60px rgba(28,20,14,.16);
+  --glass:color-mix(in srgb,var(--surface) 78%, transparent);
+}
+@media (prefers-color-scheme: dark){:root{
+  --bg:#0F0D0C; --surface:#1A1615; --surface2:#252020; --line:#332C29;
+  --shadow-sm:0 1px 2px rgba(0,0,0,.35),0 4px 14px rgba(0,0,0,.35);
+  --shadow:0 2px 4px rgba(0,0,0,.4),0 16px 40px rgba(0,0,0,.5);
+  --shadow-lg:0 6px 14px rgba(0,0,0,.5),0 30px 70px rgba(0,0,0,.6);
+}}
+body{font-family:var(--body);font-weight:500;letter-spacing:-.005em}
+body::before{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;
+  background:
+    radial-gradient(52% 40% at 8% 0%, color-mix(in srgb,var(--accent) 16%, transparent), transparent 70%),
+    radial-gradient(46% 38% at 100% 12%, color-mix(in srgb,var(--accent2) 15%, transparent), transparent 70%),
+    radial-gradient(60% 50% at 50% 110%, color-mix(in srgb,var(--accent) 7%, transparent), transparent 70%),
+    var(--bg);
+  transition:background .6s ease}
+body::after{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;opacity:.045;mix-blend-mode:multiply;
+  background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>")}
+@media (prefers-color-scheme: dark){body::after{opacity:.08;mix-blend-mode:screen}}
+.wrap{padding-top:14px}
+h2{font-family:var(--display);letter-spacing:-.01em}
+h3{letter-spacing:.14em}
+.section h3::before{content:"";display:inline-block;width:16px;height:3px;border-radius:2px;background:linear-gradient(90deg,var(--accent),var(--accent2));margin-right:8px;vertical-align:middle}
+
+/* top bar + masthead */
+.topbar{padding:6px 0 10px}
+.wordmark{font-size:19px;font-weight:800;letter-spacing:-.01em}
+.wordmark span{background:linear-gradient(120deg,var(--accent),var(--accent2));-webkit-background-clip:text;background-clip:text;color:transparent}
+header.masthead{padding:28px 0 20px;border-radius:24px}
+header.masthead::before{inset:-60px -30px auto -30px;height:260px;filter:blur(2px);opacity:.9;
+  background:radial-gradient(48% 70% at 18% 25%, color-mix(in srgb,var(--accent) 30%, transparent), transparent 70%),
+             radial-gradient(40% 60% at 88% 20%, color-mix(in srgb,var(--accent2) 26%, transparent), transparent 70%)}
+header.masthead::after{content:"";position:absolute;right:-30px;top:-40px;width:180px;height:180px;border-radius:50%;pointer-events:none;
+  background:radial-gradient(circle at 30% 30%, color-mix(in srgb,var(--accent2) 55%, transparent), transparent 62%);filter:blur(28px);opacity:.7;animation:drift 14s ease-in-out infinite alternate}
+@keyframes drift{from{transform:translate(0,0) scale(1)}to{transform:translate(-40px,26px) scale(1.15)}}
+h1{background:linear-gradient(100deg,var(--accent) 0%,var(--accent) 45%,var(--accent2) 100%);background-size:200% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:sheen 9s ease-in-out infinite alternate;letter-spacing:-.02em;line-height:.95}
+@keyframes sheen{from{background-position:0% 50%}to{background-position:100% 50%}}
+.eyebrow{font-weight:700;letter-spacing:.2em}
+.sub{font-size:16.5px;line-height:1.55}
+
+/* tabs as a segmented control */
+.tabs{background:var(--surface2);padding:4px;border-radius:999px;border:0;gap:2px;overflow-x:auto;scrollbar-width:none}
+.tabs::-webkit-scrollbar{display:none}
+.tab{border-radius:999px;padding:9px 15px;margin:0;border-bottom:0;font-weight:700;transition:background .15s ease,color .15s ease}
+.tab[aria-selected="true"]{background:var(--surface);color:var(--text);box-shadow:var(--shadow-sm);border-bottom:0}
+
+/* cards */
+.card{border-radius:20px;border:1px solid color-mix(in srgb,var(--line) 75%, transparent);box-shadow:var(--shadow-sm);padding:22px;position:relative}
+.card::before{content:"";position:absolute;inset:0 0 auto 0;height:1px;border-radius:20px 20px 0 0;background:linear-gradient(90deg,transparent,rgba(255,255,255,.75),transparent);pointer-events:none}
+@media (prefers-color-scheme: dark){.card::before{background:linear-gradient(90deg,transparent,rgba(255,255,255,.12),transparent)}}
+.card.lift{box-shadow:var(--shadow-lg)}
+.board{border-radius:18px;box-shadow:var(--shadow-sm)}
+.banner{border-radius:14px}
+.banner.ann{background:linear-gradient(120deg,color-mix(in srgb,var(--accent) 14%, var(--surface)),color-mix(in srgb,var(--accent2) 16%, var(--surface)));border-color:color-mix(in srgb,var(--accent) 30%, var(--line));font-weight:700;padding:14px 16px;margin:0 0 14px}
+
+/* buttons */
+.btn{background:linear-gradient(120deg,var(--accent),color-mix(in srgb,var(--accent) 55%, var(--accent2)));box-shadow:0 6px 18px color-mix(in srgb,var(--accent) 32%, transparent);font-weight:800;transition:transform .12s ease,box-shadow .18s ease,filter .15s ease}
+.btn:hover{filter:brightness(1.05);transform:translateY(-1px);box-shadow:0 10px 26px color-mix(in srgb,var(--accent) 38%, transparent)}
+.btn:active{transform:translateY(0) scale(.985)}
+.btn.ghost{background:var(--glass);backdrop-filter:blur(8px);box-shadow:none;border:1px solid var(--line);color:var(--text)}
+.btn.ghost:hover{border-color:color-mix(in srgb,var(--accent) 50%, var(--line));box-shadow:var(--shadow-sm)}
+.btn.danger{background:transparent;box-shadow:none}
+.btn[disabled]{transform:none;box-shadow:none}
+.linkbtn:hover{color:var(--accent)}
+
+/* tiles */
+.tile{border-radius:18px;padding:16px 16px 14px 20px;min-height:132px;box-shadow:var(--shadow-sm);
+  background:linear-gradient(135deg,color-mix(in srgb,var(--ra) 11%, var(--surface)) 0%,var(--surface) 62%);transition:transform .16s cubic-bezier(.2,.7,.2,1),box-shadow .2s ease}
+.tile::before{width:6px;box-shadow:0 0 18px color-mix(in srgb,var(--ra) 45%, transparent)}
+.tile:hover{transform:translateY(-3px);box-shadow:var(--shadow)}
+.tile .tn{font-size:23px;letter-spacing:-.01em}
+.tile .tf{padding-top:8px}
+
+/* leaderboard */
+.lb{padding:13px 14px;transition:background .15s ease}
+.lb:hover{background:color-mix(in srgb,var(--accent) 4%, var(--surface))}
+.rank{font-family:var(--display);font-size:16px;width:28px;height:28px;border-radius:50%;display:grid;place-items:center;margin:0 auto;color:var(--muted);background:transparent}
+.lb:nth-child(1) .rank{background:linear-gradient(135deg,#F7DC7B,#E0A72E);color:#3B2A00;box-shadow:0 4px 10px rgba(224,167,46,.35)}
+.lb:nth-child(2) .rank{background:linear-gradient(135deg,#ECEFF3,#B8C0CB);color:#2B3440}
+.lb:nth-child(3) .rank{background:linear-gradient(135deg,#E9B78F,#B87545);color:#3A2210}
+.lb.me{box-shadow:inset 3px 0 0 var(--accent)}
+.av,.emoav{box-shadow:0 0 0 2px var(--surface),0 0 0 3px color-mix(in srgb,var(--line) 80%, transparent)}
+.pts{font-family:var(--display);letter-spacing:-.02em}
+
+/* quiz */
+.timerbar{background:var(--glass);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-radius:14px;box-shadow:var(--shadow-sm)}
+.timerbar .tleft{font-size:24px;letter-spacing:-.02em}
+.progress{height:8px;background:var(--surface2)}
+.progress i{box-shadow:0 0 12px color-mix(in srgb,var(--accent) 50%, transparent)}
+.q{font-size:23px;font-weight:800;letter-spacing:-.015em;line-height:1.28}
+.opt{border-radius:14px;padding:14px 15px;background:var(--surface);border:1.5px solid var(--line);box-shadow:var(--shadow-sm);transition:transform .12s ease,border-color .12s ease,background .12s ease,box-shadow .15s ease}
+.opt:hover:not([disabled]){transform:translateX(3px);border-color:var(--accent);box-shadow:0 8px 20px color-mix(in srgb,var(--accent) 16%, transparent)}
+.opt .k{background:var(--surface2);font-weight:800;box-shadow:inset 0 0 0 1px var(--line)}
+.opt[data-state="right"]{animation:pop .35s cubic-bezier(.2,.8,.2,1)}
+.opt[data-state="right"] .k{box-shadow:none;background:var(--good)}
+.opt[data-state="wrong"]{animation:shake .4s ease}
+.opt[data-state="wrong"] .k{box-shadow:none}
+.opt[data-state="sel"] .k{box-shadow:none}
+@keyframes pop{0%{transform:scale(.985)}55%{transform:scale(1.02)}100%{transform:scale(1)}}
+@keyframes shake{0%,100%{transform:translateX(0)}25%{transform:translateX(-5px)}75%{transform:translateX(5px)}}
+.why{border-radius:14px;padding:15px 16px}
+.qvis{border-radius:18px;background:linear-gradient(135deg,color-mix(in srgb,var(--accent) 9%, var(--surface2)),var(--surface2))}
+
+/* result */
+.stat{letter-spacing:-.04em;filter:drop-shadow(0 8px 20px color-mix(in srgb,var(--accent) 25%, transparent))}
+.verdict{font-size:19px;font-weight:800}
+.confetti{position:fixed;inset:0;pointer-events:none;z-index:60}
+
+/* stats, poll, me */
+.stile{border-radius:18px;box-shadow:var(--shadow-sm)}
+.stile b{background:linear-gradient(120deg,var(--accent),var(--accent2));-webkit-background-clip:text;background-clip:text;color:transparent;font-size:32px}
+.sbar i{background:linear-gradient(90deg,var(--accent),color-mix(in srgb,var(--accent) 55%, var(--accent2)))}
+.pcard{border-radius:18px;box-shadow:var(--shadow-sm)}
+.pollopt{border-radius:18px;box-shadow:var(--shadow-sm)}
+.pollopt[data-mine="1"]{box-shadow:0 0 0 3px color-mix(in srgb,var(--accent) 22%, transparent)}
+.pill{font-weight:800;letter-spacing:.08em;padding:4px 10px}
+.egrid button{border-radius:12px}
+.avprev{box-shadow:var(--shadow-lg)}
+
+/* enter animation */
+#view > *{animation:rise .34s cubic-bezier(.2,.7,.2,1) both}
+@keyframes rise{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+@media (prefers-reduced-motion: reduce){*{animation:none!important;transition:none!important}h1{background-position:0 50%}}
 </style>
 </head>
 <body>
@@ -275,7 +418,8 @@ const firebaseConfig = {
    2. GAME SETTINGS  (change a line, re-upload the file)
    ===================================================================== */
 const SETTINGS = {
-  siteTagline: "Pick a round. Your first finished run of each round is your official score; after that you can practice all you like.",
+  siteTagline: "Pick a round. One run each, and it counts.",
+  playersInGroup: 5,        // a round closes by itself once this many people have played it
   questionsPerGame: null,   // null = every question in the round; or a number like 15
   timeBreaksTies: true,     // true = faster time wins a tie; false = ties share a rank
   shuffleQuestions: false,  // true = each player gets a different question order (same set, scores stay comparable)
@@ -1209,6 +1353,7 @@ const roundById = id => ROUNDS.find(r => r.id === id) || null;
 /* --- state --- */
 let me = null, isHost = false;
 let closedIds = new Set();     // rounds the host has closed (site config closedRounds); everything else is open
+let siteCfg = {};              // site/config document (tagline, announcement, lists)
 let liveIds = new Set();       // draft rounds the host has promoted to the lobby (site config liveRounds)
 let scores = [];               // every score doc
 let scoresReady = false;
@@ -1223,7 +1368,7 @@ let hbTimer = null;
 const PRESENCE_TTL = 2 * 60 * 1000; // ignore heartbeats older than this
 let round = null;              // selected round, or null for the lobby
 let boardSel = null;           // which board the Leaderboard tab shows: a round id or ALL
-let S = { tab: "play", screen: "home", i: 0, picks: [], order: [], started: 0, chosen: null, sel: [], seq: [], checked: false, review: false, lastResult: null, saved: "none", saveErr: "", shareKind: null, shareUrl: "", shareFile: null, shareMsg: "" };
+let S = { tab: "play", screen: "home", i: 0, picks: [], order: [], started: 0, chosen: null, sel: [], seq: [], checked: false, av: null, review: false, lastResult: null, saved: "none", saveErr: "", shareKind: null, shareUrl: "", shareFile: null, shareMsg: "" };
 let pendingRound = new URLSearchParams(location.search).get("round"); // ?round=<id> opens that round after sign in
 let fatal = "";
 
@@ -1233,7 +1378,8 @@ const esc = s => String(s).replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">"
 const fmtTime = ms => { const s = Math.max(0, Math.round(ms / 1000)); return Math.floor(s / 60) + ":" + String(s % 60).padStart(2, "0"); };
 const fmtDate = iso => { try { return new Date(iso).toLocaleDateString(undefined, { month: "short", day: "numeric" }); } catch (e) { return ""; } };
 const isPublished = r => !r.draft || liveIds.has(r.id);
-const isOpen = r => r.draft ? isPublished(r) : !closedIds.has(r.id);
+const everyonePlayed = r => SETTINGS.playersInGroup > 0 && boardFor(r.id).length >= SETTINGS.playersInGroup;
+const isOpen = r => r.draft ? isPublished(r) : (!closedIds.has(r.id) && !everyonePlayed(r));
 const isDark = () => window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;
 const themeOf = r => { const t = (r && r.theme) || {}; const d = isDark(); return { a: (d && t.accentDark) || t.accent || "#D81B60", b: (d && t.accent2Dark) || t.accent2 || "#F4B400", font: t.font || "" }; };
 
@@ -1243,12 +1389,12 @@ function ensureFont(f){ if (!f || loadedFonts.has(f)) return; const l = document
 ROUNDS.forEach(r => ensureFont(r.theme && r.theme.font));
 function applyTheme(r){
   const root = document.documentElement.style; const h = $("roundName");
-  if (!r) { root.removeProperty("--accent"); root.removeProperty("--accent2"); root.removeProperty("--display"); h.className = "site"; h.textContent = "Babies' Trivia"; $("eyebrow").textContent = me ? (openCount() === 1 ? "1 round open" : openCount() + " rounds open") : "Trivia for friends"; $("roundSub").textContent = SETTINGS.siteTagline; return; }
+  if (!r) { root.removeProperty("--accent"); root.removeProperty("--accent2"); root.removeProperty("--display"); h.className = "site"; h.textContent = "Babies' Trivia"; $("eyebrow").textContent = me ? (openCount() === 1 ? "1 round open" : openCount() + " rounds open") : "Trivia for friends"; $("roundSub").textContent = (siteCfg.tagline || "").trim() || SETTINGS.siteTagline; return; }
   const t = themeOf(r);
   root.setProperty("--accent", t.a); root.setProperty("--accent2", t.b);
-  if (t.font) root.setProperty("--display", `"${t.font}","Archivo Black","Arial Black",sans-serif`); else root.removeProperty("--display");
+  if (t.font) root.setProperty("--display", `"${t.font}","Bricolage Grotesque","Archivo Black",sans-serif`); else root.removeProperty("--display");
   h.className = ""; h.textContent = r.name;
-  $("eyebrow").textContent = (r.subject ? r.subject + " · " : "") + (isOpen(r) ? "Open" : "Closed");
+  $("eyebrow").textContent = (r.subject ? r.subject + " · " : "") + (isOpen(r) ? "Open" : everyonePlayed(r) ? "Everyone has played" : "Closed");
   $("roundSub").textContent = r.tagline || "";
 }
 const openCount = () => ROUNDS.filter(r => isPublished(r) && isOpen(r)).length;
@@ -1285,7 +1431,7 @@ async function probeHost(){
 function subscribeSite(){
   if (unsubSite) unsubSite();
   unsubSite = dbf.collection("site").doc("config").onSnapshot(snap => {
-    const d = snap.exists ? snap.data() : {};
+    const d = snap.exists ? snap.data() : {}; siteCfg = d;
     if (Array.isArray(d.closedRounds)) closedIds = new Set(d.closedRounds);
     else if (Array.isArray(d.openRounds)) closedIds = new Set(ROUNDS.filter(r => !r.draft && !d.openRounds.includes(r.id)).map(r => r.id)); // legacy list: rounds it knew about but left out
     else closedIds = new Set();
@@ -1305,7 +1451,7 @@ function subscribePresence(){
 }
 const showsPresence = () => !!me && !fatal && (!round || (S.tab === "play" && S.screen === "home"));
 const playingNow = rid => presence.filter(p => p.roundId === rid && p.uid !== (me && me.uid) && (Date.now() - (p.at || 0)) < PRESENCE_TTL);
-function namesHtml(list){ const n = list.map(p => (emojiOf(p.uid) ? esc(emojiOf(p.uid)) + " " : "") + esc((p.name || "Someone").split(" ")[0])); return n.length <= 3 ? n.join(", ") : n.slice(0, 3).join(", ") + " and " + (n.length - 3) + " more"; }
+function namesHtml(list){ const n = list.map(p => avatarMini(p.uid) + esc((p.name || "Someone").split(" ")[0])); return n.length <= 3 ? n.join(", ") : n.slice(0, 3).join(", ") + " and " + (n.length - 3) + " more"; }
 function liveHtml(rid){ const l = playingNow(rid); return l.length ? `<div class="live"><i></i>Playing now <span>${namesHtml(l)}</span></div>` : ""; }
 async function writePresence(){
   if (!me || !presenceRound) return;
@@ -1349,9 +1495,62 @@ function subscribeProfiles(){
   if (unsubProfiles) unsubProfiles();
   unsubProfiles = dbf.collection("profiles").onSnapshot(snap => { const next = {}; snap.docs.forEach(d => { next[d.id] = d.data(); }); profiles = next; renderAll(); }, () => {});
 }
+/* --- build-your-own avatar: simple SVG parts, saved as indexes in the profile --- */
+const AV = {
+  bg: ["#FDE68A","#FCA5A5","#A7F3D0","#BFDBFE","#DDD6FE","#FBCFE8","#FED7AA","#D1D5DB"],
+  skin: ["#F9D8B8","#EFBF9A","#D9A277","#B97A56","#8D5A3C","#5C3A26"],
+  hair: ["none","short","curly","long","bun","mohawk","cap"],
+  hc: ["#2B1B12","#6B3E1E","#C68A3E","#E8C15A","#B23A48","#3B82F6","#9CA3AF","#111827"],
+  eyes: ["dots","happy","wink","glasses","shades","stars"],
+  mouth: ["smile","grin","flat","oh","tongue","smirk"],
+  acc: ["none","top hat","crown","headphones","flower","bow"]
+};
+const AV_DEFAULT = { bg: 3, skin: 1, hair: 1, hc: 0, eyes: 0, mouth: 0, acc: 0 };
+const avPick = (key, i) => AV[key][((i % AV[key].length) + AV[key].length) % AV[key].length];
+function avatarSvg(cfg, size){
+  const c = Object.assign({}, AV_DEFAULT, cfg || {});
+  const bg = avPick("bg", c.bg), skin = avPick("skin", c.skin), hair = avPick("hair", c.hair), hc = avPick("hc", c.hc), eyes = avPick("eyes", c.eyes), mouth = avPick("mouth", c.mouth), acc = avPick("acc", c.acc);
+  const ink = "#1F1A17", lip = "#7A2E2E";
+  let back = "", front = "";
+  if (hair === "long") back = `<rect x="20" y="30" width="56" height="60" rx="26" fill="${hc}"/>`;
+  if (hair === "short" || hair === "long" || hair === "bun") front += `<path d="M22 52 A26 26 0 0 1 74 52 L74 47 Q48 24 22 47 Z" fill="${hc}"/>`;
+  if (hair === "curly") front += [28,38,48,58,68].map((x, i) => `<circle cx="${x}" cy="${[38,30,27,30,38][i]}" r="9" fill="${hc}"/>`).join("");
+  if (hair === "bun") front += `<circle cx="48" cy="23" r="9" fill="${hc}"/>`;
+  if (hair === "mohawk") front += `<path d="M38 32 L48 10 L58 32 Q48 26 38 32 Z" fill="${hc}"/>`;
+  if (hair === "cap") front += `<path d="M22 50 A26 26 0 0 1 74 50 Z" fill="${hc}"/><rect x="46" y="46" width="38" height="7" rx="3.5" fill="${hc}"/>`;
+  let ey = "";
+  if (eyes === "dots") ey = `<circle cx="39" cy="51" r="3" fill="${ink}"/><circle cx="57" cy="51" r="3" fill="${ink}"/>`;
+  if (eyes === "happy") ey = `<path d="M34 52 q5 -6 10 0 M52 52 q5 -6 10 0" stroke="${ink}" stroke-width="2.6" fill="none" stroke-linecap="round"/>`;
+  if (eyes === "wink") ey = `<circle cx="39" cy="51" r="3" fill="${ink}"/><path d="M52 52 q5 -6 10 0" stroke="${ink}" stroke-width="2.6" fill="none" stroke-linecap="round"/>`;
+  if (eyes === "glasses") ey = `<circle cx="39" cy="51" r="3" fill="${ink}"/><circle cx="57" cy="51" r="3" fill="${ink}"/><circle cx="39" cy="51" r="8.5" stroke="${ink}" stroke-width="2.2" fill="none"/><circle cx="57" cy="51" r="8.5" stroke="${ink}" stroke-width="2.2" fill="none"/><path d="M47.5 51 h1" stroke="${ink}" stroke-width="2.2"/>`;
+  if (eyes === "shades") ey = `<rect x="29" y="45" width="18" height="12" rx="4" fill="${ink}"/><rect x="49" y="45" width="18" height="12" rx="4" fill="${ink}"/><path d="M47 50 h2" stroke="${ink}" stroke-width="2.5"/>`;
+  if (eyes === "stars") ey = ["39","57"].map(x => `<path transform="translate(${x} 51) scale(0.9)" d="M0 -6 L1.8 -1.8 L6 -1.8 L2.6 1 L4 5.5 L0 3 L-4 5.5 L-2.6 1 L-6 -1.8 L-1.8 -1.8 Z" fill="#F59E0B"/>`).join("");
+  let mo = "";
+  if (mouth === "smile") mo = `<path d="M38 62 q10 8 20 0" stroke="${lip}" stroke-width="2.6" fill="none" stroke-linecap="round"/>`;
+  if (mouth === "grin") mo = `<path d="M36 61 q12 13 24 0 Z" fill="${lip}"/><rect x="41" y="61" width="14" height="4" rx="1.5" fill="#fff"/>`;
+  if (mouth === "flat") mo = `<path d="M40 63 h16" stroke="${lip}" stroke-width="2.6" stroke-linecap="round"/>`;
+  if (mouth === "oh") mo = `<ellipse cx="48" cy="63" rx="4" ry="5" fill="${lip}"/>`;
+  if (mouth === "tongue") mo = `<path d="M38 61 q10 9 20 0" stroke="${lip}" stroke-width="2.6" fill="none" stroke-linecap="round"/><ellipse cx="51" cy="66" rx="4.5" ry="3.5" fill="#E0457B"/>`;
+  if (mouth === "smirk") mo = `<path d="M40 64 q9 4 17 -3" stroke="${lip}" stroke-width="2.6" fill="none" stroke-linecap="round"/>`;
+  let ac = "";
+  if (acc === "top hat") ac = `<rect x="34" y="6" width="28" height="22" rx="2" fill="${ink}"/><rect x="27" y="26" width="42" height="5" rx="2.5" fill="${ink}"/><rect x="34" y="20" width="28" height="4" fill="#B23A48"/>`;
+  if (acc === "crown") ac = `<path d="M30 32 L36 16 L48 27 L60 16 L66 32 Z" fill="#F59E0B"/><circle cx="36" cy="16" r="2.5" fill="#EF4444"/><circle cx="60" cy="16" r="2.5" fill="#EF4444"/>`;
+  if (acc === "headphones") ac = `<path d="M24 52 A24 24 0 0 1 72 52" stroke="${ink}" stroke-width="5" fill="none"/><rect x="17" y="46" width="10" height="16" rx="4" fill="${ink}"/><rect x="69" y="46" width="10" height="16" rx="4" fill="${ink}"/>`;
+  if (acc === "flower") ac = [0,72,144,216,288].map(a => `<circle cx="${(68 + 5 * Math.cos(a * Math.PI / 180)).toFixed(1)}" cy="${(32 + 5 * Math.sin(a * Math.PI / 180)).toFixed(1)}" r="3.6" fill="#EC4899"/>`).join("") + `<circle cx="68" cy="32" r="2.6" fill="#FDE047"/>`;
+  if (acc === "bow") ac = `<path d="M60 26 L70 20 L70 32 Z M76 26 L66 20 L66 32 Z" fill="#EF4444"/><circle cx="68" cy="26" r="2.5" fill="#B91C1C"/>`;
+  const sz = size ? ` width="${size}" height="${size}"` : "";
+  return `<svg viewBox="0 0 96 96" xmlns="http://www.w3.org/2000/svg"${sz} role="img" aria-label="Avatar"><circle cx="48" cy="48" r="48" fill="${bg}"/>${back}<circle cx="22" cy="53" r="6" fill="${skin}"/><circle cx="74" cy="53" r="6" fill="${skin}"/><circle cx="48" cy="52" r="26" fill="${skin}"/>${ey}${mo}${front}${ac}</svg>`;
+}
+const avatarOf = uid => (profiles[uid] && profiles[uid].avatar) || null;
 const emojiOf = uid => (profiles[uid] && profiles[uid].emoji) || "";
 const myEmoji = () => me ? emojiOf(me.uid) : "";
-function avatarHtml(uid, photo, cls){ const e = emojiOf(uid); const c = cls ? " " + cls : ""; return e ? `<span class="emoav${c}">${esc(e)}</span>` : `<img class="av${c}" src="${esc(photo || "")}" alt="" onerror="this.style.visibility='hidden'">`; }
+function avatarHtml(uid, photo, cls){ const c = cls ? " " + cls : ""; const av = avatarOf(uid); if (av) return `<span class="emoav${c}">${avatarSvg(av)}</span>`; const e = emojiOf(uid); return e ? `<span class="emoav${c}">${esc(e)}</span>` : `<img class="av${c}" src="${esc(photo || "")}" alt="" onerror="this.style.visibility='hidden'">`; }
+function avatarMini(uid){ const av = avatarOf(uid); if (av) return `<span class="emoav xs">${avatarSvg(av)}</span>`; const e = emojiOf(uid); return e ? esc(e) + " " : ""; }
+async function saveAvatar(cfg){
+  if (!me) return;
+  try { await dbf.collection("profiles").doc(me.uid).set({ uid: me.uid, avatar: cfg || null, name: me.displayName || "", at: firebase.firestore.FieldValue.serverTimestamp() }, { merge: true }); const m = $("avMsg"); if (m) m.textContent = cfg ? "Saved. That's you now." : "Avatar removed."; }
+  catch (err) { const m = $("avMsg"); if (m) m.textContent = "Couldn't save (" + (err.code || err.message) + ")."; }
+}
 async function saveEmoji(e){
   if (!me) return;
   const clean = String(e || "").trim().slice(0, 8);
@@ -1411,7 +1610,7 @@ function renderAll(){
 function renderAccount(){
   const a = $("account");
   if (!me) { a.innerHTML = ""; return; }
-  a.innerHTML = `${myEmoji() ? `<span class="emoav sm">${esc(myEmoji())}</span>` : `<img src="${esc(me.photoURL || "")}" alt="" onerror="this.style.visibility='hidden'">`}<span>${esc(me.displayName || "You")}</span>${isHost ? `<button class="linkbtn" id="hostBtn">Host</button>` : ""}<button class="linkbtn" id="signout">Sign out</button>`;
+  a.innerHTML = `${avatarHtml(me.uid, me.photoURL, "sm")}<span>${esc(me.displayName || "You")}</span>${isHost ? `<button class="linkbtn" id="hostBtn">Host</button>` : ""}<button class="linkbtn" id="signout">Sign out</button>`;
   $("signout").onclick = async () => { await clearPresence(); auth.signOut(); };
   const hb = $("hostBtn"); if (hb) hb.onclick = () => selectRound(round ? round.id : ROUNDS[0].id, "host");
 }
@@ -1453,10 +1652,11 @@ function renderLobby(){
     <button class="tab" role="tab" aria-selected="${lobbyTab === "me"}" data-ltab="me">Me</button>
   </div>`;
   const wire = () => document.querySelectorAll("[data-ltab]").forEach(b => b.onclick = () => { lobbyTab = b.dataset.ltab; renderLobby(); window.scrollTo({ top: 0 }); });
-  if (lobbyTab === "poll") { $view.innerHTML = tabs + pollHtml(); wire(); wirePoll(); return; }
-  if (lobbyTab === "stats") { $view.innerHTML = tabs + statsHtml(); wire(); return; }
-  if (lobbyTab === "me") { $view.innerHTML = tabs + meHtml(); wire(); wireMe(); return; }
-  return renderRounds(tabs, wire);
+  const ann = (siteCfg.announcement || "").trim(); const strip = ann ? `<div class="banner ann">${esc(ann)}</div>` : "";
+  if (lobbyTab === "poll") { $view.innerHTML = strip + tabs + pollHtml(); wire(); wirePoll(); return; }
+  if (lobbyTab === "stats") { $view.innerHTML = strip + tabs + statsHtml(); wire(); return; }
+  if (lobbyTab === "me") { $view.innerHTML = strip + tabs + meHtml(); wire(); wireMe(); return; }
+  return renderRounds(strip + tabs, wire);
 }
 function pollHtml(){
   const P = pollNow(), opts = pollOptions(), visIds = new Set(opts.map(o => o.id));
@@ -1533,6 +1733,17 @@ function statsHtml(){
 }
 /* --- Me: emoji avatar, your numbers, your rounds --- */
 const EMOJI = ["😀","😎","🤓","🥳","🤠","🧐","😈","👻","🤖","👽","🦊","🐼","🐨","🦁","🐯","🐸","🐙","🦄","🐧","🦉","🐝","🦋","🐢","🦖","🍕","🌮","🍩","🍓","🥑","🍔","☕","🍦","⚽","🏀","🎸","🎧","🎮","🎲","🚀","🛸","🌈","⚡","🔥","🌙","⭐","🌵","🍀","🌸","🎯","🏆","💎","🧠","🎩","👑","🦸","🧙","🧜","🥷","🎃","🐉","🦩","🦥","🐳","🌶️"];
+function builderHtml(){
+  const saved = avatarOf(me.uid); if (!S.av) S.av = Object.assign({}, AV_DEFAULT, saved || {});
+  const c = S.av;
+  const stepper = (key, label) => `<div class="avrow"><div class="lab">${label}</div><div class="stepper"><button type="button" data-avs="${key}" data-d="-1" aria-label="Previous ${label}">‹</button><span>${esc(avPick(key, c[key]))}</span><button type="button" data-avs="${key}" data-d="1" aria-label="Next ${label}">›</button></div></div>`;
+  const swatch = (key, label) => `<div class="avrow"><div class="lab">${label}</div><div class="swatches">${AV[key].map((col, i) => `<button type="button" data-avc="${key}" data-i="${i}" aria-pressed="${((c[key] % AV[key].length) + AV[key].length) % AV[key].length === i}" style="background:${col}" aria-label="${label} ${i + 1}"></button>`).join("")}</div></div>`;
+  return `<div class="section"><h3>Your avatar</h3><span class="note">Build one. It shows everywhere you do.</span></div>
+    <div class="card"><div class="row" style="gap:16px;align-items:center;margin-bottom:12px"><div class="avprev" id="avPrev">${avatarSvg(c)}</div><div><b>${esc(me.displayName || "You")}</b><br><span class="note">${saved ? "This is your saved look. Change anything and save again." : "Tap the arrows and swatches, then save."}</span></div></div>
+      ${swatch("bg", "Background")}${swatch("skin", "Skin")}${stepper("hair", "Hair")}${swatch("hc", "Hair color")}${stepper("eyes", "Eyes")}${stepper("mouth", "Mouth")}${stepper("acc", "Extra")}
+      <div class="row" style="margin-top:12px"><button class="btn small" id="avSave">Save avatar</button><button class="btn ghost small" id="avRandom">Surprise me</button>${saved ? `<button class="btn ghost small" id="avRemove">Remove avatar</button>` : ""}</div>
+      <p class="note msg" id="avMsg"></p></div>`;
+}
 function meHtml(){
   const cur = myEmoji(); const st = computeStats(); const p = st.players.find(x => x.uid === me.uid);
   const grid = EMOJI.map(e => `<button type="button" data-e="${e}" aria-pressed="${e === cur}" aria-label="Use ${e}">${e}</button>`).join("");
@@ -1540,18 +1751,27 @@ function meHtml(){
   const rounds = mine.length ? `<div class="board">${mine.map(x => { const r = roundById(x.roundId); return `<div class="lb" data-r="${esc(x.roundId)}" style="grid-template-columns:1fr auto auto;cursor:pointer"><div class="who">${esc(r ? r.name : x.roundId)}<small>${fmtDate(x.finishedAt)}${x.timedOut ? " · timed out" : ""}</small></div><div class="pts">${fmtScore(x.score)}<span> / ${x.total}</span></div><div class="time">${fmtTime(x.elapsedMs)}</div></div>`; }).join("")}</div>` : `<p class="note">You haven't finished an official run yet.</p>`;
   const numbers = p ? `<div class="stat-grid"><div class="stile"><b>${pct(p.ok, p.q)}%</b><span>accuracy</span></div><div class="stile"><b>${p.streak}</b><span>best run in a row</span></div><div class="stile"><b>${p.q ? (p.ms / p.q / 1000).toFixed(1) : "0"}s</b><span>per question</span></div><div class="stile"><b>${p.runs}</b><span>rounds</span></div></div>
     <div class="card" style="margin-top:10px">${barHtml("Easy", p.diff.easy[0], p.diff.easy[1])}${barHtml("Medium", p.diff.medium[0], p.diff.medium[1])}${barHtml("Hard", p.diff.hard[0], p.diff.hard[1])}</div>` : `<p class="note">Your numbers appear after your first official run.</p>`;
-  return `<div class="section"><h3>Your emoji</h3><span class="note">Shows next to your name everywhere</span></div>
+  return builderHtml() + `<div class="section"><h3>Or an emoji instead</h3><span class="note">Used only if you have no avatar</span></div>
     <div class="card"><div class="row" style="gap:14px;margin-bottom:12px"><span class="emoav lg">${cur ? esc(cur) : "🙂"}</span><div><b>${esc(me.displayName || "You")}</b><br><span class="note">${cur ? "Tap another to change it." : "Pick one below, or type any emoji."}</span></div></div>
       <div class="egrid">${grid}</div>
       <div class="row" style="margin-top:12px"><input id="emoIn" class="emoin" maxlength="8" placeholder="Or type one" aria-label="Type an emoji"><button class="btn small" id="emoSave">Save</button>${cur ? `<button class="btn ghost small" id="emoClear">Use my photo instead</button>` : ""}</div>
       <p class="note msg" id="emoMsg"></p></div>
+    <div class="section"><h3>Feel</h3></div>
+    <div class="card"><label class="row spread" style="cursor:pointer"><span><b>Vibrate on answers</b><br><span class="note">A short buzz for right, a double for wrong. Android phones only; iPhones don't let websites vibrate.</span></span><input type="checkbox" id="hapTog" ${hapticsOn() ? "checked" : ""} style="width:22px;height:22px"></label></div>
     <div class="section"><h3>Your numbers</h3><span class="note">Official runs only</span></div>${numbers}
     <div class="section"><h3>Your rounds</h3><span class="note">Tap one for its board</span></div>${rounds}`;
 }
 function wireMe(){
+  const redo = () => { lobbyTab = "me"; renderLobby(); };
+  document.querySelectorAll("[data-avs]").forEach(b => b.onclick = () => { const k = b.dataset.avs; S.av[k] = (S.av[k] || 0) + (+b.dataset.d); redo(); });
+  document.querySelectorAll("[data-avc]").forEach(b => b.onclick = () => { S.av[b.dataset.avc] = +b.dataset.i; redo(); });
+  const rnd = $("avRandom"); if (rnd) rnd.onclick = () => { Object.keys(AV).forEach(k => { S.av[k] = Math.floor(Math.random() * AV[k].length); }); redo(); };
+  const sv2 = $("avSave"); if (sv2) sv2.onclick = () => saveAvatar(Object.assign({}, S.av));
+  const rm = $("avRemove"); if (rm) rm.onclick = () => { S.av = null; saveAvatar(null); };
   document.querySelectorAll(".egrid button").forEach(b => b.onclick = () => saveEmoji(b.dataset.e));
   const sv = $("emoSave"); if (sv) sv.onclick = () => { const v = ($("emoIn").value || "").trim(); if (v) saveEmoji(v); };
   const cl = $("emoClear"); if (cl) cl.onclick = () => saveEmoji("");
+  const ht = $("hapTog"); if (ht) ht.onchange = () => { try { localStorage.setItem("bt.haptics", ht.checked ? "on" : "off"); } catch (e) {} if (ht.checked) buzz("right"); };
   document.querySelectorAll(".lb[data-r]").forEach(el => el.onclick = () => selectRound(el.dataset.r, "board"));
 }
 function wirePoll(){
@@ -1568,8 +1788,8 @@ function renderRounds(tabs, wire){
        ${ranked.length > 5 ? `<p class="note"><button class="linkbtn" id="lobbyMore">${lobbyAll ? "Show top 5 only" : `Show all ${ranked.length}`}</button></p>` : ""}`;
   const tile = r => {
     const t = themeOf(r); const b = boardFor(r.id); const my = b.find(x => x.uid === me.uid); const open = isOpen(r); const live = playingNow(r.id);
-    const foot = my ? `<span class="pill done">You: ${fmtScore(my.score)} / ${my.total}</span>` : open ? `<span class="pill live">Play</span>` : `<span class="pill">Closed</span>`;
-    const who = live.length ? `<div class="live"><i></i>${live.length === 1 ? (emojiOf(live[0].uid) ? esc(emojiOf(live[0].uid)) + " " : "") + esc((live[0].name || "Someone").split(" ")[0]) + " is playing" : live.length + " playing now"}</div>` : "";
+    const foot = my ? `<span class="pill done">You: ${fmtScore(my.score)} / ${my.total}</span>` : open ? `<span class="pill live">Play</span>` : `<span class="pill">${everyonePlayed(r) ? "Everyone played" : "Closed"}</span>`;
+    const who = live.length ? `<div class="live"><i></i>${live.length === 1 ? avatarMini(live[0].uid) + esc((live[0].name || "Someone").split(" ")[0]) + " is playing" : live.length + " playing now"}</div>` : "";
     return `<button class="tile${open ? "" : " closed"}" data-r="${esc(r.id)}" style="--ra:${t.a};--rb:${t.b};${t.font ? `--rf:'${t.font}','Archivo Black',sans-serif` : ""}">
       <div class="tn">${esc(r.name)}</div><div class="ts">${esc(r.subject || "")} · ${r.questions.length} questions</div>${who}
       <div class="tf">${foot}<span>${b.length ? b.length + " played" : "Be first"}</span></div>
@@ -1585,7 +1805,7 @@ function renderRounds(tabs, wire){
   $view.innerHTML = tabs + `
     <div class="section"><h3>Leaderboard</h3>${pickerHtml("lobbyPick", lobbySel)}</div>${board}
     ${group("Play next", next, next.length === 1 ? "1 round you haven't played" : next.length + " rounds you haven't played")}
-    ${group("Played", done, next.length ? "Tap to practice or see the board" : "You've played every open round. Practice doesn't change the board.")}
+    ${group("Played", done, next.length ? "Tap one to see its board" : "You've played every open round.")}
     ${group("Closed", closed, "Boards only")}${older}`;
   wire();
   const ob = $("lobbyOld"); if (ob) ob.onclick = () => { lobbyOld = !lobbyOld; renderLobby(); };
@@ -1606,31 +1826,32 @@ function gameLength(){ const all = round.questions.length; return SETTINGS.quest
 
 function renderClosed(){
   const mine = myOfficial();
-  $view.innerHTML = `<div class="card"><h2>This round is closed</h2><p>${mine ? `Your official score of ${fmtScore(mine.score)} / ${mine.total} stands.` : "It isn't taking new scores right now."} You can still look at the board.</p><button class="btn ghost" id="toBoard">See the leaderboard</button></div>`;
+  $view.innerHTML = `<div class="card"><h2>${everyonePlayed(round) ? "Everyone has played this one" : "This round is closed"}</h2><p>${mine ? `Your score of ${fmtScore(mine.score)} / ${mine.total} stands.` : everyonePlayed(round) ? "All " + SETTINGS.playersInGroup + " of you have finished it, so it closed itself." : "It isn't taking new scores right now."} You can still look at the board.</p><button class="btn ghost" id="toBoard">See the leaderboard</button></div>`;
   $("toBoard").onclick = () => setTab("board");
 }
 function renderHome(){
   const mine = myOfficial(); const n = gameLength(); const b = boardFor(round.id);
-  let mineHtml = "";
-  if (mine) mineHtml = `<div class="card"><h3>Your official score</h3>
-      <div class="row spread"><div class="pts">${fmtScore(mine.score)}<span> / ${mine.total}</span></div><div class="time">${fmtTime(mine.elapsedMs)}</div></div>
-      <p class="note">Play again for practice. It won't change the board.</p></div>`;
+  const mineRank = mine ? rankOf(b).find(x => x.uid === me.uid) : null;
+  const intro = mine
+    ? `<h2>You've played this one</h2>
+        <div class="row spread" style="margin:6px 0 10px"><div class="pts">${fmtScore(mine.score)}<span> / ${mine.total}</span></div><div class="time">${fmtTime(mine.elapsedMs)}${mineRank ? ` · #${mineRank.rank} of ${b.length}` : ""}</div></div>
+        <p class="note">One run per round, and that was yours. ${everyonePlayed(round) ? "Everyone has played now, so this round is done." : "The board updates as the others finish."}</p>`
+    : `<h2>Ready?</h2>
+        <p>${n} questions, one run, and it counts.${timeLimit() ? ` You get ${fmtLimit()}, counting down from question one. When it hits zero the run ends and whatever is unanswered counts wrong.` : ""}${SETTINGS.timeBreaksTies ? " A faster time breaks ties on the board." : ""}</p>`;
   $view.innerHTML = `<div class="stack">
       <div class="card lift">
-        <h2>${mine ? "Practice run" : "Ready?"}</h2>
-        <p>${n} questions, four choices each, instant answers with a line of context.${timeLimit() ? ` You get ${fmtLimit()}, counting down on screen from question one. When it hits zero the run ends and whatever is unanswered counts wrong.` : ""}${SETTINGS.timeBreaksTies ? " A faster time breaks ties on the board." : ""}</p>
+        ${intro}
         ${liveHtml(round.id)}
         <div class="row" style="margin-top:${playingNow(round.id).length ? "12px" : "0"}">
-          <button class="btn" id="start">${mine ? "Start a practice run" : "Start the quiz"}</button>
-          ${b.length ? `<button class="btn ghost" id="toBoard">See the leaderboard</button>` : ""}
+          ${mine ? "" : `<button class="btn" id="start">Start the quiz</button>`}
+          ${b.length ? `<button class="btn ${mine ? "" : "ghost"}" id="toBoard">See the leaderboard</button>` : ""}
           <button class="btn ghost" id="invite">${S.shareKind === "invite" ? "Hide invite" : "Invite friends"}</button>
         </div>
         ${S.shareKind === "invite" ? sharePanelHtml() : ""}
       </div>
-      ${mineHtml}
       ${b.length ? `<div><h3>Top 5</h3><div class="board">${rankOf(b).slice(0, 5).map(rowHtml).join("")}</div></div>` : ""}
     </div>`;
-  $("start").onclick = startQuiz;
+  const sb = $("start"); if (sb) sb.onclick = startQuiz;
   const tb = $("toBoard"); if (tb) tb.onclick = () => setTab("board");
   $("invite").onclick = () => toggleShare("invite");
   wireShare();
@@ -1663,10 +1884,19 @@ function renderBoard(){
 function renderHost(){
   $view.innerHTML = `<div class="stack">
     <div class="card"><h2>Host controls</h2>
+      <h3>Front page</h3>
+      <p class="note" style="margin:0 0 8px">The line under the big title, and an optional announcement shown above the rounds until you clear it. Live for everyone the moment you save.</p>
+      <label class="note" for="cfgTag">Tagline</label>
+      <input id="cfgTag" class="field" value="${esc(siteCfg.tagline || "")}" placeholder="${esc(SETTINGS.siteTagline)}">
+      <label class="note" for="cfgAnn" style="margin-top:8px;display:block">Announcement</label>
+      <input id="cfgAnn" class="field" value="${esc(siteCfg.announcement || "")}" placeholder="e.g. New round tonight at 8">
+      <div class="row" style="margin-top:10px"><button class="btn small" id="cfgSave">Save front page</button><span class="note" id="cfgMsg"></span></div>
+    </div>
+    <div class="card">
       <h3>Rounds</h3>
       <p class="note" style="margin:0 0 8px">Open rounds take new scores and show first in the lobby. Closing a round keeps its board but stops new official runs.</p>
       <div class="roundlist">${ROUNDS.filter(x => !x.draft).map(x => `<div class="r"><div><b>${esc(x.name)}</b><br><span class="note" style="margin:0">${esc(x.subject || "")} · ${x.questions.length} questions · ${boardFor(x.id).length} played</span></div>
-        <div class="row">${isOpen(x) ? `<span class="pill live">Open</span><button class="btn ghost small" data-toggle="${esc(x.id)}" data-to="close">Close</button>` : `<span class="pill">Closed</span><button class="btn small" data-toggle="${esc(x.id)}" data-to="open">Open</button>`}</div></div>`).join("")}</div>
+        <div class="row">${isOpen(x) ? `<span class="pill live">Open</span><button class="btn ghost small" data-toggle="${esc(x.id)}" data-to="close">Close</button>` : everyonePlayed(x) ? `<span class="pill">Everyone has played</span>` : `<span class="pill">Closed</span><button class="btn small" data-toggle="${esc(x.id)}" data-to="open">Open</button>`}</div></div>`).join("")}</div>
       <p class="note" id="hostMsg"></p>
       <p class="note">To add a round or change questions, edit the ROUNDS block at the top of index.html and re-upload the file.</p>
     </div>
@@ -1680,6 +1910,11 @@ function renderHost(){
     try { await dbf.collection("site").doc("config").set({ closedRounds: [...next] }, { merge: true }); $("hostMsg").textContent = roundById(id).name + (b.dataset.to === "open" ? " is open." : " is closed."); }
     catch (e) { $("hostMsg").textContent = "Couldn't change it: " + (e.code || e.message); }
   });
+  $("cfgSave").onclick = async () => {
+    const tagline = $("cfgTag").value.trim(), announcement = $("cfgAnn").value.trim();
+    try { await dbf.collection("site").doc("config").set({ tagline, announcement }, { merge: true }); $("cfgMsg").textContent = "Saved."; }
+    catch (e) { $("cfgMsg").textContent = "Couldn't save: " + (e.code || e.message); }
+  };
   $("wipe").onclick = async () => {
     const id = $("wipeSel").value; const r = roundById(id);
     if (!confirm(`Delete every score for "${r.name}"?`)) return;
@@ -1720,10 +1955,11 @@ function startTimer(){
 
 /* --- quiz --- */
 function startQuiz(){
+  if (myOfficial() || !isOpen(round)) return renderAll();
   const all = round.questions.map((_, k) => k);
   if (SETTINGS.shuffleQuestions) for (let k = all.length - 1; k > 0; k--) { const j = Math.floor(Math.random() * (k + 1)); [all[k], all[j]] = [all[j], all[k]]; }
   S.order = all.slice(0, gameLength());
-  S.screen = "quiz"; S.i = 0; S.picks = []; S.chosen = null; S.sel = []; S.seq = []; S.checked = false; S.started = Date.now(); S.review = false; S.lastResult = null; resetShare();
+  S.screen = "quiz"; S.i = 0; S.picks = []; S.chosen = null; S.sel = []; S.seq = []; S.checked = false; S.started = Date.now(); S.review = false; S.lastResult = null; S.celebrated = false; resetShare();
   saveProgress(); render(); window.scrollTo({ top: 0 });
 }
 function visualHtml(it){
@@ -1744,6 +1980,8 @@ function qScore(it, pick){
   if (t === "order"){ if (!Array.isArray(pick) || pick.length !== it.opts.length) return 0; let n = 0; pick.forEach((dp, i) => { if (it.orderIdx[dp] === i) n++; }); return n / it.opts.length; }
   return pick === it.ans ? 1 : 0;
 }
+const hapticsOn = () => { try { return localStorage.getItem("bt.haptics") !== "off"; } catch (e) { return true; } };
+function buzz(state){ try { if (!hapticsOn() || !navigator.vibrate) return; navigator.vibrate(state === "right" ? [45] : state === "part" ? [30, 40, 30] : [70, 50, 70]); } catch (e) {} }
 const qState = (it, pick) => { const v = qScore(it, pick); return v >= 1 ? "right" : v > 0 ? "part" : "wrong"; };
 const fmtScore = n => { const v = Math.round((+n || 0) * 10) / 10; return Number.isInteger(v) ? String(v) : v.toFixed(1); };
 function answerText(it){ const t = qType(it); if (t === "select") return (it.ansSet || []).map(k => it.opts[k]).join(", "); if (t === "order") return it.opts.map((o, j) => j).sort((a, b) => it.orderIdx[a] - it.orderIdx[b]).map(j => it.opts[j]).join(" → "); return it.opts[it.ans]; }
@@ -1788,20 +2026,20 @@ function whyHtml(it){
 }
 function renderQuiz(){
   const total = S.order.length; const it = round.questions[S.order[S.i]]; const t = qType(it);
-  const revealed = (t==="mc") ? (S.chosen !== null) : !!S.checked; const official = !myOfficial();
+  const revealed = (t==="mc") ? (S.chosen !== null) : !!S.checked;
   const body = t==="select" ? selectBody(it, revealed) : t==="order" ? orderBody(it, revealed) : mcBody(it, revealed);
   const tail = revealed ? whyHtml(it) + `<div class="row" style="margin-top:16px;justify-content:flex-end"><button class="btn" id="next">${S.i + 1 === total ? "See my score" : "Next question"}</button></div>` : "";
   $view.innerHTML = `${timerHtml()}<div class="card lift">
-      <div class="row spread"><span class="row" style="gap:8px"><span class="qnum">Question ${S.i + 1} of ${total}</span>${it.d ? `<span class="pill">${esc(it.d)}</span>` : ""}</span><span class="pill ${official ? "official" : ""}">${official ? "Official run" : "Practice"}</span></div>
+      <div class="row spread"><span class="row" style="gap:8px"><span class="qnum">Question ${S.i + 1} of ${total}</span>${it.d ? `<span class="pill">${esc(it.d)}</span>` : ""}</span>${timeLimit() ? "" : `<span class="pill">No clock</span>`}</div>
       <div class="progress"><i style="width:${(S.i / total) * 100}%"></i></div>
       ${visualHtml(it)}
       <div class="q">${esc(it.q)}</div>
       ${body}${tail}
     </div>`;
   if(!revealed){
-    if(t==="mc") document.querySelectorAll(".opt").forEach(b=>b.onclick=()=>{ S.chosen=+b.dataset.k; S.picks[S.i]=S.chosen; saveProgress(); renderQuiz(); });
-    else if(t==="select"){ document.querySelectorAll(".opt").forEach(b=>b.onclick=()=>{ const k=+b.dataset.k, ss=new Set(S.sel||[]); ss.has(k)?ss.delete(k):ss.add(k); S.sel=[...ss]; saveProgress(); renderQuiz(); }); const c=$("check"); if(c) c.onclick=()=>{ S.picks[S.i]=[...(S.sel||[])].sort((a,b)=>a-b); S.checked=true; saveProgress(); renderQuiz(); }; }
-    else { document.querySelectorAll(".opt[data-k]").forEach(b=>b.onclick=()=>{ S.seq=[...(S.seq||[]), +b.dataset.k]; saveProgress(); renderQuiz(); }); const rb=$("orderReset"); if(rb) rb.onclick=()=>{ S.seq=[]; saveProgress(); renderQuiz(); }; const c=$("check"); if(c) c.onclick=()=>{ S.picks[S.i]=(S.seq||[]).slice(); S.checked=true; saveProgress(); renderQuiz(); }; }
+    if(t==="mc") document.querySelectorAll(".opt").forEach(b=>b.onclick=()=>{ S.chosen=+b.dataset.k; S.picks[S.i]=S.chosen; saveProgress(); buzz(qState(it, S.chosen)); renderQuiz(); });
+    else if(t==="select"){ document.querySelectorAll(".opt").forEach(b=>b.onclick=()=>{ const k=+b.dataset.k, ss=new Set(S.sel||[]); ss.has(k)?ss.delete(k):ss.add(k); S.sel=[...ss]; saveProgress(); renderQuiz(); }); const c=$("check"); if(c) c.onclick=()=>{ S.picks[S.i]=[...(S.sel||[])].sort((a,b)=>a-b); S.checked=true; saveProgress(); buzz(qState(it, S.picks[S.i])); renderQuiz(); }; }
+    else { document.querySelectorAll(".opt[data-k]").forEach(b=>b.onclick=()=>{ S.seq=[...(S.seq||[]), +b.dataset.k]; saveProgress(); renderQuiz(); }); const rb=$("orderReset"); if(rb) rb.onclick=()=>{ S.seq=[]; saveProgress(); renderQuiz(); }; const c=$("check"); if(c) c.onclick=()=>{ S.picks[S.i]=(S.seq||[]).slice(); S.checked=true; saveProgress(); buzz(qState(it, S.picks[S.i])); renderQuiz(); }; }
   } else $("next").onclick = advance;
   startTimer();
 }
@@ -1836,10 +2074,10 @@ function renderResult(){
   else if (S.saved === "saved") saveLine = `<p class="note">Posted to the leaderboard${mine ? ` — you're #${mine.rank} of ${b.length}` : ""}.</p>`;
   else if (S.saved === "failed") saveLine = `<p class="note">Couldn't post your score (${esc(S.saveErr)}).${S.saveErr === "permission-denied" ? " You may already have an official score for this round." : ""}</p>`;
   else if (S.saved === "closed") saveLine = `<p class="note">This round is closed, so this run doesn't post.</p>`;
-  else if (myOfficial()) saveLine = `<p class="note">Practice run. Your official score of ${fmtScore(myOfficial().score)} / ${myOfficial().total} stands.</p>`;
+
   $view.innerHTML = `<div class="card lift">
       <h3>Your score</h3>
-      <div class="stat">${fmtScore(r.score)}<small> / ${r.total}</small></div>
+      <div class="stat"><span id="statNum">${fmtScore(r.score)}</span><small> / ${r.total}</small></div>
       <div class="verdict">${r.timedOut ? "Time." : verdict(r.score, r.total)}</div>
       <p class="note" style="margin-top:0">Time: ${fmtTime(r.elapsedMs)}${r.timedOut ? ` — the clock ran out${S.unanswered ? ` with ${S.unanswered} question${S.unanswered === 1 ? "" : "s"} unanswered` : ""}.` : ""}</p>
       ${saveLine}
@@ -1847,18 +2085,17 @@ function renderResult(){
         <button class="btn" id="toBoard">See the leaderboard</button>
         <button class="btn ghost" id="share">${S.shareKind === "score" ? "Hide share card" : "Share my score"}</button>
         <button class="btn ghost" id="review">${S.review ? "Hide answers" : "Review my answers"}</button>
-        <button class="btn ghost" id="again">Play again</button>
         <button class="btn ghost" id="lobby">All rounds</button>
       </div>
       ${S.shareKind === "score" ? sharePanelHtml() : ""}
       ${S.review ? `<div class="review" style="margin-top:18px">${r.order.map((qi, k) => { const it = round.questions[qi]; const p = r.picks[k]; const st = qState(it, p);
         return `<div class="item"><div class="q">${k + 1}. ${esc(qLabel(it))}</div><div class="ans ${st === "right" ? "good" : st === "part" ? "part" : "bad"}">${reviewAns(it, p)}</div></div>`; }).join("")}</div>` : ""}
     </div>`;
+  if (!S.celebrated) { S.celebrated = true; countUp($("statNum"), r.score); if (!r.timedOut && r.total && r.score / r.total >= 0.85) confetti(); }
   $("toBoard").onclick = () => { boardSel = round.id; setTab("board"); };
   $("review").onclick = () => { S.review = !S.review; renderResult(); };
   $("share").onclick = () => toggleShare("score");
   wireShare();
-  $("again").onclick = startQuiz;
   $("lobby").onclick = goLobby;
 }
 
@@ -1882,9 +2119,26 @@ function shareText(){
   }
   const { r, official, rank, of } = shareContext();
   const grid = r.order.map((qi, k) => { const st = qState(round.questions[qi], r.picks[k]); return st === "right" ? "🟩" : st === "part" ? "🟨" : "🟥"; }).join("").replace(/(.{20})(?=.)/gu, "$1\n");
-  const where = official && rank ? ` That's #${rank} of ${of} on the board.` : (official ? "" : " (practice run)");
+  const where = official && rank ? ` That's #${rank} of ${of} on the board.` : "";
   return `${myEmoji() ? myEmoji() + " " : ""}I scored ${fmtScore(r.score)}/${r.total} on "${round.name}" at Babies' Trivia in ${fmtTime(r.elapsedMs)}.${where}\n${grid}\nThink you can beat me? ${roundLink(round)}`;
 }
+const reducedMotion = () => window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+function countUp(el, target){
+  if (!el) return; if (reducedMotion()) { el.textContent = fmtScore(target); return; }
+  const t0 = performance.now(), dur = 900; const step = now => { const k = Math.min(1, (now - t0) / dur), e = 1 - Math.pow(1 - k, 3); el.textContent = fmtScore(target * e); if (k < 1) requestAnimationFrame(step); else el.textContent = fmtScore(target); }; requestAnimationFrame(step);
+}
+function confetti(){
+  if (reducedMotion()) return;
+  const cv = document.createElement("canvas"); cv.className = "confetti"; document.body.appendChild(cv);
+  const x = cv.getContext("2d"), W = cv.width = window.innerWidth, H = cv.height = window.innerHeight;
+  const css = getComputedStyle(document.documentElement); const cols = [css.getPropertyValue("--accent").trim() || "#D81B60", css.getPropertyValue("--accent2").trim() || "#F4B400", "#34D399", "#60A5FA", "#F472B6", "#FFFFFF"];
+  const P = Array.from({ length: 150 }, () => ({ x: W / 2 + (Math.random() - .5) * W * .4, y: H * .38, vx: (Math.random() - .5) * 16, vy: -Math.random() * 15 - 7, r: Math.random() * 7 + 4, c: cols[Math.floor(Math.random() * cols.length)], a: Math.random() * Math.PI, va: (Math.random() - .5) * .35 }));
+  let t0 = performance.now(); const frame = now => { const dt = Math.min(32, now - t0) / 16; t0 = now; x.clearRect(0, 0, W, H); let alive = 0;
+    P.forEach(p => { p.vy += .48 * dt; p.x += p.vx * dt; p.y += p.vy * dt; p.vx *= .985; p.a += p.va; if (p.y < H + 30) { alive++; x.save(); x.translate(p.x, p.y); x.rotate(p.a); x.fillStyle = p.c; x.fillRect(-p.r / 2, -p.r / 2, p.r, p.r * .62); x.restore(); } });
+    if (alive) requestAnimationFrame(frame); else cv.remove(); };
+  requestAnimationFrame(frame); setTimeout(() => cv.remove(), 4500);
+}
+function svgImage(svg){ return new Promise(res => { const im = new Image(); im.onload = () => res(im); im.onerror = () => res(null); im.src = "data:image/svg+xml;charset=utf-8," + encodeURIComponent(svg); }); }
 function rrect(x, X, Y, W, H, R){ x.beginPath(); x.moveTo(X + R, Y); x.arcTo(X + W, Y, X + W, Y + H, R); x.arcTo(X + W, Y + H, X, Y + H, R); x.arcTo(X, Y + H, X, Y, R); x.arcTo(X, Y, X + W, Y, R); x.closePath(); }
 function fitText(x, text, family, size, maxW, min = 30){ for (;;) { x.font = `${size}px ${family}`; if (x.measureText(text).width <= maxW || size <= min) return size; size -= 4; } }
 function wrapLines(x, text, maxW, maxLines){ const out = []; let cur = ""; for (const w of String(text).split(/\s+/)) { const t = cur ? cur + " " + w : w; if (x.measureText(t).width > maxW && cur) { out.push(cur); cur = w; } else cur = t; } if (cur) out.push(cur); if (out.length > maxLines) { out.length = maxLines; out[maxLines - 1] = out[maxLines - 1].replace(/\W*$/, "") + "…"; } return out; }
@@ -1925,9 +2179,11 @@ async function drawShareCard(kind){
       x.beginPath(); x.arc(cx, cy, rad, 0, Math.PI * 2); x.fillStyle = ok ? "#34D399" : part ? "#FBBF24" : "rgba(255,255,255,.22)"; x.fill(); if (!ok && !part) { x.lineWidth = 3; x.strokeStyle = "rgba(255,255,255,.55)"; x.stroke(); } });
     const metaY = y0 + rows * gap + 30;
     x.fillStyle = "#fff"; x.font = `600 34px ${body}`;
-    const meta = official && rank ? `#${rank} of ${of} on the board  ·  ${fmtTime(r.elapsedMs)}` : (official ? fmtTime(r.elapsedMs) : `Practice run  ·  ${fmtTime(r.elapsedMs)}`);
+    const meta = official && rank ? `#${rank} of ${of} on the board  ·  ${fmtTime(r.elapsedMs)}` : fmtTime(r.elapsedMs);
     x.fillText(meta, W / 2, metaY);
-    x.font = `600 34px ${body}`; x.globalAlpha = .9; x.fillText("Think you can beat me?", W / 2, 940); x.globalAlpha = 1;
+    const av = avatarOf(me.uid);
+    if (av) { const im = await svgImage(avatarSvg(av, 96)); if (im) { x.font = `600 32px ${body}`; const nm = (me.displayName || "").split(" ")[0]; const tw = x.measureText(nm).width; const total = 52 + 14 + tw; const x0 = W / 2 - total / 2; x.drawImage(im, x0, 878, 52, 52); x.textAlign = "left"; x.fillStyle = "#fff"; x.fillText(nm, x0 + 66, 913); x.textAlign = "center"; } }
+    x.font = `600 34px ${body}`; x.globalAlpha = .9; x.fillText("Think you can beat me?", W / 2, 950); x.globalAlpha = 1;
     footer();
   }
   const blob = await new Promise(res => c.toBlob(res, "image/png"));
