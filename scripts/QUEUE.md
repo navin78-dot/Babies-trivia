@@ -6,13 +6,16 @@ Steps the daily session follows:
 
 1. `git pull origin main` and read `queue-status.json` at the repository root.
    The **Queue status** workflow refreshes it every morning at 12:45 UTC (and on
-   demand from the Actions tab). `need` is how many rounds to write.
-   `requestsWaiting` lists themes the host asked for; write those first, one
-   round each, with `requestId` set. `existingSubjects` is what already exists.
+   demand from the Actions tab). `need` is the total number of rounds to write
+   today: one for every entry in `requestsWaiting`, plus `fill` to bring the
+   queue back to five. `existingSubjects` is what already exists.
 2. If `need` is 0, stop. Otherwise write `need` new rounds as `rounds/<slug>.json`.
-   Pick themes that are not already in `existingSubjects` and that suit a group
-   of five friends in their thirties: pop culture, music, film and TV, sport,
-   food, travel, science, history, words, business. Vary the mix across days.
+   **Write the `requestsWaiting` themes first, one round each, with that
+   request's id in a `requestId` field.** A host request is always written, even
+   when the queue is already full; it just makes the queue longer. Then write
+   `fill` more on themes that are not already in `existingSubjects` and that suit
+   a group of five friends in their thirties: pop culture, music, film and TV,
+   sport, food, travel, science, history, words, business. Vary the mix.
 3. Each round: `"draft": true`, a `name`, `subject`, `tagline`, `theme` (font,
    accent, accent2, accentDark, accent2Dark), `emblem`, and 20 questions:
    7 easy, 7 medium, 6 hard, at most 3 non-multiple-choice (true/false,

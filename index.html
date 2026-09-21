@@ -2187,6 +2187,13 @@ function renderBoard(){
   $("boardPick").onchange = e => { boardSel = e.target.value; renderBoard(); };
 }
 const seasonAnnText = () => { const I = seasonEndInfo(); return `Season ${I.n} is on. It ends ${I.ny} New York time. Every round you play this week counts toward the crown.`; };
+/* the daily top-up session runs at 13:00 UTC; show the host when that lands where they are */
+function nextTopUpText(){
+  const now = Date.now(), d = new Date(now);
+  let t = Date.UTC(d.getUTCFullYear(), d.getUTCMonth(), d.getUTCDate(), 13, 0, 0);
+  if (t <= now) t += 864e5;
+  try { return new Date(t).toLocaleString(undefined, { weekday: "short", hour: "numeric", minute: "2-digit" }); } catch (e) { return "tomorrow morning"; }
+}
 function queueInfoHtml(r){
   const qs = r.questions || [], P = dropPlan();
   const c = { easy: 0, medium: 0, hard: 0 }; qs.forEach(q => { if (c[q.d] != null) c[q.d]++; });
@@ -2226,10 +2233,10 @@ function hostDropHtml(){
           <button class="iinfo" data-qinfo="${esc(r.id)}" aria-expanded="${open}" aria-label="More about ${esc(r.name)}" title="More about this round">i</button></div>
         ${open ? queueInfoHtml(r) : ""}</div>`; }).join("")}</div>` : ""}
       <h3 style="margin-top:16px">Suggest a theme</h3>
-      <p class="note" style="margin:0 0 6px">Type a theme and tap Add. It goes on the list below. The daily top-up (every morning) writes it as a round, it lands in the queue above, and the entry here turns to “written”. From the queue it reaches the poll in turn, or you can pick it with the override.</p>
+      <p class="note" style="margin:0 0 6px">Type a theme and tap Add. Nothing happens on the site straight away: it joins the list below, and at <b>${esc(nextTopUpText())}</b> Claude writes it into a full 20-question round. The round then appears in the queue above and the entry here turns to “written”. Requests are always written, even when the queue is full. From the queue it reaches the poll in turn, or you can send it out tonight with the override.</p>
       <div class="inrow"><input id="reqIn" class="field" maxlength="200" placeholder="e.g. Bollywood villains, or 1980s video games"><button class="btn small" id="reqAdd">Add</button></div>
       <p class="note" id="reqMsg" style="margin:6px 0 0"></p>
-      ${reqs.length ? `<div class="roundlist" style="margin-top:6px">${reqs.map(x => { const wr = x.roundId ? roundById(x.roundId) : null; const where = wr && P.queue.some(q => q.id === wr.id) ? ", in the queue" : wr && isPublished(wr) ? ", in the lobby" : ""; return `<div class="r"><div><b>${esc(x.theme)}</b><br><span class="note" style="margin:0">${fmtDate(x.finishedAt)} · ${x.status === "written" ? `written${wr ? " as " + esc(wr.name) : ""}${where}` : "waiting for the next daily top-up"}</span></div><button class="linkbtn" data-delreq="${esc(x.id)}">Delete</button></div>`; }).join("")}</div>` : ""}
+      ${reqs.length ? `<div class="roundlist" style="margin-top:6px">${reqs.map(x => { const wr = x.roundId ? roundById(x.roundId) : null; const where = wr && P.queue.some(q => q.id === wr.id) ? ", in the queue" : wr && isPublished(wr) ? ", in the lobby" : ""; return `<div class="r"><div><b>${esc(x.theme)}</b><br><span class="note" style="margin:0">${fmtDate(x.finishedAt)} · ${x.status === "written" ? `written${wr ? " as " + esc(wr.name) : ""}${where}` : `not written yet · Claude writes it ${esc(nextTopUpText())}`}</span></div><button class="linkbtn" data-delreq="${esc(x.id)}">Delete</button></div>`; }).join("")}</div>` : ""}
     </div>
     <div class="card">
       <h3>Suggestion box</h3>

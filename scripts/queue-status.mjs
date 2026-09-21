@@ -26,15 +26,17 @@ const fn = new Function(...Object.keys(env), code);
 const { dropPlan, seasonOf, currentSeason } = fn(...Object.values(env));
 const P = dropPlan();
 const name = id => (ROUNDS.find(r => r.id === id) || {}).name || id;
+const waiting = reqSnap.docs.map(d => ({ id: d.id, ...d.data() })).filter(r => (r.status || "waiting") === "waiting");
 const out = {
   today: P.today, season: currentSeason(),
-  queueCount: P.queue.length, target: 5, need: Math.max(0, 5 - P.queue.length),
+  queueCount: P.queue.length, target: 5, fill: Math.max(0, 5 - P.queue.length),
   queue: P.queue.map(r => ({ id: r.id, name: r.name, subject: r.subject || "", onPollSince: P.first[r.id] || null, retired: P.retired.has(r.id) })),
   tonightsPoll: P.options.map(r => r.id), override: P.ov || null,
   dropped: P.history.map(x => ({ day: x.day, id: x.id, name: name(x.id), how: x.how })),
-  requestsWaiting: reqSnap.docs.map(d => ({ id: d.id, ...d.data() })).filter(r => (r.status || "waiting") === "waiting").map(r => ({ id: r.id, theme: r.theme })),
+  requestsWaiting: waiting.map(r => ({ id: r.id, theme: r.theme })),
   existingSubjects: ROUNDS.map(r => `${r.name} (${r.subject || ""})`),
 };
+out.need = out.fill + waiting.length; // a host request is always written, even with a full queue
 const json = JSON.stringify(out, null, 2);
 writeFileSync("queue-status.json", json);
 console.log("QUEUE_STATUS_BEGIN\n" + json + "\nQUEUE_STATUS_END");
