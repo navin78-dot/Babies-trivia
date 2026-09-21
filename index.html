@@ -214,7 +214,8 @@ a.btn{text-decoration:none}
 .pod .podav .emoav{width:64px;height:64px;box-shadow:0 0 0 4px var(--podc),0 0 28px color-mix(in srgb,var(--podc) 55%, transparent)}
 .pod.p1 .podav .emoav{width:76px;height:76px}
 .podname{font-weight:800;font-size:14px;color:var(--cream);position:relative;z-index:1;max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
-.podpts{font-family:var(--display);font-size:20px;color:var(--cream);line-height:1.1;margin-bottom:8px;position:relative;z-index:1;font-variant-numeric:tabular-nums}
+.podpts{font-family:var(--display);font-size:20px;color:var(--cream);line-height:1.1;margin-bottom:2px;position:relative;z-index:1;font-variant-numeric:tabular-nums}
+.podsub{font-size:11px;font-weight:800;color:var(--cream2);letter-spacing:.04em;text-transform:uppercase;margin-bottom:8px;position:relative;z-index:1}
 .podpts span{font-size:12px;color:var(--cream2);font-family:var(--body);font-weight:700}
 .plinth{width:100%;height:var(--ph);border-radius:14px 14px 6px 6px;position:relative;
   background:linear-gradient(180deg,color-mix(in srgb,var(--podc) 55%, var(--stage3)),color-mix(in srgb,var(--podc) 22%, var(--stage2)));
@@ -1788,7 +1789,7 @@ function trophyHtml(){
 function podiumHtml(ranked){
   const top = ranked.slice(0, 3); if (top.length < 2) return "";
   const order = top.length === 3 ? [top[1], top[0], top[2]] : [top[0], top[1]];
-  return `<div class="podium n${top.length}">${order.map(p => `<div class="pod p${p.rank}${me && p.uid === me.uid ? " me" : ""}"><div class="podav">${avatarHtml(p.uid, p.photo, "lg")}</div><div class="podname">${esc((p.name || "Someone").split(" ")[0])}</div><div class="podpts">${fmtScore(p.score)}<span>/${p.total}</span></div><div class="plinth"><span>${p.rank}</span></div></div>`).join("")}</div>`;
+  return `<div class="podium n${top.length}">${order.map(p => `<div class="pod p${p.rank}${me && p.uid === me.uid ? " me" : ""}"><div class="podav">${avatarHtml(p.uid, p.photo, "lg")}</div><div class="podname">${esc((p.name || "Someone").split(" ")[0])}</div><div class="podpts">${fmtScore(p.score)}<span>/${p.total}</span></div><div class="podsub">${p.rounds != null ? `${p.rounds} round${p.rounds === 1 ? "" : "s"}` : fmtTime(p.elapsedMs)}</div><div class="plinth"><span>${p.rank}</span></div></div>`).join("")}</div>`;
 }
 /* --- round recap, once a round is done --- */
 function recapFor(r){
@@ -2646,7 +2647,7 @@ async function drawShareCard(kind){
       x.fillStyle = "rgba(255,255,255,.14)"; rrect(x, cx - 120, top, 240, ph, 22); x.fill();
       x.fillStyle = cols[i]; x.font = `64px ${fam}`; x.fillText(String(p.rank), cx, top + 84);
       x.fillStyle = "#fff"; x.font = `700 34px ${body}`; x.fillText((p.name || "Someone").split(" ")[0], cx, top + 134);
-      x.font = `600 30px ${body}`; x.globalAlpha = .85; x.fillText(`${fmtScore(p.score)} / ${p.total}`, cx, top + 174); x.globalAlpha = 1;
+      x.font = `600 30px ${body}`; x.globalAlpha = .85; x.fillText(`${fmtScore(p.score)} / ${p.total}${p.rounds != null ? `  ·  ${p.rounds} round${p.rounds === 1 ? "" : "s"}` : ""}`, cx, top + 174); x.globalAlpha = 1;
       x.save(); x.shadowColor = "rgba(0,0,0,.35)"; x.shadowBlur = 24; x.shadowOffsetY = 8; await drawAvatarOn(x, p.uid, p.photo, cx, top - 76, 62); x.restore();
       x.lineWidth = 6; x.strokeStyle = cols[i]; x.beginPath(); x.arc(cx, top - 76, 65, 0, Math.PI * 2); x.stroke(); }
     if (P.foot) { x.fillStyle = "#fff"; x.font = `600 28px ${body}`; x.globalAlpha = .85; const fl = wrapLines(x, P.foot, W - 220, 2); fl.forEach((l, i) => x.fillText(l, W / 2, 886 + i * 36)); x.globalAlpha = 1; }
