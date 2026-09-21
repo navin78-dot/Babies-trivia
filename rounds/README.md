@@ -37,10 +37,11 @@ queue. Each night at midnight New York time one round leaves the queue and goes
 live: the poll on the site shows the first three rounds waiting (oldest first),
 the most-voted one drops, the host can override. So the queue needs topping up.
 
-The **Queue status** workflow (Actions tab, run it by hand) prints how many
-rounds are waiting, tonight's poll, recent drops, and any theme requests the
-host typed on the Host tab. A daily Claude session runs it and writes enough
-rounds to keep five waiting. See `scripts/QUEUE.md`.
+The **Queue status** workflow runs every morning and commits `queue-status.json`
+at the repository root: how many rounds are waiting, tonight's poll, recent
+drops, and any theme requests the host typed on the Host tab. A daily Claude
+session reads it and writes enough rounds to keep five waiting. See
+`scripts/QUEUE.md`.
 
 A round written for a host request should carry `"requestId": "<the request id>"`
 so the request is ticked off when the round publishes.

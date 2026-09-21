@@ -4,10 +4,11 @@ Goal: five written rounds waiting in the nightly-drop queue at all times.
 
 Steps the daily session follows:
 
-1. Run the **Queue status** workflow (`queue-status.yml`, workflow_dispatch on
-   `main`) and read the JSON between `QUEUE_STATUS_BEGIN` and `QUEUE_STATUS_END`
-   in its log. `need` is how many rounds to write. `requestsWaiting` lists themes
-   the host asked for; write those first, one round each, with `requestId` set.
+1. `git pull origin main` and read `queue-status.json` at the repository root.
+   The **Queue status** workflow refreshes it every morning at 12:45 UTC (and on
+   demand from the Actions tab). `need` is how many rounds to write.
+   `requestsWaiting` lists themes the host asked for; write those first, one
+   round each, with `requestId` set. `existingSubjects` is what already exists.
 2. If `need` is 0, stop. Otherwise write `need` new rounds as `rounds/<slug>.json`.
    Pick themes that are not already in `existingSubjects` and that suit a group
    of five friends in their thirties: pop culture, music, film and TV, sport,
@@ -22,4 +23,4 @@ Steps the daily session follows:
 4. Validate: `npm install firebase-admin@^12 --no-save --no-audit --no-fund && node scripts/publish-rounds.mjs --check`.
 5. Commit only the new round files with a message ending in `[skip netlify]`
    (rounds are data, not a site deploy) and push to `main`. The Publish rounds
-   workflow puts them in Firestore. Wait for it to succeed and report.
+   workflow puts them in Firestore on its own. Report which rounds were added.
