@@ -1693,11 +1693,12 @@ function computeStats(){
   let runs = 0, totalMs = 0, totalQ = 0, longest = { n: 0, name: "" };
   scores.forEach(sc => {
     const r = roundById(sc.roundId); if (!r || !Array.isArray(sc.order) || !Array.isArray(sc.picks)) return;
+    const picks = unpackPicks(sc.picks);
     runs++; totalMs += sc.elapsedMs || 0; totalQ += sc.order.length;
     const p = players[sc.uid] || (players[sc.uid] = { uid: sc.uid, name: sc.name, photo: sc.photo, runs: 0, q: 0, ok: 0, ms: 0, timeouts: 0, streak: 0, last: "", diff: { easy: [0, 0], medium: [0, 0], hard: [0, 0] } });
     p.runs++; p.ms += sc.elapsedMs || 0; if (sc.timedOut) p.timeouts++; if ((sc.finishedAt || "") > p.last) { p.last = sc.finishedAt; p.name = sc.name; p.photo = sc.photo; }
     let cur = 0, best = 0;
-    sc.order.forEach((qi, k) => { const q = r.questions[qi]; if (!q) return; const ok = qScore(q, sc.picks[k]);
+    sc.order.forEach((qi, k) => { const q = r.questions[qi]; if (!q) return; const ok = qScore(q, picks[k]);
       if (ok >= 1) { cur++; if (cur > best) best = cur; } else cur = 0;
       p.q++; p.ok += ok; if (q.d && p.diff[q.d]) { p.diff[q.d][0] += ok; p.diff[q.d][1]++; }
       if (q.d && byDiff[q.d]) { byDiff[q.d][0] += ok; byDiff[q.d][1]++; }
@@ -1974,6 +1975,10 @@ function qCorrect(it, pick){
   if (t === "order"){ if (!Array.isArray(pick) || pick.length !== it.opts.length) return false; return pick.every((dp,i)=>it.orderIdx[dp]===i); }
   return pick === it.ans;
 }
+/* Firestore can't store an array inside an array (select / order picks) or an undefined
+   gap (unanswered in a timed-out run). Pack picks for storage, unpack when reading. */
+const packPicks = (order, picks) => order.map((_, k) => { const p = picks[k]; return Array.isArray(p) ? { v: p.slice() } : p == null ? null : p; });
+const unpackPicks = picks => Array.isArray(picks) ? picks.map(p => p && typeof p === "object" && Array.isArray(p.v) ? p.v : p) : [];
 function qScore(it, pick){
   const t = qType(it);
   if (t === "select"){ if (!Array.isArray(pick)) return 0; const C = new Set(it.ansSet || []); let right = 0, wrong = 0; new Set(pick).forEach(k => C.has(k) ? right++ : wrong++); return C.size ? Math.max(0, (right - wrong) / C.size) : 0; }
@@ -2061,7 +2066,7 @@ async function finishRun(timedOut){
   S.lastResult = result; S.timedOut = !!timedOut; S.unanswered = unanswered; S.saved = "none";
   if (!myOfficial() && isOpen(round)) {
     S.saved = "saving"; render();
-    try { await dbf.collection("scores").doc(round.id + "_" + me.uid).set(result); S.saved = "saved"; }
+    try { await dbf.collection("scores").doc(round.id + "_" + me.uid).set({ ...result, picks: packPicks(S.order, S.picks) }); S.saved = "saved"; }
     catch (e) { S.saved = "failed"; S.saveErr = (e && e.code) || "error"; }
   } else if (!isOpen(round)) S.saved = "closed";
   render(); window.scrollTo({ top: 0 });
