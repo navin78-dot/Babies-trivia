@@ -1,0 +1,53 @@
+{
+  "today": "2026-09-21",
+  "season": 1,
+  "queueCount": 3,
+  "target": 5,
+  "need": 2,
+  "queue": [
+    {
+      "id": "one-hit-wonders",
+      "name": "One Hit Wonders",
+      "subject": "One hit wonders",
+      "onPollSince": "2026-09-21",
+      "retired": false
+    },
+    {
+      "id": "plate-to-place",
+      "name": "Plate to Place",
+      "subject": "Food origins",
+      "onPollSince": "2026-09-21",
+      "retired": false
+    },
+    {
+      "id": "great-heists",
+      "name": "Great Heists and Cons",
+      "subject": "Heists and frauds",
+      "onPollSince": "2026-09-21",
+      "retired": false
+    }
+  ],
+  "tonightsPoll": [
+    "one-hit-wonders",
+    "plate-to-place",
+    "great-heists"
+  ],
+  "override": null,
+  "dropped": [],
+  "requestsWaiting": [],
+  "existingSubjects": [
+    "Strike a Pose (Madonna)",
+    "Over the Millennia (World history)",
+    "Pop Quiz (Pop culture)",
+    "Living Memory (Modern history)",
+    "Incredible India (India)",
+    "Must See TV (1990s television)",
+    "Who Am I (Celebrities in emoji)",
+    "One Hit Wonders (One hit wonders)",
+    "Plate to Place (Food origins)",
+    "Great Heists and Cons (Heists and frauds)",
+    "To the Moon and Mars (Spaceflight)",
+    "Where Words Come From (Word origins)",
+    "The Corner Office (Business leaders and companies)"
+  ]
+}
