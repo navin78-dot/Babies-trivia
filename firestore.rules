@@ -40,5 +40,12 @@ service cloud.firestore {
       allow read: if signedIn();
       allow write, delete: if signedIn() && request.auth.uid == uid;
     }
+
+    // Quiz rounds loaded at runtime. Everyone signed in can read them;
+    // only the host (or the service account, which bypasses rules) can write.
+    match /rounds/{roundId} {
+      allow read: if signedIn();
+      allow write: if isHost();
+    }
   }
 }

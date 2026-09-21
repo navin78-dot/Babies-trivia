@@ -172,6 +172,9 @@ a.btn{text-decoration:none}
 .opt[data-state="wrong"]{background:var(--bad-bg);border-color:var(--bad)}
 .opt[data-state="wrong"] .k{background:var(--bad);color:#fff}
 .opt[disabled]{cursor:default}
+.opt[data-state="sel"]{background:color-mix(in srgb,var(--accent) 12%, var(--surface2));border-color:var(--accent)}
+.opt[data-state="sel"] .k{background:var(--accent);color:var(--accent-ink)}
+.opt small{color:var(--muted);font-weight:400;font-size:12px}
 .why{margin-top:14px;padding:14px;border-radius:12px;background:var(--surface2);border-left:4px solid var(--accent2)}
 .why b{display:block;margin-bottom:4px}
 .why.good{border-left-color:var(--good)}.why.bad{border-left-color:var(--bad)}
@@ -292,7 +295,7 @@ const POLL = {
   ]
 };
 
-const ROUNDS = [
+let ROUNDS = [
   {
     id: "strike-a-pose",
     name: "Strike a Pose",
@@ -1144,17 +1147,21 @@ const ROUNDS = [
 firebase.initializeApp(firebaseConfig);
 const auth = firebase.auth();
 const dbf = firebase.firestore();
-const LETTERS = ["A","B","C","D"];
+const LETTERS = ["A","B","C","D","E","F"];
 const ALL = "__all__";
 
 function seeded(seedStr){ let x = 0; for (const c of seedStr) x = (x * 31 + c.charCodeAt(0)) >>> 0; x = x || 7; return () => { x = (x * 1103515245 + 12345) % 2147483648; return x / 2147483648; }; }
-ROUNDS.forEach(r => {
-  r.questions.forEach((it, i) => {
-    const idx = it.o.map((_, k) => k);
-    if (SETTINGS.shuffleAnswers) { const rnd = seeded(r.id + ":" + i); for (let k = idx.length - 1; k > 0; k--) { const j = Math.floor(rnd() * (k + 1)); [idx[k], idx[j]] = [idx[j], idx[k]]; } }
-    it.opts = idx.map(k => it.o[k]); it.ans = idx.indexOf(it.a);
-  });
-});
+function processQuestion(r, it, i){
+  const type = it.type || "mc"; it.type = type;
+  const idx = it.o.map((_, k) => k);
+  if (SETTINGS.shuffleAnswers && !it.keepOrder) { const rnd = seeded(r.id + ":" + i); for (let k = idx.length - 1; k > 0; k--) { const j = Math.floor(rnd() * (k + 1)); [idx[k], idx[j]] = [idx[j], idx[k]]; } }
+  it.opts = idx.map(k => it.o[k]);
+  if (type === "select") { const correct = new Set(Array.isArray(it.a) ? it.a : [it.a]); it.ansSet = idx.map((orig, disp) => correct.has(orig) ? disp : -1).filter(x => x >= 0).sort((a, b) => a - b); }
+  else if (type === "order") { it.orderIdx = idx.slice(); }
+  else { it.ans = idx.indexOf(it.a); }
+}
+function processQuestions(r){ if (r._processed) return; r._processed = true; r.questions.forEach((it, i) => processQuestion(r, it, i)); }
+ROUNDS.forEach(processQuestions);
 ROUNDS.forEach(r => {
   const n = r.questions.length, c = { easy: 0, medium: 0, hard: 0 };
   r.questions.forEach(q => { if (q.d && c[q.d] != null) c[q.d]++; });
@@ -1169,7 +1176,7 @@ let openIds = null;            // null = not loaded yet; Set of open round ids o
 let liveIds = new Set();       // draft rounds the host has promoted to the lobby (site config liveRounds)
 let scores = [];               // every score doc
 let scoresReady = false;
-let unsubScores = null, unsubSite = null, unsubPresence = null, unsubVotes = null;
+let unsubScores = null, unsubSite = null, unsubPresence = null, unsubVotes = null, unsubRounds = null;
 let votes = [], votesReady = false;   // poll votes, one doc per player
 let tickTimer = null;                 // countdown interval while a run is in progress
 let presence = [];            // who is mid-quiz right now (from the presence collection)
@@ -1178,7 +1185,7 @@ let hbTimer = null;
 const PRESENCE_TTL = 2 * 60 * 1000; // ignore heartbeats older than this
 let round = null;              // selected round, or null for the lobby
 let boardSel = null;           // which board the Leaderboard tab shows: a round id or ALL
-let S = { tab: "play", screen: "home", i: 0, picks: [], order: [], started: 0, chosen: null, review: false, lastResult: null, saved: "none", saveErr: "", shareKind: null, shareUrl: "", shareFile: null, shareMsg: "" };
+let S = { tab: "play", screen: "home", i: 0, picks: [], order: [], started: 0, chosen: null, sel: [], seq: [], checked: false, review: false, lastResult: null, saved: "none", saveErr: "", shareKind: null, shareUrl: "", shareFile: null, shareMsg: "" };
 let pendingRound = new URLSearchParams(location.search).get("round"); // ?round=<id> opens that round after sign in
 let fatal = "";
 
@@ -1212,7 +1219,7 @@ if (window.matchMedia) window.matchMedia("(prefers-color-scheme: dark)").addEven
 /* --- progress persistence (per player, per round, this device) --- */
 const progKey = () => "bt.progress." + (round ? round.id : "none") + "." + (me ? me.uid : "anon");
 function saveProgress(){ try { localStorage.setItem(progKey(), JSON.stringify({ i: S.i, picks: S.picks, order: S.order, started: S.started })); } catch (e) {} }
-function loadProgress(){ S.screen = "home"; S.chosen = null; S.lastResult = null; try { const p = JSON.parse(localStorage.getItem(progKey()) || "null"); if (p && Array.isArray(p.picks) && Array.isArray(p.order) && p.order.length) { S.i = p.i; S.picks = p.picks; S.order = p.order; S.started = p.started; S.screen = "quiz"; } } catch (e) {} }
+function loadProgress(){ S.screen = "home"; S.chosen = null; S.sel = []; S.seq = []; S.checked = false; S.lastResult = null; try { const p = JSON.parse(localStorage.getItem(progKey()) || "null"); if (p && Array.isArray(p.picks) && Array.isArray(p.order) && p.order.length) { S.i = p.i; S.picks = p.picks; S.order = p.order; S.started = p.started; S.screen = "quiz"; } } catch (e) {} }
 function clearProgress(){ try { localStorage.removeItem(progKey()); } catch (e) {} }
 
 /* --- auth --- */
@@ -1228,9 +1235,9 @@ async function signIn(){
 auth.getRedirectResult().catch(() => {});
 auth.onAuthStateChanged(async u => {
   me = u; isHost = false; fatal = "";
-  if (me) { isHost = await probeHost(); subscribeSite(); subscribeScores(); subscribePresence(); subscribeVotes();
+  if (me) { isHost = await probeHost(); subscribeSite(); subscribeScores(); subscribePresence(); subscribeVotes(); subscribeRounds();
     if (pendingRound && roundById(pendingRound) && isPublished(roundById(pendingRound))) { const id = pendingRound; pendingRound = null; selectRound(id); return; } pendingRound = null; }
-  else { if (unsubScores) { unsubScores(); unsubScores = null; } if (unsubSite) { unsubSite(); unsubSite = null; } if (unsubPresence) { unsubPresence(); unsubPresence = null; } if (unsubVotes) { unsubVotes(); unsubVotes = null; } votes = []; votesReady = false; presence = []; presenceRound = null; stopTimer(); if (hbTimer) { clearInterval(hbTimer); hbTimer = null; } round = null; S.tab = "play"; }
+  else { if (unsubScores) { unsubScores(); unsubScores = null; } if (unsubSite) { unsubSite(); unsubSite = null; } if (unsubPresence) { unsubPresence(); unsubPresence = null; } if (unsubVotes) { unsubVotes(); unsubVotes = null; } if (unsubRounds) { unsubRounds(); unsubRounds = null; } votes = []; votesReady = false; presence = []; presenceRound = null; stopTimer(); if (hbTimer) { clearInterval(hbTimer); hbTimer = null; } round = null; S.tab = "play"; }
   renderAll();
 });
 async function probeHost(){
@@ -1284,6 +1291,20 @@ window.addEventListener("pagehide", () => { clearPresence(); });
 setInterval(() => { if (showsPresence()) render(); }, 30 * 1000); // lets stale heartbeats drop off
 
 /* --- poll --- */
+function subscribeRounds(){
+  if (unsubRounds) unsubRounds();
+  unsubRounds = dbf.collection("rounds").onSnapshot(snap => {
+    let added = false;
+    snap.docs.forEach(d => {
+      const data = d.data(); const id = data.id || d.id;
+      if (!id || roundById(id) || !Array.isArray(data.questions) || !data.questions.length) return;
+      const r = Object.assign({}, data, { id, _fromDb: true });
+      try { processQuestions(r); ensureFont(r.theme && r.theme.font); ROUNDS.push(r); added = true; }
+      catch (e) { console.warn("Skipped a round from the database:", id, e && e.message); }
+    });
+    if (added) renderAll();
+  }, () => {});
+}
 function subscribeVotes(){
   if (unsubVotes) unsubVotes();
   unsubVotes = dbf.collection("votes").onSnapshot(snap => { votes = snap.docs.map(d => d.data()); votesReady = true; if (!round && lobbyTab === "poll") render(); }, () => { votesReady = true; });
@@ -1559,7 +1580,7 @@ function startQuiz(){
   const all = round.questions.map((_, k) => k);
   if (SETTINGS.shuffleQuestions) for (let k = all.length - 1; k > 0; k--) { const j = Math.floor(Math.random() * (k + 1)); [all[k], all[j]] = [all[j], all[k]]; }
   S.order = all.slice(0, gameLength());
-  S.screen = "quiz"; S.i = 0; S.picks = []; S.chosen = null; S.started = Date.now(); S.review = false; S.lastResult = null; resetShare();
+  S.screen = "quiz"; S.i = 0; S.picks = []; S.chosen = null; S.sel = []; S.seq = []; S.checked = false; S.started = Date.now(); S.review = false; S.lastResult = null; resetShare();
   saveProgress(); render(); window.scrollTo({ top: 0 });
 }
 function visualHtml(it){
@@ -1567,25 +1588,73 @@ function visualHtml(it){
   if (it.img) return `<figure class="qimg"><img src="${esc(it.img)}" alt="${esc(it.alt || "Picture clue")}" loading="lazy" onerror="this.closest('figure').hidden=true">${it.credit ? `<figcaption>${esc(it.credit)}</figcaption>` : ""}</figure>`;
   return "";
 }
+const qType = it => it.type || "mc";
+function qCorrect(it, pick){
+  const t = qType(it);
+  if (t === "select"){ if (!Array.isArray(pick)) return false; const a = [...pick].sort((x,y)=>x-y), b = it.ansSet || []; return a.length === b.length && a.every((v,i)=>v===b[i]); }
+  if (t === "order"){ if (!Array.isArray(pick) || pick.length !== it.opts.length) return false; return pick.every((dp,i)=>it.orderIdx[dp]===i); }
+  return pick === it.ans;
+}
+function reviewAns(it, p){
+  const t = qType(it), ok = qCorrect(it, p);
+  if (t === "select"){ const right = (it.ansSet||[]).map(j=>esc(it.opts[j])).join(", "); return ok ? "✓ " + right : "✗ Answer: " + right; }
+  if (t === "order"){ const right = it.opts.map((o,j)=>j).sort((a,b)=>it.orderIdx[a]-it.orderIdx[b]).map(j=>esc(it.opts[j])).join(" → "); return ok ? "✓ " + right : "✗ Answer: " + right; }
+  return ok ? "✓ " + esc(it.opts[it.ans]) : "✗ You said " + esc(it.opts[p] ?? "nothing") + " · Answer: " + esc(it.opts[it.ans]);
+}
+function mcBody(it, revealed){
+  return `<div class="opts">${it.opts.map((o,k)=>{ let st=""; if(revealed){ if(k===it.ans) st="right"; else if(k===S.chosen) st="wrong"; }
+    return `<button class="opt" data-k="${k}" ${revealed?"disabled":""} ${st?`data-state="${st}"`:""}><span class="k">${LETTERS[k]||"?"}</span><span>${esc(o)}</span></button>`; }).join("")}</div>`;
+}
+function selectBody(it, revealed){
+  const sel = new Set(S.sel||[]);
+  const opts = it.opts.map((o,k)=>{ let st="";
+    if(revealed){ if((it.ansSet||[]).includes(k)) st="right"; else if(sel.has(k)) st="wrong"; } else if(sel.has(k)) st="sel";
+    return `<button class="opt" data-k="${k}" ${revealed?"disabled":""} ${st?`data-state="${st}"`:""}><span class="k">${sel.has(k)?"✓":(LETTERS[k]||"?")}</span><span>${esc(o)}</span></button>`; }).join("");
+  const foot = revealed ? "" : `<div class="row" style="margin-top:14px;justify-content:flex-end"><button class="btn" id="check" ${sel.size?"":"disabled"}>Check answer</button></div>`;
+  return `<p class="note" style="margin:0 0 10px">Select all that apply, then check.</p><div class="opts">${opts}</div>${foot}`;
+}
+function orderBody(it, revealed){
+  const seq = S.seq||[];
+  if(revealed){
+    const rows = it.opts.map((o,k)=>k).sort((a,b)=>it.orderIdx[a]-it.orderIdx[b]).map(k=>{ const pp=seq.indexOf(k), cp=it.orderIdx[k], ok=pp===cp;
+      return `<div class="opt" data-state="${ok?"right":"wrong"}"><span class="k">${cp+1}</span><span>${esc(it.opts[k])}${(!ok&&pp>=0)?` <small>you put it ${pp+1}</small>`:""}</span></div>`; }).join("");
+    return `<p class="note" style="margin:0 0 10px">The correct order:</p><div class="opts">${rows}</div>`;
+  }
+  const placed = new Set(seq);
+  const chosen = seq.length ? `<div class="opts" style="margin-bottom:10px">${seq.map((k,pos)=>`<div class="opt" data-state="sel"><span class="k">${pos+1}</span><span>${esc(it.opts[k])}</span></div>`).join("")}</div>` : "";
+  const rest = it.opts.map((o,k)=>k).filter(k=>!placed.has(k)).map(k=>`<button class="opt" data-k="${k}"><span class="k">+</span><span>${esc(it.opts[k])}</span></button>`).join("");
+  const done = seq.length===it.opts.length;
+  const foot = `<div class="row" style="margin-top:14px;gap:10px;justify-content:${seq.length?"space-between":"flex-end"}">${seq.length?`<button class="btn ghost small" id="orderReset">Start over</button>`:""}${done?`<button class="btn" id="check">Check answer</button>`:`<span class="note" style="margin:0">Tap them in order.</span>`}</div>`;
+  return `<p class="note" style="margin:0 0 10px">Put these in order. Tap them into the right sequence.</p>${chosen}${rest?`<div class="opts">${rest}</div>`:""}${foot}`;
+}
+function whyHtml(it){
+  const t = qType(it), ok = qCorrect(it, S.picks[S.i]); let lead;
+  if(t==="select") lead = ok ? "Correct." : "Not quite. The right set: " + (it.ansSet||[]).map(k=>esc(it.opts[k])).join(", ") + ".";
+  else if(t==="order") lead = ok ? "Correct." : "Not quite. The right order is shown above.";
+  else lead = ok ? "Correct." : "Not quite. It's " + esc(it.opts[it.ans]) + ".";
+  return `<div class="why ${ok?"good":"bad"}"><b>${lead}</b>${esc(it.w||"")}</div>`;
+}
 function renderQuiz(){
-  const total = S.order.length; const it = round.questions[S.order[S.i]];
-  const answered = S.chosen !== null; const official = !myOfficial();
+  const total = S.order.length; const it = round.questions[S.order[S.i]]; const t = qType(it);
+  const revealed = (t==="mc") ? (S.chosen !== null) : !!S.checked; const official = !myOfficial();
+  const body = t==="select" ? selectBody(it, revealed) : t==="order" ? orderBody(it, revealed) : mcBody(it, revealed);
+  const tail = revealed ? whyHtml(it) + `<div class="row" style="margin-top:16px;justify-content:flex-end"><button class="btn" id="next">${S.i + 1 === total ? "See my score" : "Next question"}</button></div>` : "";
   $view.innerHTML = `${timerHtml()}<div class="card lift">
       <div class="row spread"><span class="row" style="gap:8px"><span class="qnum">Question ${S.i + 1} of ${total}</span>${it.d ? `<span class="pill">${esc(it.d)}</span>` : ""}</span><span class="pill ${official ? "official" : ""}">${official ? "Official run" : "Practice"}</span></div>
       <div class="progress"><i style="width:${(S.i / total) * 100}%"></i></div>
       ${visualHtml(it)}
       <div class="q">${esc(it.q)}</div>
-      <div class="opts">${it.opts.map((o, k) => { let st = ""; if (answered) { if (k === it.ans) st = "right"; else if (k === S.chosen) st = "wrong"; }
-        return `<button class="opt" data-k="${k}" ${answered ? "disabled" : ""} ${st ? `data-state="${st}"` : ""}><span class="k">${LETTERS[k]}</span><span>${esc(o)}</span></button>`; }).join("")}</div>
-      ${answered ? `<div class="why ${S.chosen === it.ans ? "good" : "bad"}"><b>${S.chosen === it.ans ? "Correct." : "Not quite. It's " + esc(it.opts[it.ans]) + "."}</b>${esc(it.w || "")}</div>
-      <div class="row" style="margin-top:16px;justify-content:flex-end"><button class="btn" id="next">${S.i + 1 === total ? "See my score" : "Next question"}</button></div>` : ""}
+      ${body}${tail}
     </div>`;
-  if (!answered) document.querySelectorAll(".opt").forEach(b => b.onclick = () => { S.chosen = +b.dataset.k; S.picks[S.i] = S.chosen; saveProgress(); renderQuiz(); });
-  else $("next").onclick = advance;
+  if(!revealed){
+    if(t==="mc") document.querySelectorAll(".opt").forEach(b=>b.onclick=()=>{ S.chosen=+b.dataset.k; S.picks[S.i]=S.chosen; saveProgress(); renderQuiz(); });
+    else if(t==="select"){ document.querySelectorAll(".opt").forEach(b=>b.onclick=()=>{ const k=+b.dataset.k, ss=new Set(S.sel||[]); ss.has(k)?ss.delete(k):ss.add(k); S.sel=[...ss]; saveProgress(); renderQuiz(); }); const c=$("check"); if(c) c.onclick=()=>{ S.picks[S.i]=[...(S.sel||[])].sort((a,b)=>a-b); S.checked=true; saveProgress(); renderQuiz(); }; }
+    else { document.querySelectorAll(".opt[data-k]").forEach(b=>b.onclick=()=>{ S.seq=[...(S.seq||[]), +b.dataset.k]; saveProgress(); renderQuiz(); }); const rb=$("orderReset"); if(rb) rb.onclick=()=>{ S.seq=[]; saveProgress(); renderQuiz(); }; const c=$("check"); if(c) c.onclick=()=>{ S.picks[S.i]=(S.seq||[]).slice(); S.checked=true; saveProgress(); renderQuiz(); }; }
+  } else $("next").onclick = advance;
   startTimer();
 }
 async function advance(){
-  S.chosen = null;
+  S.chosen = null; S.sel = []; S.seq = []; S.checked = false;
   if (S.i + 1 < S.order.length) { S.i++; saveProgress(); renderQuiz(); window.scrollTo({ top: 0 }); return; }
   return finishRun(false);
 }
@@ -1595,7 +1664,7 @@ async function finishRun(timedOut){
   const finished = Date.now(); S.screen = "result"; S.chosen = null; clearProgress();
   const limit = timeLimit();
   const elapsedMs = limit ? Math.min(finished - S.started, limit) : finished - S.started;
-  const score = S.order.reduce((n, qi, k) => n + (S.picks[k] === round.questions[qi].ans ? 1 : 0), 0);
+  const score = S.order.reduce((n, qi, k) => n + (qCorrect(round.questions[qi], S.picks[k]) ? 1 : 0), 0);
   const unanswered = S.order.filter((_, k) => S.picks[k] == null).length;
   const result = { uid: me.uid, name: me.displayName || "Someone", photo: me.photoURL || "", roundId: round.id, score, total: S.order.length, elapsedMs, timedOut: !!timedOut, finishedAt: new Date().toISOString(), order: S.order, picks: S.picks.slice(), createdAt: firebase.firestore.FieldValue.serverTimestamp() };
   S.lastResult = result; S.timedOut = !!timedOut; S.unanswered = unanswered; S.saved = "none";
@@ -1629,8 +1698,8 @@ function renderResult(){
         <button class="btn ghost" id="lobby">All rounds</button>
       </div>
       ${S.shareKind === "score" ? sharePanelHtml() : ""}
-      ${S.review ? `<div class="review" style="margin-top:18px">${r.order.map((qi, k) => { const it = round.questions[qi]; const p = r.picks[k]; const ok = p === it.ans;
-        return `<div class="item"><div class="q">${k + 1}. ${esc(it.q)}</div><div class="ans ${ok ? "good" : "bad"}">${ok ? "✓ " + esc(it.opts[it.ans]) : "✗ You said " + esc(it.opts[p] ?? "nothing") + " · Answer: " + esc(it.opts[it.ans])}</div></div>`; }).join("")}</div>` : ""}
+      ${S.review ? `<div class="review" style="margin-top:18px">${r.order.map((qi, k) => { const it = round.questions[qi]; const p = r.picks[k]; const ok = qCorrect(it, p);
+        return `<div class="item"><div class="q">${k + 1}. ${esc(it.q)}</div><div class="ans ${ok ? "good" : "bad"}">${reviewAns(it, p)}</div></div>`; }).join("")}</div>` : ""}
     </div>`;
   $("toBoard").onclick = () => { boardSel = round.id; setTab("board"); };
   $("review").onclick = () => { S.review = !S.review; renderResult(); };
@@ -1659,7 +1728,7 @@ function shareText(){
     return `New round on Babies' Trivia: "${round.name}". ${round.questions.length} questions on ${(round.subject || "").toLowerCase() || "everything"}. ${round.tagline || ""}\nPlay now: ${roundLink(round)}`;
   }
   const { r, official, rank, of } = shareContext();
-  const grid = r.order.map((qi, k) => r.picks[k] === round.questions[qi].ans ? "🟩" : "🟥").join("").replace(/(.{20})(?=.)/gu, "$1\n");
+  const grid = r.order.map((qi, k) => qCorrect(round.questions[qi], r.picks[k]) ? "🟩" : "🟥").join("").replace(/(.{20})(?=.)/gu, "$1\n");
   const where = official && rank ? ` That's #${rank} of ${of} on the board.` : (official ? "" : " (practice run)");
   return `I scored ${r.score}/${r.total} on "${round.name}" at Babies' Trivia in ${fmtTime(r.elapsedMs)}.${where}\n${grid}\nThink you can beat me? ${roundLink(round)}`;
 }
@@ -1699,7 +1768,7 @@ async function drawShareCard(kind){
     x.font = `600 40px ${body}`; x.fillText(verdict(r.score, r.total), W / 2, 668);
     const n = r.order.length, per = Math.min(n, 10), rows = Math.ceil(n / per), gap = 54, rad = 18, y0 = 748;
     r.order.forEach((qi, k) => { const row = Math.floor(k / per), col = k % per, count = Math.min(per, n - row * per);
-      const cx = W / 2 - ((count - 1) * gap) / 2 + col * gap, cy = y0 + row * gap; const ok = r.picks[k] === round.questions[qi].ans;
+      const cx = W / 2 - ((count - 1) * gap) / 2 + col * gap, cy = y0 + row * gap; const ok = qCorrect(round.questions[qi], r.picks[k]);
       x.beginPath(); x.arc(cx, cy, rad, 0, Math.PI * 2); x.fillStyle = ok ? "#34D399" : "rgba(255,255,255,.22)"; x.fill(); if (!ok) { x.lineWidth = 3; x.strokeStyle = "rgba(255,255,255,.55)"; x.stroke(); } });
     const metaY = y0 + rows * gap + 30;
     x.fillStyle = "#fff"; x.font = `600 34px ${body}`;
