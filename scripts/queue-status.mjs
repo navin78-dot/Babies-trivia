@@ -20,7 +20,7 @@ const builtin = [...html.matchAll(/\n    id: "([a-z0-9-]+)",\n    added: "([^"]+
 const dbRounds = roundsSnap.docs.map(d => ({ id: d.id, ...d.data() }));
 const ROUNDS = builtin.filter(b => !dbRounds.some(r => r.id === b.id)).concat(dbRounds);
 const cfg = cfgSnap.exists ? cfgSnap.data() : {};
-const env = { ROUNDS, liveIds: new Set(Array.isArray(cfg.liveRounds) ? cfg.liveRounds : []), siteCfg: cfg, votes: votesSnap.docs.map(d => d.data()), me: null, planCache: null };
+const env = { ROUNDS, liveIds: new Set(Array.isArray(cfg.liveRounds) ? cfg.liveRounds : []), siteCfg: cfg, votes: votesSnap.docs.map(d => d.data()), me: null };
 const fn = new Function(...Object.keys(env), code);
 const { dropPlan, seasonOf, currentSeason } = fn(...Object.values(env));
 const P = dropPlan();
