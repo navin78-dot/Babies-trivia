@@ -384,6 +384,19 @@ input[type=range]{width:100%;accent-color:var(--accent)}
 .polladmin .note{margin:0}
 .roundlist .r{display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:center;gap:10px;padding:12px 0;border-top:1px solid var(--line)}
 .roundlist .r > .row{flex-wrap:nowrap;gap:8px}
+.qlist{display:block}
+.qitem{padding:12px 0;border-top:1px solid var(--line)}
+.qitem:first-child{border-top:0}
+.qhead{display:flex;align-items:center;gap:10px}
+.qname{flex:1;min-width:0}
+.iinfo{width:27px;height:27px;border-radius:50%;border:1.5px solid var(--line);background:var(--paper2);color:var(--ink2);font-family:var(--display);font-size:14px;font-weight:800;cursor:pointer;flex:none;line-height:1;display:grid;place-items:center;padding:0}
+.iinfo:hover{border-color:var(--accent);color:var(--accent)}
+.iinfo[aria-expanded="true"]{background:var(--ink);border-color:var(--ink);color:var(--cream)}
+.qdet{margin-top:10px;padding:13px 15px;border-radius:14px;background:var(--paper2);font-size:13px;line-height:1.5}
+.qdet p{margin:0 0 8px}
+.qdet p:last-child{margin:0}
+.qdet .sample{padding:9px 11px;border-radius:11px;background:var(--paper);margin-top:7px}
+.qdet .sample b{display:block;font-size:10px;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);margin-bottom:3px}
 .roundlist .r:first-child{border-top:0}
 
 /* ---------- motion ---------- */
@@ -2172,6 +2185,27 @@ function renderBoard(){
   $("boardPick").onchange = e => { boardSel = e.target.value; renderBoard(); };
 }
 const seasonAnnText = () => { const I = seasonEndInfo(); return `Season ${I.n} is on. It ends ${I.ny} New York time. Every round you play this week counts toward the crown.`; };
+function queueInfoHtml(r){
+  const qs = r.questions || [], P = dropPlan();
+  const c = { easy: 0, medium: 0, hard: 0 }; qs.forEach(q => { if (c[q.d] != null) c[q.d]++; });
+  const types = {}; qs.forEach(q => { const t = typeLabel(q); types[t] = (types[t] || 0) + 1; });
+  const vis = qs.filter(q => q.emoji || q.img).length;
+  const since = P.first[r.id], waited = since ? dayDiff(since, P.today) : 0, left = DROP.retireAfterDays - waited;
+  const pollLine = P.options.some(o => o.id === r.id)
+    ? `On tonight's poll since ${esc(fmtKey(since))}${waited ? ` (${waited} night${waited === 1 ? "" : "s"} so far)` : " (first night)"}. It comes off the poll after ${DROP.retireAfterDays} nights without winning${left > 0 ? `, so ${left} night${left === 1 ? "" : "s"} left` : ""}.`
+    : P.retired.has(r.id) ? `It sat on the poll ${DROP.retireAfterDays} nights without winning, so it came off. You can still send it out tonight with the override above.`
+    : `Waiting its turn. It joins the poll as soon as one of the three above it drops, or you can send it out tonight with the override above.`;
+  const sample = d => { const q = qs.find(x => x.d === d); return q ? `<div class="sample"><b>A ${d} one</b>${esc(qLabel(q))}</div>` : ""; };
+  const written = r.added ? fmtDate(r.added) : "";
+  return `<div class="qdet">
+    ${r.tagline ? `<p>${esc(r.tagline)}</p>` : ""}
+    <p><b>${qs.length} questions</b> · ${c.easy} easy, ${c.medium} medium, ${c.hard} hard<br>${Object.entries(types).map(([k, v]) => `${v} ${esc(k.toLowerCase())}`).join(" · ")}${vis ? ` · ${vis} with a picture clue` : ""}</p>
+    <p>${pollLine}</p>
+    ${r.requestId ? `<p><b>Written for a theme you asked for.</b></p>` : ""}
+    ${written ? `<p class="note" style="margin:0 0 8px">Written ${esc(written)}.</p>` : ""}
+    ${sample("easy")}${sample("hard")}
+  </div>`;
+}
 function hostDropHtml(){
   const P = dropPlan(), today = P.today, dropAt = keyMs(nextKey(today));
   const counts = P.options.map(o => voteCount(o.id, today)); const best = Math.max(0, ...counts); const leader = P.options.length ? P.options[counts.indexOf(best)] : null;
@@ -2186,7 +2220,11 @@ function hostDropHtml(){
       <div class="row"><select id="ovSel" ${ovR ? "" : "disabled"}>${choices.length ? choices.map(r => `<option value="${esc(r.id)}" ${ovR && ovR.id === r.id ? "selected" : ""}>${esc(r.name)}${P.retired.has(r.id) ? " (off the poll)" : ""}</option>`).join("") : `<option value="">Nothing in the queue</option>`}</select><button class="btn small" id="ovSave">Save</button><span class="note" id="ovMsg" style="margin:0"></span></div>
       <h3 style="margin-top:16px">The queue</h3>
       <p class="note" style="margin:0 0 6px">${P.queue.length} round${P.queue.length === 1 ? "" : "s"} written and waiting${P.queue.length ? `, ${P.queue.length === 1 ? "one night" : P.queue.length + " nights"} of drops` : ""}. The daily top-up keeps it at five. The three that have waited longest are tonight's poll; anything here can be picked with the override above.</p>
-      ${P.queue.length ? `<div class="roundlist">${P.queue.map(r => `<div class="r"><div><b>${esc(r.name)}</b><br><span class="note" style="margin:0">${esc(r.subject || "")} · ${r.questions.length} questions${r.requestId ? " · written for your request" : ""}</span></div>${P.options.some(o => o.id === r.id) ? `<span class="pill live">On the poll</span>` : P.retired.has(r.id) ? `<span class="pill">Off the poll</span>` : `<span class="pill">Waiting</span>`}</div>`).join("")}</div>` : ""}
+      ${P.queue.length ? `<div class="qlist">${P.queue.map(r => { const open = S.qInfo === r.id; return `<div class="qitem">
+        <div class="qhead"><div class="qname"><b>${esc(r.name)}</b><br><span class="note" style="margin:0">${esc(r.subject || "")} · ${r.questions.length} questions${r.requestId ? " · your request" : ""}</span></div>
+          ${P.options.some(o => o.id === r.id) ? `<span class="pill live">On the poll</span>` : P.retired.has(r.id) ? `<span class="pill">Off the poll</span>` : `<span class="pill">Waiting</span>`}
+          <button class="iinfo" data-qinfo="${esc(r.id)}" aria-expanded="${open}" aria-label="More about ${esc(r.name)}" title="More about this round">i</button></div>
+        ${open ? queueInfoHtml(r) : ""}</div>`; }).join("")}</div>` : ""}
       <h3 style="margin-top:16px">Suggest a theme</h3>
       <p class="note" style="margin:0 0 6px">Type a theme and press Enter. It goes on the list below. The daily top-up (every morning) writes it as a round, it lands in the queue above, and the entry here turns to “written”. From the queue it reaches the poll in turn, or you can pick it with the override.</p>
       <input id="reqIn" class="field" maxlength="200" placeholder="e.g. Bollywood villains, or 1980s video games">
@@ -2234,6 +2272,7 @@ function renderHost(){
     try { await dbf.collection("site").doc("config").set({ closedRounds: [...next] }, { merge: true }); $("hostMsg").textContent = roundById(id).name + (b.dataset.to === "open" ? " is open." : " is closed."); }
     catch (e) { $("hostMsg").textContent = "Couldn't change it: " + (e.code || e.message); }
   });
+  document.querySelectorAll("[data-qinfo]").forEach(b => b.onclick = () => { S.qInfo = S.qInfo === b.dataset.qinfo ? null : b.dataset.qinfo; renderHost(); });
   const ovOn = $("ovOn"), ovSel = $("ovSel"); ovOn.onchange = () => { ovSel.disabled = !ovOn.checked; };
   $("ovSave").onclick = async () => { const P = dropPlan(); const m = await setOverride(P.today, ovOn.checked ? ovSel.value : null); $("ovMsg").textContent = m || (ovOn.checked ? "Saved. That's tonight's drop." : "Saved. The poll decides tonight."); };
   const ri = $("reqIn"); ri.onkeydown = async e => { if (e.key !== "Enter") return; e.preventDefault(); const t = ri.value; if (!t.trim()) return; $("reqMsg").textContent = "Queuing…"; const m = await requestTheme(t); $("reqMsg").textContent = m; if (m === "Queued.") ri.value = ""; };
