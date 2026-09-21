@@ -280,7 +280,7 @@ const SETTINGS = {
   timeBreaksTies: true,     // true = faster time wins a tie; false = ties share a rank
   shuffleQuestions: false,  // true = each player gets a different question order (same set, scores stay comparable)
   shuffleAnswers: true,     // true = answer choices are shuffled (same shuffle for everyone, seeded)
-  newRoundsOpenByDefault: true, // rounds added to this file are open until the host closes them
+  newRoundsOpenByDefault: true, // kept for reference: every round is open until the host closes it on the Host tab
   timeLimitMs: 5 * 60 * 1000,   // countdown shown during a run; 0 or null = no limit. A round can override with its own timeLimitMs.
 };
 
@@ -1208,7 +1208,7 @@ const roundById = id => ROUNDS.find(r => r.id === id) || null;
 
 /* --- state --- */
 let me = null, isHost = false;
-let openIds = null;            // null = not loaded yet; Set of open round ids once loaded
+let closedIds = new Set();     // rounds the host has closed (site config closedRounds); everything else is open
 let liveIds = new Set();       // draft rounds the host has promoted to the lobby (site config liveRounds)
 let scores = [];               // every score doc
 let scoresReady = false;
@@ -1233,7 +1233,7 @@ const esc = s => String(s).replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">"
 const fmtTime = ms => { const s = Math.max(0, Math.round(ms / 1000)); return Math.floor(s / 60) + ":" + String(s % 60).padStart(2, "0"); };
 const fmtDate = iso => { try { return new Date(iso).toLocaleDateString(undefined, { month: "short", day: "numeric" }); } catch (e) { return ""; } };
 const isPublished = r => !r.draft || liveIds.has(r.id);
-const isOpen = r => r.draft ? isPublished(r) : (openIds ? openIds.has(r.id) : SETTINGS.newRoundsOpenByDefault);
+const isOpen = r => r.draft ? isPublished(r) : !closedIds.has(r.id);
 const isDark = () => window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;
 const themeOf = r => { const t = (r && r.theme) || {}; const d = isDark(); return { a: (d && t.accentDark) || t.accent || "#D81B60", b: (d && t.accent2Dark) || t.accent2 || "#F4B400", font: t.font || "" }; };
 
@@ -1286,7 +1286,9 @@ function subscribeSite(){
   if (unsubSite) unsubSite();
   unsubSite = dbf.collection("site").doc("config").onSnapshot(snap => {
     const d = snap.exists ? snap.data() : {};
-    openIds = Array.isArray(d.openRounds) ? new Set(d.openRounds) : (SETTINGS.newRoundsOpenByDefault ? new Set(ROUNDS.map(r => r.id)) : new Set());
+    if (Array.isArray(d.closedRounds)) closedIds = new Set(d.closedRounds);
+    else if (Array.isArray(d.openRounds)) closedIds = new Set(ROUNDS.filter(r => !r.draft && !d.openRounds.includes(r.id)).map(r => r.id)); // legacy list: rounds it knew about but left out
+    else closedIds = new Set();
     liveIds = new Set(Array.isArray(d.liveRounds) ? d.liveRounds : []);
     renderAll();
   }, err => { fatal = "Couldn't reach the database: " + (err.code || err.message); renderAll(); });
@@ -1674,8 +1676,8 @@ function renderHost(){
     </div>
   </div>`;
   document.querySelectorAll("[data-toggle]").forEach(b => b.onclick = async () => {
-    const id = b.dataset.toggle; const next = new Set(openIds || []); if (b.dataset.to === "open") next.add(id); else next.delete(id);
-    try { await dbf.collection("site").doc("config").set({ openRounds: [...next] }, { merge: true }); $("hostMsg").textContent = roundById(id).name + (b.dataset.to === "open" ? " is open." : " is closed."); }
+    const id = b.dataset.toggle; const next = new Set(closedIds); if (b.dataset.to === "open") next.delete(id); else next.add(id);
+    try { await dbf.collection("site").doc("config").set({ closedRounds: [...next] }, { merge: true }); $("hostMsg").textContent = roundById(id).name + (b.dataset.to === "open" ? " is open." : " is closed."); }
     catch (e) { $("hostMsg").textContent = "Couldn't change it: " + (e.code || e.message); }
   });
   $("wipe").onclick = async () => {
