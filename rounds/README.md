@@ -21,7 +21,9 @@ deploy, so use `[skip netlify]` in the commit message.
 
 House rule: at least 6 questions, and each difficulty makes up at least a fifth
 of the round (never fewer than 2). The standard is 20: 7 easy, 7 medium, 6 hard.
-Shorter rounds are fine. Formats can be mixed freely inside one round.
+Shorter rounds are fine. Formats can be mixed, but at most **3 questions per
+round** may be anything other than standard multiple choice; true/false,
+select-all and put-in-order all count toward that cap.
 
 Optional round fields: `"draft": true` hides the round until the host adds it to
 the lobby; `"added"` is stamped automatically on first publish and drives the
@@ -48,4 +50,6 @@ lobby. A promoted theme disappears from the poll automatically.
 - Put in order: `"type":"order"`, and `o` lists the items already in the correct order.
 - Optional visuals on any question: `"emoji":"🐝 👑 🎤"` or `"img":"https://..."` with `"credit":"..."`.
 
-Scoring is all-or-nothing per question.
+Scoring: multiple choice and true/false are one point or zero. Select-all gives
+a share of the point for each correct tick, minus one share for each wrong tick,
+never below zero. Put-in-order gives a share for each item in its correct slot.

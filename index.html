@@ -12,7 +12,7 @@
   --bg:#F7F4F1; --surface:#FFFFFF; --surface2:#EFEAE5; --line:#E2DAD2;
   --text:#1C1815; --muted:#6E655E;
   --accent:#D81B60; --accent2:#F4B400; --accent-ink:#FFFFFF;
-  --good:#1E8A57; --good-bg:#E3F6EC; --bad:#C62B2B; --bad-bg:#FBE6E6;
+  --good:#1E8A57; --good-bg:#E3F6EC; --bad:#C62B2B; --bad-bg:#FBE6E6; --part:#B45309; --part-bg:#FDF1E1;
   --shadow:0 10px 30px rgba(40,30,20,.10);
   --site:"Archivo Black","Arial Black",sans-serif;
   --display:"Archivo Black","Arial Black",sans-serif;
@@ -22,7 +22,7 @@
   :root{
     --bg:#141110; --surface:#1E1A18; --surface2:#2A2422; --line:#3A322E;
     --text:#F5F0EA; --muted:#B0A499; --accent-ink:#141110;
-    --good:#4FD18A; --good-bg:#15301F; --bad:#FF6B6B; --bad-bg:#3A1717;
+    --good:#4FD18A; --good-bg:#15301F; --bad:#FF6B6B; --bad-bg:#3A1717; --part:#FBBF24; --part-bg:#3A2A0F;
     --shadow:0 12px 34px rgba(0,0,0,.45);
   }
 }
@@ -171,6 +171,13 @@ a.btn{text-decoration:none}
 .pcard{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:12px 14px;margin-bottom:10px}
 .pcard.me{border-color:var(--accent);background:color-mix(in srgb,var(--accent) 6%, var(--surface))}
 .chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}
+.emoav{width:36px;height:36px;border-radius:50%;background:var(--surface2);display:grid;place-items:center;font-size:22px;line-height:1;flex:none}
+.emoav.sm{width:28px;height:28px;font-size:17px}
+.emoav.lg{width:56px;height:56px;font-size:34px}
+.egrid{display:grid;grid-template-columns:repeat(8,minmax(0,1fr));gap:6px}
+.egrid button{font-size:24px;line-height:1.2;background:var(--surface2);border:1.5px solid transparent;border-radius:10px;padding:6px 0;cursor:pointer}
+.egrid button[aria-pressed="true"]{border-color:var(--accent);background:color-mix(in srgb,var(--accent) 14%, var(--surface2))}
+.emoin{font:inherit;font-size:20px;width:130px;padding:6px 10px;border:1px solid var(--line);border-radius:10px;background:var(--surface);color:var(--text)}
 .qvis{font-size:clamp(34px,11vw,52px);line-height:1.35;text-align:center;letter-spacing:.12em;margin:14px 0 4px;
   background:var(--surface2);border-radius:14px;padding:22px 14px;word-break:break-word}
 .qimg{margin:14px 0 4px}
@@ -190,7 +197,7 @@ a.btn{text-decoration:none}
 .opt small{color:var(--muted);font-weight:400;font-size:12px}
 .why{margin-top:14px;padding:14px;border-radius:12px;background:var(--surface2);border-left:4px solid var(--accent2)}
 .why b{display:block;margin-bottom:4px}
-.why.good{border-left-color:var(--good)}.why.bad{border-left-color:var(--bad)}
+.why.good{border-left-color:var(--good)}.why.bad{border-left-color:var(--bad)}.why.part{border-left-color:var(--part)}
 .stat{font-family:var(--display);font-size:clamp(64px,18vw,110px);line-height:.95;
   background:linear-gradient(100deg,var(--accent),var(--accent2));-webkit-background-clip:text;background-clip:text;color:transparent}
 .stat small{font-size:.32em;font-family:var(--body);font-weight:600;color:var(--muted);-webkit-text-fill-color:var(--muted)}
@@ -203,7 +210,7 @@ a.btn{text-decoration:none}
 .review .item:first-child{border-top:0}
 .review .item .q{font-size:16px;margin:0 0 4px}
 .review .ans{font-size:14px}
-.review .ans.good{color:var(--good)}.review .ans.bad{color:var(--bad)}
+.review .ans.good{color:var(--good)}.review .ans.bad{color:var(--bad)}.review .ans.part{color:var(--part)}
 .banner{padding:12px 14px;border-radius:12px;background:color-mix(in srgb,var(--accent2) 18%, var(--surface));border:1px solid color-mix(in srgb,var(--accent2) 40%, var(--line));font-size:14px;margin-bottom:14px}
 .banner.err{background:var(--bad-bg);border-color:var(--bad)}
 .roundlist .r{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:12px 0;border-top:1px solid var(--line);flex-wrap:wrap}
@@ -287,8 +294,9 @@ const SETTINGS = {
    HOUSE RULE for every round: at least 6 questions, mixed easy, medium and
    hard, with each difficulty making up at least a fifth of the round (never
    fewer than 2). The standard round is 20: 7 easy, 7 medium, 6 hard. Shorter
-   rounds are fine. A round that breaks this logs a console warning at startup.
-   Formats can be mixed freely inside one round; see rounds/README.md.
+   rounds are fine. At most 3 questions per round may be anything other than
+   standard multiple choice (true/false, select-all and put-in-order all count).
+   A round that breaks this logs a console warning at startup. See rounds/README.md.
    A question can also carry a picture shown above it, either
    emoji: "🐝 👑 🎤"  (emoji clues, rendered large), or
    img: "images/name.jpg" with optional alt and credit (a file committed
@@ -1192,8 +1200,9 @@ ROUNDS.forEach(r => {
   const n = r.questions.length, c = { easy: 0, medium: 0, hard: 0 };
   r.questions.forEach(q => { if (q.d && c[q.d] != null) c[q.d]++; });
   const min = Math.max(2, Math.ceil(n * 0.2));
-  const bad = n < 6 || c.easy < min || c.medium < min || c.hard < min;
-  if (bad) console.warn(`Round "${r.id}" breaks the house rule (at least 6 questions, each difficulty at least ${min} of them). It has ${n} questions: ${c.easy} easy, ${c.medium} medium, ${c.hard} hard.`);
+  const special = r.questions.filter(q => (q.type || "mc") !== "mc" || (q.o && q.o.length === 2)).length;
+  const bad = n < 6 || c.easy < min || c.medium < min || c.hard < min || special > 3;
+  if (bad) console.warn(`Round "${r.id}" breaks the house rule (at least 6 questions, each difficulty at least ${min}, at most 3 non-multiple-choice). It has ${n} questions: ${c.easy} easy, ${c.medium} medium, ${c.hard} hard, ${special} non-multiple-choice.`);
 });
 const roundById = id => ROUNDS.find(r => r.id === id) || null;
 
@@ -1205,6 +1214,7 @@ let scores = [];               // every score doc
 let scoresReady = false;
 let unsubScores = null, unsubSite = null, unsubPresence = null, unsubVotes = null, unsubRounds = null, unsubPollCfg = null;
 let pollCfg = null;                   // poll options from Firestore site/poll, if published
+let profiles = {}, unsubProfiles = null; // uid -> { emoji, name } from the profiles collection
 let votes = [], votesReady = false;   // poll votes, one doc per player
 let tickTimer = null;                 // countdown interval while a run is in progress
 let presence = [];            // who is mid-quiz right now (from the presence collection)
@@ -1263,9 +1273,9 @@ async function signIn(){
 auth.getRedirectResult().catch(() => {});
 auth.onAuthStateChanged(async u => {
   me = u; isHost = false; fatal = "";
-  if (me) { isHost = await probeHost(); subscribeSite(); subscribeScores(); subscribePresence(); subscribeVotes(); subscribeRounds(); subscribePollCfg();
+  if (me) { isHost = await probeHost(); subscribeSite(); subscribeScores(); subscribePresence(); subscribeVotes(); subscribeRounds(); subscribePollCfg(); subscribeProfiles();
     if (pendingRound && roundById(pendingRound) && isPublished(roundById(pendingRound))) { const id = pendingRound; pendingRound = null; selectRound(id); return; } pendingRound = null; }
-  else { if (unsubScores) { unsubScores(); unsubScores = null; } if (unsubSite) { unsubSite(); unsubSite = null; } if (unsubPresence) { unsubPresence(); unsubPresence = null; } if (unsubVotes) { unsubVotes(); unsubVotes = null; } if (unsubRounds) { unsubRounds(); unsubRounds = null; } if (unsubPollCfg) { unsubPollCfg(); unsubPollCfg = null; } pollCfg = null; votes = []; votesReady = false; presence = []; presenceRound = null; stopTimer(); if (hbTimer) { clearInterval(hbTimer); hbTimer = null; } round = null; S.tab = "play"; }
+  else { if (unsubScores) { unsubScores(); unsubScores = null; } if (unsubSite) { unsubSite(); unsubSite = null; } if (unsubPresence) { unsubPresence(); unsubPresence = null; } if (unsubVotes) { unsubVotes(); unsubVotes = null; } if (unsubRounds) { unsubRounds(); unsubRounds = null; } if (unsubPollCfg) { unsubPollCfg(); unsubPollCfg = null; } if (unsubProfiles) { unsubProfiles(); unsubProfiles = null; } profiles = {}; pollCfg = null; votes = []; votesReady = false; presence = []; presenceRound = null; stopTimer(); if (hbTimer) { clearInterval(hbTimer); hbTimer = null; } round = null; S.tab = "play"; }
   renderAll();
 });
 async function probeHost(){
@@ -1293,7 +1303,7 @@ function subscribePresence(){
 }
 const showsPresence = () => !!me && !fatal && (!round || (S.tab === "play" && S.screen === "home"));
 const playingNow = rid => presence.filter(p => p.roundId === rid && p.uid !== (me && me.uid) && (Date.now() - (p.at || 0)) < PRESENCE_TTL);
-function namesHtml(list){ const n = list.map(p => esc((p.name || "Someone").split(" ")[0])); return n.length <= 3 ? n.join(", ") : n.slice(0, 3).join(", ") + " and " + (n.length - 3) + " more"; }
+function namesHtml(list){ const n = list.map(p => (emojiOf(p.uid) ? esc(emojiOf(p.uid)) + " " : "") + esc((p.name || "Someone").split(" ")[0])); return n.length <= 3 ? n.join(", ") : n.slice(0, 3).join(", ") + " and " + (n.length - 3) + " more"; }
 function liveHtml(rid){ const l = playingNow(rid); return l.length ? `<div class="live"><i></i>Playing now <span>${namesHtml(l)}</span></div>` : ""; }
 async function writePresence(){
   if (!me || !presenceRound) return;
@@ -1332,6 +1342,19 @@ function subscribeRounds(){
     });
     if (added) renderAll();
   }, () => {});
+}
+function subscribeProfiles(){
+  if (unsubProfiles) unsubProfiles();
+  unsubProfiles = dbf.collection("profiles").onSnapshot(snap => { const next = {}; snap.docs.forEach(d => { next[d.id] = d.data(); }); profiles = next; renderAll(); }, () => {});
+}
+const emojiOf = uid => (profiles[uid] && profiles[uid].emoji) || "";
+const myEmoji = () => me ? emojiOf(me.uid) : "";
+function avatarHtml(uid, photo, cls){ const e = emojiOf(uid); const c = cls ? " " + cls : ""; return e ? `<span class="emoav${c}">${esc(e)}</span>` : `<img class="av${c}" src="${esc(photo || "")}" alt="" onerror="this.style.visibility='hidden'">`; }
+async function saveEmoji(e){
+  if (!me) return;
+  const clean = String(e || "").trim().slice(0, 8);
+  try { await dbf.collection("profiles").doc(me.uid).set({ uid: me.uid, emoji: clean, name: me.displayName || "", at: firebase.firestore.FieldValue.serverTimestamp() }, { merge: true }); const m = $("emoMsg"); if (m) m.textContent = clean ? "Saved." : "Back to your photo."; }
+  catch (err) { const m = $("emoMsg"); if (m) m.textContent = "Couldn't save (" + (err.code || err.message) + ")."; }
 }
 function subscribePollCfg(){
   if (unsubPollCfg) unsubPollCfg();
@@ -1386,7 +1409,7 @@ function renderAll(){
 function renderAccount(){
   const a = $("account");
   if (!me) { a.innerHTML = ""; return; }
-  a.innerHTML = `<img src="${esc(me.photoURL || "")}" alt="" onerror="this.style.visibility='hidden'"><span>${esc(me.displayName || "You")}</span>${isHost ? `<button class="linkbtn" id="hostBtn">Host</button>` : ""}<button class="linkbtn" id="signout">Sign out</button>`;
+  a.innerHTML = `${myEmoji() ? `<span class="emoav sm">${esc(myEmoji())}</span>` : `<img src="${esc(me.photoURL || "")}" alt="" onerror="this.style.visibility='hidden'">`}<span>${esc(me.displayName || "You")}</span>${isHost ? `<button class="linkbtn" id="hostBtn">Host</button>` : ""}<button class="linkbtn" id="signout">Sign out</button>`;
   $("signout").onclick = async () => { await clearPresence(); auth.signOut(); };
   const hb = $("hostBtn"); if (hb) hb.onclick = () => selectRound(round ? round.id : ROUNDS[0].id, "host");
 }
@@ -1425,10 +1448,12 @@ function renderLobby(){
     <button class="tab" role="tab" aria-selected="${lobbyTab === "rounds"}" data-ltab="rounds">Rounds</button>
     <button class="tab" role="tab" aria-selected="${lobbyTab === "poll"}" data-ltab="poll">Next round${needsVote ? `<span class="tabdot" title="You haven't voted"></span>` : ""}</button>
     <button class="tab" role="tab" aria-selected="${lobbyTab === "stats"}" data-ltab="stats">Stats</button>
+    <button class="tab" role="tab" aria-selected="${lobbyTab === "me"}" data-ltab="me">Me</button>
   </div>`;
   const wire = () => document.querySelectorAll("[data-ltab]").forEach(b => b.onclick = () => { lobbyTab = b.dataset.ltab; renderLobby(); window.scrollTo({ top: 0 }); });
   if (lobbyTab === "poll") { $view.innerHTML = tabs + pollHtml(); wire(); wirePoll(); return; }
   if (lobbyTab === "stats") { $view.innerHTML = tabs + statsHtml(); wire(); return; }
+  if (lobbyTab === "me") { $view.innerHTML = tabs + meHtml(); wire(); wireMe(); return; }
   return renderRounds(tabs, wire);
 }
 function pollHtml(){
@@ -1463,20 +1488,23 @@ const pct = (a, b) => b ? Math.round((a / b) * 100) : 0;
 function typeLabel(q){ const t = qType(q); if (t === "select") return "Select all"; if (t === "order") return "Put in order"; return (q.o && q.o.length === 2) ? "True or false" : "Multiple choice"; }
 function computeStats(){
   const players = {}, byDiff = { easy: [0, 0], medium: [0, 0], hard: [0, 0] }, byType = {}, perQ = {};
-  let runs = 0, totalMs = 0, totalQ = 0;
+  let runs = 0, totalMs = 0, totalQ = 0, longest = { n: 0, name: "" };
   scores.forEach(sc => {
     const r = roundById(sc.roundId); if (!r || !Array.isArray(sc.order) || !Array.isArray(sc.picks)) return;
     runs++; totalMs += sc.elapsedMs || 0; totalQ += sc.order.length;
-    const p = players[sc.uid] || (players[sc.uid] = { uid: sc.uid, name: sc.name, photo: sc.photo, runs: 0, q: 0, ok: 0, ms: 0, timeouts: 0, last: "", diff: { easy: [0, 0], medium: [0, 0], hard: [0, 0] } });
+    const p = players[sc.uid] || (players[sc.uid] = { uid: sc.uid, name: sc.name, photo: sc.photo, runs: 0, q: 0, ok: 0, ms: 0, timeouts: 0, streak: 0, last: "", diff: { easy: [0, 0], medium: [0, 0], hard: [0, 0] } });
     p.runs++; p.ms += sc.elapsedMs || 0; if (sc.timedOut) p.timeouts++; if ((sc.finishedAt || "") > p.last) { p.last = sc.finishedAt; p.name = sc.name; p.photo = sc.photo; }
-    sc.order.forEach((qi, k) => { const q = r.questions[qi]; if (!q) return; const ok = qCorrect(q, sc.picks[k]) ? 1 : 0;
+    let cur = 0, best = 0;
+    sc.order.forEach((qi, k) => { const q = r.questions[qi]; if (!q) return; const ok = qScore(q, sc.picks[k]);
+      if (ok >= 1) { cur++; if (cur > best) best = cur; } else cur = 0;
       p.q++; p.ok += ok; if (q.d && p.diff[q.d]) { p.diff[q.d][0] += ok; p.diff[q.d][1]++; }
       if (q.d && byDiff[q.d]) { byDiff[q.d][0] += ok; byDiff[q.d][1]++; }
       const tl = typeLabel(q); const bt = byType[tl] || (byType[tl] = [0, 0]); bt[0] += ok; bt[1]++;
       const key = r.id + ":" + qi; const pq = perQ[key] || (perQ[key] = { r, q, ok: 0, n: 0 }); pq.ok += ok; pq.n++;
     });
+    best = Math.max(best, sc.bestStreak || 0); if (best > p.streak) p.streak = best; if (best > longest.n) longest = { n: best, name: sc.name || "Someone" };
   });
-  return { players: Object.values(players), byDiff, byType, perQ: Object.values(perQ), runs, totalMs, totalQ };
+  return { players: Object.values(players), byDiff, byType, perQ: Object.values(perQ), runs, totalMs, totalQ, longest };
 }
 function barHtml(label, a, b){ const v = pct(a, b); return `<div class="srow"><div class="slab">${esc(label)}</div><div class="sbar" title="${v}% right across ${b} answers"><i style="width:${v}%"></i></div><div class="sval">${v}%<small> of ${b}</small></div></div>`; }
 function statsHtml(){
@@ -1489,17 +1517,40 @@ function statsHtml(){
     <div class="stile"><b>${st.players.length}</b><span>players</span></div>
     <div class="stile"><b>${pct(totalOk, totalN)}%</b><span>overall accuracy</span></div>
     <div class="stile"><b>${st.totalQ ? (st.totalMs / st.totalQ / 1000).toFixed(1) : "0"}s</b><span>per question</span></div>
-  </div>`;
+  </div>${st.longest.n ? `<p class="note" style="margin:10px 0 0">Longest run of right answers: <b>${st.longest.n} in a row</b>, by ${esc(st.longest.name)}.</p>` : ""}`;
   const diff = `<div class="section"><h3>By difficulty</h3><span class="note">Share answered right</span></div><div class="card">${["easy", "medium", "hard"].map(d => barHtml(d[0].toUpperCase() + d.slice(1), st.byDiff[d][0], st.byDiff[d][1])).join("")}</div>`;
   const types = Object.entries(st.byType).sort((a, b) => b[1][1] - a[1][1]);
   const typ = types.length > 1 ? `<div class="section"><h3>By question style</h3></div><div class="card">${types.map(([k, v]) => barHtml(k, v[0], v[1])).join("")}</div>` : "";
   const tough = st.perQ.filter(x => x.n >= 2).sort((a, b) => (a.ok / a.n) - (b.ok / b.n) || b.n - a.n).slice(0, 5);
-  const toughHtml = tough.length ? `<div class="section"><h3>Toughest questions</h3><span class="note">Fewest got these right, at least 2 tries</span></div><div class="board">${tough.map(x => `<div class="lb" style="grid-template-columns:52px 1fr auto"><div class="rank" style="font-size:16px;color:var(--text)">${pct(x.ok, x.n)}%</div><div class="who" style="white-space:normal">${esc(x.q.q)}<small>${esc(x.r.name)}</small></div><div class="time">${x.ok}/${x.n}</div></div>`).join("")}</div>` : "";
+  const toughHtml = tough.length ? `<div class="section"><h3>Toughest questions</h3><span class="note">Fewest got these right, at least 2 tries</span></div><div class="board">${tough.map(x => `<div class="lb" style="grid-template-columns:52px 1fr auto"><div class="rank" style="font-size:16px;color:var(--text)">${pct(x.ok, x.n)}%</div><div class="who" style="white-space:normal">${esc(qLabel(x.q))}<small>${esc(x.r.name)} · Answer: ${esc(answerText(x.q))}</small></div><div class="time">${x.ok}/${x.n}</div></div>`).join("")}</div>` : "";
   const ps = st.players.slice().sort((a, b) => pct(b.ok, b.q) - pct(a.ok, a.q) || b.q - a.q);
   const cards = ps.map(p => { const isMe = me && p.uid === me.uid; const spq = p.q ? (p.ms / p.q / 1000).toFixed(1) : "0";
-    return `<div class="pcard${isMe ? " me" : ""}"><div class="row spread"><div class="who">${esc(p.name || "Someone")}${isMe ? "<small>you</small>" : ""}</div><div class="pts">${pct(p.ok, p.q)}<span>%</span></div></div>
-      <div class="chips"><span class="pill">Easy ${pct(p.diff.easy[0], p.diff.easy[1])}%</span><span class="pill">Medium ${pct(p.diff.medium[0], p.diff.medium[1])}%</span><span class="pill">Hard ${pct(p.diff.hard[0], p.diff.hard[1])}%</span><span class="pill">${spq}s per question</span><span class="pill">${p.runs} round${p.runs === 1 ? "" : "s"}</span>${p.timeouts ? `<span class="pill">${p.timeouts} timed out</span>` : ""}</div></div>`; }).join("");
+    return `<div class="pcard${isMe ? " me" : ""}"><div class="row spread"><div class="row" style="gap:10px;min-width:0">${avatarHtml(p.uid, p.photo)}<div class="who">${esc(p.name || "Someone")}${isMe ? "<small>you</small>" : ""}</div></div><div class="pts">${pct(p.ok, p.q)}<span>%</span></div></div>
+      <div class="chips"><span class="pill">Easy ${pct(p.diff.easy[0], p.diff.easy[1])}%</span><span class="pill">Medium ${pct(p.diff.medium[0], p.diff.medium[1])}%</span><span class="pill">Hard ${pct(p.diff.hard[0], p.diff.hard[1])}%</span><span class="pill">${spq}s per question</span><span class="pill">Best run ${p.streak}</span><span class="pill">${p.runs} round${p.runs === 1 ? "" : "s"}</span>${p.timeouts ? `<span class="pill">${p.timeouts} timed out</span>` : ""}</div></div>`; }).join("");
   return tiles + diff + typ + toughHtml + `<div class="section"><h3>Players</h3><span class="note">Official runs only, ranked by accuracy</span></div>${cards}`;
+}
+/* --- Me: emoji avatar, your numbers, your rounds --- */
+const EMOJI = ["😀","😎","🤓","🥳","🤠","🧐","😈","👻","🤖","👽","🦊","🐼","🐨","🦁","🐯","🐸","🐙","🦄","🐧","🦉","🐝","🦋","🐢","🦖","🍕","🌮","🍩","🍓","🥑","🍔","☕","🍦","⚽","🏀","🎸","🎧","🎮","🎲","🚀","🛸","🌈","⚡","🔥","🌙","⭐","🌵","🍀","🌸","🎯","🏆","💎","🧠","🎩","👑","🦸","🧙","🧜","🥷","🎃","🐉","🦩","🦥","🐳","🌶️"];
+function meHtml(){
+  const cur = myEmoji(); const st = computeStats(); const p = st.players.find(x => x.uid === me.uid);
+  const grid = EMOJI.map(e => `<button type="button" data-e="${e}" aria-pressed="${e === cur}" aria-label="Use ${e}">${e}</button>`).join("");
+  const mine = scores.filter(x => x.uid === me.uid).sort((a, b) => (b.finishedAt || "").localeCompare(a.finishedAt || ""));
+  const rounds = mine.length ? `<div class="board">${mine.map(x => { const r = roundById(x.roundId); return `<div class="lb" data-r="${esc(x.roundId)}" style="grid-template-columns:1fr auto auto;cursor:pointer"><div class="who">${esc(r ? r.name : x.roundId)}<small>${fmtDate(x.finishedAt)}${x.timedOut ? " · timed out" : ""}</small></div><div class="pts">${fmtScore(x.score)}<span> / ${x.total}</span></div><div class="time">${fmtTime(x.elapsedMs)}</div></div>`; }).join("")}</div>` : `<p class="note">You haven't finished an official run yet.</p>`;
+  const numbers = p ? `<div class="stat-grid"><div class="stile"><b>${pct(p.ok, p.q)}%</b><span>accuracy</span></div><div class="stile"><b>${p.streak}</b><span>best run in a row</span></div><div class="stile"><b>${p.q ? (p.ms / p.q / 1000).toFixed(1) : "0"}s</b><span>per question</span></div><div class="stile"><b>${p.runs}</b><span>rounds</span></div></div>
+    <div class="card" style="margin-top:10px">${barHtml("Easy", p.diff.easy[0], p.diff.easy[1])}${barHtml("Medium", p.diff.medium[0], p.diff.medium[1])}${barHtml("Hard", p.diff.hard[0], p.diff.hard[1])}</div>` : `<p class="note">Your numbers appear after your first official run.</p>`;
+  return `<div class="section"><h3>Your emoji</h3><span class="note">Shows next to your name everywhere</span></div>
+    <div class="card"><div class="row" style="gap:14px;margin-bottom:12px"><span class="emoav lg">${cur ? esc(cur) : "🙂"}</span><div><b>${esc(me.displayName || "You")}</b><br><span class="note">${cur ? "Tap another to change it." : "Pick one below, or type any emoji."}</span></div></div>
+      <div class="egrid">${grid}</div>
+      <div class="row" style="margin-top:12px"><input id="emoIn" class="emoin" maxlength="8" placeholder="Or type one" aria-label="Type an emoji"><button class="btn small" id="emoSave">Save</button>${cur ? `<button class="btn ghost small" id="emoClear">Use my photo instead</button>` : ""}</div>
+      <p class="note msg" id="emoMsg"></p></div>
+    <div class="section"><h3>Your numbers</h3><span class="note">Official runs only</span></div>${numbers}
+    <div class="section"><h3>Your rounds</h3><span class="note">Tap one for its board</span></div>${rounds}`;
+}
+function wireMe(){
+  document.querySelectorAll(".egrid button").forEach(b => b.onclick = () => saveEmoji(b.dataset.e));
+  const sv = $("emoSave"); if (sv) sv.onclick = () => { const v = ($("emoIn").value || "").trim(); if (v) saveEmoji(v); };
+  const cl = $("emoClear"); if (cl) cl.onclick = () => saveEmoji("");
+  document.querySelectorAll(".lb[data-r]").forEach(el => el.onclick = () => selectRound(el.dataset.r, "board"));
 }
 function wirePoll(){
   document.querySelectorAll("[data-p]").forEach(b => b.onclick = () => castVote(b.dataset.p));
@@ -1515,8 +1566,8 @@ function renderRounds(tabs, wire){
        ${ranked.length > 5 ? `<p class="note"><button class="linkbtn" id="lobbyMore">${lobbyAll ? "Show top 5 only" : `Show all ${ranked.length}`}</button></p>` : ""}`;
   const tile = r => {
     const t = themeOf(r); const b = boardFor(r.id); const my = b.find(x => x.uid === me.uid); const open = isOpen(r); const live = playingNow(r.id);
-    const foot = my ? `<span class="pill done">You: ${my.score} / ${my.total}</span>` : open ? `<span class="pill live">Play</span>` : `<span class="pill">Closed</span>`;
-    const who = live.length ? `<div class="live"><i></i>${live.length === 1 ? esc((live[0].name || "Someone").split(" ")[0]) + " is playing" : live.length + " playing now"}</div>` : "";
+    const foot = my ? `<span class="pill done">You: ${fmtScore(my.score)} / ${my.total}</span>` : open ? `<span class="pill live">Play</span>` : `<span class="pill">Closed</span>`;
+    const who = live.length ? `<div class="live"><i></i>${live.length === 1 ? (emojiOf(live[0].uid) ? esc(emojiOf(live[0].uid)) + " " : "") + esc((live[0].name || "Someone").split(" ")[0]) + " is playing" : live.length + " playing now"}</div>` : "";
     return `<button class="tile${open ? "" : " closed"}" data-r="${esc(r.id)}" style="--ra:${t.a};--rb:${t.b};${t.font ? `--rf:'${t.font}','Archivo Black',sans-serif` : ""}">
       <div class="tn">${esc(r.name)}</div><div class="ts">${esc(r.subject || "")} · ${r.questions.length} questions</div>${who}
       <div class="tf">${foot}<span>${b.length ? b.length + " played" : "Be first"}</span></div>
@@ -1553,14 +1604,14 @@ function gameLength(){ const all = round.questions.length; return SETTINGS.quest
 
 function renderClosed(){
   const mine = myOfficial();
-  $view.innerHTML = `<div class="card"><h2>This round is closed</h2><p>${mine ? `Your official score of ${mine.score} / ${mine.total} stands.` : "It isn't taking new scores right now."} You can still look at the board.</p><button class="btn ghost" id="toBoard">See the leaderboard</button></div>`;
+  $view.innerHTML = `<div class="card"><h2>This round is closed</h2><p>${mine ? `Your official score of ${fmtScore(mine.score)} / ${mine.total} stands.` : "It isn't taking new scores right now."} You can still look at the board.</p><button class="btn ghost" id="toBoard">See the leaderboard</button></div>`;
   $("toBoard").onclick = () => setTab("board");
 }
 function renderHome(){
   const mine = myOfficial(); const n = gameLength(); const b = boardFor(round.id);
   let mineHtml = "";
   if (mine) mineHtml = `<div class="card"><h3>Your official score</h3>
-      <div class="row spread"><div class="pts">${mine.score}<span> / ${mine.total}</span></div><div class="time">${fmtTime(mine.elapsedMs)}</div></div>
+      <div class="row spread"><div class="pts">${fmtScore(mine.score)}<span> / ${mine.total}</span></div><div class="time">${fmtTime(mine.elapsedMs)}</div></div>
       <p class="note">Play again for practice. It won't change the board.</p></div>`;
   $view.innerHTML = `<div class="stack">
       <div class="card lift">
@@ -1587,9 +1638,9 @@ function rowHtml(b){
   const sub = b.rounds != null ? `${b.rounds} round${b.rounds === 1 ? "" : "s"}` : (isMe ? "you" : fmtDate(b.finishedAt));
   return `<div class="lb${isMe ? " me" : ""}">
     <div class="rank">${b.rank}</div>
-    <img class="av" src="${esc(b.photo || "")}" alt="" onerror="this.style.visibility='hidden'">
+    ${avatarHtml(b.uid, b.photo)}
     <div class="who">${esc(b.name || "Someone")}<small>${sub}</small></div>
-    <div class="pts">${b.score}<span> / ${b.total}</span></div>
+    <div class="pts">${fmtScore(b.score)}<span> / ${b.total}</span></div>
     <div class="time">${fmtTime(b.elapsedMs)}</div>
   </div>`;
 }
@@ -1685,11 +1736,20 @@ function qCorrect(it, pick){
   if (t === "order"){ if (!Array.isArray(pick) || pick.length !== it.opts.length) return false; return pick.every((dp,i)=>it.orderIdx[dp]===i); }
   return pick === it.ans;
 }
+function qScore(it, pick){
+  const t = qType(it);
+  if (t === "select"){ if (!Array.isArray(pick)) return 0; const C = new Set(it.ansSet || []); let right = 0, wrong = 0; new Set(pick).forEach(k => C.has(k) ? right++ : wrong++); return C.size ? Math.max(0, (right - wrong) / C.size) : 0; }
+  if (t === "order"){ if (!Array.isArray(pick) || pick.length !== it.opts.length) return 0; let n = 0; pick.forEach((dp, i) => { if (it.orderIdx[dp] === i) n++; }); return n / it.opts.length; }
+  return pick === it.ans ? 1 : 0;
+}
+const qState = (it, pick) => { const v = qScore(it, pick); return v >= 1 ? "right" : v > 0 ? "part" : "wrong"; };
+const fmtScore = n => { const v = Math.round((+n || 0) * 10) / 10; return Number.isInteger(v) ? String(v) : v.toFixed(1); };
+function answerText(it){ const t = qType(it); if (t === "select") return (it.ansSet || []).map(k => it.opts[k]).join(", "); if (t === "order") return it.opts.map((o, j) => j).sort((a, b) => it.orderIdx[a] - it.orderIdx[b]).map(j => it.opts[j]).join(" → "); return it.opts[it.ans]; }
+const qLabel = it => (it.emoji ? it.emoji + "  " : "") + it.q;
 function reviewAns(it, p){
-  const t = qType(it), ok = qCorrect(it, p);
-  if (t === "select"){ const right = (it.ansSet||[]).map(j=>esc(it.opts[j])).join(", "); return ok ? "✓ " + right : "✗ Answer: " + right; }
-  if (t === "order"){ const right = it.opts.map((o,j)=>j).sort((a,b)=>it.orderIdx[a]-it.orderIdx[b]).map(j=>esc(it.opts[j])).join(" → "); return ok ? "✓ " + right : "✗ Answer: " + right; }
-  return ok ? "✓ " + esc(it.opts[it.ans]) : "✗ You said " + esc(it.opts[p] ?? "nothing") + " · Answer: " + esc(it.opts[it.ans]);
+  const t = qType(it), sc = qScore(it, p), ok = sc >= 1, part = !ok && sc > 0; const right = esc(answerText(it));
+  if (t === "select" || t === "order"){ const n = t === "select" ? (it.ansSet || []).length : it.opts.length; return ok ? "✓ " + right : part ? `◐ Partly right, ${fmtScore(sc * n)} of ${n} · Answer: ` + right : "✗ Answer: " + right; }
+  return ok ? "✓ " + right : "✗ You said " + esc(it.opts[p] ?? "nothing") + " · Answer: " + right;
 }
 function mcBody(it, revealed){
   return `<div class="opts">${it.opts.map((o,k)=>{ let st=""; if(revealed){ if(k===it.ans) st="right"; else if(k===S.chosen) st="wrong"; }
@@ -1718,11 +1778,11 @@ function orderBody(it, revealed){
   return `<p class="note" style="margin:0 0 10px">Put these in order. Tap them into the right sequence.</p>${chosen}${rest?`<div class="opts">${rest}</div>`:""}${foot}`;
 }
 function whyHtml(it){
-  const t = qType(it), ok = qCorrect(it, S.picks[S.i]); let lead;
-  if(t==="select") lead = ok ? "Correct." : "Not quite. The right set: " + (it.ansSet||[]).map(k=>esc(it.opts[k])).join(", ") + ".";
-  else if(t==="order") lead = ok ? "Correct." : "Not quite. The right order is shown above.";
+  const t = qType(it), sc = qScore(it, S.picks[S.i]), ok = sc >= 1, part = !ok && sc > 0; let lead;
+  if(t==="select"){ const n = (it.ansSet||[]).length; lead = ok ? "Correct." : part ? `Partly right, ${fmtScore(sc * n)} of ${n}. The full set: ` + (it.ansSet||[]).map(k=>esc(it.opts[k])).join(", ") + "." : "Not quite. The right set: " + (it.ansSet||[]).map(k=>esc(it.opts[k])).join(", ") + "."; }
+  else if(t==="order"){ const n = it.opts.length; lead = ok ? "Correct." : part ? `Partly right, ${Math.round(sc * n)} of ${n} in the right slot.` : "Not quite. The right order is shown above."; }
   else lead = ok ? "Correct." : "Not quite. It's " + esc(it.opts[it.ans]) + ".";
-  return `<div class="why ${ok?"good":"bad"}"><b>${lead}</b>${esc(it.w||"")}</div>`;
+  return `<div class="why ${ok?"good":part?"part":"bad"}"><b>${lead}</b>${esc(it.w||"")}</div>`;
 }
 function renderQuiz(){
   const total = S.order.length; const it = round.questions[S.order[S.i]]; const t = qType(it);
@@ -1754,9 +1814,10 @@ async function finishRun(timedOut){
   const finished = Date.now(); S.screen = "result"; S.chosen = null; clearProgress();
   const limit = timeLimit();
   const elapsedMs = limit ? Math.min(finished - S.started, limit) : finished - S.started;
-  const score = S.order.reduce((n, qi, k) => n + (qCorrect(round.questions[qi], S.picks[k]) ? 1 : 0), 0);
+  const score = Math.round(S.order.reduce((n, qi, k) => n + qScore(round.questions[qi], S.picks[k]), 0) * 100) / 100;
+  let bestStreak = 0, cur = 0; S.order.forEach((qi, k) => { if (qCorrect(round.questions[qi], S.picks[k])) { cur++; if (cur > bestStreak) bestStreak = cur; } else cur = 0; });
   const unanswered = S.order.filter((_, k) => S.picks[k] == null).length;
-  const result = { uid: me.uid, name: me.displayName || "Someone", photo: me.photoURL || "", roundId: round.id, score, total: S.order.length, elapsedMs, timedOut: !!timedOut, finishedAt: new Date().toISOString(), order: S.order, picks: S.picks.slice(), createdAt: firebase.firestore.FieldValue.serverTimestamp() };
+  const result = { uid: me.uid, name: me.displayName || "Someone", photo: me.photoURL || "", roundId: round.id, score, total: S.order.length, elapsedMs, timedOut: !!timedOut, bestStreak, finishedAt: new Date().toISOString(), order: S.order, picks: S.picks.slice(), createdAt: firebase.firestore.FieldValue.serverTimestamp() };
   S.lastResult = result; S.timedOut = !!timedOut; S.unanswered = unanswered; S.saved = "none";
   if (!myOfficial() && isOpen(round)) {
     S.saved = "saving"; render();
@@ -1773,10 +1834,10 @@ function renderResult(){
   else if (S.saved === "saved") saveLine = `<p class="note">Posted to the leaderboard${mine ? ` — you're #${mine.rank} of ${b.length}` : ""}.</p>`;
   else if (S.saved === "failed") saveLine = `<p class="note">Couldn't post your score (${esc(S.saveErr)}).${S.saveErr === "permission-denied" ? " You may already have an official score for this round." : ""}</p>`;
   else if (S.saved === "closed") saveLine = `<p class="note">This round is closed, so this run doesn't post.</p>`;
-  else if (myOfficial()) saveLine = `<p class="note">Practice run. Your official score of ${myOfficial().score} / ${myOfficial().total} stands.</p>`;
+  else if (myOfficial()) saveLine = `<p class="note">Practice run. Your official score of ${fmtScore(myOfficial().score)} / ${myOfficial().total} stands.</p>`;
   $view.innerHTML = `<div class="card lift">
       <h3>Your score</h3>
-      <div class="stat">${r.score}<small> / ${r.total}</small></div>
+      <div class="stat">${fmtScore(r.score)}<small> / ${r.total}</small></div>
       <div class="verdict">${r.timedOut ? "Time." : verdict(r.score, r.total)}</div>
       <p class="note" style="margin-top:0">Time: ${fmtTime(r.elapsedMs)}${r.timedOut ? ` — the clock ran out${S.unanswered ? ` with ${S.unanswered} question${S.unanswered === 1 ? "" : "s"} unanswered` : ""}.` : ""}</p>
       ${saveLine}
@@ -1788,8 +1849,8 @@ function renderResult(){
         <button class="btn ghost" id="lobby">All rounds</button>
       </div>
       ${S.shareKind === "score" ? sharePanelHtml() : ""}
-      ${S.review ? `<div class="review" style="margin-top:18px">${r.order.map((qi, k) => { const it = round.questions[qi]; const p = r.picks[k]; const ok = qCorrect(it, p);
-        return `<div class="item"><div class="q">${k + 1}. ${esc(it.q)}</div><div class="ans ${ok ? "good" : "bad"}">${reviewAns(it, p)}</div></div>`; }).join("")}</div>` : ""}
+      ${S.review ? `<div class="review" style="margin-top:18px">${r.order.map((qi, k) => { const it = round.questions[qi]; const p = r.picks[k]; const st = qState(it, p);
+        return `<div class="item"><div class="q">${k + 1}. ${esc(qLabel(it))}</div><div class="ans ${st === "right" ? "good" : st === "part" ? "part" : "bad"}">${reviewAns(it, p)}</div></div>`; }).join("")}</div>` : ""}
     </div>`;
   $("toBoard").onclick = () => { boardSel = round.id; setTab("board"); };
   $("review").onclick = () => { S.review = !S.review; renderResult(); };
@@ -1818,9 +1879,9 @@ function shareText(){
     return `New round on Babies' Trivia: "${round.name}". ${round.questions.length} questions on ${(round.subject || "").toLowerCase() || "everything"}. ${round.tagline || ""}\nPlay now: ${roundLink(round)}`;
   }
   const { r, official, rank, of } = shareContext();
-  const grid = r.order.map((qi, k) => qCorrect(round.questions[qi], r.picks[k]) ? "🟩" : "🟥").join("").replace(/(.{20})(?=.)/gu, "$1\n");
+  const grid = r.order.map((qi, k) => { const st = qState(round.questions[qi], r.picks[k]); return st === "right" ? "🟩" : st === "part" ? "🟨" : "🟥"; }).join("").replace(/(.{20})(?=.)/gu, "$1\n");
   const where = official && rank ? ` That's #${rank} of ${of} on the board.` : (official ? "" : " (practice run)");
-  return `I scored ${r.score}/${r.total} on "${round.name}" at Babies' Trivia in ${fmtTime(r.elapsedMs)}.${where}\n${grid}\nThink you can beat me? ${roundLink(round)}`;
+  return `${myEmoji() ? myEmoji() + " " : ""}I scored ${fmtScore(r.score)}/${r.total} on "${round.name}" at Babies' Trivia in ${fmtTime(r.elapsedMs)}.${where}\n${grid}\nThink you can beat me? ${roundLink(round)}`;
 }
 function rrect(x, X, Y, W, H, R){ x.beginPath(); x.moveTo(X + R, Y); x.arcTo(X + W, Y, X + W, Y + H, R); x.arcTo(X + W, Y + H, X, Y + H, R); x.arcTo(X, Y + H, X, Y, R); x.arcTo(X, Y, X + W, Y, R); x.closePath(); }
 function fitText(x, text, family, size, maxW, min = 30){ for (;;) { x.font = `${size}px ${family}`; if (x.measureText(text).width <= maxW || size <= min) return size; size -= 4; } }
@@ -1852,14 +1913,14 @@ async function drawShareCard(kind){
     const { r, official, rank, of } = shareContext();
     const nameSize = fitText(x, round.name, fam, 88, W - 220); x.font = `${nameSize}px ${fam}`; x.fillText(round.name, W / 2, 262);
     x.font = `30px ${body}`; x.globalAlpha = .8; x.fillText((round.subject || "").toUpperCase(), W / 2, 312); x.globalAlpha = 1;
-    x.font = `250px ${fam}`; x.fillText(String(r.score), W / 2 - 60, 590);
-    const sw = x.measureText(String(r.score)).width;
+    x.font = `250px ${fam}`; x.fillText(fmtScore(r.score), W / 2 - 60, 590);
+    const sw = x.measureText(fmtScore(r.score)).width;
     x.font = `70px ${fam}`; x.globalAlpha = .75; x.textAlign = "left"; x.fillText(`/ ${r.total}`, W / 2 - 60 + sw / 2 + 24, 590); x.textAlign = "center"; x.globalAlpha = 1;
     x.font = `600 40px ${body}`; x.fillText(verdict(r.score, r.total), W / 2, 668);
     const n = r.order.length, per = Math.min(n, 10), rows = Math.ceil(n / per), gap = 54, rad = 18, y0 = 748;
     r.order.forEach((qi, k) => { const row = Math.floor(k / per), col = k % per, count = Math.min(per, n - row * per);
-      const cx = W / 2 - ((count - 1) * gap) / 2 + col * gap, cy = y0 + row * gap; const ok = qCorrect(round.questions[qi], r.picks[k]);
-      x.beginPath(); x.arc(cx, cy, rad, 0, Math.PI * 2); x.fillStyle = ok ? "#34D399" : "rgba(255,255,255,.22)"; x.fill(); if (!ok) { x.lineWidth = 3; x.strokeStyle = "rgba(255,255,255,.55)"; x.stroke(); } });
+      const cx = W / 2 - ((count - 1) * gap) / 2 + col * gap, cy = y0 + row * gap; const st = qState(round.questions[qi], r.picks[k]), ok = st === "right", part = st === "part";
+      x.beginPath(); x.arc(cx, cy, rad, 0, Math.PI * 2); x.fillStyle = ok ? "#34D399" : part ? "#FBBF24" : "rgba(255,255,255,.22)"; x.fill(); if (!ok && !part) { x.lineWidth = 3; x.strokeStyle = "rgba(255,255,255,.55)"; x.stroke(); } });
     const metaY = y0 + rows * gap + 30;
     x.fillStyle = "#fff"; x.font = `600 34px ${body}`;
     const meta = official && rank ? `#${rank} of ${of} on the board  ·  ${fmtTime(r.elapsedMs)}` : (official ? fmtTime(r.elapsedMs) : `Practice run  ·  ${fmtTime(r.elapsedMs)}`);

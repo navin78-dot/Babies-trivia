@@ -19,7 +19,9 @@ for (const f of files) {
   const n = data.questions.length, c = { easy: 0, medium: 0, hard: 0 };
   data.questions.forEach(q => { if (c[q.d] != null) c[q.d]++; });
   const min = Math.max(2, Math.ceil(n * 0.2));
+  const special = data.questions.filter(q => (q.type || "mc") !== "mc" || (q.o && q.o.length === 2)).length;
   if (n < 6 || c.easy < min || c.medium < min || c.hard < min) throw new Error(`${f} breaks the house rule: ${n} questions, ${c.easy}/${c.medium}/${c.hard} easy/medium/hard (need at least ${min} each)`);
+  if (special > 3) throw new Error(`${f} has ${special} non-multiple-choice questions; the cap is 3 (true/false, select-all and put-in-order all count)`);
   if (!data.added) { // keep the first publish date on re-publish
     const existing = await db.collection("rounds").doc(data.id).get();
     data.added = (existing.exists && existing.data().added) || new Date().toISOString();
