@@ -398,8 +398,7 @@ input[type=range]{width:100%;accent-color:var(--accent)}
 .qdet{margin-top:10px;padding:13px 15px;border-radius:14px;background:var(--paper2);font-size:13px;line-height:1.5}
 .qdet p{margin:0 0 8px}
 .qdet p:last-child{margin:0}
-.qdet .sample{padding:9px 11px;border-radius:11px;background:var(--paper);margin-top:7px}
-.qdet .sample b{display:block;font-size:10px;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);margin-bottom:3px}
+
 .roundlist .r:first-child{border-top:0}
 
 /* ---------- motion ---------- */
@@ -2198,15 +2197,13 @@ function queueInfoHtml(r){
     ? `On tonight's poll since ${esc(fmtKey(since))}${waited ? ` (${waited} night${waited === 1 ? "" : "s"} so far)` : " (first night)"}. It comes off the poll after ${DROP.retireAfterDays} nights without winning${left > 0 ? `, so ${left} night${left === 1 ? "" : "s"} left` : ""}.`
     : P.retired.has(r.id) ? `It sat on the poll ${DROP.retireAfterDays} nights without winning, so it came off. You can still send it out tonight with the override above.`
     : `Waiting its turn. It joins the poll as soon as one of the three above it drops, or you can send it out tonight with the override above.`;
-  const sample = d => { const q = qs.find(x => x.d === d); return q ? `<div class="sample"><b>A ${d} one</b>${esc(qLabel(q))}</div>` : ""; };
   const written = r.added ? fmtDate(r.added) : "";
   return `<div class="qdet">
     ${r.tagline ? `<p>${esc(r.tagline)}</p>` : ""}
     <p><b>${qs.length} questions</b> · ${c.easy} easy, ${c.medium} medium, ${c.hard} hard<br>${Object.entries(types).map(([k, v]) => `${v} ${esc(k.toLowerCase())}`).join(" · ")}${vis ? ` · ${vis} with a picture clue` : ""}</p>
     <p>${pollLine}</p>
     ${r.requestId ? `<p><b>Written for a theme you asked for.</b></p>` : ""}
-    ${written ? `<p class="note" style="margin:0 0 8px">Written ${esc(written)}.</p>` : ""}
-    ${sample("easy")}${sample("hard")}
+    ${written ? `<p class="note" style="margin:0">Written ${esc(written)}. Questions stay hidden so you play it blind like everyone else.</p>` : `<p class="note" style="margin:0">Questions stay hidden so you play it blind like everyone else.</p>`}
   </div>`;
 }
 function hostDropHtml(){
