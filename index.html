@@ -2083,17 +2083,34 @@ let snd = { on: true, vol: .6, track: "show" };
 try { const s = JSON.parse(localStorage.getItem("bt.sound") || "null"); if (s && typeof s === "object") snd = Object.assign(snd, s); } catch (e) {}
 if (!SND_TRACKS.some(t => t.id === snd.track)) snd.track = "show";
 const saveSnd = () => { try { localStorage.setItem("bt.sound", JSON.stringify(snd)); } catch (e) {} };
-let AC = null, musicBus = null, sfxBus = null, seqTimer = null, seqStep = 0, seqNext = 0, seqTrack = null, ducked = false, lastTick = -1;
+let AC = null, musicBus = null, sfxBus = null, seqTimer = null, seqStep = 0, seqNext = 0, seqTrack = null, ducked = false, lastTick = -1, keepEl = null;
+/* iPhones mute Web Audio with the ring/silent switch. A playing media element, even a silent one,
+   moves the page into the media category that the switch leaves alone. */
+const SILENT_WAV = "data:audio/wav;base64,UklGRvQHAABXQVZFZm10IBAAAAABAAEAQB8AAEAfAAABAAgAZGF0YdAHAACAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgA==";
+function keepAlive(){
+  try {
+    if (!keepEl) { keepEl = document.createElement("audio"); keepEl.setAttribute("playsinline", ""); keepEl.setAttribute("aria-hidden", "true"); keepEl.loop = true; keepEl.preload = "auto"; keepEl.src = SILENT_WAV; keepEl.style.display = "none"; document.body.appendChild(keepEl); }
+    if (keepEl.paused) { const pr = keepEl.play(); if (pr && pr.catch) pr.catch(() => {}); }
+  } catch (e) {}
+}
+function audioStateText(){
+  if (!snd.on) return "Sound is off.";
+  if (!AC) return "Waiting for your first tap to start.";
+  if (AC.state === "running") return `Playing ${(SND_TRACKS.find(t => t.id === snd.track) || SND_TRACKS[0]).name}${ducked ? ", turned down for the run" : ""}.`;
+  return `Blocked by the browser (${AC.state}). Tap Test sound.`;
+}
+function paintAudioState(){ const el = $("sndState"); if (el) el.textContent = audioStateText(); }
 const mtof = n => 440 * Math.pow(2, (n - 69) / 12);
 function ensureAudio(){
-  if (AC) { if (AC.state === "suspended") AC.resume().catch(() => {}); return true; }
+  if (AC) { if (AC.state !== "running") AC.resume().catch(() => {}); keepAlive(); return true; }
   const Ctx = window.AudioContext || window.webkitAudioContext; if (!Ctx) return false;
   try { AC = new Ctx(); } catch (e) { return false; }
   musicBus = AC.createGain(); musicBus.connect(AC.destination);
   sfxBus = AC.createGain(); sfxBus.connect(AC.destination);
   updateMix(true);
-  if (AC.state === "suspended") AC.resume().catch(() => {});
-  startMusic();
+  AC.onstatechange = () => { paintAudioState(); if (AC.state === "interrupted" && snd.on && !document.hidden) AC.resume().catch(() => {}); };
+  if (AC.state !== "running") AC.resume().catch(() => {});
+  keepAlive(); startMusic(); paintAudioState();
   return true;
 }
 function updateMix(now){
@@ -2104,7 +2121,7 @@ function updateMix(now){
   sfxBus.gain.setTargetAtTime(snd.on ? Math.min(1, snd.vol * 1.4) : 0, t, .01);
 }
 function setDuck(on){ if (ducked === !!on) return; ducked = !!on; updateMix(); }
-function setSoundOn(on){ snd.on = !!on; saveSnd(); paintSoundBtn(); if (snd.on) { if (!ensureAudio()) return; } updateMix(); }
+function setSoundOn(on){ snd.on = !!on; saveSnd(); paintSoundBtn(); if (snd.on) { if (!ensureAudio()) return; } else if (keepEl) { try { keepEl.pause(); } catch (e) {} } updateMix(); paintAudioState(); }
 function setVolume(v){ snd.vol = Math.max(0, Math.min(1, v)); saveSnd(); updateMix(); }
 function setTrack(id){ if (!SND_TRACKS.some(t => t.id === id)) return; snd.track = id; saveSnd(); if (AC) startMusic(true); }
 function paintSoundBtn(){ const b = $("soundBtn"); if (!b) return; b.setAttribute("aria-pressed", String(snd.on)); b.classList.toggle("muted", !snd.on); const l = $("soundLbl"); if (l) l.textContent = snd.on ? "Sound" : "Muted"; }
@@ -2170,18 +2187,21 @@ function sfx(kind){
 function currentStreak(){ let n = 0; for (let k = S.i; k >= 0; k--) { if (qCorrect(round.questions[S.order[k]], S.picks[k])) n++; else break; } return n; }
 function sfxAnswer(state){ sfx(state); if (state === "right" && currentStreak() >= 3) setTimeout(() => sfx("streak"), 320); }
 /* first gesture unlocks audio; a hidden tab goes quiet */
-["pointerdown", "keydown", "touchend"].forEach(ev => document.addEventListener(ev, () => { if (snd.on) ensureAudio(); }, { capture: true, passive: true }));
-document.addEventListener("visibilitychange", () => { if (!AC) return; if (document.hidden) AC.suspend().catch(() => {}); else if (snd.on) AC.resume().catch(() => {}); });
+["touchend", "click", "keydown"].forEach(ev => document.addEventListener(ev, () => { if (snd.on) ensureAudio(); }, { capture: true, passive: true }));
+document.addEventListener("visibilitychange", () => { if (!AC) return; if (document.hidden) { AC.suspend().catch(() => {}); if (keepEl) { try { keepEl.pause(); } catch (e) {} } } else if (snd.on) { AC.resume().catch(() => {}); keepAlive(); } });
 function soundCardHtml(){
   return `<div class="section"><h3>Sound</h3><span class="note">Music and effects</span></div>
     <div class="card"><label class="row spread" style="cursor:pointer;gap:14px;flex-wrap:nowrap"><span style="min-width:0"><b>Sound on</b><br><span class="note" style="margin:0">Music plays in the lobby and drops low during a run.</span></span><span class="switch"><input type="checkbox" id="sndOn" ${snd.on ? "checked" : ""}><i></i></span></label>
       <div class="avrow" style="margin-top:10px"><div class="lab">Volume</div><input type="range" id="sndVol" min="0" max="100" value="${Math.round(snd.vol * 100)}" aria-label="Volume"></div>
-      <div class="avrow"><div class="lab">Music</div><div class="chips" style="margin:0">${SND_TRACKS.map(t => `<button type="button" class="chip" data-track="${t.id}" aria-pressed="${snd.track === t.id}">${t.name}</button>`).join("")}</div></div></div>`;
+      <div class="avrow"><div class="lab">Music</div><div class="chips" style="margin:0">${SND_TRACKS.map(t => `<button type="button" class="chip" data-track="${t.id}" aria-pressed="${snd.track === t.id}">${t.name}</button>`).join("")}</div></div>
+      <div class="row" style="margin-top:12px;gap:10px"><button class="btn ghost small" id="sndTest">Test sound</button><span class="note" id="sndState" style="margin:0">${audioStateText()}</span></div>
+      <p class="note" style="margin:10px 0 0">iPhone: if the ring/silent switch is on silent and you still hear nothing, flip it to ring once, then tap Test sound.</p></div>`;
 }
 function wireSoundCard(){
   const on = $("sndOn"); if (on) on.onchange = () => setSoundOn(on.checked);
+  const ts = $("sndTest"); if (ts) ts.onclick = () => { if (!snd.on) setSoundOn(true); ensureAudio(); setTimeout(() => { sfx("right"); paintAudioState(); }, 120); };
   const v = $("sndVol"); if (v) { v.oninput = () => setVolume(v.value / 100); v.onchange = () => sfx("click"); }
-  document.querySelectorAll("[data-track]").forEach(b => b.onclick = () => { setTrack(b.dataset.track); document.querySelectorAll("[data-track]").forEach(x => x.setAttribute("aria-pressed", String(x.dataset.track === snd.track))); });
+  document.querySelectorAll("[data-track]").forEach(b => b.onclick = () => { setTrack(b.dataset.track); document.querySelectorAll("[data-track]").forEach(x => x.setAttribute("aria-pressed", String(x.dataset.track === snd.track))); paintAudioState(); });
 }
 $("soundBtn").onclick = () => { setSoundOn(!snd.on); if (snd.on) sfx("click"); };
 paintSoundBtn();
