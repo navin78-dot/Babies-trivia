@@ -163,8 +163,10 @@ a.btn{text-decoration:none}
 .pchip{display:inline-flex;align-items:center;padding:5px 11px;border-radius:999px;font-size:12px;font-weight:600;color:var(--cream2);background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.1)}
 .pchip b{color:var(--cream);font-weight:800}
 .pchip.playing{background:color-mix(in srgb,var(--good) 22%, transparent);border-color:color-mix(in srgb,var(--good) 50%, transparent);color:var(--cream)}
-.pchip.playing::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--good);box-shadow:0 0 8px var(--good);animation:pulse 1.6s ease-in-out infinite;margin-right:7px;flex:none}
+.pchip::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--cream2);box-shadow:0 0 6px color-mix(in srgb,var(--cream2) 70%, transparent);animation:pulse 2.6s ease-in-out infinite;margin-right:7px;flex:none}
+.pchip.playing::before{background:var(--good);box-shadow:0 0 9px var(--good);animation:pulse 1.5s ease-in-out infinite}
 .pchip.quiet{opacity:.7}
+.pchip.quiet::before{display:none}
 .pchip .emoav.xs{margin-right:5px}
 .sh-you .btn{white-space:nowrap}
 .sh-foot{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;margin-top:12px;padding-top:10px;border-top:1px solid rgba(255,255,255,.1);font-size:13px;color:var(--cream2);font-weight:600;line-height:1.45}
