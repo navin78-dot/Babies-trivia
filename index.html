@@ -112,6 +112,9 @@ select option{color:#111;background:#fff}
 .field{font:inherit;width:100%;padding:10px 12px;border:1px solid var(--line);border-radius:12px;background:var(--paper2);color:var(--ink);margin-top:4px}
 .field:focus{outline:2px solid var(--accent);outline-offset:1px}
 textarea.field{resize:vertical;min-height:72px;line-height:1.45}
+.inrow{display:flex;gap:8px;align-items:stretch;margin-top:4px}
+.inrow .field{margin-top:0;flex:1;min-width:0}
+.inrow .btn{white-space:nowrap;flex:none}
 
 /* ---------- buttons: chunky, pressable ---------- */
 .btn{border:0;border-radius:14px;padding:12px 22px;font-weight:800;cursor:pointer;background:var(--accent);color:var(--accent-ink);letter-spacing:.01em;display:inline-flex;align-items:center;gap:10px;position:relative;
@@ -2217,7 +2220,7 @@ function hostDropHtml(){
       <h3>Tonight's drop</h3>
       <p class="note" style="margin:0 0 8px">At midnight New York time (<span class="szc" data-end="${dropAt}">${countdownText(dropAt)}</span> from now) the lobby gets: ${plan}.</p>
       <label class="row" style="gap:10px;cursor:pointer;margin:6px 0 8px"><span class="switch"><input type="checkbox" id="ovOn" ${ovR ? "checked" : ""}><i></i></span><b>Override the poll tonight</b></label>
-      <div class="row"><select id="ovSel" ${ovR ? "" : "disabled"}>${choices.length ? choices.map(r => `<option value="${esc(r.id)}" ${ovR && ovR.id === r.id ? "selected" : ""}>${esc(r.name)}${P.retired.has(r.id) ? " (off the poll)" : ""}</option>`).join("") : `<option value="">Nothing in the queue</option>`}</select><button class="btn small" id="ovSave">Save</button><span class="note" id="ovMsg" style="margin:0"></span></div>
+      <div class="row"><select id="ovSel" ${ovR ? "" : "disabled"}>${choices.length ? choices.map(r => `<option value="${esc(r.id)}" ${ovR && ovR.id === r.id ? "selected" : ""}>${esc(r.name)}${P.retired.has(r.id) ? " (off the poll)" : ""}</option>`).join("") : `<option value="">Nothing in the queue</option>`}</select><button class="btn small" id="ovSave">Save override</button><span class="note" id="ovMsg" style="margin:0"></span></div>
       <h3 style="margin-top:16px">The queue</h3>
       <p class="note" style="margin:0 0 6px">${P.queue.length} round${P.queue.length === 1 ? "" : "s"} written and waiting${P.queue.length ? `, ${P.queue.length === 1 ? "one night" : P.queue.length + " nights"} of drops` : ""}. The daily top-up keeps it at five. The three that have waited longest are tonight's poll; anything here can be picked with the override above.</p>
       ${P.queue.length ? `<div class="qlist">${P.queue.map(r => { const open = S.qInfo === r.id; return `<div class="qitem">
@@ -2226,8 +2229,8 @@ function hostDropHtml(){
           <button class="iinfo" data-qinfo="${esc(r.id)}" aria-expanded="${open}" aria-label="More about ${esc(r.name)}" title="More about this round">i</button></div>
         ${open ? queueInfoHtml(r) : ""}</div>`; }).join("")}</div>` : ""}
       <h3 style="margin-top:16px">Suggest a theme</h3>
-      <p class="note" style="margin:0 0 6px">Type a theme and press Enter. It goes on the list below. The daily top-up (every morning) writes it as a round, it lands in the queue above, and the entry here turns to “written”. From the queue it reaches the poll in turn, or you can pick it with the override.</p>
-      <input id="reqIn" class="field" maxlength="200" placeholder="e.g. Bollywood villains, or 1980s video games">
+      <p class="note" style="margin:0 0 6px">Type a theme and tap Add. It goes on the list below. The daily top-up (every morning) writes it as a round, it lands in the queue above, and the entry here turns to “written”. From the queue it reaches the poll in turn, or you can pick it with the override.</p>
+      <div class="inrow"><input id="reqIn" class="field" maxlength="200" placeholder="e.g. Bollywood villains, or 1980s video games"><button class="btn small" id="reqAdd">Add</button></div>
       <p class="note" id="reqMsg" style="margin:6px 0 0"></p>
       ${reqs.length ? `<div class="roundlist" style="margin-top:6px">${reqs.map(x => { const wr = x.roundId ? roundById(x.roundId) : null; const where = wr && P.queue.some(q => q.id === wr.id) ? ", in the queue" : wr && isPublished(wr) ? ", in the lobby" : ""; return `<div class="r"><div><b>${esc(x.theme)}</b><br><span class="note" style="margin:0">${fmtDate(x.finishedAt)} · ${x.status === "written" ? `written${wr ? " as " + esc(wr.name) : ""}${where}` : "waiting for the next daily top-up"}</span></div><button class="linkbtn" data-delreq="${esc(x.id)}">Delete</button></div>`; }).join("")}</div>` : ""}
     </div>
@@ -2275,7 +2278,17 @@ function renderHost(){
   document.querySelectorAll("[data-qinfo]").forEach(b => b.onclick = () => { S.qInfo = S.qInfo === b.dataset.qinfo ? null : b.dataset.qinfo; renderHost(); });
   const ovOn = $("ovOn"), ovSel = $("ovSel"); ovOn.onchange = () => { ovSel.disabled = !ovOn.checked; };
   $("ovSave").onclick = async () => { const P = dropPlan(); const m = await setOverride(P.today, ovOn.checked ? ovSel.value : null); $("ovMsg").textContent = m || (ovOn.checked ? "Saved. That's tonight's drop." : "Saved. The poll decides tonight."); };
-  const ri = $("reqIn"); ri.onkeydown = async e => { if (e.key !== "Enter") return; e.preventDefault(); const t = ri.value; if (!t.trim()) return; $("reqMsg").textContent = "Queuing…"; const m = await requestTheme(t); $("reqMsg").textContent = m; if (m === "Queued.") ri.value = ""; };
+  const ri = $("reqIn"), ra = $("reqAdd");
+  const addReq = async () => {
+    const t = ri.value; if (!t.trim()) { $("reqMsg").textContent = "Type a theme first."; ri.focus(); return; }
+    ra.disabled = true; $("reqMsg").textContent = "Adding…";
+    const m = await requestTheme(t);
+    $("reqMsg").textContent = m === "Queued." ? "Added to the list below." : m;
+    if (m === "Queued.") ri.value = "";
+    ra.disabled = false;
+  };
+  ri.onkeydown = e => { if (e.key === "Enter") { e.preventDefault(); addReq(); } };
+  ra.onclick = addReq;
   document.querySelectorAll("[data-delreq]").forEach(b => b.onclick = async () => { try { await dbf.collection("requests").doc(b.dataset.delreq).delete(); } catch (e) { alert("Couldn't delete: " + (e.code || e.message)); } });
   document.querySelectorAll("[data-delsugg]").forEach(b => b.onclick = async () => { if (!confirm("Delete this suggestion?")) return; try { await dbf.collection("suggestions").doc(b.dataset.delsugg).delete(); } catch (e) { alert("Couldn't delete: " + (e.code || e.message)); } });
   $("seasonAnn").onclick = async () => {
