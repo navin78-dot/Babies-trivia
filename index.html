@@ -2825,8 +2825,13 @@ function shareText(){
 }
 const reducedMotion = () => window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 function countUp(el, target){
-  if (!el) return; if (reducedMotion()) { el.textContent = fmtScore(target); return; }
-  const t0 = performance.now(), dur = 900; const step = now => { const k = Math.min(1, (now - t0) / dur), e = 1 - Math.pow(1 - k, 3); el.textContent = fmtScore(target * e); if (k < 1) requestAnimationFrame(step); else el.textContent = fmtScore(target); }; requestAnimationFrame(step);
+  if (!el) return;
+  const land = () => { if (el.isConnected) el.textContent = fmtScore(target); };
+  if (reducedMotion()) return land();
+  const t0 = performance.now(), dur = 900;
+  const step = now => { const k = Math.min(1, (now - t0) / dur), e = 1 - Math.pow(1 - k, 3); el.textContent = fmtScore(target * e); if (k < 1) requestAnimationFrame(step); else land(); };
+  requestAnimationFrame(step);
+  setTimeout(land, dur + 400); // frames stop in a background tab, so guarantee the real score lands
 }
 function confetti(o){
   if (reducedMotion()) return; o = o || {};
