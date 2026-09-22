@@ -1784,6 +1784,12 @@ async function setLive(id, on){
 
 const boardFor = rid => scores.filter(s => s.roundId === rid);
 const myOfficial = (rid = round && round.id) => rid ? boardFor(rid).find(b => b.uid === (me && me.uid)) || null : null;
+/* The run that counts: the one on the board, or one still waiting on this phone. Anything that
+   decides whether you may play a round asks this, never the board alone. */
+function myRun(rid = round && round.id){
+  const b = myOfficial(rid); if (b) return b;
+  const p = rid ? pendingFor(rid) : null; return p ? { ...p.doc, pending: true, blocked: !!p.blocked } : null;
+}
 function sorted(list){ return [...list].sort((a, b) => (b.score - a.score) || (SETTINGS.timeBreaksTies ? (a.elapsedMs - b.elapsedMs) : 0) || String(a.finishedAt).localeCompare(String(b.finishedAt))); }
 function rankOf(list){ const s = sorted(list); let last = null, rank = 0; return s.map((b, i) => { const key = b.score + (SETTINGS.timeBreaksTies ? ":" + b.elapsedMs : ""); if (key !== last) { rank = i + 1; last = key; } return { ...b, rank }; }); }
 function combined(list = scores){ const by = {}; list.forEach(s => { const c = by[s.uid] || (by[s.uid] = { uid: s.uid, name: s.name, photo: s.photo, score: 0, total: 0, elapsedMs: 0, rounds: 0, finishedAt: "" }); c.score += s.score; c.total += s.total; c.elapsedMs += s.elapsedMs; c.rounds++; if (s.finishedAt > c.finishedAt) { c.finishedAt = s.finishedAt; c.name = s.name; c.photo = s.photo; } }); return Object.values(by); }
@@ -2209,7 +2215,7 @@ function verdict(score, total){
 function gameLength(){ const all = round.questions.length; return SETTINGS.questionsPerGame ? Math.min(SETTINGS.questionsPerGame, all) : all; }
 
 function renderClosed(){
-  const mine = myOfficial(); const recap = recapHtml(round);
+  const mine = myRun(); const recap = recapHtml(round);
   $view.innerHTML = `<div class="card"><h2>${seasonOver(round) ? `Season ${seasonOfRound(round)} is over` : everyonePlayed(round) ? "Everyone has played this one" : "This round is closed"}</h2><p>${mine ? `Your score of ${fmtScore(mine.score)} / ${mine.total} stands.` : seasonOver(round) ? "This round belonged to a season that has ended, so it no longer takes runs." : everyonePlayed(round) ? "All " + SETTINGS.playersInGroup + " of you have finished it, so it closed itself." : "It isn't taking new scores right now."}${recap ? "" : " You can still look at the board."}</p>${recap ? "" : `<button class="btn ghost" id="toBoard">See the leaderboard</button>`}</div>${recap}`;
   const tb = $("toBoard"); if (tb) tb.onclick = () => setTab("board");
   const sr = $("shareRecap"); if (sr) sr.onclick = () => toggleShare("recap");
@@ -2217,12 +2223,14 @@ function renderClosed(){
 }
 function seasonNoteFor(r){ const n = seasonOfRound(r), cur = currentSeason(); return n === cur ? `Counts toward <b>Season ${n}</b>. It closes for good when the season ends, ${esc(seasonEndInfo().ny)} NY time.` : `Belonged to <b>Season ${n}</b>, which is over, so it's closed.`; }
 function renderHome(){
-  const mine = myOfficial(); const n = gameLength(); const b = boardFor(round.id);
+  const mine = myRun(); const n = gameLength(); const b = boardFor(round.id);
   const mineRank = mine ? rankOf(b).find(x => x.uid === me.uid) : null;
   const intro = mine
     ? `<h2>You've played this one</h2>
         <div class="row spread" style="margin:6px 0 10px"><div class="pts">${fmtScore(mine.score)}<span> / ${mine.total}</span></div><div class="time">${fmtTime(mine.elapsedMs)}${mineRank ? ` · #${mineRank.rank} of ${b.length}` : ""}</div></div>
-        <p class="note">One run per round, and that was yours. ${everyonePlayed(round) ? "Everyone has played now, so this round is done." : "The board updates as the others finish."} ${seasonNoteFor(round)}</p>`
+        <p class="note">One run per round, and that was yours. ${mine.pending ? (mine.blocked ? "<b>It hasn't reached the board.</b> A score for this round is already saved under your name. Ask the host to look." : "<b>It's saved on this phone and still posting to the board.</b>") : everyonePlayed(round) ? "Everyone has played now, so this round is done." : "The board updates as the others finish."} ${seasonNoteFor(round)}</p>`
+    : !scoresReady
+    ? `<h2>One moment</h2><p class="note" style="margin:0">Checking whether you have played this round.</p>`
     : `<h2>Ready?</h2>
         <p class="note" style="margin:-4px 0 10px">${seasonNoteFor(round)}</p>
         <p>${n} questions, one run, and it counts.${timeLimit() ? ` You get ${fmtLimit()}, counting down from question one. When it hits zero the run ends and whatever is unanswered counts wrong.` : ""}${SETTINGS.timeBreaksTies ? " A faster time breaks ties on the board." : ""}</p>`;
@@ -2231,7 +2239,7 @@ function renderHome(){
         ${intro}
         ${liveHtml(round.id)}
         <div class="row" style="margin-top:${playingNow(round.id).length ? "12px" : "0"}">
-          ${mine ? "" : `<button class="btn" id="start">Start the quiz</button>`}
+          ${(mine || !scoresReady) ? "" : `<button class="btn" id="start">Start the quiz</button>`}
           ${b.length ? `<button class="btn ${mine ? "" : "ghost"}" id="toBoard">See the leaderboard</button>` : ""}
           <button class="btn ghost" id="invite">${S.shareKind === "invite" ? "Hide invite" : "Invite friends"}</button>
         </div>
@@ -2564,7 +2572,7 @@ function startTimer(){
 
 /* --- quiz --- */
 function startQuiz(){
-  if (myOfficial() || !isOpen(round)) return renderAll();
+  if (!scoresReady || myRun() || !isOpen(round)) return renderAll();
   const all = round.questions.map((_, k) => k);
   if (SETTINGS.shuffleQuestions) for (let k = all.length - 1; k > 0; k--) { const j = Math.floor(Math.random() * (k + 1)); [all[k], all[j]] = [all[j], all[k]]; }
   S.order = all.slice(0, gameLength());
@@ -2602,19 +2610,48 @@ const pendingKey = () => "bt.pending." + (me ? me.uid : "anon");
 function loadPending(){ try { const l = JSON.parse(localStorage.getItem(pendingKey()) || "[]"); return Array.isArray(l) ? l : []; } catch (e) { return []; } }
 function savePending(list){ try { if (list.length) localStorage.setItem(pendingKey(), JSON.stringify(list)); else localStorage.removeItem(pendingKey()); } catch (e) {} }
 let flushing = false, lastFlushErr = "";
-async function flushPending(){
-  if (!me || flushing) return; const list = loadPending(); if (!list.length) return; flushing = true;
-  for (const item of list) {
-    if (boardFor(item.roundId).some(s => s.uid === me.uid)) { savePending(loadPending().filter(x => x.id !== item.id)); continue; } // already on the board
-    try { await dbf.collection("scores").doc(item.id).set(cleanDoc({ ...item.doc, createdAt: firebase.firestore.FieldValue.serverTimestamp() })); savePending(loadPending().filter(x => x.id !== item.id)); lastFlushErr = ""; if (round && round.id === item.roundId && S.screen === "result") S.saved = "saved"; }
-    catch (e) { lastFlushErr = (e && e.code) || "error"; if (round && round.id === item.roundId && S.screen === "result") { S.saved = "queued"; S.saveErr = lastFlushErr; } }
+const inflight = new Set();                 // ids being written right now, so nothing is written twice
+const dropPending = id => savePending(loadPending().filter(x => x.id !== id));
+function markPending(id, err, blocked){ savePending(loadPending().map(x => x.id === id ? { ...x, err, blocked: !!blocked } : x)); }
+const pendingFor = rid => loadPending().find(x => x.roundId === rid) || null;
+const pendingLive = () => loadPending().filter(x => !x.blocked);
+const pendingBlocked = () => loadPending().filter(x => x.blocked);
+/* Posts every run saved on this phone. It is the only thing that writes a score, so a run can
+   never be sent twice. The rules allow a score to be created once and never changed, so a
+   permission-denied means a score for that round already exists: if that is mine the run is
+   already on the board and the copy here can go; otherwise stop retrying and say so. */
+async function flushPending(force){
+  if (!me || flushing) return; flushing = true;
+  for (const item of loadPending()) {
+    if (inflight.has(item.id) || (item.blocked && !force)) continue;
+    inflight.add(item.id);
+    try {
+      if (scoresReady && boardFor(item.roundId).some(s => s.uid === me.uid)) { dropPending(item.id); continue; }
+      await dbf.collection("scores").doc(item.id).set(cleanDoc({ ...item.doc, createdAt: firebase.firestore.FieldValue.serverTimestamp() }));
+      dropPending(item.id); lastFlushErr = "";
+    } catch (e) {
+      const code = (e && e.code) || "error"; lastFlushErr = code;
+      const mineOnBoard = scoresReady && boardFor(item.roundId).some(s => s.uid === me.uid);
+      if (code === "permission-denied" && mineOnBoard) dropPending(item.id);
+      else markPending(item.id, code, code === "permission-denied");
+    } finally { inflight.delete(item.id); }
   }
-  flushing = false; render();
+  flushing = false;
+  if (round && S.screen === "result") { const pd = pendingFor(round.id); S.saved = !pd ? "saved" : pd.blocked ? "blocked" : "queued"; S.saveErr = pd ? (pd.err || lastFlushErr) : ""; }
+  render();
 }
 window.addEventListener("online", () => flushPending());
-setInterval(() => { if (loadPending().length) flushPending(); }, 60 * 1000);
-function pendingBannerHtml(){ const n = loadPending().length; if (!n) return ""; return `<div class="banner"><b>${n === 1 ? "One finished run hasn't posted to the board yet." : n + " finished runs haven't posted to the board yet."}</b> It's saved on this phone${lastFlushErr ? ` (last error: ${esc(lastFlushErr)})` : ""} and keeps retrying. <button class="linkbtn" id="retryPost">Retry now</button></div>`; }
-function wirePending(){ const b = $("retryPost"); if (b) b.onclick = () => { b.textContent = "Retrying…"; flushPending(); }; }
+setInterval(() => { if (pendingLive().length) flushPending(); }, 60 * 1000);
+function pendingBannerHtml(){
+  const live = pendingLive().length, blocked = pendingBlocked().length;
+  if (!live && !blocked) return "";
+  if (blocked) return `<div class="banner err"><b>${blocked === 1 ? "A finished run can't be posted to the board." : blocked + " finished runs can't be posted to the board."}</b> A score for that round is already saved under your name, so this one can't replace it. Ask the host to look. <button class="linkbtn" id="dropPost">Discard it</button></div>`;
+  return `<div class="banner"><b>${live === 1 ? "One finished run hasn't posted to the board yet." : live + " finished runs haven't posted to the board yet."}</b> It's saved on this phone${lastFlushErr ? ` (last error: ${esc(lastFlushErr)})` : ""} and keeps retrying. <button class="linkbtn" id="retryPost">Retry now</button></div>`;
+}
+function wirePending(){
+  const b = $("retryPost"); if (b) b.onclick = () => { b.textContent = "Retrying…"; flushPending(true); };
+  const d = $("dropPost"); if (d) d.onclick = () => { if (confirm("Discard the run that can't be posted? The score already on the board stays as it is.")) { pendingBlocked().forEach(x => dropPending(x.id)); render(); } };
+}
 const unpackPicks = picks => Array.isArray(picks) ? picks.map(p => p && typeof p === "object" && Array.isArray(p.v) ? p.v : p) : [];
 function qScore(it, pick){
   const t = qType(it);
@@ -2699,30 +2736,40 @@ async function finishRun(timedOut){
   const unanswered = S.order.filter((_, k) => S.picks[k] == null).length;
   const result = { uid: me.uid, name: me.displayName || "Someone", photo: me.photoURL || "", roundId: round.id, score, total: S.order.length, elapsedMs, timedOut: !!timedOut, bestStreak, finishedAt: new Date().toISOString(), order: S.order, picks: S.picks.slice(), createdAt: firebase.firestore.FieldValue.serverTimestamp() };
   S.lastResult = result; S.timedOut = !!timedOut; S.unanswered = unanswered; S.saved = "none";
-  if (!myOfficial() && isOpen(round)) {
+  const already = myRun();
+  if (already) S.saved = "dupe";
+  else if (!isOpen(round)) S.saved = "closed";
+  else {
     const { createdAt, ...doc } = result; doc.picks = packPicks(S.order, S.picks);
     const id = round.id + "_" + me.uid;
     savePending(loadPending().filter(x => x.id !== id).concat([{ id, roundId: round.id, doc, at: Date.now() }])); // on the phone before anything else
     S.saved = "saving"; render();
-    try { await dbf.collection("scores").doc(id).set(cleanDoc({ ...doc, createdAt: firebase.firestore.FieldValue.serverTimestamp() })); savePending(loadPending().filter(x => x.id !== id)); S.saved = "saved"; }
-    catch (e) { S.saved = "queued"; S.saveErr = (e && e.code) || "error"; lastFlushErr = S.saveErr; }
-  } else if (!isOpen(round)) S.saved = "closed";
+    await flushPending();  // the only writer, so this run can never be sent twice
+  }
   render(); window.scrollTo({ top: 0 });
 }
 function renderResult(){
   const r = S.lastResult; if (!r) { S.screen = "home"; return renderHome(); }
   const b = boardFor(round.id); const mine = rankOf(b).find(x => x.uid === me.uid);
+  const official = myOfficial(round.id);
+  /* if the board already holds a different run of mine, that is the score that counts: show it,
+     so this screen and the leaderboard can never disagree */
+  const other = official && official.finishedAt !== r.finishedAt ? official : null;
+  const show = other || r;
   let saveLine = "";
-  if (S.saved === "saving") saveLine = `<p class="note">Posting your score to the board…</p>`;
+  if (other) saveLine = `<p class="note"><b>This run doesn't count.</b> You already have an official score for ${esc(round.name)}, set ${esc(fmtDate(other.finishedAt))}, and that is the ${fmtScore(other.score)} / ${other.total} shown above and on the board. One run each.</p>`;
+  else if (S.saved === "saving") saveLine = `<p class="note">Posting your score to the board…</p>`;
   else if (S.saved === "saved") saveLine = `<p class="note">Posted to the leaderboard${mine ? ` — you're #${mine.rank} of ${b.length}` : ""}. ${seasonNoteFor(round)}</p>`;
-  else if (S.saved === "queued") saveLine = `<p class="note"><b>Your run is saved on this phone.</b> The board couldn't be reached (${esc(S.saveErr)}). It will keep retrying on its own; you can also <button class="linkbtn" id="retryPost">retry now</button>. Don't clear your browser data until it posts.</p>`;
+  else if (S.saved === "queued") saveLine = `<p class="note"><b>Your run is saved on this phone.</b> The board couldn't be reached (${esc(S.saveErr)}). It will keep retrying on its own; you can also <button class="linkbtn" id="retryPost">retry now</button>. Don't clear your browser data until it posts. This is your one run, so don't replay the round.</p>`;
+  else if (S.saved === "blocked") saveLine = `<p class="note"><b>This run can't be posted.</b> A score for this round is already saved under your name (${esc(S.saveErr)}), and a score can't be changed once set. Ask the host to look.</p>`;
+  else if (S.saved === "dupe") saveLine = `<p class="note"><b>This run doesn't count.</b> You already had a run for this round. One run each.</p>`;
   else if (S.saved === "closed") saveLine = `<p class="note">This round is closed, so this run doesn't post.</p>`;
 
   $view.innerHTML = `<div class="stack"><div class="card lift">
       <h3>Your score</h3>
-      <div class="stat"><span id="statNum">${fmtScore(r.score)}</span><small> / ${r.total}</small></div>
-      <div class="verdict">${r.timedOut ? "Time." : verdict(r.score, r.total)}</div>
-      <p class="note" style="margin-top:0">Time: ${fmtTime(r.elapsedMs)}${r.timedOut ? ` — the clock ran out${S.unanswered ? ` with ${S.unanswered} question${S.unanswered === 1 ? "" : "s"} unanswered` : ""}.` : ""}</p>
+      <div class="stat"><span id="statNum">${fmtScore(show.score)}</span><small> / ${show.total}</small></div>
+      <div class="verdict">${show.timedOut && !other ? "Time." : verdict(show.score, show.total)}</div>
+      <p class="note" style="margin-top:0">Time: ${fmtTime(show.elapsedMs)}${show.timedOut && !other ? ` — the clock ran out${S.unanswered ? ` with ${S.unanswered} question${S.unanswered === 1 ? "" : "s"} unanswered` : ""}.` : ""}</p>
       ${saveLine}
       <div class="row" style="margin-top:14px">
         <button class="btn" id="toBoard">See the leaderboard</button>
@@ -2734,7 +2781,7 @@ function renderResult(){
       ${S.review ? `<div class="review" style="margin-top:18px">${r.order.map((qi, k) => { const it = round.questions[qi]; const p = r.picks[k]; const st = qState(it, p);
         return `<div class="item"><div class="q">${k + 1}. ${esc(qLabel(it))}</div><div class="ans ${st === "right" ? "good" : st === "part" ? "part" : "bad"}">${reviewAns(it, p)}</div></div>`; }).join("")}</div>` : ""}
     </div>${b.length ? `<div><div class="section" style="margin-top:6px"><h3>The board</h3><span class="note">${b.length} played${everyonePlayed(round) ? " · everyone's in" : ""}</span></div><div class="board">${rankOf(b).slice(0, 5).map(rowHtml).join("")}</div></div>` : ""}</div>`;
-  if (!S.celebrated) { S.celebrated = true; const big = !r.timedOut && r.total && r.score / r.total >= 0.85; sfx(big ? "fanfare" : "reveal"); countUp($("statNum"), r.score); if (big) confetti(); }
+  if (!S.celebrated) { S.celebrated = true; const big = !show.timedOut && show.total && show.score / show.total >= 0.85; sfx(big ? "fanfare" : "reveal"); countUp($("statNum"), show.score); if (big) confetti(); }
   $("toBoard").onclick = () => { boardSel = round.id; setTab("board"); };
   wirePending();
   $("review").onclick = () => { S.review = !S.review; renderResult(); };
