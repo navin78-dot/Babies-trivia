@@ -1,9 +1,9 @@
 {
   "today": "2026-09-22",
   "season": 1,
-  "queueCount": 4,
+  "queueCount": 6,
   "target": 5,
-  "fill": 1,
+  "fill": 0,
   "queue": [
     {
       "id": "one-hit-wonders",
@@ -32,6 +32,20 @@
       "subject": "Big movies",
       "onPollSince": null,
       "retired": false
+    },
+    {
+      "id": "extra-time",
+      "name": "Extra Time",
+      "subject": "Sport",
+      "onPollSince": null,
+      "retired": false
+    },
+    {
+      "id": "where-on-earth",
+      "name": "Where On Earth",
+      "subject": "Geography",
+      "onPollSince": null,
+      "retired": false
     }
   ],
   "tonightsPoll": [
@@ -48,12 +62,7 @@
       "how": "poll"
     }
   ],
-  "requestsWaiting": [
-    {
-      "id": "TEl5AfFr8yrQiiDeJO8h",
-      "theme": "Geography"
-    }
-  ],
+  "requestsWaiting": [],
   "existingSubjects": [
     "Strike a Pose (Madonna)",
     "Over the Millennia (World history)",
@@ -69,7 +78,9 @@
     "Where Words Come From (Word origins)",
     "Console Wars (Video games)",
     "The Corner Office (Business leaders and companies)",
-    "Summer Blockbusters (Big movies)"
+    "Extra Time (Sport)",
+    "Summer Blockbusters (Big movies)",
+    "Where On Earth (Geography)"
   ],
-  "need": 2
+  "need": 0
 }
