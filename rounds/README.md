@@ -3,12 +3,14 @@
 Each `*.json` file here is one quiz round. On push to `main`, the
 **Publish rounds** workflow writes it into the Firestore `rounds` collection,
 and the live site loads it at startup. Adding a quiz this way costs no Netlify
-deploy, so use `[skip netlify]` in the commit message.
+deploy.
 
-**Never push a `[skip netlify]` commit on top of one that changes `index.html`.**
-Netlify reads only the newest commit in a push, so a trailing `[skip netlify]`
-cancels the build for everything behind it and the site change never goes live.
-Push site changes first and let them build, or leave the marker off entirely.
+**Do not put `[skip netlify]` in commit messages.** `netlify.toml` decides whether
+to deploy by looking at whether `index.html` actually changed since the last
+published deploy, which is correct no matter how commits are ordered in a push.
+The marker is worse: Netlify reads only the newest commit of a push, so a trailing
+data commit cancelled the build for a site change behind it and the change never
+went live. That happened once; the config exists so it cannot happen again.
 
 ## Shape
 

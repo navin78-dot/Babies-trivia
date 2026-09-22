@@ -26,6 +26,7 @@ Steps the daily session follows:
    real and checkable; when unsure of a detail, choose a different question.
    Options should be plausible, no joke answers, no "all of the above".
 4. Validate: `npm install firebase-admin@^12 --no-save --no-audit --no-fund && node scripts/publish-rounds.mjs --check`.
-5. Commit only the new round files with a message ending in `[skip netlify]`
-   (rounds are data, not a site deploy) and push to `main`. The Publish rounds
-   workflow puts them in Firestore on its own. Report which rounds were added.
+5. Commit only the new round files and push to `main`. Do **not** add
+   `[skip netlify]`; `netlify.toml` already skips a deploy when `index.html` has
+   not changed. The Publish rounds workflow puts the rounds in Firestore on its
+   own. Report which rounds were added.
