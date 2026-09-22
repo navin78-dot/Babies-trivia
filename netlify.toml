@@ -1,17 +1,15 @@
-# Babies' Trivia is one static file. There is nothing to compile, so the "build"
-# just publishes the repository root.
+# Babies' Trivia is one static file. Publish that file and nothing else: the repo
+# also holds the round JSON with every answer in it, and there is no reason to
+# serve that from the game's own domain.
 #
-# Only index.html is served, so a commit that touches nothing else does not need
-# a deploy. The ignore command below decides that from the files that actually
-# changed since the last published deploy, which is safer than putting a
-# [skip netlify] marker in a commit message: Netlify reads only the newest commit
-# of a push, so a trailing data commit used to cancel the build for a site change
-# behind it and the change never went live.
-#
-# git diff --quiet exits 0 when there is no difference, and Netlify cancels the
-# build on exit 0. So: index.html unchanged -> no deploy, index.html changed -> deploy.
+# The ignore command decides whether a deploy is needed from the files that
+# actually changed since the last published deploy, rather than from a marker in
+# a commit message. Netlify reads only the newest commit of a push, so a trailing
+# [skip netlify] used to cancel the build for a site change behind it and that
+# change never went live. git diff --quiet exits 0 when nothing changed, and
+# Netlify cancels the build on exit 0.
 
 [build]
-  publish = "."
-  command = "echo 'static site, nothing to build'"
+  publish = "public"
+  command = "mkdir -p public && cp index.html public/index.html"
   ignore = "git diff --quiet $CACHED_COMMIT_REF $COMMIT_REF -- index.html"
