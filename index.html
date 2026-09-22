@@ -1505,7 +1505,7 @@ function subscribeSite(){
 }
 function subscribeScores(){
   if (unsubScores) unsubScores();
-  unsubScores = dbf.collection("scores").onSnapshot(snap => { scores = snap.docs.map(d => ({ id: d.id, ...d.data() })); scoresReady = true; render(); },
+  unsubScores = dbf.collection("scores").onSnapshot(snap => { const first = !scoresReady; scores = snap.docs.map(d => ({ id: d.id, ...d.data() })); scoresReady = true; render(); if (first && loadPending().length) flushPending(); },
     err => { fatal = "Couldn't load scores: " + (err.code || err.message); render(); });
 }
 /* --- presence: who is mid-quiz right now --- */
@@ -2621,17 +2621,18 @@ const pendingBlocked = () => loadPending().filter(x => x.blocked);
    permission-denied means a score for that round already exists: if that is mine the run is
    already on the board and the copy here can go; otherwise stop retrying and say so. */
 async function flushPending(force){
-  if (!me || flushing) return; flushing = true;
+  if (!me || flushing || !scoresReady) return; // the board tells a duplicate from a real failure
+  flushing = true;
   for (const item of loadPending()) {
     if (inflight.has(item.id) || (item.blocked && !force)) continue;
     inflight.add(item.id);
     try {
-      if (scoresReady && boardFor(item.roundId).some(s => s.uid === me.uid)) { dropPending(item.id); continue; }
+      if (boardFor(item.roundId).some(s => s.uid === me.uid)) { dropPending(item.id); continue; } // already on the board
       await dbf.collection("scores").doc(item.id).set(cleanDoc({ ...item.doc, createdAt: firebase.firestore.FieldValue.serverTimestamp() }));
       dropPending(item.id); lastFlushErr = "";
     } catch (e) {
       const code = (e && e.code) || "error"; lastFlushErr = code;
-      const mineOnBoard = scoresReady && boardFor(item.roundId).some(s => s.uid === me.uid);
+      const mineOnBoard = boardFor(item.roundId).some(s => s.uid === me.uid);
       if (code === "permission-denied" && mineOnBoard) dropPending(item.id);
       else markPending(item.id, code, code === "permission-denied");
     } finally { inflight.delete(item.id); }
