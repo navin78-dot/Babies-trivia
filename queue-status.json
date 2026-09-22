@@ -1,21 +1,14 @@
 {
-  "today": "2026-09-21",
+  "today": "2026-09-22",
   "season": 1,
-  "queueCount": 5,
+  "queueCount": 4,
   "target": 5,
-  "need": 0,
+  "fill": 1,
   "queue": [
     {
       "id": "one-hit-wonders",
       "name": "One Hit Wonders",
       "subject": "One hit wonders",
-      "onPollSince": "2026-09-21",
-      "retired": false
-    },
-    {
-      "id": "plate-to-place",
-      "name": "Plate to Place",
-      "subject": "Food origins",
       "onPollSince": "2026-09-21",
       "retired": false
     },
@@ -30,7 +23,7 @@
       "id": "console-wars",
       "name": "Console Wars",
       "subject": "Video games",
-      "onPollSince": null,
+      "onPollSince": "2026-09-22",
       "retired": false
     },
     {
@@ -43,12 +36,24 @@
   ],
   "tonightsPoll": [
     "one-hit-wonders",
-    "plate-to-place",
-    "great-heists"
+    "great-heists",
+    "console-wars"
   ],
   "override": null,
-  "dropped": [],
-  "requestsWaiting": [],
+  "dropped": [
+    {
+      "day": "2026-09-22",
+      "id": "plate-to-place",
+      "name": "Plate to Place",
+      "how": "poll"
+    }
+  ],
+  "requestsWaiting": [
+    {
+      "id": "TEl5AfFr8yrQiiDeJO8h",
+      "theme": "Geography"
+    }
+  ],
   "existingSubjects": [
     "Strike a Pose (Madonna)",
     "Over the Millennia (World history)",
@@ -65,5 +70,6 @@
     "Console Wars (Video games)",
     "The Corner Office (Business leaders and companies)",
     "Summer Blockbusters (Big movies)"
-  ]
+  ],
+  "need": 2
 }
