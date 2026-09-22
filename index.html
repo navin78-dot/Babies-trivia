@@ -71,6 +71,7 @@ h1 .bt-baby{font-size:.86em;vertical-align:-.02em;margin:0 -.02em}
 .account{display:flex;align-items:center;gap:8px;font-size:13px;color:var(--cream2);margin-left:6px}
 .mechip{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.1);border-radius:999px;padding:3px 12px 3px 3px;cursor:pointer;color:var(--cream);font-weight:700;font-size:13px}
 .mechip:hover{background:rgba(255,255,255,.14)}
+.mechip.on{background:var(--paper);color:var(--ink);border-color:var(--paper)}
 .linkbtn{background:none;border:0;padding:4px 6px;color:var(--muted);cursor:pointer;text-decoration:underline;font-size:13px;font-weight:600}
 .linkbtn:hover{color:var(--text)}
 
@@ -371,6 +372,41 @@ input[type=range]{width:100%;accent-color:var(--accent)}
 .sbar i{display:block;height:100%;border-radius:99px;background:linear-gradient(90deg,var(--accent),color-mix(in srgb,var(--accent) 55%, var(--accent2)))}
 .sval{font-size:14px;font-variant-numeric:tabular-nums;min-width:74px;text-align:right;font-weight:700}
 .sval small{color:var(--muted);font-size:11px;font-weight:600}
+/* ---------- chat ---------- */
+.tabcount{display:inline-block;min-width:16px;height:16px;padding:0 4px;border-radius:99px;background:var(--accent);color:#fff;font-size:10px;font-weight:800;line-height:16px;text-align:center;margin-left:5px;vertical-align:1px;box-shadow:0 0 10px color-mix(in srgb,var(--accent) 60%, transparent)}
+@media (max-width:430px){.tabs .tab{padding:9px 11px;font-size:14.5px}.tabs{padding:3px}}
+@media (max-width:400px){.tabs .tab{padding:9px 8px;font-size:13.5px;letter-spacing:-.01em}.tabcount{margin-left:4px}}
+/* on a narrow phone the row scrolls; fade the right edge so that reads as more to come */
+#view .tabs{position:relative;-webkit-mask-image:linear-gradient(90deg,#000 0,#000 calc(100% - 22px),transparent 100%);mask-image:linear-gradient(90deg,#000 0,#000 calc(100% - 22px),transparent 100%)}
+@media (min-width:431px){#view .tabs{-webkit-mask-image:none;mask-image:none}}
+.tab[aria-selected="true"] .tabcount{background:var(--accent)}
+.banner.chatping{display:flex;align-items:center;gap:10px;flex-wrap:wrap;justify-content:space-between}
+.banner.chatping b{color:var(--cream)}
+.banner.chatping.tagged{background:linear-gradient(120deg,color-mix(in srgb,var(--accent) 30%, var(--stage2)),var(--stage2));border-color:color-mix(in srgb,var(--accent) 55%, transparent)}
+.chatbox{padding:16px}
+.chatto{display:flex;flex-wrap:wrap;gap:6px;align-items:center;margin-bottom:12px}
+.chatto .tolab{font-size:10px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-right:2px}
+.tochip{display:inline-flex;align-items:center;gap:2px;border:1.5px solid var(--line);background:var(--paper2);color:var(--ink);border-radius:999px;padding:5px 11px;font-size:13px;font-weight:700;cursor:pointer}
+.tochip.on{background:var(--ink);border-color:var(--ink);color:var(--cream)}
+.tochip .emoav.xs{margin-right:4px}
+.chatgenres{margin:0 0 12px}
+.chatgenres .chip{font-size:12.5px}
+.chatlines{display:grid;gap:7px}
+.chatline{text-align:left;background:var(--paper2);border:1.5px solid var(--line);border-radius:13px;padding:11px 13px;font-size:14.5px;font-weight:600;color:var(--ink);cursor:pointer;box-shadow:0 2px 0 var(--line);transition:transform .1s ease,border-color .12s ease,background .12s ease}
+.chatline:hover:not([disabled]){border-color:var(--accent);background:color-mix(in srgb,var(--accent) 8%, var(--paper2))}
+.chatline:active:not([disabled]){transform:translateY(2px);box-shadow:none}
+.chatline[disabled]{opacity:.5;cursor:default}
+.thread{display:grid;gap:8px;margin-top:14px}
+.cmsg{display:grid;grid-template-columns:auto 1fr auto;gap:10px;align-items:flex-start;padding:11px 13px;border-radius:16px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.09)}
+.cmsg.mine{background:color-mix(in srgb,var(--accent) 14%, rgba(255,255,255,.05));border-color:color-mix(in srgb,var(--accent) 35%, transparent)}
+.cmsg.atme{box-shadow:inset 3px 0 0 var(--gold)}
+.cbody{min-width:0}
+.cwho{font-size:11px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:var(--cream2);display:flex;gap:7px;align-items:baseline;flex-wrap:wrap}
+.ctag{color:var(--gold);text-transform:none;letter-spacing:0;font-size:12px}
+.cwhen{font-weight:600;color:var(--cream2);opacity:.7;letter-spacing:0;text-transform:none;font-size:11px}
+.ctext{color:var(--cream);font-size:15px;line-height:1.4;margin-top:3px}
+.cdel{background:none;border:0;color:var(--cream2);font-size:20px;line-height:1;cursor:pointer;padding:0 2px;opacity:.5}
+.cdel:hover{opacity:1;color:var(--bad)}
 .lcard{background:var(--paper);border-radius:20px;padding:16px 18px;margin-bottom:12px;box-shadow:var(--shadow);position:relative;overflow:hidden}
 .lcard::before{content:"";position:absolute;inset:0 auto 0 0;width:5px;background:var(--ra,var(--accent))}
 .lhead{display:flex;align-items:center;gap:9px;margin-bottom:10px}
@@ -1416,7 +1452,8 @@ let siteCfg = {};              // site/config document (tagline, announcement, l
 let liveIds = new Set();       // draft rounds the host has promoted to the lobby (site config liveRounds)
 let scores = [];               // every score doc
 let scoresReady = false;
-let unsubScores = null, unsubSite = null, unsubPresence = null, unsubVotes = null, unsubRounds = null, unsubSugg = null, unsubReq = null;
+let unsubScores = null, unsubSite = null, unsubPresence = null, unsubVotes = null, unsubRounds = null, unsubSugg = null, unsubReq = null, unsubChat = null;
+let chat = [], chatReady = false;      // the ready-made-line thread
 let suggestions = [], requests = [];  // host only: the suggestion box and theme requests
 let profiles = {}, unsubProfiles = null; // uid -> { emoji, name } from the profiles collection
 let votes = [], votesReady = false;   // poll votes, one doc per player
@@ -1483,9 +1520,9 @@ async function signIn(){
 auth.getRedirectResult().catch(() => {});
 auth.onAuthStateChanged(async u => {
   me = u; isHost = false; fatal = "";
-  if (me) { setTimeout(flushPending, 1500); isHost = await probeHost(); subscribeSite(); subscribeScores(); subscribePresence(); subscribeVotes(); subscribeRounds(); subscribeProfiles(); if (isHost) subscribeHostData();
+  if (me) { setTimeout(flushPending, 1500); isHost = await probeHost(); subscribeSite(); subscribeScores(); subscribePresence(); subscribeVotes(); subscribeRounds(); subscribeProfiles(); subscribeChat(); if (isHost) subscribeHostData();
     if (pendingRound && roundById(pendingRound) && isPublished(roundById(pendingRound))) { const id = pendingRound; pendingRound = null; selectRound(id); return; } pendingRound = null; }
-  else { if (unsubScores) { unsubScores(); unsubScores = null; } if (unsubSite) { unsubSite(); unsubSite = null; } if (unsubPresence) { unsubPresence(); unsubPresence = null; } if (unsubVotes) { unsubVotes(); unsubVotes = null; } if (unsubRounds) { unsubRounds(); unsubRounds = null; } if (unsubSugg) { unsubSugg(); unsubSugg = null; } if (unsubReq) { unsubReq(); unsubReq = null; } suggestions = []; requests = []; if (unsubProfiles) { unsubProfiles(); unsubProfiles = null; } profiles = {}; votes = []; votesReady = false; presence = []; presenceRound = null; stopTimer(); if (hbTimer) { clearInterval(hbTimer); hbTimer = null; } round = null; S.tab = "play"; }
+  else { if (unsubScores) { unsubScores(); unsubScores = null; } if (unsubSite) { unsubSite(); unsubSite = null; } if (unsubPresence) { unsubPresence(); unsubPresence = null; } if (unsubVotes) { unsubVotes(); unsubVotes = null; } if (unsubRounds) { unsubRounds(); unsubRounds = null; } if (unsubChat) { unsubChat(); unsubChat = null; } chat = []; chatReady = false; if (unsubSugg) { unsubSugg(); unsubSugg = null; } if (unsubReq) { unsubReq(); unsubReq = null; } suggestions = []; requests = []; if (unsubProfiles) { unsubProfiles(); unsubProfiles = null; } profiles = {}; votes = []; votesReady = false; presence = []; presenceRound = null; stopTimer(); if (hbTimer) { clearInterval(hbTimer); hbTimer = null; } round = null; S.tab = "play"; }
   renderAll();
 });
 async function probeHost(){
@@ -1919,7 +1956,7 @@ function renderAll(){
 function renderAccount(){
   const a = $("account");
   if (!me) { a.innerHTML = ""; return; }
-  a.innerHTML = `${isHost ? `<button class="linkbtn" id="hostBtn">Host</button>` : ""}<button class="mechip" id="meChip" title="Your avatar, sound and stats">${avatarHtml(me.uid, me.photoURL, "sm")}<span>${esc((me.displayName || "You").split(" ")[0])}</span></button>`;
+  a.innerHTML = `${isHost ? `<button class="linkbtn" id="hostBtn">Host</button>` : ""}<button class="mechip${lobbyTab === "me" && !round ? " on" : ""}" id="meChip" title="You: avatar, sound, your numbers and the suggestion box" aria-label="You: avatar, sound, your numbers">${avatarHtml(me.uid, me.photoURL, "sm")}<span>${esc((me.displayName || "You").split(" ")[0])}</span></button>`;
   $("meChip").onclick = () => { round = null; stopTimer(); lobbyTab = "me"; renderAll(); window.scrollTo({ top: 0 }); };
   const hb = $("hostBtn"); if (hb) hb.onclick = () => selectRound(round ? round.id : (ROUNDS.filter(isPublished).sort(byRecent)[0] || ROUNDS[0]).id, "host");
 }
@@ -1958,17 +1995,23 @@ const boardTitle = sel => sel === ALL ? "All time" : isSeasonKey(sel) ? "Season 
 function renderLobby(){
   const P = dropPlan(); const needsVote = votesReady && P.options.length > 0 && !P.options.some(o => o.id === myVote(P.today));
   const tabs = `<div class="tabs" role="tablist">
-    <button class="tab" role="tab" aria-selected="${lobbyTab === "rounds"}" data-ltab="rounds">Rounds</button>
+    <button class="tab" role="tab" aria-selected="${lobbyTab === "rounds"}" data-ltab="rounds">Play</button>
+    <button class="tab" role="tab" aria-selected="${lobbyTab === "chat"}" data-ltab="chat">Chat${chatNew().length ? `<span class="tabcount">${chatTags().length ? "@" : ""}${chatNew().length}</span>` : ""}</button>
     <button class="tab" role="tab" aria-selected="${lobbyTab === "poll"}" data-ltab="poll">Vote${needsVote ? `<span class="tabdot" title="You haven't voted"></span>` : ""}</button>
     <button class="tab" role="tab" aria-selected="${lobbyTab === "stats"}" data-ltab="stats">Stats</button>
     <button class="tab" role="tab" aria-selected="${lobbyTab === "learn"}" data-ltab="learn">Learn</button>
-    <button class="tab" role="tab" aria-selected="${lobbyTab === "me"}" data-ltab="me">Me</button>
   </div>`;
-  const wire = () => { wirePending(); document.querySelectorAll("[data-ltab]").forEach(b => b.onclick = () => { sfx("click"); lobbyTab = b.dataset.ltab; renderLobby(); window.scrollTo({ top: 0 }); }); };
-  const ann = (siteCfg.announcement || "").trim(); const strip = pendingBannerHtml() + (ann ? `<div class="banner ann">${esc(ann)}</div>` : "");
+  const wire = () => { wirePending();
+    document.querySelectorAll("[data-ltab]").forEach(b => b.onclick = () => { sfx("click"); lobbyTab = b.dataset.ltab; renderLobby(); window.scrollTo({ top: 0 }); });
+    const sel = document.querySelector("#view .tabs .tab[aria-selected='true']");
+    if (sel && sel.scrollIntoView) { try { sel.scrollIntoView({ block: "nearest", inline: "nearest" }); } catch (e) {} }
+  };
+  const ann = (siteCfg.announcement || "").trim();
+  const strip = pendingBannerHtml() + (lobbyTab === "rounds" ? chatPingHtml() : "") + (ann ? `<div class="banner ann">${esc(ann)}</div>` : "");
   if (lobbyTab === "poll") { $view.innerHTML = strip + tabs + seasonLineHtml() + pollHtml(); wire(); wirePoll(); return; }
   if (lobbyTab === "stats") { $view.innerHTML = strip + tabs + seasonLineHtml() + statsHtml(); wire(); return; }
   if (lobbyTab === "learn") { $view.innerHTML = strip + tabs + seasonLineHtml() + learnHtml(); wire(); wireLearn(); return; }
+  if (lobbyTab === "chat") { $view.innerHTML = strip + tabs + chatHtml(); wire(); wireChat(); return; }
   if (lobbyTab === "me") { $view.innerHTML = strip + tabs + seasonLineHtml() + meHtml(); wire(); wireMe(); return; }
   return renderRounds(strip + tabs + seasonHeroHtml(), wire);
 }
@@ -2048,6 +2091,112 @@ function statsHtml(){
       <div class="chips"><span class="pill">Easy ${pct(p.diff.easy[0], p.diff.easy[1])}%</span><span class="pill">Medium ${pct(p.diff.medium[0], p.diff.medium[1])}%</span><span class="pill">Hard ${pct(p.diff.hard[0], p.diff.hard[1])}%</span><span class="pill">${spq}s per question</span><span class="pill">Best run ${p.streak}</span><span class="pill">Only they got it: ${p.solo}</span><span class="pill">${p.runs} round${p.runs === 1 ? "" : "s"}</span>${p.timeouts ? `<span class="pill">${p.timeouts} timed out</span>` : ""}</div></div>`; }).join("");
   return tiles + diff + typ + toughHtml + soloHtml + `<div class="section"><h3>Player stats</h3><span class="note">Each of you, ranked by accuracy</span></div>${cards}`;
 }
+/* --- Chat: a running thread built from a library of ready-made lines, so nobody has to type.
+   Pick who it is aimed at, pick a mood, tap a line and it posts. --- */
+const CHAT_LIB = [
+  { id: "trash", name: "Talk trash", emoji: "🔥", lines: [
+    "Is that your final answer?", "Bold of you to even press start.", "That leaderboard spot is a choice.",
+    "Careful, my grandmother is catching up.", "I'd explain it, but you'd only get it wrong.",
+    "Somebody call a doctor, that score is unwell.", "You peaked at question one.", "Cute score. Adorable, really." ] },
+  { id: "love", name: "Show love", emoji: "💛", lines: [
+    "Great run!", "You'll get the next one.", "Genuinely impressive.", "Respect, that was a hard round.",
+    "That question was unfair, don't worry about it.", "Comeback incoming, I can feel it.", "Solid effort.", "Carrying us all, as usual." ] },
+  { id: "react", name: "React", emoji: "😮", lines: [
+    "No way.", "How did you know that?", "I refuse to believe this.", "Absolute scenes.",
+    "That hurt to read.", "Chef's kiss.", "Screenshotting this.", "Crying, actually." ] },
+  { id: "challenge", name: "Challenge", emoji: "🥊", lines: [
+    "Beat my score. I dare you.", "Rematch. Tonight.", "Loser buys dinner.", "Winner picks the next theme.",
+    "Bet you can't top that.", "I'm coming for the crown.", "Name your terms." ] },
+  { id: "excuse", name: "Make excuses", emoji: "🫠", lines: [
+    "I was on the train.", "My phone died mid-round.", "Somebody called me, I swear.", "I hadn't had coffee yet.",
+    "The timer is too fast.", "I meant to press the other one.", "Fat fingers." ] },
+  { id: "call", name: "Round up", emoji: "📣", lines: [
+    "Who's playing tonight?", "Just finished. Your turn.", "This round closes soon, get in.",
+    "Good luck everyone.", "I'm in.", "Someone play so I'm not alone in here." ] },
+];
+const CHAT_MAX = 200;
+const chatSeenAt = () => (me && profiles[me.uid] && profiles[me.uid].chatSeen) || "";
+const chatNew = () => chat.filter(m => m.uid !== (me && me.uid) && (m.at || "") > chatSeenAt());
+const chatTags = () => chatNew().filter(m => m.tag === (me && me.uid));
+function subscribeChat(){
+  if (unsubChat) unsubChat();
+  unsubChat = dbf.collection("chat").orderBy("at", "desc").limit(CHAT_MAX).onSnapshot(
+    snap => { chat = snap.docs.map(d => ({ id: d.id, ...d.data() })); chatReady = true; render(); },
+    () => { chatReady = true; });
+}
+let seenWriting = "";
+async function markChatSeen(){
+  if (!me || !chat.length) return;
+  const newest = chat[0].at || ""; if (!newest || newest <= chatSeenAt() || seenWriting === newest) return;
+  seenWriting = newest;
+  try { await dbf.collection("profiles").doc(me.uid).set({ uid: me.uid, chatSeen: newest }, { merge: true }); } catch (e) {}
+}
+let sending = false;
+async function sendChat(text, tagUid){
+  if (!me || sending) return; sending = true;
+  const msg = { uid: me.uid, name: me.displayName || "Someone", text: String(text).slice(0, 200), tag: tagUid || null,
+    tagName: tagUid ? firstName(nameOf(tagUid)) : null, at: new Date().toISOString(), createdAt: firebase.firestore.FieldValue.serverTimestamp() };
+  try { await dbf.collection("chat").add(msg); sfx("click"); }
+  catch (e) { const el = $("chatMsg"); if (el) el.textContent = "Couldn't send (" + ((e && e.code) || "error") + ")."; }
+  sending = false; render();
+}
+const firstName = n => String(n || "Someone").split(" ")[0];
+function chatPlayers(){
+  const ids = new Set(); scores.forEach(s => ids.add(s.uid)); Object.keys(profiles).forEach(k => ids.add(k)); chat.forEach(m => ids.add(m.uid));
+  if (me) ids.delete(me.uid);
+  return [...ids].map(uid => ({ uid, name: nameOf(uid) })).filter(p => p.name).sort((a, b) => firstName(a.name).localeCompare(firstName(b.name)));
+}
+function chatHtml(){
+  const genre = CHAT_LIB.find(g => g.id === S.chatGenre) || CHAT_LIB[0];
+  const players = chatPlayers();
+  const to = S.chatTo && players.some(p => p.uid === S.chatTo) ? S.chatTo : null;
+  const toRow = players.length ? `<div class="chatto"><span class="tolab">To</span>
+      <button class="tochip${to ? "" : " on"}" data-to="">Everyone</button>
+      ${players.map(p => `<button class="tochip${to === p.uid ? " on" : ""}" data-to="${esc(p.uid)}">${avatarMini(p.uid)}${esc(firstName(p.name))}</button>`).join("")}</div>` : "";
+  const pills = `<div class="chips chatgenres">${CHAT_LIB.map(g => `<button class="chip" data-genre="${g.id}" aria-pressed="${g.id === genre.id}">${g.emoji} ${esc(g.name)}</button>`).join("")}</div>`;
+  const lines = `<div class="chatlines">${genre.lines.map((l, i) => `<button class="chatline" data-line="${i}">${esc(l)}</button>`).join("")}</div>`;
+  const thread = !chatReady ? `<div class="board"><div class="empty">Loading…</div></div>`
+    : !chat.length ? `<div class="board"><div class="empty">Nothing said yet. Pick a mood above and start something.</div></div>`
+    : `<div class="thread">${chat.map(m => {
+        const mine = m.uid === (me && me.uid), atMe = m.tag === (me && me.uid);
+        return `<div class="cmsg${mine ? " mine" : ""}${atMe ? " atme" : ""}">
+          <div class="cav">${avatarHtml(m.uid, m.photo, "sm")}</div>
+          <div class="cbody"><div class="cwho">${esc(firstName(m.name))}${m.tagName ? ` <span class="ctag">@${esc(m.tagName)}</span>` : ""}<span class="cwhen">${esc(fmtWhen(m.at))}</span></div>
+            <div class="ctext">${esc(m.text || "")}</div></div>
+          ${isHost ? `<button class="cdel" data-delmsg="${esc(m.id)}" aria-label="Delete this message" title="Delete">×</button>` : ""}
+        </div>`; }).join("")}</div>`;
+  return `<div class="section"><h3>Chat</h3><span class="note">${chat.length ? chat.length + (chat.length === 1 ? " message" : " messages") : "Ready-made lines only"}</span></div>
+    <div class="card chatbox">${toRow}${pills}${lines}<p class="note msg" id="chatMsg" style="margin:8px 0 0"></p></div>
+    ${thread}`;
+}
+function fmtWhen(iso){
+  if (!iso) return "";
+  const ms = Date.now() - Date.parse(iso);
+  if (!(ms >= 0)) return "";
+  if (ms < 60000) return "just now";
+  if (ms < 3600000) return Math.floor(ms / 60000) + "m ago";
+  if (ms < 86400000) return Math.floor(ms / 3600000) + "h ago";
+  return fmtDate(iso);
+}
+function wireChat(){
+  markChatSeen();
+  document.querySelectorAll("[data-genre]").forEach(b => b.onclick = () => { S.chatGenre = b.dataset.genre; sfx("click"); renderLobby(); });
+  document.querySelectorAll("[data-to]").forEach(b => b.onclick = () => { S.chatTo = b.dataset.to || null; sfx("click"); renderLobby(); });
+  const genre = CHAT_LIB.find(g => g.id === S.chatGenre) || CHAT_LIB[0];
+  document.querySelectorAll("[data-line]").forEach(b => b.onclick = () => { b.disabled = true; sendChat(genre.lines[+b.dataset.line], S.chatTo || null); });
+  document.querySelectorAll("[data-delmsg]").forEach(b => b.onclick = async () => { if (!confirm("Delete this message?")) return; try { await dbf.collection("chat").doc(b.dataset.delmsg).delete(); } catch (e) { alert("Couldn't delete: " + ((e && e.code) || "error")); } });
+}
+/* the strip on the front page when something is waiting for you */
+function chatPingHtml(){
+  const tags = chatTags(), all = chatNew();
+  if (!all.length) return "";
+  const who = firstName(tags.length ? tags[0].name : all[0].name);
+  const line = tags.length
+    ? `<b>${esc(who)} tagged you in the chat.</b> ${tags.length > 1 ? tags.length + " messages mention you." : esc(tags[0].text || "")}`
+    : `<b>${all.length === 1 ? "1 new message" : all.length + " new messages"} in the chat.</b> Last from ${esc(who)}.`;
+  return `<div class="banner chatping${tags.length ? " tagged" : ""}">${line} <button class="linkbtn" id="toChat">Open chat</button></div>`;
+}
+
 /* --- Learn: every question you got wrong or only part right, with the answer.
    The eye reveals the explanation written with the question, plus any longer
    background the round carries in a "more" field. --- */
@@ -2196,6 +2345,7 @@ function renderRounds(tabs, wire){
   wire();
   const ob = $("lobbyOld"); if (ob) ob.onclick = () => { lobbyOld = !lobbyOld; renderLobby(); };
   const sh = $("seasonHow"); if (sh) sh.onclick = () => { S.seasonHow = !S.seasonHow; renderLobby(); };
+  const tc = $("toChat"); if (tc) tc.onclick = () => { lobbyTab = "chat"; renderLobby(); window.scrollTo({ top: 0 }); };
   const pn = $("playNextBtn"); if (pn) pn.onclick = () => { const r = seasonRounds(currentSeason()).sort(byRecent).find(x => isOpen(x) && !boardFor(x.id).some(s => s.uid === me.uid)); if (r) selectRound(r.id); };
   document.querySelectorAll(".tile").forEach(c => c.onclick = () => selectRound(c.dataset.r));
   $("lobbyPick").onchange = e => { lobbySel = e.target.value; lobbyAll = false; renderLobby(); };
