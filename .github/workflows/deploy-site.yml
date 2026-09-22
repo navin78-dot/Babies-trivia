@@ -1,0 +1,43 @@
+name: Deploy site
+
+# Netlify normally learns about a push through a webhook GitHub sends it. That
+# webhook stopped firing on 22 Sep 2026 and three site changes sat unbuilt
+# until a deploy was triggered by hand. This workflow does the nudge itself:
+# on every push that changes the page, it asks Netlify to build main through a
+# build hook. Netlify still fetches the repo and runs netlify.toml as usual.
+#
+# Needs one repository secret, NETLIFY_BUILD_HOOK: the URL of a build hook made
+# in Netlify under Project configuration -> Build & deploy -> Build hooks.
+# Only pushes that touch index.html or netlify.toml trigger it, so data-only
+# pushes (rounds, reports) never cost a build.
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - index.html
+      - netlify.toml
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Ask Netlify to build main
+        env:
+          HOOK: ${{ secrets.NETLIFY_BUILD_HOOK }}
+        run: |
+          if [ -z "$HOOK" ]; then
+            echo "::error::Repository secret NETLIFY_BUILD_HOOK is not set. Create a build hook in Netlify and save its URL as that secret."
+            exit 1
+          fi
+          case "$HOOK" in
+            https://api.netlify.com/build_hooks/*) ;;
+            *) echo "::error::NETLIFY_BUILD_HOOK does not look like a Netlify build hook URL."; exit 1 ;;
+          esac
+          code=$(curl -sS -o /dev/null -w '%{http_code}' -X POST -d '{}' "$HOOK")
+          if [ "$code" != "200" ] && [ "$code" != "201" ]; then
+            echo "::error::Netlify answered HTTP $code to the build hook."
+            exit 1
+          fi
+          echo "Netlify accepted the build request (HTTP $code). It builds main from GitHub as normal."
