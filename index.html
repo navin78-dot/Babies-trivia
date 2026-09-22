@@ -400,6 +400,8 @@ input[type=range]{width:100%;accent-color:var(--accent)}
 .cmsg{display:grid;grid-template-columns:auto 1fr auto;gap:10px;align-items:flex-start;padding:11px 13px;border-radius:16px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.09)}
 .cmsg.mine{background:color-mix(in srgb,var(--accent) 14%, rgba(255,255,255,.05));border-color:color-mix(in srgb,var(--accent) 35%, transparent)}
 .cmsg.atme{box-shadow:inset 3px 0 0 var(--gold)}
+.cmsg.fresh{border-color:color-mix(in srgb,var(--accent) 45%, transparent)}
+.cnew{font-size:9px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:#fff;background:var(--accent);border-radius:99px;padding:2px 6px;line-height:1.2}
 .cbody{min-width:0}
 .cwho{font-size:11px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:var(--cream2);display:flex;gap:7px;align-items:baseline;flex-wrap:wrap}
 .ctag{color:var(--gold);text-transform:none;letter-spacing:0;font-size:12px}
@@ -2002,7 +2004,7 @@ function renderLobby(){
     <button class="tab" role="tab" aria-selected="${lobbyTab === "learn"}" data-ltab="learn">Learn</button>
   </div>`;
   const wire = () => { wirePending();
-    document.querySelectorAll("[data-ltab]").forEach(b => b.onclick = () => { sfx("click"); lobbyTab = b.dataset.ltab; renderLobby(); window.scrollTo({ top: 0 }); });
+    document.querySelectorAll("[data-ltab]").forEach(b => b.onclick = () => { sfx("click"); if (b.dataset.ltab !== "chat") S.chatSeenMark = null; lobbyTab = b.dataset.ltab; renderLobby(); window.scrollTo({ top: 0 }); });
     const sel = document.querySelector("#view .tabs .tab[aria-selected='true']");
     if (sel && sel.scrollIntoView) { try { sel.scrollIntoView({ block: "nearest", inline: "nearest" }); } catch (e) {} }
   };
@@ -2147,6 +2149,8 @@ function chatPlayers(){
   return [...ids].map(uid => ({ uid, name: nameOf(uid) })).filter(p => p.name).sort((a, b) => firstName(a.name).localeCompare(firstName(b.name)));
 }
 function chatHtml(){
+  if (S.chatSeenMark == null) S.chatSeenMark = chatSeenAt();  // held until you leave the tab
+  const mark = S.chatSeenMark;
   const genre = CHAT_LIB.find(g => g.id === S.chatGenre) || CHAT_LIB[0];
   const players = chatPlayers();
   const to = S.chatTo && players.some(p => p.uid === S.chatTo) ? S.chatTo : null;
@@ -2159,9 +2163,10 @@ function chatHtml(){
     : !chat.length ? `<div class="board"><div class="empty">Nothing said yet. Pick a mood above and start something.</div></div>`
     : `<div class="thread">${chat.map(m => {
         const mine = m.uid === (me && me.uid), atMe = m.tag === (me && me.uid);
-        return `<div class="cmsg${mine ? " mine" : ""}${atMe ? " atme" : ""}">
+        const fresh = !mine && (m.at || "") > mark;
+        return `<div class="cmsg${mine ? " mine" : ""}${atMe ? " atme" : ""}${fresh ? " fresh" : ""}">
           <div class="cav">${avatarHtml(m.uid, m.photo, "sm")}</div>
-          <div class="cbody"><div class="cwho">${esc(firstName(m.name))}${m.tagName ? ` <span class="ctag">@${esc(m.tagName)}</span>` : ""}<span class="cwhen">${esc(fmtWhen(m.at))}</span></div>
+          <div class="cbody"><div class="cwho">${esc(firstName(m.name))}${m.tagName ? ` <span class="ctag">@${esc(m.tagName)}</span>` : ""}<span class="cwhen">${esc(fmtWhen(m.at))}</span>${fresh ? `<span class="cnew">new</span>` : ""}</div>
             <div class="ctext">${esc(m.text || "")}</div></div>
           ${isHost ? `<button class="cdel" data-delmsg="${esc(m.id)}" aria-label="Delete this message" title="Delete">×</button>` : ""}
         </div>`; }).join("")}</div>`;

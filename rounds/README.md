@@ -5,6 +5,11 @@ Each `*.json` file here is one quiz round. On push to `main`, the
 and the live site loads it at startup. Adding a quiz this way costs no Netlify
 deploy, so use `[skip netlify]` in the commit message.
 
+**Never push a `[skip netlify]` commit on top of one that changes `index.html`.**
+Netlify reads only the newest commit in a push, so a trailing `[skip netlify]`
+cancels the build for everything behind it and the site change never goes live.
+Push site changes first and let them build, or leave the marker off entirely.
+
 ## Shape
 
 ```json
