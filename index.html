@@ -2008,10 +2008,10 @@ function pickerHtml(id, sel){
 }
 function boardList(sel){ return sel === ALL ? combined() : isSeasonKey(sel) ? combinedFor(seasonRounds(+sel.slice(SEASON_KEY.length))) : boardFor(sel); }
 /* --- Medals: gold, silver and bronze for first, second and third in each round. A round only
-   awards them once three people have played it, so there is a real podium, and they can move
-   until everyone has played. Points stay the ranking; medals sit beside it, with a medal-table
-   view that orders by gold, then silver, then bronze, the way the Olympics does. --- */
-const MEDAL_MIN = 3;
+   awards them once five people have finished it, so the podium is settled before anyone gets a
+   medal. Points stay the ranking; medals sit beside it, with a medal-table view ranked by total
+   medals (gold, silver, bronze only order ties). --- */
+const MEDAL_MIN = 5;
 let boardMode = "points";     // "points" or "medals", shared by the lobby and the round board
 const isCombined = sel => sel === ALL || isSeasonKey(sel);
 const medalRounds = sel => sel === ALL ? ROUNDS.filter(isPublished) : isSeasonKey(sel) ? seasonRounds(+sel.slice(SEASON_KEY.length)) : [];
@@ -2042,7 +2042,7 @@ function medalRowHtml(e){
   </div>`;
 }
 const modeToggleHtml = () => `<div class="seg" role="tablist" aria-label="Rank by"><button role="tab" data-mode="points" aria-pressed="${boardMode === "points"}">Points</button><button role="tab" data-mode="medals" aria-pressed="${boardMode === "medals"}">Medals</button></div>`;
-const MEDAL_NOTE = `<p class="note">Ranked by total medals. Gold, silver and bronze for first, second and third in each round. A round awards them once three people have played it, and they can move until everyone has.</p>`;
+const MEDAL_NOTE = `<p class="note">Ranked by total medals. Gold, silver and bronze for first, second and third in each round. A round awards them once five people have finished it.</p>`;
 const boardTitle = sel => sel === ALL ? "All time" : isSeasonKey(sel) ? "Season " + sel.slice(SEASON_KEY.length) : (roundById(sel) || {}).name || "";
 function renderLobby(){
   const P = dropPlan(); const needsVote = votesReady && P.options.length > 0 && !P.options.some(o => o.id === myVote(P.today));
@@ -2375,7 +2375,7 @@ function renderRounds(tabs, wire){
   if (combinedView && boardMode === "medals") {
     const table = medalTable(lobbySel), mshown = lobbyAll ? table : table.slice(0, 5), myM = table.find(x => x.uid === me.uid);
     board = !scoresReady ? `<div class="board"><div class="empty">Loading scores…</div></div>`
-      : !table.length ? `<div class="board"><div class="empty">No medals yet. A round awards them once three people have played it.</div></div>${MEDAL_NOTE}`
+      : !table.length ? `<div class="board"><div class="empty">No medals yet. A round awards them once five people have finished it.</div></div>${MEDAL_NOTE}`
       : `<div class="board">${mshown.map(medalRowHtml).join("")}</div>
          ${myM && myM.rank > mshown.length ? `<p class="note">You're #${myM.rank} of ${table.length} by medals.</p>` : ""}
          ${table.length > 5 ? `<p class="note"><button class="linkbtn" id="lobbyMore">${lobbyAll ? "Show fewer" : `Show all ${table.length}`}</button></p>` : ""}${MEDAL_NOTE}`;
@@ -2488,7 +2488,7 @@ function renderBoard(){
   if (isCombined(boardSel)) {
     title = boardTitle(boardSel); const list = boardList(boardSel); const medals = medalsFor(medalRounds(boardSel));
     if (boardMode === "medals") { const table = medalTable(boardSel);
-      body = modeToggleHtml() + (!table.length ? `<div class="board"><div class="empty">No medals yet. A round awards them once three people have played it.</div></div>` : `<div class="board">${table.map(medalRowHtml).join("")}</div>`) + MEDAL_NOTE; }
+      body = modeToggleHtml() + (!table.length ? `<div class="board"><div class="empty">No medals yet. A round awards them once five people have finished it.</div></div>` : `<div class="board">${table.map(medalRowHtml).join("")}</div>`) + MEDAL_NOTE; }
     else body = modeToggleHtml() + (!list.length ? `<div class="board"><div class="empty">No scores ${isSeasonKey(boardSel) ? "that season" : "yet"}.</div></div>` : `${podiumHtml(rankOf(list), medals)}<div class="board">${rankOf(list).slice(podiumHtml(rankOf(list)) ? 3 : 0).map(b => rowHtml(b, medals)).join("")}</div><p class="note">Points added up across every round ${isSeasonKey(boardSel) ? "added that season" : "a player has finished"}${SETTINGS.timeBreaksTies ? ", ties broken by total time" : ""}.</p>`);
   } else {
     const r = roundById(boardSel); title = r.name; const b = boardFor(r.id);
