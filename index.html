@@ -569,7 +569,7 @@ const SETTINGS = {
    (the Dark versions are used when the player's device is in dark mode).
    ===================================================================== */
 /* Wording for the nightly poll. The options are the rounds written and waiting in the queue. */
-const POLL = { question: "What drops tonight?", note: "One new round every night at midnight New York time. Most votes wins; the host can override." };
+const POLL = { question: "What drops tonight?", note: "One new round every night at midnight New York time. Most votes wins." };
 
 let ROUNDS = [
   {
@@ -2086,7 +2086,7 @@ function pollHtml(){
     : mine ? `<p class="note">Your vote is in. Tap another to change it before midnight. ${total} vote${total === 1 ? "" : "s"} so far.</p>`
     : `<p class="note">Tap one to vote. ${total ? total + (total === 1 ? " vote" : " votes") + " so far." : "Be the first."}</p>`;
   const hist = P.history.slice(-5).reverse();
-  const histHtml = hist.length ? `<div class="section"><h3>Recent drops</h3><span class="note">One a night</span></div><div class="board">${hist.map(x => { const r = roundById(x.id); return `<div class="lb" data-r="${esc(x.id)}" style="grid-template-columns:1fr auto;cursor:pointer"><div class="who">${esc(r ? r.name : x.id)}<small>${fmtKey(x.day)} · ${x.how === "override" ? "host's pick" : "won the vote"}</small></div><div class="time">${r ? boardFor(r.id).length + " played" : ""}</div></div>`; }).join("")}</div>` : "";
+  const histHtml = hist.length ? `<div class="section"><h3>Recent drops</h3><span class="note">One a night</span></div><div class="board">${hist.map(x => { const r = roundById(x.id); return `<div class="lb" data-r="${esc(x.id)}" style="grid-template-columns:1fr auto;cursor:pointer"><div class="who">${esc(r ? r.name : x.id)}<small>${fmtKey(x.day)}</small></div><div class="time">${r ? boardFor(r.id).length + " played" : ""}</div></div>`; }).join("")}</div>` : "";
   return `<div class="card lift" style="margin-bottom:14px"><h2>${esc(POLL.question)}</h2><p class="note" style="margin:0 0 10px">${esc(POLL.note)}</p>
       <div class="row spread" style="gap:8px"><span class="note" style="margin:0">${tonight}</span><span class="pill" style="white-space:nowrap">Drops in <span class="szc" data-end="${dropAt}">${countdownText(dropAt)}</span></span></div></div>
     ${rows}${status}<p class="note" id="pollMsg"></p>
