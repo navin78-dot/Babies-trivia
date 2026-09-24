@@ -2071,7 +2071,7 @@ function pollHtml(){
   const P = dropPlan(), opts = P.options, today = P.today, dropAt = keyMs(nextKey(today));
   const mine = myVote(today); const counts = opts.map(o => voteCount(o.id, today)); const total = counts.reduce((n, c) => n + c, 0); const best = Math.max(0, ...counts);
   const ovR = P.ov ? roundById(P.ov) : null; const leadIdx = opts.length ? counts.indexOf(best) : -1; const leader = leadIdx >= 0 ? opts[leadIdx] : null;
-  const tonight = ovR ? `The host has picked <b>${esc(ovR.name)}</b> for tonight, so this vote is for the record only.`
+  const tonight = ovR ? `Dropping tonight: <b>${esc(ovR.name)}</b>.`
     : !opts.length ? "Nothing is waiting in the queue, so nothing drops tonight."
     : total ? `Leading right now: <b>${esc(leader.name)}</b>${counts.filter(c => c === best).length > 1 ? " (tied, so the one that has waited longest wins)" : ""}.`
     : `No votes yet. With no votes, <b>${esc(leader.name)}</b> drops because it has waited longest.`;
