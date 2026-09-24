@@ -1,22 +1,20 @@
 name: Deploy site
 
-# Netlify normally learns about a push through a webhook GitHub sends it. That
-# webhook stopped firing on 22 Sep 2026 and three site changes sat unbuilt
-# until a deploy was triggered by hand. This workflow does the nudge itself:
-# on every push that changes the page, it asks Netlify to build main through a
-# build hook. Netlify still fetches the repo and runs netlify.toml as usual.
+# A manual fallback. Netlify normally learns about a push through a webhook from
+# GitHub. That webhook went quiet on 22 Sep 2026 for a few hours and site changes
+# sat unbuilt, so this workflow was written to nudge Netlify itself. The webhook
+# then came back, and running both meant every push was built twice, because a
+# build started by a build hook bypasses the ignore rule in netlify.toml that
+# would otherwise cancel the duplicate.
+#
+# So this no longer runs on push. If a push to main ever fails to appear on
+# Netlify's Deploys page within a few minutes, run this by hand from the Actions
+# tab (or ask Claude to) and it asks Netlify to build main.
 #
 # Needs one repository secret, NETLIFY_BUILD_HOOK: the URL of a build hook made
 # in Netlify under Project configuration -> Build & deploy -> Build hooks.
-# Only pushes that touch index.html or netlify.toml trigger it, so data-only
-# pushes (rounds, reports) never cost a build.
 
 on:
-  push:
-    branches: [main]
-    paths:
-      - index.html
-      - netlify.toml
   workflow_dispatch:
 
 jobs:
