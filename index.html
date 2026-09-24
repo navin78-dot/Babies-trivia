@@ -2028,8 +2028,9 @@ function medalTable(sel){
   const m = medalsFor(medalRounds(sel)); const pts = {}; boardList(sel).forEach(c => { pts[c.uid] = c; });
   Object.values(pts).forEach(c => { if (!m[c.uid]) m[c.uid] = { uid: c.uid, name: c.name, photo: c.photo, g: 0, s: 0, b: 0 }; }); // everyone on the board appears
   const list = Object.values(m).map(e => { const c = pts[e.uid]; return { ...e, score: c ? c.score : 0, total: c ? c.total : 0, rounds: c ? c.rounds : 0 }; });
-  list.sort((a, b) => b.g - a.g || b.s - a.s || b.b - a.b || b.score - a.score || String(a.name).localeCompare(String(b.name)));
-  let last = null, rank = 0; return list.map((e, i) => { const key = e.g + ":" + e.s + ":" + e.b; if (key !== last) { rank = i + 1; last = key; } return { ...e, rank }; });
+  const tot = e => e.g + e.s + e.b; // ranked by total medals; gold, silver, bronze only order players who are tied
+  list.sort((a, b) => tot(b) - tot(a) || b.g - a.g || b.s - a.s || b.b - a.b || b.score - a.score || String(a.name).localeCompare(String(b.name)));
+  let last = null, rank = 0; return list.map((e, i) => { const key = tot(e); if (key !== last) { rank = i + 1; last = key; } return { ...e, rank }; });
 }
 function medalRowHtml(e){
   const isMe = me && e.uid === me.uid; const n = e.g + e.s + e.b;
@@ -2041,7 +2042,7 @@ function medalRowHtml(e){
   </div>`;
 }
 const modeToggleHtml = () => `<div class="seg" role="tablist" aria-label="Rank by"><button role="tab" data-mode="points" aria-pressed="${boardMode === "points"}">Points</button><button role="tab" data-mode="medals" aria-pressed="${boardMode === "medals"}">Medals</button></div>`;
-const MEDAL_NOTE = `<p class="note">Gold, silver and bronze for first, second and third in each round. A round awards them once three people have played it, and they can move until everyone has.</p>`;
+const MEDAL_NOTE = `<p class="note">Ranked by total medals. Gold, silver and bronze for first, second and third in each round. A round awards them once three people have played it, and they can move until everyone has.</p>`;
 const boardTitle = sel => sel === ALL ? "All time" : isSeasonKey(sel) ? "Season " + sel.slice(SEASON_KEY.length) : (roundById(sel) || {}).name || "";
 function renderLobby(){
   const P = dropPlan(); const needsVote = votesReady && P.options.length > 0 && !P.options.some(o => o.id === myVote(P.today));
