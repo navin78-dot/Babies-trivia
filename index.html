@@ -243,7 +243,20 @@ a.btn{text-decoration:none}
   box-shadow:inset 0 2px 0 color-mix(in srgb,var(--podc) 80%, #fff),inset 0 -10px 20px rgba(0,0,0,.25),0 14px 30px rgba(0,0,0,.4);display:grid;place-items:start center;padding-top:8px}
 .plinth span{font-family:var(--display);font-size:26px;color:#fff;text-shadow:0 2px 8px rgba(0,0,0,.4)}
 .pod.me .podname{color:var(--glow2)}
+.pod .medals{justify-content:center;color:var(--cream2);margin:-4px 0 8px;position:relative;z-index:1}
 .champs{display:grid;gap:8px}
+.seg{display:inline-flex;gap:2px;padding:3px;border-radius:999px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.08);margin:-6px 0 12px}
+.seg button{background:none;border:0;border-radius:999px;padding:6px 13px;font-size:12.5px;font-weight:800;color:var(--cream2);cursor:pointer}
+.seg button[aria-pressed="true"]{background:var(--paper);color:var(--ink);box-shadow:0 2px 8px rgba(0,0,0,.3)}
+.medals{display:inline-flex;gap:7px;margin-top:2px;font-size:12px;font-weight:800;color:var(--muted);line-height:1.3}
+.medals .md{font-style:normal;display:inline-flex;align-items:center;gap:1px}
+.medals .md b{font-size:11px;font-variant-numeric:tabular-nums}
+.medals.none{font-weight:600;opacity:.7}
+.lb.mrow{grid-template-columns:34px 40px 1fr auto}
+.mcount{display:flex;gap:10px;font-size:14px;font-weight:800;font-variant-numeric:tabular-nums;white-space:nowrap}
+.mcount span{display:inline-flex;align-items:center;gap:2px}
+.trow .who{display:flex;flex-direction:column;min-width:0}
+.trow .who .medals{color:var(--cream2)}
 .trophies{display:grid;gap:6px}
 .trow{display:grid;grid-template-columns:auto 1fr auto auto;gap:12px;align-items:center;padding:9px 14px;border-radius:16px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.08)}
 .trow .who{color:var(--cream)}
@@ -1898,17 +1911,18 @@ function trophyHtml(){
   Object.values(m).flat().forEach(c => { players[c.uid] = players[c.uid] || { uid: c.uid, name: c.name, photo: c.photo }; });
   const rows = Object.values(players).map(p => ({ ...p, wins: (m[p.uid] || []).map(c => c.n).sort((a, b) => a - b) })).sort((a, b) => b.wins.length - a.wins.length || first(a.name).localeCompare(first(b.name)));
   const lead = rankOf(combinedFor(seasonRounds(cur)))[0]; const I = seasonEndInfo();
+  const allM = medalsFor(ROUNDS.filter(isPublished));
   if (!rows.length) return "";
-  return `<div class="section"><h3>Trophy case</h3><span class="note">One trophy per season won</span></div>
+  return `<div class="section"><h3>Trophy case</h3><span class="note">Seasons won, and medals from every round</span></div>
     <div class="trophies">
       <div class="trow now"><div class="tnow">🏆</div><div class="who">Season ${cur} · in play<small>${lead ? `${esc(first(lead.name))} leads with ${fmtScore(lead.score)} pts · ` : "No scores yet · "}<span class="szc" data-end="${I.end}">${countdownText(I.end)}</span> left</small></div>${lead ? avatarHtml(lead.uid, lead.photo, "sm") : ""}</div>
-      ${rows.map(p => `<div class="trow">${avatarHtml(p.uid, p.photo, "sm")}<div class="who">${esc(first(p.name))}<small>${p.wins.length ? "Won season" + (p.wins.length > 1 ? "s " : " ") + p.wins.join(", ") : "No seasons won yet"}</small></div><div class="tcups" title="${p.wins.length} season${p.wins.length === 1 ? "" : "s"} won">${p.wins.length ? "🏆".repeat(Math.min(p.wins.length, 6)) + (p.wins.length > 6 ? ` ×${p.wins.length}` : "") : "<span class='none'>–</span>"}</div>${p.wins.length ? `<button class="linkbtn" data-season="${p.wins[p.wins.length - 1]}">${S.shareKind === "season" && S.shareSeason === p.wins[p.wins.length - 1] ? "Hide" : "Recap"}</button>` : ""}</div>`).join("")}
+      ${rows.map(p => `<div class="trow">${avatarHtml(p.uid, p.photo, "sm")}<div class="who">${esc(first(p.name))}<small>${p.wins.length ? "Won season" + (p.wins.length > 1 ? "s " : " ") + p.wins.join(", ") : "No seasons won yet"}</small>${medalChips(allM[p.uid]) || `<span class="medals none">No medals yet</span>`}</div><div class="tcups" title="${p.wins.length} season${p.wins.length === 1 ? "" : "s"} won">${p.wins.length ? "🏆".repeat(Math.min(p.wins.length, 6)) + (p.wins.length > 6 ? ` ×${p.wins.length}` : "") : "<span class='none'>–</span>"}</div>${p.wins.length ? `<button class="linkbtn" data-season="${p.wins[p.wins.length - 1]}">${S.shareKind === "season" && S.shareSeason === p.wins[p.wins.length - 1] ? "Hide" : "Recap"}</button>` : ""}</div>`).join("")}
     </div>${S.shareKind === "season" ? sharePanelHtml() : ""}`;
 }
-function podiumHtml(ranked){
+function podiumHtml(ranked, medals){
   const top = ranked.slice(0, 3); if (top.length < 2) return "";
   const order = top.length === 3 ? [top[1], top[0], top[2]] : [top[0], top[1]];
-  return `<div class="podium n${top.length}">${order.map(p => `<div class="pod p${p.rank}${me && p.uid === me.uid ? " me" : ""}"><div class="podav">${avatarHtml(p.uid, p.photo, "lg")}</div><div class="podname">${esc((p.name || "Someone").split(" ")[0])}</div><div class="podpts">${fmtScore(p.score)}<span>/${p.total}</span></div><div class="podsub">${p.rounds != null ? `${p.rounds} round${p.rounds === 1 ? "" : "s"}` : fmtTime(p.elapsedMs)}</div><div class="plinth"><span>${p.rank}</span></div></div>`).join("")}</div>`;
+  return `<div class="podium n${top.length}">${order.map(p => `<div class="pod p${p.rank}${me && p.uid === me.uid ? " me" : ""}"><div class="podav">${avatarHtml(p.uid, p.photo, "lg")}</div><div class="podname">${esc((p.name || "Someone").split(" ")[0])}</div><div class="podpts">${fmtScore(p.score)}<span>/${p.total}</span></div><div class="podsub">${p.rounds != null ? `${p.rounds} round${p.rounds === 1 ? "" : "s"}` : fmtTime(p.elapsedMs)}</div>${medals ? medalChips(medals[p.uid]) : ""}<div class="plinth"><span>${p.rank}</span></div></div>`).join("")}</div>`;
 }
 /* --- round recap, once a round is done --- */
 function recapFor(r){
@@ -1993,6 +2007,41 @@ function pickerHtml(id, sel){
   return `<select id="${id}" aria-label="Which leaderboard to show">${sopt}<option value="${ALL}" ${sel === ALL ? "selected" : ""}>All time</option>${older.length ? `<optgroup label="Recent rounds">${recent.map(opt).join("")}</optgroup><optgroup label="Older rounds">${older.map(opt).join("")}</optgroup>` : `<optgroup label="Rounds">${recent.map(opt).join("")}</optgroup>`}</select>`;
 }
 function boardList(sel){ return sel === ALL ? combined() : isSeasonKey(sel) ? combinedFor(seasonRounds(+sel.slice(SEASON_KEY.length))) : boardFor(sel); }
+/* --- Medals: gold, silver and bronze for first, second and third in each round. A round only
+   awards them once three people have played it, so there is a real podium, and they can move
+   until everyone has played. Points stay the ranking; medals sit beside it, with a medal-table
+   view that orders by gold, then silver, then bronze, the way the Olympics does. --- */
+const MEDAL_MIN = 3;
+let boardMode = "points";     // "points" or "medals", shared by the lobby and the round board
+const isCombined = sel => sel === ALL || isSeasonKey(sel);
+const medalRounds = sel => sel === ALL ? ROUNDS.filter(isPublished) : isSeasonKey(sel) ? seasonRounds(+sel.slice(SEASON_KEY.length)) : [];
+function medalsFor(rounds){
+  const m = {};
+  rounds.forEach(r => {
+    const b = boardFor(r.id); if (b.length < MEDAL_MIN) return;
+    rankOf(b).forEach(p => { if (p.rank > 3) return; const e = m[p.uid] || (m[p.uid] = { uid: p.uid, name: p.name, photo: p.photo, g: 0, s: 0, b: 0 }); if (p.rank === 1) e.g++; else if (p.rank === 2) e.s++; else e.b++; });
+  });
+  return m;
+}
+const medalChips = e => (!e || !(e.g || e.s || e.b)) ? "" : `<span class="medals">${e.g ? `<i class="md">🥇<b>${e.g}</b></i>` : ""}${e.s ? `<i class="md">🥈<b>${e.s}</b></i>` : ""}${e.b ? `<i class="md">🥉<b>${e.b}</b></i>` : ""}</span>`;
+function medalTable(sel){
+  const m = medalsFor(medalRounds(sel)); const pts = {}; boardList(sel).forEach(c => { pts[c.uid] = c; });
+  Object.values(pts).forEach(c => { if (!m[c.uid]) m[c.uid] = { uid: c.uid, name: c.name, photo: c.photo, g: 0, s: 0, b: 0 }; }); // everyone on the board appears
+  const list = Object.values(m).map(e => { const c = pts[e.uid]; return { ...e, score: c ? c.score : 0, total: c ? c.total : 0, rounds: c ? c.rounds : 0 }; });
+  list.sort((a, b) => b.g - a.g || b.s - a.s || b.b - a.b || b.score - a.score || String(a.name).localeCompare(String(b.name)));
+  let last = null, rank = 0; return list.map((e, i) => { const key = e.g + ":" + e.s + ":" + e.b; if (key !== last) { rank = i + 1; last = key; } return { ...e, rank }; });
+}
+function medalRowHtml(e){
+  const isMe = me && e.uid === me.uid; const n = e.g + e.s + e.b;
+  return `<div class="lb mrow${isMe ? " me" : ""}">
+    <div class="rank" data-r="${e.rank}">${e.rank}</div>
+    ${avatarHtml(e.uid, e.photo)}
+    <div class="who">${esc(e.name || "Someone")}<small>${n ? n + (n === 1 ? " medal" : " medals") : "No medals yet"} · ${fmtScore(e.score)} pts</small></div>
+    <div class="mcount"><span>🥇${e.g}</span><span>🥈${e.s}</span><span>🥉${e.b}</span></div>
+  </div>`;
+}
+const modeToggleHtml = () => `<div class="seg" role="tablist" aria-label="Rank by"><button role="tab" data-mode="points" aria-pressed="${boardMode === "points"}">Points</button><button role="tab" data-mode="medals" aria-pressed="${boardMode === "medals"}">Medals</button></div>`;
+const MEDAL_NOTE = `<p class="note">Gold, silver and bronze for first, second and third in each round. A round awards them once three people have played it, and they can move until everyone has.</p>`;
 const boardTitle = sel => sel === ALL ? "All time" : isSeasonKey(sel) ? "Season " + sel.slice(SEASON_KEY.length) : (roundById(sel) || {}).name || "";
 function renderLobby(){
   const P = dropPlan(); const needsVote = votesReady && P.options.length > 0 && !P.options.some(o => o.id === myVote(P.today));
@@ -2317,14 +2366,25 @@ function wirePoll(){
 }
 function renderRounds(tabs, wire){
   if (lobbySel == null) lobbySel = SEASON_KEY + currentSeason();
+  const combinedView = isCombined(lobbySel); const medals = combinedView ? medalsFor(medalRounds(lobbySel)) : null;
   const ranked = rankOf(boardList(lobbySel)); const mine = ranked.find(x => x.uid === me.uid);
-  const pod = podiumHtml(ranked); const rest = pod ? ranked.slice(3) : ranked; const shown = lobbyAll ? rest : rest.slice(0, pod ? 2 : 5);
+  const pod = podiumHtml(ranked, medals); const rest = pod ? ranked.slice(3) : ranked; const shown = lobbyAll ? rest : rest.slice(0, pod ? 2 : 5);
   const seasonNote = isSeasonKey(lobbySel) ? `<p class="note">Points from rounds added ${lobbySel === SEASON_KEY + currentSeason() ? "this season" : "that season"}. A new season starts every Sunday at midnight New York time.</p>` : "";
-  const board = !scoresReady ? `<div class="board"><div class="empty">Loading scores…</div></div>`
-    : !ranked.length ? `<div class="board"><div class="empty">${isSeasonKey(lobbySel) ? "No scores this season yet. The first run of a round added this week starts the board." : "No scores yet. Play a round to get on the board."}</div></div>${seasonNote}`
-    : `${pod}${shown.length ? `<div class="board">${shown.map(rowHtml).join("")}</div>` : ""}
-       ${mine && mine.rank > (pod ? 3 : 0) + shown.length ? `<p class="note">You're #${mine.rank} of ${ranked.length}.</p>` : ""}
-       ${rest.length > shown.length || (lobbyAll && rest.length > (pod ? 2 : 5)) ? `<p class="note"><button class="linkbtn" id="lobbyMore">${lobbyAll ? "Show fewer" : `Show all ${ranked.length}`}</button></p>` : ""}${seasonNote}`;
+  let board;
+  if (combinedView && boardMode === "medals") {
+    const table = medalTable(lobbySel), mshown = lobbyAll ? table : table.slice(0, 5), myM = table.find(x => x.uid === me.uid);
+    board = !scoresReady ? `<div class="board"><div class="empty">Loading scores…</div></div>`
+      : !table.length ? `<div class="board"><div class="empty">No medals yet. A round awards them once three people have played it.</div></div>${MEDAL_NOTE}`
+      : `<div class="board">${mshown.map(medalRowHtml).join("")}</div>
+         ${myM && myM.rank > mshown.length ? `<p class="note">You're #${myM.rank} of ${table.length} by medals.</p>` : ""}
+         ${table.length > 5 ? `<p class="note"><button class="linkbtn" id="lobbyMore">${lobbyAll ? "Show fewer" : `Show all ${table.length}`}</button></p>` : ""}${MEDAL_NOTE}`;
+  } else {
+    board = !scoresReady ? `<div class="board"><div class="empty">Loading scores…</div></div>`
+      : !ranked.length ? `<div class="board"><div class="empty">${isSeasonKey(lobbySel) ? "No scores this season yet. The first run of a round added this week starts the board." : "No scores yet. Play a round to get on the board."}</div></div>${seasonNote}`
+      : `${pod}${shown.length ? `<div class="board">${shown.map(b => rowHtml(b, medals)).join("")}</div>` : ""}
+         ${mine && mine.rank > (pod ? 3 : 0) + shown.length ? `<p class="note">You're #${mine.rank} of ${ranked.length}.</p>` : ""}
+         ${rest.length > shown.length || (lobbyAll && rest.length > (pod ? 2 : 5)) ? `<p class="note"><button class="linkbtn" id="lobbyMore">${lobbyAll ? "Show fewer" : `Show all ${ranked.length}`}</button></p>` : ""}${seasonNote}`;
+  }
   const tile = r => {
     const t = themeOf(r); const b = boardFor(r.id); const my = b.find(x => x.uid === me.uid); const open = isOpen(r); const live = playingNow(r.id);
     const foot = my ? `<span class="pill done">You: ${fmtScore(my.score)} / ${my.total}</span>` : open ? `<span class="pill live">Play</span>` : `<span class="pill">${seasonOver(r) ? "Season " + seasonOfRound(r) + " over" : everyonePlayed(r) ? "Everyone played" : "Closed"}</span>`;
@@ -2342,9 +2402,9 @@ function renderRounds(tabs, wire){
   const group = (title, rs, sub) => rs.length ? `<div class="section"><h3>${title}</h3><span class="note">${sub}</span></div><div class="grid">${rs.map(tile).join("")}</div>` : "";
   const older = olderCount > 0 ? `<p class="note" style="text-align:center;margin-top:18px"><button class="btn ghost small" id="lobbyOld">${lobbyOld ? "Hide older games" : `Older games (${olderCount})`}</button></p>` : "";
   $view.innerHTML = tabs + `
-    <div class="section"><h3>Leaderboard</h3>${pickerHtml("lobbyPick", lobbySel)}</div>${board}
-    ${trophyHtml()}
+    <div class="section"><h3>Leaderboard</h3>${pickerHtml("lobbyPick", lobbySel)}</div>${combinedView ? modeToggleHtml() : ""}${board}
     ${group("Play next", next, next.length === 1 ? "1 round you haven't played" : next.length + " rounds you haven't played")}
+    ${trophyHtml()}
     ${group("Played", done, next.length ? "Tap one to see its board" : "You've played every open round.")}
     ${group("Closed", closed, "Boards only")}${older}`;
   wire();
@@ -2355,6 +2415,7 @@ function renderRounds(tabs, wire){
   document.querySelectorAll(".tile").forEach(c => c.onclick = () => selectRound(c.dataset.r));
   $("lobbyPick").onchange = e => { lobbySel = e.target.value; lobbyAll = false; renderLobby(); };
   const m = $("lobbyMore"); if (m) m.onclick = () => { lobbyAll = !lobbyAll; renderLobby(); };
+  document.querySelectorAll("[data-mode]").forEach(b => b.onclick = () => { boardMode = b.dataset.mode; lobbyAll = false; sfx("click"); renderLobby(); });
   document.querySelectorAll("[data-season]").forEach(b => b.onclick = () => { const n = +b.dataset.season; if (S.shareKind === "season" && S.shareSeason === n) { resetShare(); renderLobby(); return; } resetShare(); S.shareKind = "season"; S.shareSeason = n; renderLobby(); prepareShare("season"); });
   wireShare();
 }
@@ -2407,13 +2468,14 @@ function renderHome(){
   $("invite").onclick = () => toggleShare("invite");
   wireShare();
 }
-function rowHtml(b){
+function rowHtml(b, medals){
   const isMe = me && b.uid === me.uid;
   const sub = b.rounds != null ? `${b.rounds} round${b.rounds === 1 ? "" : "s"}` : (isMe ? "you" : fmtDate(b.finishedAt));
+  const chips = medals && typeof medals === "object" ? medalChips(medals[b.uid]) : "";
   return `<div class="lb${isMe ? " me" : ""}">
     <div class="rank" data-r="${b.rank}">${b.rank}</div>
     ${avatarHtml(b.uid, b.photo)}
-    <div class="who">${esc(b.name || "Someone")}<small>${sub}</small></div>
+    <div class="who">${esc(b.name || "Someone")}<small>${sub}</small>${chips}</div>
     <div class="pts">${fmtScore(b.score)}<span> / ${b.total}</span></div>
     <div class="time">${fmtTime(b.elapsedMs)}</div>
   </div>`;
@@ -2422,15 +2484,18 @@ function renderBoard(){
   if (!boardSel) boardSel = round.id;
   const picker = `<div class="row spread" style="margin-bottom:12px"><label for="boardPick" class="note" style="margin:0">Show</label>${pickerHtml("boardPick", boardSel)}</div>`;
   let body, title;
-  if (boardSel === ALL || isSeasonKey(boardSel)) {
-    title = boardTitle(boardSel); const list = boardList(boardSel);
-    body = !list.length ? `<div class="board"><div class="empty">No scores ${isSeasonKey(boardSel) ? "that season" : "yet"}.</div></div>` : `${podiumHtml(rankOf(list))}<div class="board">${rankOf(list).slice(podiumHtml(rankOf(list)) ? 3 : 0).map(rowHtml).join("")}</div><p class="note">Points added up across every round ${isSeasonKey(boardSel) ? "added that season" : "a player has finished"}${SETTINGS.timeBreaksTies ? ", ties broken by total time" : ""}.</p>`;
+  if (isCombined(boardSel)) {
+    title = boardTitle(boardSel); const list = boardList(boardSel); const medals = medalsFor(medalRounds(boardSel));
+    if (boardMode === "medals") { const table = medalTable(boardSel);
+      body = modeToggleHtml() + (!table.length ? `<div class="board"><div class="empty">No medals yet. A round awards them once three people have played it.</div></div>` : `<div class="board">${table.map(medalRowHtml).join("")}</div>`) + MEDAL_NOTE; }
+    else body = modeToggleHtml() + (!list.length ? `<div class="board"><div class="empty">No scores ${isSeasonKey(boardSel) ? "that season" : "yet"}.</div></div>` : `${podiumHtml(rankOf(list), medals)}<div class="board">${rankOf(list).slice(podiumHtml(rankOf(list)) ? 3 : 0).map(b => rowHtml(b, medals)).join("")}</div><p class="note">Points added up across every round ${isSeasonKey(boardSel) ? "added that season" : "a player has finished"}${SETTINGS.timeBreaksTies ? ", ties broken by total time" : ""}.</p>`);
   } else {
     const r = roundById(boardSel); title = r.name; const b = boardFor(r.id);
     body = !scoresReady ? `<div class="board"><div class="empty">Loading scores…</div></div>` : !b.length ? `<div class="board"><div class="empty">Nobody has played ${esc(r.name)} yet. Be first.</div></div>` : `<div class="board">${rankOf(b).map(rowHtml).join("")}</div><p class="note">Ranked by score${SETTINGS.timeBreaksTies ? ", then by fastest time" : ""}. Each player's first finished run counts.</p>`;
   }
   $view.innerHTML = `<h2>Leaderboard</h2>${picker}${body}`;
   $("boardPick").onchange = e => { boardSel = e.target.value; renderBoard(); };
+  document.querySelectorAll("[data-mode]").forEach(b => b.onclick = () => { boardMode = b.dataset.mode; sfx("click"); renderBoard(); });
 }
 const seasonAnnText = () => { const I = seasonEndInfo(); return `Season ${I.n} is on. It ends ${I.ny} New York time. Every round you play this week counts toward the crown.`; };
 /* the daily top-up session runs at 13:00 UTC; show the host when that lands where they are */
