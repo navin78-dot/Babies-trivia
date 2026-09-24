@@ -1,0 +1,285 @@
+{
+  "id": "founding-years",
+  "name": "Founding Years",
+  "subject": "American history, 1500 to 1850",
+  "tagline": "Twenty questions from the first Spanish fort to the Gold Rush: colonies, revolution and a country doubling in size. Starts easy, ends hard.",
+  "draft": true,
+  "emblem": "🦅",
+  "requestId": "nP6Xrp9aJZXcZSWFvJ16",
+  "theme": {
+    "font": "Playfair Display",
+    "accent": "#8B1E2D",
+    "accent2": "#1F4E8C",
+    "accentDark": "#F87171",
+    "accent2Dark": "#93C5FD"
+  },
+  "questions": [
+    {
+      "d": "easy",
+      "q": "Which settlement, founded in 1607, was the first permanent English colony in North America?",
+      "o": [
+        "Jamestown",
+        "Plymouth",
+        "Roanoke",
+        "Boston"
+      ],
+      "a": 0,
+      "w": "Jamestown, Virginia, in 1607, thirteen years before the Mayflower.",
+      "more": "The first years were dreadful. During the winter of 1609 to 1610, remembered as the Starving Time, most of the settlers died. Tobacco saved the colony: John Rolfe's first crop shipped in 1614 made Virginia profitable, and Rolfe married Pocahontas the same year."
+    },
+    {
+      "d": "easy",
+      "q": "What was the name of the ship that carried the Pilgrims to Cape Cod in 1620?",
+      "o": [
+        "The Mayflower",
+        "The Speedwell",
+        "The Susan Constant",
+        "The Arbella"
+      ],
+      "a": 0,
+      "w": "The Mayflower, which anchored off Cape Cod in November 1620 with 102 passengers.",
+      "more": "A second ship, the Speedwell, was meant to sail too, but it leaked and turned back twice, so the Mayflower went alone. Before landing, 41 of the men signed the Mayflower Compact, agreeing to govern themselves by majority vote. Roughly half the passengers died in the first winter."
+    },
+    {
+      "d": "easy",
+      "q": "In which year was the Declaration of Independence adopted?",
+      "o": [
+        "1776",
+        "1783",
+        "1787",
+        "1765"
+      ],
+      "a": 0,
+      "w": "1776. Congress voted for independence on July 2 and adopted the final text on July 4.",
+      "more": "John Adams predicted that July 2 would be the great anniversary, celebrated with pomp, parade and bonfires. He was right about the celebration and wrong about the date. Most delegates did not actually sign the document until August 2."
+    },
+    {
+      "d": "easy",
+      "q": "Who was the principal author of the Declaration of Independence?",
+      "o": [
+        "Thomas Jefferson",
+        "John Adams",
+        "Benjamin Franklin",
+        "George Washington"
+      ],
+      "a": 0,
+      "w": "Thomas Jefferson, then 33, drafted it in about two weeks in a rented room in Philadelphia.",
+      "more": "Congress cut about a quarter of his draft, including a long passage condemning the slave trade, and Jefferson complained about the edits for years. Adams and Franklin sat on the five-man committee and made small changes. Jefferson's tombstone lists the Declaration but not his presidency."
+    },
+    {
+      "d": "easy",
+      "q": "Who was inaugurated as the first President of the United States in 1789?",
+      "o": [
+        "George Washington",
+        "John Adams",
+        "Thomas Jefferson",
+        "Benjamin Franklin"
+      ],
+      "a": 0,
+      "w": "George Washington, sworn in on a balcony in New York City in April 1789.",
+      "more": "New York was the capital for the first year, then Philadelphia for ten, before Washington, D.C. was ready in 1800. Washington is the only president ever elected unanimously by the Electoral College, and he did it twice. His refusal of a third term set a precedent that held until Franklin Roosevelt."
+    },
+    {
+      "d": "easy",
+      "q": "In December 1773, colonists protesting a tax dumped 342 chests of which product into Boston Harbor?",
+      "o": [
+        "Tea",
+        "Rum",
+        "Sugar",
+        "Tobacco"
+      ],
+      "a": 0,
+      "w": "Tea, from three East India Company ships, on the night of December 16, 1773.",
+      "more": "The tea was actually cheaper under the Tea Act. The objection was to being taxed by a Parliament in which the colonies had no seat. Britain answered by closing the port of Boston, which pushed the other colonies toward the First Continental Congress. The name Boston Tea Party was not used until the 1820s."
+    },
+    {
+      "d": "easy",
+      "q": "From which country did the United States buy the Louisiana Territory in 1803?",
+      "o": [
+        "France",
+        "Spain",
+        "Britain",
+        "Mexico"
+      ],
+      "a": 0,
+      "w": "France. Napoleon sold it for about 15 million dollars, roughly doubling the size of the country.",
+      "more": "Napoleon had only just got the territory back from Spain, but he had lost an army to disease and revolt in Haiti and needed cash for war with Britain. Jefferson doubted the Constitution let him buy land at all, and went ahead anyway. The price worked out to under three cents an acre."
+    },
+    {
+      "d": "medium",
+      "q": "Which was the last of the thirteen colonies to be founded, in 1733?",
+      "o": [
+        "Georgia",
+        "North Carolina",
+        "Pennsylvania",
+        "Delaware"
+      ],
+      "a": 0,
+      "w": "Georgia, chartered in 1733 under James Oglethorpe as a buffer against Spanish Florida.",
+      "more": "Oglethorpe meant it partly as a fresh start for England's poor and debtors, though few actual debtors came. The colony banned slavery and rum at first; both bans were gone by 1750. It was named for King George II."
+    },
+    {
+      "d": "medium",
+      "q": "Which 1781 battle effectively ended the fighting in the Revolutionary War?",
+      "o": [
+        "Yorktown",
+        "Saratoga",
+        "Bunker Hill",
+        "Trenton"
+      ],
+      "a": 0,
+      "w": "Yorktown, Virginia, where Cornwallis surrendered in October 1781 after a French fleet cut off his escape by sea.",
+      "more": "The French naval victory at the Battle of the Chesapeake a few weeks earlier was what trapped him. Legend has the British band playing The World Turned Upside Down at the surrender, though no account from the time mentions it. The war did not formally end until the Treaty of Paris in 1783."
+    },
+    {
+      "d": "medium",
+      "q": "In which year did the Salem witch trials take place?",
+      "o": [
+        "1692",
+        "1620",
+        "1740",
+        "1765"
+      ],
+      "a": 0,
+      "w": "1692 to 1693, in Salem, Massachusetts. Twenty people were executed.",
+      "more": "Nineteen were hanged and one man, Giles Corey, was pressed to death under stones for refusing to enter a plea. Nobody was burned; that was a European practice. The last of the accused, Elizabeth Johnson Jr., was formally cleared by Massachusetts only in 2022."
+    },
+    {
+      "d": "medium",
+      "q": "Lewis and Clark set out for the Pacific in May 1804 from a camp across the river from which city?",
+      "o": [
+        "St. Louis",
+        "New Orleans",
+        "Pittsburgh",
+        "Chicago"
+      ],
+      "a": 0,
+      "w": "St. Louis. They left Camp Dubois, on the Illinois side of the Mississippi, and were gone for two years and four months.",
+      "more": "They reached the Pacific in November 1805 and lost only one man on the whole trip, to what was probably a burst appendix. Sacagawea, a Shoshone teenager carrying her newborn son, joined them in what is now North Dakota. Clark named a river Judith after a girl back home he hoped to marry, and later did."
+    },
+    {
+      "d": "medium",
+      "q": "During the War of 1812, British troops marched into Washington in August 1814 and burned which building?",
+      "o": [
+        "The White House",
+        "Independence Hall",
+        "Federal Hall",
+        "Fort McHenry"
+      ],
+      "a": 0,
+      "w": "The White House and the Capitol. Dolley Madison saved a full-length portrait of Washington on her way out.",
+      "more": "A violent storm hit the city the next day and helped put the fires out, and the British left after barely a day. Three weeks later their failed bombardment of Fort McHenry in Baltimore gave Francis Scott Key his poem. The president's house was rebuilt and reoccupied by 1817."
+    },
+    {
+      "d": "medium",
+      "q": "The Erie Canal, opened in 1825, joined Lake Erie to which river?",
+      "o": [
+        "The Hudson",
+        "The Ohio",
+        "The Mississippi",
+        "The Delaware"
+      ],
+      "a": 0,
+      "w": "The Hudson River at Albany, which gave the Midwest a water route all the way to New York City.",
+      "more": "Critics called it Clinton's Ditch after Governor DeWitt Clinton, and it was dug largely by hand over eight years. Freight costs between Buffalo and New York fell by about ninety percent. Clinton marked the opening by pouring a keg of Lake Erie water into the Atlantic."
+    },
+    {
+      "d": "medium",
+      "q": "What happened in January 1848 that set off the California Gold Rush?",
+      "o": [
+        "Gold was found at Sutter's Mill",
+        "Silver was found in the Comstock Lode",
+        "San Francisco was founded",
+        "The Oregon Trail opened"
+      ],
+      "a": 0,
+      "w": "James Marshall spotted flakes of gold in the tailrace of Sutter's Mill on the American River.",
+      "more": "Marshall was building a sawmill for John Sutter, who tried and failed to keep the find quiet. The great rush came the next year, which is why the miners are the forty-niners, and San Francisco grew from a village of about a thousand people to roughly 25,000 in two years. California skipped being a territory and became a state in 1850."
+    },
+    {
+      "d": "hard",
+      "type": "order",
+      "q": "Put these settlements in order, earliest first.",
+      "o": [
+        "St. Augustine, Florida, founded by Spain",
+        "Jamestown settled",
+        "The Mayflower lands at Plymouth",
+        "Philadelphia founded by William Penn"
+      ],
+      "w": "St. Augustine in 1565, Jamestown in 1607, Plymouth in 1620 and Philadelphia in 1682.",
+      "more": "St. Augustine is the oldest continuously occupied European-founded city in the continental United States, 42 years older than Jamestown. The Spanish built its stone fort, the Castillo de San Marcos, in the 1670s from coquina, a soft shell rock that absorbed cannonballs rather than shattering. It was never taken by force."
+    },
+    {
+      "d": "hard",
+      "q": "Who was the only Roman Catholic to sign the Declaration of Independence?",
+      "o": [
+        "Charles Carroll of Carrollton",
+        "John Hancock",
+        "Benjamin Rush",
+        "Button Gwinnett"
+      ],
+      "a": 0,
+      "w": "Charles Carroll of Carrollton, from Maryland. He was also the richest signer and the last to die, in 1832.",
+      "more": "Maryland barred Catholics from voting and holding office when he was young, so he entered politics through newspaper essays under a pen name. The story goes that he added 'of Carrollton' to his signature so the British would know exactly which Charles Carroll to hang. At 90 he laid the first stone of the Baltimore and Ohio Railroad."
+    },
+    {
+      "d": "hard",
+      "q": "The Missouri Compromise of 1820 admitted Missouri as a slave state and which state as a free state?",
+      "o": [
+        "Maine",
+        "Vermont",
+        "Illinois",
+        "Ohio"
+      ],
+      "a": 0,
+      "w": "Maine, carved out of Massachusetts, to keep the Senate balanced at twelve free and twelve slave states.",
+      "more": "The deal also drew a line across the Louisiana Purchase at latitude 36 degrees 30 minutes, banning slavery north of it apart from Missouri itself. Jefferson, then 76, wrote that the news woke him 'like a fire bell in the night'. The line was repealed in 1854 and declared unconstitutional by the Supreme Court in 1857."
+    },
+    {
+      "d": "hard",
+      "q": "After the Supreme Court ruled in 1832 that Georgia had no authority over Cherokee land, which president is said to have replied, 'John Marshall has made his decision; now let him enforce it'?",
+      "o": [
+        "Andrew Jackson",
+        "John Quincy Adams",
+        "Martin Van Buren",
+        "James Monroe"
+      ],
+      "a": 0,
+      "w": "Andrew Jackson. The quote is probably invented, but the outcome was real: the ruling went unenforced and removal went ahead.",
+      "more": "The Treaty of New Echota, signed in 1835 by a small faction without the consent of the Cherokee government, gave the legal cover. In 1838 the army marched about 16,000 Cherokee to present-day Oklahoma on what became the Trail of Tears, and roughly 4,000 died. Chief John Ross had fought removal in Washington for a decade."
+    },
+    {
+      "d": "hard",
+      "q": "Texas was an independent republic for nearly ten years. Who was elected its first president in 1836?",
+      "o": [
+        "Sam Houston",
+        "Stephen F. Austin",
+        "Davy Crockett",
+        "Mirabeau Lamar"
+      ],
+      "a": 0,
+      "w": "Sam Houston, weeks after his army routed Santa Anna at San Jacinto in a battle that lasted about eighteen minutes.",
+      "more": "Houston had been governor of Tennessee and had lived for years among the Cherokee, who called him the Raven. Austin, remembered as the Father of Texas, lost that election to him and died the same December. Texas joined the Union in 1845, and Houston was later removed as governor for refusing to swear loyalty to the Confederacy."
+    },
+    {
+      "d": "hard",
+      "type": "select",
+      "q": "Which of these were among the original thirteen colonies? Select all that apply.",
+      "o": [
+        "Vermont",
+        "Delaware",
+        "Maine",
+        "New Hampshire",
+        "Georgia",
+        "Kentucky"
+      ],
+      "a": [
+        1,
+        3,
+        4
+      ],
+      "w": "Delaware, New Hampshire and Georgia. Vermont, Maine and Kentucky were not colonies of their own.",
+      "more": "Vermont declared itself an independent republic in 1777, disputed between New York and New Hampshire, and became the fourteenth state in 1791. Maine was part of Massachusetts until 1820 and Kentucky was part of Virginia until 1792. Delaware, which shared a governor with Pennsylvania, was the first state to ratify the Constitution, which is why it calls itself the First State."
+    }
+  ]
+}

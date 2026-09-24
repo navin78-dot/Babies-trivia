@@ -1,0 +1,276 @@
+{
+  "id": "wild-things",
+  "name": "Wild Things",
+  "subject": "Animals",
+  "tagline": "Twenty questions about the creatures we share the planet with, from three-hearted octopuses to sharks older than trees. Starts easy, ends hard.",
+  "draft": true,
+  "emblem": "🦁",
+  "theme": {
+    "font": "Fredoka",
+    "accent": "#15803D",
+    "accent2": "#F97316",
+    "accentDark": "#4ADE80",
+    "accent2Dark": "#FDBA74"
+  },
+  "questions": [
+    {
+      "d": "easy",
+      "q": "What is the largest animal known ever to have lived?",
+      "o": [
+        "The blue whale",
+        "The African elephant",
+        "Argentinosaurus",
+        "Megalodon"
+      ],
+      "a": 0,
+      "w": "The blue whale, up to about 30 metres long and 150 tonnes or more, heavier than any dinosaur.",
+      "more": "Its heart is about the size of a small car and its tongue alone weighs as much as an elephant. It lives almost entirely on krill, swallowing up to four tonnes a day in summer. Whaling cut the population to a few thousand before the species was protected in 1966."
+    },
+    {
+      "d": "easy",
+      "q": "Which is the fastest animal on Earth when it dives?",
+      "o": [
+        "The peregrine falcon",
+        "The golden eagle",
+        "The swift",
+        "The cheetah"
+      ],
+      "a": 0,
+      "w": "The peregrine falcon, clocked above 300 kilometres an hour in a hunting stoop.",
+      "more": "The cheetah, at around 100 kilometres an hour, is the fastest on land. Peregrines were nearly wiped out across much of the world when the pesticide DDT thinned their eggshells. Since the ban they have moved into cities, nesting on skyscrapers and bridges and living on pigeons."
+    },
+    {
+      "d": "easy",
+      "q": "How many hearts does an octopus have?",
+      "o": [
+        "Three",
+        "One",
+        "Two",
+        "Eight"
+      ],
+      "a": 0,
+      "w": "Three. Two pump blood through the gills and the third pumps it round the body.",
+      "more": "The main heart stops beating while an octopus swims, which is one reason they prefer to crawl. Their blood is blue because it carries oxygen with copper rather than iron. About two thirds of their neurons are in the arms, which can taste whatever they touch."
+    },
+    {
+      "d": "easy",
+      "q": "What is a group of lions called?",
+      "o": [
+        "A pride",
+        "A pack",
+        "A herd",
+        "A troop"
+      ],
+      "a": 0,
+      "w": "A pride: usually a few related females, their cubs and one to a handful of adult males.",
+      "more": "The females do most of the hunting and raise the cubs together, even nursing each other's young. Males hold a pride for only two or three years on average before rivals push them out. Lions are the only truly social cats."
+    },
+    {
+      "d": "easy",
+      "q": "Which is the only mammal capable of true, powered flight?",
+      "o": [
+        "The bat",
+        "The flying squirrel",
+        "The sugar glider",
+        "The colugo"
+      ],
+      "a": 0,
+      "w": "The bat. Flying squirrels, sugar gliders and colugos only glide.",
+      "more": "Roughly one in five mammal species is a bat, more than 1,400 kinds in all. The largest, the flying foxes, have wingspans up to 1.7 metres; the smallest, Thailand's bumblebee bat, weighs about two grams. Bats pollinate agave, so tequila depends on them."
+    },
+    {
+      "d": "easy",
+      "q": "What is a baby kangaroo called?",
+      "o": [
+        "A joey",
+        "A cub",
+        "A kit",
+        "A calf"
+      ],
+      "a": 0,
+      "w": "A joey. It is born about the size of a jelly bean and crawls up into the pouch to finish growing.",
+      "more": "A female can have three young on the go at once: one out of the pouch, one inside it, and a fertilised egg on pause until there is room. Kangaroos cannot easily move backwards, which is said to be why one appears on Australia's coat of arms. A big red kangaroo can cover nine metres in a single hop."
+    },
+    {
+      "d": "easy",
+      "q": "Which is the largest species of penguin?",
+      "o": [
+        "The emperor penguin",
+        "The king penguin",
+        "The Adélie penguin",
+        "The gentoo penguin"
+      ],
+      "a": 0,
+      "w": "The emperor penguin, standing up to about 1.2 metres and weighing up to 40 kilograms.",
+      "more": "Emperors breed through the Antarctic winter. The male balances the egg on his feet for about two months in the dark without eating, losing close to half his body weight. They dive deeper than any other bird, past 500 metres, and can hold their breath for more than twenty minutes."
+    },
+    {
+      "d": "medium",
+      "q": "How many bones are there in a giraffe's neck?",
+      "o": [
+        "Seven",
+        "Twelve",
+        "Twenty",
+        "Three"
+      ],
+      "a": 0,
+      "w": "Seven, the same as a human and almost every other mammal. Each one is just very long, up to 25 centimetres.",
+      "more": "Sloths and manatees are among the few mammals that break the rule. A giraffe's heart weighs about eleven kilograms and generates roughly twice the blood pressure of a human's to push blood two metres up to the brain. Valves in the neck stop the blood rushing to its head when it bends to drink."
+    },
+    {
+      "d": "medium",
+      "q": "Which land animal has the largest eyes?",
+      "o": [
+        "The ostrich",
+        "The horse",
+        "The elephant",
+        "The owl"
+      ],
+      "a": 0,
+      "w": "The ostrich, whose eyes are about five centimetres across, larger than its brain.",
+      "more": "The largest eyes of any animal belong to the colossal squid, at up to 27 centimetres, roughly the size of a football. Ostriches are the biggest and heaviest birds and can run at about 70 kilometres an hour. The head-in-the-sand story probably comes from watching them lower their heads to turn eggs in a ground nest."
+    },
+    {
+      "d": "medium",
+      "q": "Which animals are the closest living relatives of the hippopotamus?",
+      "o": [
+        "Whales and dolphins",
+        "Pigs",
+        "Rhinoceroses",
+        "Elephants"
+      ],
+      "a": 0,
+      "w": "Whales and dolphins. They share an ancestor that lived about 55 million years ago.",
+      "more": "For a long time hippos were grouped with pigs on the strength of their teeth. DNA settled the argument in the 1990s. Hippos and whales both have almost no hair, give birth and nurse under water, and call to each other with underwater sounds."
+    },
+    {
+      "d": "medium",
+      "q": "A newborn of which animal weighs only about 100 grams, roughly one nine-hundredth of its mother's weight?",
+      "o": [
+        "The giant panda",
+        "The kangaroo",
+        "The polar bear",
+        "The gorilla"
+      ],
+      "a": 0,
+      "w": "The giant panda. The cub is born pink, blind and nearly hairless, about the size of a stick of butter.",
+      "more": "It is one of the smallest newborns of any placental mammal relative to its mother. Pandas are bears, but they eat bamboo for up to fourteen hours a day and digest only about a fifth of it. A female is fertile for just two or three days a year, which is why zoos find them so hard to breed."
+    },
+    {
+      "d": "medium",
+      "q": "The platypus and which other animal are the only mammals that lay eggs?",
+      "o": [
+        "The echidna",
+        "The armadillo",
+        "The pangolin",
+        "The opossum"
+      ],
+      "a": 0,
+      "w": "The echidna, or spiny anteater, of Australia and New Guinea. Together they are the monotremes.",
+      "more": "The platypus has no stomach, finds prey by sensing electric fields with its bill, and the male carries venom in a spur on each hind leg. When the first specimen reached London in 1799, scientists suspected a hoax stitched together from a duck and a mole. Neither animal has nipples; the young lap milk that seeps through patches of skin."
+    },
+    {
+      "d": "medium",
+      "q": "Which insect kills more people each year than any other animal?",
+      "o": [
+        "The mosquito",
+        "The tsetse fly",
+        "The honeybee",
+        "The kissing bug"
+      ],
+      "a": 0,
+      "w": "The mosquito, through malaria, dengue, yellow fever and other diseases, well over half a million deaths a year.",
+      "more": "Only the females bite, needing the protein in blood to make eggs. Of about 3,500 mosquito species, only a few dozen carry human diseases. Malaria alone killed around 600,000 people in 2022, most of them young children in sub-Saharan Africa."
+    },
+    {
+      "d": "medium",
+      "q": "Which of these animals can live the longest?",
+      "o": [
+        "The Greenland shark",
+        "The bowhead whale",
+        "The Galápagos tortoise",
+        "The African elephant"
+      ],
+      "a": 0,
+      "w": "The Greenland shark. One female was dated at roughly 400 years old, born around the time Shakespeare was writing.",
+      "more": "The age came from radiocarbon in the lens of the eye, which forms before birth and never changes afterwards. They grow about a centimetre a year and may not breed until they are around 150. The bowhead whale, at more than 200 years, is the longest-lived mammal."
+    },
+    {
+      "d": "hard",
+      "q": "Which living animal has the strongest bite force ever measured?",
+      "o": [
+        "The saltwater crocodile",
+        "The great white shark",
+        "The hippopotamus",
+        "The jaguar"
+      ],
+      "a": 0,
+      "w": "The saltwater crocodile, measured at around 16,000 newtons, or about 3,700 pounds per square inch.",
+      "more": "The record came from a 2012 study that put a bite meter into the jaws of a 5.2 metre crocodile. The great white shark's bite has only ever been estimated by computer model. The muscles that open a crocodile's jaws are weak, which is why a few loops of tape can hold one shut."
+    },
+    {
+      "d": "hard",
+      "type": "order",
+      "q": "Put these animals in order of pregnancy length, longest first.",
+      "o": [
+        "African elephant",
+        "Giraffe",
+        "Human",
+        "Domestic dog"
+      ],
+      "w": "Elephant about 22 months, giraffe about 15, human nine, dog about two.",
+      "more": "The elephant's 22 months is the longest pregnancy of any land mammal, and the calf arrives weighing around 100 kilograms. A giraffe gives birth standing up, so the calf drops nearly two metres onto the ground, and is walking within an hour. At the other extreme, the Virginia opossum is pregnant for only about twelve days."
+    },
+    {
+      "d": "hard",
+      "q": "Which bird makes the longest migration of any animal, travelling roughly pole to pole every year?",
+      "o": [
+        "The Arctic tern",
+        "The bar-tailed godwit",
+        "The wandering albatross",
+        "The barn swallow"
+      ],
+      "a": 0,
+      "w": "The Arctic tern, which breeds in the Arctic and winters off Antarctica, covering 70,000 to 90,000 kilometres a year.",
+      "more": "Over a thirty-year life that adds up to about three round trips to the moon. The bar-tailed godwit holds the record for a single non-stop flight, about 13,500 kilometres from Alaska to Tasmania in eleven days. Terns see more daylight than any other creature, chasing summer at both ends of the Earth."
+    },
+    {
+      "d": "hard",
+      "q": "Humans have three kinds of colour receptor in their eyes. Roughly how many does a mantis shrimp have?",
+      "o": [
+        "About twelve",
+        "About five",
+        "About three",
+        "About thirty"
+      ],
+      "a": 0,
+      "w": "About twelve, and sixteen in some species. Oddly, they are worse than we are at telling similar colours apart.",
+      "more": "The receptors seem to work as a fast colour scanner rather than a fine-grained one. The mantis shrimp's punch accelerates like a bullet and boils the water in front of the club, giving off a tiny flash of light. Aquariums keep them behind acrylic because they have cracked glass tanks."
+    },
+    {
+      "d": "hard",
+      "q": "True or false: sharks have existed for longer than trees.",
+      "o": [
+        "True",
+        "False"
+      ],
+      "a": 0,
+      "keepOrder": true,
+      "w": "True. Sharks go back about 450 million years; the first trees appeared around 385 million years ago.",
+      "more": "Sharks are also older than Saturn's rings and than Polaris, the North Star, and they have survived all five mass extinctions. Their skeletons are cartilage, so mostly only their teeth fossilise. A single shark can shed tens of thousands of teeth in a lifetime."
+    },
+    {
+      "d": "hard",
+      "q": "The wombat is the only animal known to produce droppings in which shape?",
+      "o": [
+        "Cubes",
+        "Spirals",
+        "Perfect spheres",
+        "Rings"
+      ],
+      "a": 0,
+      "w": "Cubes, up to about a hundred a night, which it stacks to mark territory without them rolling away.",
+      "more": "The shape comes from the intestine, which has stiffer and stretchier regions that squeeze the contents unevenly. The 2019 study that worked this out won an Ig Nobel Prize. Wombats also have a backward-facing pouch so they do not fill it with soil while digging."
+    }
+  ]
+}
