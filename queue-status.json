@@ -74,6 +74,102 @@
     }
   ],
   "requestsWaiting": [],
+  "games": {
+    "hamps": {
+      "today": "2026-09-25",
+      "season": 1,
+      "queueCount": 11,
+      "target": 5,
+      "fill": 0,
+      "queue": [
+        {
+          "id": "one-hit-wonders",
+          "name": "One Hit Wonders",
+          "subject": "One hit wonders",
+          "onPollSince": "2026-09-25",
+          "retired": false
+        },
+        {
+          "id": "plate-to-place",
+          "name": "Plate to Place",
+          "subject": "Food origins",
+          "onPollSince": "2026-09-25",
+          "retired": false
+        },
+        {
+          "id": "great-heists",
+          "name": "Great Heists and Cons",
+          "subject": "Heists and frauds",
+          "onPollSince": "2026-09-25",
+          "retired": false
+        },
+        {
+          "id": "to-the-moon",
+          "name": "To the Moon and Mars",
+          "subject": "Spaceflight",
+          "onPollSince": null,
+          "retired": false
+        },
+        {
+          "id": "word-origins",
+          "name": "Where Words Come From",
+          "subject": "Word origins",
+          "onPollSince": null,
+          "retired": false
+        },
+        {
+          "id": "console-wars",
+          "name": "Console Wars",
+          "subject": "Video games",
+          "onPollSince": null,
+          "retired": false
+        },
+        {
+          "id": "summer-blockbusters",
+          "name": "Summer Blockbusters",
+          "subject": "Big movies",
+          "onPollSince": null,
+          "retired": false
+        },
+        {
+          "id": "extra-time",
+          "name": "Extra Time",
+          "subject": "Sport",
+          "onPollSince": null,
+          "retired": false
+        },
+        {
+          "id": "where-on-earth",
+          "name": "Where On Earth",
+          "subject": "Geography",
+          "onPollSince": null,
+          "retired": false
+        },
+        {
+          "id": "founding-years",
+          "name": "Founding Years",
+          "subject": "American history, 1500 to 1850",
+          "onPollSince": null,
+          "retired": false
+        },
+        {
+          "id": "wild-things",
+          "name": "Wild Things",
+          "subject": "Animals",
+          "onPollSince": null,
+          "retired": false
+        }
+      ],
+      "tonightsPoll": [
+        "one-hit-wonders",
+        "plate-to-place",
+        "great-heists"
+      ],
+      "override": null,
+      "dropped": [],
+      "requestsWaiting": []
+    }
+  },
   "existingSubjects": [
     "Strike a Pose (Madonna)",
     "Over the Millennia (World history)",
@@ -91,7 +187,9 @@
     "The Corner Office (Business leaders and companies)",
     "Extra Time (Sport)",
     "Founding Years (American history, 1500 to 1850)",
+    "Ripped From the Headlines (Current events, 2026)",
     "Summer Blockbusters (Big movies)",
+    "Totally Famous (1990s celebrities)",
     "Where On Earth (Geography)",
     "Wild Things (Animals)"
   ],
