@@ -1,0 +1,283 @@
+{
+  "id": "kitchen-confidential",
+  "name": "Kitchen Confidential",
+  "subject": "Food and drink",
+  "tagline": "Twenty questions on what is on the plate and in the glass, from peanuts to Noma. Starts easy, ends hard.",
+  "emblem": "🍳",
+  "theme": {
+    "font": "Fraunces",
+    "accent": "#DC2626",
+    "accent2": "#16A34A",
+    "accentDark": "#F87171",
+    "accent2Dark": "#4ADE80"
+  },
+  "questions": [
+    {
+      "d": "easy",
+      "q": "Which 'nut' is really a legume that ripens underground?",
+      "o": [
+        "The peanut",
+        "The almond",
+        "The cashew",
+        "The walnut"
+      ],
+      "a": 0,
+      "w": "The peanut, a relative of peas and beans, whose pods develop under the soil.",
+      "more": "Cashews grow one at a time on the outside of a fruit called the cashew apple. Almonds are the seeds of a fruit related to the peach. George Washington Carver promoted the peanut across the American South but, despite the legend, did not invent peanut butter."
+    },
+    {
+      "d": "easy",
+      "q": "Which spice is the most expensive in the world by weight?",
+      "o": [
+        "Saffron",
+        "Vanilla",
+        "Cardamom",
+        "Black pepper"
+      ],
+      "a": 0,
+      "w": "Saffron, the dried stigmas of a crocus, picked by hand: about 150,000 flowers go into a kilo.",
+      "more": "Most of the world's supply comes from Iran. Vanilla is second, and outside Mexico every flower has to be pollinated by hand because its natural pollinator is a Mexican bee. A gram of good saffron costs more than a gram of some precious metals have at times."
+    },
+    {
+      "d": "easy",
+      "q": "What is the compound that makes chillies hot?",
+      "o": [
+        "Capsaicin",
+        "Citric acid",
+        "Piperine",
+        "Allicin"
+      ],
+      "a": 0,
+      "w": "Capsaicin, whose strength is measured on the Scoville scale.",
+      "more": "Piperine is the heat in black pepper and allicin the bite in garlic. Birds cannot feel capsaicin at all, which is how chilli plants get their seeds carried far away. Milk helps because its casein binds the capsaicin; water only spreads it around."
+    },
+    {
+      "d": "easy",
+      "q": "Sushi rice is seasoned with which ingredient?",
+      "o": [
+        "Vinegar",
+        "Soy sauce",
+        "Fish sauce",
+        "Sesame oil"
+      ],
+      "a": 0,
+      "w": "Vinegar, with sugar and salt. The word sushi refers to the soured rice, not to the fish.",
+      "more": "The wasabi served in most restaurants outside Japan is horseradish dyed green; real wasabi is hard to grow and loses its punch within about fifteen minutes of grating. Sushi began as a way of preserving fish in fermented rice. Nigiri as we know it was street food in nineteenth-century Tokyo."
+    },
+    {
+      "d": "easy",
+      "q": "Which fruit carries its seeds on the outside?",
+      "o": [
+        "The strawberry",
+        "The raspberry",
+        "The fig",
+        "The kiwi"
+      ],
+      "a": 0,
+      "w": "The strawberry, about two hundred of them per berry. Botanically, each 'seed' is a tiny fruit.",
+      "more": "Bananas and avocados count as berries; strawberries do not. A raspberry is a cluster of tiny fruits called drupelets. A fig's flowers are inside it, which is why you never see a fig tree bloom."
+    },
+    {
+      "d": "easy",
+      "q": "Champagne can only be called champagne if it comes from a region of which country?",
+      "o": [
+        "France",
+        "Italy",
+        "Spain",
+        "Germany"
+      ],
+      "a": 0,
+      "w": "France. The Champagne region lies east of Paris. Elsewhere it is sparkling wine: cava in Spain, prosecco in Italy, sekt in Germany.",
+      "more": "The pressure inside a bottle is about six atmospheres, roughly three times a car tyre. Dom Pérignon did not invent it; the monk spent years trying to get rid of the bubbles, which were seen as a fault. The name has been protected by treaty since 1891."
+    },
+    {
+      "d": "easy",
+      "q": "After water, which drink is consumed most in the world?",
+      "o": [
+        "Tea",
+        "Coffee",
+        "Beer",
+        "Milk"
+      ],
+      "a": 0,
+      "w": "Tea, by a wide margin, most of it in Asia.",
+      "more": "All true tea comes from one plant, Camellia sinensis; the difference between green, black and oolong is how the leaves are processed. Britain gets through about a hundred million cups a day. Turkey drinks the most per person."
+    },
+    {
+      "d": "medium",
+      "q": "What is the fifth basic taste, alongside sweet, sour, salty and bitter?",
+      "o": [
+        "Umami",
+        "Fat",
+        "Spicy",
+        "Metallic"
+      ],
+      "a": 0,
+      "w": "Umami, identified by the Japanese chemist Kikunae Ikeda in 1908 while studying kombu seaweed broth.",
+      "more": "He went on to patent monosodium glutamate, MSG. Parmesan, ripe tomatoes, soy sauce and mushrooms are all rich in it. Some researchers argue that fat is a sixth taste and have named it oleogustus."
+    },
+    {
+      "d": "medium",
+      "q": "Which cheese is traditionally made from the milk of water buffalo?",
+      "o": [
+        "Mozzarella",
+        "Halloumi",
+        "Feta",
+        "Brie"
+      ],
+      "a": 0,
+      "w": "Mozzarella di bufala, from Campania in southern Italy. Most supermarket mozzarella is made from cow's milk and is properly called fior di latte.",
+      "more": "Water buffalo have been raised in the marshes around Naples for centuries. Feta is sheep's milk, with up to thirty percent goat. Halloumi, from Cyprus, squeaks against your teeth because of its protein structure and does not melt on a grill."
+    },
+    {
+      "d": "medium",
+      "q": "The Michelin restaurant guide was started by a company that makes what?",
+      "o": [
+        "Tyres",
+        "Champagne",
+        "Maps",
+        "Cars"
+      ],
+      "a": 0,
+      "w": "Tyres. The Michelin brothers published the guide in 1900 to get French motorists on the road, wearing out tyres.",
+      "more": "Stars began in 1926 and the three-star scale in 1931. The inspectors are anonymous and pay for their meals. In 2016 a Singapore hawker stall selling soya-sauce chicken rice for about two dollars became the cheapest Michelin-starred meal in the world."
+    },
+    {
+      "d": "medium",
+      "q": "Which country grows the most coffee?",
+      "o": [
+        "Brazil",
+        "Vietnam",
+        "Colombia",
+        "Ethiopia"
+      ],
+      "a": 0,
+      "w": "Brazil, about a third of the world's supply, and it has led for more than 150 years.",
+      "more": "Vietnam is second, mostly the robusta bean. Ethiopia is where coffee began; legend has a goatherd called Kaldi noticing his goats dancing after eating the berries. Finland drinks the most per person."
+    },
+    {
+      "d": "medium",
+      "q": "What is the main ingredient of hummus?",
+      "o": [
+        "Chickpeas",
+        "Lentils",
+        "Fava beans",
+        "Sesame seeds"
+      ],
+      "a": 0,
+      "w": "Chickpeas, blended with tahini, lemon and garlic. 'Hummus' is simply the Arabic word for chickpeas.",
+      "more": "Tahini is the sesame paste in it; Egypt's staple ful medames is made from fava beans instead. Lebanon and Israel have both claimed the record for the largest plate. Lebanon's 2010 effort weighed more than ten tonnes."
+    },
+    {
+      "d": "medium",
+      "q": "Which vitamin does the body make when sunlight hits the skin?",
+      "o": [
+        "Vitamin D",
+        "Vitamin C",
+        "Vitamin B12",
+        "Vitamin K"
+      ],
+      "a": 0,
+      "w": "Vitamin D, made when ultraviolet light reaches the skin. Oily fish and egg yolks are the main food sources.",
+      "more": "Scurvy is a shortage of vitamin C, which is why British sailors were issued lime juice and called limeys. B12 comes only from animal foods or fortified ones. Rickets, the childhood bone disease from too little vitamin D, has come back in some cities."
+    },
+    {
+      "d": "medium",
+      "q": "A 'cicerone' is the beer world's version of which restaurant expert?",
+      "o": [
+        "A sommelier",
+        "A maître d'",
+        "A saucier",
+        "A garde manger"
+      ],
+      "a": 0,
+      "w": "A sommelier, the wine expert. The Cicerone certification for beer was created in 2007.",
+      "more": "The top exam of the Court of Master Sommeliers has a pass rate under ten percent; the 2012 documentary Somm followed four candidates through it. A saucier makes the sauces and a garde manger runs the cold kitchen. Fewer than three hundred people have ever become Master Sommeliers."
+    },
+    {
+      "d": "hard",
+      "q": "Which chef's Copenhagen restaurant Noma was named the best in the world five times?",
+      "o": [
+        "René Redzepi",
+        "Ferran Adrià",
+        "Massimo Bottura",
+        "Heston Blumenthal"
+      ],
+      "a": 0,
+      "w": "René Redzepi. Noma topped the World's 50 Best list in 2010, 2011, 2012, 2014 and 2021.",
+      "more": "Noma closed as a normal restaurant at the end of 2024 to become a food laboratory and pop-up operation. Its foraged New Nordic menu included live ants and reindeer moss. Ferran Adrià's elBulli, the previous holder of the crown, closed in 2011."
+    },
+    {
+      "d": "hard",
+      "type": "order",
+      "q": "Put these in order from mildest to hottest on the Scoville scale.",
+      "o": [
+        "Bell pepper",
+        "Jalapeño",
+        "Habanero",
+        "Carolina Reaper"
+      ],
+      "w": "Bell pepper (zero), jalapeño (a few thousand), habanero (a few hundred thousand), Carolina Reaper (over 1.6 million).",
+      "more": "Pepper X took the world record in 2023 at about 2.7 million Scoville units. Pure capsaicin scores 16 million. Wilbur Scoville devised the scale in 1912 by diluting chilli extract in sugar water until a panel of tasters felt nothing."
+    },
+    {
+      "d": "hard",
+      "q": "What is the name for cooking food sealed in a bag in a precisely heated water bath?",
+      "o": [
+        "Sous vide",
+        "En papillote",
+        "Bain-marie",
+        "Confit"
+      ],
+      "a": 0,
+      "w": "Sous vide, French for 'under vacuum'.",
+      "more": "It was developed in the 1970s in France, partly to cook foie gras without losing weight. A bain-marie is a hot-water bath for gentle heating, en papillote means baked in a parchment parcel, and confit is slow-cooking in fat. Home immersion circulators arrived in the 2010s."
+    },
+    {
+      "d": "hard",
+      "q": "Which mould is used to make soy sauce, miso and sake?",
+      "o": [
+        "Koji",
+        "Baker's yeast",
+        "Penicillium",
+        "Brettanomyces"
+      ],
+      "a": 0,
+      "w": "Koji, the mould Aspergillus oryzae, which turns starch into sugar before yeast can turn it into alcohol.",
+      "more": "Japan's Brewing Society declared it the national fungus in 2006. Penicillium makes blue cheese and penicillin; Brettanomyces gives Belgian lambic beers their funk. Because of the koji step, sake is brewed more like a beer than a wine."
+    },
+    {
+      "d": "hard",
+      "q": "True or false: honey never spoils, and edible honey has been found in ancient Egyptian tombs.",
+      "o": [
+        "True",
+        "False"
+      ],
+      "a": 0,
+      "keepOrder": true,
+      "w": "True. Very low water content, acidity and traces of hydrogen peroxide leave microbes nothing to live on.",
+      "more": "Archaeologists have reported honey about three thousand years old from Egyptian tombs still fit to eat. Honey can crystallise, but that is not spoilage; warming it gently reverses it. Babies under one should not eat it, because it can carry botulism spores."
+    },
+    {
+      "d": "hard",
+      "type": "select",
+      "q": "Which of these are made on a base of egg yolks? Select all that apply.",
+      "o": [
+        "Mayonnaise",
+        "Hollandaise",
+        "Béchamel",
+        "Crème anglaise",
+        "Vinaigrette",
+        "Zabaglione"
+      ],
+      "a": [
+        0,
+        1,
+        3,
+        5
+      ],
+      "w": "Mayonnaise, hollandaise, crème anglaise and zabaglione. Béchamel is milk thickened with a butter-and-flour roux, and vinaigrette is oil and vinegar.",
+      "more": "Hollandaise is one of the five French mother sauces set down by Escoffier, with béchamel, velouté, espagnole and tomato. The lecithin in yolk is what lets oil and water hold together. Zabaglione is yolks whisked with sugar and Marsala over heat."
+    }
+  ]
+}

@@ -1,0 +1,283 @@
+{
+  "id": "crowned-heads",
+  "name": "Crowned Heads",
+  "subject": "Royals through history",
+  "tagline": "Twenty questions on kings, queens, emperors and pharaohs, and what became of them. Starts easy, ends hard.",
+  "draft": true,
+  "emblem": "👑",
+  "theme": {
+    "font": "Cinzel",
+    "accent": "#9A3412",
+    "accent2": "#EAB308",
+    "accentDark": "#FB923C",
+    "accent2Dark": "#FDE047"
+  },
+  "questions": [
+    {
+      "d": "easy",
+      "q": "Which English king had six wives?",
+      "o": [
+        "Henry VIII",
+        "Henry V",
+        "Richard III",
+        "Charles II"
+      ],
+      "a": 0,
+      "w": "Henry VIII. Divorced, beheaded, died, divorced, beheaded, survived.",
+      "more": "In order: Catherine of Aragon, Anne Boleyn, Jane Seymour, Anne of Cleves, Catherine Howard and Catherine Parr. He broke with Rome so he could end the first marriage. Only Jane Seymour gave him a son, the short-lived Edward VI."
+    },
+    {
+      "d": "easy",
+      "q": "Which queen reigned over the United Kingdom for seventy years until 2022?",
+      "o": [
+        "Elizabeth II",
+        "Victoria",
+        "Elizabeth I",
+        "Anne"
+      ],
+      "a": 0,
+      "w": "Elizabeth II, from 1952 to 2022, the longest reign in British history.",
+      "more": "Victoria reigned for 63 years. Louis XIV of France holds the record for any sovereign, 72 years. Elizabeth marked her Platinum Jubilee in June 2022 and died at Balmoral that September."
+    },
+    {
+      "d": "easy",
+      "q": "Tutankhamun ruled which ancient civilisation?",
+      "o": [
+        "Egypt",
+        "Persia",
+        "Babylon",
+        "Nubia"
+      ],
+      "a": 0,
+      "w": "Egypt, in the fourteenth century BC. He died at about eighteen.",
+      "more": "Howard Carter found his nearly intact tomb in 1922. The gold death mask weighs about ten kilograms. DNA studies suggest his parents were brother and sister and that he had a club foot."
+    },
+    {
+      "d": "easy",
+      "q": "Which French king built the Palace of Versailles and called himself the Sun King?",
+      "o": [
+        "Louis XIV",
+        "Louis XVI",
+        "Napoleon",
+        "Francis I"
+      ],
+      "a": 0,
+      "w": "Louis XIV, who moved the royal court there in 1682.",
+      "more": "He came to the throne at four and reigned 72 years. Versailles has around seven hundred rooms, and the Hall of Mirrors holds 357 mirrors. The line 'I am the state' is attributed to him but was probably never said."
+    },
+    {
+      "d": "easy",
+      "q": "Napoleon crowned himself emperor of which country in 1804?",
+      "o": [
+        "France",
+        "Italy",
+        "Austria",
+        "Spain"
+      ],
+      "a": 0,
+      "w": "France, in Notre-Dame in Paris, taking the crown from the Pope's hands and putting it on his own head.",
+      "more": "He was exiled to Elba in 1814, escaped, lost at Waterloo in 1815 and died on St Helena in 1821. He was about five feet six, average for the time; the idea that he was tiny comes from British cartoons and a mix-up between French and English inches. His legal code still underlies French law."
+    },
+    {
+      "d": "easy",
+      "q": "Which country's emperor sits on the Chrysanthemum Throne, the oldest hereditary monarchy in the world?",
+      "o": [
+        "Japan",
+        "Thailand",
+        "Sweden",
+        "Jordan"
+      ],
+      "a": 0,
+      "w": "Japan. Emperor Naruhito is counted as the 126th in a line that legend traces back to 660 BC.",
+      "more": "His father Akihito abdicated in 2019, the first emperor to do so in two centuries. Under the 1947 law only males can succeed, so Naruhito's daughter Aiko cannot. The imperial family has no surname."
+    },
+    {
+      "d": "easy",
+      "q": "Prince William's wife Catherine holds which title?",
+      "o": [
+        "Princess of Wales",
+        "Duchess of Cornwall",
+        "Duchess of York",
+        "Duchess of Sussex"
+      ],
+      "a": 0,
+      "w": "Princess of Wales, since Charles III became king in September 2022.",
+      "more": "Before that she was Duchess of Cambridge. Diana was the previous Princess of Wales. Harry and Meghan are the Duke and Duchess of Sussex."
+    },
+    {
+      "d": "medium",
+      "q": "Which German-born princess ruled Russia as empress from 1762 to 1796?",
+      "o": [
+        "Catherine the Great",
+        "Elizabeth of Russia",
+        "Anna of Russia",
+        "Alexandra Feodorovna"
+      ],
+      "a": 0,
+      "w": "Catherine II, who seized the throne in a coup against her own husband, Peter III.",
+      "more": "She corresponded with Voltaire and bought the art collection that founded the Hermitage. Russia took Crimea and much of Poland during her reign. The famous story about her death and a horse is a myth; she died of a stroke."
+    },
+    {
+      "d": "medium",
+      "q": "Which Aztec emperor met Hernán Cortés in 1519 and died in Spanish custody the following year?",
+      "o": [
+        "Moctezuma II",
+        "Atahualpa",
+        "Cuauhtémoc",
+        "Pachacuti"
+      ],
+      "a": 0,
+      "w": "Moctezuma II, ruler of Tenochtitlan. Atahualpa was the Inca emperor captured by Pizarro in 1532.",
+      "more": "Tenochtitlan fell in 1521 and Mexico City was built on its ruins. The people we call Aztecs called themselves the Mexica, which gave Mexico its name. Cuauhtémoc, the last emperor, led the final defence of the city."
+    },
+    {
+      "d": "medium",
+      "q": "Marie Antoinette, executed in 1793, was born a princess of which country?",
+      "o": [
+        "Austria",
+        "Spain",
+        "Poland",
+        "Bavaria"
+      ],
+      "a": 0,
+      "w": "Austria. She was a daughter of Empress Maria Theresa and married the future Louis XVI at fourteen.",
+      "more": "'Let them eat cake' appears in Rousseau's writing from before she reached France, so she almost certainly never said it. She was guillotined nine months after her husband. Her last words were an apology to the executioner for treading on his foot."
+    },
+    {
+      "d": "medium",
+      "q": "Which British king was on the throne during the American Revolution?",
+      "o": [
+        "George III",
+        "George II",
+        "William IV",
+        "Queen Anne's successor, George I"
+      ],
+      "a": 0,
+      "w": "George III, who reigned from 1760 to 1820 and later suffered long bouts of mental illness.",
+      "more": "He was the first of the Hanoverian kings born in Britain and to speak English as a first language. He collected 65,000 books, now the King's Library at the British Library. From 1811 his son ruled for him as Prince Regent."
+    },
+    {
+      "d": "medium",
+      "q": "Which Mongol ruler founded China's Yuan dynasty and, by his own account, employed Marco Polo?",
+      "o": [
+        "Kublai Khan",
+        "Genghis Khan",
+        "Timur",
+        "Ögedei Khan"
+      ],
+      "a": 0,
+      "w": "Kublai Khan, Genghis Khan's grandson, who completed the conquest of China in 1279.",
+      "more": "Coleridge's poem Kubla Khan is about Xanadu, his summer capital. His fleets twice tried to invade Japan and were wrecked by storms the Japanese called kamikaze, 'divine wind'. Marco Polo claimed to have spent seventeen years at his court."
+    },
+    {
+      "d": "medium",
+      "q": "Which Scottish queen was executed on the orders of Elizabeth I in 1587?",
+      "o": [
+        "Mary, Queen of Scots",
+        "Mary I of England",
+        "Anne of Denmark",
+        "Margaret Tudor"
+      ],
+      "a": 0,
+      "w": "Mary, Queen of Scots, after nineteen years in English custody and a plot to put her on the throne.",
+      "more": "She had become queen at six days old. Her son became James VI of Scotland and, in 1603, James I of England, uniting the two crowns. The executioner needed three blows."
+    },
+    {
+      "d": "medium",
+      "q": "Which Zulu king's army defeated the British at Isandlwana in 1879?",
+      "o": [
+        "Cetshwayo",
+        "Shaka",
+        "Dingane",
+        "Mpande"
+      ],
+      "a": 0,
+      "w": "Cetshwayo, whose warriors wiped out a British column at Isandlwana in January 1879.",
+      "more": "The defence of Rorke's Drift the same day produced eleven Victoria Crosses. Shaka, who had built the Zulu kingdom, was murdered in 1828. Cetshwayo was captured, taken to London where he met Queen Victoria, and briefly restored."
+    },
+    {
+      "d": "hard",
+      "q": "Which king's skeleton was found under a car park in Leicester in 2012?",
+      "o": [
+        "Richard III",
+        "Harold II",
+        "Edward V",
+        "Henry I"
+      ],
+      "a": 0,
+      "w": "Richard III, killed at Bosworth in 1485, identified through DNA from a Canadian descendant of his sister.",
+      "more": "The bones showed a curved spine, confirming scoliosis but not Shakespeare's hunchback. He was reburied in Leicester Cathedral in 2015. The dig was led by the University of Leicester with the Richard III Society."
+    },
+    {
+      "d": "hard",
+      "type": "order",
+      "q": "Put these rulers in order, earliest first.",
+      "o": [
+        "Alexander the Great",
+        "Augustus",
+        "Charlemagne",
+        "Genghis Khan"
+      ],
+      "w": "Alexander (died 323 BC), Augustus (from 27 BC), Charlemagne (crowned 800), Genghis Khan (proclaimed 1206).",
+      "more": "Alexander died in Babylon at 32 having never lost a battle. Augustus was the first Roman emperor, and the month of August is named after him. Genghis Khan's empire grew under his successors into the largest continuous land empire in history."
+    },
+    {
+      "d": "hard",
+      "q": "Who was the last emperor of China, deposed as a small child in 1912?",
+      "o": [
+        "Puyi",
+        "Guangxu",
+        "Kangxi",
+        "Qianlong"
+      ],
+      "a": 0,
+      "w": "Puyi of the Qing dynasty, who took the throne at two and lost it at six.",
+      "more": "Japan installed him as the puppet emperor of Manchukuo in 1934. After 1949 he was re-educated and ended his days as a gardener in Beijing. Bertolucci's The Last Emperor won nine Oscars in 1988 and was the first Western film shot inside the Forbidden City."
+    },
+    {
+      "d": "hard",
+      "q": "Which queen of Hawaii was overthrown in 1893 with the backing of American businessmen?",
+      "o": [
+        "Liliʻuokalani",
+        "Kaʻahumanu",
+        "Emma",
+        "Kapiʻolani"
+      ],
+      "a": 0,
+      "w": "Queen Liliʻuokalani, Hawaii's last monarch, deposed by a group of planters supported by US Marines.",
+      "more": "She composed the song Aloha ʻOe. The United States annexed Hawaii in 1898, and Congress formally apologised for the overthrow in 1993. She was held under house arrest in her own palace for eight months."
+    },
+    {
+      "d": "hard",
+      "q": "True or false: Queen Victoria is the longest-reigning monarch in British history.",
+      "o": [
+        "True",
+        "False"
+      ],
+      "a": 1,
+      "keepOrder": true,
+      "w": "False. Her 63 years were passed by Elizabeth II in September 2015.",
+      "more": "Victoria became queen at eighteen and married her cousin Albert. Their nine children married into royal houses across Europe, which earned her the nickname 'grandmother of Europe'. Through them the haemophilia gene she carried reached the Russian and Spanish royal families."
+    },
+    {
+      "d": "hard",
+      "type": "select",
+      "q": "Which of these countries still have a monarch today? Select all that apply.",
+      "o": [
+        "Spain",
+        "Portugal",
+        "Norway",
+        "Greece",
+        "Thailand",
+        "Nepal"
+      ],
+      "a": [
+        0,
+        2,
+        4
+      ],
+      "w": "Spain, Norway and Thailand. Portugal ended its monarchy in 1910, Greece in 1974 and Nepal in 2008.",
+      "more": "Around forty countries still have a monarch, and Charles III is head of state of fifteen of them. Spain restored its king in 1975 after Franco's death. Bhutan's king introduced democracy himself in 2008."
+    }
+  ]
+}

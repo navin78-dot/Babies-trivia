@@ -1,13 +1,16 @@
-// Upserts every rounds/*.json file into the Firestore "rounds" collection, which every game shares.
+// Upserts round files into Firestore: rounds/*.json go to the original game's
+// "rounds" collection, games/<id>/rounds/*.json go to games/<id>/rounds. Each
+// game has its own question bank, because some people play more than one game.
 // Runs in GitHub Actions with GOOGLE_APPLICATION_CREDENTIALS pointing at the
 // service-account key. Adding a quiz is a JSON commit, not a site deploy.
 import { readdirSync, readFileSync, existsSync } from "node:fs";
 
-const dir = "rounds";
 const checkOnly = process.argv.includes("--check"); // validate the files, publish nothing
-const files = existsSync(dir) ? readdirSync(dir).filter(f => f.endsWith(".json")) : [];
+const jsonFiles = dir => existsSync(dir) ? readdirSync(dir).filter(f => f.endsWith(".json")).map(f => `${dir}/${f}`) : [];
+const targets = [{ game: "", dir: "rounds" }];
+for (const f of jsonFiles("games")) { const g = JSON.parse(readFileSync(f, "utf8")); if (g.id) targets.push({ game: g.id, dir: `games/${g.id}/rounds` }); }
 const hasPoll = existsSync("poll.json");
-if (!files.length && !hasPoll) { console.log("Nothing to publish."); process.exit(0); }
+if (!targets.some(t => jsonFiles(t.dir).length) && !hasPoll) { console.log("Nothing to publish."); process.exit(0); }
 
 function validate(f, data){
   if (!data.id || !/^[a-z0-9-]+$/.test(data.id)) throw new Error(`${f} needs an "id" of lowercase letters, digits and dashes`);
@@ -32,27 +35,35 @@ function validate(f, data){
 }
 
 if (checkOnly) {
-  for (const f of files) { const { n, c, special } = validate(f, JSON.parse(readFileSync(`${dir}/${f}`, "utf8"))); console.log(`ok ${f}: ${n} questions, ${c.easy}/${c.medium}/${c.hard}, ${special} special`); }
+  const seen = {};
+  for (const t of targets) for (const f of jsonFiles(t.dir)) {
+    const data = JSON.parse(readFileSync(f, "utf8")); const { n, c, special } = validate(f, data);
+    const key = `${t.game}/${data.id}`; if (seen[key]) throw new Error(`${f} and ${seen[key]} both have id "${data.id}"`); seen[key] = f;
+    console.log(`ok ${f}: ${n} questions, ${c.easy}/${c.medium}/${c.hard}, ${special} special`);
+  }
   console.log("all files valid"); process.exit(0);
 }
 
 const admin = (await import("firebase-admin")).default; // only needed when publishing
 admin.initializeApp({ credential: admin.credential.applicationDefault(), projectId: "babies-trivia" });
 const db = admin.firestore();
+const rootOf = game => game ? db.collection("games").doc(game) : db;
 
-for (const f of files) {
-  const data = JSON.parse(readFileSync(`${dir}/${f}`, "utf8"));
-  const { n } = validate(f, data);
-  if (!data.added) { // keep the first publish date on re-publish
-    const existing = await db.collection("rounds").doc(data.id).get();
-    data.added = (existing.exists && existing.data().added) || new Date().toISOString();
-  }
-  await db.collection("rounds").doc(data.id).set(data);
-  console.log(`published round "${data.id}" (${n} questions)`);
-  if (data.requestId) { // a round written for a theme a host asked for: tick it off. "hamps:abc" means games/hamps/requests/abc
-    const [game, reqId] = data.requestId.includes(":") ? data.requestId.split(":") : ["", data.requestId];
-    const reqs = game ? db.collection("games").doc(game).collection("requests") : db.collection("requests");
-    try { await reqs.doc(reqId).set({ status: "written", roundId: data.id }, { merge: true }); console.log(`  marked request ${data.requestId} as written`); } catch (e) { console.log(`  could not update request ${data.requestId}: ${e.message}`); }
+for (const t of targets) {
+  const rounds = rootOf(t.game).collection("rounds");
+  for (const f of jsonFiles(t.dir)) {
+    const data = JSON.parse(readFileSync(f, "utf8"));
+    const { n } = validate(f, data);
+    if (!data.added) { // keep the first publish date on re-publish
+      const existing = await rounds.doc(data.id).get();
+      data.added = (existing.exists && existing.data().added) || new Date().toISOString();
+    }
+    await rounds.doc(data.id).set(data);
+    console.log(`published ${t.dir}/${data.id} (${n} questions)`);
+    if (data.requestId) { // a round written for a theme a host asked for: tick it off. "hamps:abc" means games/hamps/requests/abc
+      const [game, reqId] = data.requestId.includes(":") ? data.requestId.split(":") : ["", data.requestId];
+      try { await rootOf(game).collection("requests").doc(reqId).set({ status: "written", roundId: data.id }, { merge: true }); console.log(`  marked request ${data.requestId} as written`); } catch (e) { console.log(`  could not update request ${data.requestId}: ${e.message}`); }
+    }
   }
 }
 if (hasPoll) {

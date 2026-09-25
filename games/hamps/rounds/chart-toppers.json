@@ -1,0 +1,283 @@
+{
+  "id": "chart-toppers",
+  "name": "Chart Toppers",
+  "subject": "Pop music",
+  "tagline": "Twenty questions from Abbey Road to BTS: records, record-breakers and the songs everybody knows. Starts easy, ends hard.",
+  "emblem": "🎧",
+  "theme": {
+    "font": "Righteous",
+    "accent": "#7C3AED",
+    "accent2": "#F472B6",
+    "accentDark": "#A78BFA",
+    "accent2Dark": "#F9A8D4"
+  },
+  "questions": [
+    {
+      "d": "easy",
+      "q": "Which band released Bohemian Rhapsody in 1975?",
+      "o": [
+        "Queen",
+        "Led Zeppelin",
+        "The Who",
+        "Pink Floyd"
+      ],
+      "a": 0,
+      "w": "Queen. Freddie Mercury wrote it, nearly six minutes long and with no chorus.",
+      "more": "The record company thought it far too long for radio, so the DJ Kenny Everett played it fourteen times in one weekend. It reached number one in Britain twice, in 1975 and again after Mercury's death in 1991. 'Bismillah' is Arabic for 'in the name of God'."
+    },
+    {
+      "d": "easy",
+      "q": "Which Michael Jackson album, released in 1982, is the best-selling album of all time?",
+      "o": [
+        "Thriller",
+        "Bad",
+        "Off the Wall",
+        "Dangerous"
+      ],
+      "a": 0,
+      "w": "Thriller, with sales estimated at around seventy million copies.",
+      "more": "Seven of its nine tracks were released as singles. The fourteen-minute Thriller video, directed by John Landis, premiered on MTV in December 1983. Eddie Van Halen played the guitar solo on Beat It for nothing, as a favour."
+    },
+    {
+      "d": "easy",
+      "q": "Who sang Rolling in the Deep and Someone Like You in 2011?",
+      "o": [
+        "Adele",
+        "Amy Winehouse",
+        "Florence Welch",
+        "Duffy"
+      ],
+      "a": 0,
+      "w": "Adele, from the album 21, the best-selling album of the 2010s worldwide.",
+      "more": "Her albums are named for her age when she wrote them: 19, 21, 25 and 30. 21 spent 24 weeks at number one in the United States. She won six Grammys in one night in 2012, weeks after surgery on her vocal cords."
+    },
+    {
+      "d": "easy",
+      "q": "Which Swedish group won Eurovision in 1974 with Waterloo?",
+      "o": [
+        "ABBA",
+        "Roxette",
+        "Ace of Base",
+        "Europe"
+      ],
+      "a": 0,
+      "w": "ABBA, in Brighton, England. The win launched them around the world.",
+      "more": "The name is the initials of Agnetha, Björn, Benny and Anni-Frid. The musical Mamma Mia! opened in London in 1999. In 2021 they released Voyage, their first album in forty years, and in 2022 opened a London concert performed by digital versions of their younger selves."
+    },
+    {
+      "d": "easy",
+      "q": "Shape of You (2017) is by which British singer?",
+      "o": [
+        "Ed Sheeran",
+        "Sam Smith",
+        "Harry Styles",
+        "Lewis Capaldi"
+      ],
+      "a": 0,
+      "w": "Ed Sheeran, from the album ÷ (Divide). For years it was the most-streamed song on Spotify.",
+      "more": "He wrote it with Rihanna in mind and then thought of offering it to Little Mix before keeping it. Its melody was close enough to TLC's No Scrubs that the writers of that song were given credits. Sheeran later won a court case over claims it copied another song."
+    },
+    {
+      "d": "easy",
+      "q": "Which singer is known as the Queen of Soul?",
+      "o": [
+        "Aretha Franklin",
+        "Diana Ross",
+        "Whitney Houston",
+        "Tina Turner"
+      ],
+      "a": 0,
+      "w": "Aretha Franklin, the first woman inducted into the Rock and Roll Hall of Fame, in 1987.",
+      "more": "Respect was written and first recorded by Otis Redding in 1965; her 1967 version turned it into an anthem and made it hers. She sang at Martin Luther King's funeral and at Barack Obama's first inauguration. She won eighteen Grammys."
+    },
+    {
+      "d": "easy",
+      "q": "Which Beatles album cover shows the four of them on a zebra crossing?",
+      "o": [
+        "Abbey Road",
+        "Let It Be",
+        "Revolver",
+        "Help!"
+      ],
+      "a": 0,
+      "w": "Abbey Road, photographed outside EMI's studios on 8 August 1969. The crossing is now a listed monument.",
+      "more": "Paul McCartney is barefoot, which fed the 'Paul is dead' rumour. The photographer Iain Macmillan had ten minutes on a stepladder and took six frames. It was the last album the band recorded together, though Let It Be came out later."
+    },
+    {
+      "d": "medium",
+      "q": "Which act has had the most number-one singles on the Billboard Hot 100?",
+      "o": [
+        "The Beatles",
+        "Mariah Carey",
+        "Elvis Presley",
+        "Rihanna"
+      ],
+      "a": 0,
+      "w": "The Beatles, with twenty. Mariah Carey is second with nineteen.",
+      "more": "Carey's nineteenth came in 2019 when All I Want for Christmas Is You reached number one 25 years after its release. Rihanna has fourteen, Michael Jackson thirteen and Madonna twelve. In April 1964 the Beatles held all five top spots at once, which nobody has matched."
+    },
+    {
+      "d": "medium",
+      "q": "Which Fleetwood Mac album from 1977 has Go Your Own Way and Dreams on it?",
+      "o": [
+        "Rumours",
+        "Tusk",
+        "Tango in the Night",
+        "Mirage"
+      ],
+      "a": 0,
+      "w": "Rumours, written while two couples in the band were breaking up. It has sold more than forty million copies.",
+      "more": "Dreams went back into the charts in 2020 after a TikTok video of a man skateboarding to it while drinking cranberry juice. Stevie Nicks says she wrote it in about ten minutes. The album won the Grammy for Album of the Year in 1978."
+    },
+    {
+      "d": "medium",
+      "q": "Whose album DAMN. won the Pulitzer Prize for Music in 2018?",
+      "o": [
+        "Kendrick Lamar",
+        "Jay-Z",
+        "Drake",
+        "Kanye West"
+      ],
+      "a": 0,
+      "w": "Kendrick Lamar, the first winner of the music Pulitzer who was not a classical or jazz composer.",
+      "more": "The board praised 'a virtuosic song collection unified by its vernacular authenticity'. He headlined the Super Bowl halftime show in February 2025, the first solo rapper to do it, and Not Like Us won five Grammys the same week. He was born in Compton, California."
+    },
+    {
+      "d": "medium",
+      "q": "Which Irish band made the albums The Joshua Tree and Achtung Baby?",
+      "o": [
+        "U2",
+        "The Cranberries",
+        "Thin Lizzy",
+        "Snow Patrol"
+      ],
+      "a": 0,
+      "w": "U2. The Joshua Tree won the Grammy for Album of the Year in 1988.",
+      "more": "The band formed at Mount Temple school in Dublin in 1976 after the drummer Larry Mullen Jr pinned a notice to a board. In 2014 Apple put Songs of Innocence into every iTunes library without asking, which annoyed millions of people. Bono's name comes from a Dublin hearing-aid shop, Bonavox."
+    },
+    {
+      "d": "medium",
+      "q": "Which Motown singer recorded What's Going On in 1971?",
+      "o": [
+        "Marvin Gaye",
+        "Stevie Wonder",
+        "Smokey Robinson",
+        "Al Green"
+      ],
+      "a": 0,
+      "w": "Marvin Gaye. Motown's boss, Berry Gordy, refused to release it at first, calling it too political.",
+      "more": "It sold about 100,000 copies in its first week once it came out, and Gordy gave Gaye control of a whole album. Rolling Stone put that album at number one in its 2020 list of the greatest ever. Gaye was shot dead by his father in 1984, the day before his 45th birthday."
+    },
+    {
+      "d": "medium",
+      "q": "Which Taylor Swift album won Album of the Year at the Grammys in 2024, making her the first artist with four wins in the category?",
+      "o": [
+        "Midnights",
+        "Folklore",
+        "1989",
+        "Fearless"
+      ],
+      "a": 0,
+      "w": "Midnights. Her earlier wins were for Fearless, 1989 and Folklore.",
+      "more": "She announced The Tortured Poets Department from the stage that night while accepting an earlier award. Frank Sinatra, Stevie Wonder and Paul Simon had held the record with three. The Eras Tour became the first tour to gross more than a billion dollars and finished in December 2024 at over two billion."
+    },
+    {
+      "d": "medium",
+      "q": "The Live Aid concerts of July 1985 were held in London and which American city?",
+      "o": [
+        "Philadelphia",
+        "New York",
+        "Los Angeles",
+        "Chicago"
+      ],
+      "a": 0,
+      "w": "Philadelphia's JFK Stadium and London's Wembley, on 13 July 1985, organised by Bob Geldof and Midge Ure.",
+      "more": "Phil Collins played both, crossing the Atlantic on Concorde in between. Queen's twenty-minute set is regularly voted the greatest live performance ever. An estimated 1.9 billion people watched in about 150 countries."
+    },
+    {
+      "d": "hard",
+      "q": "Which song spent the most weeks at number one on the Billboard Hot 100?",
+      "o": [
+        "Old Town Road",
+        "One Sweet Day",
+        "Despacito",
+        "Blinding Lights"
+      ],
+      "a": 0,
+      "w": "Lil Nas X's Old Town Road, with Billy Ray Cyrus, for nineteen weeks in 2019.",
+      "more": "Billboard pulled it from the country chart, saying it did not have enough country elements, which only fed the debate and the sales. The beat was bought online for thirty dollars and samples Nine Inch Nails. Blinding Lights by The Weeknd holds a different record: ninety weeks somewhere in the Hot 100."
+    },
+    {
+      "d": "hard",
+      "q": "Which 1966 Beach Boys album, with God Only Knows on it, is regularly ranked among the greatest ever made?",
+      "o": [
+        "Pet Sounds",
+        "Surf's Up",
+        "Smile",
+        "Today!"
+      ],
+      "a": 0,
+      "w": "Pet Sounds, Brian Wilson's studio masterpiece. Paul McCartney has called God Only Knows his favourite song.",
+      "more": "It was an answer to the Beatles' Rubber Soul and in turn pushed them towards Sgt. Pepper. It sold modestly in America at first, peaking at number ten. Wilson used bicycle bells, barking dogs and Coca-Cola cans as instruments."
+    },
+    {
+      "d": "hard",
+      "type": "order",
+      "q": "Put these songs in order of release, earliest first.",
+      "o": [
+        "Hey Jude",
+        "Billie Jean",
+        "Wonderwall",
+        "Rolling in the Deep"
+      ],
+      "w": "Hey Jude (1968), Billie Jean (1983), Wonderwall (1995), Rolling in the Deep (2010).",
+      "more": "Paul McCartney wrote Hey Jude for John Lennon's son Julian during his parents' divorce; it began as 'Hey Jules'. At seven minutes it was the longest song to top the British chart for years. Wonderwall is named after a 1968 film George Harrison wrote the music for."
+    },
+    {
+      "d": "hard",
+      "q": "Which producer, known for the 'Wall of Sound', made the Ronettes' Be My Baby and finished the Beatles' Let It Be?",
+      "o": [
+        "Phil Spector",
+        "George Martin",
+        "Quincy Jones",
+        "Brian Eno"
+      ],
+      "a": 0,
+      "w": "Phil Spector. Brian Wilson called Be My Baby the greatest pop record ever made.",
+      "more": "His method layered several pianos and guitars playing the same part in an echo chamber. On Let It Be he added an orchestra and choir to The Long and Winding Road, which McCartney hated and later stripped away for a 2003 re-release. Spector was convicted of murder in 2009 and died in prison in 2021."
+    },
+    {
+      "d": "hard",
+      "q": "True or false: Elvis Presley never played a concert outside North America.",
+      "o": [
+        "True",
+        "False"
+      ],
+      "a": 0,
+      "keepOrder": true,
+      "w": "True. Apart from three Canadian dates in 1957, every show he ever gave was in the United States.",
+      "more": "The usual explanation is his manager, Colonel Tom Parker, a Dutch-born illegal immigrant who could not get a passport without exposing himself. Instead, Aloha from Hawaii in 1973 was beamed by satellite around the world. His two years in the army in Germany were the only time he lived abroad."
+    },
+    {
+      "d": "hard",
+      "type": "select",
+      "q": "Which of these are members of BTS? Select all that apply.",
+      "o": [
+        "Jungkook",
+        "RM",
+        "Felix",
+        "Jimin",
+        "Taeyang",
+        "Suga"
+      ],
+      "a": [
+        0,
+        1,
+        3,
+        5
+      ],
+      "w": "Jungkook, RM, Jimin and Suga. The other three members are Jin, J-Hope and V. Felix is in Stray Kids and Taeyang in BigBang.",
+      "more": "BTS stands for Bangtan Sonyeondan, roughly 'Bulletproof Boy Scouts'. All seven completed South Korea's compulsory military service between 2022 and June 2025. Dynamite, in 2020, was their first single entirely in English."
+    }
+  ]
+}

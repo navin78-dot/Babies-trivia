@@ -1,14 +1,16 @@
 name: Publish rounds
 
-# Writes rounds/*.json into Firestore whenever they change on main, or on
-# demand. Uses the FIREBASE_SERVICE_ACCOUNT secret. No Netlify deploy: commits
-# that only touch rounds should carry [skip netlify].
+# Writes rounds/*.json (the original game) and games/<id>/rounds/*.json (each
+# sister game) into Firestore whenever they change on main, or on demand. Uses
+# the FIREBASE_SERVICE_ACCOUNT secret. No Netlify deploy is needed for rounds.
 
 on:
   push:
     branches: [main]
     paths:
       - rounds/**
+      - games/*/rounds/**
+      - games/*.json
       - poll.json
       - scripts/publish-rounds.mjs
       - .github/workflows/publish-rounds.yml

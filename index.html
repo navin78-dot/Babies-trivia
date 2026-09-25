@@ -538,9 +538,8 @@ const firebaseConfig = {
    The same source builds sister sites for other groups of friends.
    scripts/build-site.mjs swaps the block between the GAME markers for
    games/<id>.json, restyles the head and writes the sister site's
-   index.html. A sister game keeps its own scores, chat, poll, presence
-   and settings under games/<id>/ in Firestore and shares the rounds.
-   See games/README.md.
+   index.html. A sister game keeps its own rounds, scores, chat, poll,
+   presence and settings under games/<id>/ in Firestore. See games/README.md.
    ===================================================================== */
 /* GAME-CONFIG-START */
 const GAME = {
@@ -595,6 +594,7 @@ Object.entries(GAME.settings || {}).forEach(([k, v]) => { SETTINGS[k] = v && typ
 /* Wording for the nightly poll. The options are the rounds written and waiting in the queue. */
 const POLL = { question: "What drops tonight?", note: "One new round every night at midnight New York time. Most votes wins." };
 
+/* BUILTIN-ROUNDS-START */
 let ROUNDS = [
   {
     id: "strike-a-pose",
@@ -1452,6 +1452,8 @@ let ROUNDS = [
   },
   */
 ];
+/* BUILTIN-ROUNDS-END */
+if (GAME.id) ROUNDS = []; // a sister game has none of these: its rounds live in games/<id>/rounds so nobody who plays both games has seen the questions
 
 /* =====================================================================
    4. THE APP  (nothing below needs editing for new rounds or rules)
@@ -1459,8 +1461,8 @@ let ROUNDS = [
 firebase.initializeApp(firebaseConfig);
 const auth = firebase.auth();
 const dbf = firebase.firestore();
-const GAME_DOC = GAME.id ? dbf.collection("games").doc(GAME.id) : null;     // a sister game keeps its data under games/<id>/
-const col = name => (GAME_DOC && name !== "rounds") ? GAME_DOC.collection(name) : dbf.collection(name); // rounds are shared by every game
+const GAME_DOC = GAME.id ? dbf.collection("games").doc(GAME.id) : null;     // a sister game keeps everything, rounds included, under games/<id>/
+const col = name => GAME_DOC ? GAME_DOC.collection(name) : dbf.collection(name);
 const LETTERS = ["A","B","C","D","E","F"];
 const ALL = "__all__";
 
@@ -1630,7 +1632,7 @@ setInterval(() => { if (showsPresence()) render(); }, 30 * 1000); // lets stale 
 /* --- poll --- */
 function subscribeRounds(){
   if (unsubRounds) unsubRounds();
-  unsubRounds = dbf.collection("rounds").onSnapshot(snap => {
+  unsubRounds = col("rounds").onSnapshot(snap => {
     let added = false;
     snap.docs.forEach(d => {
       const data = d.data(); const id = data.id || d.id;

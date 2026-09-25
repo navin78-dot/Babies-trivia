@@ -9,7 +9,7 @@
   "description": "Trivia rounds for the Hamps crew. One board per round, first run counts.",
   "netlify": { "siteId": "e0866c7a-ec1a-4d95-9d2b-9d1bdfa4fed0", "domain": "hampscrew.netlify.app" },
   "settings": {
-    "playersInGroup": 5,
+    "playersInGroup": 20,
     "siteTagline": "Pick a round. One run each, and it counts.",
     "season": { "firstBoundary": "2026-10-04" },
     "drop": { "start": "2026-09-25" }

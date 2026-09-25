@@ -1,0 +1,283 @@
+{
+  "id": "binge-worthy",
+  "name": "Binge Worthy",
+  "subject": "Television of the streaming age",
+  "tagline": "Twenty questions on the shows everyone told you to watch, from Breaking Bad to The Bear. Starts easy, ends hard.",
+  "draft": true,
+  "emblem": "🛋️",
+  "theme": {
+    "font": "Poppins",
+    "accent": "#9333EA",
+    "accent2": "#22C55E",
+    "accentDark": "#C084FC",
+    "accent2Dark": "#4ADE80"
+  },
+  "questions": [
+    {
+      "d": "easy",
+      "q": "In Breaking Bad, what is Walter White's job before he starts cooking meth?",
+      "o": [
+        "High-school chemistry teacher",
+        "Pharmacist",
+        "Car-wash owner",
+        "Hospital lab technician"
+      ],
+      "a": 0,
+      "w": "A high-school chemistry teacher in Albuquerque, moonlighting at a car wash.",
+      "more": "The creator Vince Gilligan pitched it as turning Mr Chips into Scarface. Bryan Cranston won four Emmys for the role. The prequel Better Call Saul ran six seasons and never won an Emmy in 53 nominations."
+    },
+    {
+      "d": "easy",
+      "q": "Which series follows the Stark, Lannister and Targaryen families?",
+      "o": [
+        "Game of Thrones",
+        "The Witcher",
+        "Vikings",
+        "Outlander"
+      ],
+      "a": 0,
+      "w": "Game of Thrones, from George R.R. Martin's novels, which ran eight seasons from 2011 to 2019.",
+      "more": "Its finale drew 19.3 million viewers on the night. The Battle of Winterfell episode took 55 nights to film. House of the Dragon, set two centuries earlier, began in 2022."
+    },
+    {
+      "d": "easy",
+      "q": "Stranger Things is set in which fictional Indiana town?",
+      "o": [
+        "Hawkins",
+        "Derry",
+        "Riverdale",
+        "Twin Peaks"
+      ],
+      "a": 0,
+      "w": "Hawkins, Indiana, in the 1980s.",
+      "more": "Derry is Stephen King's Maine town from It, and Twin Peaks is in Washington state. Kate Bush's Running Up That Hill reached number one in Britain in 2022, 37 years after it came out, because of season four. The fifth and final season arrived at the end of 2025."
+    },
+    {
+      "d": "easy",
+      "q": "In the American version of The Office, what company do the characters work for?",
+      "o": [
+        "Dunder Mifflin",
+        "Wernham Hogg",
+        "Initech",
+        "Sabre"
+      ],
+      "a": 0,
+      "w": "Dunder Mifflin, a paper company in Scranton, Pennsylvania.",
+      "more": "Wernham Hogg was the firm in the original British series. The American show ran nine seasons, and Steve Carell left after the seventh. In 2020 it was the most-streamed show in the United States, with 57 billion minutes watched."
+    },
+    {
+      "d": "easy",
+      "q": "Which series has hundreds of people in debt playing deadly versions of children's games?",
+      "o": [
+        "Squid Game",
+        "Alice in Borderland",
+        "Sweet Home",
+        "All of Us Are Dead"
+      ],
+      "a": 0,
+      "w": "Squid Game (2021), which became Netflix's most-watched series on release, with 1.65 billion hours in its first 28 days.",
+      "more": "Its creator Hwang Dong-hyuk wrote it in 2009 and was turned down for a decade. The green tracksuits and pink guard suits became Halloween costumes around the world. The third and final season closed the story in June 2025."
+    },
+    {
+      "d": "easy",
+      "q": "Ted Lasso is an American coach hired to manage a team in which sport?",
+      "o": [
+        "Football (soccer)",
+        "Rugby",
+        "Cricket",
+        "Basketball"
+      ],
+      "a": 0,
+      "w": "English football, at the fictional AFC Richmond. Lasso came from American college football.",
+      "more": "The character began in 2013 in promos for NBC's Premier League coverage. Jason Sudeikis won two Emmys for the part and the show won Outstanding Comedy Series in 2021 and 2022. Richmond's match scenes were filmed at Crystal Palace's ground, Selhurst Park."
+    },
+    {
+      "d": "easy",
+      "q": "Which Netflix series dramatises the reign of Queen Elizabeth II?",
+      "o": [
+        "The Crown",
+        "Victoria",
+        "The Tudors",
+        "Downton Abbey"
+      ],
+      "a": 0,
+      "w": "The Crown, six seasons from 2016 to 2023, with Claire Foy, Olivia Colman and Imelda Staunton playing the Queen as she aged.",
+      "more": "Downton Abbey is about a fictional aristocratic family, and Victoria followed the earlier queen. The first season cost a reported thirteen million dollars an episode. Netflix added a note calling it a fictional dramatisation after criticism in 2020."
+    },
+    {
+      "d": "medium",
+      "q": "Succession follows the Roy family, owners of what kind of business?",
+      "o": [
+        "A media conglomerate",
+        "A bank",
+        "An oil company",
+        "A hotel chain"
+      ],
+      "a": 0,
+      "w": "Waystar Royco, a media and entertainment empire with more than a passing resemblance to the Murdochs.",
+      "more": "Its creator Jesse Armstrong had earlier written an unproduced screenplay about Rupert Murdoch. It won Outstanding Drama Series three times, in 2020, 2022 and 2024. Nicholas Britell's piano theme won an Emmy of its own."
+    },
+    {
+      "d": "medium",
+      "q": "Who created and starred in Fleabag, and also wrote the first series of Killing Eve?",
+      "o": [
+        "Phoebe Waller-Bridge",
+        "Michaela Coel",
+        "Sharon Horgan",
+        "Aisling Bea"
+      ],
+      "a": 0,
+      "w": "Phoebe Waller-Bridge. Fleabag began as a one-woman show at the Edinburgh Fringe in 2013.",
+      "more": "Its second series swept the 2019 Emmys, including Outstanding Comedy Series and lead actress. She was later brought in to sharpen the script of the Bond film No Time to Die. Killing Eve had a different head writer for each of its four series."
+    },
+    {
+      "d": "medium",
+      "q": "The Bear is set in a sandwich shop in which city?",
+      "o": [
+        "Chicago",
+        "Philadelphia",
+        "New York",
+        "Detroit"
+      ],
+      "a": 0,
+      "w": "Chicago. The Original Beef of Chicagoland sits in the River North neighbourhood.",
+      "more": "Jeremy Allen White's Carmy takes over the shop after his brother's death. Its second season won eleven Emmys at the 2024 ceremony, a record for a comedy in one year. Matty Matheson, who plays the handyman Fak, is a real chef and a producer on the show."
+    },
+    {
+      "d": "medium",
+      "q": "Which Apple TV+ series is about workers whose memories of the office are surgically split from the rest of their lives?",
+      "o": [
+        "Severance",
+        "Silo",
+        "Devs",
+        "Black Mirror"
+      ],
+      "a": 0,
+      "w": "Severance, set at the fictional Lumon Industries, created by Dan Erickson and mostly directed by Ben Stiller.",
+      "more": "The second season arrived in January 2025, nearly three years after the first. The workplace self is an 'innie' and the outside self an 'outie'. Adam Scott, best known as Ben in Parks and Recreation, plays Mark."
+    },
+    {
+      "d": "medium",
+      "q": "Schitt's Creek was created by which father and son?",
+      "o": [
+        "Eugene and Dan Levy",
+        "Martin and Charlie Sheen",
+        "Donald and Kiefer Sutherland",
+        "Tom and Colin Hanks"
+      ],
+      "a": 0,
+      "w": "Eugene and Dan Levy. It ran six seasons on Canada's CBC and America's Pop TV.",
+      "more": "In 2020 its final season won all seven main comedy Emmys, the first show to do that. Catherine O'Hara built Moira's accent from nowhere in particular. The town sign was bought at auction by a fan for more than fifty thousand Canadian dollars... in the show's own world it was the Roses' only asset."
+    },
+    {
+      "d": "medium",
+      "q": "In which show does the title character, a hitman, join an acting class?",
+      "o": [
+        "Barry",
+        "Killing Eve",
+        "The Americans",
+        "Mr Inbetween"
+      ],
+      "a": 0,
+      "w": "Barry, Bill Hader's HBO dark comedy, which ran four seasons from 2018 to 2023.",
+      "more": "Hader created it with Alec Berg and directed many episodes himself. Henry Winkler won his first Emmy at 72 for playing the acting coach Gene Cousineau. Hader won lead actor in a comedy twice."
+    },
+    {
+      "d": "medium",
+      "q": "Which Spanish heist series, called La casa de papel at home, became a global Netflix hit?",
+      "o": [
+        "Money Heist",
+        "Elite",
+        "Narcos",
+        "Lupin"
+      ],
+      "a": 0,
+      "w": "Money Heist, with robbers named after cities such as Tokyo, Berlin and Nairobi, wearing Dalí masks.",
+      "more": "It had flopped on Spanish television before Netflix bought it and it became the platform's most-watched non-English show at the time. The Italian partisan song Bella Ciao became its anthem. Lupin is French and Narcos, set in Colombia, was largely American-made."
+    },
+    {
+      "d": "hard",
+      "q": "Which show has won more Emmys than any other?",
+      "o": [
+        "Saturday Night Live",
+        "Game of Thrones",
+        "Frasier",
+        "The Simpsons"
+      ],
+      "a": 0,
+      "w": "Saturday Night Live, with more than ninety since 1975. Game of Thrones holds the record for a scripted series, 59.",
+      "more": "Game of Thrones won twelve in 2015 alone, a record for a drama in one year. Frasier held the sitcom record of 37 for two decades. SNL marked its fiftieth anniversary in February 2025."
+    },
+    {
+      "d": "hard",
+      "type": "order",
+      "q": "Put these series in order of their first episode, earliest first.",
+      "o": [
+        "The Sopranos",
+        "Mad Men",
+        "Stranger Things",
+        "The Bear"
+      ],
+      "w": "The Sopranos (1999), Mad Men (2007), Stranger Things (2016), The Bear (2022).",
+      "more": "The Sopranos' cut to black in 2007 made viewers think their televisions had failed. Mad Men turned AMC from a movie channel into a home for drama. Stranger Things premiered in July 2016 with almost no marketing and grew by word of mouth."
+    },
+    {
+      "d": "hard",
+      "q": "Which actor played Marty Byrde in Ozark and Michael Bluth in Arrested Development?",
+      "o": [
+        "Jason Bateman",
+        "Will Arnett",
+        "Paul Rudd",
+        "Jon Hamm"
+      ],
+      "a": 0,
+      "w": "Jason Bateman, who also directed episodes of Ozark and won an Emmy for directing it in 2019.",
+      "more": "Ozark ran four seasons on Netflix, set around the Lake of the Ozarks in Missouri. Bateman was a child actor in Little House on the Prairie and Silver Spoons. Laura Linney played his wife Wendy."
+    },
+    {
+      "d": "hard",
+      "q": "Which show's episode 'Ozymandias' is the highest-rated episode of television on IMDb?",
+      "o": [
+        "Breaking Bad",
+        "Game of Thrones",
+        "Chernobyl",
+        "Attack on Titan"
+      ],
+      "a": 0,
+      "w": "Breaking Bad. 'Ozymandias', from the final season in 2013, was directed by Rian Johnson and holds a perfect ten from hundreds of thousands of voters.",
+      "more": "The title is from Shelley's poem about a fallen king, which Bryan Cranston read for the season's trailer. Johnson went on to direct The Last Jedi and Knives Out. Chernobyl from 2019 is one of the highest-rated limited series."
+    },
+    {
+      "d": "hard",
+      "q": "True or false: House of Cards was Netflix's first original scripted series.",
+      "o": [
+        "True",
+        "False"
+      ],
+      "a": 1,
+      "keepOrder": true,
+      "w": "False. Lilyhammer, a Norwegian-American comedy starring Steven Van Zandt, came first in February 2012, a year before House of Cards.",
+      "more": "House of Cards was the first show to release a whole season at once and the first web-only series to win a Primetime Emmy, for David Fincher's directing. Netflix reportedly committed a hundred million dollars to two seasons without seeing a pilot. Van Zandt's mobster hides out in Lillehammer, the Norwegian town that hosted the 1994 Winter Olympics."
+    },
+    {
+      "d": "hard",
+      "type": "select",
+      "q": "Which of these shows are set in Baltimore? Select all that apply.",
+      "o": [
+        "The Wire",
+        "Homicide: Life on the Street",
+        "We Own This City",
+        "Snowfall",
+        "Boardwalk Empire",
+        "Mare of Easttown"
+      ],
+      "a": [
+        0,
+        1,
+        2
+      ],
+      "w": "The Wire, Homicide and We Own This City, all rooted in David Simon's years as a Baltimore reporter. Snowfall is Los Angeles, Boardwalk Empire is Atlantic City and Mare of Easttown is small-town Pennsylvania.",
+      "more": "Simon covered crime for the Baltimore Sun, and his book Homicide became the 1990s NBC series. The Wire never won a single Emmy. We Own This City, from 2022, dramatised the real Gun Trace Task Force corruption scandal."
+    }
+  ]
+}

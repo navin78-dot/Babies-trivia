@@ -6,22 +6,23 @@ group size, season calendar and where it is hosted. `scripts/build-site.mjs`
 builds that site from the shared source, so every feature shipped to the
 original game ships to the sisters in the same push.
 
-| Game | Site | Data in Firestore | Deploys |
-|---|---|---|---|
-| Babies' Trivia (the original, `GAME.id` is `""`) | babiestrivia.netlify.app | top-level collections | Netlify builds `index.html` on push |
-| Trivia for the Hamps Crew (`hamps`) | hampscrew.netlify.app | `games/hamps/…` | `.github/workflows/deploy-hamps.yml` uploads the built file to Netlify |
+| Game | Site | Round files | Data in Firestore | Deploys |
+|---|---|---|---|---|
+| Babies' Trivia (the original, `GAME.id` is `""`) | babiestrivia.netlify.app | `rounds/` plus the built-ins in `index.html` | top-level collections | Netlify builds `index.html` on push |
+| Trivia for the Hamps Crew (`hamps`) | hampscrew.netlify.app | `games/hamps/rounds/` | `games/hamps/…` | `.github/workflows/deploy-hamps.yml` uploads the built file to Netlify |
 
 ## What a sister game shares and what it keeps
 
-Shared: the Firebase project, Google sign-in, and the `rounds` collection. A round
-written for either game goes into both games' nightly queues. Every game's host
-requests feed the same daily top-up.
+Shared: the Firebase project and Google sign-in. Nothing else.
 
-Its own: scores, leaderboards, seasons, medals, trophy case, chat, presence,
-profiles and avatars, the poll and its votes, host overrides, closed and
-promoted rounds, suggestions and theme requests, and the site tagline and
-announcement. All of it lives under `games/<id>/` in Firestore with the same
-security rules as the original game (see `firestore.rules`, `knownGame`).
+Its own: the question bank (some people play more than one game, so no question
+is ever reused across games, and a sister site is built without the original
+game's built-in rounds), the nightly queue and poll, scores, leaderboards,
+seasons, medals, trophy case, chat, presence, profiles and avatars, host
+overrides, closed and promoted rounds, suggestions and theme requests, and the
+site tagline and announcement. All of it lives under `games/<id>/` in Firestore
+with the same security rules as the original game (see `firestore.rules`,
+`knownGame`). The daily top-up keeps every game's queue at five.
 
 ## The file
 
@@ -48,7 +49,9 @@ security rules as the original game (see `firestore.rules`, `knownGame`).
 
 ## Adding another game
 
-1. Copy `games/hamps.json` to `games/<id>.json` and fill it in.
+1. Copy `games/hamps.json` to `games/<id>.json` and fill it in, and write its first
+   rounds in `games/<id>/rounds/` (a few without `draft` so the lobby is not empty,
+   five with `"draft": true` for the queue).
 2. Add the id to `knownGame` in `firestore.rules` (the rules workflow publishes it).
 3. Create the Netlify project (name = subdomain) and put its id and domain in the file.
 4. Copy `.github/workflows/deploy-hamps.yml`, change the game id, paths and `SITE_ID`.

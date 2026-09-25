@@ -13,9 +13,9 @@ service cloud.firestore {
       ];
     }
 
-    // Sister games (games/<id>.json in the repo). Each keeps its own scores, chat, poll,
-    // presence, profiles, suggestions, requests and site config under games/<id>/, with
-    // the same rules as the original game below. The rounds collection is shared.
+    // Sister games (games/<id>.json in the repo). Each keeps its own rounds, scores, chat,
+    // poll, presence, profiles, suggestions, requests and site config under games/<id>/,
+    // with the same rules as the original game below. Nothing is shared between games.
     function knownGame(game) {
       return game in ['hamps'];
     }
@@ -91,7 +91,7 @@ service cloud.firestore {
       allow write, delete: if signedIn() && request.auth.uid == uid;
     }
 
-    // Quiz rounds loaded at runtime, shared by every game. Everyone signed in can read
+    // The original game's quiz rounds, loaded at runtime. Everyone signed in can read
     // them; only the host (or the service account, which bypasses rules) can write.
     match /rounds/{roundId} {
       allow read: if signedIn();
@@ -160,6 +160,11 @@ service cloud.firestore {
       match /profiles/{uid} {
         allow read: if signedIn() && knownGame(game);
         allow write, delete: if signedIn() && knownGame(game) && request.auth.uid == uid;
+      }
+
+      match /rounds/{roundId} {
+        allow read: if signedIn() && knownGame(game);
+        allow write: if isHost() && knownGame(game);
       }
     }
   }

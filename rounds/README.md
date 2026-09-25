@@ -1,9 +1,11 @@
 # Round files
 
-Each `*.json` file here is one quiz round. On push to `main`, the
-**Publish rounds** workflow writes it into the Firestore `rounds` collection,
-and the live site loads it at startup. Adding a quiz this way costs no Netlify
-deploy.
+Each `*.json` file here is one quiz round for the original game. On push to
+`main`, the **Publish rounds** workflow writes it into the Firestore `rounds`
+collection, and the live site loads it at startup. Adding a quiz this way costs
+no Netlify deploy. A sister game's rounds live in `games/<id>/rounds/` with the
+same shape and rules and publish to `games/<id>/rounds`; the two banks never
+share a question, because some people play both games.
 
 **Do not put `[skip netlify]` in commit messages.** `netlify.toml` decides whether
 to deploy by looking at whether `index.html` actually changed since the last
@@ -52,8 +54,7 @@ session reads it and writes enough rounds to keep five waiting. See
 
 A round written for a host request should carry `"requestId": "<the request id>"`
 exactly as `queue-status.json` lists it (a sister game's id is prefixed, e.g.
-`hamps:abc`) so the request is ticked off when the round publishes. Rounds are
-shared by every game, so a new round joins every game's queue.
+`hamps:abc`) so the request is ticked off when the round publishes.
 
 Validate files locally without publishing:
 

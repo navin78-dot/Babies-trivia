@@ -1,0 +1,284 @@
+{
+  "id": "game-on",
+  "name": "Game On",
+  "subject": "Sport",
+  "tagline": "Twenty questions across the pitch, the court, the track and the ring: records, rules and the odd bit of history. Starts easy, ends hard.",
+  "draft": true,
+  "emblem": "🏆",
+  "theme": {
+    "font": "Teko",
+    "accent": "#16A34A",
+    "accent2": "#FACC15",
+    "accentDark": "#4ADE80",
+    "accent2Dark": "#FDE047"
+  },
+  "questions": [
+    {
+      "d": "easy",
+      "q": "How many players does a basketball team have on court at one time?",
+      "o": [
+        "Five",
+        "Six",
+        "Seven",
+        "Four"
+      ],
+      "a": 0,
+      "w": "Five a side.",
+      "more": "James Naismith invented the game in 1891 with two peach baskets and thirteen rules. The NBA added the three-point line in 1979. For comparison, baseball fields nine, football eleven and ice hockey six including the goaltender."
+    },
+    {
+      "d": "easy",
+      "q": "In which sport is the main pack of competitors called the peloton?",
+      "o": [
+        "Cycling",
+        "Rowing",
+        "Sailing",
+        "Skiing"
+      ],
+      "a": 0,
+      "w": "Cycling. Peloton is French for 'platoon', the big bunch of riders in a road race.",
+      "more": "Riding inside the pack saves a rider up to a third of the effort of riding alone in the wind, which is why breakaways so often get caught. The Tour de France covers around 3,500 kilometres over three weeks. Its yellow jersey dates from 1919 and matched the yellow paper of the newspaper that ran the race."
+    },
+    {
+      "d": "easy",
+      "q": "Which sport awards the Vince Lombardi Trophy?",
+      "o": [
+        "American football",
+        "Baseball",
+        "Ice hockey",
+        "Basketball"
+      ],
+      "a": 0,
+      "w": "American football. It goes to the Super Bowl winner and is named after the Green Bay Packers coach who won the first two.",
+      "more": "Tiffany makes a new one every year from about seven pounds of sterling silver. It was renamed for Lombardi after his death in 1970. Baseball's is the Commissioner's Trophy and hockey's the Stanley Cup."
+    },
+    {
+      "d": "easy",
+      "q": "How many rings are on the Olympic flag?",
+      "o": [
+        "Five",
+        "Six",
+        "Four",
+        "Seven"
+      ],
+      "a": 0,
+      "w": "Five, for the five inhabited continents, designed by Pierre de Coubertin in 1913.",
+      "more": "At least one of the five colours, or the white background, appeared in every national flag of the time. The flag was first flown at the 1920 Games in Antwerp. The 1916 Games were cancelled by the First World War."
+    },
+    {
+      "d": "easy",
+      "q": "How many holes are there on a standard golf course?",
+      "o": [
+        "18",
+        "9",
+        "21",
+        "12"
+      ],
+      "a": 0,
+      "w": "Eighteen.",
+      "more": "St Andrews in Scotland settled the number in 1764 when it merged some of the 22 holes on its Old Course into 18, and everyone copied it. The tale that eighteen matches the shots in a bottle of whisky is a myth. A par-72 course usually has four par threes, ten par fours and four par fives."
+    },
+    {
+      "d": "easy",
+      "q": "How long is a football (soccer) match, not counting stoppage time?",
+      "o": [
+        "90 minutes",
+        "80 minutes",
+        "100 minutes",
+        "60 minutes"
+      ],
+      "a": 0,
+      "w": "Ninety minutes, in two halves of 45.",
+      "more": "The length was fixed for an 1866 match between London and Sheffield. Stoppage time dates from an 1891 game in which Aston Villa's goalkeeper kicked the ball out of the ground to run down the clock before a penalty could be taken. Extra time adds two halves of fifteen minutes."
+    },
+    {
+      "d": "easy",
+      "q": "Which sport uses the terms strike, spare and gutter?",
+      "o": [
+        "Ten-pin bowling",
+        "Cricket",
+        "Baseball",
+        "Curling"
+      ],
+      "a": 0,
+      "w": "Ten-pin bowling. A perfect game of twelve strikes scores 300.",
+      "more": "Baseball has strikes too, but no spares or gutters. Legend says the tenth pin was added to get around an 1841 Connecticut ban on nine-pin bowling. The heaviest ball allowed weighs sixteen pounds."
+    },
+    {
+      "d": "medium",
+      "q": "Cricket's Twenty20 format began with a professional competition in 2003 in which country?",
+      "o": [
+        "England",
+        "India",
+        "Australia",
+        "South Africa"
+      ],
+      "a": 0,
+      "w": "England, where the counties played the first Twenty20 Cup in the summer of 2003.",
+      "more": "The first men's Twenty20 international, Australia against New Zealand in 2005, was played half as a joke in retro kit and fake moustaches. India won the first Twenty20 World Cup in 2007, which led straight to the launch of the IPL in 2008."
+    },
+    {
+      "d": "medium",
+      "q": "In which event would you perform a Fosbury flop?",
+      "o": [
+        "The high jump",
+        "Diving",
+        "Gymnastics",
+        "Ski jumping"
+      ],
+      "a": 0,
+      "w": "The high jump. Dick Fosbury won gold in Mexico City in 1968 by going over the bar backwards.",
+      "more": "Almost every elite high jumper has used it since. Javier Sotomayor's world record of 2.45 metres has stood since 1993. Fosbury was an engineering student who worked out the technique at high school."
+    },
+    {
+      "d": "medium",
+      "q": "Who has scored the most points in NBA history?",
+      "o": [
+        "LeBron James",
+        "Kareem Abdul-Jabbar",
+        "Michael Jordan",
+        "Kobe Bryant"
+      ],
+      "a": 0,
+      "w": "LeBron James, who passed Kareem Abdul-Jabbar's 38,387 in February 2023 and went past forty thousand in 2024.",
+      "more": "In 2024 he became the first player to share an NBA court with his son, Bronny. Michael Jordan still has the highest career average, 30.1 points a game. Abdul-Jabbar's record had stood since 1984."
+    },
+    {
+      "d": "medium",
+      "q": "Which country has won the Rugby World Cup the most times?",
+      "o": [
+        "South Africa",
+        "New Zealand",
+        "Australia",
+        "England"
+      ],
+      "a": 0,
+      "w": "South Africa, four times: 1995, 2007, 2019 and 2023. New Zealand has three.",
+      "more": "The 1995 final in Johannesburg is remembered for Nelson Mandela presenting the trophy in a Springbok jersey. In 2023 South Africa won all three knockout games by a single point. England in 2003 is the only northern-hemisphere winner."
+    },
+    {
+      "d": "medium",
+      "q": "Who has won the most Formula One world championships?",
+      "o": [
+        "Michael Schumacher and Lewis Hamilton, with seven each",
+        "Ayrton Senna",
+        "Sebastian Vettel",
+        "Max Verstappen"
+      ],
+      "a": 0,
+      "w": "Schumacher and Hamilton share the record with seven titles each.",
+      "more": "Hamilton lost an eighth on the final lap in Abu Dhabi in 2021. Max Verstappen won four in a row from 2021 to 2024. Schumacher's seventh came with Ferrari in 2004; Hamilton joined Ferrari in 2025."
+    },
+    {
+      "d": "medium",
+      "q": "Which country has won tennis's Davis Cup the most times?",
+      "o": [
+        "The United States",
+        "Australia",
+        "France",
+        "Spain"
+      ],
+      "a": 0,
+      "w": "The United States, with 32 titles. Australia has 28.",
+      "more": "The competition began in 1900 as a challenge between the United States and Britain, dreamed up by a Harvard student, Dwight Davis, who paid for the trophy. The women's equivalent, the Billie Jean King Cup, began as the Federation Cup in 1963. Spain's Rafael Nadal never lost a Davis Cup singles match on clay."
+    },
+    {
+      "d": "medium",
+      "q": "The term hat-trick comes from which sport?",
+      "o": [
+        "Cricket",
+        "Football",
+        "Ice hockey",
+        "Horse racing"
+      ],
+      "a": 0,
+      "w": "Cricket. In 1858 the bowler H.H. Stephenson took three wickets with three balls and was presented with a hat bought from a collection.",
+      "more": "In ice hockey fans throw hats onto the ice when a player scores three. A 'perfect hat-trick' in football is one goal with each foot and one header. Alan Shearer scored eleven Premier League hat-tricks, still the record."
+    },
+    {
+      "d": "hard",
+      "q": "Which golfer has won the most major championships?",
+      "o": [
+        "Jack Nicklaus",
+        "Tiger Woods",
+        "Walter Hagen",
+        "Ben Hogan"
+      ],
+      "a": 0,
+      "w": "Jack Nicklaus, with eighteen between 1962 and 1986. Tiger Woods has fifteen.",
+      "more": "Nicklaus won the 1986 Masters at 46 and is still its oldest champion. Woods' 2019 Masters win ended an eleven-year wait for a major. Walter Hagen's eleven came in the 1910s and 1920s."
+    },
+    {
+      "d": "hard",
+      "type": "order",
+      "q": "Put these Summer Olympic host cities in order, earliest first.",
+      "o": [
+        "Barcelona",
+        "Sydney",
+        "Beijing",
+        "Rio de Janeiro"
+      ],
+      "w": "Barcelona (1992), Sydney (2000), Beijing (2008), Rio de Janeiro (2016).",
+      "more": "Atlanta 1996, Athens 2004 and London 2012 sat between them. Paris hosted in 2024, exactly a century after its previous Games, and Los Angeles hosts in 2028 for the third time. Brisbane is next, in 2032."
+    },
+    {
+      "d": "hard",
+      "q": "In which country did Muhammad Ali beat George Foreman in the 1974 Rumble in the Jungle?",
+      "o": [
+        "Zaire, now the Democratic Republic of the Congo",
+        "Zambia",
+        "Nigeria",
+        "Kenya"
+      ],
+      "a": 0,
+      "w": "Zaire, in Kinshasa, on 30 October 1974.",
+      "more": "Ali leaned on the ropes and let Foreman punch himself out, the 'rope-a-dope', then knocked him out in the eighth round. President Mobutu paid ten million dollars to host the fight. It started at four in the morning local time to suit American television."
+    },
+    {
+      "d": "hard",
+      "q": "Which woman has won the most Grand Slam singles titles in the Open Era?",
+      "o": [
+        "Serena Williams",
+        "Steffi Graf",
+        "Martina Navratilova",
+        "Margaret Court"
+      ],
+      "a": 0,
+      "w": "Serena Williams, with 23 between 1999 and 2017. Margaret Court's 24 include thirteen from before the Open Era began in 1968.",
+      "more": "Serena won the 2017 Australian Open while about eight weeks pregnant. Steffi Graf's 22 include the 1988 Golden Slam: all four majors and Olympic gold in one year. Martina Navratilova won Wimbledon nine times."
+    },
+    {
+      "d": "hard",
+      "q": "True or false: there is no time limit on a Major League Baseball game.",
+      "o": [
+        "True",
+        "False"
+      ],
+      "a": 0,
+      "keepOrder": true,
+      "w": "True. A game lasts nine innings, and extra innings go on until one side leads at the end of a completed inning.",
+      "more": "The longest major-league game by innings went 26 in 1920 and ended in a tie when it got dark. Since 2023 a pitch clock limits the time between pitches, which cut the average game by about half an hour. The longest professional game, in the minor leagues in 1981, ran 33 innings over two days."
+    },
+    {
+      "d": "hard",
+      "type": "select",
+      "q": "Which of these are events in the decathlon? Select all that apply.",
+      "o": [
+        "Pole vault",
+        "400 metres",
+        "Hammer throw",
+        "1500 metres",
+        "Steeplechase",
+        "Discus"
+      ],
+      "a": [
+        0,
+        1,
+        3,
+        5
+      ],
+      "w": "Pole vault, 400 metres, 1500 metres and discus. The ten events are the 100 metres, long jump, shot put, high jump, 400 metres, 110 metres hurdles, discus, pole vault, javelin and 1500 metres.",
+      "more": "It is held over two days, five events each. The women's equivalent is the seven-event heptathlon. Kevin Mayer of France holds the world record with 9,126 points, set in 2018."
+    }
+  ]
+}

@@ -1,0 +1,283 @@
+{
+  "id": "passport-control",
+  "name": "Passport Control",
+  "subject": "Travel and world places",
+  "tagline": "Twenty questions for people who like airports: cities, landmarks, borders and the odd fact from the far side of the map. Starts easy, ends hard.",
+  "emblem": "🧳",
+  "theme": {
+    "font": "Kanit",
+    "accent": "#0284C7",
+    "accent2": "#F59E0B",
+    "accentDark": "#38BDF8",
+    "accent2Dark": "#FCD34D"
+  },
+  "questions": [
+    {
+      "d": "easy",
+      "q": "The Eiffel Tower was built for a world's fair in which year?",
+      "o": [
+        "1889",
+        "1851",
+        "1900",
+        "1925"
+      ],
+      "a": 0,
+      "w": "1889, for the Exposition Universelle marking a hundred years since the French Revolution.",
+      "more": "It was meant to stand for twenty years and was saved by its usefulness as a radio mast. At 300 metres it was the tallest structure in the world until the Chrysler Building in 1930. It is repainted about every seven years, using around sixty tonnes of paint."
+    },
+    {
+      "d": "easy",
+      "q": "Which city is famous for its canals and gondolas?",
+      "o": [
+        "Venice",
+        "Amsterdam",
+        "Bruges",
+        "Copenhagen"
+      ],
+      "a": 0,
+      "w": "Venice, built on more than a hundred small islands in a lagoon.",
+      "more": "A gondola is made from eight kinds of wood and is deliberately lopsided so one oar can steer it. The MOSE flood barriers held back a high tide for the first time in October 2020. Since 2024 day-trippers have paid an entry fee on the busiest days."
+    },
+    {
+      "d": "easy",
+      "q": "In which country is Machu Picchu?",
+      "o": [
+        "Peru",
+        "Bolivia",
+        "Chile",
+        "Mexico"
+      ],
+      "a": 0,
+      "w": "Peru, in the Andes above the Urubamba river, built by the Incas in the fifteenth century.",
+      "more": "Hiram Bingham brought it to the world's attention in 1911, though local farmers had always known it was there. It sits at about 2,430 metres, lower than the city of Cusco. Visitor numbers are capped and split into timed routes."
+    },
+    {
+      "d": "easy",
+      "q": "Which country has the largest population in the world?",
+      "o": [
+        "India",
+        "China",
+        "The United States",
+        "Indonesia"
+      ],
+      "a": 0,
+      "w": "India, which passed China in 2023 according to United Nations estimates.",
+      "more": "Both have around 1.4 billion people. India's population is expected to keep growing into the 2060s while China's is already falling. Uttar Pradesh, one Indian state, has more people than Brazil."
+    },
+    {
+      "d": "easy",
+      "q": "What is the currency of Japan?",
+      "o": [
+        "The yen",
+        "The won",
+        "The yuan",
+        "The baht"
+      ],
+      "a": 0,
+      "w": "The yen, introduced in 1871.",
+      "more": "The five-yen coin has a hole in the middle and is considered lucky. Cash was king in Japan for decades, and contactless payments only took over during the pandemic. 'Yen', 'yuan' and 'won' all come from a word meaning 'round'."
+    },
+    {
+      "d": "easy",
+      "q": "The Great Barrier Reef lies off the coast of which country?",
+      "o": [
+        "Australia",
+        "Indonesia",
+        "The Philippines",
+        "Fiji"
+      ],
+      "a": 0,
+      "w": "Australia, off Queensland, stretching about 2,300 kilometres.",
+      "more": "It is the largest structure built by living things and can be seen from space. It is made up of roughly 2,900 separate reefs. It has suffered several mass bleaching events since 2016 as the sea has warmed."
+    },
+    {
+      "d": "easy",
+      "q": "Which airport has the code LHR?",
+      "o": [
+        "London Heathrow",
+        "Los Angeles",
+        "Lahore",
+        "Le Havre"
+      ],
+      "a": 0,
+      "w": "London Heathrow, the busiest airport in Europe.",
+      "more": "It began as a small airfield called the Great West Aerodrome and opened as London Airport in 1946. Around eighty million passengers passed through it in 2024. Terminal 5 is used only by British Airways and Iberia."
+    },
+    {
+      "d": "medium",
+      "q": "Which European capital is built across fourteen islands?",
+      "o": [
+        "Stockholm",
+        "Copenhagen",
+        "Helsinki",
+        "Amsterdam"
+      ],
+      "a": 0,
+      "w": "Stockholm, whose islands are joined by more than fifty bridges.",
+      "more": "The archipelago beyond the city has around thirty thousand islands. The Nobel banquet is held every December in Stockholm's City Hall. The old town, Gamla stan, dates from the thirteenth century."
+    },
+    {
+      "d": "medium",
+      "q": "In which country is Angkor Wat?",
+      "o": [
+        "Cambodia",
+        "Thailand",
+        "Vietnam",
+        "Laos"
+      ],
+      "a": 0,
+      "w": "Cambodia. It is the largest religious monument in the world, built in the twelfth century.",
+      "more": "It was built as a Hindu temple to Vishnu by King Suryavarman II and later became Buddhist. Unusually, it faces west. It appears on Cambodia's national flag."
+    },
+    {
+      "d": "medium",
+      "q": "The Trans-Siberian Railway runs from Moscow to which port on the Pacific?",
+      "o": [
+        "Vladivostok",
+        "Beijing",
+        "Harbin",
+        "Magadan"
+      ],
+      "a": 0,
+      "w": "Vladivostok, 9,289 kilometres and seven time zones away. The full trip takes about a week.",
+      "more": "It was built between 1891 and 1916. Branch lines run to Beijing through Mongolia and through Manchuria. Vladivostok means 'ruler of the East'."
+    },
+    {
+      "d": "medium",
+      "q": "Table Mountain overlooks which city?",
+      "o": [
+        "Cape Town",
+        "Johannesburg",
+        "Durban",
+        "Nairobi"
+      ],
+      "a": 0,
+      "w": "Cape Town, in South Africa. A cable car has run to the flat top since 1929.",
+      "more": "When cloud pours over the summit locals call it the tablecloth. It was named one of the New Seven Wonders of Nature in 2011. Robben Island, where Nelson Mandela was held for eighteen years, sits in the bay below."
+    },
+    {
+      "d": "medium",
+      "q": "What is the longest river in Europe?",
+      "o": [
+        "The Volga",
+        "The Danube",
+        "The Rhine",
+        "The Dnieper"
+      ],
+      "a": 0,
+      "w": "The Volga, about 3,530 kilometres long, flowing into the Caspian Sea.",
+      "more": "The Danube is second at about 2,850 kilometres and passes through ten countries, more than any other river. The Volga lies entirely inside Russia. The Caspian it empties into is technically a lake, the largest in the world."
+    },
+    {
+      "d": "medium",
+      "q": "The rock-cut city of Petra is in which country?",
+      "o": [
+        "Jordan",
+        "Egypt",
+        "Syria",
+        "Saudi Arabia"
+      ],
+      "a": 0,
+      "w": "Jordan. It was carved by the Nabataeans more than two thousand years ago.",
+      "more": "The Treasury, its most famous facade, appeared in Indiana Jones and the Last Crusade in 1989. It was voted one of the New Seven Wonders of the World in 2007. The Nabataeans grew rich controlling the incense trade routes."
+    },
+    {
+      "d": "medium",
+      "q": "Which country is made up of about 7,600 islands?",
+      "o": [
+        "The Philippines",
+        "Indonesia",
+        "Japan",
+        "The Maldives"
+      ],
+      "a": 0,
+      "w": "The Philippines, 7,641 at the last count. Indonesia has more than 17,000.",
+      "more": "Only about two thousand of the Philippine islands are inhabited. Japan recounted in 2023 and found it had 14,125 islands, double the old figure. Manila is one of the most densely populated cities on Earth."
+    },
+    {
+      "d": "hard",
+      "q": "Which country has the most time zones, counting its overseas territories?",
+      "o": [
+        "France",
+        "Russia",
+        "The United States",
+        "The United Kingdom"
+      ],
+      "a": 0,
+      "w": "France, with twelve, thanks to territories from French Polynesia to New Caledonia.",
+      "more": "Russia has eleven across its mainland. China spans five geographical zones but runs the whole country on Beijing time. Nepal's clock is offset by 45 minutes from the usual hour."
+    },
+    {
+      "d": "hard",
+      "type": "order",
+      "q": "Put these cities in order from west to east.",
+      "o": [
+        "Los Angeles",
+        "Rio de Janeiro",
+        "Cairo",
+        "Mumbai"
+      ],
+      "w": "Los Angeles, Rio de Janeiro, Cairo, Mumbai.",
+      "more": "Rio is so far east that it is closer to Dakar in Senegal, about 5,000 kilometres away, than to Los Angeles at 10,000. Cairo and Mumbai are only two and a half hours apart on the clock. Almost all of South America lies east of Miami."
+    },
+    {
+      "d": "hard",
+      "q": "Which airline, founded in 1919, is the oldest still flying under its original name?",
+      "o": [
+        "KLM",
+        "Qantas",
+        "Avianca",
+        "Lufthansa"
+      ],
+      "a": 0,
+      "w": "KLM, Royal Dutch Airlines, founded in October 1919.",
+      "more": "Its first flight, from London to Amsterdam, was in May 1920. Qantas, founded in 1920, is second. Avianca traces itself to SCADTA of December 1919 but changed its name along the way."
+    },
+    {
+      "d": "hard",
+      "q": "Which Japanese city was the emperor's capital for more than a thousand years before Tokyo?",
+      "o": [
+        "Kyoto",
+        "Nara",
+        "Osaka",
+        "Kamakura"
+      ],
+      "a": 0,
+      "w": "Kyoto, from 794 until 1868, when the emperor moved to Edo, renamed Tokyo, 'eastern capital'.",
+      "more": "Kyoto was spared the atomic bomb partly because the American Secretary of War, Henry Stimson, had visited and admired it. It has about 1,600 Buddhist temples and 400 Shinto shrines. Nara was the capital before it, from 710 to 784."
+    },
+    {
+      "d": "hard",
+      "q": "True or false: Canada has the longest coastline of any country.",
+      "o": [
+        "True",
+        "False"
+      ],
+      "a": 0,
+      "keepOrder": true,
+      "w": "True, at about 202,000 kilometres, thanks to its tens of thousands of Arctic islands.",
+      "more": "Norway is usually second when its fjords and islands are counted, ahead of Indonesia and Russia. Canada's coast touches three oceans: the Atlantic, the Pacific and the Arctic. Walking it at forty kilometres a day would take about fourteen years."
+    },
+    {
+      "d": "hard",
+      "type": "select",
+      "q": "Which of these countries are landlocked? Select all that apply.",
+      "o": [
+        "Bolivia",
+        "Paraguay",
+        "Ecuador",
+        "Nepal",
+        "Cambodia",
+        "Austria"
+      ],
+      "a": [
+        0,
+        1,
+        3,
+        5
+      ],
+      "w": "Bolivia, Paraguay, Nepal and Austria. Ecuador has a Pacific coast and Cambodia sits on the Gulf of Thailand.",
+      "more": "Bolivia lost its coast to Chile in the War of the Pacific in the 1880s but still keeps a navy, on Lake Titicaca. Liechtenstein and Uzbekistan are doubly landlocked: every neighbour is landlocked too. Forty-four countries have no coast at all."
+    }
+  ]
+}

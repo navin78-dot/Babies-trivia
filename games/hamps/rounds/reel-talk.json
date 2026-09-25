@@ -1,0 +1,283 @@
+{
+  "id": "reel-talk",
+  "name": "Reel Talk",
+  "subject": "Movies",
+  "tagline": "Twenty questions from Casablanca to Parasite: the lines, the shots and the statuettes. Starts easy, ends hard.",
+  "emblem": "🎬",
+  "theme": {
+    "font": "Bebas Neue",
+    "accent": "#E11D48",
+    "accent2": "#FBBF24",
+    "accentDark": "#FB7185",
+    "accent2Dark": "#FDE047"
+  },
+  "questions": [
+    {
+      "d": "easy",
+      "q": "Which film gave us the line 'Here's looking at you, kid'?",
+      "o": [
+        "Casablanca",
+        "Gone with the Wind",
+        "Citizen Kane",
+        "The Maltese Falcon"
+      ],
+      "a": 0,
+      "w": "Casablanca (1942). Humphrey Bogart says it to Ingrid Bergman four times.",
+      "more": "The line everyone quotes, 'Play it again, Sam', is never spoken; Bergman says 'Play it, Sam.' The ending was still being written during the shoot, so Bergman did not know which man her character would leave with. It won Best Picture at the 1944 ceremony."
+    },
+    {
+      "d": "easy",
+      "q": "In The Wizard of Oz (1939), what colour are Dorothy's slippers?",
+      "o": [
+        "Ruby red",
+        "Silver",
+        "Emerald green",
+        "Gold"
+      ],
+      "a": 0,
+      "w": "Ruby red. They were silver in the book and changed to show off Technicolor.",
+      "more": "Several pairs were made for filming. One was stolen from a museum in Grand Rapids, Minnesota, in 2005 and recovered by the FBI in 2018. Buddy Ebsen, the original Tin Man, was hospitalised by the aluminium powder in his makeup and replaced by Jack Haley."
+    },
+    {
+      "d": "easy",
+      "q": "Who directed Pulp Fiction (1994)?",
+      "o": [
+        "Quentin Tarantino",
+        "Martin Scorsese",
+        "The Coen brothers",
+        "Oliver Stone"
+      ],
+      "a": 0,
+      "w": "Quentin Tarantino. It won the Palme d'Or at Cannes and the Oscar for original screenplay.",
+      "more": "Made for about eight million dollars, it took more than 200 million. It revived John Travolta's career, and Bruce Willis took a share of the profits instead of a big fee. What is inside the glowing briefcase is never revealed."
+    },
+    {
+      "d": "easy",
+      "q": "What is the name of the hobbit Elijah Wood plays in The Lord of the Rings?",
+      "o": [
+        "Frodo Baggins",
+        "Bilbo Baggins",
+        "Samwise Gamgee",
+        "Peregrin Took"
+      ],
+      "a": 0,
+      "w": "Frodo Baggins, who carries the Ring to Mount Doom.",
+      "more": "Peter Jackson shot all three films back to back in New Zealand over 274 days of principal photography. The Return of the King won all eleven Oscars it was nominated for, tying the record. Ian Holm, who played Bilbo, had voiced Frodo in a 1981 BBC radio version."
+    },
+    {
+      "d": "easy",
+      "q": "In Finding Nemo, what kind of fish is Nemo?",
+      "o": [
+        "A clownfish",
+        "A blue tang",
+        "An angelfish",
+        "A goldfish"
+      ],
+      "a": 0,
+      "w": "A clownfish. Dory is the blue tang.",
+      "more": "Clownfish live inside sea anemones, immune to their sting. In real life every clownfish is born male and the dominant one becomes female, so, as biologists pointed out, Nemo's father would have become his mother. Released in 2003, it was Pixar's first win for Best Animated Feature."
+    },
+    {
+      "d": "easy",
+      "q": "Which 2013 Disney film is about the sisters Elsa and Anna?",
+      "o": [
+        "Frozen",
+        "Tangled",
+        "Moana",
+        "Brave"
+      ],
+      "a": 0,
+      "w": "Frozen. Let It Go won the Oscar for best original song.",
+      "more": "It is loosely based on Hans Christian Andersen's The Snow Queen, and Elsa was written as the villain until the songwriters delivered Let It Go. It was the highest-grossing animated film ever until the 2019 Lion King remake. Frozen II in 2019 took about 1.45 billion dollars."
+    },
+    {
+      "d": "easy",
+      "q": "Which studio's logo shows a boy fishing from a crescent moon?",
+      "o": [
+        "DreamWorks",
+        "Pixar",
+        "Universal",
+        "Lionsgate"
+      ],
+      "a": 0,
+      "w": "DreamWorks, founded in 1994 by Steven Spielberg, Jeffrey Katzenberg and David Geffen.",
+      "more": "The boy was modelled on the son of Robert Hunt, the artist who painted the logo. Pixar's logo is the hopping lamp from its 1986 short Luxo Jr. DreamWorks made Shrek, the first winner of the Best Animated Feature Oscar in 2002."
+    },
+    {
+      "d": "medium",
+      "q": "Which film won the very first Academy Award for Best Picture, at the 1929 ceremony?",
+      "o": [
+        "Wings",
+        "Sunrise",
+        "The Jazz Singer",
+        "Metropolis"
+      ],
+      "a": 0,
+      "w": "Wings (1927), a silent film about First World War pilots. No other silent film won until The Artist in 2012.",
+      "more": "Sunrise won a separate prize, 'Unique and Artistic Production', that was never given again. The first ceremony lasted about fifteen minutes at the Roosevelt Hotel, and the winners had been announced three months earlier. Wings featured Clara Bow and a young Gary Cooper."
+    },
+    {
+      "d": "medium",
+      "q": "Which 1994 prison film flopped in cinemas and later became the top-rated film on IMDb?",
+      "o": [
+        "The Shawshank Redemption",
+        "The Green Mile",
+        "Cool Hand Luke",
+        "Escape from Alcatraz"
+      ],
+      "a": 0,
+      "w": "The Shawshank Redemption, from a Stephen King novella. It took only about sixteen million dollars on its first run.",
+      "more": "It was nominated for seven Oscars and won none; that was Forrest Gump's year. Video rentals and endless television showings turned it into a favourite. The oak tree where Andy leaves the letter, in Ohio, blew down in 2016."
+    },
+    {
+      "d": "medium",
+      "q": "Hitchcock's Psycho (1960) kills off its apparent star in the first act. Who played Marion Crane?",
+      "o": [
+        "Janet Leigh",
+        "Kim Novak",
+        "Grace Kelly",
+        "Tippi Hedren"
+      ],
+      "a": 0,
+      "w": "Janet Leigh. The shower scene took about a week to shoot, with around 78 camera set-ups.",
+      "more": "Chocolate syrup stood in for blood in black and white. Hitchcock bought up copies of the novel to protect the twist and made cinemas refuse late admission. Leigh's daughter, Jamie Lee Curtis, became the star of Halloween in 1978."
+    },
+    {
+      "d": "medium",
+      "q": "Which composer wrote the music for Star Wars, Jaws, E.T. and the first three Harry Potter films?",
+      "o": [
+        "John Williams",
+        "Hans Zimmer",
+        "Ennio Morricone",
+        "Jerry Goldsmith"
+      ],
+      "a": 0,
+      "w": "John Williams, who has more Oscar nominations than any living person, 54.",
+      "more": "He has won five: Fiddler on the Roof, Jaws, Star Wars, E.T. and Schindler's List. Spielberg said the two-note shark theme was responsible for half of Jaws' success. Williams also wrote the Olympic Fanfare for Los Angeles 1984 and the NBC News theme."
+    },
+    {
+      "d": "medium",
+      "q": "Which film's poster promised, 'In space no one can hear you scream'?",
+      "o": [
+        "Alien",
+        "2001: A Space Odyssey",
+        "Star Wars",
+        "Event Horizon"
+      ],
+      "a": 0,
+      "w": "Alien (1979), Ridley Scott's film with Sigourney Weaver as Ripley.",
+      "more": "The creature was designed by the Swiss artist H.R. Giger, who won an Oscar for it. The chestburster scene was kept partly secret from the cast so their reactions would be real. Ripley was written as a man; the script said every role could be either sex."
+    },
+    {
+      "d": "medium",
+      "q": "Which actress has won the most Oscars for acting?",
+      "o": [
+        "Katharine Hepburn",
+        "Meryl Streep",
+        "Frances McDormand",
+        "Ingrid Bergman"
+      ],
+      "a": 0,
+      "w": "Katharine Hepburn, with four Best Actress awards, and she never turned up to collect one.",
+      "more": "The wins were for Morning Glory, Guess Who's Coming to Dinner, The Lion in Winter and On Golden Pond, spread across 48 years. Her Lion in Winter award was a tie with Barbra Streisand for Funny Girl. Meryl Streep has the most nominations, 21, with three wins."
+    },
+    {
+      "d": "medium",
+      "q": "Which Studio Ghibli film won the Oscar for Best Animated Feature in 2003?",
+      "o": [
+        "Spirited Away",
+        "Princess Mononoke",
+        "My Neighbor Totoro",
+        "Howl's Moving Castle"
+      ],
+      "a": 0,
+      "w": "Spirited Away, Hayao Miyazaki's 2001 film, the first hand-drawn film and the first not in English to win the category.",
+      "more": "It was the highest-grossing film in Japanese history for nearly twenty years, until Demon Slayer: Mugen Train in 2020. Miyazaki stayed away from the ceremony in protest at the Iraq war. Ghibli is named after an Italian word for a hot desert wind."
+    },
+    {
+      "d": "hard",
+      "type": "order",
+      "q": "Put these Best Picture winners in order of release, earliest first.",
+      "o": [
+        "The Sound of Music",
+        "The Godfather",
+        "Rain Man",
+        "Gladiator"
+      ],
+      "w": "The Sound of Music (1965), The Godfather (1972), Rain Man (1988), Gladiator (2000).",
+      "more": "The Sound of Music was the highest-grossing film ever until The Godfather passed it. Marlon Brando refused his Godfather Oscar and sent the activist Sacheen Littlefeather to the stage instead. Rain Man was the top-grossing film of 1988; Gladiator revived the historical epic and made Russell Crowe a star."
+    },
+    {
+      "d": "hard",
+      "q": "Which director has won the most Best Director Oscars?",
+      "o": [
+        "John Ford",
+        "William Wyler",
+        "Frank Capra",
+        "Steven Spielberg"
+      ],
+      "a": 0,
+      "w": "John Ford, with four: The Informer, The Grapes of Wrath, How Green Was My Valley and The Quiet Man.",
+      "more": "Not one of the four is a Western, the genre he is remembered for. William Wyler and Frank Capra won three each. Ford was famously blunt; introducing himself at a directors' meeting he said, 'My name's John Ford. I make Westerns.'"
+    },
+    {
+      "d": "hard",
+      "q": "Which 1927 silent film by Fritz Lang is set in a towering city of the future?",
+      "o": [
+        "Metropolis",
+        "Nosferatu",
+        "The Cabinet of Dr. Caligari",
+        "Battleship Potemkin"
+      ],
+      "a": 0,
+      "w": "Metropolis, the most expensive silent film ever made, restored after missing footage turned up in Buenos Aires in 2008.",
+      "more": "It was cut heavily after release and about a quarter of it was thought lost for eighty years, until a near-complete 16mm print was found in an Argentine museum. Its robot Maria shaped the look of C-3PO. Lang left Germany in 1933 as the Nazis took power."
+    },
+    {
+      "d": "hard",
+      "q": "True or false: only one sequel has ever won Best Picture, The Godfather Part II.",
+      "o": [
+        "True",
+        "False"
+      ],
+      "a": 1,
+      "keepOrder": true,
+      "w": "False. The Godfather Part II (1974) was the first, and The Lord of the Rings: The Return of the King (2003) was the second.",
+      "more": "The Godfather Part II is still the only sequel to win when the original had won too. The Return of the King won all eleven of its nominations. Mad Max: Fury Road and Top Gun: Maverick were later nominated as sequels and lost."
+    },
+    {
+      "d": "hard",
+      "q": "Who won an acting Oscar for the shortest performance on record, about five minutes of screen time?",
+      "o": [
+        "Beatrice Straight",
+        "Judi Dench",
+        "Anthony Hopkins",
+        "Anne Hathaway"
+      ],
+      "a": 0,
+      "w": "Beatrice Straight, Best Supporting Actress for Network (1976), with roughly five minutes on screen.",
+      "more": "Judi Dench won for about eight minutes as Elizabeth I in Shakespeare in Love. Anthony Hopkins' Hannibal Lecter is the shortest Best Actor win, around sixteen minutes. Network also gave Peter Finch the first posthumous acting Oscar."
+    },
+    {
+      "d": "hard",
+      "type": "select",
+      "q": "Which of these films did Christopher Nolan direct? Select all that apply.",
+      "o": [
+        "Inception",
+        "Memento",
+        "Interstellar",
+        "Arrival",
+        "Gravity",
+        "Dunkirk"
+      ],
+      "a": [
+        0,
+        1,
+        2,
+        5
+      ],
+      "w": "Inception, Memento, Interstellar and Dunkirk. Arrival is Denis Villeneuve's and Gravity is Alfonso Cuarón's.",
+      "more": "Nolan won his first directing Oscar for Oppenheimer in March 2024. He shoots on film and avoids digital effects where he can; for Tenet he crashed a real Boeing 747 rather than build a model. Memento, told backwards, came from a short story by his brother Jonathan."
+    }
+  ]
+}

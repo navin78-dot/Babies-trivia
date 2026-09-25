@@ -1,0 +1,284 @@
+{
+  "id": "say-what",
+  "name": "Say What",
+  "subject": "Words and language",
+  "tagline": "Twenty questions on the way we talk: alphabets, idioms, tongues and the odd word nobody can spell. Starts easy, ends hard.",
+  "draft": true,
+  "emblem": "💬",
+  "theme": {
+    "font": "Merriweather",
+    "accent": "#0F766E",
+    "accent2": "#F97316",
+    "accentDark": "#2DD4BF",
+    "accent2Dark": "#FDBA74"
+  },
+  "questions": [
+    {
+      "d": "easy",
+      "q": "Counting everyone who speaks it, which is the most spoken language in the world?",
+      "o": [
+        "English",
+        "Mandarin Chinese",
+        "Hindi",
+        "Spanish"
+      ],
+      "a": 0,
+      "w": "English, with around 1.5 billion speakers when second-language speakers are counted. Mandarin has the most native speakers.",
+      "more": "There are about seven thousand languages, and roughly forty percent are endangered. Papua New Guinea has the most, more than eight hundred. Spanish has the second-most native speakers after Mandarin."
+    },
+    {
+      "d": "easy",
+      "q": "A word that reads the same backwards, like 'level', is called what?",
+      "o": [
+        "A palindrome",
+        "An anagram",
+        "An acronym",
+        "A homophone"
+      ],
+      "a": 0,
+      "w": "A palindrome.",
+      "more": "'A man, a plan, a canal: Panama' is the famous sentence-length one. An anagram rearranges letters, as in listen and silent. Finnish has a nineteen-letter palindrome, saippuakivikauppias, a soapstone seller."
+    },
+    {
+      "d": "easy",
+      "q": "How many letters are in the English alphabet?",
+      "o": [
+        "26",
+        "24",
+        "28",
+        "25"
+      ],
+      "a": 0,
+      "w": "26.",
+      "more": "The ampersand was taught as a 27th letter into the 1800s; children recited 'and per se and', which slurred into its name. E is the most used letter and Z the least. Hawaiian gets by with thirteen letters; Khmer, in Cambodia, has 74."
+    },
+    {
+      "d": "easy",
+      "q": "In the NATO phonetic alphabet, which word stands for the letter N?",
+      "o": [
+        "November",
+        "Nancy",
+        "Neptune",
+        "Nectar"
+      ],
+      "a": 0,
+      "w": "November. A is Alfa, B is Bravo, C is Charlie.",
+      "more": "The alphabet was standardised in 1956 after tests with speakers of many languages; Alfa and Juliett are spelled that way so French and Spanish speakers pronounce them correctly. Before it, Americans used Able, Baker, Charlie. Pilots, police and call centres use it worldwide."
+    },
+    {
+      "d": "easy",
+      "q": "What is the dot over a lowercase i or j called?",
+      "o": [
+        "A tittle",
+        "A diacritic",
+        "A serif",
+        "A jot"
+      ],
+      "a": 0,
+      "w": "A tittle. The biblical phrase 'jot or tittle' means the smallest detail.",
+      "more": "Serifs are the small strokes at the ends of letters in fonts like Times. The @ sign is an arroba in Spanish and a monkey's tail in Dutch. The # symbol's formal name is the octothorpe."
+    },
+    {
+      "d": "easy",
+      "q": "What does the abbreviation 'e.g.' stand for?",
+      "o": [
+        "Exempli gratia, for example",
+        "Id est, that is",
+        "Et cetera, and the rest",
+        "Ex genere, of its kind"
+      ],
+      "a": 0,
+      "w": "Exempli gratia, Latin for 'for the sake of an example'. 'I.e.' is id est, 'that is'.",
+      "more": "Etc. is et cetera, 'and the rest'. A.m. and p.m. are ante and post meridiem, before and after midday. R.S.V.P. is French, répondez s'il vous plaît."
+    },
+    {
+      "d": "easy",
+      "q": "What do you call a word made from the first letters of other words and said as a word, like NASA?",
+      "o": [
+        "An acronym",
+        "An abbreviation",
+        "An initialism",
+        "A portmanteau"
+      ],
+      "a": 0,
+      "w": "An acronym. FBI, said letter by letter, is an initialism.",
+      "more": "Laser and scuba are acronyms that became ordinary words: light amplification by stimulated emission of radiation, and self-contained underwater breathing apparatus. A portmanteau blends two words, like brunch or smog. Lewis Carroll gave portmanteau that meaning in Through the Looking-Glass."
+    },
+    {
+      "d": "medium",
+      "q": "What is the official language of Brazil?",
+      "o": [
+        "Portuguese",
+        "Spanish",
+        "Brazilian",
+        "Italian"
+      ],
+      "a": 0,
+      "w": "Portuguese. Brazil has more Portuguese speakers than every other Portuguese-speaking country put together.",
+      "more": "The Treaty of Tordesillas in 1494 split the New World between Spain and Portugal, and Portugal's half included the bulge of Brazil. Brazilian and European Portuguese differ in accent and everyday words. Portuguese is also official in Angola, Mozambique and East Timor."
+    },
+    {
+      "d": "medium",
+      "q": "Which invented language, created in 1887, was meant to be everyone's second language?",
+      "o": [
+        "Esperanto",
+        "Volapük",
+        "Klingon",
+        "Interlingua"
+      ],
+      "a": 0,
+      "w": "Esperanto, created by L.L. Zamenhof, an eye doctor in Białystok, then part of the Russian Empire.",
+      "more": "Estimates run to about two million speakers, including perhaps a thousand who grew up with it. The name means 'one who hopes'. William Shatner starred in Incubus, a 1966 horror film performed entirely in Esperanto."
+    },
+    {
+      "d": "medium",
+      "q": "Which is the longest word in a major English dictionary?",
+      "o": [
+        "Pneumonoultramicroscopicsilicovolcanoconiosis",
+        "Antidisestablishmentarianism",
+        "Supercalifragilisticexpialidocious",
+        "Floccinaucinihilipilification"
+      ],
+      "a": 0,
+      "w": "Pneumonoultramicroscopicsilicovolcanoconiosis, 45 letters, a lung disease from fine volcanic dust, coined in 1935 largely to be long.",
+      "more": "Floccinaucinihilipilification, the act of judging something worthless, is the longest non-technical word in the Oxford English Dictionary. Antidisestablishmentarianism has 28 letters. The chemical name of the protein titin runs to almost 190,000 letters and is in no dictionary."
+    },
+    {
+      "d": "medium",
+      "q": "In which country would you hear Afrikaans spoken?",
+      "o": [
+        "South Africa",
+        "The Netherlands",
+        "Belgium",
+        "Suriname"
+      ],
+      "a": 0,
+      "w": "South Africa, and neighbouring Namibia. It grew out of seventeenth-century Dutch.",
+      "more": "It is the third most common first language in South Africa, after Zulu and Xhosa, with about seven million speakers. Its grammar is simpler than Dutch: no grammatical gender and very few verb endings. South Africa has twelve official languages, sign language having been added in 2023."
+    },
+    {
+      "d": "medium",
+      "q": "The phrase 'to bite the bullet' is said to come from what?",
+      "o": [
+        "Patients biting a bullet during surgery without anaesthetic",
+        "Testing whether a coin was counterfeit",
+        "Soldiers tearing open paper cartridges",
+        "Duelling etiquette"
+      ],
+      "a": 0,
+      "w": "Wounded soldiers biting on a bullet to bear the pain of surgery before anaesthetics. The first figurative use is in Rudyard Kipling, in 1891.",
+      "more": "Ether anaesthesia arrived in 1846, so the practice was already history when the phrase caught on. 'Bite the dust' is far older and appears in translations of Homer. Biting cartridges greased with animal fat was a separate matter, a spark for the 1857 rebellion in India."
+    },
+    {
+      "d": "medium",
+      "q": "Japanese is written with kanji and with which two syllable-based scripts?",
+      "o": [
+        "Hiragana and katakana",
+        "Hangul and hanja",
+        "Pinyin and bopomofo",
+        "Devanagari and Kana"
+      ],
+      "a": 0,
+      "w": "Hiragana and katakana, together called kana, about 46 characters each. Katakana is used mostly for foreign words.",
+      "more": "Hangul is Korea's alphabet, created in 1443 under King Sejong. Pinyin is the system for writing Mandarin in Roman letters. Japanese children learn about a thousand kanji at primary school, and adults need around two thousand."
+    },
+    {
+      "d": "medium",
+      "q": "What is the name for a word that sounds like the thing it describes, such as 'buzz'?",
+      "o": [
+        "Onomatopoeia",
+        "Alliteration",
+        "An oxymoron",
+        "A euphemism"
+      ],
+      "a": 0,
+      "w": "Onomatopoeia, from the Greek for 'name-making'.",
+      "more": "A rooster says cock-a-doodle-doo in English, kikeriki in German and cocorico in French. An oxymoron pairs opposites, as in deafening silence. Alliteration repeats opening sounds."
+    },
+    {
+      "d": "hard",
+      "q": "Which language has no words for left and right, and uses compass directions instead?",
+      "o": [
+        "Guugu Yimithirr",
+        "Pirahã",
+        "Basque",
+        "Inuktitut"
+      ],
+      "a": 0,
+      "w": "Guugu Yimithirr, from north Queensland in Australia, whose speakers say things like 'your north hand' and have an unusually good sense of direction.",
+      "more": "The word kangaroo comes from this language, written down by Captain Cook's crew in 1770. Pirahã, spoken in the Amazon, is said to have no words for numbers. Basque is related to no other living language."
+    },
+    {
+      "d": "hard",
+      "type": "order",
+      "q": "Put these words in order of when they entered English, earliest first.",
+      "o": [
+        "Television",
+        "Robot",
+        "Podcast",
+        "Selfie"
+      ],
+      "w": "Television (1900), robot (1920), podcast (2004), selfie (widely from 2012, Oxford's word of the year in 2013).",
+      "more": "'Robot' comes from the Czech robota, forced labour, in Karel Čapek's play R.U.R.; his brother Josef suggested it. 'Television' was coined by Constantin Perskyi at the Paris Expo of 1900, decades before a working set. 'Selfie' was first spotted on an Australian internet forum in 2002."
+    },
+    {
+      "d": "hard",
+      "q": "Which is the only letter that appears in no US state name?",
+      "o": [
+        "Q",
+        "Z",
+        "X",
+        "J"
+      ],
+      "a": 0,
+      "w": "Q. Z is in Arizona, X in Texas and New Mexico, J in New Jersey.",
+      "more": "Every other letter turns up at least once. Maine is the only state name with one syllable. Four states begin with New, and eight begin with M, more than any other letter."
+    },
+    {
+      "d": "hard",
+      "q": "Which country has the most official languages?",
+      "o": [
+        "Bolivia",
+        "India",
+        "South Africa",
+        "Switzerland"
+      ],
+      "a": 0,
+      "w": "Bolivia, whose 2009 constitution lists Spanish and 36 indigenous languages, though several are close to extinct.",
+      "more": "Zimbabwe has sixteen and South Africa twelve. India's constitution schedules 22 languages but names Hindi and English for use by the central government. Switzerland has four: German, French, Italian and Romansh."
+    },
+    {
+      "d": "hard",
+      "q": "True or false: Mandarin Chinese has more native speakers than any other language.",
+      "o": [
+        "True",
+        "False"
+      ],
+      "a": 0,
+      "keepOrder": true,
+      "w": "True, around 940 million, ahead of Spanish and English.",
+      "more": "Mandarin is tonal, with four tones and a neutral one; 'ma' can mean mother, hemp, horse or scold depending on the tone. Written Chinese is shared by dialects such as Cantonese that are not mutually intelligible when spoken. There is no alphabet; reading a newspaper takes about three thousand characters."
+    },
+    {
+      "d": "hard",
+      "type": "select",
+      "q": "Which of these are real collective nouns? Select all that apply.",
+      "o": [
+        "A murder of crows",
+        "A parliament of owls",
+        "A giggle of hyenas",
+        "A crash of rhinos",
+        "A swarm of sharks",
+        "An exaltation of larks"
+      ],
+      "a": [
+        0,
+        1,
+        3,
+        5
+      ],
+      "w": "A murder of crows, a parliament of owls, a crash of rhinos and an exaltation of larks. Hyenas are a clan or a cackle, and sharks are a shiver.",
+      "more": "Many of these come from the Book of St Albans of 1486, a guide to hunting terms for gentlemen. A group of flamingos is a flamboyance and a group of jellyfish a smack. Most were coined for fun and are rarely used by zoologists."
+    }
+  ]
+}

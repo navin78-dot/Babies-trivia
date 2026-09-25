@@ -30,6 +30,9 @@ const block = JSON.stringify(client, null, 2);
 if (/<\/script|<!--/i.test(block)) throw new Error("game config contains text that would break the script tag");
 once(/\/\* GAME-CONFIG-START \*\/[\s\S]*?\/\* GAME-CONFIG-END \*\//, () => `/* GAME-CONFIG-START */\nconst GAME = ${block};\n/* GAME-CONFIG-END */`, "GAME block");
 
+// 1b. A sister game has none of the original game's built-in rounds (people who play both must not have seen the questions).
+once(/\/\* BUILTIN-ROUNDS-START \*\/[\s\S]*?\/\* BUILTIN-ROUNDS-END \*\//, () => "/* BUILTIN-ROUNDS-START */\nlet ROUNDS = [];\n/* BUILTIN-ROUNDS-END */", "built-in rounds");
+
 // 2. Head: title, description, palette and fonts.
 once(/<title>[^<]*<\/title>/, () => `<title>${escAttr(game.plainName)}</title>`, "title");
 if (game.description) once(/<meta name="description" content="[^"]*">/, () => `<meta name="description" content="${escAttr(game.description)}">`, "description");

@@ -1,0 +1,284 @@
+{
+  "id": "eureka",
+  "name": "Eureka",
+  "subject": "Science and the human body",
+  "tagline": "Twenty questions on how things work, from the bones in your hand to the gas in a neon sign. Starts easy, ends hard.",
+  "draft": true,
+  "emblem": "🧪",
+  "theme": {
+    "font": "Space Grotesk",
+    "accent": "#2563EB",
+    "accent2": "#22D3EE",
+    "accentDark": "#60A5FA",
+    "accent2Dark": "#67E8F9"
+  },
+  "questions": [
+    {
+      "d": "easy",
+      "q": "How many bones are there in an adult human body?",
+      "o": [
+        "206",
+        "186",
+        "226",
+        "256"
+      ],
+      "a": 0,
+      "w": "206. Babies are born with around 270, many of which fuse as they grow.",
+      "more": "More than half are in the hands and feet: 27 in each hand and 26 in each foot. The smallest is the stapes in the middle ear, about three millimetres long. The femur is the longest and the strongest."
+    },
+    {
+      "d": "easy",
+      "q": "What is the chemical symbol for gold?",
+      "o": [
+        "Au",
+        "Ag",
+        "Gd",
+        "Go"
+      ],
+      "a": 0,
+      "w": "Au, from the Latin aurum. Ag is silver, from argentum.",
+      "more": "Gold is so unreactive that coins pulled from centuries-old shipwrecks come up shining. All the gold ever mined would fit in a cube about 22 metres on each side. It is forged in collisions between neutron stars."
+    },
+    {
+      "d": "easy",
+      "q": "What is the largest organ of the human body?",
+      "o": [
+        "The skin",
+        "The liver",
+        "The lungs",
+        "The brain"
+      ],
+      "a": 0,
+      "w": "The skin, about two square metres of it, around fifteen percent of your body weight.",
+      "more": "You shed roughly thirty to forty thousand skin cells every minute. The liver is the largest internal organ. Skin has three layers: the epidermis, the dermis and the hypodermis."
+    },
+    {
+      "d": "easy",
+      "q": "Water is made of hydrogen and which other element?",
+      "o": [
+        "Oxygen",
+        "Nitrogen",
+        "Carbon",
+        "Helium"
+      ],
+      "a": 0,
+      "w": "Oxygen. H2O is two hydrogen atoms and one oxygen.",
+      "more": "Water is at its densest at four degrees Celsius, which is why ice floats and lakes freeze from the top down. It boils at lower temperatures at altitude, about seventy degrees on the summit of Everest. Roughly sixty percent of an adult is water."
+    },
+    {
+      "d": "easy",
+      "q": "Which gas do plants take from the air for photosynthesis?",
+      "o": [
+        "Carbon dioxide",
+        "Oxygen",
+        "Nitrogen",
+        "Hydrogen"
+      ],
+      "a": 0,
+      "w": "Carbon dioxide, which they combine with water and sunlight to make sugar, giving off oxygen.",
+      "more": "Most of a tree's mass comes out of the air, not the soil. Plankton in the oceans produce about half of the world's oxygen. Chlorophyll reflects green light, which is why leaves look green."
+    },
+    {
+      "d": "easy",
+      "q": "Who published the general theory of relativity in 1915?",
+      "o": [
+        "Albert Einstein",
+        "Isaac Newton",
+        "Stephen Hawking",
+        "Niels Bohr"
+      ],
+      "a": 0,
+      "w": "Albert Einstein. His special theory of relativity had come ten years earlier.",
+      "more": "His Nobel Prize, awarded for 1921, was for the photoelectric effect, not relativity. GPS satellites have to correct for relativity or their positions would drift by about ten kilometres a day. E equals mc squared appeared in a short paper in 1905."
+    },
+    {
+      "d": "easy",
+      "q": "What is the process called by which a caterpillar becomes a butterfly?",
+      "o": [
+        "Metamorphosis",
+        "Mitosis",
+        "Moulting",
+        "Germination"
+      ],
+      "a": 0,
+      "w": "Metamorphosis. Inside the chrysalis the caterpillar largely dissolves and rebuilds itself.",
+      "more": "Experiments suggest moths can remember things they learned as caterpillars. Butterflies taste with their feet. Monarchs migrate up to 4,800 kilometres to spend the winter in Mexico."
+    },
+    {
+      "d": "medium",
+      "q": "Roughly how fast does light travel in a vacuum?",
+      "o": [
+        "300,000 kilometres a second",
+        "30,000 kilometres a second",
+        "3 million kilometres a second",
+        "300 kilometres a second"
+      ],
+      "a": 0,
+      "w": "About 299,792 kilometres a second. Sunlight takes a little over eight minutes to reach us.",
+      "more": "Since 1983 the metre has been defined in terms of the speed of light. Nothing with mass can reach it. Light from the nearest star beyond the Sun, Proxima Centauri, takes just over four years."
+    },
+    {
+      "d": "medium",
+      "q": "Who discovered penicillin in 1928?",
+      "o": [
+        "Alexander Fleming",
+        "Louis Pasteur",
+        "Joseph Lister",
+        "Jonas Salk"
+      ],
+      "a": 0,
+      "w": "Alexander Fleming, who noticed a mould killing bacteria on a dish he had left out at St Mary's Hospital in London.",
+      "more": "Howard Florey and Ernst Chain turned it into a usable drug in the 1940s and shared the 1945 Nobel Prize with him. The first patient, a policeman, improved and then died when the supply ran out. In his Nobel lecture Fleming warned that bacteria would learn to resist it."
+    },
+    {
+      "d": "medium",
+      "q": "Which blood group is the universal donor for red blood cells?",
+      "o": [
+        "O negative",
+        "AB positive",
+        "A positive",
+        "O positive"
+      ],
+      "a": 0,
+      "w": "O negative, which carries no A, B or Rhesus markers. AB positive is the universal recipient.",
+      "more": "About seven percent of people are O negative. Karl Landsteiner discovered the ABO groups in 1901 and won a Nobel Prize for it in 1930. Plasma works the other way round: AB is the universal plasma donor."
+    },
+    {
+      "d": "medium",
+      "q": "Which scientist drew up the periodic table in 1869 and left gaps for elements not yet found?",
+      "o": [
+        "Dmitri Mendeleev",
+        "Antoine Lavoisier",
+        "John Dalton",
+        "Marie Curie"
+      ],
+      "a": 0,
+      "w": "Dmitri Mendeleev, who predicted gallium and germanium before anyone had seen them.",
+      "more": "He is said to have arranged cards of the elements like a game of patience. Element 101 is named mendelevium after him. The last four elements, completing the seventh row, were named in 2016."
+    },
+    {
+      "d": "medium",
+      "q": "What is often called the powerhouse of the cell?",
+      "o": [
+        "The mitochondrion",
+        "The nucleus",
+        "The ribosome",
+        "The Golgi apparatus"
+      ],
+      "a": 0,
+      "w": "The mitochondrion, which makes ATP, the molecule cells spend as energy.",
+      "more": "Mitochondria have their own DNA, inherited only from the mother, which suggests they were once free-living bacteria. A muscle cell can hold thousands. Mitochondrial DNA is used to trace maternal ancestry back to a common ancestor nicknamed Mitochondrial Eve."
+    },
+    {
+      "d": "medium",
+      "q": "Which metal is liquid at room temperature?",
+      "o": [
+        "Mercury",
+        "Gallium",
+        "Lead",
+        "Sodium"
+      ],
+      "a": 0,
+      "w": "Mercury, symbol Hg, from the Greek hydrargyrum, 'water-silver'.",
+      "more": "Gallium melts at about thirty degrees, so it turns to liquid in your hand, but is solid on the shelf. Mercury thermometers have been phased out in most countries. 'Mad as a hatter' comes from mercury poisoning among felt hat makers."
+    },
+    {
+      "d": "medium",
+      "q": "Who was the first person to win two Nobel Prizes?",
+      "o": [
+        "Marie Curie",
+        "Linus Pauling",
+        "Albert Einstein",
+        "Frederick Sanger"
+      ],
+      "a": 0,
+      "w": "Marie Curie: physics in 1903, shared with Pierre Curie and Henri Becquerel, and chemistry in 1911 on her own. She is still the only person with Nobels in two sciences.",
+      "more": "Her notebooks are still radioactive and are kept in lead-lined boxes. Her daughter Irène won the chemistry prize in 1935. Linus Pauling won chemistry and peace, and Frederick Sanger won chemistry twice."
+    },
+    {
+      "d": "hard",
+      "q": "After nitrogen and oxygen, what is the third most plentiful gas in the air?",
+      "o": [
+        "Argon",
+        "Carbon dioxide",
+        "Water vapour",
+        "Neon"
+      ],
+      "a": 0,
+      "w": "Argon, at about 0.93 percent. Carbon dioxide is only around 0.04 percent.",
+      "more": "Argon was discovered in 1894 by Lord Rayleigh and William Ramsay, who noticed that nitrogen taken from air was slightly heavier than nitrogen made in the lab. Its name means 'lazy' in Greek, because it will not react. It fills old-style light bulbs and the gap in double glazing."
+    },
+    {
+      "d": "hard",
+      "type": "order",
+      "q": "Put these in order of size, smallest first.",
+      "o": [
+        "An atom",
+        "A virus",
+        "A bacterium",
+        "A red blood cell"
+      ],
+      "w": "An atom (a tenth of a nanometre), a virus (around a hundred nanometres), a bacterium (a micrometre or two), a red blood cell (about seven micrometres).",
+      "more": "Tens of thousands of atoms would fit across one red blood cell. Viruses were too small to see until the electron microscope arrived in the 1930s. A single drop of seawater holds millions of them."
+    },
+    {
+      "d": "hard",
+      "q": "Which metal has the highest melting point?",
+      "o": [
+        "Tungsten",
+        "Iron",
+        "Titanium",
+        "Platinum"
+      ],
+      "a": 0,
+      "w": "Tungsten, at about 3,400 degrees Celsius, which is why it made the filaments in light bulbs.",
+      "more": "Its symbol, W, comes from its other name, wolfram. Carbon does not melt at normal pressure; it goes straight from solid to gas. Tungsten carbide tips drill bits and ballpoint pens."
+    },
+    {
+      "d": "hard",
+      "q": "Whose X-ray image, known as Photo 51, was crucial to Watson and Crick's 1953 model of DNA?",
+      "o": [
+        "Rosalind Franklin",
+        "Dorothy Hodgkin",
+        "Lise Meitner",
+        "Barbara McClintock"
+      ],
+      "a": 0,
+      "w": "Rosalind Franklin, at King's College London. The picture was shown to James Watson without her knowledge.",
+      "more": "She died of ovarian cancer in 1958, aged 37, four years before the Nobel Prize went to Watson, Crick and Wilkins, and the prize is never awarded posthumously. Dorothy Hodgkin worked out the structures of penicillin and vitamin B12. Lise Meitner explained nuclear fission and was left out of the 1944 prize."
+    },
+    {
+      "d": "hard",
+      "q": "True or false: sound travels faster in water than in air.",
+      "o": [
+        "True",
+        "False"
+      ],
+      "a": 0,
+      "keepOrder": true,
+      "w": "True, more than four times faster: about 1,500 metres a second in water against 343 in air.",
+      "more": "In steel it is faster still, around five thousand metres a second, which is why you hear a train through the rails before you hear it through the air. In space there is nothing to carry it, so no sound at all. Whale song can travel hundreds of kilometres under water."
+    },
+    {
+      "d": "hard",
+      "type": "select",
+      "q": "Which of these are noble gases? Select all that apply.",
+      "o": [
+        "Helium",
+        "Neon",
+        "Nitrogen",
+        "Xenon",
+        "Chlorine",
+        "Krypton"
+      ],
+      "a": [
+        0,
+        1,
+        3,
+        5
+      ],
+      "w": "Helium, neon, xenon and krypton. Nitrogen and chlorine both react readily.",
+      "more": "Noble gases have full outer electron shells, so they hardly react with anything; the first xenon compound was only made in 1962. A true neon sign glows red-orange, and other colours come from other gases or coatings. Helium was found in the Sun's spectrum in 1868 before anyone found it on Earth."
+    }
+  ]
+}
