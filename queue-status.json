@@ -1,4 +1,6 @@
 {
+  "game": "babies",
+  "roundsDir": "rounds",
   "today": "2026-09-25",
   "season": 1,
   "queueCount": 5,
@@ -74,102 +76,6 @@
     }
   ],
   "requestsWaiting": [],
-  "games": {
-    "hamps": {
-      "today": "2026-09-25",
-      "season": 1,
-      "queueCount": 11,
-      "target": 5,
-      "fill": 0,
-      "queue": [
-        {
-          "id": "one-hit-wonders",
-          "name": "One Hit Wonders",
-          "subject": "One hit wonders",
-          "onPollSince": "2026-09-25",
-          "retired": false
-        },
-        {
-          "id": "plate-to-place",
-          "name": "Plate to Place",
-          "subject": "Food origins",
-          "onPollSince": "2026-09-25",
-          "retired": false
-        },
-        {
-          "id": "great-heists",
-          "name": "Great Heists and Cons",
-          "subject": "Heists and frauds",
-          "onPollSince": "2026-09-25",
-          "retired": false
-        },
-        {
-          "id": "to-the-moon",
-          "name": "To the Moon and Mars",
-          "subject": "Spaceflight",
-          "onPollSince": null,
-          "retired": false
-        },
-        {
-          "id": "word-origins",
-          "name": "Where Words Come From",
-          "subject": "Word origins",
-          "onPollSince": null,
-          "retired": false
-        },
-        {
-          "id": "console-wars",
-          "name": "Console Wars",
-          "subject": "Video games",
-          "onPollSince": null,
-          "retired": false
-        },
-        {
-          "id": "summer-blockbusters",
-          "name": "Summer Blockbusters",
-          "subject": "Big movies",
-          "onPollSince": null,
-          "retired": false
-        },
-        {
-          "id": "extra-time",
-          "name": "Extra Time",
-          "subject": "Sport",
-          "onPollSince": null,
-          "retired": false
-        },
-        {
-          "id": "where-on-earth",
-          "name": "Where On Earth",
-          "subject": "Geography",
-          "onPollSince": null,
-          "retired": false
-        },
-        {
-          "id": "founding-years",
-          "name": "Founding Years",
-          "subject": "American history, 1500 to 1850",
-          "onPollSince": null,
-          "retired": false
-        },
-        {
-          "id": "wild-things",
-          "name": "Wild Things",
-          "subject": "Animals",
-          "onPollSince": null,
-          "retired": false
-        }
-      ],
-      "tonightsPoll": [
-        "one-hit-wonders",
-        "plate-to-place",
-        "great-heists"
-      ],
-      "override": null,
-      "dropped": [],
-      "requestsWaiting": []
-    }
-  },
   "existingSubjects": [
     "Strike a Pose (Madonna)",
     "Over the Millennia (World history)",
@@ -193,5 +99,74 @@
     "Where On Earth (Geography)",
     "Wild Things (Animals)"
   ],
-  "need": 0
+  "need": 0,
+  "games": {
+    "hamps": {
+      "game": "hamps",
+      "roundsDir": "games/hamps/rounds",
+      "today": "2026-09-25",
+      "season": 1,
+      "queueCount": 5,
+      "target": 5,
+      "fill": 0,
+      "queue": [
+        {
+          "id": "binge-worthy",
+          "name": "Binge Worthy",
+          "subject": "Television of the streaming age",
+          "onPollSince": "2026-09-25",
+          "retired": false
+        },
+        {
+          "id": "crowned-heads",
+          "name": "Crowned Heads",
+          "subject": "Royals through history",
+          "onPollSince": "2026-09-25",
+          "retired": false
+        },
+        {
+          "id": "eureka",
+          "name": "Eureka",
+          "subject": "Science and the human body",
+          "onPollSince": "2026-09-25",
+          "retired": false
+        },
+        {
+          "id": "game-on",
+          "name": "Game On",
+          "subject": "Sport",
+          "onPollSince": null,
+          "retired": false
+        },
+        {
+          "id": "say-what",
+          "name": "Say What",
+          "subject": "Words and language",
+          "onPollSince": null,
+          "retired": false
+        }
+      ],
+      "tonightsPoll": [
+        "binge-worthy",
+        "crowned-heads",
+        "eureka"
+      ],
+      "override": null,
+      "dropped": [],
+      "requestsWaiting": [],
+      "existingSubjects": [
+        "Binge Worthy (Television of the streaming age)",
+        "Chart Toppers (Pop music)",
+        "Crowned Heads (Royals through history)",
+        "Eureka (Science and the human body)",
+        "Game On (Sport)",
+        "Kitchen Confidential (Food and drink)",
+        "Passport Control (Travel and world places)",
+        "Reel Talk (Movies)",
+        "Say What (Words and language)"
+      ],
+      "need": 0
+    }
+  },
+  "totalNeed": 0
 }
