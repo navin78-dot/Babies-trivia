@@ -1,0 +1,283 @@
+{
+  "id": "ripped-from-the-headlines",
+  "name": "Ripped From the Headlines",
+  "subject": "Current events, 2026",
+  "tagline": "Twenty questions on the year so far: the finals, the awards, the Moon and the heat. Written in late September 2026. Starts easy, ends hard.",
+  "emblem": "📰",
+  "theme": {
+    "font": "Barlow Condensed",
+    "accent": "#B91C1C",
+    "accent2": "#1F2937",
+    "accentDark": "#F87171",
+    "accent2Dark": "#9CA3AF"
+  },
+  "questions": [
+    {
+      "d": "easy",
+      "q": "Who won the 2026 FIFA World Cup in July?",
+      "o": [
+        "Spain",
+        "Argentina",
+        "France",
+        "England"
+      ],
+      "a": 0,
+      "w": "Spain, beating Argentina 1-0 after extra time at MetLife Stadium in New Jersey.",
+      "more": "Ferran Torres scored the only goal in the 106th minute. It was Spain's second title after 2010, and the first World Cup with 48 teams, spread across the United States, Canada and Mexico. Rodri was named the tournament's best player."
+    },
+    {
+      "d": "easy",
+      "q": "Which team won Super Bowl LX in February 2026?",
+      "o": [
+        "The Seattle Seahawks",
+        "The New England Patriots",
+        "The Kansas City Chiefs",
+        "The Philadelphia Eagles"
+      ],
+      "a": 0,
+      "w": "The Seahawks, who beat the Patriots 29-13 on a night their defence dominated.",
+      "more": "Running back Kenneth Walker was named MVP after grinding out 135 yards on 27 carries. The game was played at Levi's Stadium in Santa Clara, California. It was Seattle's second Super Bowl title, after the 2013 season."
+    },
+    {
+      "d": "easy",
+      "q": "Which team won the 2026 NBA championship, its first title since 1973?",
+      "o": [
+        "The New York Knicks",
+        "The San Antonio Spurs",
+        "The Oklahoma City Thunder",
+        "The Cleveland Cavaliers"
+      ],
+      "a": 0,
+      "w": "The Knicks, who beat the Spurs four games to one in June.",
+      "more": "Jalen Brunson was named Finals MVP. It was the franchise's third championship, after 1970 and 1973, ending the longest wait among teams that had ever won one. The series ran from June 3 to June 13."
+    },
+    {
+      "d": "easy",
+      "q": "Which film is the biggest box-office hit of 2026 so far, with the largest opening weekend ever in the United States?",
+      "o": [
+        "Spider-Man: Brand New Day",
+        "Toy Story 5",
+        "The Mandalorian and Grogu",
+        "Supergirl"
+      ],
+      "a": 0,
+      "w": "Spider-Man: Brand New Day, which opened to about 360 million dollars domestically in late July.",
+      "more": "It passed Avengers: Endgame for the biggest domestic opening and reached a billion dollars worldwide in six days. It has now grossed roughly 2.4 billion dollars, third of all time behind Avatar and Endgame. Tom Holland's fourth solo outing was released on July 31."
+    },
+    {
+      "d": "easy",
+      "q": "Which country hosted the 2026 Winter Olympics?",
+      "o": [
+        "Italy",
+        "France",
+        "Switzerland",
+        "Japan"
+      ],
+      "a": 0,
+      "w": "Italy. The Games were shared between Milan and the Alpine resort of Cortina d'Ampezzo in February.",
+      "more": "Norway topped the table with a record 41 medals, 18 of them gold, and the United States finished second with 33. Italy took 30 medals at home. Cortina had last hosted the Winter Games in 1956."
+    },
+    {
+      "d": "easy",
+      "q": "In April 2026, NASA's Artemis II carried four astronauts around which body, the first crew to leave Earth orbit since 1972?",
+      "o": [
+        "The Moon",
+        "Mars",
+        "The International Space Station",
+        "Venus"
+      ],
+      "a": 0,
+      "w": "The Moon. Reid Wiseman, Victor Glover, Christina Koch and Jeremy Hansen flew a ten-day loop around it.",
+      "more": "They launched on April 1 and splashed down off San Diego on April 10. At the far side of the Moon they reached about 252,760 miles from Earth, beating the distance record Apollo 13 had held since 1970. Koch became the first woman and Hansen the first Canadian to fly to the Moon."
+    },
+    {
+      "d": "easy",
+      "q": "Which team won the 2026 Men's T20 World Cup on home soil in March?",
+      "o": [
+        "India",
+        "New Zealand",
+        "Australia",
+        "England"
+      ],
+      "a": 0,
+      "w": "India, who beat New Zealand by 96 runs in the final at the Narendra Modi Stadium in Ahmedabad.",
+      "more": "India posted 255 for 5 and bowled New Zealand out for 159. It made them the first team to win back-to-back T20 World Cups, after their 2024 win in Barbados, and the first to win a men's edition at home."
+    },
+    {
+      "d": "medium",
+      "q": "Which show won Outstanding Drama Series at the Emmys in September 2026?",
+      "o": [
+        "The Pitt",
+        "Severance",
+        "The White Lotus",
+        "Slow Horses"
+      ],
+      "a": 0,
+      "w": "The Pitt, the hospital drama, and Noah Wyle won lead actor for it for the second year running.",
+      "more": "The comedy prize went to Widow's Bay, an Apple TV series, which also swept lead actor, both supporting awards, writing and directing. Its star Matthew Rhys became the first person to win two lead acting Emmys on the same night. The ceremony was held on September 14."
+    },
+    {
+      "d": "medium",
+      "q": "Who won Album of the Year at the Grammys in February 2026?",
+      "o": [
+        "Bad Bunny",
+        "Sabrina Carpenter",
+        "Kendrick Lamar",
+        "Lady Gaga"
+      ],
+      "a": 0,
+      "w": "Bad Bunny, for DeBÍ TiRAR MáS FOToS, the first primarily Spanish-language album to win the top prize.",
+      "more": "Kendrick Lamar and SZA took Record of the Year the same night. A week later Bad Bunny headlined the Super Bowl halftime show in Santa Clara. The album is a tribute to Puerto Rico and its music."
+    },
+    {
+      "d": "medium",
+      "q": "Which film won Best Picture at the 98th Academy Awards in March 2026?",
+      "o": [
+        "One Battle After Another",
+        "Sinners",
+        "Hamnet",
+        "Marty Supreme"
+      ],
+      "a": 0,
+      "w": "One Battle After Another, Paul Thomas Anderson's black comedy about a burnt-out revolutionary.",
+      "more": "It also won Best Director, Adapted Screenplay, Supporting Actor, Editing and the new Casting award. Jessie Buckley won Best Actress and Michael B. Jordan Best Actor. It was Anderson's first Oscar after eleven previous nominations."
+    },
+    {
+      "d": "medium",
+      "q": "Which country won the Eurovision Song Contest in May 2026, its first victory ever?",
+      "o": [
+        "Bulgaria",
+        "Sweden",
+        "Austria",
+        "Israel"
+      ],
+      "a": 0,
+      "w": "Bulgaria, with Dara's Bangaranga, at the final in Vienna.",
+      "more": "The song won both the jury vote and the public vote, the first entry to do that since Portugal in 2017. Austria hosted because JJ had won for them in 2025. Bulgaria had been competing since 2005 without a win."
+    },
+    {
+      "d": "medium",
+      "q": "Who won the 2026 Tour de France in July, a fifth victory that tied the all-time record?",
+      "o": [
+        "Tadej Pogačar",
+        "Jonas Vingegaard",
+        "Remco Evenepoel",
+        "Primož Roglič"
+      ],
+      "a": 0,
+      "w": "Tadej Pogačar of Slovenia, joining Anquetil, Merckx, Hinault and Induráin on five wins.",
+      "more": "His wins came in 2020, 2021, 2024, 2025 and 2026. He is 27, younger than any of the other four were when they reached five. Wildfires in the south of France forced changes to the route during the race."
+    },
+    {
+      "d": "medium",
+      "q": "Who won the Golden Boot as top scorer at the 2026 World Cup?",
+      "o": [
+        "Kylian Mbappé",
+        "Lionel Messi",
+        "Jude Bellingham",
+        "Erling Haaland"
+      ],
+      "a": 0,
+      "w": "Kylian Mbappé, with 10 goals, the only man to win the Golden Boot at two World Cups.",
+      "more": "Messi finished on 8, Bellingham and Haaland on 7. Mbappé also passed Messi to become the leading scorer in World Cup history. He had won the 2022 Golden Boot with 8 goals, including a hat-trick in the final Argentina won on penalties."
+    },
+    {
+      "d": "medium",
+      "q": "Who won the men's singles at Wimbledon in July 2026?",
+      "o": [
+        "Jannik Sinner",
+        "Carlos Alcaraz",
+        "Alexander Zverev",
+        "Novak Djokovic"
+      ],
+      "a": 0,
+      "w": "Jannik Sinner, beating Alexander Zverev in four sets for his second Wimbledon and fifth major.",
+      "more": "Linda Nosková of the Czech Republic won the women's title, beating Karolína Muchová after saving a match point earlier in the fortnight. At 21 she was the youngest women's champion there since Petra Kvitová in 2011. Two months later Zverev won the US Open instead."
+    },
+    {
+      "d": "hard",
+      "q": "Which team won the 2026 Stanley Cup, its first in twenty years?",
+      "o": [
+        "The Carolina Hurricanes",
+        "The Vegas Golden Knights",
+        "The Florida Panthers",
+        "The Edmonton Oilers"
+      ],
+      "a": 0,
+      "w": "The Carolina Hurricanes, who shut out the Golden Knights in game six to take the series 4-2.",
+      "more": "Jordan Staal became the oldest winner of the Conn Smythe Trophy as playoff MVP at 37. Carolina's only previous Cup came in 2006. Vegas had won it in 2023, in only their sixth season."
+    },
+    {
+      "d": "hard",
+      "q": "Alexander Zverev won the 2026 US Open in September. He was the first German men's champion there since whom?",
+      "o": [
+        "Boris Becker",
+        "Michael Stich",
+        "Tommy Haas",
+        "Steffi Graf"
+      ],
+      "a": 0,
+      "w": "Boris Becker, who won it in 1989. Zverev beat Ben Shelton in four sets.",
+      "more": "Zverev had lost three previous major finals, including the 2020 US Open final from two sets up. Elena Rybakina won the women's title. Steffi Graf won five US Opens but is a decoy: the question is the men's event."
+    },
+    {
+      "d": "hard",
+      "q": "Who won the 2026 Masters in April, becoming only the fourth player to win it two years in a row?",
+      "o": [
+        "Rory McIlroy",
+        "Scottie Scheffler",
+        "Bryson DeChambeau",
+        "Xander Schauffele"
+      ],
+      "a": 0,
+      "w": "Rory McIlroy, by one shot from Scottie Scheffler, joining Nicklaus, Faldo and Tiger Woods as back-to-back champions.",
+      "more": "His 2025 win had completed the career Grand Slam after an eleven-year wait for a fifth major. The tournament was played April 9 to 12 at Augusta National. Nicklaus did it in 1965 and 1966, Faldo in 1989 and 1990, Woods in 2001 and 2002."
+    },
+    {
+      "d": "hard",
+      "type": "order",
+      "q": "Put these 2026 events in order, earliest first.",
+      "o": [
+        "Super Bowl LX",
+        "Artemis II launches",
+        "Eurovision final in Vienna",
+        "World Cup final in New Jersey"
+      ],
+      "w": "Super Bowl on February 8, Artemis II on April 1, Eurovision on May 16, the World Cup final on July 19.",
+      "more": "The Winter Olympics ran in between, from February 6 to 22 in Milan and Cortina. The Oscars were March 15 and the NBA Finals ended June 13. The Emmys on September 14 were the last of the big award nights before the Nobel announcements in October."
+    },
+    {
+      "d": "hard",
+      "q": "Who won the Golden Ball as the best player of the 2026 World Cup?",
+      "o": [
+        "Rodri",
+        "Lionel Messi",
+        "Kylian Mbappé",
+        "Lamine Yamal"
+      ],
+      "a": 0,
+      "w": "Rodri, Spain's midfielder. Messi took the Silver Ball and Mbappé the Bronze.",
+      "more": "Rodri had won the 2024 Ballon d'Or and missed most of the 2024-25 season with a knee injury. The 2026 Ballon d'Or has not been decided yet; the ceremony is on October 26 in London. Messi, at 39, was playing his sixth World Cup."
+    },
+    {
+      "d": "hard",
+      "type": "select",
+      "q": "Which of these have actually happened in 2026? Select all that apply.",
+      "o": [
+        "Norway set a Winter Olympics record with 41 medals",
+        "Royal Challengers Bengaluru won the IPL for a second year running",
+        "Kylian Mbappé was awarded the 2026 Ballon d'Or",
+        "August 2026 was the hottest month ever recorded worldwide",
+        "Bad Bunny won the Grammy for Album of the Year"
+      ],
+      "a": [
+        0,
+        1,
+        3,
+        4
+      ],
+      "w": "All but the Ballon d'Or, which is not awarded until October 26.",
+      "more": "Norway beat its own record of 39 medals from 2018. RCB chased down Gujarat Titans in the IPL final in Ahmedabad with Virat Kohli unbeaten on 75. August's global average of 16.96 degrees Celsius passed the record set in July 2023."
+    }
+  ]
+}

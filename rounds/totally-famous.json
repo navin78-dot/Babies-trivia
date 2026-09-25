@@ -1,0 +1,283 @@
+{
+  "id": "totally-famous",
+  "name": "Totally Famous",
+  "subject": "1990s celebrities",
+  "tagline": "Twenty questions on the stars, the couples and the scandals of the nineties, from the Rachel haircut to the Cable Guy paycheque. Starts easy, ends hard.",
+  "emblem": "💫",
+  "theme": {
+    "font": "Bungee",
+    "accent": "#DB2777",
+    "accent2": "#0EA5E9",
+    "accentDark": "#F472B6",
+    "accent2Dark": "#38BDF8"
+  },
+  "questions": [
+    {
+      "d": "easy",
+      "q": "Which two actors played Jack and Rose in Titanic (1997)?",
+      "o": [
+        "Leonardo DiCaprio and Kate Winslet",
+        "Brad Pitt and Gwyneth Paltrow",
+        "Tom Cruise and Nicole Kidman",
+        "Johnny Depp and Winona Ryder"
+      ],
+      "a": 0,
+      "w": "DiCaprio and Winslet. Titanic was the first film to take a billion dollars at the box office.",
+      "more": "It won eleven Oscars, tying Ben-Hur, though DiCaprio was not even nominated, which his fans protested loudly. Winslet was nominated and lost to Helen Hunt. Matthew McConaughey auditioned for Jack and James Cameron held out for DiCaprio."
+    },
+    {
+      "d": "easy",
+      "q": "Which Spice Girl was Posh Spice?",
+      "o": [
+        "Victoria Adams",
+        "Geri Halliwell",
+        "Melanie Brown",
+        "Emma Bunton"
+      ],
+      "a": 0,
+      "w": "Victoria Adams, who married David Beckham in 1999 and took his name.",
+      "more": "The nicknames were invented by a Top of the Pops magazine writer in 1996, not by the band. Wannabe went to number one in 37 countries. Geri walked out in May 1998, and the remaining four carried on for another two years."
+    },
+    {
+      "d": "easy",
+      "q": "Who played Rachel Green on Friends?",
+      "o": [
+        "Jennifer Aniston",
+        "Courteney Cox",
+        "Lisa Kudrow",
+        "Julia Roberts"
+      ],
+      "a": 0,
+      "w": "Jennifer Aniston, whose layered cut became 'The Rachel', the most copied haircut of the decade.",
+      "more": "Aniston later admitted she hated the cut because she could not style it without her hairdresser, Chris McMillan. By the last seasons each of the six stars was paid a million dollars an episode. Julia Roberts guest-starred in the episode that aired after the 1996 Super Bowl."
+    },
+    {
+      "d": "easy",
+      "q": "Which boy band released I Want It That Way in 1999?",
+      "o": [
+        "Backstreet Boys",
+        "*NSYNC",
+        "98 Degrees",
+        "Boyz II Men"
+      ],
+      "a": 0,
+      "w": "Backstreet Boys, from the album Millennium, which sold 1.13 million copies in its first week, a record at the time.",
+      "more": "It was written by Swedish producer Max Martin, whose English was still shaky, which is why the lyrics never quite make sense. A rewritten version with clearer lyrics was recorded and rejected. Martin went on to write hits for Britney Spears, Katy Perry and Taylor Swift."
+    },
+    {
+      "d": "easy",
+      "q": "Will Smith and Tommy Lee Jones played secret agents in which 1997 comedy?",
+      "o": [
+        "Men in Black",
+        "Independence Day",
+        "Bad Boys",
+        "Wild Wild West"
+      ],
+      "a": 0,
+      "w": "Men in Black. Smith's theme song for it won a Grammy.",
+      "more": "Smith had spent 1990 to 1996 as the Fresh Prince of Bel-Air and had just carried Independence Day. He famously turned down the role of Neo in The Matrix to make Wild Wild West in 1999. Men in Black was the year's second-biggest film after Titanic."
+    },
+    {
+      "d": "easy",
+      "q": "Which 1998 song and its schoolgirl video launched Britney Spears?",
+      "o": [
+        "...Baby One More Time",
+        "Oops!... I Did It Again",
+        "Toxic",
+        "Genie in a Bottle"
+      ],
+      "a": 0,
+      "w": "...Baby One More Time, written by Max Martin. The school setting for the video was Britney's own idea.",
+      "more": "Martin had first offered the song to TLC, who turned it down. Britney was 16 when it came out and it went to number one in the United States in January 1999. Genie in a Bottle was Christina Aguilera's debut the same year."
+    },
+    {
+      "d": "easy",
+      "q": "Macaulay Culkin became the most famous child in the world as Kevin in which 1990 film?",
+      "o": [
+        "Home Alone",
+        "Richie Rich",
+        "My Girl",
+        "Uncle Buck"
+      ],
+      "a": 0,
+      "w": "Home Alone, the highest-grossing film of 1990.",
+      "more": "Culkin was paid about 100,000 dollars for the first film and 4.5 million for the sequel two years later. Joe Pesci reportedly avoided him between takes so the boy would stay scared of him on camera. Culkin quit acting at 14, in 1994, and did not return for nearly a decade."
+    },
+    {
+      "d": "medium",
+      "q": "Which pop star did Lisa Marie Presley marry in 1994?",
+      "o": [
+        "Michael Jackson",
+        "Nicolas Cage",
+        "Prince",
+        "Tommy Lee"
+      ],
+      "a": 0,
+      "w": "Michael Jackson, in a secret ceremony in the Dominican Republic in May 1994. They divorced in 1996.",
+      "more": "They opened the 1994 MTV Video Music Awards with a kiss, Jackson telling the crowd that nobody thought the marriage would last. Presley later married Nicolas Cage in 2002; that one lasted under four months. She was Elvis's only child."
+    },
+    {
+      "d": "medium",
+      "q": "Hugh Grant was arrested in Los Angeles in 1995 with a sex worker named Divine Brown. Which film was he in town promoting?",
+      "o": [
+        "Nine Months",
+        "Four Weddings and a Funeral",
+        "Notting Hill",
+        "Sense and Sensibility"
+      ],
+      "a": 0,
+      "w": "Nine Months. He kept his booking on The Tonight Show days later and told Jay Leno, 'I did a bad thing.'",
+      "more": "That episode is often credited with finally putting Leno ahead of David Letterman in the ratings. Elizabeth Hurley, his girlfriend since 1987, stayed with him for another five years. Four Weddings, the year before, had made him a star."
+    },
+    {
+      "d": "medium",
+      "q": "Which supermodel married Richard Gere in 1991?",
+      "o": [
+        "Cindy Crawford",
+        "Christy Turlington",
+        "Naomi Campbell",
+        "Claudia Schiffer"
+      ],
+      "a": 0,
+      "w": "Cindy Crawford, in Las Vegas. They divorced in 1995.",
+      "more": "In 1994 the couple took out a full-page advert in The Times of London to deny rumours about their marriage. Crawford hosted MTV's House of Style and her 1992 Pepsi advert at a desert petrol station became one of the decade's most replayed. Gere had been the face of Pretty Woman a year before the wedding."
+    },
+    {
+      "d": "medium",
+      "q": "Kurt Cobain died in April 1994. His wife Courtney Love fronted which band?",
+      "o": [
+        "Hole",
+        "L7",
+        "Garbage",
+        "The Breeders"
+      ],
+      "a": 0,
+      "w": "Hole, whose album Live Through This came out four days after his body was found.",
+      "more": "Nirvana's Nevermind had knocked Michael Jackson's Dangerous off the top of the American chart in January 1992. Their daughter, Frances Bean, was born that August. Drummer Dave Grohl formed Foo Fighters the following year."
+    },
+    {
+      "d": "medium",
+      "q": "Brad Pitt was engaged to which actress in 1997 before the pair split?",
+      "o": [
+        "Gwyneth Paltrow",
+        "Juliette Lewis",
+        "Jennifer Aniston",
+        "Robin Givens"
+      ],
+      "a": 0,
+      "w": "Gwyneth Paltrow. They got engaged in December 1996 and broke up six months later.",
+      "more": "They met making Se7en in 1995. Paltrow won Best Actress for Shakespeare in Love in 1999 with a famously tearful speech. Pitt married Jennifer Aniston in July 2000, in Malibu, in a wedding said to have cost a million dollars."
+    },
+    {
+      "d": "medium",
+      "q": "Who played Cher in Clueless (1995)?",
+      "o": [
+        "Alicia Silverstone",
+        "Brittany Murphy",
+        "Reese Witherspoon",
+        "Liv Tyler"
+      ],
+      "a": 0,
+      "w": "Alicia Silverstone, already famous from three Aerosmith videos.",
+      "more": "The film is a loose update of Jane Austen's Emma, set in Beverly Hills. It was Paul Rudd's first film. Silverstone signed a deal with Columbia worth about ten million dollars afterwards, a record for an actress her age."
+    },
+    {
+      "d": "medium",
+      "q": "Which rapper was shot in Las Vegas in September 1996 after a Mike Tyson fight, and died six days later?",
+      "o": [
+        "Tupac Shakur",
+        "The Notorious B.I.G.",
+        "Snoop Dogg",
+        "Eazy-E"
+      ],
+      "a": 0,
+      "w": "Tupac Shakur, aged 25. He had been at the Tyson-Seldon fight at the MGM Grand.",
+      "more": "The Notorious B.I.G. was shot dead in Los Angeles six months later. Both cases went unsolved for decades, until Duane 'Keffe D' Davis was charged over Tupac's killing in 2023. Tupac's All Eyez on Me, released that February, was one of hip-hop's first double albums."
+    },
+    {
+      "d": "hard",
+      "q": "Julia Roberts married which country singer in a surprise ceremony in 1993?",
+      "o": [
+        "Lyle Lovett",
+        "Garth Brooks",
+        "Dwight Yoakam",
+        "Clint Black"
+      ],
+      "a": 0,
+      "w": "Lyle Lovett, in Marion, Indiana, in June 1993, after a three-week courtship. They divorced in 1995.",
+      "more": "Two years earlier she had called off her wedding to Kiefer Sutherland three days before the date and flown to Ireland with his friend Jason Patric. She and Lovett had met on the set of Robert Altman's The Player, in which he had a small role. Roberts went on to be the first actress paid 20 million dollars for a film, Erin Brockovich."
+    },
+    {
+      "d": "hard",
+      "type": "order",
+      "q": "Put these nineties moments in order, earliest first.",
+      "o": [
+        "Kurt Cobain dies",
+        "The O.J. Simpson verdict",
+        "Princess Diana dies",
+        "The Seinfeld finale airs"
+      ],
+      "w": "Cobain in April 1994, the verdict in October 1995, Diana in August 1997, the Seinfeld finale in May 1998.",
+      "more": "An estimated 150 million Americans watched or listened to the O.J. verdict live, and the acquittal came after a trial of nearly nine months. Diana's funeral drew a worldwide television audience put at 2.5 billion. The Seinfeld finale was watched by 76 million people in the United States, and NBC charged advertisers up to two million dollars for a thirty-second slot."
+    },
+    {
+      "d": "hard",
+      "q": "Who was the first actor to be paid 20 million dollars for a single film, in 1996?",
+      "o": [
+        "Jim Carrey",
+        "Tom Cruise",
+        "Arnold Schwarzenegger",
+        "Harrison Ford"
+      ],
+      "a": 0,
+      "w": "Jim Carrey, for The Cable Guy. Sony's paycheque was seen as a milestone, and the film as a disappointment.",
+      "more": "In 1994 alone Carrey had starred in Ace Ventura, The Mask and Dumb and Dumber. In 1985, broke and unknown, he wrote himself a cheque for ten million dollars 'for acting services rendered', dated Thanksgiving 1995, and by then he had earned it. The Cable Guy was directed by Ben Stiller."
+    },
+    {
+      "d": "hard",
+      "q": "Winona Ryder got engaged in 1990 to which actor, who had 'Winona Forever' tattooed on his arm?",
+      "o": [
+        "Johnny Depp",
+        "Christian Slater",
+        "Matt Damon",
+        "Keanu Reeves"
+      ],
+      "a": 0,
+      "w": "Johnny Depp. After they split in 1993 he had the tattoo altered to read 'Wino Forever'.",
+      "more": "They met at the premiere of Great Balls of Fire in 1989 and starred together in Edward Scissorhands the next year. Ryder was nominated for Oscars for The Age of Innocence and Little Women in consecutive years. She later dated Matt Damon around 1998."
+    },
+    {
+      "d": "hard",
+      "q": "True or false: in 1993 Mariah Carey married Tommy Mottola, the head of her own record label.",
+      "o": [
+        "True",
+        "False"
+      ],
+      "a": 0,
+      "keepOrder": true,
+      "w": "True. She married the boss of Sony Music in June 1993, at 23. They separated in 1997.",
+      "more": "Her 1997 album Butterfly is widely read as her response to the split. Fantasy, in 1995, made her the first woman to enter the American singles chart at number one. She had fourteen number ones in the United States during the nineties, from Vision of Love in 1990 to Heartbreaker in 1999."
+    },
+    {
+      "d": "hard",
+      "type": "select",
+      "q": "Which of these were cast members of the nineties Mickey Mouse Club? Select all that apply.",
+      "o": [
+        "Britney Spears",
+        "Justin Timberlake",
+        "Christina Aguilera",
+        "Ryan Gosling",
+        "Jessica Simpson",
+        "Nick Carter"
+      ],
+      "a": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "w": "Britney, Justin, Christina and Ryan Gosling, all cast in 1993. Jessica Simpson auditioned and did not make it; Nick Carter was never on it.",
+      "more": "The revival ran on the Disney Channel from 1989 to 1994 and also gave a start to Keri Russell and JC Chasez. Gosling was 12 and lived with Timberlake's family for a while. Simpson's failed audition, she has said, left her in tears; she signed a record deal at 17 instead."
+    }
+  ]
+}
