@@ -1,9 +1,10 @@
 name: Deploy Hamps Crew site
 
 # Builds the Hamps Crew site from index.html + games/hamps.json and uploads it to
-# its own Netlify project (hampscrew.netlify.app) through the Netlify API. No
-# Netlify build runs, so this does not spend build credits, and it only runs when
-# something that goes into that site changed. Needs one repository secret,
+# its own Netlify project (hampscrew.netlify.app) with the Netlify CLI. No Netlify
+# build runs, so this does not spend build credits, and it only runs when
+# something that goes into that site changed. A raw zip upload through the API
+# was tried first and Netlify served the page as plain text, so the CLI it is. Needs one repository secret,
 # NETLIFY_AUTH_TOKEN: a Netlify personal access token from
 # https://app.netlify.com/user/applications#personal-access-tokens
 
@@ -49,25 +50,24 @@ jobs:
       - name: Upload to Netlify
         if: steps.token.outputs.skip != '1'
         env:
-          TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+          NETLIFY_SITE_ID: ${{ env.SITE_ID }}
         run: |
           set -euo pipefail
-          (cd dist/hamps && zip -qr ../hamps.zip .)
-          title=$(git log -1 --pretty=%s | head -c 120 | jq -sRr @uri)
-          resp=$(curl -sS --fail-with-body -X POST \
-            -H "Authorization: Bearer $TOKEN" -H "Content-Type: application/zip" \
-            --data-binary @dist/hamps.zip \
-            "https://api.netlify.com/api/v1/sites/$SITE_ID/deploys?title=$title")
-          id=$(echo "$resp" | jq -r .id)
-          echo "deploy $id created, state $(echo "$resp" | jq -r .state)"
-          for i in $(seq 1 40); do
-            sleep 5
-            d=$(curl -sS -H "Authorization: Bearer $TOKEN" "https://api.netlify.com/api/v1/deploys/$id")
-            state=$(echo "$d" | jq -r .state)
-            case "$state" in
-              ready) echo "live at $(echo "$d" | jq -r .ssl_url)"; exit 0 ;;
-              error) echo "::error::Netlify reported an error: $(echo "$d" | jq -r .error_message)"; exit 1 ;;
-              *) echo "  $state" ;;
-            esac
-          done
-          echo "::error::Deploy $id did not become ready in time"; exit 1
+          msg=$(git log -1 --pretty=%s | head -c 120)
+          npx --yes netlify-cli@17 deploy --prod --dir=dist/hamps --site="$NETLIFY_SITE_ID" --auth="$NETLIFY_AUTH_TOKEN" --message="$msg" --json > deploy.json
+          cat deploy.json
+          url=$(jq -r '.url // .deploy_url' deploy.json)
+          echo "live at $url"
+
+      - name: Check the page is served as HTML
+        if: steps.token.outputs.skip != '1'
+        run: |
+          set -euo pipefail
+          sleep 5
+          ct=$(curl -sSI "https://hampscrew.netlify.app/" | tr -d '\r' | awk 'tolower($1)=="content-type:" {print tolower($2)}')
+          echo "content-type: $ct"
+          case "$ct" in
+            text/html*) echo "ok" ;;
+            *) echo "::error::hampscrew.netlify.app is not being served as HTML (got '$ct')"; exit 1 ;;
+          esac
