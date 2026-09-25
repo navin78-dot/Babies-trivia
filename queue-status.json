@@ -1,9 +1,9 @@
 {
-  "today": "2026-09-24",
+  "today": "2026-09-25",
   "season": 1,
-  "queueCount": 4,
+  "queueCount": 5,
   "target": 5,
-  "fill": 1,
+  "fill": 0,
   "queue": [
     {
       "id": "great-heists",
@@ -32,6 +32,13 @@
       "subject": "Geography",
       "onPollSince": null,
       "retired": false
+    },
+    {
+      "id": "wild-things",
+      "name": "Wild Things",
+      "subject": "Animals",
+      "onPollSince": null,
+      "retired": false
     }
   ],
   "tonightsPoll": [
@@ -58,14 +65,15 @@
       "id": "one-hit-wonders",
       "name": "One Hit Wonders",
       "how": "poll"
-    }
-  ],
-  "requestsWaiting": [
+    },
     {
-      "id": "nP6Xrp9aJZXcZSWFvJ16",
-      "theme": "American history from 1500 to 1850"
+      "day": "2026-09-25",
+      "id": "founding-years",
+      "name": "Founding Years",
+      "how": "override"
     }
   ],
+  "requestsWaiting": [],
   "existingSubjects": [
     "Strike a Pose (Madonna)",
     "Over the Millennia (World history)",
@@ -82,8 +90,10 @@
     "Console Wars (Video games)",
     "The Corner Office (Business leaders and companies)",
     "Extra Time (Sport)",
+    "Founding Years (American history, 1500 to 1850)",
     "Summer Blockbusters (Big movies)",
-    "Where On Earth (Geography)"
+    "Where On Earth (Geography)",
+    "Wild Things (Animals)"
   ],
-  "need": 2
+  "need": 0
 }
