@@ -8,10 +8,14 @@ Steps the daily session follows:
    The **Queue status** workflow refreshes it every morning at 12:45 UTC (and on
    demand from the Actions tab). `need` is the total number of rounds to write
    today: one for every entry in `requestsWaiting`, plus `fill` to bring the
-   queue back to five. `existingSubjects` is what already exists.
+   queue back to five. `existingSubjects` is what already exists. The rounds are
+   shared by every game (see `games/README.md`): `fill` is the biggest shortfall
+   of any game, `requestsWaiting` includes every game's requests, and each
+   sister game has its own block under `games`.
 2. If `need` is 0, stop. Otherwise write `need` new rounds as `rounds/<slug>.json`.
    **Write the `requestsWaiting` themes first, one round each, with that
-   request's id in a `requestId` field.** A host request is always written, even
+   request's id in a `requestId` field, copied exactly as listed** (a sister
+   game's request id carries a prefix such as `hamps:`; keep it). A host request is always written, even
    when the queue is already full; it just makes the queue longer. Then write
    `fill` more on themes that are not already in `existingSubjects` and that suit
    a group of five friends in their thirties: pop culture, music, film and TV,

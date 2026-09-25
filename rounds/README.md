@@ -51,7 +51,9 @@ session reads it and writes enough rounds to keep five waiting. See
 `scripts/QUEUE.md`.
 
 A round written for a host request should carry `"requestId": "<the request id>"`
-so the request is ticked off when the round publishes.
+exactly as `queue-status.json` lists it (a sister game's id is prefixed, e.g.
+`hamps:abc`) so the request is ticked off when the round publishes. Rounds are
+shared by every game, so a new round joins every game's queue.
 
 Validate files locally without publishing:
 

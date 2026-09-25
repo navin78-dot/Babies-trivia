@@ -1,0 +1,35 @@
+name: Firebase auth domains
+
+# Adds every sister site's web address (games/*.json, netlify.domain) to the
+# Firebase Authentication authorized-domains list so Google sign-in works there.
+# Runs when a game file changes and on demand. Uses FIREBASE_SERVICE_ACCOUNT.
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - games/*.json
+      - scripts/auth-domains.mjs
+      - .github/workflows/firebase-auth-domains.yml
+  workflow_dispatch:
+
+jobs:
+  domains:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: Write the service-account key
+        env:
+          KEY: ${{ secrets.FIREBASE_SERVICE_ACCOUNT }}
+        run: |
+          if [ -z "$KEY" ]; then echo "::error::Repository secret FIREBASE_SERVICE_ACCOUNT is not set."; exit 1; fi
+          printf '%s' "$KEY" > "$RUNNER_TEMP/service-account.json"
+      - name: Add the domains
+        env:
+          GOOGLE_APPLICATION_CREDENTIALS: ${{ runner.temp }}/service-account.json
+        run: |
+          npm install google-auth-library@^9 --no-save --no-audit --no-fund
+          node scripts/auth-domains.mjs

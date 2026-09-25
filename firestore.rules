@@ -6,12 +6,21 @@ service cloud.firestore {
       return request.auth != null;
     }
 
-    // Anyone in this list gets the Host tab (open/close rounds, wipe scores).
+    // Anyone in this list gets the Host tab (open/close rounds, wipe scores) on every game.
     function isHost() {
       return signedIn() && request.auth.token.email in [
         'navin78@gmail.com'
       ];
     }
+
+    // Sister games (games/<id>.json in the repo). Each keeps its own scores, chat, poll,
+    // presence, profiles, suggestions, requests and site config under games/<id>/, with
+    // the same rules as the original game below. The rounds collection is shared.
+    function knownGame(game) {
+      return game in ['hamps'];
+    }
+
+    // ---------- the original game: data at the top level ----------
 
     // Round open/closed state. Everyone reads it, only the host changes it.
     match /site/config {
@@ -82,11 +91,76 @@ service cloud.firestore {
       allow write, delete: if signedIn() && request.auth.uid == uid;
     }
 
-    // Quiz rounds loaded at runtime. Everyone signed in can read them;
-    // only the host (or the service account, which bypasses rules) can write.
+    // Quiz rounds loaded at runtime, shared by every game. Everyone signed in can read
+    // them; only the host (or the service account, which bypasses rules) can write.
     match /rounds/{roundId} {
       allow read: if signedIn();
       allow write: if isHost();
+    }
+
+    // ---------- sister games: the same rules under games/<id>/ ----------
+
+    match /games/{game} {
+      // The game document itself holds nothing.
+      allow read, write: if false;
+
+      match /site/config {
+        allow read: if signedIn() && knownGame(game);
+        allow write: if isHost() && knownGame(game);
+      }
+
+      match /site/poll {
+        allow read: if signedIn() && knownGame(game);
+        allow write: if isHost() && knownGame(game);
+      }
+
+      match /scores/{scoreId} {
+        allow read: if signedIn() && knownGame(game);
+        allow create: if signedIn() && knownGame(game)
+          && request.resource.data.uid == request.auth.uid
+          && scoreId == request.resource.data.roundId + '_' + request.auth.uid;
+        allow update: if false;
+        allow delete: if isHost() && knownGame(game);
+      }
+
+      match /presence/{uid} {
+        allow read: if signedIn() && knownGame(game);
+        allow write, delete: if signedIn() && knownGame(game) && request.auth.uid == uid;
+      }
+
+      match /votes/{voteId} {
+        allow read: if signedIn() && knownGame(game);
+        allow create, update: if signedIn() && knownGame(game)
+          && request.resource.data.uid == request.auth.uid
+          && voteId == request.auth.uid + '_' + request.resource.data.day;
+        allow delete: if signedIn() && knownGame(game) && voteId.matches('^' + request.auth.uid + '_.*');
+      }
+
+      match /suggestions/{id} {
+        allow read, delete: if isHost() && knownGame(game);
+        allow create: if signedIn() && knownGame(game) && request.resource.data.uid == request.auth.uid;
+        allow update: if false;
+      }
+
+      match /requests/{id} {
+        allow read, write: if isHost() && knownGame(game);
+      }
+
+      match /chat/{id} {
+        allow read: if signedIn() && knownGame(game);
+        allow create: if signedIn() && knownGame(game)
+          && request.resource.data.uid == request.auth.uid
+          && request.resource.data.text is string
+          && request.resource.data.text.size() > 0
+          && request.resource.data.text.size() <= 200;
+        allow update: if false;
+        allow delete: if isHost() && knownGame(game);
+      }
+
+      match /profiles/{uid} {
+        allow read: if signedIn() && knownGame(game);
+        allow write, delete: if signedIn() && knownGame(game) && request.auth.uid == uid;
+      }
     }
   }
 }

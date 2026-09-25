@@ -1,4 +1,4 @@
-// Upserts every rounds/*.json file into the Firestore "rounds" collection.
+// Upserts every rounds/*.json file into the Firestore "rounds" collection, which every game shares.
 // Runs in GitHub Actions with GOOGLE_APPLICATION_CREDENTIALS pointing at the
 // service-account key. Adding a quiz is a JSON commit, not a site deploy.
 import { readdirSync, readFileSync, existsSync } from "node:fs";
@@ -49,8 +49,10 @@ for (const f of files) {
   }
   await db.collection("rounds").doc(data.id).set(data);
   console.log(`published round "${data.id}" (${n} questions)`);
-  if (data.requestId) { // a round written for a theme the host asked for: tick it off
-    try { await db.collection("requests").doc(data.requestId).set({ status: "written", roundId: data.id }, { merge: true }); console.log(`  marked request ${data.requestId} as written`); } catch (e) { console.log(`  could not update request ${data.requestId}: ${e.message}`); }
+  if (data.requestId) { // a round written for a theme a host asked for: tick it off. "hamps:abc" means games/hamps/requests/abc
+    const [game, reqId] = data.requestId.includes(":") ? data.requestId.split(":") : ["", data.requestId];
+    const reqs = game ? db.collection("games").doc(game).collection("requests") : db.collection("requests");
+    try { await reqs.doc(reqId).set({ status: "written", roundId: data.id }, { merge: true }); console.log(`  marked request ${data.requestId} as written`); } catch (e) { console.log(`  could not update request ${data.requestId}: ${e.message}`); }
   }
 }
 if (hasPoll) {
