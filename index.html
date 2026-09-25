@@ -387,8 +387,9 @@ input[type=range]{width:100%;accent-color:var(--accent)}
 .sval small{color:var(--muted);font-size:11px;font-weight:600}
 /* ---------- chat ---------- */
 .tabcount{display:inline-block;min-width:16px;height:16px;padding:0 4px;border-radius:99px;background:var(--accent);color:#fff;font-size:10px;font-weight:800;line-height:16px;text-align:center;margin-left:5px;vertical-align:1px;box-shadow:0 0 10px color-mix(in srgb,var(--accent) 60%, transparent)}
-@media (max-width:430px){.tabs .tab{padding:9px 11px;font-size:14.5px}.tabs{padding:3px}}
-@media (max-width:400px){.tabs .tab{padding:9px 8px;font-size:13.5px;letter-spacing:-.01em}.tabcount{margin-left:4px}}
+@media (max-width:430px){.tabs .tab{padding:9px 9px;font-size:14px}.tabs{padding:3px}}
+@media (max-width:400px){.tabs .tab{padding:9px 7px;font-size:13px;letter-spacing:-.01em}.tabcount{margin-left:3px}}
+@media (max-width:365px){.tabs .tab{padding:9px 6px;font-size:12.5px}}
 /* on a narrow phone the row scrolls; fade the right edge so that reads as more to come */
 #view .tabs{position:relative;-webkit-mask-image:linear-gradient(90deg,#000 0,#000 calc(100% - 22px),transparent 100%);mask-image:linear-gradient(90deg,#000 0,#000 calc(100% - 22px),transparent 100%)}
 @media (min-width:431px){#view .tabs{-webkit-mask-image:none;mask-image:none}}
@@ -2079,6 +2080,7 @@ function renderLobby(){
     <button class="tab" role="tab" aria-selected="${lobbyTab === "poll"}" data-ltab="poll">Vote${needsVote ? `<span class="tabdot" title="You haven't voted"></span>` : ""}</button>
     <button class="tab" role="tab" aria-selected="${lobbyTab === "stats"}" data-ltab="stats">Stats</button>
     <button class="tab" role="tab" aria-selected="${lobbyTab === "learn"}" data-ltab="learn">Learn</button>
+    <button class="tab" role="tab" aria-selected="${lobbyTab === "me"}" data-ltab="me">Me</button>
   </div>`;
   const wire = () => { wirePending();
     document.querySelectorAll("[data-ltab]").forEach(b => b.onclick = () => { sfx("click"); if (b.dataset.ltab !== "chat") S.chatSeenMark = null; lobbyTab = b.dataset.ltab; renderLobby(); window.scrollTo({ top: 0 }); });
