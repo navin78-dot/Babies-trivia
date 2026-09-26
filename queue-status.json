@@ -1,24 +1,17 @@
 {
   "game": "babies",
   "roundsDir": "rounds",
-  "today": "2026-09-25",
+  "today": "2026-09-26",
   "season": 1,
-  "queueCount": 5,
+  "queueCount": 4,
   "target": 5,
-  "fill": 0,
+  "fill": 1,
   "queue": [
     {
       "id": "great-heists",
       "name": "Great Heists and Cons",
       "subject": "Heists and frauds",
       "onPollSince": "2026-09-21",
-      "retired": false
-    },
-    {
-      "id": "summer-blockbusters",
-      "name": "Summer Blockbusters",
-      "subject": "Big movies",
-      "onPollSince": "2026-09-23",
       "retired": false
     },
     {
@@ -32,7 +25,7 @@
       "id": "where-on-earth",
       "name": "Where On Earth",
       "subject": "Geography",
-      "onPollSince": null,
+      "onPollSince": "2026-09-26",
       "retired": false
     },
     {
@@ -45,8 +38,8 @@
   ],
   "tonightsPoll": [
     "great-heists",
-    "summer-blockbusters",
-    "extra-time"
+    "extra-time",
+    "where-on-earth"
   ],
   "override": null,
   "dropped": [
@@ -73,6 +66,12 @@
       "id": "founding-years",
       "name": "Founding Years",
       "how": "override"
+    },
+    {
+      "day": "2026-09-26",
+      "id": "summer-blockbusters",
+      "name": "Summer Blockbusters",
+      "how": "poll"
     }
   ],
   "requestsWaiting": [],
@@ -99,16 +98,16 @@
     "Where On Earth (Geography)",
     "Wild Things (Animals)"
   ],
-  "need": 0,
+  "need": 1,
   "games": {
     "hamps": {
       "game": "hamps",
       "roundsDir": "games/hamps/rounds",
-      "today": "2026-09-25",
+      "today": "2026-09-26",
       "season": 1,
-      "queueCount": 5,
+      "queueCount": 4,
       "target": 5,
-      "fill": 0,
+      "fill": 1,
       "queue": [
         {
           "id": "binge-worthy",
@@ -125,17 +124,10 @@
           "retired": false
         },
         {
-          "id": "eureka",
-          "name": "Eureka",
-          "subject": "Science and the human body",
-          "onPollSince": "2026-09-25",
-          "retired": false
-        },
-        {
           "id": "game-on",
           "name": "Game On",
           "subject": "Sport",
-          "onPollSince": null,
+          "onPollSince": "2026-09-26",
           "retired": false
         },
         {
@@ -149,10 +141,17 @@
       "tonightsPoll": [
         "binge-worthy",
         "crowned-heads",
-        "eureka"
+        "game-on"
       ],
       "override": null,
-      "dropped": [],
+      "dropped": [
+        {
+          "day": "2026-09-26",
+          "id": "eureka",
+          "name": "Eureka",
+          "how": "poll"
+        }
+      ],
       "requestsWaiting": [],
       "existingSubjects": [
         "Binge Worthy (Television of the streaming age)",
@@ -165,8 +164,8 @@
         "Reel Talk (Movies)",
         "Say What (Words and language)"
       ],
-      "need": 0
+      "need": 1
     }
   },
-  "totalNeed": 0
+  "totalNeed": 2
 }
