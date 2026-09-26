@@ -1,0 +1,284 @@
+{
+  "id": "toy-box",
+  "name": "Toy Box",
+  "subject": "Toys and board games",
+  "tagline": "Twenty questions on the things we grew up playing with, from LEGO to Twister. Starts easy, ends hard.",
+  "draft": true,
+  "emblem": "🧸",
+  "theme": {
+    "font": "Baloo 2",
+    "accent": "#EF4444",
+    "accent2": "#3B82F6",
+    "accentDark": "#F87171",
+    "accent2Dark": "#60A5FA"
+  },
+  "questions": [
+    {
+      "d": "easy",
+      "q": "LEGO comes from which country?",
+      "o": [
+        "Denmark",
+        "Sweden",
+        "Germany",
+        "The Netherlands"
+      ],
+      "a": 0,
+      "w": "Denmark. Ole Kirk Christiansen founded it in Billund in 1932, and the name squeezes together leg godt, 'play well'.",
+      "more": "The modern brick was patented in 1958, and a brick from that year still clicks onto one made today. By number of tyres produced, LEGO is the biggest tyre maker in the world. The first Legoland opened in Billund in 1968."
+    },
+    {
+      "d": "easy",
+      "q": "In Monopoly, what colour are the two most expensive properties?",
+      "o": [
+        "Dark blue",
+        "Green",
+        "Red",
+        "Purple"
+      ],
+      "a": 0,
+      "w": "Dark blue: Boardwalk and Park Place in the American game, Mayfair and Park Lane in the British one.",
+      "more": "The game grew out of Lizzie Magie's Landlord's Game of 1904, which was meant to show the evils of monopolies; Charles Darrow sold his version to Parker Brothers in 1935. During the Second World War British intelligence hid maps, compasses and real money in sets sent to prisoners of war. The longest recorded game lasted seventy days."
+    },
+    {
+      "d": "easy",
+      "q": "What is Barbie's full name?",
+      "o": [
+        "Barbara Millicent Roberts",
+        "Barbara Ann Rogers",
+        "Barbie Jean Mattel",
+        "Barbara Handler"
+      ],
+      "a": 0,
+      "w": "Barbara Millicent Roberts. Ruth Handler launched her in 1959 and named her after her daughter Barbara.",
+      "more": "Ken, launched in 1961, is named after Handler's son. The first Barbie sold for three dollars. The 2023 film took about 1.4 billion dollars and made Greta Gerwig the highest-grossing female director ever."
+    },
+    {
+      "d": "easy",
+      "q": "In which game do you sink ships on a grid with calls like 'B-4'?",
+      "o": [
+        "Battleship",
+        "Stratego",
+        "Risk",
+        "Connect Four"
+      ],
+      "a": 0,
+      "w": "Battleship. It started as a pencil-and-paper game before the First World War; Milton Bradley's plastic version came in 1967.",
+      "more": "'You sank my battleship!' comes from the 1970s television adverts. The fleet is a carrier of five squares, a battleship of four, a cruiser and a submarine of three, and a destroyer of two. A 2012 film version starred Rihanna."
+    },
+    {
+      "d": "easy",
+      "q": "How many letter tiles does a Scrabble player hold at a time?",
+      "o": [
+        "Seven",
+        "Five",
+        "Nine",
+        "Eight"
+      ],
+      "a": 0,
+      "w": "Seven.",
+      "more": "Alfred Butts invented it in 1938 as Criss-Crosswords, working out letter values by counting letters on the front page of the New York Times. Q and Z are worth ten points. The highest-scoring single word in competition is 'caziques' for 392 points, played in 1982."
+    },
+    {
+      "d": "easy",
+      "q": "Which puzzle was invented in 1974 by a Hungarian professor of architecture?",
+      "o": [
+        "The Rubik's Cube",
+        "The Pyraminx",
+        "The Soma cube",
+        "The tangram"
+      ],
+      "a": 0,
+      "w": "The Rubik's Cube. Ernő Rubik built it to explain three-dimensional movement to students and took a month to solve it himself.",
+      "more": "It has about 43 quintillion possible positions, and in 2010 mathematicians proved every one can be solved in twenty moves or fewer. The world record for a solve is under four seconds. More than 500 million have been sold."
+    },
+    {
+      "d": "easy",
+      "q": "In which game do you pull wooden blocks from a tower and hope it does not fall?",
+      "o": [
+        "Jenga",
+        "Kerplunk",
+        "Operation",
+        "Buckaroo"
+      ],
+      "a": 0,
+      "w": "Jenga, created by Leslie Scott and launched in 1983. The name is Swahili for 'build'.",
+      "more": "Scott grew up in East Africa playing with wooden offcuts from a sawmill. A set has 54 blocks, and a game starts as a tower of eighteen storeys. Kerplunk has you pulling sticks out from under marbles instead."
+    },
+    {
+      "d": "medium",
+      "q": "Which board game's name is Latin for 'I play'?",
+      "o": [
+        "Ludo",
+        "Uno",
+        "Ouija",
+        "Pachisi"
+      ],
+      "a": 0,
+      "w": "Ludo, patented in England in 1896 as a simplified version of the Indian game Pachisi.",
+      "more": "Pachisi is centuries older and was played with cowrie shells. Uno means 'one' in Spanish and Italian. Ouija is said to combine the French and German words for yes."
+    },
+    {
+      "d": "medium",
+      "q": "In which year did Mattel release the first Hot Wheels cars?",
+      "o": [
+        "1968",
+        "1955",
+        "1975",
+        "1982"
+      ],
+      "a": 0,
+      "w": "1968, with a set of sixteen cars nicknamed the Sweet Sixteen, including the Custom Camaro.",
+      "more": "Matchbox cars had been made in Britain since 1953; Mattel bought the brand in 1997. The rarest Hot Wheels is a pink 1969 prototype of the Beach Bomb van, valued at well over 100,000 dollars. Mattel says it sells around sixteen cars a second."
+    },
+    {
+      "d": "medium",
+      "q": "The Slinky was born when a naval engineer knocked what off a shelf in 1943?",
+      "o": [
+        "A spring",
+        "A wrench",
+        "A coil of rope",
+        "A pocket watch"
+      ],
+      "a": 0,
+      "w": "A spring. Richard James watched it tumble end over end across the floor, and his wife Betty gave it its name.",
+      "more": "The first four hundred sold out in ninety minutes at Gimbels in Philadelphia in 1945. Betty James ran the company for decades after her husband left the family to join a religious group in Bolivia in 1960. More than 300 million have been sold."
+    },
+    {
+      "d": "medium",
+      "q": "Which game features Colonel Mustard and Miss Scarlett?",
+      "o": [
+        "Cluedo",
+        "Mouse Trap",
+        "Guess Who?",
+        "Mastermind"
+      ],
+      "a": 0,
+      "w": "Cluedo, invented by Anthony Pratt in Birmingham during the Second World War and released in 1949. Americans call it Clue.",
+      "more": "Pratt's original design had weapons including a syringe, a bomb and poison. Mrs White was retired in 2016 and replaced by Dr Orchid. The 1985 film was released with three different endings."
+    },
+    {
+      "d": "medium",
+      "q": "Which toy sold out worldwide in the Christmas of 1996, with fights breaking out in shops?",
+      "o": [
+        "Tickle Me Elmo",
+        "Furby",
+        "Tamagotchi",
+        "Buzz Lightyear"
+      ],
+      "a": 0,
+      "w": "Tickle Me Elmo, which was changing hands for more than a thousand dollars by December.",
+      "more": "Furby caused the same scenes two years later, and in 1999 the American National Security Agency banned Furbies from its offices in case they recorded conversations, which they could not. The Cabbage Patch Kids riots of 1983 were the first of the kind."
+    },
+    {
+      "d": "medium",
+      "q": "Which Japanese company made the Tamagotchi?",
+      "o": [
+        "Bandai",
+        "Nintendo",
+        "Sega",
+        "Takara"
+      ],
+      "a": 0,
+      "w": "Bandai, in 1996. More than eighty million have been sold.",
+      "more": "The name blends tamago, 'egg', with the English word watch. Schools around the world banned them because children kept feeding them in class. New versions are still released, and a 2023 model connects to wifi."
+    },
+    {
+      "d": "medium",
+      "q": "In Risk, holding which continent earns the most bonus armies?",
+      "o": [
+        "Asia",
+        "Europe",
+        "North America",
+        "Africa"
+      ],
+      "a": 0,
+      "w": "Asia, seven armies for all twelve territories, and it is the hardest to hold.",
+      "more": "The game was invented by the French film director Albert Lamorisse, who made The Red Balloon, as La Conquête du Monde in 1957. Australia's two-army bonus is the classic safe start because it has only one way in. Parker Brothers published it in 1959."
+    },
+    {
+      "d": "hard",
+      "type": "order",
+      "q": "Put these in order of when they first went on sale, earliest first.",
+      "o": [
+        "Crayola crayons",
+        "Monopoly",
+        "Etch A Sketch",
+        "Nintendo Game Boy"
+      ],
+      "w": "Crayola crayons (1903), Monopoly (1935), Etch A Sketch (1960), Game Boy (1989).",
+      "more": "The first box of Crayola had eight colours and cost a nickel. The Etch A Sketch was invented in France as L'Écran Magique and its screen is coated with aluminium powder. The Game Boy launched with Tetris packed in, which is a large part of why it sold so well."
+    },
+    {
+      "d": "hard",
+      "q": "What was Yahtzee called before a toy maker bought the rights in 1956?",
+      "o": [
+        "The Yacht Game",
+        "Poker Dice",
+        "Five of a Kind",
+        "Ship Ahoy"
+      ],
+      "a": 0,
+      "w": "The Yacht Game, because a Canadian couple played it aboard their yacht. Edwin Lowe bought the rights for a few sets.",
+      "more": "Lowe was the man who had popularised bingo in America in the 1930s. The odds of rolling a Yahtzee, five of a kind, in a single throw are one in 1,296. More than fifty million games are sold... the brand now belongs to Hasbro."
+    },
+    {
+      "d": "hard",
+      "q": "Play-Doh was first sold in the 1930s as what?",
+      "o": [
+        "Wallpaper cleaner",
+        "Modelling clay for dentists",
+        "A bread dough substitute",
+        "Pottery glaze"
+      ],
+      "a": 0,
+      "w": "Wallpaper cleaner, made in Cincinnati to lift coal soot off walls. It became a toy in 1956 after a nursery teacher used it for crafts.",
+      "more": "The original was off-white; red, yellow and blue arrived in 1957. The smell was registered as a trademark in 2018. More than three billion cans have been sold."
+    },
+    {
+      "d": "hard",
+      "q": "Twister took off after Johnny Carson played it on The Tonight Show in 1966 with which actress?",
+      "o": [
+        "Eva Gabor",
+        "Zsa Zsa Gabor",
+        "Raquel Welch",
+        "Goldie Hawn"
+      ],
+      "a": 0,
+      "w": "Eva Gabor. Three million copies sold that year.",
+      "more": "A rival had called it 'sex in a box' and Sears refused to stock it at first. It was invented by Charles Foley and Neil Rabens for Milton Bradley. The spinner's 'left foot, red' format has not changed since."
+    },
+    {
+      "d": "hard",
+      "q": "True or false: the streets on the original American Monopoly board are real streets in Atlantic City, New Jersey.",
+      "o": [
+        "True",
+        "False"
+      ],
+      "a": 0,
+      "keepOrder": true,
+      "w": "True, with one misspelling: the real Marven Gardens became Marvin Gardens.",
+      "more": "The British edition of 1936 used London streets picked by Victor Watson of Waddingtons and his secretary on a single day trip. The top-hatted mascot is called Rich Uncle Pennybags, officially renamed Mr Monopoly in 1999. Free Parking's cash bonus is a house rule and not in the official rules."
+    },
+    {
+      "d": "hard",
+      "type": "select",
+      "q": "Which of these are tokens in the current standard Monopoly set? Select all that apply.",
+      "o": [
+        "Scottie dog",
+        "Top hat",
+        "Thimble",
+        "Battleship",
+        "Wheelbarrow",
+        "Rubber duck"
+      ],
+      "a": [
+        0,
+        1,
+        3,
+        5
+      ],
+      "w": "The Scottie dog, top hat, battleship and rubber duck. The thimble and wheelbarrow were voted out in 2017.",
+      "more": "That 2017 public vote also removed the boot and added the T. rex, the penguin and the rubber duck. The cat had replaced the iron after a similar vote in 2013. The legend is that the original tokens were copied from charms on Charles Darrow's niece's bracelet."
+    }
+  ]
+}

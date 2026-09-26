@@ -1,0 +1,283 @@
+{
+  "id": "gods-and-monsters",
+  "name": "Gods and Monsters",
+  "subject": "Mythology",
+  "tagline": "Twenty questions on the old stories: Olympus, Asgard, the Nile and beyond. Starts easy, ends hard.",
+  "draft": true,
+  "emblem": "⚡",
+  "theme": {
+    "font": "Cormorant Garamond",
+    "accent": "#B45309",
+    "accent2": "#7C3AED",
+    "accentDark": "#FBBF24",
+    "accent2Dark": "#A78BFA"
+  },
+  "questions": [
+    {
+      "d": "easy",
+      "q": "Who is the king of the Greek gods?",
+      "o": [
+        "Zeus",
+        "Poseidon",
+        "Apollo",
+        "Hades"
+      ],
+      "a": 0,
+      "w": "Zeus, god of the sky and thunder, ruling from Mount Olympus.",
+      "more": "His father Cronus swallowed his children at birth; Zeus was hidden away on Crete and later forced Cronus to bring up his brothers and sisters. The Cyclopes forged his thunderbolts. The Romans called him Jupiter."
+    },
+    {
+      "d": "easy",
+      "q": "Which Greek hero's only weak spot was his heel?",
+      "o": [
+        "Achilles",
+        "Hector",
+        "Perseus",
+        "Odysseus"
+      ],
+      "a": 0,
+      "w": "Achilles. His mother Thetis dipped him in the river Styx holding him by the heel, which the water never touched.",
+      "more": "The heel story is not in Homer; it turns up in a Roman poem by Statius about eight centuries later. Paris's arrow killed him at Troy. The tendon at the back of your ankle is named after him."
+    },
+    {
+      "d": "easy",
+      "q": "In Norse mythology, who wields the hammer Mjölnir?",
+      "o": [
+        "Thor",
+        "Odin",
+        "Loki",
+        "Baldur"
+      ],
+      "a": 0,
+      "w": "Thor, god of thunder. Thursday is his day.",
+      "more": "Dwarves forged the hammer, and its handle came out short because Loki, disguised as a fly, kept biting the smith. Wednesday is named for Odin (Woden) and Friday for the goddess Frigg. Marvel's Thor first appeared in 1962."
+    },
+    {
+      "d": "easy",
+      "q": "Which creature with a lion's body and a woman's head asked travellers a riddle outside Thebes?",
+      "o": [
+        "The Sphinx",
+        "The Chimera",
+        "The Minotaur",
+        "The Griffin"
+      ],
+      "a": 0,
+      "w": "The Sphinx. Oedipus answered its riddle, 'man', who crawls on four legs, walks on two and leans on a stick.",
+      "more": "Greek sphinxes were female and winged; Egyptian ones, like the Great Sphinx of Giza, were male and represented the pharaoh. The Chimera was part lion, part goat and part snake. The Minotaur lived in the labyrinth on Crete."
+    },
+    {
+      "d": "easy",
+      "q": "Which Roman god of war gives his name to both a planet and a month?",
+      "o": [
+        "Mars",
+        "Jupiter",
+        "Mercury",
+        "Saturn"
+      ],
+      "a": 0,
+      "w": "Mars: the red planet and the month of March.",
+      "more": "His Greek counterpart is Ares. Roman legend made him the father of Romulus and Remus, the founders of Rome. The words martial and Martian both come from him."
+    },
+    {
+      "d": "easy",
+      "q": "What did Medusa have instead of hair?",
+      "o": [
+        "Snakes",
+        "Flames",
+        "Feathers",
+        "Worms"
+      ],
+      "a": 0,
+      "w": "Snakes. Anyone who met her gaze turned to stone, so Perseus watched her reflection in his polished shield and cut off her head.",
+      "more": "She was one of three Gorgon sisters and the only mortal one. The winged horse Pegasus sprang from her blood. Her head is the Versace logo."
+    },
+    {
+      "d": "easy",
+      "q": "Which Egyptian god with the head of a jackal watched over mummification and the dead?",
+      "o": [
+        "Anubis",
+        "Horus",
+        "Ra",
+        "Thoth"
+      ],
+      "a": 0,
+      "w": "Anubis. He weighed the hearts of the dead against the feather of truth.",
+      "more": "Horus has a falcon's head, Thoth an ibis's, and Ra carries a sun disc. Jackals prowled Egyptian cemeteries, which is probably how the link began. A heart heavier than the feather was eaten by the monster Ammit."
+    },
+    {
+      "d": "medium",
+      "q": "Who opened the jar, later called a box, that let every evil loose upon the world?",
+      "o": [
+        "Pandora",
+        "Persephone",
+        "Psyche",
+        "Ariadne"
+      ],
+      "a": 0,
+      "w": "Pandora, the first woman, made by the gods. Only Hope was left inside.",
+      "more": "In Hesiod's original it is a large storage jar, a pithos. It became a box when the scholar Erasmus mistranslated the word into Latin in the sixteenth century. Zeus sent her as punishment for Prometheus stealing fire."
+    },
+    {
+      "d": "medium",
+      "q": "In Norse mythology, what is the name of the final battle in which the gods die?",
+      "o": [
+        "Ragnarök",
+        "Valhalla",
+        "Jötunheim",
+        "Niflheim"
+      ],
+      "a": 0,
+      "w": "Ragnarök, 'the fate of the gods'. Odin is swallowed by the wolf Fenrir; Thor kills the world serpent and dies of its venom.",
+      "more": "Valhalla is Odin's hall for warriors killed in battle, Jötunheim the land of giants and Niflheim a realm of ice and mist. The world is reborn afterwards and two humans repopulate it. The 2017 Marvel film borrowed the name."
+    },
+    {
+      "d": "medium",
+      "q": "Which hero carried out twelve labours?",
+      "o": [
+        "Heracles",
+        "Theseus",
+        "Jason",
+        "Perseus"
+      ],
+      "a": 0,
+      "w": "Heracles, as penance after Hera drove him mad and he killed his own family. The Romans called him Hercules.",
+      "more": "The labours included killing the Nemean lion, whose skin he wore afterwards, and cleaning the Augean stables in a day by diverting two rivers through them. Theseus killed the Minotaur and Jason fetched the Golden Fleece. Disney's 1997 film skipped most of the darker story."
+    },
+    {
+      "d": "medium",
+      "q": "In the Odyssey, what is the name of the Cyclops that Odysseus blinds?",
+      "o": [
+        "Polyphemus",
+        "Argus",
+        "Talos",
+        "Briareus"
+      ],
+      "a": 0,
+      "w": "Polyphemus, a son of Poseidon. Odysseus tells him his name is 'Nobody', so when he cries out, the other Cyclopes ignore him.",
+      "more": "Poseidon's anger over the blinding is why the voyage home takes ten years. Argus was a giant with a hundred eyes and Talos a bronze giant who guarded Crete. Odysseus escaped the cave tied under the bellies of sheep."
+    },
+    {
+      "d": "medium",
+      "q": "Which Aztec god took the form of a feathered serpent?",
+      "o": [
+        "Quetzalcoatl",
+        "Huitzilopochtli",
+        "Tezcatlipoca",
+        "Tlaloc"
+      ],
+      "a": 0,
+      "w": "Quetzalcoatl, god of wind, learning and the priesthood. The Maya knew him as Kukulkan.",
+      "more": "The story that Moctezuma mistook Cortés for the returning god was most likely invented after the conquest. Huitzilopochtli was the god of war and the sun, Tlaloc of rain. The pyramid at Chichén Itzá casts a serpent-shaped shadow at the equinoxes."
+    },
+    {
+      "d": "medium",
+      "q": "What is the name of the great tree that holds the nine worlds of Norse mythology?",
+      "o": [
+        "Yggdrasil",
+        "Bifröst",
+        "Asgard",
+        "Midgard"
+      ],
+      "a": 0,
+      "w": "Yggdrasil, an ash tree. Odin hung from it for nine nights to win knowledge of the runes.",
+      "more": "Bifröst is the rainbow bridge to Asgard, home of the gods. Midgard is the world of humans, our Earth. A dragon gnaws at the tree's roots and an eagle sits in its crown."
+    },
+    {
+      "d": "medium",
+      "q": "Which Greek goddess was born fully grown and armed from the head of Zeus?",
+      "o": [
+        "Athena",
+        "Hera",
+        "Artemis",
+        "Aphrodite"
+      ],
+      "a": 0,
+      "w": "Athena, goddess of wisdom and war. Zeus had swallowed her pregnant mother, and Hephaestus split his skull open with an axe to let her out.",
+      "more": "Athens is named after her: she won the city by giving it the olive tree, beating Poseidon's salt spring. The Parthenon was her temple. The Romans called her Minerva, and her bird is the owl."
+    },
+    {
+      "d": "hard",
+      "q": "Which Japanese sun goddess hid in a cave and plunged the world into darkness?",
+      "o": [
+        "Amaterasu",
+        "Izanami",
+        "Tsukuyomi",
+        "Inari"
+      ],
+      "a": 0,
+      "w": "Amaterasu, lured out by a dancing goddess and a mirror. Japan's emperors claim descent from her.",
+      "more": "That mirror is said to be one of the three imperial treasures, kept at the Ise Grand Shrine. Tsukuyomi is her brother, the moon god, and Izanami is the creator goddess. Inari is the god of rice, served by foxes."
+    },
+    {
+      "d": "hard",
+      "type": "order",
+      "q": "Put these rulers of the Greek cosmos in order, earliest first.",
+      "o": [
+        "Chaos",
+        "Uranus",
+        "Cronus",
+        "Zeus"
+      ],
+      "w": "Chaos came first, then Uranus, the sky, overthrown by his son Cronus, who was overthrown in turn by his son Zeus.",
+      "more": "Cronus castrated Uranus with a sickle, and Aphrodite was born from the foam where the pieces fell into the sea. Cronus then swallowed his own children, until his wife Rhea handed him a stone wrapped in cloth instead of the baby Zeus. The war of Zeus against the Titans lasted ten years."
+    },
+    {
+      "d": "hard",
+      "q": "The trickster Anansi, from the stories of the Akan people of Ghana, takes the form of which animal?",
+      "o": [
+        "A spider",
+        "A hare",
+        "A tortoise",
+        "A raven"
+      ],
+      "a": 0,
+      "w": "A spider. The stories crossed the Atlantic with enslaved people and live on in the Caribbean and the American South.",
+      "more": "In the best-known tale Anansi buys all the stories in the world from the sky god Nyame by capturing a python, a leopard, hornets and a fairy. Neil Gaiman's novel Anansi Boys reimagines him. The hare is the trickster in other African traditions, an ancestor of Br'er Rabbit."
+    },
+    {
+      "d": "hard",
+      "q": "Which king of Uruk went searching for immortality after the death of his friend Enkidu?",
+      "o": [
+        "Gilgamesh",
+        "Sargon",
+        "Hammurabi",
+        "Nebuchadnezzar"
+      ],
+      "a": 0,
+      "w": "Gilgamesh. His epic, written on clay tablets more than three thousand years ago, is among the oldest stories in the world.",
+      "more": "It contains a great flood story with a hero who builds a boat and releases birds, which caused a sensation when George Smith translated it at the British Museum in 1872. Sargon and Hammurabi were real kings of Mesopotamia. Gilgamesh may have been real too, ruling around 2700 BC."
+    },
+    {
+      "d": "hard",
+      "q": "True or false: the Trojan Horse appears in Homer's Iliad.",
+      "o": [
+        "True",
+        "False"
+      ],
+      "a": 1,
+      "keepOrder": true,
+      "w": "False. The Iliad ends with Hector's funeral, before the city falls. The horse is mentioned in the Odyssey and told in full in Virgil's Aeneid.",
+      "more": "'Beware of Greeks bearing gifts' comes from the Aeneid, spoken by the priest Laocoön just before sea serpents kill him. The horse was Odysseus's idea and was built by a craftsman named Epeius. Heinrich Schliemann dug up what he believed was Troy at Hisarlik in Turkey in the 1870s."
+    },
+    {
+      "d": "hard",
+      "type": "select",
+      "q": "Which of these are Roman names for Greek gods? Select all that apply.",
+      "o": [
+        "Neptune",
+        "Hermes",
+        "Venus",
+        "Hades",
+        "Diana",
+        "Demeter"
+      ],
+      "a": [
+        0,
+        2,
+        4
+      ],
+      "w": "Neptune, Venus and Diana. Hermes, Hades and Demeter are the Greek names; the Romans called them Mercury, Pluto and Ceres.",
+      "more": "Most of the planets carry Roman names, and Uranus is the odd one out, being Greek. The word cereal comes from Ceres, goddess of the harvest. Cupid is the Roman Eros."
+    }
+  ]
+}
