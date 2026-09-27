@@ -519,6 +519,7 @@ input[type=range]{width:100%;accent-color:var(--accent)}
 .catchup .btn{width:100%}
 @keyframes cuUp{from{transform:translateY(40px);opacity:0}to{transform:none;opacity:1}}
 .catchup .cuhome{display:block;width:100%;background:none;border:0;padding:10px 0 0;color:var(--ink2);font-weight:700;font-size:13px;text-decoration:underline;cursor:pointer}
+.catchup .cuapp{display:flex;align-items:center;gap:12px;background:var(--paper2);border-radius:16px;padding:10px 12px;margin:0 0 14px}.catchup .cuapp img{width:52px;height:52px;border-radius:12px;box-shadow:0 4px 12px rgba(0,0,0,.18)}.catchup .cuapp b{display:block;font-family:var(--site);font-size:17px;line-height:1.1;color:var(--ink)}.catchup .cuapp span{font-size:12px;color:var(--ink2);font-weight:700;text-transform:uppercase;letter-spacing:.06em}
 /* ---------- save to home screen: the steps, since a page cannot add itself ---------- */
 .hsheet{position:fixed;inset:0;z-index:61;display:grid;place-items:end center;padding:0 12px 18px;background:rgba(4,12,18,.62);-webkit-backdrop-filter:blur(4px);backdrop-filter:blur(4px);animation:crFade .3s ease both}
 .hsheet .hbox{width:100%;max-width:440px;background:var(--paper);color:var(--ink);border-radius:24px;padding:22px 22px 18px;box-shadow:0 30px 70px rgba(0,0,0,.55);animation:cuUp .45s cubic-bezier(.2,1.2,.4,1) both}
@@ -632,7 +633,8 @@ const SETTINGS = {
   timeLimitMs: 5 * 60 * 1000,   // countdown shown during a run; 0 or null = no limit. A round can override with its own timeLimitMs.
   season: { firstBoundary: "2026-09-27", hour: 0, days: 7, tz: "America/New_York" }, // Season 2 starts at midnight going into Sunday 27 Sep 2026, New York time; a new season every 7 days after
   drop: { start: "2026-09-21", hour: 0, options: 3, retireAfterDays: 7 }, // one new round every midnight New York time, chosen by the poll unless the host overrides
-  catchupNote: false,       // true = the first time each player opens the site, a card shows how many rounds they have played this season and how many are waiting (a sister game turns this on in games/<id>.json)
+  catchupNote: false,       // true = the first time each player opens the site, a card shows how many rounds they have played this season and how many are waiting, with a save-to-home-screen link (a sister game turns this on in games/<id>.json)
+  homeScreenNote: true,     // true = when catchupNote is off, the first visit instead gets a one-time card asking to save the site to the home screen
 };
 Object.entries(GAME.settings || {}).forEach(([k, v]) => { SETTINGS[k] = v && typeof v === "object" && !Array.isArray(v) ? Object.assign({}, SETTINGS[k], v) : v; }); // a sister game's own numbers
 
@@ -3222,31 +3224,55 @@ function openHomeScreenSheet(){
 }
 document.addEventListener("click", e => { const b = e.target.closest && e.target.closest("[data-homescreen]"); if (b) { e.preventDefault(); sfx("click"); openHomeScreenSheet(); } });
 
-/* The catch-up card: once per player, the first time they open the site after it shipped,
-   how many rounds they have played this season and how many open ones are waiting. Only in
-   games that turn on SETTINGS.catchupNote. Remembered on the player's profile, so it does
-   not come back on another phone. Waits for the crowning, if there is one, to finish. */
+/* The one-time card, once per player, the first time they open the site after it shipped.
+   Two kinds: in games that turn on SETTINGS.catchupNote, how many rounds they have played
+   this season and how many open ones are waiting, with a save-to-home-screen link; otherwise,
+   with SETTINGS.homeScreenNote, a plain ask to save the site to the home screen. Remembered on
+   the player's profile (catchupSeen / homeSeen), but only once they tap one of its buttons: a
+   tap on the dark backdrop closes it for now and it comes back next visit, and backdrop taps in
+   the first moment after it appears are ignored, so a tap already in flight cannot dismiss it.
+   Waits for the crowning, if there is one, to finish. */
 let catchupDone = false;
 function maybeCatchup(){
-  if (catchupDone || !SETTINGS.catchupNote || !me || fatal || !scoresReady || !roundsReady || !votesReady || !siteReady || !profilesReady) return;
+  const kind = SETTINGS.catchupNote ? "catchup" : SETTINGS.homeScreenNote ? "home" : null;
+  if (catchupDone || !kind || !me || fatal || !scoresReady || !roundsReady || !votesReady || !siteReady || !profilesReady) return;
   if (round && S.screen === "quiz") return;
   if (document.querySelector(".crowning")) { setTimeout(maybeCatchup, 1500); return; }
-  const mine = profiles[me.uid]; if (mine && mine.catchupSeen) { catchupDone = true; return; }
+  const seenKey = kind === "catchup" ? "catchupSeen" : "homeSeen";
+  const mine = profiles[me.uid]; if (mine && mine[seenKey]) { catchupDone = true; return; }
   catchupDone = true;
-  const cur = currentSeason(), rs = seasonRounds(cur);
-  const played = rs.filter(r => myRun(r.id)).length, waiting = rs.filter(r => isOpen(r) && !myRun(r.id)).length;
+  const markSeen = () => col("profiles").doc(me.uid).set({ uid: me.uid, [seenKey]: true }, { merge: true }).catch(() => {});
+  if (kind === "home" && onHomeScreen()) { markSeen(); return; } // already opening it from the icon: nothing to ask
   const first = (me.displayName || "").split(" ")[0] || "you";
-  const el = document.createElement("div"); el.className = "catchup"; el.setAttribute("role", "dialog"); el.setAttribute("aria-label", "Where you stand this season");
-  el.innerHTML = `<div class="cbox">
-    <p class="ceye">Season ${cur} · ${esc(seasonEndsText())}</p>
-    <h2>Hey ${esc(first)}, here's where you stand</h2>
-    <div class="cnums"><div class="cnum"><b>${played}</b><span>round${played === 1 ? "" : "s"} played this season</span></div><div class="cnum"><b>${waiting}</b><span>round${waiting === 1 ? "" : "s"} to catch up</span></div></div>
-    <p>${waiting ? `Don't worry. For the rest of the season there's only one new round a day, so play ${waiting === 1 ? "that one" : "those " + waiting} and you're on pace with everyone.` : "You're all caught up. There's only one new round a day for the rest of the season, so you're on pace."}</p>
-    <button class="btn" id="cuGo">${waiting ? "Show me the rounds" : "Got it"}</button>
-    <button class="cuhome" data-homescreen>Save this site to your home screen</button></div>`;
+  const el = document.createElement("div"); el.className = "catchup"; el.setAttribute("role", "dialog");
+  let waiting = 0;
+  if (kind === "catchup") {
+    const cur = currentSeason(), rs = seasonRounds(cur);
+    const played = rs.filter(r => myRun(r.id)).length; waiting = rs.filter(r => isOpen(r) && !myRun(r.id)).length;
+    el.setAttribute("aria-label", "Where you stand this season");
+    el.innerHTML = `<div class="cbox">
+      <p class="ceye">Season ${cur} · ${esc(seasonEndsText())}</p>
+      <h2>Hey ${esc(first)}, here's where you stand</h2>
+      <div class="cnums"><div class="cnum"><b>${played}</b><span>round${played === 1 ? "" : "s"} played this season</span></div><div class="cnum"><b>${waiting}</b><span>round${waiting === 1 ? "" : "s"} to catch up</span></div></div>
+      <p>${waiting ? `Don't worry. For the rest of the season there's only one new round a day, so play ${waiting === 1 ? "that one" : "those " + waiting} and you're on pace with everyone.` : "You're all caught up. There's only one new round a day for the rest of the season, so you're on pace."}</p>
+      <button class="btn" id="cuGo">${waiting ? "Show me the rounds" : "Got it"}</button>
+      <button class="cuhome" id="cuHome" data-homescreen>Save this site to your home screen</button></div>`;
+  } else {
+    el.setAttribute("aria-label", "Save this site to your home screen");
+    el.innerHTML = `<div class="cbox">
+      <p class="ceye">${esc(SITE_NAME)}</p>
+      <h2>Hey ${esc(first)}, keep this one handy</h2>
+      <div class="cuapp"><img src="${esc(ICON_180())}" alt=""><div><b>${esc(GAME.name)}</b><span>on your home screen</span></div></div>
+      <p>Save it once and it opens like an app: one tap, no typing the address, and you'll see when a new round has dropped.</p>
+      <button class="btn" id="cuHome" data-homescreen>Save it to my home screen</button>
+      <button class="cuhome" id="cuGo">Not now</button></div>`;
+  }
   document.body.appendChild(el);
-  const close = () => { el.classList.add("out"); setTimeout(() => el.remove(), 450); col("profiles").doc(me.uid).set({ uid: me.uid, catchupSeen: true }, { merge: true }).catch(() => {}); if (!round) { lobbyTab = "rounds"; renderLobby(); const pn = [...document.querySelectorAll("#view .section h3")].find(h => h.textContent.trim() === "Play next"); if (pn) pn.scrollIntoView({ behavior: "smooth", block: "start" }); } };
-  el.querySelector("#cuGo").onclick = close; el.onclick = e => { if (e.target === el) close(); };
+  const born = Date.now();
+  const close = mark => { if (!el.isConnected || el.classList.contains("out")) return; el.classList.add("out"); setTimeout(() => el.remove(), 450); if (mark) markSeen(); };
+  el.querySelector("#cuGo").onclick = () => { close(true); if (kind === "catchup" && !round) { lobbyTab = "rounds"; renderLobby(); const pn = [...document.querySelectorAll("#view .section h3")].find(h => h.textContent.trim() === "Play next"); if (pn && waiting) pn.scrollIntoView({ behavior: "smooth", block: "start" }); } };
+  el.querySelector("#cuHome").onclick = () => close(true); // the document-level [data-homescreen] handler then opens the step sheet
+  el.onclick = e => { if (e.target === el && Date.now() - born > 1500) close(false); };
 }
 function confetti(o){
   if (reducedMotion()) return; o = o || {};
