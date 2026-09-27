@@ -29,7 +29,7 @@ Steps the daily session follows:
    and TV, sport, food, travel, science, history, words, business. Vary the mix.
 3. Each round: `"draft": true`, a `name`, `subject`, `tagline`, `theme` (font,
    accent, accent2, accentDark, accent2Dark), `emblem`, and 20 questions:
-   7 easy, 7 medium, 6 hard, at most 3 non-multiple-choice (true/false,
+   9 easy, 6 medium, 5 hard, at most 3 non-multiple-choice (true/false,
    select-all, put-in-order all count). Every question needs `w`, a one- or
    two-sentence explanation with the fact that makes it right, and a `more`
    field of two or three sentences of background for the Learn tab (the story

@@ -29,7 +29,7 @@ went live. That happened once; the config exists so it cannot happen again.
 ```
 
 House rule: at least 6 questions, and each difficulty makes up at least a fifth
-of the round (never fewer than 2). The standard is 20: 7 easy, 7 medium, 6 hard.
+of the round (never fewer than 2). The standard is 20: 9 easy, 6 medium, 5 hard (rounds written before 27 Sep 2026 were 7/7/6).
 Shorter rounds are fine. Formats can be mixed, but at most **3 questions per
 round** may be anything other than standard multiple choice; true/false,
 select-all and put-in-order all count toward that cap.
