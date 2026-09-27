@@ -1,0 +1,39 @@
+name: Host tools
+
+# Things the host would otherwise do on the Host tab, runnable from here on demand.
+# Currently: set or clear a game's nightly-drop override. Uses FIREBASE_SERVICE_ACCOUNT.
+
+on:
+  workflow_dispatch:
+    inputs:
+      game:
+        description: "Game id: babies or hamps"
+        required: true
+        default: hamps
+      day:
+        description: "Poll day, YYYY-MM-DD New York time. The round drops at the midnight that ends this day."
+        required: true
+      round:
+        description: "Round id to drop, or 'clear' to remove the override"
+        required: true
+
+jobs:
+  override:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: Write the service-account key
+        env:
+          KEY: ${{ secrets.FIREBASE_SERVICE_ACCOUNT }}
+        run: |
+          if [ -z "$KEY" ]; then echo "::error::Repository secret FIREBASE_SERVICE_ACCOUNT is not set."; exit 1; fi
+          printf '%s' "$KEY" > "$RUNNER_TEMP/service-account.json"
+      - name: Set the override
+        env:
+          GOOGLE_APPLICATION_CREDENTIALS: ${{ runner.temp }}/service-account.json
+        run: |
+          npm install firebase-admin@^12 --no-save --no-audit --no-fund
+          node scripts/set-override.mjs "${{ inputs.game }}" "${{ inputs.day }}" "${{ inputs.round }}"

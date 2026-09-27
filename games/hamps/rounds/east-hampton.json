@@ -1,0 +1,284 @@
+{
+  "id": "east-hampton",
+  "name": "Out East",
+  "subject": "East Hampton and Montauk",
+  "tagline": "Twenty questions on home turf: the lighthouse, the beaches, the windmill, the neighbours and the stories from Route 27 to The End. Starts easy, ends hard.",
+  "draft": true,
+  "emblem": "🏖️",
+  "theme": {
+    "font": "Josefin Sans",
+    "accent": "#0369A1",
+    "accent2": "#F59E0B",
+    "accentDark": "#38BDF8",
+    "accent2Dark": "#FCD34D"
+  },
+  "questions": [
+    {
+      "d": "easy",
+      "q": "East Hampton sits at the eastern end of which island?",
+      "o": [
+        "Long Island",
+        "Staten Island",
+        "Fire Island",
+        "Shelter Island"
+      ],
+      "a": 0,
+      "w": "Long Island. The Town of East Hampton runs from Wainscott out to the tip at Montauk Point.",
+      "more": "It is about a hundred miles from Manhattan, which is roughly three hours on a good day and much longer on a summer Friday. Shelter Island sits between the North and South Forks and is reached only by ferry. Fire Island is a barrier island further west."
+    },
+    {
+      "d": "easy",
+      "q": "Which hamlet at the very tip of the South Fork calls itself 'The End'?",
+      "o": [
+        "Montauk",
+        "Amagansett",
+        "Wainscott",
+        "Springs"
+      ],
+      "a": 0,
+      "w": "Montauk, the last stop on the Long Island Rail Road and the last place before the Atlantic.",
+      "more": "Its name comes from the Montaukett people who lived there. It stayed a fishing village long after the rest of the Hamptons filled with estates, and its surf break at Ditch Plains is the best known on Long Island. The 'Montauk: The End' bumper sticker has been around since the 1970s."
+    },
+    {
+      "d": "easy",
+      "q": "Which president approved the building of the Montauk Point Lighthouse in 1792?",
+      "o": [
+        "George Washington",
+        "John Adams",
+        "Thomas Jefferson",
+        "James Madison"
+      ],
+      "a": 0,
+      "w": "George Washington. Congress authorised it in 1792 and the light was first lit in 1797.",
+      "more": "It is the oldest lighthouse in New York State and the fourth oldest still working in the country. It was built about 300 feet from the edge of the bluff, which erosion has cut to under a hundred. It became a National Historic Landmark in 2012."
+    },
+    {
+      "d": "easy",
+      "q": "Route 27, the road that carries everyone through the Hamptons, is called what in East Hampton?",
+      "o": [
+        "Montauk Highway",
+        "The Long Island Expressway",
+        "The Northern State Parkway",
+        "Ocean Parkway"
+      ],
+      "a": 0,
+      "w": "Montauk Highway. Further west the same Route 27 is Sunrise Highway.",
+      "more": "The Long Island Expressway ends at Riverhead, 30 miles short, which is why the last stretch is so slow. The stretch of Montauk Highway through Napeague, between Amagansett and Montauk, runs along a narrow strip with the ocean on one side and the bay on the other. The Hampton Jitney and the train are the alternatives."
+    },
+    {
+      "d": "easy",
+      "q": "Which television cook opened her Barefoot Contessa food shop in East Hampton in 1985?",
+      "o": [
+        "Ina Garten",
+        "Martha Stewart",
+        "Rachael Ray",
+        "Giada De Laurentiis"
+      ],
+      "a": 0,
+      "w": "Ina Garten. She had bought the original Barefoot Contessa shop in Westhampton Beach in 1978 and moved it to East Hampton seven years later.",
+      "more": "Before that she worked in the White House Office of Management and Budget on nuclear energy policy. She closed the shop in 1996 to write cookbooks, and her Food Network show began in 2002. She still lives in East Hampton."
+    },
+    {
+      "d": "easy",
+      "q": "What is the name of the bus service famous for shuttling people between Manhattan and the Hamptons?",
+      "o": [
+        "The Hampton Jitney",
+        "The Hampton Hopper",
+        "The Bolt Bus",
+        "The Montauk Express"
+      ],
+      "a": 0,
+      "w": "The Hampton Jitney, running since 1974.",
+      "more": "It began as a summer van service and grew into a fleet of coaches with reserved seats and a strict one-quiet-phone-call rule. The Hampton Hopper is a small local shuttle that runs around the villages. The Long Island Rail Road's Cannonball is the express train alternative on summer Fridays."
+    },
+    {
+      "d": "easy",
+      "q": "The painter Jackson Pollock lived and worked in which East Hampton hamlet?",
+      "o": [
+        "Springs",
+        "Amagansett",
+        "Wainscott",
+        "Montauk"
+      ],
+      "a": 0,
+      "w": "Springs. He and Lee Krasner bought a farmhouse on Fireplace Road in 1945, and the barn where he made his drip paintings still has paint on the floor.",
+      "more": "The house is now the Pollock-Krasner House and Study Center, open to visitors. Pollock died in 1956 when he crashed his car on Springs Fireplace Road, less than a mile from home. Willem de Kooning later built a studio nearby, and Springs became an artists' colony."
+    },
+    {
+      "d": "easy",
+      "q": "Which seafood sandwich is the Hamptons' signature summer lunch?",
+      "o": [
+        "The lobster roll",
+        "The crab cake sandwich",
+        "The fried clam strip roll",
+        "The oyster po' boy"
+      ],
+      "a": 0,
+      "w": "The lobster roll, served warm with butter or cold with mayonnaise depending on who you ask.",
+      "more": "The Lobster Roll restaurant on the Napeague stretch, known to everyone as Lunch after the sign on its roof, has been serving them since 1965. Montauk's fishing fleet lands more seafood than any other port in New York State. Local clams and Peconic Bay scallops are the other things worth ordering."
+    },
+    {
+      "d": "easy",
+      "q": "The 1975 documentary Grey Gardens is about two relatives of which First Lady, living in a crumbling East Hampton house?",
+      "o": [
+        "Jacqueline Kennedy Onassis",
+        "Eleanor Roosevelt",
+        "Nancy Reagan",
+        "Betty Ford"
+      ],
+      "a": 0,
+      "w": "Jacqueline Kennedy Onassis. Big Edie and Little Edie Beale were her aunt and cousin.",
+      "more": "The house on West End Road had been condemned by the county before Jackie and her sister paid to clean it up in 1972. The film became a cult classic, then a Broadway musical and a 2009 HBO film with Jessica Lange and Drew Barrymore. The house was fully restored and sold in 2017 for about 15 million dollars."
+    },
+    {
+      "d": "medium",
+      "q": "English settlers founded East Hampton in 1648. What did they first call it?",
+      "o": [
+        "Maidstone",
+        "New Kent",
+        "Southold",
+        "Easthampton-on-Sea"
+      ],
+      "a": 0,
+      "w": "Maidstone, after the town in Kent that many of them came from.",
+      "more": "The name survives in the Maidstone Club, founded in 1891, whose golf course runs along the dunes. The settlers bought the land from the Montaukett for about 30 pounds' worth of coats, hatchets, knives and mirrors. Southold, on the North Fork, is a rival claimant to being Long Island's oldest English town."
+    },
+    {
+      "d": "medium",
+      "q": "In June 1942, four Nazi saboteurs landed from a U-boat on the beach at which hamlet?",
+      "o": [
+        "Amagansett",
+        "Montauk",
+        "Wainscott",
+        "Sag Harbor"
+      ],
+      "a": 0,
+      "w": "Amagansett. A young Coast Guardsman on foot patrol, John Cullen, met them on the beach in the fog and raised the alarm.",
+      "more": "They had buried explosives in the dunes and caught the morning train to Manhattan from Amagansett station. All four, and four more who landed in Florida, were arrested within two weeks after one of them turned himself in to the FBI. Six were executed that August."
+    },
+    {
+      "d": "medium",
+      "q": "Deep Hollow Ranch in Montauk claims to be the oldest what in the United States?",
+      "o": [
+        "Cattle ranch",
+        "Vineyard",
+        "Golf course",
+        "Oyster farm"
+      ],
+      "a": 0,
+      "w": "Cattle ranch, dating from 1658, when the settlers of East Hampton drove their herds out to graze on the Montauk peninsula.",
+      "more": "Theodore Roosevelt's Rough Riders camped nearby at Camp Wikoff in 1898, quarantined after the Spanish-American War. The ranch still runs trail rides on the same land. Montauk stayed common pasture for two centuries before it was sold off in 1879."
+    },
+    {
+      "d": "medium",
+      "q": "Hook Mill, the windmill at the north end of East Hampton village, was built in which year?",
+      "o": [
+        "1806",
+        "1748",
+        "1855",
+        "1901"
+      ],
+      "a": 0,
+      "w": "1806, by the millwright Nathaniel Dominy V. It is one of the best preserved windmills in the country.",
+      "more": "East Hampton has more surviving eighteenth- and nineteenth-century windmills than anywhere else in the United States, including the Gardiner and Pantigo mills. Hook Mill ground grain into the 1900s and was restored to working order in 1939. The village owns it and opens it in summer."
+    },
+    {
+      "d": "medium",
+      "q": "Which East Hampton newspaper has been published every week since 1885?",
+      "o": [
+        "The East Hampton Star",
+        "Dan's Papers",
+        "The Southampton Press",
+        "The Independent"
+      ],
+      "a": 0,
+      "w": "The East Hampton Star, still owned by the Rattray family, who bought it in 1935.",
+      "more": "Dan's Papers, the free summer weekly, was started by Dan Rattiner in 1960 and is famous for its April Fool's hoaxes. The Star's police blotter is required summer reading. Its offices are on Main Street in the village."
+    },
+    {
+      "d": "medium",
+      "q": "Families who have lived around Springs for generations are known by which nickname?",
+      "o": [
+        "Bonackers",
+        "Hamptonites",
+        "Montaukers",
+        "Baymen"
+      ],
+      "a": 0,
+      "w": "Bonackers, from Accabonac Harbor. The word is worn with pride by the old fishing and farming families.",
+      "more": "East Hampton High School's teams are the Bonackers, and the local accent, Bonac, is a rare survivor of seventeenth-century English speech. Baymen are the clammers and fishermen of the bays, many of them Bonackers too. The Springs General Store, where Pollock ran a tab, is still open."
+    },
+    {
+      "d": "hard",
+      "q": "Which former Beatle has owned a house in Amagansett for decades?",
+      "o": [
+        "Paul McCartney",
+        "Ringo Starr",
+        "George Harrison",
+        "John Lennon"
+      ],
+      "a": 0,
+      "w": "Paul McCartney, who is regularly spotted cycling around Amagansett and at the farm stands in summer.",
+      "more": "He married Nancy Shevell in 2011 and the couple spend part of every summer out here. Amagansett's other long-time residents have included the artist Adolph Gottlieb and the writer Kurt Vonnegut, who lived in Sagaponack. The hamlet's name means 'place of good water' in the Montaukett language."
+    },
+    {
+      "d": "hard",
+      "q": "In 2013 the coastal scientist known as Dr. Beach named which East Hampton beach the best in America?",
+      "o": [
+        "Main Beach",
+        "Ditch Plains",
+        "Indian Wells",
+        "Atlantic Avenue Beach"
+      ],
+      "a": 0,
+      "w": "Main Beach, at the foot of Ocean Avenue in the village, with its 1930s pavilion.",
+      "more": "Stephen Leatherman has published his top ten every year since 1991, and a beach is retired from the list once it wins. Coopers Beach in Southampton had won in 2010. Ditch Plains is the surfers' beach in Montauk, and Indian Wells and Atlantic Avenue are Amagansett's ocean beaches."
+    },
+    {
+      "d": "hard",
+      "type": "order",
+      "q": "Put these local milestones in order, earliest first.",
+      "o": [
+        "English settlers found East Hampton",
+        "The Montauk Point Lighthouse is lit",
+        "Hook Mill is built",
+        "The Long Island Rail Road reaches Montauk"
+      ],
+      "w": "Settlement in 1648, the lighthouse in 1797, Hook Mill in 1806, the railroad in 1895.",
+      "more": "The railroad reached East Hampton village a few months before Montauk. Austin Corbin, the railroad's president, wanted Montauk to become a deep-water port where ocean liners would dock to save a day's sailing to New York, and the plan died with him in 1896. Carl Fisher, who built Miami Beach, tried to make Montauk a resort in the 1920s and went bust in the crash of 1929."
+    },
+    {
+      "d": "hard",
+      "q": "True or false: the 1975 film Jaws was shot in the Hamptons.",
+      "o": [
+        "True",
+        "False"
+      ],
+      "a": 1,
+      "keepOrder": true,
+      "w": "False. Peter Benchley's novel set the town of Amity on Long Island, but Spielberg filmed on Martha's Vineyard in Massachusetts.",
+      "more": "Benchley was inspired partly by the Montauk shark fisherman Frank Mundus, who caught a 4,500-pound great white off Montauk in 1986, still the largest fish ever taken on rod and reel. Mundus is often cited as the model for Quint. Montauk still calls itself the shark-fishing capital of the world."
+    },
+    {
+      "d": "hard",
+      "type": "select",
+      "q": "Which of these are hamlets in the Town of East Hampton? Select all that apply.",
+      "o": [
+        "Amagansett",
+        "Wainscott",
+        "Sagaponack",
+        "Springs",
+        "Bridgehampton",
+        "Montauk"
+      ],
+      "a": [
+        0,
+        1,
+        3,
+        5
+      ],
+      "w": "Amagansett, Wainscott, Springs and Montauk. Sagaponack and Bridgehampton are in the Town of Southampton, just over the town line at Town Line Road.",
+      "more": "The Town of East Hampton also contains the incorporated Village of East Hampton, which has its own mayor, police and beach permits, and part of Sag Harbor village. Sagaponack incorporated as a village in 2005 and regularly tops lists of the most expensive zip codes in America. Wainscott is the smallest hamlet and still has a working one-room schoolhouse."
+    }
+  ]
+}
