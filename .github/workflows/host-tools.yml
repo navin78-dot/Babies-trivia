@@ -1,24 +1,35 @@
 name: Host tools
 
 # Things the host would otherwise do on the Host tab, runnable from here on demand.
-# Currently: set or clear a game's nightly-drop override. Uses FIREBASE_SERVICE_ACCOUNT.
+# Uses FIREBASE_SERVICE_ACCOUNT. Tools:
+#   override       set or clear a game's nightly-drop override (needs day and round)
+#   reset-catchup  show the one-time catch-up card again (needs who: "all" or the end of a uid)
 
 on:
   workflow_dispatch:
     inputs:
+      tool:
+        description: "Which tool"
+        required: true
+        type: choice
+        options: [override, reset-catchup]
+        default: override
       game:
         description: "Game id: babies or hamps"
         required: true
         default: hamps
       day:
-        description: "Poll day, YYYY-MM-DD New York time. The round drops at the midnight that ends this day."
-        required: true
+        description: "override: poll day, YYYY-MM-DD New York time. The round drops at the midnight that ends this day."
+        required: false
       round:
-        description: "Round id to drop, or 'clear' to remove the override"
-        required: true
+        description: "override: round id to drop, or 'clear' to remove the override"
+        required: false
+      who:
+        description: "reset-catchup: 'all' or the last characters of one player's uid"
+        required: false
 
 jobs:
-  override:
+  run:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -31,9 +42,13 @@ jobs:
         run: |
           if [ -z "$KEY" ]; then echo "::error::Repository secret FIREBASE_SERVICE_ACCOUNT is not set."; exit 1; fi
           printf '%s' "$KEY" > "$RUNNER_TEMP/service-account.json"
-      - name: Set the override
+      - name: Run the tool
         env:
           GOOGLE_APPLICATION_CREDENTIALS: ${{ runner.temp }}/service-account.json
         run: |
           npm install firebase-admin@^12 --no-save --no-audit --no-fund
-          node scripts/set-override.mjs "${{ inputs.game }}" "${{ inputs.day }}" "${{ inputs.round }}"
+          case "${{ inputs.tool }}" in
+            override) node scripts/set-override.mjs "${{ inputs.game }}" "${{ inputs.day }}" "${{ inputs.round }}" ;;
+            reset-catchup) node scripts/reset-catchup.mjs "${{ inputs.game }}" "${{ inputs.who }}" ;;
+            *) echo "::error::unknown tool"; exit 1 ;;
+          esac
