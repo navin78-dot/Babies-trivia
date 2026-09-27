@@ -1,0 +1,284 @@
+{
+  "id": "art-attack",
+  "name": "Art Attack",
+  "subject": "Art and artists",
+  "tagline": "Twenty questions from the cave walls to Banksy: painters, masterpieces and the stories behind them. Starts easy, ends hard.",
+  "draft": true,
+  "emblem": "🎨",
+  "theme": {
+    "font": "Playfair Display",
+    "accent": "#DB2777",
+    "accent2": "#2563EB",
+    "accentDark": "#F472B6",
+    "accent2Dark": "#60A5FA"
+  },
+  "questions": [
+    {
+      "d": "easy",
+      "q": "Who painted the Mona Lisa?",
+      "o": [
+        "Leonardo da Vinci",
+        "Michelangelo",
+        "Raphael",
+        "Titian"
+      ],
+      "a": 0,
+      "w": "Leonardo da Vinci, who worked on it from about 1503 and never handed it over to the man who ordered it.",
+      "more": "It was stolen from the Louvre in 1911 by a workman, Vincenzo Peruggia, and missing for two years, which made it far more famous. It hangs behind bulletproof glass and is surprisingly small, about 77 by 53 centimetres. The sitter is thought to be Lisa Gherardini, a Florentine merchant's wife."
+    },
+    {
+      "d": "easy",
+      "q": "Which Dutch painter cut off part of his own ear in 1888?",
+      "o": [
+        "Vincent van Gogh",
+        "Rembrandt",
+        "Johannes Vermeer",
+        "Piet Mondrian"
+      ],
+      "a": 0,
+      "w": "Vincent van Gogh, after an argument with Paul Gauguin in Arles.",
+      "more": "He sold very few paintings in his lifetime, and died aged 37. His brother Theo supported him for years, and their hundreds of letters survive. The Starry Night was painted from memory in the asylum at Saint-Rémy in 1889."
+    },
+    {
+      "d": "easy",
+      "q": "Who painted the ceiling of the Sistine Chapel?",
+      "o": [
+        "Michelangelo",
+        "Leonardo da Vinci",
+        "Botticelli",
+        "Caravaggio"
+      ],
+      "a": 0,
+      "w": "Michelangelo, between 1508 and 1512, for Pope Julius II.",
+      "more": "He painted standing on scaffolding and bending backwards, not lying down as the legend says, and wrote a comic poem about how it wrecked his neck. He thought of himself as a sculptor, not a painter. The Last Judgment on the altar wall came more than twenty years later."
+    },
+    {
+      "d": "easy",
+      "q": "Which artist is famous for paintings of soup cans and Marilyn Monroe?",
+      "o": [
+        "Andy Warhol",
+        "Roy Lichtenstein",
+        "Keith Haring",
+        "Jasper Johns"
+      ],
+      "a": 0,
+      "w": "Andy Warhol, who showed 32 Campbell's Soup Cans in 1962, one for each flavour.",
+      "more": "His studio was called the Factory. He predicted that in the future everyone would be world-famous for fifteen minutes. His Shot Sage Blue Marilyn sold for 195 million dollars in 2022, the most ever paid for an American artwork at auction."
+    },
+    {
+      "d": "easy",
+      "q": "What is the name of the anonymous British street artist behind Girl with Balloon?",
+      "o": [
+        "Banksy",
+        "Invader",
+        "Shepard Fairey",
+        "Stik"
+      ],
+      "a": 0,
+      "w": "Banksy, who has kept his identity hidden since the 1990s.",
+      "more": "In 2018 a framed Girl with Balloon shredded itself moments after selling for about a million pounds at Sotheby's; renamed Love is in the Bin, it sold again in 2021 for about 18.6 million. His work started in Bristol. Shepard Fairey made the Obama Hope poster."
+    },
+    {
+      "d": "easy",
+      "q": "Which Spanish artist co-founded Cubism and painted Guernica?",
+      "o": [
+        "Pablo Picasso",
+        "Salvador Dalí",
+        "Joan Miró",
+        "Diego Velázquez"
+      ],
+      "a": 0,
+      "w": "Pablo Picasso. Guernica, painted in 1937, shows the bombing of a Basque town during the Spanish Civil War.",
+      "more": "When a German officer in occupied Paris saw a photo of it and asked 'Did you do this?', Picasso is said to have replied 'No, you did.' He made around fifty thousand works. His full name had about twenty parts."
+    },
+    {
+      "d": "easy",
+      "q": "Which surrealist painted the melting clocks of The Persistence of Memory?",
+      "o": [
+        "Salvador Dalí",
+        "René Magritte",
+        "Max Ernst",
+        "Frida Kahlo"
+      ],
+      "a": 0,
+      "w": "Salvador Dalí, in 1931. It hangs in the Museum of Modern Art in New York and is only about 24 by 33 centimetres.",
+      "more": "He said the clocks were inspired by a runny Camembert. His moustache was famous in its own right, and he designed the Chupa Chups logo. Magritte painted the pipe captioned 'This is not a pipe'."
+    },
+    {
+      "d": "medium",
+      "q": "In which city would you find the Prado museum?",
+      "o": [
+        "Madrid",
+        "Barcelona",
+        "Lisbon",
+        "Seville"
+      ],
+      "a": 0,
+      "w": "Madrid. It opened in 1819 and holds the greatest collections of Velázquez and Goya.",
+      "more": "Velázquez's Las Meninas, perhaps its most famous painting, shows the artist himself at work. Goya's late Black Paintings were peeled from the walls of his house and moved to canvas. Barcelona has the Picasso Museum."
+    },
+    {
+      "d": "medium",
+      "q": "Which Mexican painter is known for her self-portraits and unibrow, and married Diego Rivera?",
+      "o": [
+        "Frida Kahlo",
+        "Remedios Varo",
+        "Leonora Carrington",
+        "María Izquierdo"
+      ],
+      "a": 0,
+      "w": "Frida Kahlo. About a third of her roughly two hundred paintings are self-portraits.",
+      "more": "A bus crash at eighteen left her in lifelong pain, and she began painting while bedridden, using a mirror above her bed. She married Rivera twice. Her Blue House in Coyoacán, Mexico City, is now a museum."
+    },
+    {
+      "d": "medium",
+      "q": "Claude Monet's painting Impression, Sunrise gave its name to which movement?",
+      "o": [
+        "Impressionism",
+        "Expressionism",
+        "Pointillism",
+        "Fauvism"
+      ],
+      "a": 0,
+      "w": "Impressionism. A critic used the title mockingly in 1874 and the painters adopted it.",
+      "more": "Monet painted the harbour at Le Havre in 1872. He later made around 250 paintings of the water lilies in his garden at Giverny. His eyesight was failing with cataracts as he painted the late ones."
+    },
+    {
+      "d": "medium",
+      "q": "Which Dutch artist painted Girl with a Pearl Earring?",
+      "o": [
+        "Johannes Vermeer",
+        "Rembrandt",
+        "Frans Hals",
+        "Jan Steen"
+      ],
+      "a": 0,
+      "w": "Johannes Vermeer, around 1665. It hangs in the Mauritshuis in The Hague.",
+      "more": "It is not a portrait of a real sitter but a 'tronie', a study of a type of face. Only about 34 paintings are firmly attributed to Vermeer. The 2003 film starred Scarlett Johansson."
+    },
+    {
+      "d": "medium",
+      "q": "Which artist made the sculpture The Thinker?",
+      "o": [
+        "Auguste Rodin",
+        "Michelangelo",
+        "Donatello",
+        "Constantin Brâncuși"
+      ],
+      "a": 0,
+      "w": "Auguste Rodin. It began as a figure of the poet Dante sitting above the Gates of Hell.",
+      "more": "More than twenty full-size casts exist around the world. Rodin was rejected by the École des Beaux-Arts in Paris three times. The Kiss, from the same doors, became another of his best-known pieces."
+    },
+    {
+      "d": "medium",
+      "q": "Which painter's Water Lilies murals fill two oval rooms in the Musée de l'Orangerie in Paris?",
+      "o": [
+        "Claude Monet",
+        "Pierre-Auguste Renoir",
+        "Édouard Manet",
+        "Paul Cézanne"
+      ],
+      "a": 0,
+      "w": "Claude Monet, who gave them to France the day after the armistice of 1918 as a monument to peace.",
+      "more": "They were installed in 1927, a few months after his death. The eight panels are about two metres tall and together nearly a hundred metres long. The rooms are lit by daylight, as he wanted."
+    },
+    {
+      "d": "medium",
+      "q": "Which Norwegian painted The Scream?",
+      "o": [
+        "Edvard Munch",
+        "Gustav Klimt",
+        "Egon Schiele",
+        "Wassily Kandinsky"
+      ],
+      "a": 0,
+      "w": "Edvard Munch, who made four versions between 1893 and 1910.",
+      "more": "He said it came from a walk at sunset when he 'felt an infinite scream passing through nature'. Two versions have been stolen from Oslo museums and both were recovered. A pastel version sold for about 120 million dollars in 2012."
+    },
+    {
+      "d": "hard",
+      "q": "Which painting holds the record as the most expensive ever sold at auction?",
+      "o": [
+        "Salvator Mundi, attributed to Leonardo da Vinci",
+        "Interchange by Willem de Kooning",
+        "Les Femmes d'Alger by Picasso",
+        "The Card Players by Cézanne"
+      ],
+      "a": 0,
+      "w": "Salvator Mundi, which sold at Christie's in 2017 for 450.3 million dollars.",
+      "more": "It had sold in 1958 for 45 pounds when it was thought to be by a follower. The buyer is widely reported to be Saudi Crown Prince Mohammed bin Salman, and it has not been shown publicly since. Some experts still doubt how much of it Leonardo painted."
+    },
+    {
+      "d": "hard",
+      "type": "order",
+      "q": "Put these works in order, earliest first.",
+      "o": [
+        "The Birth of Venus",
+        "The Night Watch",
+        "The Starry Night",
+        "Campbell's Soup Cans"
+      ],
+      "w": "The Birth of Venus (about 1485), The Night Watch (1642), The Starry Night (1889), Campbell's Soup Cans (1962).",
+      "more": "Botticelli's Venus is in the Uffizi in Florence. Rembrandt's Night Watch was trimmed on all sides in 1715 to fit a wall in Amsterdam's town hall, and the lost strips were recreated using AI in 2021. The Night Watch is not a night scene; it was darkened by layers of varnish."
+    },
+    {
+      "d": "hard",
+      "q": "Which artist was known for sticking a urinal on a plinth and calling it Fountain in 1917?",
+      "o": [
+        "Marcel Duchamp",
+        "Man Ray",
+        "Francis Picabia",
+        "Jean Arp"
+      ],
+      "a": 0,
+      "w": "Marcel Duchamp, who signed it 'R. Mutt'. The original was lost, and the ones in museums are replicas made in the 1960s.",
+      "more": "It was rejected from an exhibition that claimed to accept any work by anyone who paid the fee. In 2004 five hundred art experts voted it the most influential modern artwork. Duchamp later gave up art for years to play competitive chess."
+    },
+    {
+      "d": "hard",
+      "q": "In which city is the Rijksmuseum?",
+      "o": [
+        "Amsterdam",
+        "Rotterdam",
+        "Brussels",
+        "Antwerp"
+      ],
+      "a": 0,
+      "w": "Amsterdam. It holds Rembrandt's Night Watch and four Vermeers.",
+      "more": "The building opened in 1885, designed by Pierre Cuypers, who also designed Amsterdam Central Station. A cycle path runs straight through the middle of it. It reopened in 2013 after a ten-year renovation."
+    },
+    {
+      "d": "hard",
+      "q": "True or false: Vincent van Gogh sold only a handful of paintings during his lifetime.",
+      "o": [
+        "True",
+        "False"
+      ],
+      "a": 0,
+      "keepOrder": true,
+      "w": "True. The Red Vineyard is the only sale that is firmly documented, in Brussels in 1890, though a few others probably changed hands.",
+      "more": "He painted about 860 oil paintings, most in his last two years. His sister-in-law Jo van Gogh-Bonger built his reputation after his death by lending and selling works and publishing his letters. The Van Gogh Museum in Amsterdam opened in 1973."
+    },
+    {
+      "d": "hard",
+      "type": "select",
+      "q": "Which of these were French Impressionists? Select all that apply.",
+      "o": [
+        "Edgar Degas",
+        "Camille Pissarro",
+        "Gustav Klimt",
+        "Berthe Morisot",
+        "Paul Klee",
+        "Alfred Sisley"
+      ],
+      "a": [
+        0,
+        1,
+        3,
+        5
+      ],
+      "w": "Degas, Pissarro, Morisot and Sisley. Klimt was an Austrian Symbolist and Klee a Swiss-German modernist.",
+      "more": "Pissarro was the only artist to show in all eight Impressionist exhibitions, from 1874 to 1886. Morisot married Édouard Manet's brother Eugène. Sisley was actually British by nationality, born in Paris to English parents."
+    }
+  ]
+}

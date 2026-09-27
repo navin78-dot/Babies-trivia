@@ -1,0 +1,284 @@
+{
+  "id": "bright-ideas",
+  "name": "Bright Ideas",
+  "subject": "Inventions",
+  "tagline": "Twenty questions on who made what, from the light bulb to the Post-it note. Starts easy, ends hard.",
+  "draft": true,
+  "emblem": "💡",
+  "theme": {
+    "font": "Chivo",
+    "accent": "#F59E0B",
+    "accent2": "#0EA5E9",
+    "accentDark": "#FBBF24",
+    "accent2Dark": "#38BDF8"
+  },
+  "questions": [
+    {
+      "d": "easy",
+      "q": "Who is credited with inventing the telephone in 1876?",
+      "o": [
+        "Alexander Graham Bell",
+        "Thomas Edison",
+        "Nikola Tesla",
+        "Guglielmo Marconi"
+      ],
+      "a": 0,
+      "w": "Alexander Graham Bell, who filed his patent on the same day as a rival, Elisha Gray.",
+      "more": "Bell's first words down the line were 'Mr Watson, come here, I want to see you,' to his assistant in the next room. He thought 'ahoy' should be the standard greeting; Edison pushed 'hello'. Bell refused to have a phone in his study because it interrupted his work."
+    },
+    {
+      "d": "easy",
+      "q": "In 1873 Levi Strauss and Jacob Davis patented the metal rivet for which piece of clothing?",
+      "o": [
+        "Denim jeans",
+        "Leather boots",
+        "Work braces",
+        "Canvas aprons"
+      ],
+      "a": 0,
+      "w": "Denim jeans. Davis, a tailor in Reno, Nevada, riveted the pocket corners so miners' trousers would stop tearing, and Strauss, his fabric supplier, paid for the patent.",
+      "more": "The oldest known pair of Levi's, from around the 1870s, was found in a Nevada mine and bought by the company for about 46,000 dollars in 2001. The small fifth pocket was made for a pocket watch. Levi Strauss never married, and left most of his fortune to his nephews and to charities in San Francisco."
+    },
+    {
+      "d": "easy",
+      "q": "Which item did Spencer Silver's weak glue at 3M lead to in 1980?",
+      "o": [
+        "The Post-it note",
+        "Sticky tape",
+        "The glue stick",
+        "Velcro"
+      ],
+      "a": 0,
+      "w": "The Post-it note. Silver made the low-tack glue in 1968; his colleague Art Fry used it to keep bookmarks in his church hymn book.",
+      "more": "The canary yellow came from the scrap paper the lab happened to have to hand. 3M first tested the product as Press 'n Peel in 1977, and it flopped. After free samples were handed out in Boise, Idaho, nine in ten people who tried it said they would buy it."
+    },
+    {
+      "d": "easy",
+      "q": "Who invented the World Wide Web in 1989?",
+      "o": [
+        "Tim Berners-Lee",
+        "Bill Gates",
+        "Steve Jobs",
+        "Vint Cerf"
+      ],
+      "a": 0,
+      "w": "Tim Berners-Lee, a British scientist at CERN in Switzerland, who proposed it as a way to share research documents.",
+      "more": "His boss wrote 'vague but exciting' on the proposal. The first website went live in 1991 and explained what the web was. Vint Cerf co-designed the internet's underlying protocols; the web is one service that runs on top of the internet."
+    },
+    {
+      "d": "easy",
+      "q": "What did Johannes Gutenberg invent in Mainz around 1440?",
+      "o": [
+        "A movable-type printing press",
+        "The pencil",
+        "Paper",
+        "The telescope"
+      ],
+      "a": 0,
+      "w": "A printing press with movable metal type, which made books cheap enough to spread across Europe.",
+      "more": "His best-known work, the Gutenberg Bible, was printed around 1455; about 49 copies survive. Paper had come from China centuries earlier, and the Chinese had used movable type too, first in clay. Gutenberg lost his workshop to his financial backer in a lawsuit."
+    },
+    {
+      "d": "easy",
+      "q": "Velcro was inspired by what, which stuck to an engineer's dog after a walk?",
+      "o": [
+        "Burrs",
+        "Thistles",
+        "Pine needles",
+        "Moss"
+      ],
+      "a": 0,
+      "w": "Burrs. The Swiss engineer George de Mestral looked at them under a microscope in 1941 and saw tiny hooks.",
+      "more": "The name joins the French velours, velvet, and crochet, hook. NASA used it heavily in the Apollo programme, which is where many people first saw it. The company still asks people not to use 'velcro' as a general word, to protect its trademark."
+    },
+    {
+      "d": "easy",
+      "q": "Which device did Percy Spencer invent after a chocolate bar melted in his pocket near a radar set?",
+      "o": [
+        "The microwave oven",
+        "The toaster",
+        "The electric kettle",
+        "The freezer"
+      ],
+      "a": 0,
+      "w": "The microwave oven. Spencer, a Raytheon engineer, noticed the melted chocolate in 1945 and tried popcorn next.",
+      "more": "The first one, the Radarange of 1947, stood nearly six feet tall and weighed about 340 kilograms. Countertop models arrived in the late 1960s. Spencer had left school at twelve and taught himself electronics."
+    },
+    {
+      "d": "medium",
+      "q": "Who is usually credited with the first practical long-lasting light bulb, in 1879?",
+      "o": [
+        "Thomas Edison",
+        "Nikola Tesla",
+        "Joseph Swan",
+        "Michael Faraday"
+      ],
+      "a": 0,
+      "w": "Thomas Edison, whose carbon-filament bulb lasted over thirteen hours in its first test. Joseph Swan was demonstrating his own bulb in England at the same time.",
+      "more": "The two men settled their patent fight by forming a joint company, Ediswan. Edison's team tested thousands of materials for the filament, and carbonised bamboo worked best. His lab at Menlo Park, New Jersey, was the first built purely for inventing."
+    },
+    {
+      "d": "medium",
+      "q": "The ballpoint pen is called a 'biro' in much of the world after its inventor. Which country was László Bíró from?",
+      "o": [
+        "Hungary",
+        "Poland",
+        "Austria",
+        "Czechoslovakia"
+      ],
+      "a": 0,
+      "w": "Hungary. He patented it in 1938 and later fled to Argentina, where the pen was first sold.",
+      "more": "Bíró was a journalist who noticed that newspaper ink dried quickly without smudging but was too thick for a fountain pen. The British Royal Air Force bought his pens because they did not leak at altitude. Bic bought the patent, and it has sold more than a hundred billion pens."
+    },
+    {
+      "d": "medium",
+      "q": "In 1928, who demonstrated the first colour television transmission?",
+      "o": [
+        "John Logie Baird",
+        "Philo Farnsworth",
+        "Vladimir Zworykin",
+        "Guglielmo Marconi"
+      ],
+      "a": 0,
+      "w": "John Logie Baird, the Scottish inventor who had shown the first working mechanical television in London in 1926.",
+      "more": "His first moving image was a ventriloquist's dummy called Stooky Bill, because the lights were too hot for a person. Philo Farnsworth came up with electronic television as a farm boy looking at the lines of a ploughed field. Baird's mechanical system lost out to electronic sets in the 1930s."
+    },
+    {
+      "d": "medium",
+      "q": "Which inventor was also a Hollywood film star and co-patented a frequency-hopping radio system in 1942?",
+      "o": [
+        "Hedy Lamarr",
+        "Greta Garbo",
+        "Marlene Dietrich",
+        "Rita Hayworth"
+      ],
+      "a": 0,
+      "w": "Hedy Lamarr, with the composer George Antheil, meant to stop torpedo guidance signals being jammed.",
+      "more": "The US Navy did not use it during the war. Similar spread-spectrum ideas later underpinned wifi, Bluetooth and GPS. She was honoured by the Electronic Frontier Foundation in 1997 and inducted into the National Inventors Hall of Fame in 2014."
+    },
+    {
+      "d": "medium",
+      "q": "Which country gave the world the first telephone-style cash machine, or ATM, in 1967?",
+      "o": [
+        "The United Kingdom",
+        "The United States",
+        "Japan",
+        "Sweden"
+      ],
+      "a": 0,
+      "w": "The United Kingdom. The first one opened at a Barclays branch in Enfield, north London, in June 1967.",
+      "more": "Its inventor, John Shepherd-Barron, first wanted a six-digit PIN but chose four because his wife could only remember four. The machine took paper vouchers treated with a mildly radioactive compound, not cards. The actor Reg Varney made the first withdrawal."
+    },
+    {
+      "d": "medium",
+      "q": "The first commercially successful car to be built on a moving assembly line was which?",
+      "o": [
+        "The Ford Model T",
+        "The Volkswagen Beetle",
+        "The Austin Seven",
+        "The Oldsmobile Curved Dash"
+      ],
+      "a": 0,
+      "w": "The Ford Model T. Ford's moving line of 1913 cut the time to build one from about twelve hours to about ninety minutes.",
+      "more": "The price fell from 850 dollars in 1908 to under 300 in the 1920s, and more than fifteen million were made. The saying 'any colour so long as it's black' came about because black paint dried fastest. Ford doubled wages to five dollars a day in 1914 to stop workers leaving."
+    },
+    {
+      "d": "medium",
+      "q": "Which Scottish inventor made the first pneumatic bicycle tyre practical in 1888, for his son's tricycle?",
+      "o": [
+        "John Boyd Dunlop",
+        "Charles Goodyear",
+        "Robert Thomson",
+        "Kirkpatrick Macmillan"
+      ],
+      "a": 0,
+      "w": "John Boyd Dunlop, a vet in Belfast, who wanted his son's rides over cobbles to be less bumpy.",
+      "more": "Robert Thomson had actually patented an air-filled tyre in 1845, but it never caught on and Dunlop did not know about it. Charles Goodyear discovered how to vulcanise rubber in 1839. The Dunlop company became one of the biggest tyre makers in the world."
+    },
+    {
+      "d": "hard",
+      "q": "Who invented the jet engine, patenting his design in 1930?",
+      "o": [
+        "Frank Whittle",
+        "Hans von Ohain",
+        "Igor Sikorsky",
+        "Wernher von Braun"
+      ],
+      "a": 0,
+      "w": "Frank Whittle, a young Royal Air Force officer. Hans von Ohain built a working engine independently in Germany, and a German jet flew first, in 1939.",
+      "more": "Whittle could not afford the five pounds to renew his patent in 1935 and let it lapse. The first British jet, the Gloster E.28/39, flew in 1941. The two inventors met after the war and became friends."
+    },
+    {
+      "d": "hard",
+      "type": "order",
+      "q": "Put these inventions in order, earliest first.",
+      "o": [
+        "The steam engine of Thomas Newcomen",
+        "The electric battery",
+        "The telephone",
+        "The transistor"
+      ],
+      "w": "Newcomen's engine (1712), Volta's battery (1800), the telephone (1876), the transistor (1947).",
+      "more": "Newcomen's engine pumped water out of mines; James Watt's improvements came in the 1760s. Alessandro Volta's 'pile' of zinc and copper discs gave us the word volt. The transistor was built at Bell Labs and earned its three inventors the 1956 Nobel Prize in Physics."
+    },
+    {
+      "d": "hard",
+      "q": "Which kitchen gadget was invented by Charles Strite in 1919 because the toast in his factory canteen kept burning?",
+      "o": [
+        "The pop-up toaster",
+        "The electric whisk",
+        "The blender",
+        "The dishwasher"
+      ],
+      "a": 0,
+      "w": "The pop-up toaster, with a timer that switched off the heat and a spring that pushed the bread out.",
+      "more": "The Toastmaster reached homes in 1926. Sliced bread was first sold in 1928 in Chillicothe, Missouri, which is where the phrase 'the best thing since sliced bread' comes from. The dishwasher was invented by Josephine Cochrane in 1886."
+    },
+    {
+      "d": "hard",
+      "q": "Which Swedish chemist invented dynamite and left his fortune to found a set of prizes?",
+      "o": [
+        "Alfred Nobel",
+        "Anders Celsius",
+        "Carl Linnaeus",
+        "Jöns Jacob Berzelius"
+      ],
+      "a": 0,
+      "w": "Alfred Nobel, who patented dynamite in 1867.",
+      "more": "When his brother Ludvig died in 1888, a French newspaper mistakenly ran Alfred's obituary under the headline 'The merchant of death is dead', which is said to have pushed him to change his legacy. The first Nobel Prizes were given in 1901. He held 355 patents."
+    },
+    {
+      "d": "hard",
+      "q": "True or false: the Frisbee takes its name from a pie company in Connecticut.",
+      "o": [
+        "True",
+        "False"
+      ],
+      "a": 0,
+      "keepOrder": true,
+      "w": "True. Students at Yale tossed empty tins from the Frisbie Pie Company, and Wham-O renamed its Pluto Platter to match in 1958.",
+      "more": "The plastic flying disc was designed by Walter Morrison, who first sold it on a beach in California. Wham-O also made the hula hoop, launched the same year. Morrison's ashes were made into commemorative Frisbees after his death in 2010."
+    },
+    {
+      "d": "hard",
+      "type": "select",
+      "q": "Which of these were invented by women? Select all that apply.",
+      "o": [
+        "The windscreen wiper",
+        "Kevlar",
+        "The dishwasher",
+        "The telescope",
+        "Monopoly's forerunner, The Landlord's Game",
+        "The phonograph"
+      ],
+      "a": [
+        0,
+        1,
+        2,
+        4
+      ],
+      "w": "The windscreen wiper (Mary Anderson, 1903), Kevlar (Stephanie Kwolek, 1965), the dishwasher (Josephine Cochrane, 1886) and The Landlord's Game (Lizzie Magie, 1904). The telescope came from Dutch spectacle makers and the phonograph from Edison.",
+      "more": "Mary Anderson came up with the wiper after watching a New York tram driver lean out of his window in sleet. Kwolek's fibre is five times stronger than steel by weight and is used in bulletproof vests. Cochrane was a wealthy hostess who wanted her servants to stop chipping her china."
+    }
+  ]
+}
