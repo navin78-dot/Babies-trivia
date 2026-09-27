@@ -145,7 +145,7 @@ a.btn{text-decoration:none}
 .section h3{margin:0;color:var(--cream2)}
 .section h3::before{content:"";display:inline-block;width:18px;height:3px;border-radius:2px;background:linear-gradient(90deg,var(--glow),var(--glow2));margin-right:9px;vertical-align:middle}
 .section .note{margin:0}
-.savebar{display:flex;align-items:center;gap:12px;width:100%;text-align:left;padding:10px 12px;border-radius:16px;margin-bottom:14px;background:linear-gradient(120deg,rgba(255,255,255,.1),rgba(255,255,255,.05));border:1px solid rgba(255,255,255,.14);color:var(--cream);cursor:pointer;font:inherit}.savebar img{width:40px;height:40px;border-radius:10px;flex:none;box-shadow:0 4px 12px rgba(0,0,0,.35)}.savebar span{flex:1;font-size:13px;line-height:1.3;color:var(--cream2)}.savebar span b{display:block;font-size:15px;color:var(--cream)}.savebar i{font-style:normal;flex:none}
+.savebar{display:flex;align-items:center;gap:14px;width:100%;text-align:left;padding:14px;border-radius:18px;margin-bottom:14px;position:relative;overflow:hidden;isolation:isolate;background:linear-gradient(120deg,color-mix(in srgb,var(--glow) 26%, var(--stage2)),color-mix(in srgb,var(--glow2) 22%, var(--stage2)));border:1px solid color-mix(in srgb,var(--glow) 55%, transparent);box-shadow:0 10px 30px color-mix(in srgb,var(--glow) 18%, transparent);color:var(--cream);cursor:pointer;font:inherit}.savebar img{width:52px;height:52px;border-radius:13px;flex:none;box-shadow:0 6px 16px rgba(0,0,0,.4)}.savebar span{flex:1;font-size:13.5px;line-height:1.3;color:var(--cream2)}.savebar span b{display:block;font-family:var(--site);font-size:19px;letter-spacing:-.01em;color:var(--cream);margin-bottom:2px}.savebar i{font-style:normal;flex:none;padding:11px 18px}.savebar::after{content:"";position:absolute;inset:0;background:linear-gradient(100deg,transparent 30%,rgba(255,255,255,.28) 50%,transparent 70%);transform:translateX(-120%);pointer-events:none;z-index:1}.savebar.pulse{animation:sbGlow 1.25s ease-in-out 4 both;animation-delay:var(--pulse-start,0ms)}.savebar.pulse::after{animation:sbShine 1.25s ease-in-out 4 both;animation-delay:var(--pulse-start,0ms)}.savebar.pulse i{animation:sbNudge 1.25s ease-in-out 4 both;animation-delay:var(--pulse-start,0ms)}@keyframes sbGlow{0%,100%{box-shadow:0 10px 30px color-mix(in srgb,var(--glow) 18%, transparent);border-color:color-mix(in srgb,var(--glow) 55%, transparent)}50%{box-shadow:0 0 0 6px color-mix(in srgb,var(--glow) 28%, transparent),0 14px 40px color-mix(in srgb,var(--glow) 45%, transparent);border-color:var(--glow)}}@keyframes sbShine{0%,20%{transform:translateX(-120%)}70%,100%{transform:translateX(120%)}}@keyframes sbNudge{0%,100%{transform:scale(1)}50%{transform:scale(1.1)}}
 .banner{padding:13px 16px;border-radius:14px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.1);font-size:14px;margin-bottom:14px;color:var(--cream)}
 .banner.ann{background:linear-gradient(120deg,color-mix(in srgb,var(--glow) 28%, var(--stage2)),color-mix(in srgb,var(--glow2) 24%, var(--stage2)));border-color:color-mix(in srgb,var(--glow) 45%, transparent);font-weight:800;box-shadow:0 10px 30px color-mix(in srgb,var(--glow) 18%, transparent)}
 .banner.err{background:color-mix(in srgb,var(--bad) 22%, var(--stage2));border-color:var(--bad)}
@@ -2161,7 +2161,7 @@ function renderLobby(){
     <button class="tab" role="tab" aria-selected="${lobbyTab === "learn"}" data-ltab="learn">Learn</button>
     <button class="tab" role="tab" aria-selected="${lobbyTab === "me"}" data-ltab="me">Me</button>
   </div>`;
-  const wire = () => { wirePending();
+  const wire = () => { wirePending(); setTimeout(startSavePulse, 60);
     document.querySelectorAll("[data-ltab]").forEach(b => b.onclick = () => { sfx("click"); if (b.dataset.ltab !== "chat") S.chatSeenMark = null; lobbyTab = b.dataset.ltab; renderLobby(); window.scrollTo({ top: 0 }); });
     const sel = document.querySelector("#view .tabs .tab[aria-selected='true']");
     if (sel && sel.scrollIntoView) { try { sel.scrollIntoView({ block: "nearest", inline: "nearest" }); } catch (e) {} }
@@ -3187,7 +3187,7 @@ function maybeCrown(){
     <p class="crline">${mine ? `You won Season ${w.n} with ${fmtScore(w.score)} points.` : `Won Season ${w.n} with ${fmtScore(w.score)} points over ${w.rounds} round${w.rounds === 1 ? "" : "s"}.`} Season ${w.n + 1} starts now.</p>
     <p class="crtap">Tap to continue</p></div>`;
   document.body.appendChild(el);
-  let gone = false; const close = () => { if (gone) return; gone = true; el.classList.add("out"); setTimeout(() => el.remove(), 650); };
+  let gone = false; const close = () => { if (gone) return; gone = true; el.classList.add("out"); setTimeout(() => { el.remove(); startSavePulse(); }, 650); };
   el.onclick = close; setTimeout(close, 5600);
   setTimeout(() => { if (gone) return; const c = el.querySelector(".crown"), r = c && c.getBoundingClientRect(); sfx("fanfare"); if (r) confetti({ x: r.left + r.width / 2, y: r.top + r.height, n: 90, power: 1.1 }); }, 1450);
 }
@@ -3195,13 +3195,25 @@ function maybeCrown(){
    any phone, so this is the next best thing: one tap opens the exact two steps for the phone
    in hand, and the icon and name that land on the home screen are set in the page head. */
 const isIOS = () => /iPhone|iPad|iPod/.test(navigator.userAgent) || (navigator.platform === "MacIntel" && navigator.maxTouchPoints > 1);
+const isIPad = () => /iPad/.test(navigator.userAgent) || (navigator.platform === "MacIntel" && navigator.maxTouchPoints > 1); // iPadOS Safari calls itself a Mac
 const isAndroid = () => /Android/.test(navigator.userAgent);
 const onHomeScreen = () => window.navigator.standalone === true || (window.matchMedia && window.matchMedia("(display-mode: standalone)").matches);
 const ICON_180 = () => (document.querySelector('link[rel="apple-touch-icon"]') || {}).href || "";
-/* The save-this-site bar at the top of the home page, for anyone not already opening the site from its icon. */
+/* The save-this-site bar at the top of the home page, for anyone not already opening the site
+   from its icon. The first time it is actually in view (no crowning or card over it), it pulses
+   for five seconds to catch the eye; re-renders during those seconds pick the animation up where
+   it was, and it never runs again in that visit. */
+let savePulseAt = null;
+function startSavePulse(){
+  if (savePulseAt != null || onHomeScreen() || round || !me || document.querySelector(".crowning, .catchup") || !scoresReady || !roundsReady || !votesReady || !siteReady || !profilesReady) return;
+  if ((SETTINGS.catchupNote || SETTINGS.homeScreenNote) && !catchupDone) return; // the one-time card has not decided yet; it calls back when it has
+  savePulseAt = Date.now(); if (!round && lobbyTab === "rounds" && !reducedMotion()) renderLobby();
+}
 function saveBarHtml(){
   if (onHomeScreen()) return "";
-  return `<button class="savebar" data-homescreen aria-label="Save this site to your home screen"><img src="${esc(ICON_180())}" alt=""><span><b>Save this site</b>to your home screen, one tap to open</span><i class="btn small">Save</i></button>`;
+  const gone = savePulseAt == null ? null : Date.now() - savePulseAt;
+  const pulse = gone != null && gone < 5000 && !reducedMotion() ? ` pulse" style="--pulse-start:-${gone}ms` : "";
+  return `<button class="savebar${pulse}" data-homescreen aria-label="Save this site to your home screen"><img src="${esc(ICON_180())}" alt=""><span><b>Save this site</b>to your home screen. One tap to open, and you'll see when a round drops.</span><i class="btn">Save</i></button>`;
 }
 function homeScreenCardHtml(){
   if (onHomeScreen()) return `<div class="section"><h3>On your home screen</h3><span class="note">You're opening this from the icon already</span></div>`;
@@ -3214,11 +3226,11 @@ function openHomeScreenSheet(){
   const dots = `<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><circle cx="12" cy="5" r="2"/><circle cx="12" cy="12" r="2"/><circle cx="12" cy="19" r="2"/></svg>`;
   const plus = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="4"/><path d="M12 8v8M8 12h8"/></svg>`;
   const steps = isIOS()
-    ? [`Tap the <b style="all:unset;font-weight:800">Share</b> button ${share} at the bottom of Safari (top right on an iPad).`, `Scroll down the list and tap <b style="all:unset;font-weight:800">Add to Home Screen</b> ${plus}.`, `Tap <b style="all:unset;font-weight:800">Add</b>. That's it.`]
+    ? [`Tap the <b style="all:unset;font-weight:800">Share</b> button ${share} ${isIPad() ? "at the top right of Safari" : "at the bottom of Safari"}.`, `Scroll down the list and tap <b style="all:unset;font-weight:800">Add to Home Screen</b> ${plus}.`, `Tap <b style="all:unset;font-weight:800">Add</b>. That's it.`]
     : isAndroid()
     ? [`Tap the ${dots} menu in the top right corner of Chrome.`, `Tap <b style="all:unset;font-weight:800">Add to Home screen</b> (or <b style="all:unset;font-weight:800">Install app</b>).`, `Tap <b style="all:unset;font-weight:800">Add</b>. That's it.`]
     : [`Press <b style="all:unset;font-weight:800">${/Mac/.test(navigator.platform) ? "⌘ D" : "Ctrl D"}</b> to bookmark this page.`, `Or drag the address bar's icon to your bookmarks bar.`, `On your phone, open this same page and tap Save it for the home-screen steps.`];
-  const who = isIOS() ? "iPhone" : isAndroid() ? "Android phone" : "computer";
+  const who = isIPad() ? "iPad" : isIOS() ? "iPhone" : isAndroid() ? "Android phone" : "computer";
   const el = document.createElement("div"); el.className = "hsheet"; el.setAttribute("role", "dialog"); el.setAttribute("aria-label", "Save to your home screen");
   el.innerHTML = `<div class="hbox"><h2>Save it to your home screen</h2><p class="hsub">Phones don't let a website do this for you, so it's ${steps.length === 3 ? "three" : "a few"} taps on your ${who}.</p>
     <div class="hicon"><img src="${esc(ICON_180())}" alt=""><span>This is the icon you'll get, named <b>${esc(GAME.name)}</b>.</span></div>
@@ -3238,14 +3250,15 @@ document.addEventListener("click", e => { const b = e.target.closest && e.target
    tap on the dark backdrop closes it for now and it comes back next visit, and backdrop taps in
    the first moment after it appears are ignored, so a tap already in flight cannot dismiss it.
    Waits for the crowning, if there is one, to finish. */
-let catchupDone = false;
+let catchupDone = false, catchupAfterCrown = false;
 function maybeCatchup(){
   const kind = SETTINGS.catchupNote ? "catchup" : SETTINGS.homeScreenNote ? "home" : null;
   if (catchupDone || !kind || !me || fatal || !scoresReady || !roundsReady || !votesReady || !siteReady || !profilesReady) return;
   if (round && S.screen === "quiz") return;
-  if (document.querySelector(".crowning")) { setTimeout(maybeCatchup, 1500); return; }
+  if (document.querySelector(".crowning")) { catchupAfterCrown = true; setTimeout(maybeCatchup, 1500); return; }
+  if (catchupAfterCrown) { catchupAfterCrown = false; setTimeout(maybeCatchup, 2000); return; } // two seconds of quiet lobby after the crowning
   const seenKey = kind === "catchup" ? "catchupSeen" : "homeSeen";
-  const mine = profiles[me.uid]; if (mine && mine[seenKey]) { catchupDone = true; return; }
+  const mine = profiles[me.uid]; if (mine && mine[seenKey]) { catchupDone = true; startSavePulse(); return; }
   catchupDone = true;
   const markSeen = () => col("profiles").doc(me.uid).set({ uid: me.uid, [seenKey]: true }, { merge: true }).catch(() => {});
   if (kind === "home" && onHomeScreen()) { markSeen(); return; } // already opening it from the icon: nothing to ask
@@ -3275,7 +3288,7 @@ function maybeCatchup(){
   }
   document.body.appendChild(el);
   const born = Date.now();
-  const close = mark => { if (!el.isConnected || el.classList.contains("out")) return; el.classList.add("out"); setTimeout(() => el.remove(), 450); if (mark) markSeen(); };
+  const close = mark => { if (!el.isConnected || el.classList.contains("out")) return; el.classList.add("out"); setTimeout(() => { el.remove(); startSavePulse(); }, 450); if (mark) markSeen(); };
   el.querySelector("#cuGo").onclick = () => { close(true); if (kind === "catchup" && !round) { lobbyTab = "rounds"; renderLobby(); const pn = [...document.querySelectorAll("#view .section h3")].find(h => h.textContent.trim() === "Play next"); if (pn && waiting) pn.scrollIntoView({ behavior: "smooth", block: "start" }); } };
   el.querySelector("#cuHome").onclick = () => close(true); // the document-level [data-homescreen] handler then opens the step sheet
   el.onclick = e => { if (e.target === el && Date.now() - born > 1500) close(false); };
