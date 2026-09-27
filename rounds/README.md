@@ -7,12 +7,13 @@ no Netlify deploy. A sister game's rounds live in `games/<id>/rounds/` with the
 same shape and rules and publish to `games/<id>/rounds`; the two banks never
 share a question, because some people play both games.
 
-**Do not put `[skip netlify]` in commit messages.** `netlify.toml` decides whether
-to deploy by looking at whether `index.html` actually changed since the last
-published deploy, which is correct no matter how commits are ordered in a push.
-The marker is worse: Netlify reads only the newest commit of a push, so a trailing
-data commit cancelled the build for a site change behind it and the change never
-went live. That happened once; the config exists so it cannot happen again.
+**Do not put `[skip netlify]` in commit messages.** Netlify no longer builds
+anything for this repository: `netlify.toml` cancels every build Netlify would
+start, and the **Deploy sites** workflow uploads the finished pages with the
+Netlify CLI, only when `index.html`, the manifest, the icons or a game file
+changed. That costs no Netlify build credits. The marker used to be harmful too:
+Netlify reads only the newest commit of a push, so a trailing data commit once
+cancelled the build for a site change behind it and the change never went live.
 
 ## Shape
 

@@ -1,0 +1,84 @@
+name: Deploy sites
+
+# Uploads both games to Netlify with the Netlify CLI, without a Netlify build, so
+# no build credits are spent. Babies' Trivia used to be built by Netlify itself on
+# every push, at roughly twenty credits a build; since 27 Sep 2026 netlify.toml
+# cancels those builds and this workflow publishes instead. Runs only when
+# something that goes into a site changed. Needs the NETLIFY_AUTH_TOKEN secret
+# (a Netlify personal access token).
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - index.html
+      - manifest.webmanifest
+      - icons/**
+      - games/*.json
+      - scripts/build-site.mjs
+      - .github/workflows/deploy-sites.yml
+  workflow_dispatch:
+
+concurrency:
+  group: deploy-sites
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    env:
+      BABIES_SITE_ID: 9036149d-951a-4517-bda1-41097f45e30e
+      HAMPS_SITE_ID: e0866c7a-ec1a-4d95-9d2b-9d1bdfa4fed0
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Build both sites
+        run: |
+          mkdir -p dist/babies/icons && cp index.html manifest.webmanifest dist/babies/ && cp icons/babies-*.png dist/babies/icons/
+          node scripts/build-site.mjs hamps dist/hamps
+
+      - name: Check the token is present
+        id: token
+        env:
+          TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+        run: |
+          if [ -z "$TOKEN" ]; then
+            echo "::warning::Repository secret NETLIFY_AUTH_TOKEN is not set, so the sites were built but not uploaded. Create a personal access token at https://app.netlify.com/user/applications#personal-access-tokens, add it under Settings > Secrets and variables > Actions, then run this workflow again."
+            echo "skip=1" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Upload to Netlify
+        if: steps.token.outputs.skip != '1'
+        env:
+          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+        run: |
+          set -euo pipefail
+          msg=$(git log -1 --pretty=%s | head -c 120)
+          # Babies only when one of its files changed in this push (a Hamps-only change should not touch it).
+          babies_changed=1
+          if [ "${{ github.event_name }}" = "push" ] && git rev-parse HEAD~1 >/dev/null 2>&1; then
+            git diff --quiet HEAD~1 HEAD -- index.html manifest.webmanifest icons && babies_changed=0 || babies_changed=1
+          fi
+          for site in babies hamps; do
+            if [ "$site" = "babies" ] && [ "$babies_changed" = "0" ]; then echo "babies: nothing changed, skipping"; continue; fi
+            id=$BABIES_SITE_ID; [ "$site" = "hamps" ] && id=$HAMPS_SITE_ID
+            npx --yes netlify-cli@17 deploy --prod --dir=dist/$site --site="$id" --auth="$NETLIFY_AUTH_TOKEN" --message="$msg" --json > deploy-$site.json
+            echo "$site live at $(jq -r '.url // .deploy_url' deploy-$site.json)"
+          done
+
+      - name: Check the pages are served as HTML
+        if: steps.token.outputs.skip != '1'
+        run: |
+          set -euo pipefail
+          sleep 5
+          for host in babiestrivia.netlify.app hampscrew.netlify.app; do
+            ct=$(curl -sSI "https://$host/" | tr -d '\r' | awk 'tolower($1)=="content-type:" {print tolower($2)}')
+            echo "$host content-type: $ct"
+            case "$ct" in text/html*) ;; *) echo "::error::$host is not being served as HTML (got '$ct')"; exit 1 ;; esac
+          done

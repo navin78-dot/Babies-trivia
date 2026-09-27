@@ -8,8 +8,8 @@ original game ships to the sisters in the same push.
 
 | Game | Site | Round files | Data in Firestore | Deploys |
 |---|---|---|---|---|
-| Babies' Trivia (the original, `GAME.id` is `""`) | babiestrivia.netlify.app | `rounds/` plus the built-ins in `index.html` | top-level collections | Netlify builds `index.html` on push |
-| Trivia for the Hamps Crew (`hamps`) | hampscrew.netlify.app | `games/hamps/rounds/` | `games/hamps/…` | `.github/workflows/deploy-hamps.yml` uploads the built file to Netlify |
+| Babies' Trivia (the original, `GAME.id` is `""`) | babiestrivia.netlify.app | `rounds/` plus the built-ins in `index.html` | top-level collections | `.github/workflows/deploy-sites.yml` uploads it to Netlify |
+| Trivia for the Hamps Crew (`hamps`) | hampscrew.netlify.app | `games/hamps/rounds/` | `games/hamps/…` | `.github/workflows/deploy-sites.yml` uploads the built file to Netlify |
 
 ## What a sister game shares and what it keeps
 
@@ -54,7 +54,7 @@ with the same security rules as the original game (see `firestore.rules`,
    five with `"draft": true` for the queue).
 2. Add the id to `knownGame` in `firestore.rules` (the rules workflow publishes it).
 3. Create the Netlify project (name = subdomain) and put its id and domain in the file.
-4. Copy `.github/workflows/deploy-hamps.yml`, change the game id, paths and `SITE_ID`.
+4. Add the game to `.github/workflows/deploy-sites.yml` (build step, site id, host check).
    It uses the `NETLIFY_AUTH_TOKEN` repository secret.
 5. Push. The **Firebase auth domains** workflow adds the new domain to Google sign-in,
    the rules workflow publishes the rules, and the deploy workflow uploads the site.
