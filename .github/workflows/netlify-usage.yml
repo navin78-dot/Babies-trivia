@@ -1,0 +1,39 @@
+name: Netlify usage
+
+# Estimates credit use from the count of successful production deploys this
+# billing cycle (15 credits each) and commits netlify-usage.json, so the number
+# can be read here without opening Netlify. See scripts/netlify-usage.mjs.
+
+on:
+  schedule:
+    - cron: "50 12 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: netlify-usage
+  cancel-in-progress: true
+
+jobs:
+  usage:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: Count deploys
+        env:
+          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+        run: node scripts/netlify-usage.mjs
+      - name: Commit the report
+        run: |
+          git config user.name "navin78-dot"
+          git config user.email "navin78@gmail.com"
+          git add netlify-usage.json
+          git diff --cached --quiet && { echo "no change"; exit 0; }
+          git commit -q -m "Netlify usage estimate"
+          for i in 1 2 3 4; do git pull -q --rebase origin main && git push -q origin HEAD:main && exit 0; sleep $((2**i)); done
+          exit 1

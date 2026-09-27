@@ -1,11 +1,13 @@
 name: Deploy sites
 
-# Uploads both games to Netlify with the Netlify CLI, without a Netlify build, so
-# no build credits are spent. Babies' Trivia used to be built by Netlify itself on
-# every push, at roughly twenty credits a build; since 27 Sep 2026 netlify.toml
-# cancels those builds and this workflow publishes instead. Runs only when
-# something that goes into a site changed. Needs the NETLIFY_AUTH_TOKEN secret
-# (a Netlify personal access token).
+# Uploads both games to Netlify with the Netlify CLI, without a Netlify build.
+# Babies' Trivia used to be built by Netlify itself on every push; since 27 Sep
+# 2026 netlify.toml cancels those builds and this workflow publishes instead. Runs only when
+# something that goes into a site changed, and uploads a site only when its page
+# differs from what it already serves, because on Netlify's credit plans every
+# successful production deploy costs 15 credits whether or not Netlify built it
+# (the team's allowance is 1000 a month, so about 66 deploys). Needs the
+# NETLIFY_AUTH_TOKEN secret (a Netlify personal access token).
 
 on:
   push:
@@ -67,7 +69,14 @@ jobs:
           fi
           for site in babies hamps; do
             if [ "$site" = "babies" ] && [ "$babies_changed" = "0" ]; then echo "babies: nothing changed, skipping"; continue; fi
-            id=$BABIES_SITE_ID; [ "$site" = "hamps" ] && id=$HAMPS_SITE_ID
+            id=$BABIES_SITE_ID; host=babiestrivia.netlify.app; [ "$site" = "hamps" ] && id=$HAMPS_SITE_ID && host=hampscrew.netlify.app
+            # Every successful production deploy costs 15 Netlify credits, so never upload a page the site already serves.
+            same=1
+            for f in index.html manifest.webmanifest; do
+              curl -sSf -H 'Cache-Control: no-cache' "https://$host/$f?nocache=$(date +%s)" -o live.tmp 2>/dev/null || { same=0; break; }
+              cmp -s live.tmp dist/$site/$f || { same=0; break; }
+            done
+            if [ "$same" = "1" ]; then echo "$site: live page already matches this build, skipping (saves 15 credits)"; continue; fi
             npx --yes netlify-cli@17 deploy --prod --dir=dist/$site --site="$id" --auth="$NETLIFY_AUTH_TOKEN" --message="$msg" --json > deploy-$site.json
             echo "$site live at $(jq -r '.url // .deploy_url' deploy-$site.json)"
           done

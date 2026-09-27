@@ -1,11 +1,11 @@
 # Babies' Trivia is one static file plus an icon and a manifest. Netlify used to
-# build it on every push to main, and each build spent roughly twenty of the
-# monthly credits, which is how the team reached 50% of its allowance by
-# 25 Sep 2026. Since 27 Sep the GitHub Actions workflow .github/workflows/
-# deploy-sites.yml uploads the finished files with the Netlify CLI instead, which
-# needs no build and spends no build credits. The ignore command below therefore
-# cancels every build Netlify would start from the GitHub webhook (exit 0 means
-# "nothing to do"). Keep the [build] block in case the site ever goes back to
+# build and deploy it on every push to main; on Netlify's credit plans each
+# successful production deploy costs 15 credits, which is how the team reached
+# 50% of its 1000-credit allowance by 25 Sep 2026. Since 27 Sep the GitHub
+# Actions workflow .github/workflows/deploy-sites.yml uploads the finished files
+# with the Netlify CLI instead, and only when the page actually changed. The
+# ignore command below therefore cancels every build Netlify would start from
+# the GitHub webhook (exit 0 means "nothing to do"; a cancelled build is free). Keep the [build] block in case the site ever goes back to
 # building on Netlify: it publishes only the page, the manifest and the icons,
 # never the round files with the answers in them.
 
