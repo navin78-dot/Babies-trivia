@@ -145,6 +145,7 @@ a.btn{text-decoration:none}
 .section h3{margin:0;color:var(--cream2)}
 .section h3::before{content:"";display:inline-block;width:18px;height:3px;border-radius:2px;background:linear-gradient(90deg,var(--glow),var(--glow2));margin-right:9px;vertical-align:middle}
 .section .note{margin:0}
+.savebar{display:flex;align-items:center;gap:12px;width:100%;text-align:left;padding:10px 12px;border-radius:16px;margin-bottom:14px;background:linear-gradient(120deg,rgba(255,255,255,.1),rgba(255,255,255,.05));border:1px solid rgba(255,255,255,.14);color:var(--cream);cursor:pointer;font:inherit}.savebar img{width:40px;height:40px;border-radius:10px;flex:none;box-shadow:0 4px 12px rgba(0,0,0,.35)}.savebar span{flex:1;font-size:13px;line-height:1.3;color:var(--cream2)}.savebar span b{display:block;font-size:15px;color:var(--cream)}.savebar i{font-style:normal;flex:none}
 .banner{padding:13px 16px;border-radius:14px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.1);font-size:14px;margin-bottom:14px;color:var(--cream)}
 .banner.ann{background:linear-gradient(120deg,color-mix(in srgb,var(--glow) 28%, var(--stage2)),color-mix(in srgb,var(--glow2) 24%, var(--stage2)));border-color:color-mix(in srgb,var(--glow) 45%, transparent);font-weight:800;box-shadow:0 10px 30px color-mix(in srgb,var(--glow) 18%, transparent)}
 .banner.err{background:color-mix(in srgb,var(--bad) 22%, var(--stage2));border-color:var(--bad)}
@@ -516,7 +517,7 @@ input[type=range]{width:100%;accent-color:var(--accent)}
 .catchup .cnum b{display:block;font-family:var(--site);font-size:34px;line-height:1;color:var(--accent)}
 .catchup .cnum span{font-size:12px;color:var(--ink2);font-weight:700;text-transform:uppercase;letter-spacing:.06em}
 .catchup p{margin:0 0 16px;font-size:15px;line-height:1.5;color:var(--ink)}
-.catchup .btn{width:100%}
+.catchup .btn{width:100%;justify-content:center}.catchup .btn+.btn{margin-top:10px}.catchup .btn.alt{background:var(--paper3);color:var(--ink);box-shadow:0 4px 0 var(--line)}.catchup .btn.alt:active{transform:translateY(3px);box-shadow:0 1px 0 var(--line)}
 @keyframes cuUp{from{transform:translateY(40px);opacity:0}to{transform:none;opacity:1}}
 .catchup .cuhome{display:block;width:100%;background:none;border:0;padding:10px 0 0;color:var(--ink2);font-weight:700;font-size:13px;text-decoration:underline;cursor:pointer}
 .catchup .cuapp{display:flex;align-items:center;gap:12px;background:var(--paper2);border-radius:16px;padding:10px 12px;margin:0 0 14px}.catchup .cuapp img{width:52px;height:52px;border-radius:12px;box-shadow:0 4px 12px rgba(0,0,0,.18)}.catchup .cuapp b{display:block;font-family:var(--site);font-size:17px;line-height:1.1;color:var(--ink)}.catchup .cuapp span{font-size:12px;color:var(--ink2);font-weight:700;text-transform:uppercase;letter-spacing:.06em}
@@ -2166,7 +2167,7 @@ function renderLobby(){
     if (sel && sel.scrollIntoView) { try { sel.scrollIntoView({ block: "nearest", inline: "nearest" }); } catch (e) {} }
   };
   const ann = (siteCfg.announcement || "").trim();
-  const strip = pendingBannerHtml() + (lobbyTab === "rounds" ? chatPingHtml() : "") + (ann ? `<div class="banner ann">${esc(ann)}</div>` : "");
+  const strip = (lobbyTab === "rounds" ? saveBarHtml() : "") + pendingBannerHtml() + (lobbyTab === "rounds" ? chatPingHtml() : "") + (ann ? `<div class="banner ann">${esc(ann)}</div>` : "");
   if (lobbyTab === "poll") { $view.innerHTML = strip + tabs + seasonLineHtml() + pollHtml(); wire(); wirePoll(); return; }
   if (lobbyTab === "stats") { $view.innerHTML = strip + tabs + seasonLineHtml() + statsHtml(); wire(); return; }
   if (lobbyTab === "learn") { $view.innerHTML = strip + tabs + seasonLineHtml() + learnHtml(); wire(); wireLearn(); return; }
@@ -3197,6 +3198,11 @@ const isIOS = () => /iPhone|iPad|iPod/.test(navigator.userAgent) || (navigator.p
 const isAndroid = () => /Android/.test(navigator.userAgent);
 const onHomeScreen = () => window.navigator.standalone === true || (window.matchMedia && window.matchMedia("(display-mode: standalone)").matches);
 const ICON_180 = () => (document.querySelector('link[rel="apple-touch-icon"]') || {}).href || "";
+/* The save-this-site bar at the top of the home page, for anyone not already opening the site from its icon. */
+function saveBarHtml(){
+  if (onHomeScreen()) return "";
+  return `<button class="savebar" data-homescreen aria-label="Save this site to your home screen"><img src="${esc(ICON_180())}" alt=""><span><b>Save this site</b>to your home screen, one tap to open</span><i class="btn small">Save</i></button>`;
+}
 function homeScreenCardHtml(){
   if (onHomeScreen()) return `<div class="section"><h3>On your home screen</h3><span class="note">You're opening this from the icon already</span></div>`;
   return `<div class="section"><h3>Keep it one tap away</h3><span class="note">Put ${esc(SITE_NAME)} on your home screen</span></div>
@@ -3255,8 +3261,8 @@ function maybeCatchup(){
       <h2>Hey ${esc(first)}, here's where you stand</h2>
       <div class="cnums"><div class="cnum"><b>${played}</b><span>round${played === 1 ? "" : "s"} played this season</span></div><div class="cnum"><b>${waiting}</b><span>round${waiting === 1 ? "" : "s"} to catch up</span></div></div>
       <p>${waiting ? `Don't worry. For the rest of the season there's only one new round a day, so play ${waiting === 1 ? "that one" : "those " + waiting} and you're on pace with everyone.` : "You're all caught up. There's only one new round a day for the rest of the season, so you're on pace."}</p>
-      <button class="btn" id="cuGo">${waiting ? "Show me the rounds" : "Got it"}</button>
-      <button class="cuhome" id="cuHome" data-homescreen>Save this site to your home screen</button></div>`;
+      <button class="btn" id="cuHome" data-homescreen>Save this site to your home screen</button>
+      <button class="btn alt" id="cuGo">${waiting ? "Show me the rounds" : "Got it"}</button></div>`;
   } else {
     el.setAttribute("aria-label", "Save this site to your home screen");
     el.innerHTML = `<div class="cbox">
