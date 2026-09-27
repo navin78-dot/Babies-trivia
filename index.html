@@ -257,6 +257,7 @@ a.btn{text-decoration:none}
 .mcount span{display:inline-flex;align-items:center;gap:2px}
 .trow .who{display:flex;flex-direction:column;min-width:0}
 .trow .who .medals{color:var(--cream2)}
+.trow .who .tplayed{color:var(--cream2);font-size:12px;margin-top:1px}
 .trophies{display:grid;gap:6px}
 .trow{display:grid;grid-template-columns:auto 1fr auto auto;gap:12px;align-items:center;padding:9px 14px;border-radius:16px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.08)}
 .trow .who{color:var(--cream)}
@@ -1963,16 +1964,25 @@ function champMap(){
 const isChampion = uid => !!champMap()[uid];
 function trophyHtml(){
   const cur = currentSeason(), m = champMap(); const first = s => (s || "Someone").split(" ")[0];
-  const players = {}; scores.forEach(s => { players[s.uid] = players[s.uid] || { uid: s.uid, name: s.name, photo: s.photo }; });
-  Object.values(m).flat().forEach(c => { players[c.uid] = players[c.uid] || { uid: c.uid, name: c.name, photo: c.photo }; });
-  const rows = Object.values(players).map(p => ({ ...p, wins: (m[p.uid] || []).map(c => c.n).sort((a, b) => a - b) })).sort((a, b) => b.wins.length - a.wins.length || first(a.name).localeCompare(first(b.name)));
+  // Everyone the game knows about, whether or not they have a score yet: scores, past champions, saved
+  // profiles (avatars), anyone who has been on the site, and you.
+  const players = {}; const know = (uid, name, photo) => { if (!uid) return; const p = players[uid] || (players[uid] = { uid, name: "", photo: "" }); if (name && !p.name) p.name = name; if (photo && !p.photo) p.photo = photo; };
+  scores.forEach(s => know(s.uid, s.name, s.photo));
+  Object.values(m).flat().forEach(c => know(c.uid, c.name, c.photo));
+  Object.entries(profiles).forEach(([uid, pr]) => know(uid, pr && pr.name, ""));
+  presence.forEach(x => know(x.uid, x.name, x.photo));
+  if (me) know(me.uid, me.displayName, me.photoURL);
+  const seasonIds = new Set(seasonRounds(cur).map(r => r.id)); const played = {}, playedNow = {};
+  scores.forEach(s => { played[s.uid] = (played[s.uid] || 0) + 1; if (seasonIds.has(s.roundId)) playedNow[s.uid] = (playedNow[s.uid] || 0) + 1; });
+  const rows = Object.values(players).map(p => ({ ...p, wins: (m[p.uid] || []).map(c => c.n).sort((a, b) => a - b), now: playedNow[p.uid] || 0, all: played[p.uid] || 0 }))
+    .sort((a, b) => b.wins.length - a.wins.length || b.all - a.all || first(a.name).localeCompare(first(b.name)));
   const lead = rankOf(combinedFor(seasonRounds(cur)))[0]; const I = seasonEndInfo();
   const allM = medalsFor(ROUNDS.filter(isPublished));
   if (!rows.length) return "";
-  return `<div class="section"><h3>Trophy case</h3><span class="note">Seasons won, and medals from every round</span></div>
+  return `<div class="section"><h3>Trophy case</h3><span class="note">Seasons won, medals, and rounds played</span></div>
     <div class="trophies">
       <div class="trow now"><div class="tnow">🏆</div><div class="who">Season ${cur} · in play<small>${lead ? `${esc(first(lead.name))} leads with ${fmtScore(lead.score)} pts · ` : "No scores yet · "}<span class="szc" data-end="${I.end}">${countdownText(I.end)}</span> left</small></div>${lead ? avatarHtml(lead.uid, lead.photo, "sm") : ""}</div>
-      ${rows.map(p => `<div class="trow">${avatarHtml(p.uid, p.photo, "sm")}<div class="who">${esc(first(p.name))}<small>${p.wins.length ? "Won season" + (p.wins.length > 1 ? "s " : " ") + p.wins.join(", ") : "No seasons won yet"}</small>${medalChips(allM[p.uid]) || `<span class="medals none">No medals yet</span>`}</div><div class="tcups" title="${p.wins.length} season${p.wins.length === 1 ? "" : "s"} won">${p.wins.length ? "🏆".repeat(Math.min(p.wins.length, 6)) + (p.wins.length > 6 ? ` ×${p.wins.length}` : "") : "<span class='none'>–</span>"}</div>${p.wins.length ? `<button class="linkbtn" data-season="${p.wins[p.wins.length - 1]}">${S.shareKind === "season" && S.shareSeason === p.wins[p.wins.length - 1] ? "Hide" : "Recap"}</button>` : ""}</div>`).join("")}
+      ${rows.map(p => `<div class="trow">${avatarHtml(p.uid, p.photo, "sm")}<div class="who">${esc(first(p.name))}<small>${p.wins.length ? "Won season" + (p.wins.length > 1 ? "s " : " ") + p.wins.join(", ") : "No seasons won yet"}</small><small class="tplayed">${p.now} round${p.now === 1 ? "" : "s"} this season · ${p.all} all time</small>${medalChips(allM[p.uid]) || `<span class="medals none">No medals yet</span>`}</div><div class="tcups" title="${p.wins.length} season${p.wins.length === 1 ? "" : "s"} won">${p.wins.length ? "🏆".repeat(Math.min(p.wins.length, 6)) + (p.wins.length > 6 ? ` ×${p.wins.length}` : "") : "<span class='none'>–</span>"}</div>${p.wins.length ? `<button class="linkbtn" data-season="${p.wins[p.wins.length - 1]}">${S.shareKind === "season" && S.shareSeason === p.wins[p.wins.length - 1] ? "Hide" : "Recap"}</button>` : ""}</div>`).join("")}
     </div>${S.shareKind === "season" ? sharePanelHtml() : ""}`;
 }
 function podiumHtml(ranked, medals){
