@@ -499,6 +499,20 @@ input[type=range]{width:100%;accent-color:var(--accent)}
   background:linear-gradient(100deg,#FFF3C4,var(--gold) 45%,#FFF3C4);background-size:200% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:rise .5s 1.1s ease both,sheen 3s 1.4s ease-in-out infinite alternate}
 .crowning .crline{position:relative;font-size:15px;color:var(--cream2);margin:0;animation:rise .5s 1.3s ease both}
 .crowning .crtap{position:relative;font-size:11px;color:var(--cream2);opacity:.6;margin:22px 0 0;animation:rise .5s 1.8s ease both}
+/* ---------- catch-up card: once per player, where they stand this season ---------- */
+.catchup{position:fixed;inset:0;z-index:59;display:grid;place-items:end center;padding:0 12px 18px;background:rgba(4,12,18,.62);-webkit-backdrop-filter:blur(4px);backdrop-filter:blur(4px);animation:crFade .35s ease both}
+.catchup.out{animation:crOut .4s ease forwards}
+.catchup .cbox{width:100%;max-width:440px;background:var(--paper);color:var(--ink);border-radius:24px;padding:22px 22px 18px;box-shadow:0 30px 70px rgba(0,0,0,.55);position:relative;overflow:hidden;animation:cuUp .5s cubic-bezier(.2,1.2,.4,1) both}
+.catchup .cbox::before{content:"";position:absolute;inset:0 0 auto 0;height:6px;background:linear-gradient(90deg,var(--accent),var(--accent2))}
+.catchup .ceye{font-size:11px;font-weight:800;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);margin:0 0 10px}
+.catchup h2{font-family:var(--site);font-size:30px;line-height:1.05;margin:0 0 12px;letter-spacing:-.02em;color:var(--ink)}
+.catchup .cnums{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:0 0 14px}
+.catchup .cnum{background:var(--paper2);border-radius:16px;padding:12px 14px}
+.catchup .cnum b{display:block;font-family:var(--site);font-size:34px;line-height:1;color:var(--accent)}
+.catchup .cnum span{font-size:12px;color:var(--ink2);font-weight:700;text-transform:uppercase;letter-spacing:.06em}
+.catchup p{margin:0 0 16px;font-size:15px;line-height:1.5;color:var(--ink)}
+.catchup .btn{width:100%}
+@keyframes cuUp{from{transform:translateY(40px);opacity:0}to{transform:none;opacity:1}}
 @keyframes crFade{from{opacity:0}to{opacity:1}}
 @keyframes crOut{to{opacity:0;visibility:hidden}}
 @keyframes crSpin{to{transform:rotate(360deg)}}
@@ -596,6 +610,7 @@ const SETTINGS = {
   timeLimitMs: 5 * 60 * 1000,   // countdown shown during a run; 0 or null = no limit. A round can override with its own timeLimitMs.
   season: { firstBoundary: "2026-09-27", hour: 0, days: 7, tz: "America/New_York" }, // Season 2 starts at midnight going into Sunday 27 Sep 2026, New York time; a new season every 7 days after
   drop: { start: "2026-09-21", hour: 0, options: 3, retireAfterDays: 7 }, // one new round every midnight New York time, chosen by the poll unless the host overrides
+  catchupNote: false,       // true = the first time each player opens the site, a card shows how many rounds they have played this season and how many are waiting (a sister game turns this on in games/<id>.json)
 };
 Object.entries(GAME.settings || {}).forEach(([k, v]) => { SETTINGS[k] = v && typeof v === "object" && !Array.isArray(v) ? Object.assign({}, SETTINGS[k], v) : v; }); // a sister game's own numbers
 
@@ -1523,7 +1538,7 @@ let siteCfg = {};              // site/config document (tagline, announcement, l
 let liveIds = new Set();       // draft rounds the host has promoted to the lobby (site config liveRounds)
 let scores = [];               // every score doc
 let scoresReady = false;
-let roundsReady = false, siteReady = false; // the crowning waits for everything a season winner depends on
+let roundsReady = false, siteReady = false, profilesReady = false; // the crowning and the catch-up card wait for everything they depend on
 let unsubScores = null, unsubSite = null, unsubPresence = null, unsubVotes = null, unsubRounds = null, unsubSugg = null, unsubReq = null, unsubChat = null;
 let chat = [], chatReady = false;      // the ready-made-line thread
 let suggestions = [], requests = [];  // host only: the suggestion box and theme requests
@@ -1676,7 +1691,7 @@ function subscribeRounds(){
 }
 function subscribeProfiles(){
   if (unsubProfiles) unsubProfiles();
-  unsubProfiles = col("profiles").onSnapshot(snap => { const next = {}; snap.docs.forEach(d => { next[d.id] = d.data(); }); profiles = next; renderAll(); }, () => {});
+  unsubProfiles = col("profiles").onSnapshot(snap => { const next = {}; snap.docs.forEach(d => { next[d.id] = d.data(); }); profiles = next; profilesReady = true; renderAll(); }, () => { profilesReady = true; });
 }
 /* --- build-your-own avatar: layered SVG parts, saved as indexes in the profile.
    Only ever append to these lists: a saved avatar is a set of indexes into them. --- */
@@ -2044,7 +2059,7 @@ function renderAccount(){
 }
 function render(){
   champCache = null; planCache = null; syncPresence(); setDuck(!!(me && round && S.screen === "quiz" && !fatal));
-  setTimeout(maybeCrown, 0);
+  setTimeout(maybeCrown, 0); setTimeout(maybeCatchup, 0);
   if (fatal) { $view.innerHTML = `<div class="banner err">${esc(fatal)}</div>` + (me ? "" : gateHtml()); if (!me) wireGate(); return; }
   if (!me) { $view.innerHTML = gateHtml(); wireGate(); return; }
   if (!round) return renderLobby();
@@ -3149,6 +3164,31 @@ function maybeCrown(){
   let gone = false; const close = () => { if (gone) return; gone = true; el.classList.add("out"); setTimeout(() => el.remove(), 650); };
   el.onclick = close; setTimeout(close, 5600);
   setTimeout(() => { if (gone) return; const c = el.querySelector(".crown"), r = c && c.getBoundingClientRect(); sfx("fanfare"); if (r) confetti({ x: r.left + r.width / 2, y: r.top + r.height, n: 90, power: 1.1 }); }, 1450);
+}
+/* The catch-up card: once per player, the first time they open the site after it shipped,
+   how many rounds they have played this season and how many open ones are waiting. Only in
+   games that turn on SETTINGS.catchupNote. Remembered on the player's profile, so it does
+   not come back on another phone. Waits for the crowning, if there is one, to finish. */
+let catchupDone = false;
+function maybeCatchup(){
+  if (catchupDone || !SETTINGS.catchupNote || !me || fatal || !scoresReady || !roundsReady || !votesReady || !siteReady || !profilesReady) return;
+  if (round && S.screen === "quiz") return;
+  if (document.querySelector(".crowning")) { setTimeout(maybeCatchup, 1500); return; }
+  const mine = profiles[me.uid]; if (mine && mine.catchupSeen) { catchupDone = true; return; }
+  catchupDone = true;
+  const cur = currentSeason(), rs = seasonRounds(cur);
+  const played = rs.filter(r => myRun(r.id)).length, waiting = rs.filter(r => isOpen(r) && !myRun(r.id)).length;
+  const first = (me.displayName || "").split(" ")[0] || "you";
+  const el = document.createElement("div"); el.className = "catchup"; el.setAttribute("role", "dialog"); el.setAttribute("aria-label", "Where you stand this season");
+  el.innerHTML = `<div class="cbox">
+    <p class="ceye">Season ${cur} · ${esc(seasonEndsText())}</p>
+    <h2>Hey ${esc(first)}, here's where you stand</h2>
+    <div class="cnums"><div class="cnum"><b>${played}</b><span>round${played === 1 ? "" : "s"} played this season</span></div><div class="cnum"><b>${waiting}</b><span>round${waiting === 1 ? "" : "s"} to catch up</span></div></div>
+    <p>${waiting ? `Don't worry. For the rest of the season there's only one new round a day, so play ${waiting === 1 ? "that one" : "those " + waiting} and you're on pace with everyone.` : "You're all caught up. There's only one new round a day for the rest of the season, so you're on pace."}</p>
+    <button class="btn" id="cuGo">${waiting ? "Show me the rounds" : "Got it"}</button></div>`;
+  document.body.appendChild(el);
+  const close = () => { el.classList.add("out"); setTimeout(() => el.remove(), 450); col("profiles").doc(me.uid).set({ uid: me.uid, catchupSeen: true }, { merge: true }).catch(() => {}); if (!round) { lobbyTab = "rounds"; renderLobby(); const pn = [...document.querySelectorAll("#view .section h3")].find(h => h.textContent.trim() === "Play next"); if (pn) pn.scrollIntoView({ behavior: "smooth", block: "start" }); } };
+  el.querySelector("#cuGo").onclick = close; el.onclick = e => { if (e.target === el) close(); };
 }
 function confetti(o){
   if (reducedMotion()) return; o = o || {};
