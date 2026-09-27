@@ -1,0 +1,45 @@
+{
+  "asOf": "2026-09-27T14:36:48.245Z",
+  "cycle": {
+    "start": "2026-09-21",
+    "end": "2026-10-21"
+  },
+  "allowance": 1000,
+  "creditsPerDeploy": 15,
+  "sites": {
+    "babies": {
+      "domain": "babiestrivia.netlify.app",
+      "productionDeploys": 39,
+      "cancelledOrFailed": 22,
+      "byDay": {
+        "2026-09-27": 3,
+        "2026-09-26": 1,
+        "2026-09-25": 3,
+        "2026-09-24": 6,
+        "2026-09-22": 5,
+        "2026-09-21": 21
+      },
+      "lastDeploy": "2026-09-27T14:27:52.606Z"
+    },
+    "hamps": {
+      "domain": "hampscrew.netlify.app",
+      "productionDeploys": 8,
+      "cancelledOrFailed": 0,
+      "byDay": {
+        "2026-09-27": 4,
+        "2026-09-26": 1,
+        "2026-09-25": 3
+      },
+      "lastDeploy": "2026-09-27T14:35:14.217Z"
+    }
+  },
+  "estimate": {
+    "productionDeploys": 47,
+    "creditsUsed": 705,
+    "percentUsed": 71,
+    "creditsLeft": 295,
+    "deploysLeft": 19,
+    "daysLeftInCycle": 24,
+    "note": "Counts successful production deploys only, at 15 credits each; bandwidth is not counted and is negligible for these sites. Netlify's own emails at 50/75/90/100% are the ground truth; if one disagrees with this, trust the email."
+  }
+}
