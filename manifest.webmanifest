@@ -1,0 +1,20 @@
+{
+  "name": "Babies' Trivia",
+  "short_name": "Babies' Trivia",
+  "start_url": "./",
+  "display": "browser",
+  "background_color": "#0B0A14",
+  "theme_color": "#0B0A14",
+  "icons": [
+    {
+      "src": "icons/babies-180.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    },
+    {
+      "src": "icons/babies-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

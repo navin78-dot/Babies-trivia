@@ -11,5 +11,5 @@
 
 [build]
   publish = "public"
-  command = "mkdir -p public && cp index.html public/index.html"
-  ignore = "git diff --quiet $CACHED_COMMIT_REF $COMMIT_REF -- index.html"
+  command = "mkdir -p public/icons && cp index.html manifest.webmanifest public/ && cp icons/babies-*.png public/icons/"
+  ignore = "git diff --quiet $CACHED_COMMIT_REF $COMMIT_REF -- index.html manifest.webmanifest icons netlify.toml"

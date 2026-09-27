@@ -5,6 +5,11 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>B👶🏽bies' Trivia</title>
 <meta name="description" content="Trivia rounds for friends. One board per round, first run counts.">
+<meta name="theme-color" content="#0B0A14">
+<meta name="apple-mobile-web-app-title" content="Babies' Trivia">
+<link rel="apple-touch-icon" href="icons/babies-180.png">
+<link rel="icon" type="image/png" href="icons/babies-180.png">
+<link rel="manifest" href="manifest.webmanifest">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,700;12..96,800&family=Manrope:wght@400;500;600;700;800&family=Archivo+Black&display=swap">
 <style>
@@ -513,6 +518,23 @@ input[type=range]{width:100%;accent-color:var(--accent)}
 .catchup p{margin:0 0 16px;font-size:15px;line-height:1.5;color:var(--ink)}
 .catchup .btn{width:100%}
 @keyframes cuUp{from{transform:translateY(40px);opacity:0}to{transform:none;opacity:1}}
+.catchup .cuhome{display:block;width:100%;background:none;border:0;padding:10px 0 0;color:var(--ink2);font-weight:700;font-size:13px;text-decoration:underline;cursor:pointer}
+/* ---------- save to home screen: the steps, since a page cannot add itself ---------- */
+.hsheet{position:fixed;inset:0;z-index:61;display:grid;place-items:end center;padding:0 12px 18px;background:rgba(4,12,18,.62);-webkit-backdrop-filter:blur(4px);backdrop-filter:blur(4px);animation:crFade .3s ease both}
+.hsheet .hbox{width:100%;max-width:440px;background:var(--paper);color:var(--ink);border-radius:24px;padding:22px 22px 18px;box-shadow:0 30px 70px rgba(0,0,0,.55);animation:cuUp .45s cubic-bezier(.2,1.2,.4,1) both}
+.hsheet h2{font-family:var(--site);font-size:26px;line-height:1.05;margin:0 0 6px;letter-spacing:-.02em;color:var(--ink)}
+.hsheet .hsub{margin:0 0 14px;color:var(--ink2);font-size:14px}
+.hsheet ol{margin:0 0 16px;padding:0;list-style:none;display:grid;gap:8px}
+.hsheet li{display:grid;grid-template-columns:34px 1fr;gap:10px;align-items:center;background:var(--paper2);border-radius:14px;padding:10px 12px;font-size:15px;line-height:1.35}
+.hsheet li b{display:grid;place-items:center;width:34px;height:34px;border-radius:50%;background:var(--accent);color:#fff;font-family:var(--site);font-size:16px}
+.hsheet li svg{width:20px;height:20px;vertical-align:-4px;margin:0 2px}
+.hsheet .hicon{display:flex;align-items:center;gap:12px;margin:0 0 14px}
+.hsheet .hicon img{width:48px;height:48px;border-radius:11px;box-shadow:0 4px 12px rgba(0,0,0,.25)}
+.hsheet .hicon span{font-size:13px;color:var(--ink2)}
+.hsheet .btn{width:100%}
+.mehome{display:flex;align-items:center;gap:12px}
+.mehome img{width:44px;height:44px;border-radius:10px;box-shadow:0 4px 12px rgba(0,0,0,.25);flex:0 0 auto}
+.mehome .btn{margin-left:auto;flex:0 0 auto}
 @keyframes crFade{from{opacity:0}to{opacity:1}}
 @keyframes crOut{to{opacity:0;visibility:hidden}}
 @keyframes crSpin{to{transform:rotate(360deg)}}
@@ -2422,6 +2444,7 @@ function meHtml(){
   return builderHtml() + `
     ${soundCardHtml()}
     <div class="section"><h3>Your numbers</h3><span class="note">Official runs only</span></div>${numbers}
+    ${homeScreenCardHtml()}
     <div class="section"><h3>Future suggestion box</h3><span class="note">Goes straight to the host</span></div>
     <div class="card"><p class="note" style="margin:0 0 8px">Themes you want, formats you'd change, anything. Only the host sees it.</p>
       <textarea id="suggIn" class="field" rows="3" maxlength="600" placeholder="e.g. A round on 90s hip hop. And can we get harder hard questions?"></textarea>
@@ -3165,6 +3188,40 @@ function maybeCrown(){
   el.onclick = close; setTimeout(close, 5600);
   setTimeout(() => { if (gone) return; const c = el.querySelector(".crown"), r = c && c.getBoundingClientRect(); sfx("fanfare"); if (r) confetti({ x: r.left + r.width / 2, y: r.top + r.height, n: 90, power: 1.1 }); }, 1450);
 }
+/* Save to home screen. A web page cannot add a bookmark or a home-screen icon by itself, on
+   any phone, so this is the next best thing: one tap opens the exact two steps for the phone
+   in hand, and the icon and name that land on the home screen are set in the page head. */
+const isIOS = () => /iPhone|iPad|iPod/.test(navigator.userAgent) || (navigator.platform === "MacIntel" && navigator.maxTouchPoints > 1);
+const isAndroid = () => /Android/.test(navigator.userAgent);
+const onHomeScreen = () => window.navigator.standalone === true || (window.matchMedia && window.matchMedia("(display-mode: standalone)").matches);
+const ICON_180 = () => (document.querySelector('link[rel="apple-touch-icon"]') || {}).href || "";
+function homeScreenCardHtml(){
+  if (onHomeScreen()) return `<div class="section"><h3>On your home screen</h3><span class="note">You're opening this from the icon already</span></div>`;
+  return `<div class="section"><h3>Keep it one tap away</h3><span class="note">Put ${esc(SITE_NAME)} on your home screen</span></div>
+    <div class="card mehome"><img src="${esc(ICON_180())}" alt=""><div><b>${esc(GAME.name)}</b><br><span class="note" style="margin:0">Opens like an app, no typing the address.</span></div><button class="btn small" data-homescreen>Save it</button></div>`;
+}
+function openHomeScreenSheet(){
+  document.querySelectorAll(".hsheet").forEach(x => x.remove());
+  const share = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12"/><path d="M8 7l4-4 4 4"/><path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-7"/></svg>`;
+  const dots = `<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><circle cx="12" cy="5" r="2"/><circle cx="12" cy="12" r="2"/><circle cx="12" cy="19" r="2"/></svg>`;
+  const plus = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="4"/><path d="M12 8v8M8 12h8"/></svg>`;
+  const steps = isIOS()
+    ? [`Tap the <b style="all:unset;font-weight:800">Share</b> button ${share} at the bottom of Safari (top right on an iPad).`, `Scroll down the list and tap <b style="all:unset;font-weight:800">Add to Home Screen</b> ${plus}.`, `Tap <b style="all:unset;font-weight:800">Add</b>. That's it.`]
+    : isAndroid()
+    ? [`Tap the ${dots} menu in the top right corner of Chrome.`, `Tap <b style="all:unset;font-weight:800">Add to Home screen</b> (or <b style="all:unset;font-weight:800">Install app</b>).`, `Tap <b style="all:unset;font-weight:800">Add</b>. That's it.`]
+    : [`Press <b style="all:unset;font-weight:800">${/Mac/.test(navigator.platform) ? "⌘ D" : "Ctrl D"}</b> to bookmark this page.`, `Or drag the address bar's icon to your bookmarks bar.`, `On your phone, open this same page and tap Save it for the home-screen steps.`];
+  const who = isIOS() ? "iPhone" : isAndroid() ? "Android phone" : "computer";
+  const el = document.createElement("div"); el.className = "hsheet"; el.setAttribute("role", "dialog"); el.setAttribute("aria-label", "Save to your home screen");
+  el.innerHTML = `<div class="hbox"><h2>Save it to your home screen</h2><p class="hsub">Phones don't let a website do this for you, so it's ${steps.length === 3 ? "three" : "a few"} taps on your ${who}.</p>
+    <div class="hicon"><img src="${esc(ICON_180())}" alt=""><span>This is the icon you'll get, named <b>${esc(GAME.name)}</b>.</span></div>
+    <ol>${steps.map((t, i) => `<li><b>${i + 1}</b><span>${t}</span></li>`).join("")}</ol>
+    <button class="btn" id="hsDone">Done</button></div>`;
+  document.body.appendChild(el);
+  const close = () => { el.classList.add("out"); setTimeout(() => el.remove(), 300); };
+  el.querySelector("#hsDone").onclick = close; el.onclick = e => { if (e.target === el) close(); };
+}
+document.addEventListener("click", e => { const b = e.target.closest && e.target.closest("[data-homescreen]"); if (b) { e.preventDefault(); sfx("click"); openHomeScreenSheet(); } });
+
 /* The catch-up card: once per player, the first time they open the site after it shipped,
    how many rounds they have played this season and how many open ones are waiting. Only in
    games that turn on SETTINGS.catchupNote. Remembered on the player's profile, so it does
@@ -3185,7 +3242,8 @@ function maybeCatchup(){
     <h2>Hey ${esc(first)}, here's where you stand</h2>
     <div class="cnums"><div class="cnum"><b>${played}</b><span>round${played === 1 ? "" : "s"} played this season</span></div><div class="cnum"><b>${waiting}</b><span>round${waiting === 1 ? "" : "s"} to catch up</span></div></div>
     <p>${waiting ? `Don't worry. For the rest of the season there's only one new round a day, so play ${waiting === 1 ? "that one" : "those " + waiting} and you're on pace with everyone.` : "You're all caught up. There's only one new round a day for the rest of the season, so you're on pace."}</p>
-    <button class="btn" id="cuGo">${waiting ? "Show me the rounds" : "Got it"}</button></div>`;
+    <button class="btn" id="cuGo">${waiting ? "Show me the rounds" : "Got it"}</button>
+    <button class="cuhome" data-homescreen>Save this site to your home screen</button></div>`;
   document.body.appendChild(el);
   const close = () => { el.classList.add("out"); setTimeout(() => el.remove(), 450); col("profiles").doc(me.uid).set({ uid: me.uid, catchupSeen: true }, { merge: true }).catch(() => {}); if (!round) { lobbyTab = "rounds"; renderLobby(); const pn = [...document.querySelectorAll("#view .section h3")].find(h => h.textContent.trim() === "Play next"); if (pn) pn.scrollIntoView({ behavior: "smooth", block: "start" }); } };
   el.querySelector("#cuGo").onclick = close; el.onclick = e => { if (e.target === el) close(); };

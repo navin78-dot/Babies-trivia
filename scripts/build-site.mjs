@@ -7,7 +7,7 @@
 // <out-dir>/index.html. Everything else is byte-for-byte the original game, so a
 // feature shipped once ships everywhere. Every replacement must match exactly
 // once; if the source drifts, this fails loudly instead of shipping a mixed page.
-import { readFileSync, writeFileSync, mkdirSync } from "node:fs";
+import { readFileSync, writeFileSync, mkdirSync, existsSync, copyFileSync } from "node:fs";
 
 const [id, out = `dist/${process.argv[2]}`] = process.argv.slice(2);
 if (!id) { console.error("usage: node scripts/build-site.mjs <game-id> [out-dir]"); process.exit(1); }
@@ -46,6 +46,14 @@ once(/(<button class="wordmark" id="home"[^>]*aria-label=")[^"]*("[^>]*>)[\s\S]*
   (m, a, b, c) => `${a}${escAttr(game.name)}, back to the homepage${b}${game.wordmarkHtml}${c}`, "wordmark");
 once(/(<h1 id="roundName" class="site">)[\s\S]*?(<\/h1>)/, (m, a, b) => `${a}<span class="sr">${escAttr(game.name)}</span>${b}`, "big title");
 
-mkdirSync(out, { recursive: true });
+// 4. Home-screen icon, name and colour, plus the manifest and icon files next to the page.
+const stage = (game.theme && game.theme.stage) || "#06171F";
+once(/<meta name="theme-color" content="[^"]*">/, () => `<meta name="theme-color" content="${stage}">`, "theme-color");
+once(/<meta name="apple-mobile-web-app-title" content="[^"]*">/, () => `<meta name="apple-mobile-web-app-title" content="${escAttr(game.name)}">`, "apple title");
+html = html.split("icons/babies-").join(`icons/${game.id}-`);
+mkdirSync(`${out}/icons`, { recursive: true });
+for (const sz of [180, 512]) { const f = `icons/${game.id}-${sz}.png`; if (!existsSync(f)) throw new Error(`missing ${f}`); copyFileSync(f, `${out}/${f}`); }
+writeFileSync(`${out}/manifest.webmanifest`, JSON.stringify({ name: game.name, short_name: game.shortName || game.name, start_url: "./", display: "browser", background_color: stage, theme_color: stage,
+  icons: [{ src: `icons/${game.id}-180.png`, sizes: "180x180", type: "image/png" }, { src: `icons/${game.id}-512.png`, sizes: "512x512", type: "image/png" }] }, null, 2));
 writeFileSync(`${out}/index.html`, html);
 console.log(`built ${out}/index.html for "${game.name}" (${html.length} bytes)`);
