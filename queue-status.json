@@ -1,18 +1,18 @@
 {
   "game": "babies",
   "roundsDir": "rounds",
-  "today": "2026-09-27",
+  "today": "2026-09-28",
   "season": 2,
-  "queueCount": 4,
+  "queueCount": 5,
   "target": 5,
-  "fill": 1,
+  "fill": 0,
   "queue": [
     {
       "id": "great-heists",
       "name": "Great Heists and Cons",
       "subject": "Heists and frauds",
       "onPollSince": "2026-09-21",
-      "retired": false
+      "retired": true
     },
     {
       "id": "extra-time",
@@ -32,14 +32,21 @@
       "id": "toy-box",
       "name": "Toy Box",
       "subject": "Toys and board games",
+      "onPollSince": "2026-09-28",
+      "retired": false
+    },
+    {
+      "id": "bright-ideas",
+      "name": "Bright Ideas",
+      "subject": "Inventions",
       "onPollSince": null,
       "retired": false
     }
   ],
   "tonightsPoll": [
-    "great-heists",
     "extra-time",
-    "wild-things"
+    "wild-things",
+    "toy-box"
   ],
   "override": null,
   "dropped": [
@@ -78,6 +85,12 @@
       "id": "where-on-earth",
       "name": "Where On Earth",
       "how": "poll"
+    },
+    {
+      "day": "2026-09-28",
+      "id": "between-the-sheets",
+      "name": "Between the Sheets",
+      "how": "override"
     }
   ],
   "requestsWaiting": [],
@@ -94,6 +107,8 @@
     "Great Heists and Cons (Heists and frauds)",
     "To the Moon and Mars (Spaceflight)",
     "Where Words Come From (Word origins)",
+    "Between the Sheets (Sex)",
+    "Bright Ideas (Inventions)",
     "Console Wars (Video games)",
     "The Corner Office (Business leaders and companies)",
     "Extra Time (Sport)",
@@ -105,16 +120,16 @@
     "Where On Earth (Geography)",
     "Wild Things (Animals)"
   ],
-  "need": 1,
+  "need": 0,
   "games": {
     "hamps": {
       "game": "hamps",
       "roundsDir": "games/hamps/rounds",
-      "today": "2026-09-27",
+      "today": "2026-09-28",
       "season": 1,
-      "queueCount": 4,
+      "queueCount": 5,
       "target": 5,
-      "fill": 1,
+      "fill": 0,
       "queue": [
         {
           "id": "crowned-heads",
@@ -143,6 +158,13 @@
           "subject": "Mythology",
           "onPollSince": null,
           "retired": false
+        },
+        {
+          "id": "art-attack",
+          "name": "Art Attack",
+          "subject": "Art and artists",
+          "onPollSince": null,
+          "retired": false
         }
       ],
       "tonightsPoll": [
@@ -163,13 +185,21 @@
           "id": "binge-worthy",
           "name": "Binge Worthy",
           "how": "poll"
+        },
+        {
+          "day": "2026-09-28",
+          "id": "east-hampton",
+          "name": "Out East",
+          "how": "override"
         }
       ],
       "requestsWaiting": [],
       "existingSubjects": [
+        "Art Attack (Art and artists)",
         "Binge Worthy (Television of the streaming age)",
         "Chart Toppers (Pop music)",
         "Crowned Heads (Royals through history)",
+        "Out East (East Hampton and Montauk)",
         "Eureka (Science and the human body)",
         "Game On (Sport)",
         "Gods and Monsters (Mythology)",
@@ -178,8 +208,8 @@
         "Reel Talk (Movies)",
         "Say What (Words and language)"
       ],
-      "need": 1
+      "need": 0
     }
   },
-  "totalNeed": 2
+  "totalNeed": 0
 }
