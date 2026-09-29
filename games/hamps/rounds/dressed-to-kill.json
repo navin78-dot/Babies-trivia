@@ -1,0 +1,281 @@
+{
+  "id": "dressed-to-kill",
+  "name": "Dressed to Kill",
+  "subject": "Fashion",
+  "tagline": "Twenty questions on designers, houses, logos and the clothes that changed everything. Starts easy, ends hard.",
+  "draft": true,
+  "emblem": "👠",
+  "theme": {
+    "font": "Bodoni Moda",
+    "accent": "#DB2777",
+    "accent2": "#111827",
+    "accentDark": "#F472B6",
+    "accent2Dark": "#E5E7EB"
+  },
+  "questions": [
+    {
+      "d": "easy",
+      "q": "In 1926 Coco Chanel introduced a garment that Vogue called the 'Ford' of fashion, meaning every woman would own one. What was it?",
+      "o": [
+        "The little black dress",
+        "The trench coat",
+        "The pencil skirt",
+        "The trouser suit"
+      ],
+      "a": 0,
+      "w": "The little black dress. Until then black was for mourning and maids.",
+      "more": "Vogue's drawing showed a plain, calf-length crêpe de Chine sheath with long sleeves and predicted it would become a uniform, which it did. Chanel also gave women jersey, costume pearls and the quilted 2.55 handbag, named for the month and year she launched it."
+    },
+    {
+      "d": "easy",
+      "q": "Which sportswear brand has a crocodile on its shirts?",
+      "o": [
+        "Lacoste",
+        "Fred Perry",
+        "Le Coq Sportif",
+        "Sergio Tacchini"
+      ],
+      "a": 0,
+      "w": "Lacoste, founded in 1933 by the French tennis champion René Lacoste, nicknamed 'the Crocodile'.",
+      "more": "The nickname came from a bet with his Davis Cup captain over a crocodile-skin suitcase. His polo shirt, in breathable cotton piqué, replaced the starched long-sleeved shirts tennis players had suffered in. It is often called the first logo ever worn on the outside of clothing."
+    },
+    {
+      "d": "easy",
+      "q": "Whose 1947 debut collection, with its nipped waists and full skirts, was christened the 'New Look'?",
+      "o": [
+        "Christian Dior",
+        "Coco Chanel",
+        "Yves Saint Laurent",
+        "Hubert de Givenchy"
+      ],
+      "a": 0,
+      "w": "Christian Dior. The Harper's Bazaar editor Carmel Snow exclaimed 'It's such a new look!'",
+      "more": "After years of wartime fabric rationing, a single skirt used up to twenty metres of cloth, and women in Paris were attacked in the street for wearing it. Dior died of a heart attack ten years later, and his 21-year-old assistant took over the house: Yves Saint Laurent."
+    },
+    {
+      "d": "easy",
+      "q": "Which designer's shoes are instantly recognisable by their red soles?",
+      "o": [
+        "Christian Louboutin",
+        "Manolo Blahnik",
+        "Jimmy Choo",
+        "Salvatore Ferragamo"
+      ],
+      "a": 0,
+      "w": "Christian Louboutin, who first painted a sole with an assistant's red nail varnish in 1993.",
+      "more": "He felt a prototype looked lifeless, grabbed the varnish and never went back. Louboutin has fought courtroom battles for years to trademark the red sole, winning against Yves Saint Laurent in the US in 2012 on the condition the rest of the shoe is a different colour."
+    },
+    {
+      "d": "easy",
+      "q": "The tuxedo takes its name from a wealthy enclave in which American state?",
+      "o": [
+        "New York",
+        "New Jersey",
+        "Connecticut",
+        "Massachusetts"
+      ],
+      "a": 0,
+      "w": "New York: Tuxedo Park, where a tailless dinner jacket caused a stir at the club's autumn ball in 1886.",
+      "more": "The style had come from the Prince of Wales, the future Edward VII, who wanted something less stiff than tails for dining at Sandringham. The British still call it a dinner jacket. James Bond has worn one in every film since Sean Connery's in 1962."
+    },
+    {
+      "d": "easy",
+      "q": "Anna Wintour has been editor-in-chief of which magazine since 1988?",
+      "o": [
+        "Vogue",
+        "Harper's Bazaar",
+        "Elle",
+        "Vanity Fair"
+      ],
+      "a": 0,
+      "w": "American Vogue. Her first cover put a model in jeans, which the printers thought was a mistake.",
+      "more": "Her bob and sunglasses have not changed in decades; she says the glasses let her hide her reactions at shows. Her former assistant Lauren Weisberger turned the job into the novel The Devil Wears Prada. She also runs the Met Gala guest list personally."
+    },
+    {
+      "d": "easy",
+      "q": "Which luxury house is known for the interlocking 'LV' monogram on its trunks and bags?",
+      "o": [
+        "Louis Vuitton",
+        "Loewe",
+        "Lanvin",
+        "Longchamp"
+      ],
+      "a": 0,
+      "w": "Louis Vuitton, a trunk-maker who set up in Paris in 1854.",
+      "more": "Vuitton's breakthrough was a flat-topped trunk that could be stacked, unlike the domed ones of the day. His son Georges designed the monogram in 1896 to stop counterfeiters, which is still the brand's biggest headache. It is the most valuable luxury brand in the world."
+    },
+    {
+      "d": "easy",
+      "q": "The London designer Mary Quant is credited with popularising which garment in the 1960s?",
+      "o": [
+        "The miniskirt",
+        "The kaftan",
+        "The jumpsuit",
+        "The shift dress"
+      ],
+      "a": 0,
+      "w": "The miniskirt, which she sold from her King's Road boutique, Bazaar, and named after her favourite car.",
+      "more": "Hemlines climbed through the decade as Quant's customers kept asking for shorter. The Frenchman André Courrèges claimed the invention too, and Quant said the credit really belonged to the girls on the street. She also gave the world hot pants and coloured tights."
+    },
+    {
+      "d": "easy",
+      "q": "Ralph Lauren's logo shows a player of which sport?",
+      "o": [
+        "Polo",
+        "Cricket",
+        "Golf",
+        "Fencing"
+      ],
+      "a": 0,
+      "w": "Polo. Lauren, born Ralph Lifshitz in the Bronx, chose it for its air of old money.",
+      "more": "He started in 1967 selling wide ties out of a drawer in the Empire State Building. The polo-player shirt came in 1972 in 24 colours with the line 'every colour of the rainbow'. He has dressed the US Olympic team since 2008 and owns one of the world's great car collections."
+    },
+    {
+      "d": "medium",
+      "q": "The Met Gala raises money for which department of New York's Metropolitan Museum of Art?",
+      "o": [
+        "The Costume Institute",
+        "The Department of Photographs",
+        "The American Wing",
+        "The Cloisters"
+      ],
+      "a": 0,
+      "w": "The Costume Institute, whose spring exhibition the gala opens each first Monday in May.",
+      "more": "It started in 1948 as a midnight supper with fifty-dollar tickets. Under Anna Wintour, tickets have passed fifty thousand dollars and the evening raises tens of millions. The Costume Institute is the only Met department that has to pay for itself."
+    },
+    {
+      "d": "medium",
+      "q": "Which designer launched the wrap dress in 1974 and sold a million of them within two years?",
+      "o": [
+        "Diane von Furstenberg",
+        "Donna Karan",
+        "Vivienne Westwood",
+        "Carolina Herrera"
+      ],
+      "a": 0,
+      "w": "Diane von Furstenberg, a Belgian-born princess by marriage, then 27.",
+      "more": "The dress was jersey, wrinkle-proof, needed no zip and could be put on or taken off in seconds, which she said was the point. Newsweek put her on the cover in 1976 as the most marketable woman since Coco Chanel. The dress was relaunched in 1997 and is still the brand's core."
+    },
+    {
+      "d": "medium",
+      "q": "Which Italian designer's soft, unstructured suits dressed Richard Gere in American Gigolo in 1980 and changed menswear for a decade?",
+      "o": [
+        "Giorgio Armani",
+        "Gianni Versace",
+        "Valentino Garavani",
+        "Franco Moschino"
+      ],
+      "a": 0,
+      "w": "Giorgio Armani, who took the padding and stiffness out of the jacket.",
+      "more": "Armani trained as a window dresser and a medical student before designing, and started his label in 1975 with money from selling his Volkswagen. The film made him the first designer Hollywood men asked for by name; he has dressed more Oscar red carpets than anyone. He still owns his company outright at 90."
+    },
+    {
+      "d": "medium",
+      "q": "The Hermès Birkin bag is named after which British actress and singer?",
+      "o": [
+        "Jane Birkin",
+        "Julie Christie",
+        "Marianne Faithfull",
+        "Charlotte Rampling"
+      ],
+      "a": 0,
+      "w": "Jane Birkin, whose overflowing straw basket spilled on a flight in 1984 next to the head of Hermès.",
+      "more": "Jean-Louis Dumas sketched a roomy bag with her on an airline sick bag. Each Birkin is made by a single craftsman over about 18 hours, and waiting lists of years turned it into an investment: some resell for more than gold by weight. Birkin herself asked for her name to be removed in 2015 over crocodile welfare, then relented."
+    },
+    {
+      "d": "medium",
+      "type": "order",
+      "q": "Put these fashion houses in the order they were founded, earliest first.",
+      "o": [
+        "Hermès",
+        "Burberry",
+        "Chanel",
+        "Gucci"
+      ],
+      "w": "Hermès (1837), Burberry (1856), Chanel (1910), Gucci (1921).",
+      "more": "Hermès began as a harness workshop for the carriages of Paris. Thomas Burberry invented gabardine and dressed the trenches, hence the trench coat. Guccio Gucci got the idea for a luggage brand working as a lift boy at the Savoy in London, watching the guests' bags go by."
+    },
+    {
+      "d": "medium",
+      "q": "True or false: high heels were first worn by men.",
+      "o": [
+        "True",
+        "False"
+      ],
+      "a": 0,
+      "w": "True. Persian cavalrymen wore heels to lock their feet in the stirrups, and European aristocrats copied them in the 1600s.",
+      "more": "Louis XIV of France wore red-heeled shoes and decreed that only his court could. Heels drifted to women during the Enlightenment, when men's dress turned practical and sober. Cowboy boots are the last everyday heel that men kept."
+    },
+    {
+      "d": "hard",
+      "q": "Whose 1965 collection turned the paintings of Piet Mondrian into shift dresses?",
+      "o": [
+        "Yves Saint Laurent",
+        "Pierre Cardin",
+        "Paco Rabanne",
+        "Emilio Pucci"
+      ],
+      "a": 0,
+      "w": "Yves Saint Laurent, after his mother gave him a book on the Dutch painter.",
+      "more": "The blocks of colour look printed but were pieced together from separate panels of wool jersey so the seams hide in the black lines. Copies flooded the shops within weeks. Saint Laurent went on to put women in tuxedos with Le Smoking in 1966."
+    },
+    {
+      "d": "hard",
+      "q": "Who is regarded as the father of haute couture, the first designer to put his name on a label and show collections on live models?",
+      "o": [
+        "Charles Frederick Worth",
+        "Paul Poiret",
+        "Jacques Doucet",
+        "Jeanne Lanvin"
+      ],
+      "a": 0,
+      "w": "Charles Frederick Worth, an Englishman who opened his Paris house in 1858 and dressed the Empress Eugénie.",
+      "more": "Before Worth, dressmakers followed the customer's orders; he dictated what his clients would wear each season and they came to him. His models were the first mannequins, and his wife Marie was the first of them. The House of Worth survived until 1956."
+    },
+    {
+      "d": "hard",
+      "q": "Which French house did Alexander McQueen head as chief designer from 1996 to 2001?",
+      "o": [
+        "Givenchy",
+        "Dior",
+        "Balenciaga",
+        "Chloé"
+      ],
+      "a": 0,
+      "w": "Givenchy, where the East End tailor's apprentice replaced John Galliano at 27.",
+      "more": "McQueen called his first collection there 'crap' in an interview and never settled in Paris, but the salary funded his own label. Gucci bought that label in 2000. He took his own life in 2010, a week after his mother died; Sarah Burton, who succeeded him, made Kate Middleton's wedding dress."
+    },
+    {
+      "d": "hard",
+      "q": "In 1971 a design student was paid how much for creating the Nike swoosh?",
+      "o": [
+        "$35",
+        "$350",
+        "$3,500",
+        "$35,000"
+      ],
+      "a": 0,
+      "w": "Thirty-five dollars, to Carolyn Davidson, a graphic-design student at Portland State University.",
+      "more": "Phil Knight, then teaching accounting there, told her 'I don't love it, but it'll grow on me.' In 1983 Nike gave her a gold swoosh ring and shares now worth over a million dollars. The name Nike, the Greek goddess of victory, came to an employee in a dream the night before a deadline."
+    },
+    {
+      "d": "hard",
+      "type": "select",
+      "q": "Which of these fashion houses belong to the LVMH group? Select all that apply.",
+      "o": [
+        "Dior",
+        "Fendi",
+        "Givenchy",
+        "Gucci",
+        "Prada"
+      ],
+      "a": [
+        0,
+        1,
+        2
+      ],
+      "w": "Dior, Fendi and Givenchy. Gucci belongs to the rival group Kering, and Prada is still controlled by the Prada family.",
+      "more": "Bernard Arnault built LVMH from a bankrupt textile firm he bought in 1984 for the Dior name inside it. The group now owns some 75 brands, from Tiffany to Moët and Louis Vuitton, and made Arnault at times the richest person in the world. Kering, founded by François Pinault, owns Gucci, Saint Laurent and Balenciaga."
+    }
+  ]
+}
