@@ -1,11 +1,11 @@
 {
   "game": "babies",
   "roundsDir": "rounds",
-  "today": "2026-09-28",
+  "today": "2026-09-29",
   "season": 2,
-  "queueCount": 5,
+  "queueCount": 4,
   "target": 5,
-  "fill": 0,
+  "fill": 1,
   "queue": [
     {
       "id": "great-heists",
@@ -29,24 +29,17 @@
       "retired": false
     },
     {
-      "id": "toy-box",
-      "name": "Toy Box",
-      "subject": "Toys and board games",
-      "onPollSince": "2026-09-28",
-      "retired": false
-    },
-    {
       "id": "bright-ideas",
       "name": "Bright Ideas",
       "subject": "Inventions",
-      "onPollSince": null,
+      "onPollSince": "2026-09-29",
       "retired": false
     }
   ],
   "tonightsPoll": [
     "extra-time",
     "wild-things",
-    "toy-box"
+    "bright-ideas"
   ],
   "override": null,
   "dropped": [
@@ -91,6 +84,12 @@
       "id": "between-the-sheets",
       "name": "Between the Sheets",
       "how": "override"
+    },
+    {
+      "day": "2026-09-29",
+      "id": "toy-box",
+      "name": "Toy Box",
+      "how": "poll"
     }
   ],
   "requestsWaiting": [],
@@ -120,16 +119,16 @@
     "Where On Earth (Geography)",
     "Wild Things (Animals)"
   ],
-  "need": 0,
+  "need": 1,
   "games": {
     "hamps": {
       "game": "hamps",
       "roundsDir": "games/hamps/rounds",
-      "today": "2026-09-28",
+      "today": "2026-09-29",
       "season": 1,
-      "queueCount": 5,
+      "queueCount": 4,
       "target": 5,
-      "fill": 0,
+      "fill": 1,
       "queue": [
         {
           "id": "crowned-heads",
@@ -146,17 +145,10 @@
           "retired": false
         },
         {
-          "id": "say-what",
-          "name": "Say What",
-          "subject": "Words and language",
-          "onPollSince": "2026-09-27",
-          "retired": false
-        },
-        {
           "id": "gods-and-monsters",
           "name": "Gods and Monsters",
           "subject": "Mythology",
-          "onPollSince": null,
+          "onPollSince": "2026-09-29",
           "retired": false
         },
         {
@@ -170,7 +162,7 @@
       "tonightsPoll": [
         "crowned-heads",
         "game-on",
-        "say-what"
+        "gods-and-monsters"
       ],
       "override": null,
       "dropped": [
@@ -191,6 +183,12 @@
           "id": "east-hampton",
           "name": "Out East",
           "how": "override"
+        },
+        {
+          "day": "2026-09-29",
+          "id": "say-what",
+          "name": "Say What",
+          "how": "poll"
         }
       ],
       "requestsWaiting": [],
@@ -208,8 +206,8 @@
         "Reel Talk (Movies)",
         "Say What (Words and language)"
       ],
-      "need": 0
+      "need": 1
     }
   },
-  "totalNeed": 0
+  "totalNeed": 2
 }
