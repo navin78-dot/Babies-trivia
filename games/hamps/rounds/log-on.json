@@ -1,0 +1,281 @@
+{
+  "id": "log-on",
+  "name": "Log On",
+  "subject": "Technology and the internet",
+  "tagline": "Twenty questions on the machines, apps and accidents that built the online world. Starts easy, ends hard.",
+  "draft": true,
+  "emblem": "💻",
+  "theme": {
+    "font": "Space Grotesk",
+    "accent": "#22D3EE",
+    "accent2": "#A78BFA",
+    "accentDark": "#67E8F9",
+    "accent2Dark": "#C4B5FD"
+  },
+  "questions": [
+    {
+      "d": "easy",
+      "q": "Which company launched the first iPhone in 2007?",
+      "o": [
+        "Apple",
+        "Nokia",
+        "Samsung",
+        "BlackBerry"
+      ],
+      "a": 0,
+      "w": "Apple. Steve Jobs unveiled it in January 2007 as 'an iPod, a phone and an internet communicator', then revealed they were one device.",
+      "more": "The demo unit was so unstable that engineers mapped out a 'golden path' of taps that would not crash it, and Jobs stuck to it on stage. Microsoft's chief executive Steve Ballmer laughed that a 500-dollar phone with no keyboard had no chance with business users. Apple has since sold more than two billion."
+    },
+    {
+      "d": "easy",
+      "q": "What does the 'www' at the start of a web address stand for?",
+      "o": [
+        "World Wide Web",
+        "World Web Window",
+        "Wide World Wireless",
+        "Web Without Wires"
+      ],
+      "a": 0,
+      "w": "World Wide Web, the name Tim Berners-Lee gave his system of linked pages in 1989.",
+      "more": "Berners-Lee built it at CERN in Switzerland to help physicists share documents, and his boss's first note on the proposal read 'vague but exciting'. He gave the technology away for free in 1993. He has said the two slashes after 'http:' were unnecessary and he regrets them."
+    },
+    {
+      "d": "easy",
+      "q": "Which social network did Mark Zuckerberg launch from his Harvard dorm room in 2004?",
+      "o": [
+        "Facebook",
+        "MySpace",
+        "Twitter",
+        "Friendster"
+      ],
+      "a": 0,
+      "w": "Facebook, then 'Thefacebook', open only to Harvard students with a college email address.",
+      "more": "It reached a million users within ten months and dropped the 'the' after buying facebook.com for 200,000 dollars in 2005. Zuckerberg had earlier built Facemash, a site for rating classmates' looks, which got him hauled before the university's disciplinary board. The company renamed itself Meta in 2021."
+    },
+    {
+      "d": "easy",
+      "q": "Which video-calling app became a verb almost overnight during the 2020 lockdowns?",
+      "o": [
+        "Zoom",
+        "Skype",
+        "FaceTime",
+        "Webex"
+      ],
+      "a": 0,
+      "w": "Zoom, which went from ten million daily meeting participants in December 2019 to 300 million by April 2020.",
+      "more": "Its founder Eric Yuan left Cisco's Webex after his bosses turned down his idea for a friendlier product, and he says the idea came from a long-distance romance that involved ten-hour train rides. 'You're on mute' became the sentence of the year. Zoom fatigue got its own entry in the dictionary."
+    },
+    {
+      "d": "easy",
+      "q": "The first video ever uploaded to YouTube, in April 2005, was 19 seconds of one of its founders at what place?",
+      "o": [
+        "A zoo",
+        "A football match",
+        "A wedding",
+        "An airport"
+      ],
+      "a": 0,
+      "w": "The San Diego Zoo. 'Me at the zoo' shows Jawed Karim in front of the elephants remarking on their long trunks.",
+      "more": "YouTube was started by three former PayPal employees and was, briefly, meant to be a video dating site. Google bought it for 1.65 billion dollars 18 months later, a price many called insane. 'Me at the zoo' is still online and has been watched hundreds of millions of times."
+    },
+    {
+      "d": "easy",
+      "q": "Which search engine started as a Stanford research project called BackRub?",
+      "o": [
+        "Google",
+        "Yahoo",
+        "Bing",
+        "AltaVista"
+      ],
+      "a": 0,
+      "w": "Google, founded by Larry Page and Sergey Brin in 1998 and named after a misspelling of googol, the number one followed by a hundred zeros.",
+      "more": "BackRub ranked pages by counting the links pointing back to them, the idea behind PageRank, which is named after Larry Page rather than web pages. The first Google server was housed in a case made of Lego. The pair tried to sell the company to Excite in 1999 for under a million dollars and were turned down."
+    },
+    {
+      "d": "easy",
+      "q": "Which app, owned by the Chinese company ByteDance, made short vertical videos the dominant form of social media?",
+      "o": [
+        "TikTok",
+        "Snapchat",
+        "Vine",
+        "Instagram"
+      ],
+      "a": 0,
+      "w": "TikTok, launched outside China in 2017 and merged with the lip-sync app Musical.ly in 2018.",
+      "more": "Its Chinese twin is called Douyin and runs on separate servers. TikTok was the most downloaded app in the world for several years running and was the first app not owned by Meta to pass three billion downloads. Vine, which pioneered six-second looping videos, had been shut down by Twitter in 2017."
+    },
+    {
+      "d": "easy",
+      "q": "What does 'Wi-Fi' let devices do?",
+      "o": [
+        "Connect to a network without cables",
+        "Charge without a cable",
+        "Print in colour",
+        "Encrypt email"
+      ],
+      "a": 0,
+      "w": "Connect to a local network by radio, using a standard finalised in 1997.",
+      "more": "Contrary to popular belief Wi-Fi does not stand for 'wireless fidelity' or anything else; a branding agency invented it in 1999 as a catchier name than 'IEEE 802.11b Direct Sequence'. The core patent came from Australia's CSIRO research agency, which collected hundreds of millions of dollars in licensing fees."
+    },
+    {
+      "d": "easy",
+      "q": "What is a 404?",
+      "o": [
+        "The error code for a web page that cannot be found",
+        "The maximum length of a text message",
+        "The first computer virus",
+        "A brand of modem"
+      ],
+      "a": 0,
+      "w": "The HTTP status code a server returns when the page you asked for does not exist.",
+      "more": "The codes were part of the web's original design: 200 means success, 403 means forbidden, and 500 means the server itself broke. A popular story that 404 was the number of the room at CERN where the first web server sat is a myth. Code 418, 'I'm a teapot', was an April Fools' joke in 1998 that was never removed."
+    },
+    {
+      "d": "medium",
+      "q": "Bluetooth, the short-range wireless standard, is named after a tenth-century king of which country?",
+      "o": [
+        "Denmark",
+        "Norway",
+        "Sweden",
+        "Iceland"
+      ],
+      "a": 0,
+      "w": "Denmark. Harald Bluetooth united the Danish tribes, and the standard was meant to unite devices.",
+      "more": "An Intel engineer suggested the name in 1997 after reading a novel about the Vikings, and it was meant to be a placeholder. The logo combines the runes for Harald's initials, H and B. The king's nickname probably came from a dead tooth that looked dark blue."
+    },
+    {
+      "d": "medium",
+      "q": "Which company's first product, in 1975, was a version of the BASIC programming language for a hobbyist computer called the Altair?",
+      "o": [
+        "Microsoft",
+        "Apple",
+        "IBM",
+        "Oracle"
+      ],
+      "a": 0,
+      "w": "Microsoft, founded by Bill Gates and Paul Allen in Albuquerque, New Mexico, where the Altair's maker was based.",
+      "more": "Gates and Allen wrote the software without ever seeing an Altair, testing it on a Harvard mainframe they had programmed to imitate the machine. It worked the first time Allen loaded it in Albuquerque. The company moved to the Seattle area in 1979 and its real fortune came from selling IBM the operating system for the PC in 1981."
+    },
+    {
+      "d": "medium",
+      "q": "The first emoji set, 176 tiny pictures, was designed in 1999 for mobile phones in which country?",
+      "o": [
+        "Japan",
+        "South Korea",
+        "The United States",
+        "Finland"
+      ],
+      "a": 0,
+      "w": "Japan. Shigetaka Kurita drew them on a 12-by-12 pixel grid for the phone company NTT DoCoMo.",
+      "more": "The word emoji comes from the Japanese for picture, 'e', and character, 'moji'; its resemblance to 'emotion' is a coincidence. The set entered the collection of New York's Museum of Modern Art in 2016. Emoji became global when Apple put a keyboard for them on the iPhone in 2011."
+    },
+    {
+      "d": "medium",
+      "q": "In 2009 someone using the name Satoshi Nakamoto launched the first cryptocurrency. What was it?",
+      "o": [
+        "Bitcoin",
+        "Ethereum",
+        "Dogecoin",
+        "Litecoin"
+      ],
+      "a": 0,
+      "w": "Bitcoin, whose first block, mined on 3 January 2009, contains a newspaper headline about bank bailouts.",
+      "more": "Nakamoto's identity has never been proven; the person vanished from the internet in 2011 and their wallet of about a million bitcoins has never moved. The first real-world purchase came in 2010, when a programmer paid 10,000 bitcoins for two pizzas, an amount worth many hundreds of millions of dollars at later prices."
+    },
+    {
+      "d": "medium",
+      "type": "order",
+      "q": "Put these in the order they launched, earliest first.",
+      "o": [
+        "Wikipedia",
+        "Facebook",
+        "Twitter",
+        "Instagram"
+      ],
+      "w": "Wikipedia (2001), Facebook (2004), Twitter (2006), Instagram (2010).",
+      "more": "Wikipedia grew out of a failed expert-written encyclopaedia called Nupedia and now has more than sixty million articles. Twitter's first post was 'just setting up my twttr', and the name had no vowels at first. Instagram had 13 employees when Facebook bought it for a billion dollars in 2012."
+    },
+    {
+      "d": "medium",
+      "q": "True or false: the first computer 'bug' was an actual insect.",
+      "o": [
+        "True",
+        "False"
+      ],
+      "a": 0,
+      "w": "True, at least once. In 1947 operators of the Harvard Mark II found a moth stuck in a relay and taped it into the logbook with the note 'first actual case of bug being found'.",
+      "more": "Engineers had used 'bug' for a fault since Thomas Edison's day, which is why the note is a joke. The team, which included the computing pioneer Grace Hopper, is credited with popularising 'debugging'. The moth and logbook page are in the Smithsonian."
+    },
+    {
+      "d": "hard",
+      "q": "What does the acronym CAPTCHA, the test that asks you to prove you are not a robot, stand for?",
+      "o": [
+        "Completely Automated Public Turing test to tell Computers and Humans Apart",
+        "Computer Aided Protocol To Check Human Activity",
+        "Certified Anti-Phishing Test for Consumer Human Authentication",
+        "Character And Pattern Test for Cognitive Human Ability"
+      ],
+      "a": 0,
+      "w": "Completely Automated Public Turing test to tell Computers and Humans Apart, coined at Carnegie Mellon in 2000.",
+      "more": "Its inventor Luis von Ahn later built reCAPTCHA, which used the squiggly words to get millions of people to transcribe old books and newspapers for free, and then sold it to Google. He went on to found Duolingo. Today's tests often just watch how your mouse moves."
+    },
+    {
+      "d": "hard",
+      "q": "Which mathematician, born in 1815, is called the first computer programmer for her notes on Charles Babbage's Analytical Engine?",
+      "o": [
+        "Ada Lovelace",
+        "Mary Somerville",
+        "Sophie Germain",
+        "Emmy Noether"
+      ],
+      "a": 0,
+      "w": "Ada Lovelace, daughter of the poet Lord Byron, who published an algorithm for the machine in 1843.",
+      "more": "Her mother pushed her into mathematics to keep out her father's poetic madness. Lovelace saw further than Babbage himself, writing that the engine might one day compose music, and the programming language Ada, used in aircraft and air-traffic systems, is named after her. Babbage's engine was never built in his lifetime."
+    },
+    {
+      "d": "hard",
+      "q": "The first message ever sent over ARPANET, the ancestor of the internet, in October 1969 was supposed to be 'LOGIN'. What actually arrived before the system crashed?",
+      "o": [
+        "LO",
+        "L",
+        "LOG",
+        "LOGI"
+      ],
+      "a": 0,
+      "w": "'LO'. The link from UCLA to Stanford crashed after two letters, so the internet's first word was, by accident, 'lo'.",
+      "more": "The student who typed it, Charley Kline, was watched by the professor Leonard Kleinrock, who likes to point out that 'lo and behold' is a better opening line than Samuel Morse's 'What hath God wrought'. The full LOGIN went through an hour later. ARPANET had four computers by the end of that year."
+    },
+    {
+      "d": "hard",
+      "q": "Moore's law, the observation that drove the computer industry for fifty years, said that what doubles roughly every two years?",
+      "o": [
+        "The number of transistors on a chip",
+        "The speed of the internet",
+        "The price of memory",
+        "The size of hard drives"
+      ],
+      "a": 0,
+      "w": "The number of transistors that can be fitted on a chip, as Gordon Moore of Intel observed in 1965.",
+      "more": "Moore's original paper predicted a doubling every year and he revised it to two in 1975. It was never a law of nature, more a target the industry set itself, and it has held for far longer than he expected. Apple's latest phone chips carry around twenty billion transistors."
+    },
+    {
+      "d": "hard",
+      "type": "select",
+      "q": "Which of these messaging apps encrypt every chat end to end by default, so that not even the company can read it? Select all that apply.",
+      "o": [
+        "Signal",
+        "WhatsApp",
+        "iMessage",
+        "Telegram",
+        "Slack"
+      ],
+      "a": [
+        0,
+        1,
+        2
+      ],
+      "w": "Signal, WhatsApp and iMessage. Telegram encrypts end to end only in its optional 'secret chats', and Slack not at all.",
+      "more": "WhatsApp switched on end-to-end encryption for its billion users in 2016 using the protocol built by Signal's Moxie Marlinspike, a former sailor and anarchist who later co-founded Signal as a non-profit. Encryption of this kind is a running fight between tech companies and governments, who want a way in for police and intelligence agencies."
+    }
+  ]
+}

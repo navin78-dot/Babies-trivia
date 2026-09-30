@@ -1,0 +1,283 @@
+{
+  "id": "cape-and-cowl",
+  "name": "Cape and Cowl",
+  "subject": "Comic books and superheroes",
+  "tagline": "Twenty questions on capes, cowls, secret identities and the people who drew them. Starts easy, ends hard.",
+  "draft": true,
+  "emblem": "🦸",
+  "theme": {
+    "font": "Bangers",
+    "accent": "#EF4444",
+    "accent2": "#FACC15",
+    "accentDark": "#F87171",
+    "accent2Dark": "#FDE047"
+  },
+  "questions": [
+    {
+      "d": "easy",
+      "q": "Which city does Batman protect?",
+      "o": [
+        "Gotham City",
+        "Metropolis",
+        "Star City",
+        "Central City"
+      ],
+      "a": 0,
+      "w": "Gotham City, a name Bill Finger picked out of a New York phone book, from Gotham Jewelers.",
+      "more": "Gotham had been a nickname for New York since Washington Irving used it in 1807, borrowing the name of an English village whose people supposedly feigned madness to avoid a royal visit. Metropolis is Superman's city; in the comics the two are often placed across a bay from each other."
+    },
+    {
+      "d": "easy",
+      "q": "How did Peter Parker get his powers?",
+      "o": [
+        "A bite from a radioactive spider",
+        "A lab explosion",
+        "A magic ring",
+        "He was born with them"
+      ],
+      "a": 0,
+      "w": "A radioactive spider bit him on a school trip in Amazing Fantasy #15, in 1962.",
+      "more": "Stan Lee's publisher hated the idea, saying people found spiders creepy and teenagers could only be sidekicks, so it ran in a comic that was about to be cancelled anyway. It sold so well that The Amazing Spider-Man got its own title within months. The 2002 film swapped the radioactive spider for a genetically engineered one."
+    },
+    {
+      "d": "easy",
+      "q": "Superman was born on which doomed planet?",
+      "o": [
+        "Krypton",
+        "Vulcan",
+        "Tatooine",
+        "Oa"
+      ],
+      "a": 0,
+      "w": "Krypton, whose destruction his father Jor-El foresaw before rocketing him to Earth.",
+      "more": "His Kryptonian name is Kal-El, which his creators, two Jewish teenagers from Cleveland, may have drawn from Hebrew, where El means God. Kryptonite, the glowing green remnant of the planet, was invented for the radio show in 1943, partly so the actor could take holidays while Superman lay groaning."
+    },
+    {
+      "d": "easy",
+      "q": "What is the name of Batman's loyal butler?",
+      "o": [
+        "Alfred",
+        "Jarvis",
+        "Lurch",
+        "Jeeves"
+      ],
+      "a": 0,
+      "w": "Alfred Pennyworth, who has patched up Bruce Wayne since 1943.",
+      "more": "Alfred began as a plump comic-relief detective wannabe and was slimmed down and given a moustache to match the 1943 film serial. He was killed off in 1964 and brought back two years later when the television show made him popular. Jarvis is the Avengers' butler at Marvel, and the name Tony Stark gave his computer in the films."
+    },
+    {
+      "d": "easy",
+      "q": "What is the name of Thor's hammer?",
+      "o": [
+        "Mjolnir",
+        "Gungnir",
+        "Stormbreaker",
+        "Excalibur"
+      ],
+      "a": 0,
+      "w": "Mjolnir, which only the worthy can lift.",
+      "more": "In Norse myth the hammer's handle came out short because Loki, disguised as a fly, bit the dwarf forging it. Marvel's Thor first appeared in 1962, and the inscription 'Whosoever holds this hammer, if he be worthy, shall possess the power of Thor' came a year later. Captain America finally lifted it on screen in Avengers: Endgame."
+    },
+    {
+      "d": "easy",
+      "q": "Which colour of rage turns Bruce Banner into the Hulk after a bomb test goes wrong?",
+      "o": [
+        "Green",
+        "Grey",
+        "Red",
+        "Blue"
+      ],
+      "a": 0,
+      "w": "Green. He was grey in his first issue in 1962, but the printer could not keep the shade consistent, so Stan Lee switched him.",
+      "more": "Banner was caught in the blast of a gamma bomb while saving a teenager who had wandered onto the test range. The 1970s television series changed his first name to David because the network thought Bruce sounded too effeminate. Lou Ferrigno, who played the Hulk, was later hired to do his roar."
+    },
+    {
+      "d": "easy",
+      "q": "Wonder Woman comes from a hidden island of Amazon warriors. What is it called?",
+      "o": [
+        "Themyscira",
+        "Atlantis",
+        "Asgard",
+        "Wakanda"
+      ],
+      "a": 0,
+      "w": "Themyscira, also known as Paradise Island, where no man had set foot until Steve Trevor's plane crashed.",
+      "more": "Her creator, the psychologist William Moulton Marston, helped invent the lie detector, which is why she carries a lasso that forces the truth. Marston lived with his wife and their partner Olive Byrne, and both women were models for the character. She debuted in 1941 and has never been out of print."
+    },
+    {
+      "d": "medium",
+      "q": "In which comic did Superman first appear in 1938?",
+      "o": [
+        "Action Comics #1",
+        "Detective Comics #27",
+        "Superman #1",
+        "All Star Comics #8"
+      ],
+      "a": 0,
+      "w": "Action Comics #1, cover-dated June 1938, showing him lifting a car over his head.",
+      "more": "Jerry Siegel and Joe Shuster sold all rights for 130 dollars. A near-mint copy of that issue sold for six million dollars in 2024, the most ever paid for a comic. The pair spent decades in poverty and legal battles before DC granted them a pension and a credit line in 1975."
+    },
+    {
+      "d": "medium",
+      "q": "Which fictional African nation, the home of Black Panther, sits on the world's only supply of vibranium?",
+      "o": [
+        "Wakanda",
+        "Zamunda",
+        "Genosha",
+        "Latveria"
+      ],
+      "a": 0,
+      "w": "Wakanda, which hides its technology behind the disguise of a poor farming country.",
+      "more": "T'Challa debuted in Fantastic Four #52 in 1966, months before the Black Panther Party was founded, and was the first Black superhero in mainstream American comics. Latveria is Doctor Doom's kingdom; Genosha is a mutant island in the X-Men; Zamunda is from Coming to America."
+    },
+    {
+      "d": "medium",
+      "q": "Wolverine's skeleton and claws are coated in which indestructible metal?",
+      "o": [
+        "Adamantium",
+        "Vibranium",
+        "Uru",
+        "Titanium"
+      ],
+      "a": 0,
+      "w": "Adamantium, bonded to his bones in the Weapon X programme.",
+      "more": "Wolverine was created in 1974 as a Canadian foe for the Hulk and was nearly written out of the X-Men a year later. His claws were originally meant to be part of his gloves. Hugh Jackman played him for 24 years, a record for a superhero in live action, and returned once more in Deadpool & Wolverine."
+    },
+    {
+      "d": "medium",
+      "q": "Which cartoonist created Peanuts and drew every one of its 17,897 strips himself?",
+      "o": [
+        "Charles Schulz",
+        "Jim Davis",
+        "Bill Watterson",
+        "Gary Larson"
+      ],
+      "a": 0,
+      "w": "Charles Schulz, from 1950 until the day before he died in February 2000.",
+      "more": "He never let anyone else draw a line of it and stipulated that nobody could continue the strip after him. Charlie Brown was named after a colleague at the art school where he taught. At its peak Peanuts ran in 2,600 newspapers in 75 countries and its television specials still air every year."
+    },
+    {
+      "d": "medium",
+      "q": "Tintin, the boy reporter with the quiff, was created by which Belgian cartoonist?",
+      "o": [
+        "Hergé",
+        "Goscinny",
+        "Uderzo",
+        "Peyo"
+      ],
+      "a": 0,
+      "w": "Hergé, the pen name of Georges Remi, from his reversed initials, R.G., said in French.",
+      "more": "Tintin first appeared in 1929 in the children's supplement of a Catholic newspaper. The 24 albums have sold more than 250 million copies in over 70 languages. Snowy is Milou in the original French; Captain Haddock's curses, like 'billions of blistering barnacles', were invented to swear without swearing."
+    },
+    {
+      "d": "medium",
+      "type": "order",
+      "q": "Put these heroes in the order they first appeared in print, earliest first.",
+      "o": [
+        "Superman",
+        "Batman",
+        "Wonder Woman",
+        "Spider-Man"
+      ],
+      "w": "Superman (1938), Batman (1939), Wonder Woman (1941), Spider-Man (1962).",
+      "more": "Superman's success set off a scramble: Batman arrived eleven months later in Detective Comics #27 and Wonder Woman during the war. The 1940s are called the Golden Age of comics; Spider-Man belongs to the Silver Age, when Marvel reinvented the genre with heroes who had rent to pay and colds to nurse."
+    },
+    {
+      "d": "medium",
+      "type": "select",
+      "q": "Which of these characters belong to DC Comics rather than Marvel? Select all that apply.",
+      "o": [
+        "Aquaman",
+        "The Flash",
+        "Green Lantern",
+        "Doctor Strange",
+        "Ant-Man"
+      ],
+      "a": [
+        0,
+        1,
+        2
+      ],
+      "w": "Aquaman, the Flash and Green Lantern are DC. Doctor Strange and Ant-Man are Marvel.",
+      "more": "DC takes its name from Detective Comics, the title that introduced Batman, and its big names mostly date from the late 1930s and 1940s. Marvel's core cast was created in a burst between 1961 and 1964 by Stan Lee with Jack Kirby and Steve Ditko. The two companies have crossed over a handful of times, most famously in Superman vs. the Amazing Spider-Man in 1976."
+    },
+    {
+      "d": "hard",
+      "q": "In 1992 which graphic novel became the first, and so far only, comic to win a Pulitzer Prize?",
+      "o": [
+        "Maus",
+        "Watchmen",
+        "Persepolis",
+        "The Dark Knight Returns"
+      ],
+      "a": 0,
+      "w": "Maus, Art Spiegelman's account of his father's survival of Auschwitz, with Jews drawn as mice and Nazis as cats.",
+      "more": "The Pulitzer board gave it a Special Award because it fit none of the categories. Spiegelman spent 13 years on it, interviewing his father on tape. A Tennessee school board removed it from the curriculum in 2022, which sent it back to the top of the bestseller lists."
+    },
+    {
+      "d": "hard",
+      "q": "Which industry body, set up in 1954 after a Senate inquiry into juvenile delinquency, put its seal of approval on the cover of American comics for decades?",
+      "o": [
+        "The Comics Code Authority",
+        "The Hays Office",
+        "The Federal Comics Commission",
+        "The Newsstand Standards Board"
+      ],
+      "a": 0,
+      "w": "The Comics Code Authority, which banned vampires, werewolves, the word 'horror' in titles and any story in which crime paid.",
+      "more": "The panic was stoked by the psychiatrist Fredric Wertham's book Seduction of the Innocent, which claimed Batman and Robin were a gay couple and Wonder Woman a bad influence on girls. Marvel dropped the code in 2001 after it refused a Spider-Man story about drugs; the last publishers abandoned it in 2011."
+    },
+    {
+      "d": "hard",
+      "q": "Which writer created Watchmen, V for Vendetta and The Killing Joke, and asks for his name to be removed from every screen adaptation?",
+      "o": [
+        "Alan Moore",
+        "Neil Gaiman",
+        "Frank Miller",
+        "Grant Morrison"
+      ],
+      "a": 0,
+      "w": "Alan Moore, the bearded magician from Northampton who has refused all film money for years.",
+      "more": "Watchmen, drawn by Dave Gibbons in 1986, is the only graphic novel on Time's list of the hundred best English-language novels. Moore fell out with DC over rights and has called superhero films a 'blight' on culture. He now writes prose novels and worships a Roman snake god, Glycon, which he admits was a hoax."
+    },
+    {
+      "d": "hard",
+      "q": "Which manga, about a rubber-limbed pirate, is the best-selling comic series of all time, with more than 500 million copies in print?",
+      "o": [
+        "One Piece",
+        "Dragon Ball",
+        "Naruto",
+        "Astro Boy"
+      ],
+      "a": 0,
+      "w": "One Piece, by Eiichiro Oda, running weekly since 1997.",
+      "more": "It holds the Guinness record for the most copies of a comic series by a single author. Oda works so relentlessly that he has said he sleeps three hours a night. Manga now outsells American superhero comics several times over in the United States itself."
+    },
+    {
+      "d": "hard",
+      "q": "Asterix the Gaul was created in 1959 by which writer and artist pair?",
+      "o": [
+        "René Goscinny and Albert Uderzo",
+        "Hergé and Edgar P. Jacobs",
+        "Morris and Peyo",
+        "Jean Giraud and Jodorowsky"
+      ],
+      "a": 0,
+      "w": "Goscinny wrote and Uderzo drew, until Goscinny's death in 1977, after which Uderzo did both.",
+      "more": "The village of indomitable Gauls holding out against Caesar in 50 BC has sold close to 400 million albums, second only to Tintin in Europe. The puns in the names, like the druid Getafix and the bard Cacofonix, were coined afresh by the English translators Anthea Bell and Derek Hockridge. France's first satellite, launched in 1965, was named Astérix."
+    },
+    {
+      "d": "hard",
+      "q": "Bill Watterson ended which beloved strip on 31 December 1995, having refused every offer to license its characters for merchandise?",
+      "o": [
+        "Calvin and Hobbes",
+        "The Far Side",
+        "Bloom County",
+        "Doonesbury"
+      ],
+      "a": 0,
+      "w": "Calvin and Hobbes, about a six-year-old and his stuffed tiger who was alive only to him.",
+      "more": "Watterson walked away from an estimated hundreds of millions of dollars in toys and cartoons because he felt it would cheapen the strip. Every Calvin-peeing-on-a-logo car sticker is a bootleg. He then vanished from public life for decades, surfacing in 2023 with an illustrated fable called The Mysteries."
+    }
+  ]
+}
