@@ -1,7 +1,7 @@
 {
   "game": "babies",
   "roundsDir": "rounds",
-  "today": "2026-09-29",
+  "today": "2026-09-30",
   "season": 2,
   "queueCount": 4,
   "target": 5,
@@ -22,24 +22,24 @@
       "retired": false
     },
     {
-      "id": "wild-things",
-      "name": "Wild Things",
-      "subject": "Animals",
-      "onPollSince": "2026-09-27",
-      "retired": false
-    },
-    {
       "id": "bright-ideas",
       "name": "Bright Ideas",
       "subject": "Inventions",
       "onPollSince": "2026-09-29",
       "retired": false
+    },
+    {
+      "id": "grand-designs",
+      "name": "Grand Designs",
+      "subject": "Architecture and famous buildings",
+      "onPollSince": "2026-09-30",
+      "retired": false
     }
   ],
   "tonightsPoll": [
     "extra-time",
-    "wild-things",
-    "bright-ideas"
+    "bright-ideas",
+    "grand-designs"
   ],
   "override": null,
   "dropped": [
@@ -90,6 +90,12 @@
       "id": "toy-box",
       "name": "Toy Box",
       "how": "poll"
+    },
+    {
+      "day": "2026-09-30",
+      "id": "wild-things",
+      "name": "Wild Things",
+      "how": "poll"
     }
   ],
   "requestsWaiting": [],
@@ -112,6 +118,7 @@
     "The Corner Office (Business leaders and companies)",
     "Extra Time (Sport)",
     "Founding Years (American history, 1500 to 1850)",
+    "Grand Designs (Architecture and famous buildings)",
     "Ripped From the Headlines (Current events, 2026)",
     "Summer Blockbusters (Big movies)",
     "Totally Famous (1990s celebrities)",
@@ -124,19 +131,12 @@
     "hamps": {
       "game": "hamps",
       "roundsDir": "games/hamps/rounds",
-      "today": "2026-09-29",
+      "today": "2026-09-30",
       "season": 1,
       "queueCount": 4,
       "target": 5,
       "fill": 1,
       "queue": [
-        {
-          "id": "crowned-heads",
-          "name": "Crowned Heads",
-          "subject": "Royals through history",
-          "onPollSince": "2026-09-25",
-          "retired": false
-        },
         {
           "id": "game-on",
           "name": "Game On",
@@ -155,14 +155,21 @@
           "id": "art-attack",
           "name": "Art Attack",
           "subject": "Art and artists",
+          "onPollSince": "2026-09-30",
+          "retired": false
+        },
+        {
+          "id": "dressed-to-kill",
+          "name": "Dressed to Kill",
+          "subject": "Fashion",
           "onPollSince": null,
           "retired": false
         }
       ],
       "tonightsPoll": [
-        "crowned-heads",
         "game-on",
-        "gods-and-monsters"
+        "gods-and-monsters",
+        "art-attack"
       ],
       "override": null,
       "dropped": [
@@ -189,6 +196,12 @@
           "id": "say-what",
           "name": "Say What",
           "how": "poll"
+        },
+        {
+          "day": "2026-09-30",
+          "id": "crowned-heads",
+          "name": "Crowned Heads",
+          "how": "poll"
         }
       ],
       "requestsWaiting": [],
@@ -197,6 +210,7 @@
         "Binge Worthy (Television of the streaming age)",
         "Chart Toppers (Pop music)",
         "Crowned Heads (Royals through history)",
+        "Dressed to Kill (Fashion)",
         "Out East (East Hampton and Montauk)",
         "Eureka (Science and the human body)",
         "Game On (Sport)",
