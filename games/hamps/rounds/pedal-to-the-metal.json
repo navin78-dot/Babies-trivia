@@ -1,0 +1,281 @@
+{
+  "id": "pedal-to-the-metal",
+  "name": "Pedal to the Metal",
+  "subject": "Cars and motoring",
+  "tagline": "Twenty questions on badges, engines, races and the road. Starts easy, ends hard.",
+  "draft": true,
+  "emblem": "🏎️",
+  "theme": {
+    "font": "Rajdhani",
+    "accent": "#F43F5E",
+    "accent2": "#FACC15",
+    "accentDark": "#FB7185",
+    "accent2Dark": "#FDE047"
+  },
+  "questions": [
+    {
+      "d": "easy",
+      "q": "Which Italian carmaker's badge is a prancing black horse on a yellow shield?",
+      "o": [
+        "Ferrari",
+        "Lamborghini",
+        "Maserati",
+        "Alfa Romeo"
+      ],
+      "a": 0,
+      "w": "Ferrari. The horse was the emblem of a First World War flying ace, Francesco Baracca, whose mother urged Enzo Ferrari to use it for luck.",
+      "more": "The yellow is the colour of Enzo's home town, Modena. Lamborghini's bull is the founder's star sign; Ferruccio Lamborghini made tractors until, legend says, Enzo Ferrari insulted him over a faulty clutch and he decided to build his own sports car."
+    },
+    {
+      "d": "easy",
+      "q": "Which American brand has built the Corvette sports car since 1953?",
+      "o": [
+        "Chevrolet",
+        "Dodge",
+        "Pontiac",
+        "Cadillac"
+      ],
+      "a": 0,
+      "w": "Chevrolet. The Corvette is the longest-running sports car still in production.",
+      "more": "The first ones were white, had six-cylinder engines and an automatic gearbox, and were so slow that sales nearly killed the model. Zora Arkus-Duntov, a Belgian-born engineer, turned it into a real performance car and is called the father of the Corvette. The brand's bow-tie badge was supposedly copied from hotel wallpaper in Paris."
+    },
+    {
+      "d": "easy",
+      "q": "Which German brand's badge is four interlocking rings?",
+      "o": [
+        "Audi",
+        "BMW",
+        "Mercedes-Benz",
+        "Opel"
+      ],
+      "a": 0,
+      "w": "Audi. The rings stand for the four companies that merged in 1932 to form Auto Union.",
+      "more": "Audi is Latin for 'listen', a translation of the founder August Horch's surname, which he could no longer use after leaving his first company. BMW's blue-and-white roundel is the flag of Bavaria, not a spinning propeller, whatever the adverts said in the 1920s."
+    },
+    {
+      "d": "easy",
+      "q": "Toyota, Honda and Nissan are carmakers from which country?",
+      "o": [
+        "Japan",
+        "South Korea",
+        "China",
+        "Germany"
+      ],
+      "a": 0,
+      "w": "Japan, which overtook the United States as the world's biggest car producer in 1980.",
+      "more": "Toyota began as a loom-maker, and the family name is Toyoda; the spelling was changed because it takes eight brush strokes in Japanese, a lucky number. Toyota is the world's largest carmaker by volume. South Korea's Hyundai and Kia are now the third-largest group."
+    },
+    {
+      "d": "easy",
+      "q": "What does SUV stand for?",
+      "o": [
+        "Sport utility vehicle",
+        "Standard urban vehicle",
+        "Super unleaded vehicle",
+        "Suburban utility van"
+      ],
+      "a": 0,
+      "w": "Sport utility vehicle, a term that spread in the 1980s with the Jeep Cherokee and Ford Explorer.",
+      "more": "SUVs went from a niche to roughly half of all new cars sold worldwide by the 2020s, and the International Energy Agency has called them the second-biggest cause of rising carbon emissions in that period, after power generation. Their height is also why pedestrian deaths rose in the United States."
+    },
+    {
+      "d": "easy",
+      "q": "The electric carmaker Tesla is named after which inventor?",
+      "o": [
+        "Nikola Tesla",
+        "Thomas Edison",
+        "Michael Faraday",
+        "Alessandro Volta"
+      ],
+      "a": 0,
+      "w": "Nikola Tesla, the Serbian-American pioneer of alternating current, who died broke in a New York hotel in 1943.",
+      "more": "Tesla Motors was founded in 2003 by Martin Eberhard and Marc Tarpenning; Elon Musk arrived as an investor in 2004 and later won the right in a lawsuit to be called a co-founder. Its first car, the Roadster, was built on a Lotus chassis. One was launched into space on a Falcon Heavy rocket in 2018."
+    },
+    {
+      "d": "easy",
+      "q": "Which British luxury marque has the winged figurine called the Spirit of Ecstasy on its bonnet?",
+      "o": [
+        "Rolls-Royce",
+        "Bentley",
+        "Jaguar",
+        "Aston Martin"
+      ],
+      "a": 0,
+      "w": "Rolls-Royce. The figure, from 1911, is said to be modelled on Eleanor Thornton, the secret lover of a motoring peer.",
+      "more": "Modern versions retract into the grille in a fraction of a second if touched, to stop theft. Rolls-Royce cars have been owned by BMW since 1998, while Bentley, long its twin, went to Volkswagen in the same deal, a split negotiated over who got the famous name."
+    },
+    {
+      "d": "easy",
+      "q": "Which German company has built the 911 sports car, with its engine in the back, since 1964?",
+      "o": [
+        "Porsche",
+        "BMW",
+        "Mercedes-Benz",
+        "Opel"
+      ],
+      "a": 0,
+      "w": "Porsche, in Stuttgart. The 911 was going to be called the 901 until Peugeot objected that it owned the rights to three-digit names with a zero in the middle.",
+      "more": "More than a million 911s have been built and the basic shape has barely changed in sixty years. The rear-engine layout was inherited from the Volkswagen Beetle, which Ferdinand Porsche designed. Porsche's badge is the crest of the city of Stuttgart, whose name means 'stud farm', hence the horse."
+    },
+    {
+      "d": "easy",
+      "q": "True or false: in Japan, as in Britain, cars drive on the left.",
+      "o": [
+        "True",
+        "False"
+      ],
+      "a": 0,
+      "w": "True. About a third of the world's countries drive on the left, Japan, India, Australia and South Africa among them.",
+      "more": "Most of the left-hand world was once British, but Japan never was; its habit dates to samurai keeping their sword arm free of passers-by. Sweden switched from left to right overnight on 3 September 1967, 'Dagen H', with every road sign in the country changed before dawn."
+    },
+    {
+      "d": "medium",
+      "q": "Which Swedish carmaker invented the three-point seat belt in 1959 and gave away the patent so every manufacturer could use it?",
+      "o": [
+        "Volvo",
+        "Saab",
+        "Scania",
+        "Koenigsegg"
+      ],
+      "a": 0,
+      "w": "Volvo, whose engineer Nils Bohlin, a former aircraft ejector-seat designer, came up with it.",
+      "more": "The belt is estimated to have saved more than a million lives. Volvo means 'I roll' in Latin; the company began as a maker of ball bearings. It is now owned by China's Geely, which bought it from Ford in 2010."
+    },
+    {
+      "d": "medium",
+      "q": "Which 24-hour endurance race has been held on public roads near a French town almost every June since 1923?",
+      "o": [
+        "Le Mans",
+        "Monte Carlo",
+        "Reims",
+        "Dijon"
+      ],
+      "a": 0,
+      "w": "The 24 Hours of Le Mans, where cars cover roughly 5,000 kilometres in a day and a night.",
+      "more": "The 1955 race saw the worst crash in motorsport history, when a Mercedes flew into the crowd and killed 83 spectators; Mercedes withdrew from racing for 30 years. Ford's four straight wins over Ferrari from 1966 to 1969 became the film Ford v Ferrari. Steve McQueen's 1971 film Le Mans nearly bankrupted him."
+    },
+    {
+      "d": "medium",
+      "q": "At which race, nicknamed 'the greatest spectacle in racing', does the winner traditionally drink a bottle of milk in victory lane?",
+      "o": [
+        "The Indianapolis 500",
+        "The Daytona 500",
+        "The Monaco Grand Prix",
+        "The Bathurst 1000"
+      ],
+      "a": 0,
+      "w": "The Indianapolis 500, run every Memorial Day weekend since 1911 on a two-and-a-half-mile oval.",
+      "more": "The milk tradition began with Louis Meyer, who asked for buttermilk after winning in 1936 because his mother said it was refreshing; a dairy executive saw the photo and made it permanent. Emerson Fittipaldi drank orange juice in 1993 to plug his own orchards and was booed for years. The track is big enough to hold the Vatican, Wimbledon and the Rose Bowl inside it."
+    },
+    {
+      "d": "medium",
+      "type": "order",
+      "q": "Put these cars in the order they first went on sale, earliest first.",
+      "o": [
+        "Ford Model T",
+        "Volkswagen Beetle",
+        "Mini",
+        "Toyota Prius"
+      ],
+      "w": "The Model T (1908), the Beetle (1938, in volume from 1945), the Mini (1959), the Prius (1997).",
+      "more": "The Beetle was commissioned by Hitler as a 'people's car' and designed by Ferdinand Porsche; 21 million were eventually built, the last in Mexico in 2003. The Mini, designed by Alec Issigonis in response to the Suez fuel crisis, turned the engine sideways to make room for four adults in a car three metres long."
+    },
+    {
+      "d": "medium",
+      "q": "The historic US highway Route 66 ran from Chicago to which city?",
+      "o": [
+        "Los Angeles",
+        "San Francisco",
+        "Las Vegas",
+        "Seattle"
+      ],
+      "a": 0,
+      "w": "Los Angeles, ending at the Pacific in Santa Monica, about 2,400 miles from Chicago.",
+      "more": "Opened in 1926, it carried the Dust Bowl migrants of The Grapes of Wrath west and gave America the motel and the drive-through. It was removed from the highway system in 1985 after the interstates bypassed it. Pixar's Cars, set on the dying road, revived tourism along it."
+    },
+    {
+      "d": "medium",
+      "q": "Which company owns Lamborghini, Bentley, Porsche, Audi and Škoda?",
+      "o": [
+        "The Volkswagen Group",
+        "BMW",
+        "Stellantis",
+        "Toyota"
+      ],
+      "a": 0,
+      "w": "The Volkswagen Group, the largest carmaker in Europe.",
+      "more": "Bugatti and Ducati motorcycles are in the stable too, and SEAT and Cupra in Spain. Porsche tried to take over Volkswagen in 2008, overreached, and ended up being swallowed instead; the Porsche and Piëch families nonetheless control the whole group. Volkswagen paid more than 30 billion dollars in penalties after the 2015 diesel-emissions cheating scandal."
+    },
+    {
+      "d": "hard",
+      "q": "Who patented the first practical petrol-powered automobile in 1886?",
+      "o": [
+        "Karl Benz",
+        "Gottlieb Daimler",
+        "Henry Ford",
+        "Rudolf Diesel"
+      ],
+      "a": 0,
+      "w": "Karl Benz, whose three-wheeled Patent-Motorwagen is counted as the first car.",
+      "more": "His wife Bertha, who had financed the company with her dowry, took the car without telling him in 1888 and drove 106 kilometres to her mother's house, the first long-distance road trip, buying fuel at a chemist's and fixing a blocked pipe with her hatpin. Benz and Daimler worked a hundred kilometres apart and never met; their firms merged in 1926."
+    },
+    {
+      "d": "hard",
+      "q": "The Tata Nano, launched in 2008 as the cheapest car in the world at about 2,000 dollars, was built in which country?",
+      "o": [
+        "India",
+        "China",
+        "Indonesia",
+        "Brazil"
+      ],
+      "a": 0,
+      "w": "India. Ratan Tata wanted a safe alternative to whole families riding on one scooter.",
+      "more": "It had one windscreen wiper, no radio and a two-cylinder engine behind the back seat. Sales never took off, partly because buyers did not want a car marketed as the cheapest, and production ended in 2018. Tata Motors also owns Jaguar Land Rover, bought from Ford that same year."
+    },
+    {
+      "d": "hard",
+      "q": "A famous business-school legend claims a General Motors car sold badly in Latin America because its name means 'it doesn't go' in Spanish. Which car?",
+      "o": [
+        "The Chevrolet Nova",
+        "The Buick LaCrosse",
+        "The Ford Pinto",
+        "The Pontiac Fiero"
+      ],
+      "a": 0,
+      "w": "The Chevrolet Nova. The story is false: it sold perfectly well in Mexico and Venezuela, and Spanish speakers no more hear 'no va' in 'nova' than English speakers hear 'not able' in 'notable'.",
+      "more": "The Pinto, on the other hand, really was a problem in Brazil, where the word is slang for small male genitals, and Ford renamed it Corcel. The Mitsubishi Pajero became the Montero in Spanish-speaking markets for a similar reason."
+    },
+    {
+      "d": "hard",
+      "type": "select",
+      "q": "Which of these brands belong to Stellantis, the group formed in 2021? Select all that apply.",
+      "o": [
+        "Jeep",
+        "Fiat",
+        "Peugeot",
+        "Renault",
+        "Mazda"
+      ],
+      "a": [
+        0,
+        1,
+        2
+      ],
+      "w": "Jeep, Fiat and Peugeot. Renault is a separate French company allied with Nissan, and Mazda is Japanese and independent.",
+      "more": "Stellantis merged Fiat Chrysler with France's PSA group and owns 14 brands, including Chrysler, Dodge, Ram, Citroën, Opel, Alfa Romeo and Maserati. The name comes from the Latin 'stello', to brighten with stars. It is the world's fourth-largest carmaker."
+    },
+    {
+      "d": "hard",
+      "q": "Enzo Ferrari is said to have called which rival's 1961 sports car 'the most beautiful car ever made'?",
+      "o": [
+        "The Jaguar E-Type",
+        "The Aston Martin DB5",
+        "The Mercedes 300SL",
+        "The Chevrolet Corvette"
+      ],
+      "a": 0,
+      "w": "The Jaguar E-Type, which did 150 miles per hour and cost half the price of a Ferrari.",
+      "more": "It was unveiled at the Geneva Motor Show, where the demand for test drives was so great that Jaguar's test driver drove through the night from Coventry to deliver a second car. The Museum of Modern Art in New York keeps one in its permanent collection, one of only a handful of cars there."
+    }
+  ]
+}
