@@ -1,7 +1,7 @@
 {
   "game": "babies",
   "roundsDir": "rounds",
-  "today": "2026-09-30",
+  "today": "2026-10-01",
   "season": 2,
   "queueCount": 4,
   "target": 5,
@@ -13,13 +13,6 @@
       "subject": "Heists and frauds",
       "onPollSince": "2026-09-21",
       "retired": true
-    },
-    {
-      "id": "extra-time",
-      "name": "Extra Time",
-      "subject": "Sport",
-      "onPollSince": "2026-09-24",
-      "retired": false
     },
     {
       "id": "bright-ideas",
@@ -34,12 +27,19 @@
       "subject": "Architecture and famous buildings",
       "onPollSince": "2026-09-30",
       "retired": false
+    },
+    {
+      "id": "cape-and-cowl",
+      "name": "Cape and Cowl",
+      "subject": "Comic books and superheroes",
+      "onPollSince": "2026-10-01",
+      "retired": false
     }
   ],
   "tonightsPoll": [
-    "extra-time",
     "bright-ideas",
-    "grand-designs"
+    "grand-designs",
+    "cape-and-cowl"
   ],
   "override": null,
   "dropped": [
@@ -96,6 +96,12 @@
       "id": "wild-things",
       "name": "Wild Things",
       "how": "poll"
+    },
+    {
+      "day": "2026-10-01",
+      "id": "extra-time",
+      "name": "Extra Time",
+      "how": "poll"
     }
   ],
   "requestsWaiting": [],
@@ -114,6 +120,7 @@
     "Where Words Come From (Word origins)",
     "Between the Sheets (Sex)",
     "Bright Ideas (Inventions)",
+    "Cape and Cowl (Comic books and superheroes)",
     "Console Wars (Video games)",
     "The Corner Office (Business leaders and companies)",
     "Extra Time (Sport)",
@@ -131,19 +138,12 @@
     "hamps": {
       "game": "hamps",
       "roundsDir": "games/hamps/rounds",
-      "today": "2026-09-30",
+      "today": "2026-10-01",
       "season": 1,
       "queueCount": 4,
       "target": 5,
       "fill": 1,
       "queue": [
-        {
-          "id": "game-on",
-          "name": "Game On",
-          "subject": "Sport",
-          "onPollSince": "2026-09-26",
-          "retired": false
-        },
         {
           "id": "gods-and-monsters",
           "name": "Gods and Monsters",
@@ -162,14 +162,21 @@
           "id": "dressed-to-kill",
           "name": "Dressed to Kill",
           "subject": "Fashion",
+          "onPollSince": "2026-10-01",
+          "retired": false
+        },
+        {
+          "id": "log-on",
+          "name": "Log On",
+          "subject": "Technology and the internet",
           "onPollSince": null,
           "retired": false
         }
       ],
       "tonightsPoll": [
-        "game-on",
         "gods-and-monsters",
-        "art-attack"
+        "art-attack",
+        "dressed-to-kill"
       ],
       "override": null,
       "dropped": [
@@ -202,6 +209,12 @@
           "id": "crowned-heads",
           "name": "Crowned Heads",
           "how": "poll"
+        },
+        {
+          "day": "2026-10-01",
+          "id": "game-on",
+          "name": "Game On",
+          "how": "poll"
         }
       ],
       "requestsWaiting": [],
@@ -216,6 +229,7 @@
         "Game On (Sport)",
         "Gods and Monsters (Mythology)",
         "Kitchen Confidential (Food and drink)",
+        "Log On (Technology and the internet)",
         "Passport Control (Travel and world places)",
         "Reel Talk (Movies)",
         "Say What (Words and language)"
