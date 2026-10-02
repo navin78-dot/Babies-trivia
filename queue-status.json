@@ -1,7 +1,7 @@
 {
   "game": "babies",
   "roundsDir": "rounds",
-  "today": "2026-10-01",
+  "today": "2026-10-02",
   "season": 2,
   "queueCount": 4,
   "target": 5,
@@ -29,17 +29,17 @@
       "retired": false
     },
     {
-      "id": "cape-and-cowl",
-      "name": "Cape and Cowl",
-      "subject": "Comic books and superheroes",
-      "onPollSince": "2026-10-01",
+      "id": "curtain-up",
+      "name": "Curtain Up",
+      "subject": "Broadway and musicals",
+      "onPollSince": "2026-10-02",
       "retired": false
     }
   ],
   "tonightsPoll": [
     "bright-ideas",
     "grand-designs",
-    "cape-and-cowl"
+    "curtain-up"
   ],
   "override": null,
   "dropped": [
@@ -102,6 +102,12 @@
       "id": "extra-time",
       "name": "Extra Time",
       "how": "poll"
+    },
+    {
+      "day": "2026-10-02",
+      "id": "cape-and-cowl",
+      "name": "Cape and Cowl",
+      "how": "poll"
     }
   ],
   "requestsWaiting": [],
@@ -123,6 +129,7 @@
     "Cape and Cowl (Comic books and superheroes)",
     "Console Wars (Video games)",
     "The Corner Office (Business leaders and companies)",
+    "Curtain Up (Broadway and musicals)",
     "Extra Time (Sport)",
     "Founding Years (American history, 1500 to 1850)",
     "Grand Designs (Architecture and famous buildings)",
@@ -138,19 +145,12 @@
     "hamps": {
       "game": "hamps",
       "roundsDir": "games/hamps/rounds",
-      "today": "2026-10-01",
+      "today": "2026-10-02",
       "season": 1,
       "queueCount": 4,
       "target": 5,
       "fill": 1,
       "queue": [
-        {
-          "id": "gods-and-monsters",
-          "name": "Gods and Monsters",
-          "subject": "Mythology",
-          "onPollSince": "2026-09-29",
-          "retired": false
-        },
         {
           "id": "art-attack",
           "name": "Art Attack",
@@ -169,14 +169,21 @@
           "id": "log-on",
           "name": "Log On",
           "subject": "Technology and the internet",
+          "onPollSince": "2026-10-02",
+          "retired": false
+        },
+        {
+          "id": "pedal-to-the-metal",
+          "name": "Pedal to the Metal",
+          "subject": "Cars and motoring",
           "onPollSince": null,
           "retired": false
         }
       ],
       "tonightsPoll": [
-        "gods-and-monsters",
         "art-attack",
-        "dressed-to-kill"
+        "dressed-to-kill",
+        "log-on"
       ],
       "override": null,
       "dropped": [
@@ -215,6 +222,12 @@
           "id": "game-on",
           "name": "Game On",
           "how": "poll"
+        },
+        {
+          "day": "2026-10-02",
+          "id": "gods-and-monsters",
+          "name": "Gods and Monsters",
+          "how": "poll"
         }
       ],
       "requestsWaiting": [],
@@ -231,6 +244,7 @@
         "Kitchen Confidential (Food and drink)",
         "Log On (Technology and the internet)",
         "Passport Control (Travel and world places)",
+        "Pedal to the Metal (Cars and motoring)",
         "Reel Talk (Movies)",
         "Say What (Words and language)"
       ],
