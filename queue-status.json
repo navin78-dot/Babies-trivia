@@ -1,7 +1,7 @@
 {
   "game": "babies",
   "roundsDir": "rounds",
-  "today": "2026-10-02",
+  "today": "2026-10-03",
   "season": 2,
   "queueCount": 4,
   "target": 5,
@@ -29,17 +29,17 @@
       "retired": false
     },
     {
-      "id": "curtain-up",
-      "name": "Curtain Up",
-      "subject": "Broadway and musicals",
-      "onPollSince": "2026-10-02",
+      "id": "page-turners",
+      "name": "Page Turners",
+      "subject": "Books and authors",
+      "onPollSince": "2026-10-03",
       "retired": false
     }
   ],
   "tonightsPoll": [
     "bright-ideas",
     "grand-designs",
-    "curtain-up"
+    "page-turners"
   ],
   "override": null,
   "dropped": [
@@ -108,6 +108,12 @@
       "id": "cape-and-cowl",
       "name": "Cape and Cowl",
       "how": "poll"
+    },
+    {
+      "day": "2026-10-03",
+      "id": "curtain-up",
+      "name": "Curtain Up",
+      "how": "poll"
     }
   ],
   "requestsWaiting": [],
@@ -133,6 +139,7 @@
     "Extra Time (Sport)",
     "Founding Years (American history, 1500 to 1850)",
     "Grand Designs (Architecture and famous buildings)",
+    "Page Turners (Books and authors)",
     "Ripped From the Headlines (Current events, 2026)",
     "Summer Blockbusters (Big movies)",
     "Totally Famous (1990s celebrities)",
@@ -145,19 +152,12 @@
     "hamps": {
       "game": "hamps",
       "roundsDir": "games/hamps/rounds",
-      "today": "2026-10-02",
+      "today": "2026-10-03",
       "season": 1,
       "queueCount": 4,
       "target": 5,
       "fill": 1,
       "queue": [
-        {
-          "id": "art-attack",
-          "name": "Art Attack",
-          "subject": "Art and artists",
-          "onPollSince": "2026-09-30",
-          "retired": false
-        },
         {
           "id": "dressed-to-kill",
           "name": "Dressed to Kill",
@@ -176,14 +176,21 @@
           "id": "pedal-to-the-metal",
           "name": "Pedal to the Metal",
           "subject": "Cars and motoring",
+          "onPollSince": "2026-10-03",
+          "retired": false
+        },
+        {
+          "id": "money-talks",
+          "name": "Money Talks",
+          "subject": "Money, markets and economics",
           "onPollSince": null,
           "retired": false
         }
       ],
       "tonightsPoll": [
-        "art-attack",
         "dressed-to-kill",
-        "log-on"
+        "log-on",
+        "pedal-to-the-metal"
       ],
       "override": null,
       "dropped": [
@@ -228,6 +235,12 @@
           "id": "gods-and-monsters",
           "name": "Gods and Monsters",
           "how": "poll"
+        },
+        {
+          "day": "2026-10-03",
+          "id": "art-attack",
+          "name": "Art Attack",
+          "how": "poll"
         }
       ],
       "requestsWaiting": [],
@@ -243,6 +256,7 @@
         "Gods and Monsters (Mythology)",
         "Kitchen Confidential (Food and drink)",
         "Log On (Technology and the internet)",
+        "Money Talks (Money, markets and economics)",
         "Passport Control (Travel and world places)",
         "Pedal to the Metal (Cars and motoring)",
         "Reel Talk (Movies)",
