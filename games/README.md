@@ -40,7 +40,7 @@ with the same security rules as the original game (see `firestore.rules`,
   "settings": {                               // overrides of SETTINGS in index.html
     "playersInGroup": 5,                      // a round closes itself once this many have played it
     "siteTagline": "…",
-    "season": { "firstBoundary": "2026-10-04" },   // Season 2 starts at midnight going into this date, New York time
+    "season": { "boundaries": ["2026-10-05"] },   // Season 2 starts at midnight going into this date (a Monday), New York time; every 7 days after
     "drop": { "start": "2026-09-25" },             // first poll day; the first nightly drop is the midnight after it
     "catchupNote": true                            // one-time card: rounds played this season and rounds waiting, with a save-to-home-screen link. Off: the first visit gets a plain save-to-home-screen card instead (homeScreenNote)
   },

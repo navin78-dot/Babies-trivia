@@ -5,67 +5,156 @@
   "tagline": "Twenty questions on novels, novelists and the stories behind the stories. Starts easy, ends hard.",
   "draft": true,
   "emblem": "📚",
-  "theme": { "font": "Libre Baskerville", "accent": "#B45309", "accent2": "#0F766E", "accentDark": "#F59E0B", "accent2Dark": "#2DD4BF" },
+  "theme": {
+    "font": "Libre Baskerville",
+    "accent": "#B45309",
+    "accent2": "#0F766E",
+    "accentDark": "#F59E0B",
+    "accent2Dark": "#2DD4BF"
+  },
   "questions": [
-    { "d": "easy", "q": "Who wrote the Harry Potter books?", "o": ["J. K. Rowling", "Philip Pullman", "Roald Dahl", "Suzanne Collins"], "a": 0,
+    {
+      "d": "easy",
+      "q": "Who wrote the Harry Potter books?",
+      "o": [
+        "J. K. Rowling",
+        "Philip Pullman",
+        "Roald Dahl",
+        "Suzanne Collins"
+      ],
+      "a": 0,
       "w": "J. K. Rowling, who began the first book on a delayed train from Manchester to London in 1990.",
-      "more": "Twelve publishers turned it down before Bloomsbury took it for a 2,500-pound advance, reportedly because the chairman's eight-year-old daughter demanded the next chapter. The series has sold more than 600 million copies. The initials were her publisher's idea, to hide from boys that a woman wrote it; she has no middle name, so she borrowed her grandmother's, Kathleen." },
-    { "d": "easy", "q": "Which Charles Dickens story features Ebenezer Scrooge and the ghosts of Christmas Past, Present and Yet to Come?", "o": ["A Christmas Carol", "Oliver Twist", "Great Expectations", "Bleak House"], "a": 0,
+      "more": "Twelve publishers turned it down before Bloomsbury took it for a 2,500-pound advance, reportedly because the chairman's eight-year-old daughter demanded the next chapter. The series has sold more than 600 million copies. The initials were her publisher's idea, to hide from boys that a woman wrote it; she has no middle name, so she borrowed her grandmother's, Kathleen."
+    },
+    {
+      "d": "easy",
+      "q": "Which Charles Dickens story features Ebenezer Scrooge and the ghosts of Christmas Past, Present and Yet to Come?",
+      "o": [
+        "A Christmas Carol",
+        "Oliver Twist",
+        "Great Expectations",
+        "Bleak House"
+      ],
+      "a": 0,
       "w": "A Christmas Carol, written in six weeks in 1843 and in the shops a week before Christmas.",
-      "more": "Dickens paid for the lavish first edition himself and, because he priced it low, made almost nothing from it. It has never been out of print. The book is credited with reviving the English Christmas, from 'Merry Christmas' as a greeting to the turkey dinner, and 'Scrooge' entered the dictionary within a generation." },
-    { "d": "easy", "q": "Who created the detective Sherlock Holmes?", "o": ["Arthur Conan Doyle", "Agatha Christie", "Wilkie Collins", "Edgar Allan Poe"], "a": 0,
+      "more": "Dickens paid for the lavish first edition himself and, because he priced it low, made almost nothing from it. It has never been out of print. The book is credited with reviving the English Christmas, from 'Merry Christmas' as a greeting to the turkey dinner, and 'Scrooge' entered the dictionary within a generation."
+    },
+    {
+      "d": "easy",
+      "q": "Who created the detective Sherlock Holmes?",
+      "o": [
+        "Arthur Conan Doyle",
+        "Agatha Christie",
+        "Wilkie Collins",
+        "Edgar Allan Poe"
+      ],
+      "a": 0,
       "w": "Arthur Conan Doyle, a struggling Edinburgh-trained doctor, in A Study in Scarlet in 1887.",
-      "more": "Holmes was modelled on Doyle's medical professor Joseph Bell, who could diagnose a stranger's trade and travels at a glance. Doyle grew so sick of him that he threw him off the Reichenbach Falls in 1893; public outrage, and a large cheque, brought him back ten years later. Holmes never says 'Elementary, my dear Watson' in any of the stories." },
-    { "d": "easy", "q": "Which novel opens with the line 'It is a truth universally acknowledged, that a single man in possession of a good fortune, must be in want of a wife'?", "o": ["Pride and Prejudice", "Jane Eyre", "Wuthering Heights", "Emma"], "a": 0,
+      "more": "Holmes was modelled on Doyle's medical professor Joseph Bell, who could diagnose a stranger's trade and travels at a glance. Doyle grew so sick of him that he threw him off the Reichenbach Falls in 1893; public outrage, and a large cheque, brought him back ten years later. Holmes never says 'Elementary, my dear Watson' in any of the stories."
+    },
+    {
+      "d": "easy",
+      "q": "Which novel opens with the line 'It is a truth universally acknowledged, that a single man in possession of a good fortune, must be in want of a wife'?",
+      "o": [
+        "Pride and Prejudice",
+        "Jane Eyre",
+        "Wuthering Heights",
+        "Emma"
+      ],
+      "a": 0,
       "w": "Pride and Prejudice, by Jane Austen, published in 1813.",
-      "more": "Austen's first draft, called First Impressions, was rejected by a publisher unread in 1797. She sold the copyright for 110 pounds and never saw the bulk of the profits. All her novels were published anonymously, 'by a Lady', and her name appeared on them only after her death in 1817." },
-    { "d": "easy", "q": "The Hunger Games trilogy is set in a future nation called what?", "o": ["Panem", "Gilead", "Oceania", "Westeros"], "a": 0,
+      "more": "Austen's first draft, called First Impressions, was rejected by a publisher unread in 1797. She sold the copyright for 110 pounds and never saw the bulk of the profits. All her novels were published anonymously, 'by a Lady', and her name appeared on them only after her death in 1817."
+    },
+    {
+      "d": "easy",
+      "q": "The Hunger Games trilogy is set in a future nation called what?",
+      "o": [
+        "Panem",
+        "Gilead",
+        "Oceania",
+        "Westeros"
+      ],
+      "a": 0,
       "w": "Panem, from the Latin 'panem et circenses', bread and circuses.",
-      "more": "Suzanne Collins said the idea came from flicking between reality television and news footage of the Iraq war late one night. Gilead is the theocracy of The Handmaid's Tale, Oceania the superstate of Nineteen Eighty-Four, and Westeros the continent of Game of Thrones." },
-    { "d": "easy", "q": "Which Shakespeare play features the line 'To be, or not to be'?", "o": ["Hamlet", "Macbeth", "King Lear", "Othello"], "a": 0,
-      "w": "Hamlet, in the prince's soliloquy in Act 3.",
-      "more": "Hamlet is Shakespeare's longest play, about four hours uncut, and the title role is the longest in his work, with more than 1,400 lines. It was probably written around 1600, a few years after the death of his own son, Hamnet. Shakespeare coined or first recorded hundreds of words, among them 'lonely', 'bedroom' and 'swagger'." },
-    { "d": "easy", "q": "True or false: Agatha Christie is the best-selling novelist of all time.", "o": ["True", "False"], "a": 0,
-      "w": "True. Her 66 detective novels and 14 short-story collections have sold around two billion copies, outsold only by the Bible and Shakespeare.",
-      "more": "Her play The Mousetrap has run in London since 1952, the longest run of any play in history. In 1926 she vanished for eleven days after her husband asked for a divorce and was found at a Harrogate hotel registered under his mistress's surname; she never explained it. She learned about poisons as a wartime hospital pharmacist." },
-    { "d": "medium", "q": "Which 1960 novel, set in Alabama, follows the lawyer Atticus Finch through the eyes of his daughter Scout?", "o": ["To Kill a Mockingbird", "The Catcher in the Rye", "Of Mice and Men", "The Color Purple"], "a": 0,
+      "more": "Suzanne Collins said the idea came from flicking between reality television and news footage of the Iraq war late one night. Gilead is the theocracy of The Handmaid's Tale, Oceania the superstate of Nineteen Eighty-Four, and Westeros the continent of Game of Thrones."
+    },
+    {
+      "d": "medium",
+      "q": "Which 1960 novel, set in Alabama, follows the lawyer Atticus Finch through the eyes of his daughter Scout?",
+      "o": [
+        "To Kill a Mockingbird",
+        "The Catcher in the Rye",
+        "Of Mice and Men",
+        "The Color Purple"
+      ],
+      "a": 0,
       "w": "To Kill a Mockingbird, by Harper Lee, which won the Pulitzer Prize the following year.",
-      "more": "Lee based Scout's friend Dill on her childhood neighbour Truman Capote, and she helped Capote research In Cold Blood in Kansas. She published nothing else for 55 years until Go Set a Watchman, an early draft featuring an older, racist Atticus, appeared in 2015 amid questions about whether she had really consented." },
-    { "d": "medium", "q": "The pen name George Orwell belonged to which writer, author of Animal Farm and Nineteen Eighty-Four?", "o": ["Eric Blair", "Samuel Clemens", "Charles Dodgson", "David Cornwell"], "a": 0,
+      "more": "Lee based Scout's friend Dill on her childhood neighbour Truman Capote, and she helped Capote research In Cold Blood in Kansas. She published nothing else for 55 years until Go Set a Watchman, an early draft featuring an older, racist Atticus, appeared in 2015 amid questions about whether she had really consented."
+    },
+    {
+      "d": "medium",
+      "q": "The pen name George Orwell belonged to which writer, author of Animal Farm and Nineteen Eighty-Four?",
+      "o": [
+        "Eric Blair",
+        "Samuel Clemens",
+        "Charles Dodgson",
+        "David Cornwell"
+      ],
+      "a": 0,
       "w": "Eric Arthur Blair, who took the name from a river in Suffolk and England's patron saint.",
-      "more": "He was born in India, served as a colonial policeman in Burma, washed dishes in Paris and was shot through the throat fighting the fascists in Spain. He wrote Nineteen Eighty-Four while dying of tuberculosis on the Scottish island of Jura and finished it in 1948; the title may simply swap the last two digits. Samuel Clemens was Mark Twain, Charles Dodgson was Lewis Carroll and David Cornwell was John le Carré." },
-    { "d": "medium", "q": "Which Colombian author's One Hundred Years of Solitude follows seven generations of the Buendía family in the town of Macondo?", "o": ["Gabriel García Márquez", "Mario Vargas Llosa", "Jorge Luis Borges", "Isabel Allende"], "a": 0,
+      "more": "He was born in India, served as a colonial policeman in Burma, washed dishes in Paris and was shot through the throat fighting the fascists in Spain. He wrote Nineteen Eighty-Four while dying of tuberculosis on the Scottish island of Jura and finished it in 1948; the title may simply swap the last two digits. Samuel Clemens was Mark Twain, Charles Dodgson was Lewis Carroll and David Cornwell was John le Carré."
+    },
+    {
+      "d": "medium",
+      "q": "Which Colombian author's One Hundred Years of Solitude follows seven generations of the Buendía family in the town of Macondo?",
+      "o": [
+        "Gabriel García Márquez",
+        "Mario Vargas Llosa",
+        "Jorge Luis Borges",
+        "Isabel Allende"
+      ],
+      "a": 0,
       "w": "Gabriel García Márquez, who won the Nobel Prize in Literature in 1982.",
-      "more": "He wrote it in eighteen months in Mexico City while his wife pawned the car and the household appliances, and they could not afford the postage to send the whole manuscript to the publisher, so they sent half. It has sold some 50 million copies in 46 languages and is the defining work of magical realism. Netflix adapted it in 2024." },
-    { "d": "medium", "q": "The opening line 'Call me Ishmael' begins which American novel?", "o": ["Moby-Dick", "The Great Gatsby", "The Adventures of Huckleberry Finn", "The Old Man and the Sea"], "a": 0,
-      "w": "Moby-Dick, Herman Melville's 1851 tale of Captain Ahab's hunt for the white whale.",
-      "more": "It was a commercial flop that sold about 3,000 copies in Melville's lifetime; he died in 1891 working as a customs inspector in New York, forgotten. The book was rediscovered in the 1920s. The whale was inspired by a real albino sperm whale called Mocha Dick, and the coffee chain Starbucks is named after the ship's first mate." },
-    { "d": "medium", "q": "Which award for fiction, first given in 1969, is now open to any novel written in English and published in Britain or Ireland, and comes with 50,000 pounds?", "o": ["The Booker Prize", "The Pulitzer Prize", "The Costa Book Award", "The Women's Prize"], "a": 0,
-      "w": "The Booker Prize, originally sponsored by the food wholesaler Booker McConnell.",
-      "more": "Until 2014 only writers from the Commonwealth, Ireland and Zimbabwe were eligible. Hilary Mantel, J. M. Coetzee, Peter Carey and Margaret Atwood have each won twice. Salman Rushdie's Midnight's Children was voted the best winner of the prize's first 25 and 40 years." },
-    { "d": "medium", "q": "In which fictional land, entered through a wardrobe, do the Pevensie children meet the lion Aslan?", "o": ["Narnia", "Middle-earth", "Earthsea", "Neverland"], "a": 0,
-      "w": "Narnia, in C. S. Lewis's seven Chronicles, beginning with The Lion, the Witch and the Wardrobe in 1950.",
-      "more": "Lewis took the name from Narni, a town in Italy he found in an atlas as a boy. He and J. R. R. Tolkien were close friends in the Oxford writing group the Inklings and read their drafts aloud to each other, though Tolkien disliked Narnia's muddle of myths and Father Christmas. Lewis died on 22 November 1963, the day John F. Kennedy was shot." },
-    { "d": "medium", "type": "order", "q": "Put these novels in the order they were published, earliest first.", "o": ["Don Quixote", "Frankenstein", "The Great Gatsby", "Beloved"],
-      "w": "Don Quixote (1605), Frankenstein (1818), The Great Gatsby (1925), Beloved (1987).",
-      "more": "Cervantes' Don Quixote is often called the first modern novel. Mary Shelley began Frankenstein at 18 during a wet summer on Lake Geneva after Lord Byron proposed a ghost-story contest. Gatsby sold poorly and Fitzgerald died thinking himself a failure; Toni Morrison's Beloved helped win her the Nobel Prize in 1993." },
-    { "d": "hard", "q": "Which Russian novelist wrote War and Peace and Anna Karenina?", "o": ["Leo Tolstoy", "Fyodor Dostoevsky", "Ivan Turgenev", "Anton Chekhov"], "a": 0,
+      "more": "He wrote it in eighteen months in Mexico City while his wife pawned the car and the household appliances, and they could not afford the postage to send the whole manuscript to the publisher, so they sent half. It has sold some 50 million copies in 46 languages and is the defining work of magical realism. Netflix adapted it in 2024."
+    },
+    {
+      "d": "hard",
+      "q": "Which Russian novelist wrote War and Peace and Anna Karenina?",
+      "o": [
+        "Leo Tolstoy",
+        "Fyodor Dostoevsky",
+        "Ivan Turgenev",
+        "Anton Chekhov"
+      ],
+      "a": 0,
       "w": "Leo Tolstoy, a count who later renounced his wealth, his copyrights and most of his novels.",
-      "more": "His wife Sophia copied out War and Peace by hand at least seven times as he revised it. In old age he became a Christian anarchist and pacifist whose writings influenced Gandhi, with whom he corresponded. He died at 82 in a remote railway station after fleeing his home and his marriage in the middle of the night." },
-    { "d": "hard", "q": "Which novel by Gustave Flaubert, about a doctor's wife's affairs and debts in provincial France, got its author put on trial for obscenity in 1857?", "o": ["Madame Bovary", "Les Liaisons dangereuses", "Nana", "Thérèse Raquin"], "a": 0,
+      "more": "His wife Sophia copied out War and Peace by hand at least seven times as he revised it. In old age he became a Christian anarchist and pacifist whose writings influenced Gandhi, with whom he corresponded. He died at 82 in a remote railway station after fleeing his home and his marriage in the middle of the night."
+    },
+    {
+      "d": "hard",
+      "q": "Which novel by Gustave Flaubert, about a doctor's wife's affairs and debts in provincial France, got its author put on trial for obscenity in 1857?",
+      "o": [
+        "Madame Bovary",
+        "Les Liaisons dangereuses",
+        "Nana",
+        "Thérèse Raquin"
+      ],
+      "a": 0,
       "w": "Madame Bovary. Flaubert was acquitted and the scandal made the book a bestseller.",
-      "more": "He spent five years on it, hunting for 'le mot juste', the exact word, and sometimes managed a page a week. Asked who the heroine was based on he is supposed to have said 'Madame Bovary, c'est moi'. Nana and Thérèse Raquin are by Émile Zola; Les Liaisons dangereuses is from 1782." },
-    { "d": "hard", "q": "Which Nigerian author's 1958 novel Things Fall Apart, about the Igbo leader Okonkwo and the arrival of missionaries, is the most widely read book in African literature?", "o": ["Chinua Achebe", "Wole Soyinka", "Chimamanda Ngozi Adichie", "Ben Okri"], "a": 0,
+      "more": "He spent five years on it, hunting for 'le mot juste', the exact word, and sometimes managed a page a week. Asked who the heroine was based on he is supposed to have said 'Madame Bovary, c'est moi'. Nana and Thérèse Raquin are by Émile Zola; Les Liaisons dangereuses is from 1782."
+    },
+    {
+      "d": "hard",
+      "q": "Which Nigerian author's 1958 novel Things Fall Apart, about the Igbo leader Okonkwo and the arrival of missionaries, is the most widely read book in African literature?",
+      "o": [
+        "Chinua Achebe",
+        "Wole Soyinka",
+        "Chimamanda Ngozi Adichie",
+        "Ben Okri"
+      ],
+      "a": 0,
       "w": "Chinua Achebe, who took the title from a W. B. Yeats poem.",
-      "more": "He wrote it in English deliberately, to answer colonial novels such as Heart of Darkness from the inside. The handwritten manuscript was nearly lost when a London typing agency ignored it for months. It has sold more than twenty million copies in some sixty languages; Achebe never won the Nobel, which many consider the prize's great omission." },
-    { "d": "hard", "q": "Who is the only person to have declined the Nobel Prize in Literature, in 1964, saying a writer should not let himself be turned into an institution?", "o": ["Jean-Paul Sartre", "Albert Camus", "Samuel Beckett", "Boris Pasternak"], "a": 0,
-      "w": "Jean-Paul Sartre, who had refused the Legion of Honour too.",
-      "more": "He wrote to the Swedish Academy asking not to be chosen and the letter arrived after the vote. Boris Pasternak accepted in 1958 and was then forced by the Soviet authorities to decline, so he does not count as a voluntary refusal. Bob Dylan, in 2016, simply did not answer for two weeks." },
-    { "d": "hard", "type": "select", "q": "Which of these authors wrote under a pen name? Select all that apply.", "o": ["Mark Twain", "George Eliot", "Lewis Carroll", "Ernest Hemingway", "Jane Austen"], "a": [0, 1, 2],
-      "w": "Mark Twain was Samuel Clemens, George Eliot was Mary Ann Evans and Lewis Carroll was Charles Dodgson. Hemingway and Austen used their own names.",
-      "more": "'Mark twain' was a riverboat call meaning two fathoms of water, safe depth. Mary Ann Evans chose a man's name so her novels would be taken seriously and to keep her scandalous private life, living openly with a married man, out of the reviews. Dodgson was an Oxford mathematics don who disliked being connected with Alice." },
-    { "d": "hard", "q": "Which Japanese novelist, author of Norwegian Wood and Kafka on the Shore, ran a jazz bar in Tokyo before he started writing at 29?", "o": ["Haruki Murakami", "Yukio Mishima", "Kazuo Ishiguro", "Banana Yoshimoto"], "a": 0,
-      "w": "Haruki Murakami, who says the idea for his first novel came to him at a baseball game as a batter hit a double.",
-      "more": "He wrote the opening pages in English because his Japanese felt too cluttered, then translated them back. He runs a marathon almost every year and wrote a memoir about it. He is the perennial favourite for the Nobel and has never won; Kazuo Ishiguro, born in Nagasaki but British since childhood, took it in 2017." }
+      "more": "He wrote it in English deliberately, to answer colonial novels such as Heart of Darkness from the inside. The handwritten manuscript was nearly lost when a London typing agency ignored it for months. It has sold more than twenty million copies in some sixty languages; Achebe never won the Nobel, which many consider the prize's great omission."
+    }
   ]
 }

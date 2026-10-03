@@ -25,13 +25,13 @@ cancelled the build for a site change behind it and the change never went live.
   "tagline": "One line shown under the title.",
   "theme": { "font": "Bungee", "accent": "#7C3AED", "accent2": "#F59E0B",
              "accentDark": "#A78BFA", "accent2Dark": "#FDBA74" },
-  "questions": [ ... 20 questions ... ]
+  "questions": [ ... 11 questions ... ]
 }
 ```
 
 House rule: at least 6 questions, and each difficulty makes up at least a fifth
-of the round (never fewer than 2). The standard is 20. Babies: 7 easy, 7 medium, 6 hard. Hamps Crew: 9 easy, 6 medium, 5 hard.
-Shorter rounds are fine. Formats can be mixed, but at most **3 questions per
+of the round (never fewer than 2). The standard is **11: 5 easy, 3 medium, 3 hard**,
+in both games (rounds played before 4 Oct 2026 had 20). Shorter rounds are fine. Formats can be mixed, but at most **3 questions per
 round** may be anything other than standard multiple choice; true/false,
 select-all and put-in-order all count toward that cap.
 

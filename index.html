@@ -630,9 +630,10 @@ const SETTINGS = {
   timeBreaksTies: true,     // true = faster time wins a tie; false = ties share a rank
   shuffleQuestions: false,  // true = each player gets a different question order (same set, scores stay comparable)
   shuffleAnswers: true,     // true = answer choices are shuffled (same shuffle for everyone, seeded)
+  confirmAnswers: false,    // true = a multiple-choice tap only highlights the option and a Lock in button confirms it, for groups who fat-finger (a sister game turns this on in games/<id>.json)
   newRoundsOpenByDefault: true, // kept for reference: every round is open until the host closes it on the Host tab
   timeLimitMs: 5 * 60 * 1000,   // countdown shown during a run; 0 or null = no limit. A round can override with its own timeLimitMs.
-  season: { firstBoundary: "2026-09-27", hour: 0, days: 7, tz: "America/New_York" }, // Season 2 starts at midnight going into Sunday 27 Sep 2026, New York time; a new season every 7 days after
+  season: { boundaries: ["2026-09-27", "2026-10-05"], hour: 0, days: 7, tz: "America/New_York" }, // each date is midnight New York time going into that day: Season 2 began Sunday 27 Sep 2026, Season 3 Monday 5 Oct; after the last date a new season every 7 days, so seasons run Monday to Sunday night
   drop: { start: "2026-09-21", hour: 0, options: 3, retireAfterDays: 7 }, // one new round every midnight New York time, chosen by the poll unless the host overrides
   catchupNote: false,       // true = the first time each player opens the site, a card shows how many rounds they have played this season and how many are waiting, with a save-to-home-screen link (a sister game turns this on in games/<id>.json)
   homeScreenNote: true,     // true = when catchupNote is off, the first visit instead gets a one-time card asking to save the site to the home screen
@@ -648,8 +649,9 @@ Object.entries(GAME.settings || {}).forEach(([k, v]) => { SETTINGS[k] = v && typ
 
    HOUSE RULE for every round: at least 6 questions, mixed easy, medium and
    hard, with each difficulty making up at least a fifth of the round (never
-   fewer than 2). The standard round is 20: 7 easy, 7 medium, 6 hard. Shorter
-   rounds are fine. At most 3 questions per round may be anything other than
+   fewer than 2). The standard round is 11: 5 easy, 3 medium, 3 hard (both games,
+   since 4 Oct 2026; rounds played before then had 20). Shorter rounds are fine.
+   At most 3 questions per round may be anything other than
    standard multiple choice (true/false, select-all and put-in-order all count).
    A round that breaks this logs a console warning at startup. See rounds/README.md.
    A question can also carry a picture shown above it, either
@@ -1943,8 +1945,9 @@ function sorted(list){ return [...list].sort((a, b) => (b.score - a.score) || (S
 function rankOf(list){ const s = sorted(list); let last = null, rank = 0; return s.map((b, i) => { const key = b.score + (SETTINGS.timeBreaksTies ? ":" + b.elapsedMs : ""); if (key !== last) { rank = i + 1; last = key; } return { ...b, rank }; }); }
 function combined(list = scores){ const by = {}; list.forEach(s => { const c = by[s.uid] || (by[s.uid] = { uid: s.uid, name: s.name, photo: s.photo, score: 0, total: 0, elapsedMs: 0, rounds: 0, finishedAt: "" }); c.score += s.score; c.total += s.total; c.elapsedMs += s.elapsedMs; c.rounds++; if (s.finishedAt > c.finishedAt) { c.finishedAt = s.finishedAt; c.name = s.name; c.photo = s.photo; } }); return Object.values(by); }
 
-/* --- seasons: a new one every week at 06:00 New York time on Sunday.
-   Season 1 is everything before the first boundary. A round belongs to the season it was added in. --- */
+/* --- seasons: a new one every week at midnight going into Monday, New York time, so a season
+   runs Monday to Sunday night. Season 1 is everything before the first boundary. A round belongs
+   to the season it was added in. --- */
 const SEASON = SETTINGS.season;
 function tzOffsetMin(ms, tz){
   try { const f = new Intl.DateTimeFormat("en-US", { timeZone: tz, hourCycle: "h23", year: "numeric", month: "numeric", day: "numeric", hour: "numeric", minute: "numeric", second: "numeric" });
@@ -1953,7 +1956,7 @@ function tzOffsetMin(ms, tz){
   catch (e) { return 0; }
 }
 function zonedUtc(y, m, d, h, tz){ const guess = Date.UTC(y, m, d, h); const off = tzOffsetMin(guess, tz); let r = guess - off * 60000; const off2 = tzOffsetMin(r, tz); if (off2 !== off) r = guess - off2 * 60000; return r; }
-const seasonStart = n => { if (n <= 1) return -Infinity; const [y, m, d] = SEASON.firstBoundary.split("-").map(Number); const base = new Date(Date.UTC(y, m - 1, d)); base.setUTCDate(base.getUTCDate() + (n - 2) * SEASON.days); return zonedUtc(base.getUTCFullYear(), base.getUTCMonth(), base.getUTCDate(), SEASON.hour, SEASON.tz); };
+const seasonStart = n => { if (n <= 1) return -Infinity; const B = SEASON.boundaries; const i = Math.min(n - 2, B.length - 1); const [y, m, d] = B[i].split("-").map(Number); const base = new Date(Date.UTC(y, m - 1, d)); base.setUTCDate(base.getUTCDate() + (n - 2 - i) * SEASON.days); return zonedUtc(base.getUTCFullYear(), base.getUTCMonth(), base.getUTCDate(), SEASON.hour, SEASON.tz); };
 function seasonOf(ms){ if (!(ms >= seasonStart(2))) return 1; let n = 2 + Math.floor((ms - seasonStart(2)) / (SEASON.days * 864e5)); while (ms < seasonStart(n)) n--; while (ms >= seasonStart(n + 1)) n++; return n; }
 const currentSeason = () => seasonOf(Date.now());
 const seasonOfRound = r => seasonOf(addedMs(r));
@@ -1988,7 +1991,7 @@ function seasonHeroHtml(){
     ${myProgressHtml()}
     ${aroundHtml()}
     <div class="sh-foot"><span>${rs ? `${rs} round${rs === 1 ? "" : "s"} count${rs === 1 ? "s" : ""} toward this season so far.` : "No rounds added this season yet."} <b>When the clock hits zero every round from this season closes and stops counting, so play all your rounds before then.</b> Season ${I.n + 1} starts at that moment.</span><button class="linkbtn" id="seasonHow">${S.seasonHow ? "Hide" : "How seasons work"}</button></div>
-    ${S.seasonHow ? `<div class="sh-body"><p><b>A season is one week.</b> Midnight going into Sunday to the next, New York time.</p><p><b>Every round added during that week counts.</b> Your season score is your scores on those rounds added together. One run each.</p><p><b>When the clock hits zero, the top total takes the crown.</b> It sits on their avatar all through the next season, and the next season starts at once with a fresh board.</p><p><b>When the season ends, its rounds close.</b> They can't be played any more and nothing played later counts, so play all your rounds before the clock hits zero. The boards stay up and the crown is final.</p></div>` : ""}
+    ${S.seasonHow ? `<div class="sh-body"><p><b>A season is one week.</b> Monday to Sunday night, New York time.</p><p><b>Every round added during that week counts.</b> Your season score is your scores on those rounds added together. One run each.</p><p><b>When the clock hits zero, the top total takes the crown.</b> It sits on their avatar all through the next season, and the next season starts at once with a fresh board.</p><p><b>When the season ends, its rounds close.</b> They can't be played any more and nothing played later counts, so play all your rounds before the clock hits zero. The boards stay up and the crown is final.</p></div>` : ""}
   </div>`;
 }
 function seasonLineHtml(){ const I = seasonEndInfo(); return `<div class="season-line"><span><b>Season ${I.n}</b> · rounds close ${esc(I.ny)} NY time</span><span class="szc" data-end="${I.end}">${countdownText(I.end)}</span></div>`; }
@@ -2479,7 +2482,7 @@ function renderRounds(tabs, wire){
   const combinedView = isCombined(lobbySel); const medals = combinedView ? medalsFor(medalRounds(lobbySel)) : null;
   const ranked = rankOf(boardList(lobbySel)); const mine = ranked.find(x => x.uid === me.uid);
   const pod = podiumHtml(ranked, medals); const rest = pod ? ranked.slice(3) : ranked; const shown = lobbyAll ? rest : rest.slice(0, pod ? 2 : 5);
-  const seasonNote = isSeasonKey(lobbySel) ? `<p class="note">Points from rounds added ${lobbySel === SEASON_KEY + currentSeason() ? "this season" : "that season"}. A new season starts every Sunday at midnight New York time.</p>` : "";
+  const seasonNote = isSeasonKey(lobbySel) ? `<p class="note">Points from rounds added ${lobbySel === SEASON_KEY + currentSeason() ? "this season" : "that season"}. A new season starts every Monday at midnight New York time.</p>` : "";
   let board;
   if (combinedView && boardMode === "medals") {
     const table = medalTable(lobbySel), mshown = lobbyAll ? table : table.slice(0, 5), myM = table.find(x => x.uid === me.uid);
@@ -2679,7 +2682,7 @@ function renderHost(){
     ${hostDropHtml()}
     <div class="card">
       <h3>Seasons</h3>
-      <p class="note" style="margin:0 0 8px">Weekly, midnight going into Sunday, New York time. <b>Season ${currentSeason()}</b> is on now and ends ${esc(seasonWhenText())}. Season ${currentSeason() + 1} starts at that moment. The countdown on the front page runs on its own.</p>
+      <p class="note" style="margin:0 0 8px">Weekly, Monday to Sunday night, New York time. <b>Season ${currentSeason()}</b> is on now and ends ${esc(seasonWhenText())}. Season ${currentSeason() + 1} starts at that moment. The countdown on the front page runs on its own.</p>
       <div class="row"><button class="btn small" id="seasonAnn">Post a season announcement</button><span class="note" id="seasonMsg" style="margin:0"></span></div>
       <p class="note" style="margin:8px 0 0">Puts this in the announcement strip, which you can edit above: “${esc(seasonAnnText())}”</p>
     </div>
@@ -3000,8 +3003,12 @@ function reviewAns(it, p){
   return ok ? "✓ " + right : "✗ You said " + esc(it.opts[p] ?? "nothing") + " · Answer: " + right;
 }
 function mcBody(it, revealed){
-  return `<div class="opts">${it.opts.map((o,k)=>{ let st=""; if(revealed){ if(k===it.ans) st="right"; else if(k===S.chosen) st="wrong"; }
+  const confirm = SETTINGS.confirmAnswers && !revealed, tent = confirm ? S.tent : null;
+  const opts = `<div class="opts">${it.opts.map((o,k)=>{ let st=""; if(revealed){ if(k===it.ans) st="right"; else if(k===S.chosen) st="wrong"; } else if(k===tent) st="sel";
     return `<button class="opt" data-k="${k}" ${revealed?"disabled":""} ${st?`data-state="${st}"`:""}><span class="k">${LETTERS[k]||"?"}</span><span>${esc(o)}</span></button>`; }).join("")}</div>`;
+  if (!confirm) return opts;
+  // with confirmAnswers on, a tap only highlights; Lock in makes it count, so a fat finger can be undone
+  return `${opts}<div class="row" style="margin-top:14px;justify-content:flex-end;gap:12px"><span class="note" style="margin:0">${tent == null ? "Tap an answer, then lock it in." : "Tap another to change your mind."}</span><button class="btn" id="lockIn" ${tent == null ? "disabled" : ""}>Lock in</button></div>`;
 }
 function selectBody(it, revealed){
   const sel = new Set(S.sel||[]);
@@ -3045,14 +3052,18 @@ function renderQuiz(){
       ${body}${tail}
     </div>`;
   if(!revealed){
-    if(t==="mc") document.querySelectorAll(".opt").forEach(b=>b.onclick=()=>{ S.chosen=+b.dataset.k; S.picks[S.i]=S.chosen; saveProgress(); const st=qState(it, S.chosen); sfxAnswer(st); if(st==="right") burstFrom(b); renderQuiz(); });
+    if(t==="mc"){
+      const lock=(k, from)=>{ S.chosen=k; S.tent=null; S.picks[S.i]=S.chosen; saveProgress(); const st=qState(it, S.chosen); sfxAnswer(st); if(st==="right") burstFrom(from); renderQuiz(); };
+      if(SETTINGS.confirmAnswers){ document.querySelectorAll(".opt").forEach(b=>b.onclick=()=>{ S.tent=+b.dataset.k; sfx("click"); renderQuiz(); }); const c=$("lockIn"); if(c) c.onclick=()=>{ if(S.tent!=null) lock(S.tent, c); }; }
+      else document.querySelectorAll(".opt").forEach(b=>b.onclick=()=>lock(+b.dataset.k, b));
+    }
     else if(t==="select"){ document.querySelectorAll(".opt").forEach(b=>b.onclick=()=>{ const k=+b.dataset.k, ss=new Set(S.sel||[]); ss.has(k)?ss.delete(k):ss.add(k); S.sel=[...ss]; saveProgress(); renderQuiz(); }); const c=$("check"); if(c) c.onclick=()=>{ S.picks[S.i]=[...(S.sel||[])].sort((a,b)=>a-b); S.checked=true; saveProgress(); const st=qState(it, S.picks[S.i]); sfxAnswer(st); if(st==="right") burstFrom(c); renderQuiz(); }; }
     else { document.querySelectorAll(".opt[data-k]").forEach(b=>b.onclick=()=>{ S.seq=[...(S.seq||[]), +b.dataset.k]; saveProgress(); renderQuiz(); }); const rb=$("orderReset"); if(rb) rb.onclick=()=>{ S.seq=[]; saveProgress(); renderQuiz(); }; const c=$("check"); if(c) c.onclick=()=>{ S.picks[S.i]=(S.seq||[]).slice(); S.checked=true; saveProgress(); const st=qState(it, S.picks[S.i]); sfxAnswer(st); if(st==="right") burstFrom(c); renderQuiz(); }; }
   } else $("next").onclick = () => { sfx("click"); advance(); };
   startTimer();
 }
 async function advance(){
-  S.chosen = null; S.sel = []; S.seq = []; S.checked = false;
+  S.chosen = null; S.tent = null; S.sel = []; S.seq = []; S.checked = false;
   if (S.i + 1 < S.order.length) { S.i++; saveProgress(); renderQuiz(); window.scrollTo({ top: 0 }); return; }
   return finishRun(false);
 }

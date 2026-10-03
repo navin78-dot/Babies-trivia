@@ -79,58 +79,6 @@
       "more": "The style had come from the Prince of Wales, the future Edward VII, who wanted something less stiff than tails for dining at Sandringham. The British still call it a dinner jacket. James Bond has worn one in every film since Sean Connery's in 1962."
     },
     {
-      "d": "easy",
-      "q": "Anna Wintour has been editor-in-chief of which magazine since 1988?",
-      "o": [
-        "Vogue",
-        "Harper's Bazaar",
-        "Elle",
-        "Vanity Fair"
-      ],
-      "a": 0,
-      "w": "American Vogue. Her first cover put a model in jeans, which the printers thought was a mistake.",
-      "more": "Her bob and sunglasses have not changed in decades; she says the glasses let her hide her reactions at shows. Her former assistant Lauren Weisberger turned the job into the novel The Devil Wears Prada. She also runs the Met Gala guest list personally."
-    },
-    {
-      "d": "easy",
-      "q": "Which luxury house is known for the interlocking 'LV' monogram on its trunks and bags?",
-      "o": [
-        "Louis Vuitton",
-        "Loewe",
-        "Lanvin",
-        "Longchamp"
-      ],
-      "a": 0,
-      "w": "Louis Vuitton, a trunk-maker who set up in Paris in 1854.",
-      "more": "Vuitton's breakthrough was a flat-topped trunk that could be stacked, unlike the domed ones of the day. His son Georges designed the monogram in 1896 to stop counterfeiters, which is still the brand's biggest headache. It is the most valuable luxury brand in the world."
-    },
-    {
-      "d": "easy",
-      "q": "The London designer Mary Quant is credited with popularising which garment in the 1960s?",
-      "o": [
-        "The miniskirt",
-        "The kaftan",
-        "The jumpsuit",
-        "The shift dress"
-      ],
-      "a": 0,
-      "w": "The miniskirt, which she sold from her King's Road boutique, Bazaar, and named after her favourite car.",
-      "more": "Hemlines climbed through the decade as Quant's customers kept asking for shorter. The Frenchman André Courrèges claimed the invention too, and Quant said the credit really belonged to the girls on the street. She also gave the world hot pants and coloured tights."
-    },
-    {
-      "d": "easy",
-      "q": "Ralph Lauren's logo shows a player of which sport?",
-      "o": [
-        "Polo",
-        "Cricket",
-        "Golf",
-        "Fencing"
-      ],
-      "a": 0,
-      "w": "Polo. Lauren, born Ralph Lifshitz in the Bronx, chose it for its air of old money.",
-      "more": "He started in 1967 selling wide ties out of a drawer in the Empire State Building. The polo-player shirt came in 1972 in 24 colours with the line 'every colour of the rainbow'. He has dressed the US Olympic team since 2008 and owns one of the world's great car collections."
-    },
-    {
       "d": "medium",
       "q": "The Met Gala raises money for which department of New York's Metropolitan Museum of Art?",
       "o": [
@@ -170,43 +118,6 @@
       "more": "Armani trained as a window dresser and a medical student before designing, and started his label in 1975 with money from selling his Volkswagen. The film made him the first designer Hollywood men asked for by name; he has dressed more Oscar red carpets than anyone. He still owns his company outright at 90."
     },
     {
-      "d": "medium",
-      "q": "The Hermès Birkin bag is named after which British actress and singer?",
-      "o": [
-        "Jane Birkin",
-        "Julie Christie",
-        "Marianne Faithfull",
-        "Charlotte Rampling"
-      ],
-      "a": 0,
-      "w": "Jane Birkin, whose overflowing straw basket spilled on a flight in 1984 next to the head of Hermès.",
-      "more": "Jean-Louis Dumas sketched a roomy bag with her on an airline sick bag. Each Birkin is made by a single craftsman over about 18 hours, and waiting lists of years turned it into an investment: some resell for more than gold by weight. Birkin herself asked for her name to be removed in 2015 over crocodile welfare, then relented."
-    },
-    {
-      "d": "medium",
-      "type": "order",
-      "q": "Put these fashion houses in the order they were founded, earliest first.",
-      "o": [
-        "Hermès",
-        "Burberry",
-        "Chanel",
-        "Gucci"
-      ],
-      "w": "Hermès (1837), Burberry (1856), Chanel (1910), Gucci (1921).",
-      "more": "Hermès began as a harness workshop for the carriages of Paris. Thomas Burberry invented gabardine and dressed the trenches, hence the trench coat. Guccio Gucci got the idea for a luggage brand working as a lift boy at the Savoy in London, watching the guests' bags go by."
-    },
-    {
-      "d": "medium",
-      "q": "True or false: high heels were first worn by men.",
-      "o": [
-        "True",
-        "False"
-      ],
-      "a": 0,
-      "w": "True. Persian cavalrymen wore heels to lock their feet in the stirrups, and European aristocrats copied them in the 1600s.",
-      "more": "Louis XIV of France wore red-heeled shoes and decreed that only his court could. Heels drifted to women during the Enlightenment, when men's dress turned practical and sober. Cowboy boots are the last everyday heel that men kept."
-    },
-    {
       "d": "hard",
       "q": "Whose 1965 collection turned the paintings of Piet Mondrian into shift dresses?",
       "o": [
@@ -244,38 +155,6 @@
       "a": 0,
       "w": "Givenchy, where the East End tailor's apprentice replaced John Galliano at 27.",
       "more": "McQueen called his first collection there 'crap' in an interview and never settled in Paris, but the salary funded his own label. Gucci bought that label in 2000. He took his own life in 2010, a week after his mother died; Sarah Burton, who succeeded him, made Kate Middleton's wedding dress."
-    },
-    {
-      "d": "hard",
-      "q": "In 1971 a design student was paid how much for creating the Nike swoosh?",
-      "o": [
-        "$35",
-        "$350",
-        "$3,500",
-        "$35,000"
-      ],
-      "a": 0,
-      "w": "Thirty-five dollars, to Carolyn Davidson, a graphic-design student at Portland State University.",
-      "more": "Phil Knight, then teaching accounting there, told her 'I don't love it, but it'll grow on me.' In 1983 Nike gave her a gold swoosh ring and shares now worth over a million dollars. The name Nike, the Greek goddess of victory, came to an employee in a dream the night before a deadline."
-    },
-    {
-      "d": "hard",
-      "type": "select",
-      "q": "Which of these fashion houses belong to the LVMH group? Select all that apply.",
-      "o": [
-        "Dior",
-        "Fendi",
-        "Givenchy",
-        "Gucci",
-        "Prada"
-      ],
-      "a": [
-        0,
-        1,
-        2
-      ],
-      "w": "Dior, Fendi and Givenchy. Gucci belongs to the rival group Kering, and Prada is still controlled by the Prada family.",
-      "more": "Bernard Arnault built LVMH from a bankrupt textile firm he bought in 1984 for the Dior name inside it. The group now owns some 75 brands, from Tiffany to Moët and Louis Vuitton, and made Arnault at times the richest person in the world. Kering, founded by François Pinault, owns Gucci, Saint Laurent and Balenciaga."
     }
   ]
 }

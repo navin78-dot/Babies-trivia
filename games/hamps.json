@@ -13,9 +13,10 @@
   },
   "settings": {
     "playersInGroup": 20,
+    "confirmAnswers": true,
     "siteTagline": "Pick a round. One run each, and it counts.",
     "season": {
-      "firstBoundary": "2026-10-04"
+      "boundaries": ["2026-10-05"]
     },
     "drop": {
       "start": "2026-09-25"

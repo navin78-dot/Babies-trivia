@@ -79,56 +79,6 @@
       "more": "SUVs went from a niche to roughly half of all new cars sold worldwide by the 2020s, and the International Energy Agency has called them the second-biggest cause of rising carbon emissions in that period, after power generation. Their height is also why pedestrian deaths rose in the United States."
     },
     {
-      "d": "easy",
-      "q": "The electric carmaker Tesla is named after which inventor?",
-      "o": [
-        "Nikola Tesla",
-        "Thomas Edison",
-        "Michael Faraday",
-        "Alessandro Volta"
-      ],
-      "a": 0,
-      "w": "Nikola Tesla, the Serbian-American pioneer of alternating current, who died broke in a New York hotel in 1943.",
-      "more": "Tesla Motors was founded in 2003 by Martin Eberhard and Marc Tarpenning; Elon Musk arrived as an investor in 2004 and later won the right in a lawsuit to be called a co-founder. Its first car, the Roadster, was built on a Lotus chassis. One was launched into space on a Falcon Heavy rocket in 2018."
-    },
-    {
-      "d": "easy",
-      "q": "Which British luxury marque has the winged figurine called the Spirit of Ecstasy on its bonnet?",
-      "o": [
-        "Rolls-Royce",
-        "Bentley",
-        "Jaguar",
-        "Aston Martin"
-      ],
-      "a": 0,
-      "w": "Rolls-Royce. The figure, from 1911, is said to be modelled on Eleanor Thornton, the secret lover of a motoring peer.",
-      "more": "Modern versions retract into the grille in a fraction of a second if touched, to stop theft. Rolls-Royce cars have been owned by BMW since 1998, while Bentley, long its twin, went to Volkswagen in the same deal, a split negotiated over who got the famous name."
-    },
-    {
-      "d": "easy",
-      "q": "Which German company has built the 911 sports car, with its engine in the back, since 1964?",
-      "o": [
-        "Porsche",
-        "BMW",
-        "Mercedes-Benz",
-        "Opel"
-      ],
-      "a": 0,
-      "w": "Porsche, in Stuttgart. The 911 was going to be called the 901 until Peugeot objected that it owned the rights to three-digit names with a zero in the middle.",
-      "more": "More than a million 911s have been built and the basic shape has barely changed in sixty years. The rear-engine layout was inherited from the Volkswagen Beetle, which Ferdinand Porsche designed. Porsche's badge is the crest of the city of Stuttgart, whose name means 'stud farm', hence the horse."
-    },
-    {
-      "d": "easy",
-      "q": "True or false: in Japan, as in Britain, cars drive on the left.",
-      "o": [
-        "True",
-        "False"
-      ],
-      "a": 0,
-      "w": "True. About a third of the world's countries drive on the left, Japan, India, Australia and South Africa among them.",
-      "more": "Most of the left-hand world was once British, but Japan never was; its habit dates to samurai keeping their sword arm free of passers-by. Sweden switched from left to right overnight on 3 September 1967, 'Dagen H', with every road sign in the country changed before dawn."
-    },
-    {
       "d": "medium",
       "q": "Which Swedish carmaker invented the three-point seat belt in 1959 and gave away the patent so every manufacturer could use it?",
       "o": [
@@ -168,45 +118,6 @@
       "more": "The milk tradition began with Louis Meyer, who asked for buttermilk after winning in 1936 because his mother said it was refreshing; a dairy executive saw the photo and made it permanent. Emerson Fittipaldi drank orange juice in 1993 to plug his own orchards and was booed for years. The track is big enough to hold the Vatican, Wimbledon and the Rose Bowl inside it."
     },
     {
-      "d": "medium",
-      "type": "order",
-      "q": "Put these cars in the order they first went on sale, earliest first.",
-      "o": [
-        "Ford Model T",
-        "Volkswagen Beetle",
-        "Mini",
-        "Toyota Prius"
-      ],
-      "w": "The Model T (1908), the Beetle (1938, in volume from 1945), the Mini (1959), the Prius (1997).",
-      "more": "The Beetle was commissioned by Hitler as a 'people's car' and designed by Ferdinand Porsche; 21 million were eventually built, the last in Mexico in 2003. The Mini, designed by Alec Issigonis in response to the Suez fuel crisis, turned the engine sideways to make room for four adults in a car three metres long."
-    },
-    {
-      "d": "medium",
-      "q": "The historic US highway Route 66 ran from Chicago to which city?",
-      "o": [
-        "Los Angeles",
-        "San Francisco",
-        "Las Vegas",
-        "Seattle"
-      ],
-      "a": 0,
-      "w": "Los Angeles, ending at the Pacific in Santa Monica, about 2,400 miles from Chicago.",
-      "more": "Opened in 1926, it carried the Dust Bowl migrants of The Grapes of Wrath west and gave America the motel and the drive-through. It was removed from the highway system in 1985 after the interstates bypassed it. Pixar's Cars, set on the dying road, revived tourism along it."
-    },
-    {
-      "d": "medium",
-      "q": "Which company owns Lamborghini, Bentley, Porsche, Audi and Škoda?",
-      "o": [
-        "The Volkswagen Group",
-        "BMW",
-        "Stellantis",
-        "Toyota"
-      ],
-      "a": 0,
-      "w": "The Volkswagen Group, the largest carmaker in Europe.",
-      "more": "Bugatti and Ducati motorcycles are in the stable too, and SEAT and Cupra in Spain. Porsche tried to take over Volkswagen in 2008, overreached, and ended up being swallowed instead; the Porsche and Piëch families nonetheless control the whole group. Volkswagen paid more than 30 billion dollars in penalties after the 2015 diesel-emissions cheating scandal."
-    },
-    {
       "d": "hard",
       "q": "Who patented the first practical petrol-powered automobile in 1886?",
       "o": [
@@ -244,38 +155,6 @@
       "a": 0,
       "w": "The Chevrolet Nova. The story is false: it sold perfectly well in Mexico and Venezuela, and Spanish speakers no more hear 'no va' in 'nova' than English speakers hear 'not able' in 'notable'.",
       "more": "The Pinto, on the other hand, really was a problem in Brazil, where the word is slang for small male genitals, and Ford renamed it Corcel. The Mitsubishi Pajero became the Montero in Spanish-speaking markets for a similar reason."
-    },
-    {
-      "d": "hard",
-      "type": "select",
-      "q": "Which of these brands belong to Stellantis, the group formed in 2021? Select all that apply.",
-      "o": [
-        "Jeep",
-        "Fiat",
-        "Peugeot",
-        "Renault",
-        "Mazda"
-      ],
-      "a": [
-        0,
-        1,
-        2
-      ],
-      "w": "Jeep, Fiat and Peugeot. Renault is a separate French company allied with Nissan, and Mazda is Japanese and independent.",
-      "more": "Stellantis merged Fiat Chrysler with France's PSA group and owns 14 brands, including Chrysler, Dodge, Ram, Citroën, Opel, Alfa Romeo and Maserati. The name comes from the Latin 'stello', to brighten with stars. It is the world's fourth-largest carmaker."
-    },
-    {
-      "d": "hard",
-      "q": "Enzo Ferrari is said to have called which rival's 1961 sports car 'the most beautiful car ever made'?",
-      "o": [
-        "The Jaguar E-Type",
-        "The Aston Martin DB5",
-        "The Mercedes 300SL",
-        "The Chevrolet Corvette"
-      ],
-      "a": 0,
-      "w": "The Jaguar E-Type, which did 150 miles per hour and cost half the price of a Ferrari.",
-      "more": "It was unveiled at the Geneva Motor Show, where the demand for test drives was so great that Jaguar's test driver drove through the night from Coventry to deliver a second car. The Museum of Modern Art in New York keeps one in its permanent collection, one of only a handful of cars there."
     }
   ]
 }

@@ -79,56 +79,6 @@
       "more": "It was the biggest currency changeover in history, with 15 billion notes and 50 billion coins. The notes show imaginary bridges and windows, so no country could claim one, though a Dutch town later built all seven bridges for real. Twenty countries use it today; Britain, Sweden and Denmark chose to keep their own."
     },
     {
-      "d": "easy",
-      "q": "What is a 'piggy bank' thought to be named after?",
-      "o": [
-        "Pygg, an old word for a kind of clay",
-        "A fat pig being worth a lot of money",
-        "A Victorian bank called Pigg's",
-        "The shape of early coin purses"
-      ],
-      "a": 0,
-      "w": "Pygg, an orange clay used for cheap jars and pots in the Middle Ages. People kept coins in a pygg pot, and potters started making them pig-shaped as a pun.",
-      "more": "The oldest known pig-shaped money box is from the island of Java and dates to the 1300s, so the idea may have arisen independently. In Germany, the pig has long been a symbol of luck, and a Glücksschwein is a New Year's gift."
-    },
-    {
-      "d": "easy",
-      "q": "Which precious metal does the United States famously store in vaults at Fort Knox, Kentucky?",
-      "o": [
-        "Gold",
-        "Silver",
-        "Platinum",
-        "Copper"
-      ],
-      "a": 0,
-      "w": "Gold, about 147 million troy ounces of it, roughly half the country's reserve.",
-      "more": "The depository opened in 1937 and held the original Declaration of Independence and Magna Carta for safekeeping during the Second World War. Almost nobody is allowed inside; a group of congressmen and journalists toured it in 1974 to quash rumours the gold was gone, and the Treasury Secretary visited again in 2017. Goldfinger's plan to irradiate it is fiction."
-    },
-    {
-      "d": "easy",
-      "q": "True or false: a British one-pound note is still legal tender in England.",
-      "o": [
-        "True",
-        "False"
-      ],
-      "a": 1,
-      "w": "False. The Bank of England withdrew the pound note in 1988, five years after the coin arrived.",
-      "more": "The round pound coin was itself replaced in 2017 by a twelve-sided one with a hidden security feature, after it was estimated that one in thirty of the old coins was a fake. Scotland's banks still print pound notes, which is why the question has to say England."
-    },
-    {
-      "d": "easy",
-      "q": "What does GDP stand for?",
-      "o": [
-        "Gross domestic product",
-        "General domestic price",
-        "Government debt position",
-        "Gross daily production"
-      ],
-      "a": 0,
-      "w": "Gross domestic product, the value of everything a country produces in a year.",
-      "more": "The measure was devised by the economist Simon Kuznets for the US Congress in 1934, and he warned at the time that it should not be mistaken for a measure of welfare. It leaves out unpaid housework, volunteering and the cost of pollution. The United States has the biggest GDP; Luxembourg has the biggest per person."
-    },
-    {
       "d": "medium",
       "q": "The Wall Street Crash that set off the Great Depression happened in which year?",
       "o": [
@@ -168,45 +118,6 @@
       "more": "Paul Volcker's Federal Reserve pushed US rates to 20 per cent in 1981 to break inflation, at the cost of a deep recession and angry farmers blockading its headquarters with tractors. Taxes are set by governments, not central banks. The Fed's rate decisions move markets around the world within seconds."
     },
     {
-      "d": "medium",
-      "q": "The 2008 financial crisis was set off by the collapse in value of securities built from bundles of what?",
-      "o": [
-        "American home mortgages",
-        "Government bonds",
-        "Student loans",
-        "Oil futures"
-      ],
-      "a": 0,
-      "w": "Mortgages, especially 'subprime' home loans to borrowers with poor credit, sliced into bonds that rating agencies had stamped triple-A.",
-      "more": "When house prices turned down in 2006 and borrowers defaulted, nobody could tell which bonds were rotten, and banks stopped lending to each other. The film The Big Short follows the handful of investors who bet against the housing market. The crisis cost the world economy trillions and gave rise to the Occupy Wall Street protests."
-    },
-    {
-      "d": "medium",
-      "type": "order",
-      "q": "Put these currencies in order of value, from the most valuable single unit to the least, as of the mid-2020s.",
-      "o": [
-        "Kuwaiti dinar",
-        "British pound",
-        "US dollar",
-        "Indian rupee"
-      ],
-      "w": "The Kuwaiti dinar is worth over three dollars, the pound about a dollar and a quarter, and a rupee just over a US cent.",
-      "more": "The Kuwaiti dinar has been the world's most valuable unit of currency for years, thanks to oil wealth and a small, stable population. A high unit value says nothing about a country's wealth, only about how the money was denominated. Japan is rich and the yen is worth less than a cent."
-    },
-    {
-      "d": "medium",
-      "q": "Which London market, which began in Edward Lloyd's coffee house in the 1680s, is the world's oldest insurance market?",
-      "o": [
-        "Lloyd's of London",
-        "The Baltic Exchange",
-        "The London Metal Exchange",
-        "Smithfield"
-      ],
-      "a": 0,
-      "w": "Lloyd's of London, where ship-owners and merchants met to insure cargoes over coffee.",
-      "more": "It is not a company but a market where syndicates share risks, and it has insured Betty Grable's legs, a comedian's moustache and Bruce Springsteen's voice. The Lutine Bell in its hall was rung once for a lost ship and twice for one safely returned. Its 1986 inside-out building by Richard Rogers has all its lifts and pipes on the outside."
-    },
-    {
       "d": "hard",
       "q": "Which Scottish economist's 1776 book The Wealth of Nations described an 'invisible hand' guiding self-interested traders to serve the public good?",
       "o": [
@@ -244,38 +155,6 @@
       "a": 0,
       "w": "Hungary, which printed a 100 quintillion pengő note, the highest denomination ever issued.",
       "more": "Weimar Germany's 1923 inflation, with wheelbarrows of marks, is more famous but milder: prices doubled every few days. Zimbabwe's 2008 episode produced a hundred-trillion-dollar note now sold to tourists. Hungary replaced the pengő with the forint in August 1946, at a rate of 400 octillion to one."
-    },
-    {
-      "d": "hard",
-      "type": "select",
-      "q": "Which of these are among the four companies that first passed a market value of three trillion dollars? Select all that apply.",
-      "o": [
-        "Apple",
-        "Microsoft",
-        "Nvidia",
-        "Amazon",
-        "Saudi Aramco"
-      ],
-      "a": [
-        0,
-        1,
-        2
-      ],
-      "w": "Apple in 2022, Microsoft and Nvidia in 2024. Amazon had not reached three trillion by mid-2026, and Saudi Aramco peaked a little below it.",
-      "more": "Nvidia went from a maker of gaming graphics cards to the most valuable company in the world because its chips turned out to be what artificial-intelligence models are trained on; its value rose roughly tenfold in two years. Apple was the first company to reach one trillion, in 2018. The Dutch East India Company, adjusted for inflation, may have been worth more than any of them."
-    },
-    {
-      "d": "hard",
-      "q": "The Big Mac Index, which compares the price of the burger around the world to judge whether currencies are over- or under-valued, was invented by which publication in 1986?",
-      "o": [
-        "The Economist",
-        "The Financial Times",
-        "The Wall Street Journal",
-        "Forbes"
-      ],
-      "a": 0,
-      "w": "The Economist, which started it as a light-hearted guide to the theory of purchasing-power parity.",
-      "more": "The idea is that an identical product should cost the same everywhere once converted, so a cheap Big Mac suggests an undervalued currency. Switzerland and Norway usually have the dearest burgers, and it has become a standard teaching example in economics courses. The magazine has also tried a Starbucks tall-latte index."
     }
   ]
 }
