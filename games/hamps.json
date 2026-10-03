@@ -16,7 +16,7 @@
     "confirmAnswers": true,
     "siteTagline": "Pick a round. One run each, and it counts.",
     "season": {
-      "boundaries": ["2026-10-05"]
+      "boundaries": ["2026-10-04"]
     },
     "drop": {
       "start": "2026-09-25"

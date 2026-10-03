@@ -634,7 +634,7 @@ const SETTINGS = {
   confirmAnswers: false,    // true = a multiple-choice tap only highlights the option and a Lock in button confirms it, for groups who fat-finger (a sister game turns this on in games/<id>.json)
   newRoundsOpenByDefault: true, // kept for reference: every round is open until the host closes it on the Host tab
   timeLimitMs: 5 * 60 * 1000,   // countdown shown during a run; 0 or null = no limit. A round can override with its own timeLimitMs.
-  season: { boundaries: ["2026-09-27", "2026-10-05"], hour: 0, days: 7, tz: "America/New_York" }, // each date is midnight New York time going into that day: Season 2 began Sunday 27 Sep 2026, Season 3 Monday 5 Oct; after the last date a new season every 7 days, so seasons run Monday to Sunday night
+  season: { boundaries: ["2026-09-27"], hour: 0, days: 7, tz: "America/New_York" }, // each date is midnight New York time going into that day: Season 2 began Sunday 27 Sep 2026; after the last date a new season every 7 days, so a season runs Sunday to Saturday night
   drop: { start: "2026-09-21", hour: 0, options: 3, retireAfterDays: 7, // until dailyUntil: one new round every midnight New York time, chosen by that day's poll unless the host overrides
     dailyUntil: "2026-10-03",                                             // the last nightly drop
     weekly: { from: "2026-10-05", days: [0, 2, 4, 6], retireAfterPolls: 3 } }, // then drops at midnight going into Sun, Tue, Thu and Sat (0 = Sunday); the poll open between two drops picks the drop after next, so a theme someone suggests can win and still be written in time. An option leaves the poll after this many polls without winning.
@@ -2059,8 +2059,8 @@ function sorted(list){ return [...list].sort((a, b) => (b.score - a.score) || (S
 function rankOf(list){ const s = sorted(list); let last = null, rank = 0; return s.map((b, i) => { const key = b.score + (SETTINGS.timeBreaksTies ? ":" + b.elapsedMs : ""); if (key !== last) { rank = i + 1; last = key; } return { ...b, rank }; }); }
 function combined(list = scores){ const by = {}; list.forEach(s => { const c = by[s.uid] || (by[s.uid] = { uid: s.uid, name: s.name, photo: s.photo, score: 0, total: 0, elapsedMs: 0, rounds: 0, finishedAt: "" }); c.score += s.score; c.total += s.total; c.elapsedMs += s.elapsedMs; c.rounds++; if (s.finishedAt > c.finishedAt) { c.finishedAt = s.finishedAt; c.name = s.name; c.photo = s.photo; } }); return Object.values(by); }
 
-/* --- seasons: a new one every week at midnight going into Monday, New York time, so a season
-   runs Monday to Sunday night. Season 1 is everything before the first boundary. A round belongs
+/* --- seasons: a new one every week at midnight going into Sunday, New York time, so a season
+   runs Sunday to Saturday night. Season 1 is everything before the first boundary. A round belongs
    to the season it was added in. --- */
 const SEASON = SETTINGS.season;
 function tzOffsetMin(ms, tz){
@@ -2105,7 +2105,7 @@ function seasonHeroHtml(){
     ${myProgressHtml()}
     ${aroundHtml()}
     <div class="sh-foot"><span>${rs ? `${rs} round${rs === 1 ? "" : "s"} count${rs === 1 ? "s" : ""} toward this season so far.` : "No rounds added this season yet."} <b>When the clock hits zero every round from this season closes and stops counting, so play all your rounds before then.</b> Season ${I.n + 1} starts at that moment.</span><button class="linkbtn" id="seasonHow">${S.seasonHow ? "Hide" : "How seasons work"}</button></div>
-    ${S.seasonHow ? `<div class="sh-body"><p><b>A season is one week.</b> Monday to Sunday night, New York time.</p><p><b>Every round added during that week counts.</b> Your season score is your scores on those rounds added together. One run each.</p><p><b>When the clock hits zero, the top total takes the crown.</b> It sits on their avatar all through the next season, and the next season starts at once with a fresh board.</p><p><b>When the season ends, its rounds close.</b> They can't be played any more and nothing played later counts, so play all your rounds before the clock hits zero. The boards stay up and the crown is final.</p></div>` : ""}
+    ${S.seasonHow ? `<div class="sh-body"><p><b>A season is one week.</b> Sunday to Saturday night, New York time.</p><p><b>Every round added during that week counts.</b> Your season score is your scores on those rounds added together. One run each.</p><p><b>When the clock hits zero, the top total takes the crown.</b> It sits on their avatar all through the next season, and the next season starts at once with a fresh board.</p><p><b>When the season ends, its rounds close.</b> They can't be played any more and nothing played later counts, so play all your rounds before the clock hits zero. The boards stay up and the crown is final.</p></div>` : ""}
   </div>`;
 }
 function seasonLineHtml(){ const I = seasonEndInfo(); return `<div class="season-line"><span><b>Season ${I.n}</b> · rounds close ${esc(I.ny)} NY time</span><span class="szc" data-end="${I.end}">${countdownText(I.end)}</span></div>`; }
@@ -2616,7 +2616,7 @@ function renderRounds(tabs, wire){
   const combinedView = isCombined(lobbySel); const medals = combinedView ? medalsFor(medalRounds(lobbySel)) : null;
   const ranked = rankOf(boardList(lobbySel)); const mine = ranked.find(x => x.uid === me.uid);
   const pod = podiumHtml(ranked, medals); const rest = pod ? ranked.slice(3) : ranked; const shown = lobbyAll ? rest : rest.slice(0, pod ? 2 : 5);
-  const seasonNote = isSeasonKey(lobbySel) ? `<p class="note">Points from rounds added ${lobbySel === SEASON_KEY + currentSeason() ? "this season" : "that season"}. A new season starts every Monday at midnight New York time.</p>` : "";
+  const seasonNote = isSeasonKey(lobbySel) ? `<p class="note">Points from rounds added ${lobbySel === SEASON_KEY + currentSeason() ? "this season" : "that season"}. A new season starts every Sunday at midnight New York time.</p>` : "";
   let board;
   if (combinedView && boardMode === "medals") {
     const table = medalTable(lobbySel), mshown = lobbyAll ? table : table.slice(0, 5), myM = table.find(x => x.uid === me.uid);
@@ -2817,7 +2817,7 @@ function renderHost(){
     ${hostDropHtml()}
     <div class="card">
       <h3>Seasons</h3>
-      <p class="note" style="margin:0 0 8px">Weekly, Monday to Sunday night, New York time. <b>Season ${currentSeason()}</b> is on now and ends ${esc(seasonWhenText())}. Season ${currentSeason() + 1} starts at that moment. The countdown on the front page runs on its own.</p>
+      <p class="note" style="margin:0 0 8px">Weekly, Sunday to Saturday night, New York time. <b>Season ${currentSeason()}</b> is on now and ends ${esc(seasonWhenText())}. Season ${currentSeason() + 1} starts at that moment. The countdown on the front page runs on its own.</p>
       <div class="row"><button class="btn small" id="seasonAnn">Post a season announcement</button><span class="note" id="seasonMsg" style="margin:0"></span></div>
       <p class="note" style="margin:8px 0 0">Puts this in the announcement strip, which you can edit above: “${esc(seasonAnnText())}”</p>
     </div>
