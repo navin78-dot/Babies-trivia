@@ -2269,6 +2269,7 @@ const modeToggleHtml = () => `<div class="seg" role="tablist" aria-label="Rank b
 const MEDAL_NOTE = `<p class="note">Ranked by total medals. Gold, silver and bronze for first, second and third in each round. A round awards them once five people have finished it.</p>`;
 const boardTitle = sel => sel === ALL ? "All time" : isSeasonKey(sel) ? "Season " + sel.slice(SEASON_KEY.length) : (roundById(sel) || {}).name || "";
 function renderLobby(){
+  maybeVotePrompt();
   const P = dropPlan(); const needsVote = votesReady && P.options.length > 0 && !P.options.some(o => o.id === myVote(P.pollKey));
   const tabs = `<div class="tabs" role="tablist">
     <button class="tab" role="tab" aria-selected="${lobbyTab === "rounds"}" data-ltab="rounds">Play</button>
@@ -3038,17 +3039,21 @@ function startTimer(){
 }
 
 /* --- quiz --- */
-/* --- the vote prompt: once per poll per device, the first time a player taps Play while there is
-   an open poll they have not voted in. Vote, add an idea, or skip; then the run starts. --- */
-const VOTE_ASK = "voteAsk:" + (GAME.id || "babies");
-let voteAskedNow = null; // this visit, in case storage is off
-const voteAsked = key => { if (voteAskedNow === key) return true; try { return localStorage.getItem(VOTE_ASK) === key; } catch (e) { return false; } };
-const markVoteAsked = key => { voteAskedNow = key; try { localStorage.setItem(VOTE_ASK, key); } catch (e) {} };
-function needsVotePrompt(){ const P = dropPlan(); return votesReady && P.options.length > 0 && !P.options.some(o => o.id === myVote(P.pollKey)) && !voteAsked(P.pollKey); }
+/* --- the vote prompt: when a player arrives at the lobby with an open poll they have not voted in,
+   once per visit. Vote, add an idea, or skip; skipping means it asks again next visit, voting
+   means it stops. --- */
+let voteAskedNow = null; // the poll this visit already asked about
+const voteAsked = key => voteAskedNow === key;
+const markVoteAsked = key => { voteAskedNow = key; };
+function needsVotePrompt(){ const P = dropPlan(); return !!me && votesReady && roundsReady && P.options.length > 0 && !P.options.some(o => o.id === myVote(P.pollKey)) && !voteAsked(P.pollKey); }
+function maybeVotePrompt(){ // called from the lobby; waits for any other card (crowning, save-to-home-screen) to go first
+  if (round || !needsVotePrompt()) return;
+  setTimeout(() => { if (round || !needsVotePrompt() || document.querySelector(".hsheet, .crowning, .catchup")) return; openVoteSheet(); }, 500);
+}
 function openVoteSheet(then){
   const P = dropPlan(); markVoteAsked(P.pollKey);
   const el = document.createElement("div"); el.className = "hsheet"; el.setAttribute("role", "dialog"); el.setAttribute("aria-label", "Vote for the next drop");
-  el.innerHTML = `<div class="hbox"><h2>Vote for ${fmtDay(P.decides)}'s drop</h2><p class="hsub">Quick one before you play. The poll picks the drop after next; most votes wins.</p>
+  el.innerHTML = `<div class="hbox"><h2>Vote for ${fmtDay(P.decides)}'s drop</h2><p class="hsub">Quick one. The poll picks the drop after next; most votes wins.</p>
     <div class="vopts">${P.options.map(o => `<button class="pollopt" data-vp="${esc(o.id)}"><div class="prow"><span class="pname">${esc(o.name)}</span>${o.kind === "theme" ? `<span class="pill">${esc((o.by || "Someone").split(" ")[0])}'s idea</span>` : `<span class="pcount">${o.n} questions</span>`}</div><div class="pblurb">${o.kind === "theme" ? "Not written yet. If it wins, it gets written in time." : esc(o.subject)}</div></button>`).join("")}</div>
     <div class="inrow"><input id="vsTheme" class="field" maxlength="200" placeholder="Or suggest a theme and vote for it"><button class="btn small" id="vsAdd">Add</button></div>
     <p class="note" id="vsMsg" style="margin:6px 0 0"></p>
@@ -3064,7 +3069,6 @@ function openVoteSheet(then){
 }
 function startQuiz(){
   if (!scoresReady || myRun() || !isOpen(round)) return renderAll();
-  if (needsVotePrompt()) return openVoteSheet(() => startQuiz());
   const all = round.questions.map((_, k) => k);
   if (SETTINGS.shuffleQuestions) for (let k = all.length - 1; k > 0; k--) { const j = Math.floor(Math.random() * (k + 1)); [all[k], all[j]] = [all[j], all[k]]; }
   S.order = all.slice(0, gameLength());
