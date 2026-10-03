@@ -67,9 +67,22 @@ service cloud.firestore {
       allow update: if false;
     }
 
-    // Theme requests the host queues for the next data push.
+    // Theme ideas. They are options on the drop poll, so everyone signed in reads them; a player
+    // adds their own, can reword or withdraw it, and the host can remove any. The service account
+    // marks one "written" when a round for it publishes (it bypasses these rules).
     match /requests/{id} {
-      allow read, write: if isHost();
+      allow read: if signedIn();
+      allow create: if signedIn()
+        && request.resource.data.uid == request.auth.uid
+        && request.resource.data.theme is string
+        && request.resource.data.theme.size() > 0
+        && request.resource.data.theme.size() <= 200;
+      allow update: if isHost() || (signedIn() && resource.data.uid == request.auth.uid
+        && request.resource.data.diff(resource.data).affectedKeys().hasOnly(['theme'])
+        && request.resource.data.theme is string
+        && request.resource.data.theme.size() > 0
+        && request.resource.data.theme.size() <= 200);
+      allow delete: if isHost() || (signedIn() && resource.data.uid == request.auth.uid);
     }
 
     // The chat thread. Everyone signed in reads and posts; a message is never edited,
@@ -143,7 +156,18 @@ service cloud.firestore {
       }
 
       match /requests/{id} {
-        allow read, write: if isHost() && knownGame(game);
+        allow read: if signedIn() && knownGame(game);
+        allow create: if signedIn() && knownGame(game)
+          && request.resource.data.uid == request.auth.uid
+          && request.resource.data.theme is string
+          && request.resource.data.theme.size() > 0
+          && request.resource.data.theme.size() <= 200;
+        allow update: if knownGame(game) && (isHost() || (signedIn() && resource.data.uid == request.auth.uid
+          && request.resource.data.diff(resource.data).affectedKeys().hasOnly(['theme'])
+          && request.resource.data.theme is string
+          && request.resource.data.theme.size() > 0
+          && request.resource.data.theme.size() <= 200));
+        allow delete: if knownGame(game) && (isHost() || (signedIn() && resource.data.uid == request.auth.uid));
       }
 
       match /chat/{id} {

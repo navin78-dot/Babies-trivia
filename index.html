@@ -525,6 +525,7 @@ input[type=range]{width:100%;accent-color:var(--accent)}
 .hsheet{position:fixed;inset:0;z-index:61;display:grid;place-items:end center;padding:0 12px 18px;background:rgba(4,12,18,.62);-webkit-backdrop-filter:blur(4px);backdrop-filter:blur(4px);animation:crFade .3s ease both}
 .hsheet .hbox{width:100%;max-width:440px;background:var(--paper);color:var(--ink);border-radius:24px;padding:22px 22px 18px;box-shadow:0 30px 70px rgba(0,0,0,.55);animation:cuUp .45s cubic-bezier(.2,1.2,.4,1) both}
 .hsheet h2{font-family:var(--site);font-size:26px;line-height:1.05;margin:0 0 6px;letter-spacing:-.02em;color:var(--ink)}
+.hsheet .vopts{max-height:44vh;overflow:auto;margin:10px 0 8px}.hsheet .vopts .pollopt{background:var(--paper2);margin-bottom:8px;padding:12px 14px}.hsheet .vopts .pollopt[disabled]{opacity:.6}
 .hsheet .hsub{margin:0 0 14px;color:var(--ink2);font-size:14px}
 .hsheet ol{margin:0 0 16px;padding:0;list-style:none;display:grid;gap:8px}
 .hsheet li{display:grid;grid-template-columns:34px 1fr;gap:10px;align-items:center;background:var(--paper2);border-radius:14px;padding:10px 12px;font-size:15px;line-height:1.35}
@@ -634,7 +635,9 @@ const SETTINGS = {
   newRoundsOpenByDefault: true, // kept for reference: every round is open until the host closes it on the Host tab
   timeLimitMs: 5 * 60 * 1000,   // countdown shown during a run; 0 or null = no limit. A round can override with its own timeLimitMs.
   season: { boundaries: ["2026-09-27", "2026-10-05"], hour: 0, days: 7, tz: "America/New_York" }, // each date is midnight New York time going into that day: Season 2 began Sunday 27 Sep 2026, Season 3 Monday 5 Oct; after the last date a new season every 7 days, so seasons run Monday to Sunday night
-  drop: { start: "2026-09-21", hour: 0, options: 3, retireAfterDays: 7 }, // one new round every midnight New York time, chosen by the poll unless the host overrides
+  drop: { start: "2026-09-21", hour: 0, options: 3, retireAfterDays: 7, // until dailyUntil: one new round every midnight New York time, chosen by that day's poll unless the host overrides
+    dailyUntil: "2026-10-03",                                             // the last nightly drop
+    weekly: { from: "2026-10-05", days: [1, 3, 5, 0], retireAfterPolls: 3 } }, // then drops at midnight going into Mon, Wed, Fri and Sun (0 = Sunday); the poll open between two drops picks the drop after next, so a theme someone suggests can win and still be written in time. An option leaves the poll after this many polls without winning.
   catchupNote: false,       // true = the first time each player opens the site, a card shows how many rounds they have played this season and how many are waiting, with a save-to-home-screen link (a sister game turns this on in games/<id>.json)
   homeScreenNote: true,     // true = when catchupNote is off, the first visit instead gets a one-time card asking to save the site to the home screen
 };
@@ -661,8 +664,8 @@ Object.entries(GAME.settings || {}).forEach(([k, v]) => { SETTINGS[k] = v && typ
    theme.font is any Google Fonts family name; accent / accent2 are hex colors
    (the Dark versions are used when the player's device is in dark mode).
    ===================================================================== */
-/* Wording for the nightly poll. The options are the rounds written and waiting in the queue. */
-const POLL = { question: "What drops tonight?", note: "One new round every night at midnight New York time. Most votes wins." };
+/* Wording for the drop poll. The options are the rounds written and waiting in the queue plus every open theme idea. */
+const POLL = { question: "What drops next?", note: "A new round at midnight New York time going into Monday, Wednesday, Friday and Sunday. This poll picks the drop after next, so a theme you suggest can win and still get written in time. Most votes wins." };
 
 /* BUILTIN-ROUNDS-START */
 let ROUNDS = [
@@ -1633,7 +1636,7 @@ async function signIn(){
 auth.getRedirectResult().catch(() => {});
 auth.onAuthStateChanged(async u => {
   me = u; isHost = false; fatal = "";
-  if (me) { setTimeout(flushPending, 1500); isHost = await probeHost(); subscribeSite(); subscribeScores(); subscribePresence(); subscribeVotes(); subscribeRounds(); subscribeProfiles(); subscribeChat(); if (isHost) subscribeHostData();
+  if (me) { setTimeout(flushPending, 1500); isHost = await probeHost(); subscribeSite(); subscribeScores(); subscribePresence(); subscribeVotes(); subscribeRequests(); subscribeRounds(); subscribeProfiles(); subscribeChat(); if (isHost) subscribeHostData();
     if (pendingRound && roundById(pendingRound) && isPublished(roundById(pendingRound))) { const id = pendingRound; pendingRound = null; selectRound(id); return; } pendingRound = null; }
   else { if (unsubScores) { unsubScores(); unsubScores = null; } if (unsubSite) { unsubSite(); unsubSite = null; } if (unsubPresence) { unsubPresence(); unsubPresence = null; } if (unsubVotes) { unsubVotes(); unsubVotes = null; } if (unsubRounds) { unsubRounds(); unsubRounds = null; } if (unsubChat) { unsubChat(); unsubChat = null; } chat = []; chatReady = false; if (unsubSugg) { unsubSugg(); unsubSugg = null; } if (unsubReq) { unsubReq(); unsubReq = null; } suggestions = []; requests = []; if (unsubProfiles) { unsubProfiles(); unsubProfiles = null; } profiles = {}; votes = []; votesReady = false; presence = []; presenceRound = null; stopTimer(); if (hbTimer) { clearInterval(hbTimer); hbTimer = null; } round = null; S.tab = "play"; }
   renderAll();
@@ -1861,9 +1864,12 @@ async function saveAvatar(cfg){
   catch (err) { const m = $("avMsg"); if (m) m.textContent = "Couldn't save (" + (err.code || err.message) + ")."; }
 }
 function subscribeHostData(){
-  if (unsubSugg) unsubSugg(); if (unsubReq) unsubReq();
+  if (unsubSugg) unsubSugg();
   unsubSugg = col("suggestions").onSnapshot(snap => { suggestions = snap.docs.map(d => ({ id: d.id, ...d.data() })); if (round && S.tab === "host") render(); }, () => {});
-  unsubReq = col("requests").onSnapshot(snap => { requests = snap.docs.map(d => ({ id: d.id, ...d.data() })); if (round && S.tab === "host") render(); }, () => {});
+}
+function subscribeRequests(){ // theme ideas are poll options, so everyone follows them
+  if (unsubReq) unsubReq();
+  unsubReq = col("requests").onSnapshot(snap => { requests = snap.docs.map(d => ({ id: d.id, ...d.data() })); render(); }, () => {});
 }
 function subscribeVotes(){
   if (unsubVotes) unsubVotes();
@@ -1871,16 +1877,33 @@ function subscribeVotes(){
 }
 const myVote = day => { const v = votes.find(v => v.uid === (me && me.uid) && v.day === day); return v ? v.choice : null; };
 const voteCount = (id, day) => votes.filter(v => v.choice === id && v.day === day).length;
-/* --- nightly drop: every midnight New York time one round leaves the queue and goes live.
-   The poll each day is the first few rounds waiting in the queue. Whoever leads at midnight wins,
-   ties go to the round that has waited longest, and a host override beats the poll. All of this is
-   worked out from the data by every phone the same way, so nothing has to run at midnight. --- */
+/* --- the drop: when a round leaves the queue and goes live. All of it is worked out from the data
+   by every phone the same way, so nothing has to run at midnight.
+   Until DROP.dailyUntil it was nightly: every midnight New York time one round dropped, chosen by
+   that day's poll (the first few rounds waiting, oldest first), ties to the one that had waited
+   longest, a host override beating the poll.
+   From DROP.weekly.from a round drops only at midnight going into DROP.weekly.days (Mon, Wed, Fri,
+   Sun). The poll open between two drops picks the drop AFTER next, so a theme someone typed can win
+   and still be written in time. Poll options are the first few rounds waiting plus every open theme
+   idea. A winning theme is "owed": the daily top-up writes it (the round file carries the request's
+   id) and it drops on its day; if it is not written in time the best-placed written round drops
+   instead and the theme is still owed, dropping at the first later drop day its round exists. A
+   drop day no poll decided (the first ones after the switch, or an empty poll) takes the oldest
+   written round that is not on the current poll. A host override for a drop day beats all of it. --- */
 const DROP = SETTINGS.drop;
 function nyDay(ms){ const f = new Intl.DateTimeFormat("en-US", { timeZone: SEASON.tz, year: "numeric", month: "2-digit", day: "2-digit" }); const p = {}; f.formatToParts(new Date(ms)).forEach(x => { p[x.type] = x.value; }); return `${p.year}-${p.month}-${p.day}`; }
 const keyMs = key => { const [y, m, d] = key.split("-").map(Number); return zonedUtc(y, m - 1, d, DROP.hour, SEASON.tz); };
 const nextKey = key => { const [y, m, d] = key.split("-").map(Number); return new Date(Date.UTC(y, m - 1, d + 1)).toISOString().slice(0, 10); };
 const dayDiff = (a, b) => { const u = k => { const [y, m, d] = k.split("-").map(Number); return Date.UTC(y, m - 1, d); }; return Math.round((u(b) - u(a)) / 864e5); };
 const fmtKey = key => { const [y, m, d] = key.split("-").map(Number); return new Date(Date.UTC(y, m - 1, d)).toLocaleDateString("en-US", { timeZone: "UTC", month: "short", day: "numeric" }); };
+const fmtDay = key => { const [y, m, d] = key.split("-").map(Number); return new Date(Date.UTC(y, m - 1, d)).toLocaleDateString("en-US", { timeZone: "UTC", weekday: "long" }); };
+const weekdayOf = key => { const [y, m, d] = key.split("-").map(Number); return new Date(Date.UTC(y, m - 1, d)).getUTCDay(); };
+const isDropDay = key => DROP.weekly.days.includes(weekdayOf(key));
+const nextDropDay = after => { let d = nextKey(after); while (!isDropDay(d)) d = nextKey(d); return d; }; // the first drop day strictly after a date
+const THEME = "req:"; // a theme idea on the poll has the id "req:<request doc id>"
+const isTheme = id => typeof id === "string" && id.startsWith(THEME);
+const reqIdOf = r => { const x = r && r.requestId; return x ? (String(x).includes(":") ? String(x).split(":")[1] : String(x)) : null; }; // a sister game's round file carries "hamps:abc"
+const reqById = id => requests.find(x => x.id === id) || null;
 let planCache = null;
 function dropPlan(){
   if (planCache) return planCache;
@@ -1888,26 +1911,109 @@ function dropPlan(){
   const pool = ROUNDS.filter(r => r.draft && !liveIds.has(r.id)).sort((a, b) => (a.added || "").localeCompare(b.added || "") || ROUNDS.indexOf(a) - ROUNDS.indexOf(b));
   const overrides = (siteCfg.overrides && typeof siteCfg.overrides === "object") ? siteCfg.overrides : {};
   const promoted = {}, retired = new Set(), first = {}, history = [];
-  const eligible = day => pool.filter(r => !promoted[r.id] && !retired.has(r.id) && (!r.added || Date.parse(r.added) < keyMs(nextKey(day))));
-  let day = DROP.start, guard = 0, out = null;
-  while (guard++ < 4000) {
-    const opts = eligible(day).slice(0, DROP.options);
+  const decided = {}, pending = new Set(), owed = {}, lost = {}; // decided: drop day -> what the poll chose; pending: round ids chosen for a day still to come; owed: request id -> the drop day it won; lost: option id -> polls sat on without winning
+  const inPool = id => pool.some(r => r.id === id) && !promoted[id];
+  const eligible = before => pool.filter(r => !promoted[r.id] && !retired.has(r.id) && !pending.has(r.id) && !(reqIdOf(r) && owed[reqIdOf(r)]) && (!r.added || Date.parse(r.added) < keyMs(before))); // not spoken for by a poll or an owed theme
+  const promote = (id, day, how) => { promoted[id] = day; pending.delete(id); history.push({ day, id, how }); };
+  const roundOpt = r => ({ kind: "round", id: r.id, name: r.name, subject: r.subject || "", tagline: r.tagline || "", n: r.questions.length, r, req: reqById(reqIdOf(r)) });
+  const themeOpt = x => ({ kind: "theme", id: THEME + x.id, reqId: x.id, name: x.theme || "", by: x.name || "", uid: x.uid, since: x.finishedAt || "" });
+  const existsBy = (r, D) => !D || !r.added || Date.parse(r.added) < keyMs(D); // a round can only drop, or leave a theme off the poll, once its file exists
+  const writtenFor = (reqId, D) => pool.find(r => reqIdOf(r) === reqId && !promoted[r.id] && existsBy(r, D)) || null;
+  const fulfilled = (reqId, D) => pool.some(r => reqIdOf(r) === reqId && existsBy(r, D));
+  let out = null, guard = 0;
+
+  // 1. the nightly era
+  let day = DROP.start;
+  while (guard++ < 4000 && nextKey(day) <= DROP.dailyUntil) {
+    const opts = eligible(nextKey(day)).slice(0, DROP.options);
     opts.forEach(o => { if (!first[o.id]) first[o.id] = day; });
-    if (day >= today) { out = { today, options: opts, ov: overrides[today] || null }; break; }
+    if (day >= today) { out = { era: "nightly", pollKey: today, closes: nextKey(today), decides: nextKey(today), options: opts.map(roundOpt), upcoming: [] }; break; }
     let winner = null; const ov = overrides[day];
-    if (ov && pool.some(r => r.id === ov) && !promoted[ov]) winner = ov;
+    if (ov && inPool(ov)) winner = ov;
     else if (opts.length) { const c = opts.map(o => voteCount(o.id, day)); winner = opts[c.indexOf(Math.max(...c))].id; }
-    if (winner) { promoted[winner] = nextKey(day); history.push({ day: nextKey(day), id: winner, how: ov === winner ? "override" : "poll" }); }
+    if (winner) promote(winner, nextKey(day), ov === winner ? "override" : "poll");
     opts.forEach(o => { if (o.id !== winner && dayDiff(first[o.id], day) + 1 >= DROP.retireAfterDays) retired.add(o.id); });
     day = nextKey(day);
   }
-  return (planCache = Object.assign({ pool, promoted, retired, first, history, overrides, queue: pool.filter(r => !promoted[r.id]) }, out || { today, options: [], ov: null }));
+
+  // 2. the weekly era: a poll runs from one drop to the next and picks the drop after next
+  const W = DROP.weekly;
+  const bounds = [DROP.dailyUntil]; // period k runs from bounds[k] to bounds[k+1], both at DROP.hour; its votes decide the drop at bounds[k+2]
+  { let d = W.from; while (!isDropDay(d)) d = nextKey(d); while (bounds[bounds.length - 1] <= today || bounds.length < 4) { bounds.push(d); d = nextDropDay(d); } bounds.push(d, nextDropDay(d)); }
+  const periodOpts = k => { // what the poll of period k offers: the first few written rounds waiting, then every open theme idea
+    const end = bounds[k + 1], endMs = keyMs(end);
+    const rounds = eligible(end).slice(0, DROP.options).map(roundOpt);
+    const themes = requests.filter(x => (x.status || "waiting") === "waiting" && !owed[x.id] && !retired.has(THEME + x.id) && Date.parse(x.finishedAt || 0) < endMs && !fulfilled(x.id, end))
+      .sort((a, b) => (a.finishedAt || "").localeCompare(b.finishedAt || "")).map(themeOpt);
+    return rounds.concat(themes);
+  };
+  const resolveDrop = D => { // what goes live at midnight going into D
+    const ov = overrides[D], dec = decided[D]; let pick = null, how = "";
+    if (ov && inPool(ov)) { pick = ov; how = "override"; }
+    else {
+      const late = Object.keys(owed).filter(id => owed[id] < D).map(id => ({ id, r: writtenFor(id, D) })).find(x => x.r); // a theme that missed its day and is written now
+      if (late) { pick = late.r.id; how = "theme"; delete owed[late.id]; }
+      else if (dec && !isTheme(dec.id) && inPool(dec.id)) { pick = dec.id; how = "poll"; }
+      else if (dec && isTheme(dec.id)) {
+        const r = writtenFor(dec.reqId, D);
+        if (r) { pick = r.id; how = "theme"; delete owed[dec.reqId]; }
+        else { const fb = dec.fallback.find(inPool); if (fb) { pick = fb; how = "fallback"; } }
+      }
+      if (!pick) { const el = eligible(D), spare = el.slice(DROP.options); const q = spare[0] || el[0] || pool.find(r => !promoted[r.id] && !pending.has(r.id) && existsBy(r, D)) || pool.find(r => !promoted[r.id] && existsBy(r, D)); if (q) { pick = q.id; how = "queue"; } }
+    }
+    if (pick) promote(pick, D, how);
+  };
+  const preview = (D, live, taken) => { // what will drop at D as things stand (live: the current poll's leader when it decides D)
+    const ov = overrides[D]; if (ov && inPool(ov)) return { id: ov, how: "override" };
+    const late = Object.keys(owed).filter(id => owed[id] < D).map(id => ({ id, r: writtenFor(id, null) })).find(x => x.r && !taken.has(x.r.id)); if (late) return { id: late.r.id, how: "theme" };
+    const dec = decided[D] || live;
+    if (dec && !isTheme(dec.id) && inPool(dec.id) && !taken.has(dec.id)) return { id: dec.id, how: dec === live ? "leading" : "poll" };
+    if (dec && isTheme(dec.id)) {
+      const r = writtenFor(dec.reqId, null); if (r && !taken.has(r.id)) return { id: r.id, how: dec === live ? "leading" : "theme" };
+      if (dec === live) return { id: dec.id, how: "leading" };
+      const fb = (dec.fallback || []).find(id => inPool(id) && !taken.has(id)); return { id: dec.id, how: "unwritten", fallback: fb || null };
+    }
+    const el = eligible(D).filter(r => !taken.has(r.id)), spare = el.slice(DROP.options); const q = spare[0] || el[0] || pool.find(r => !promoted[r.id] && !pending.has(r.id) && !taken.has(r.id) && existsBy(r, D)); return q ? { id: q.id, how: "queue" } : null;
+  };
+  for (let k = 0; !out && k + 2 < bounds.length; k++) {
+    const key = bounds[k], closes = bounds[k + 1], decides = bounds[k + 2];
+    if (k > 0 && key <= today) resolveDrop(key);
+    const opts = periodOpts(k);
+    opts.forEach(o => { if (!first[o.id]) first[o.id] = key; });
+    if (closes > today) { // the poll open now
+      const counts = opts.map(o => voteCount(o.id, key));
+      const ranked = opts.map((o, i) => ({ o, c: counts[i], i })).sort((a, b) => b.c - a.c || a.i - b.i);
+      const live = ranked[0] ? { id: ranked[0].o.id, reqId: ranked[0].o.reqId || null } : null;
+      const taken = new Set(); const upcoming = [closes, decides].map((D, i) => { const p = preview(D, i === 1 ? live : null, taken); if (p && !isTheme(p.id)) taken.add(p.id); return { day: D, plan: p }; });
+      out = { era: "weekly", pollKey: key, closes, decides, options: opts, upcoming };
+      break;
+    }
+    const counts = opts.map(o => voteCount(o.id, key));
+    const ranked = opts.map((o, i) => ({ o, c: counts[i], i })).sort((a, b) => b.c - a.c || a.i - b.i);
+    const win = ranked.length ? ranked[0].o : null;
+    if (win) {
+      decided[decides] = { id: win.id, reqId: win.reqId || null, period: k, fallback: ranked.slice(1).filter(x => x.o.kind === "round").map(x => x.o.id) };
+      if (win.kind === "theme") owed[win.reqId] = decides; else pending.add(win.id);
+    }
+    opts.forEach(o => { if (o !== win) { lost[o.id] = (lost[o.id] || 0) + 1; if (lost[o.id] >= W.retireAfterPolls) retired.add(o.id); } });
+  }
+  const needsWriting = Object.entries(owed).filter(([id]) => !writtenFor(id, null)).map(([id, day]) => ({ reqId: id, day, req: reqById(id) })).filter(x => x.req);
+  return (planCache = Object.assign({ today, pool, promoted, retired, first, history, overrides, decided, pending, owed, lost, needsWriting, queue: pool.filter(r => !promoted[r.id]) },
+    out || { era: "weekly", pollKey: today, closes: nextDropDay(today), decides: nextDropDay(nextDropDay(today)), options: [], upcoming: [] }));
 }
 const promotedDay = r => dropPlan().promoted[r.id] || null;
 const addedMs = r => { const d = promotedDay(r); return d ? keyMs(d) : (r.added ? Date.parse(r.added) : 0); };
+const optName = id => isTheme(id) ? ((reqById(id.slice(THEME.length)) || {}).theme || "a theme idea") : ((roundById(id) || {}).name || id);
+const planText = plan => { // what a coming drop day gets, in plain words
+  if (!plan) return "nothing yet: the queue is empty";
+  const n = `<b>${esc(optName(plan.id))}</b>`;
+  return plan.how === "override" ? `${n} (the host's pick)` : plan.how === "poll" ? `${n} (won the poll)` : plan.how === "theme" ? `${n} (a theme that won)` : plan.how === "leading" ? `${n} is leading the poll`
+    : plan.how === "unwritten" ? `${n} won the poll and is being written${plan.fallback ? `; if it isn't ready, <b>${esc(optName(plan.fallback))}</b> drops instead` : ""}` : `${n} (next in the queue)`;
+};
+const nextDropText = () => { const P = dropPlan(); const u = P.upcoming[0]; return u ? `at midnight going into ${fmtDay(u.day)}` : "soon"; };
 async function castVote(id){
   if (!me) return;
-  const day = dropPlan().today;
+  const day = dropPlan().pollKey;
   try { await col("votes").doc(me.uid + "_" + day).set({ uid: me.uid, name: me.displayName || "Someone", photo: me.photoURL || "", choice: id, day, at: firebase.firestore.FieldValue.serverTimestamp() }); }
   catch (e) { const el = $("pollMsg"); if (el) el.textContent = "Couldn't save your vote (" + (e.code || e.message) + ")."; }
 }
@@ -1920,11 +2026,19 @@ async function sendSuggestion(text){
   try { await col("suggestions").add({ uid: me.uid, name: me.displayName || "Someone", text: text.trim().slice(0, 600), at: firebase.firestore.FieldValue.serverTimestamp(), finishedAt: new Date().toISOString() }); return "Sent to the host. Thank you."; }
   catch (e) { return "Couldn't send (" + (e.code || e.message) + ")."; }
 }
-async function requestTheme(theme){
-  if (!me || !theme.trim()) return "";
-  try { await col("requests").add({ uid: me.uid, theme: theme.trim().slice(0, 200), at: firebase.firestore.FieldValue.serverTimestamp(), finishedAt: new Date().toISOString(), status: "waiting" }); return "Queued."; }
-  catch (e) { return "Couldn't queue it (" + (e.code || e.message) + ")."; }
+/* Theme ideas. One open idea per player at a time (the host can add more): it goes straight on the
+   poll. A player can reword or withdraw theirs until it wins. */
+const myTheme = () => { const P = dropPlan(); return requests.find(x => x.uid === (me && me.uid) && (x.status || "waiting") === "waiting" && !P.owed[x.id] && !P.retired.has(THEME + x.id) && !P.pool.some(r => reqIdOf(r) === x.id)) || null; };
+async function requestTheme(theme, another){
+  if (!me) return ""; const t = theme.trim().slice(0, 200); if (!t) return "";
+  const mine = !another && !isHost ? myTheme() : null;
+  try {
+    if (mine) { await col("requests").doc(mine.id).set({ theme: t }, { merge: true }); S.lastThemeId = mine.id; }
+    else { const ref = await col("requests").add({ uid: me.uid, name: me.displayName || "Someone", theme: t, at: firebase.firestore.FieldValue.serverTimestamp(), finishedAt: new Date().toISOString(), status: "waiting" }); S.lastThemeId = ref.id; }
+    return "Queued.";
+  } catch (e) { return "Couldn't add it (" + (e.code || e.message) + ")."; }
 }
+async function withdrawTheme(id){ try { await col("requests").doc(id).delete(); return ""; } catch (e) { return "Couldn't remove it (" + (e.code || e.message) + ")."; } }
 async function setLive(id, on){
   if (!me) return;
   const r = roundById(id); if (!r || !r.draft) return;
@@ -1978,8 +2092,8 @@ function myProgressHtml(){
   const cur = currentSeason(); const rs = seasonRounds(cur); const played = rs.filter(r => boardFor(r.id).some(s => s.uid === me.uid)); const todo = rs.filter(r => isOpen(r) && !boardFor(r.id).some(s => s.uid === me.uid));
   const dropAt = keyMs(nextKey(dropPlan().today));
   let msg;
-  if (!rs.length) msg = `<b>No rounds this season yet.</b> The first one drops at midnight.`;
-  else if (!todo.length) msg = `<b>You've played all ${rs.length} round${rs.length === 1 ? "" : "s"} this season.</b> Nothing left to play until the next drop at midnight.`;
+  if (!rs.length) msg = `<b>No rounds this season yet.</b> The first one drops ${nextDropText()}.`;
+  else if (!todo.length) msg = `<b>You've played all ${rs.length} round${rs.length === 1 ? "" : "s"} this season.</b> Nothing left to play until the next drop, ${nextDropText()}.`;
   else msg = `<b>You've played ${played.length} of ${rs.length} round${rs.length === 1 ? "" : "s"} this season.</b> ${todo.length === 1 ? "One still to play" : todo.length + " still to play"} before the season ends.`;
   return `<div class="sh-you">${avatarHtml(me.uid, me.photoURL, "sm")}<span class="shy-msg">${msg}</span>${todo.length ? `<button class="btn small" id="playNextBtn">Play ${todo.length === 1 ? "it" : "one"}</button>` : ""}</div>`;
 }
@@ -2155,7 +2269,7 @@ const modeToggleHtml = () => `<div class="seg" role="tablist" aria-label="Rank b
 const MEDAL_NOTE = `<p class="note">Ranked by total medals. Gold, silver and bronze for first, second and third in each round. A round awards them once five people have finished it.</p>`;
 const boardTitle = sel => sel === ALL ? "All time" : isSeasonKey(sel) ? "Season " + sel.slice(SEASON_KEY.length) : (roundById(sel) || {}).name || "";
 function renderLobby(){
-  const P = dropPlan(); const needsVote = votesReady && P.options.length > 0 && !P.options.some(o => o.id === myVote(P.today));
+  const P = dropPlan(); const needsVote = votesReady && P.options.length > 0 && !P.options.some(o => o.id === myVote(P.pollKey));
   const tabs = `<div class="tabs" role="tablist">
     <button class="tab" role="tab" aria-selected="${lobbyTab === "rounds"}" data-ltab="rounds">Play</button>
     <button class="tab" role="tab" aria-selected="${lobbyTab === "chat"}" data-ltab="chat">Chat${chatNew().length ? `<span class="tabcount">${chatTags().length ? "@" : ""}${chatNew().length}</span>` : ""}</button>
@@ -2178,30 +2292,40 @@ function renderLobby(){
   if (lobbyTab === "me") { $view.innerHTML = strip + tabs + seasonLineHtml() + meHtml(); wire(); wireMe(); return; }
   return renderRounds(strip + tabs + seasonHeroHtml(), wire);
 }
-function pollHtml(){
-  const P = dropPlan(), opts = P.options, today = P.today, dropAt = keyMs(nextKey(today));
-  const mine = myVote(today); const counts = opts.map(o => voteCount(o.id, today)); const total = counts.reduce((n, c) => n + c, 0); const best = Math.max(0, ...counts);
-  const ovR = P.ov ? roundById(P.ov) : null; const leadIdx = opts.length ? counts.indexOf(best) : -1; const leader = leadIdx >= 0 ? opts[leadIdx] : null;
-  const tonight = ovR ? `Dropping tonight: <b>${esc(ovR.name)}</b>.`
-    : !opts.length ? "Nothing is waiting in the queue, so nothing drops tonight."
-    : total ? `Leading right now: <b>${esc(leader.name)}</b>${counts.filter(c => c === best).length > 1 ? " (tied, so the one that has waited longest wins)" : ""}.`
-    : `No votes yet. With no votes, <b>${esc(leader.name)}</b> drops because it has waited longest.`;
-  const rows = opts.map((r, i) => { const c = counts[i], pct = total ? Math.round((c / total) * 100) : 0; const waited = dayDiff(P.first[r.id], today);
-    return `<div class="pollrow"><button class="pollopt" data-p="${esc(r.id)}" data-mine="${mine === r.id ? 1 : 0}">
-      <div class="prow"><span class="pname">${esc(r.name)}${mine === r.id ? " ✓" : ""}${c && c === best && total ? ` <span class="pill live">Leading</span>` : ""}</span><span class="pcount">${c} vote${c === 1 ? "" : "s"}${total ? " · " + pct + "%" : ""}</span></div>
+function optRowHtml(o, i, counts, total, best, mine, P, admin){
+  const c = counts[i], pct = total ? Math.round((c / total) * 100) : 0; const lost = P.lost[o.id] || 0, left = DROP.weekly.retireAfterPolls - lost;
+  const blurb = o.kind === "theme"
+    ? `Suggested by ${esc((o.by || "Someone").split(" ")[0])}. Not written yet: if it wins, it gets written in time to drop ${fmtDay(P.decides)}.`
+    : `${esc(o.subject)} · ${o.n} questions. ${esc(o.tagline)}${o.req ? ` <span class="pill">${esc((o.req.name || "Someone").split(" ")[0])}'s idea</span>` : ""}`;
+  return `<div class="pollrow"><button class="pollopt" data-p="${esc(o.id)}" data-mine="${mine === o.id ? 1 : 0}">
+      <div class="prow"><span class="pname">${esc(o.name)}${mine === o.id ? " ✓" : ""}${o.kind === "theme" ? ` <span class="pill">Idea</span>` : ""}${c && c === best && total ? ` <span class="pill live">Leading</span>` : ""}</span><span class="pcount">${c} vote${c === 1 ? "" : "s"}${total ? " · " + pct + "%" : ""}</span></div>
       <div class="pbar"><i style="width:${pct}%"></i></div>
-      <div class="pblurb">${esc(r.subject || "")} · ${r.questions.length} questions. ${esc(r.tagline || "")}${waited >= DROP.retireAfterDays - 2 ? ` <span class="pill">${DROP.retireAfterDays - waited === 1 ? "Last night on the poll" : "Leaves the poll in " + (DROP.retireAfterDays - waited) + " days"}</span>` : ""}</div>
-    </button>${isHost ? `<div class="polladmin"><button class="linkbtn" data-pub="${esc(r.id)}">Drop it now</button></div>` : ""}</div>`; }).join("");
+      <div class="pblurb">${blurb}${lost && left <= 1 ? ` <span class="pill">Last poll for this one</span>` : ""}</div>
+    </button>${admin ? `<div class="polladmin">${o.kind === "theme" ? `<button class="linkbtn" data-delreq="${esc(o.reqId)}">Remove idea</button>` : `<button class="linkbtn" data-pub="${esc(o.id)}">Drop it now</button>`}</div>` : ""}</div>`;
+}
+function themeBoxHtml(){
+  const P = dropPlan(), my = myTheme();
+  return `<div class="section"><h3>Suggest a theme</h3><span class="note">It goes straight on the poll</span></div>
+    <div class="card">${my ? `<p class="note" style="margin:0 0 8px">Your idea is on the poll: <b>${esc(my.theme)}</b>. Reword it below, or <button class="linkbtn" id="themeDrop">withdraw it</button>.</p>` : `<p class="note" style="margin:0 0 8px">One idea at a time. If it wins the poll, it gets written and drops ${fmtDay(P.decides)}. Anything: a decade, a place, a show, a food.</p>`}
+      <div class="inrow"><input id="themeIn" class="field" maxlength="200" placeholder="e.g. 90s hip hop, or Bollywood villains" value="${my ? esc(my.theme) : ""}"><button class="btn small" id="themeAdd">${my ? "Save" : "Add"}</button></div>
+      <p class="note" id="themeMsg" style="margin:6px 0 0"></p></div>`;
+}
+function pollHtml(){
+  const P = dropPlan(), opts = P.options, key = P.pollKey, closesAt = keyMs(P.closes);
+  const mine = myVote(key); const counts = opts.map(o => voteCount(o.id, key)); const total = counts.reduce((n, c) => n + c, 0); const best = Math.max(0, ...counts);
+  const rows = opts.map((o, i) => optRowHtml(o, i, counts, total, best, mine, P, isHost)).join("");
   const status = !votesReady ? `<p class="note">Loading votes…</p>`
-    : !opts.length ? `<p class="note">New rounds appear here as they are written.</p>`
-    : mine ? `<p class="note">Your vote is in. Tap another to change it before midnight. ${total} vote${total === 1 ? "" : "s"} so far.</p>`
+    : !opts.length ? `<p class="note">Nothing to vote on yet. Suggest a theme below, or wait for the next written round.</p>`
+    : mine ? `<p class="note">Your vote is in. Tap another to change it before the poll closes. ${total} vote${total === 1 ? "" : "s"} so far.</p>`
     : `<p class="note">Tap one to vote. ${total ? total + (total === 1 ? " vote" : " votes") + " so far." : "Be the first."}</p>`;
+  const coming = P.upcoming.map(u => `<div class="lb" style="grid-template-columns:auto 1fr;cursor:default"><div class="who" style="white-space:nowrap"><b>${fmtDay(u.day)}</b><small>${fmtKey(u.day)}</small></div><div class="note" style="margin:0">${planText(u.plan)}</div></div>`).join("");
   const hist = P.history.slice(-5).reverse();
-  const histHtml = hist.length ? `<div class="section"><h3>Recent drops</h3><span class="note">One a night</span></div><div class="board">${hist.map(x => { const r = roundById(x.id); return `<div class="lb" data-r="${esc(x.id)}" style="grid-template-columns:1fr auto;cursor:pointer"><div class="who">${esc(r ? r.name : x.id)}<small>${fmtKey(x.day)}</small></div><div class="time">${r ? boardFor(r.id).length + " played" : ""}</div></div>`; }).join("")}</div>` : "";
-  return `<div class="card lift" style="margin-bottom:14px"><h2>${esc(POLL.question)}</h2><p class="note" style="margin:0 0 10px">${esc(POLL.note)}</p>
-      <div class="row spread" style="gap:8px"><span class="note" style="margin:0">${tonight}</span><span class="pill" style="white-space:nowrap">Drops in <span class="szc" data-end="${dropAt}">${countdownText(dropAt)}</span></span></div></div>
+  const histHtml = hist.length ? `<div class="section"><h3>Recent drops</h3><span class="note">Mon, Wed, Fri and Sun</span></div><div class="board">${hist.map(x => { const r = roundById(x.id); return `<div class="lb" data-r="${esc(x.id)}" style="grid-template-columns:1fr auto;cursor:pointer"><div class="who">${esc(r ? r.name : x.id)}<small>${fmtKey(x.day)}</small></div><div class="time">${r ? boardFor(r.id).length + " played" : ""}</div></div>`; }).join("")}</div>` : "";
+  return `<div class="card lift" style="margin-bottom:14px"><h2>Vote for ${fmtDay(P.decides)}'s drop</h2><p class="note" style="margin:0 0 10px">${esc(POLL.note)}</p>
+      <div class="row spread" style="gap:8px"><span class="note" style="margin:0">Poll closes at midnight going into ${fmtDay(P.closes)}.</span><span class="pill" style="white-space:nowrap">Closes in <span class="szc" data-end="${closesAt}">${countdownText(closesAt)}</span></span></div></div>
     ${rows}${status}<p class="note" id="pollMsg"></p>
-    <p class="note">${P.queue.length} round${P.queue.length === 1 ? "" : "s"} written and waiting in the queue.</p>${histHtml}`;
+    ${themeBoxHtml()}
+    <div class="section"><h3>Coming up</h3><span class="note">${P.queue.length} round${P.queue.length === 1 ? "" : "s"} written and waiting</span></div><div class="board">${coming || `<div class="empty">Nothing scheduled.</div>`}</div>${histHtml}`;
 }
 /* --- stats: computed from official runs; nothing extra is stored --- */
 const pct = (a, b) => b ? Math.round((a / b) * 100) : 0;
@@ -2472,10 +2596,20 @@ function wireMe(){
   const so = $("signoutMe"); if (so) so.onclick = async () => { await clearPresence(); auth.signOut(); };
   document.querySelectorAll(".lb[data-r]").forEach(el => el.onclick = () => selectRound(el.dataset.r, "board"));
 }
+function wireThemeBox(){
+  const ti = $("themeIn"), ta = $("themeAdd"), td = $("themeDrop"), msg = $("themeMsg");
+  if (!ti || !ta) return;
+  const add = async () => { const t = ti.value; if (!t.trim()) { msg.textContent = "Type a theme first."; ti.focus(); return; } ta.disabled = true; msg.textContent = "Adding…"; const m = await requestTheme(t); msg.textContent = m === "Queued." ? "It's on the poll." : m; ta.disabled = false; };
+  ti.onkeydown = e => { if (e.key === "Enter") { e.preventDefault(); add(); } };
+  ta.onclick = add;
+  if (td) td.onclick = async () => { const my = myTheme(); if (!my) return; if (!confirm("Take your idea off the poll?")) return; const m = await withdrawTheme(my.id); if (m) msg.textContent = m; };
+}
 function wirePoll(){
   document.querySelectorAll("[data-p]").forEach(b => b.onclick = () => { sfx("click"); castVote(b.dataset.p); });
-  document.querySelectorAll("[data-pub]").forEach(b => b.onclick = () => { if (confirm("Put this round in the lobby right now, ahead of tonight's drop?")) setLive(b.dataset.pub, true); });
+  document.querySelectorAll("[data-pub]").forEach(b => b.onclick = () => { if (confirm("Put this round in the lobby right now, ahead of the next drop?")) setLive(b.dataset.pub, true); });
+  document.querySelectorAll("[data-delreq]").forEach(b => b.onclick = async () => { if (!confirm("Remove this idea from the poll?")) return; const m = await withdrawTheme(b.dataset.delreq); if (m) alert(m); });
   document.querySelectorAll(".lb[data-r]").forEach(el => el.onclick = () => selectRound(el.dataset.r));
+  wireThemeBox();
 }
 function renderRounds(tabs, wire){
   if (lobbySel == null) lobbySel = SEASON_KEY + currentSeason();
@@ -2619,48 +2753,49 @@ function nextTopUpText(){
   try { return new Date(t).toLocaleString(undefined, { weekday: "short", hour: "numeric", minute: "2-digit" }); } catch (e) { return "tomorrow morning"; }
 }
 function queueInfoHtml(r){
-  const qs = r.questions || [], P = dropPlan();
+  const qs = r.questions || [], P = dropPlan(), W = DROP.weekly;
   const c = { easy: 0, medium: 0, hard: 0 }; qs.forEach(q => { if (c[q.d] != null) c[q.d]++; });
   const types = {}; qs.forEach(q => { const t = typeLabel(q); types[t] = (types[t] || 0) + 1; });
   const vis = qs.filter(q => q.emoji || q.img).length;
-  const since = P.first[r.id], waited = since ? dayDiff(since, P.today) : 0, left = DROP.retireAfterDays - waited;
-  const pollLine = P.options.some(o => o.id === r.id)
-    ? `On tonight's poll since ${esc(fmtKey(since))}${waited ? ` (${waited} night${waited === 1 ? "" : "s"} so far)` : " (first night)"}. It comes off the poll after ${DROP.retireAfterDays} nights without winning${left > 0 ? `, so ${left} night${left === 1 ? "" : "s"} left` : ""}.`
-    : P.retired.has(r.id) ? `It sat on the poll ${DROP.retireAfterDays} nights without winning, so it came off. You can still send it out tonight with the override above.`
-    : `Waiting its turn. It joins the poll as soon as one of the three above it drops, or you can send it out tonight with the override above.`;
+  const lost = P.lost[r.id] || 0, left = W.retireAfterPolls - lost; const won = Object.entries(P.decided).find(([d, x]) => x.id === r.id && !P.promoted[r.id]);
+  const pollLine = won ? `Won the poll: it drops at midnight going into ${fmtDay(won[0])}, ${fmtKey(won[0])}.`
+    : P.options.some(o => o.id === r.id) ? `On the poll now${lost ? ` (lost ${lost} poll${lost === 1 ? "" : "s"} so far)` : " (its first poll)"}. It comes off after ${W.retireAfterPolls} polls without winning${left > 0 ? `, so ${left} to go` : ""}.`
+    : P.retired.has(r.id) ? `It lost ${W.retireAfterPolls} polls, so it came off. You can still pick it for a drop day above.`
+    : `Waiting its turn. It joins the poll when a round ahead of it drops, or you can pick it for a drop day above.`;
   const written = r.added ? fmtDate(r.added) : "";
   return `<div class="qdet">
     ${r.tagline ? `<p>${esc(r.tagline)}</p>` : ""}
     <p><b>${qs.length} questions</b> · ${c.easy} easy, ${c.medium} medium, ${c.hard} hard<br>${Object.entries(types).map(([k, v]) => `${v} ${esc(k.toLowerCase())}`).join(" · ")}${vis ? ` · ${vis} with a picture clue` : ""}</p>
     <p>${pollLine}</p>
-    ${r.requestId ? `<p><b>Written for a theme you asked for.</b></p>` : ""}
+    ${r.requestId ? `<p><b>Written for a theme idea${(reqById(reqIdOf(r)) || {}).name ? " from " + esc(reqById(reqIdOf(r)).name) : ""}.</b></p>` : ""}
     ${written ? `<p class="note" style="margin:0">Written ${esc(written)}. Questions stay hidden so you play it blind like everyone else.</p>` : `<p class="note" style="margin:0">Questions stay hidden so you play it blind like everyone else.</p>`}
   </div>`;
 }
 function hostDropHtml(){
-  const P = dropPlan(), today = P.today, dropAt = keyMs(nextKey(today));
-  const counts = P.options.map(o => voteCount(o.id, today)); const best = Math.max(0, ...counts); const leader = P.options.length ? P.options[counts.indexOf(best)] : null;
-  const ovR = P.ov ? roundById(P.ov) : null; const choices = P.queue;
-  const plan = ovR ? `<b>${esc(ovR.name)}</b> (your override)` : leader ? `<b>${esc(leader.name)}</b> (${counts.filter(c => c === best).length > 1 && best ? "tied on the poll, waited longest" : best ? "leading the poll with " + best : "no votes yet, waited longest"})` : "nothing, the queue is empty";
-  const reqs = requests.slice().sort((a, b) => (b.finishedAt || "").localeCompare(a.finishedAt || ""));
+  const P = dropPlan(), choices = P.queue, key = P.pollKey;
+  const counts = P.options.map(o => voteCount(o.id, key)); const total = counts.reduce((n, c) => n + c, 0); const best = Math.max(0, ...counts);
+  const coming = P.upcoming.map(u => { const ov = P.overrides[u.day] || ""; return `<div class="qitem"><div class="qhead"><div class="qname"><b>${fmtDay(u.day)} ${fmtKey(u.day)}</b><br><span class="note" style="margin:0">${planText(u.plan)}</span></div></div>
+      <div class="row" style="margin-top:8px"><select data-ovday="${u.day}">${`<option value="" ${ov ? "" : "selected"}>Let the poll and the queue decide</option>`}${choices.map(r => `<option value="${esc(r.id)}" ${ov === r.id ? "selected" : ""}>${esc(r.name)}${P.retired.has(r.id) ? " (off the poll)" : ""}</option>`).join("")}</select><button class="btn small" data-ovsave="${u.day}">Save</button></div></div>`; }).join("");
+  const needs = P.needsWriting.map(x => `<div class="r"><div><b>${esc(x.req.theme)}</b><br><span class="note" style="margin:0">${esc((x.req.name || "Someone").split(" ")[0])}'s idea · won the poll · drops ${fmtDay(x.day)} ${fmtKey(x.day)}${x.day <= P.today ? " · <b>overdue</b>, so a written round dropped instead; it drops as soon as it is written" : ""}</span></div><span class="pill live">Claude writes it ${esc(nextTopUpText())}</span></div>`).join("");
+  const reqs = requests.filter(x => (x.status || "waiting") === "waiting" && !P.owed[x.id] && !P.pool.some(r => reqIdOf(r) === x.id)).sort((a, b) => (b.finishedAt || "").localeCompare(a.finishedAt || ""));
   const sugg = suggestions.slice().sort((a, b) => (b.finishedAt || "").localeCompare(a.finishedAt || ""));
   return `<div class="card">
-      <h3>Tonight's drop</h3>
-      <p class="note" style="margin:0 0 8px">At midnight New York time (<span class="szc" data-end="${dropAt}">${countdownText(dropAt)}</span> from now) the lobby gets: ${plan}.</p>
-      <label class="row" style="gap:10px;cursor:pointer;margin:6px 0 8px"><span class="switch"><input type="checkbox" id="ovOn" ${ovR ? "checked" : ""}><i></i></span><b>Override the poll tonight</b></label>
-      <div class="row"><select id="ovSel" ${ovR ? "" : "disabled"}>${choices.length ? choices.map(r => `<option value="${esc(r.id)}" ${ovR && ovR.id === r.id ? "selected" : ""}>${esc(r.name)}${P.retired.has(r.id) ? " (off the poll)" : ""}</option>`).join("") : `<option value="">Nothing in the queue</option>`}</select><button class="btn small" id="ovSave">Save override</button><span class="note" id="ovMsg" style="margin:0"></span></div>
+      <h3>Coming up</h3>
+      <p class="note" style="margin:0 0 8px">Drops at midnight New York time going into Monday, Wednesday, Friday and Sunday. The poll open now (closes going into ${fmtDay(P.closes)}) picks ${fmtDay(P.decides)}'s drop${P.options.length ? `; ${total ? `<b>${esc(optName(P.options[counts.indexOf(best)].id))}</b> is leading with ${best}` : "no votes yet"}` : ""}. Pick a round yourself for either day and it beats the poll.</p>
+      <div class="qlist">${coming}</div><p class="note" id="ovMsg" style="margin:6px 0 0"></p>
+      ${needs ? `<h3 style="margin-top:16px">Needs writing</h3><p class="note" style="margin:0 0 6px">Theme ideas that won a poll. The daily top-up writes each one into a round before its drop day; the round file carries the idea's id so it is matched up.</p><div class="roundlist">${needs}</div>` : ""}
       <h3 style="margin-top:16px">The queue</h3>
-      <p class="note" style="margin:0 0 6px">${P.queue.length} round${P.queue.length === 1 ? "" : "s"} written and waiting${P.queue.length ? `, ${P.queue.length === 1 ? "one night" : P.queue.length + " nights"} of drops` : ""}. The daily top-up keeps it at five. The three that have waited longest are tonight's poll; anything here can be picked with the override above.</p>
+      <p class="note" style="margin:0 0 6px">${P.queue.length} round${P.queue.length === 1 ? "" : "s"} written and waiting${P.queue.length ? `, ${P.queue.length === 1 ? "one drop" : P.queue.length + " drops"} of cover` : ""}. The daily top-up keeps it at five. The three that have waited longest are on the poll with every open theme idea; anything here can be picked for a drop day above.</p>
       ${P.queue.length ? `<div class="qlist">${P.queue.map(r => { const open = S.qInfo === r.id; return `<div class="qitem">
-        <div class="qhead"><div class="qname"><b>${esc(r.name)}</b><br><span class="note" style="margin:0">${esc(r.subject || "")} · ${r.questions.length} questions${r.requestId ? " · your request" : ""}</span></div>
-          ${P.options.some(o => o.id === r.id) ? `<span class="pill live">On the poll</span>` : P.retired.has(r.id) ? `<span class="pill">Off the poll</span>` : `<span class="pill">Waiting</span>`}
+        <div class="qhead"><div class="qname"><b>${esc(r.name)}</b><br><span class="note" style="margin:0">${esc(r.subject || "")} · ${r.questions.length} questions${r.requestId ? " · a theme idea" : ""}</span></div>
+          ${P.pending.has(r.id) ? `<span class="pill live">Won the poll</span>` : P.options.some(o => o.id === r.id) ? `<span class="pill live">On the poll</span>` : P.retired.has(r.id) ? `<span class="pill">Off the poll</span>` : `<span class="pill">Waiting</span>`}
           <button class="iinfo" data-qinfo="${esc(r.id)}" aria-expanded="${open}" aria-label="More about ${esc(r.name)}" title="More about this round">i</button></div>
         ${open ? queueInfoHtml(r) : ""}</div>`; }).join("")}</div>` : ""}
-      <h3 style="margin-top:16px">Suggest a theme</h3>
-      <p class="note" style="margin:0 0 6px">Type a theme and tap Add. Nothing happens on the site straight away: it joins the list below, and at <b>${esc(nextTopUpText())}</b> Claude writes it into a full 20-question round. The round then appears in the queue above and the entry here turns to “written”. Requests are always written, even when the queue is full. From the queue it reaches the poll in turn, or you can send it out tonight with the override.</p>
+      <h3 style="margin-top:16px">Theme ideas</h3>
+      <p class="note" style="margin:0 0 6px">Everything people have suggested on the Vote tab (one each at a time; you can add as many as you like). An idea sits on the poll until it wins or loses ${DROP.weekly.retireAfterPolls} polls. Nothing is written until it wins.</p>
       <div class="inrow"><input id="reqIn" class="field" maxlength="200" placeholder="e.g. Bollywood villains, or 1980s video games"><button class="btn small" id="reqAdd">Add</button></div>
       <p class="note" id="reqMsg" style="margin:6px 0 0"></p>
-      ${reqs.length ? `<div class="roundlist" style="margin-top:6px">${reqs.map(x => { const wr = x.roundId ? roundById(x.roundId) : null; const where = wr && P.queue.some(q => q.id === wr.id) ? ", in the queue" : wr && isPublished(wr) ? ", in the lobby" : ""; return `<div class="r"><div><b>${esc(x.theme)}</b><br><span class="note" style="margin:0">${fmtDate(x.finishedAt)} · ${x.status === "written" ? `written${wr ? " as " + esc(wr.name) : ""}${where}` : `not written yet · Claude writes it ${esc(nextTopUpText())}`}</span></div><button class="linkbtn" data-delreq="${esc(x.id)}">Delete</button></div>`; }).join("")}</div>` : ""}
+      ${reqs.length ? `<div class="roundlist" style="margin-top:6px">${reqs.map(x => `<div class="r"><div><b>${esc(x.theme)}</b><br><span class="note" style="margin:0">${esc((x.name || "Someone").split(" ")[0])} · ${fmtDate(x.finishedAt)} · ${P.retired.has(THEME + x.id) ? "off the poll" : P.options.some(o => o.id === THEME + x.id) ? "on the poll" : "joins the next poll"}</span></div><button class="linkbtn" data-delreq="${esc(x.id)}">Delete</button></div>`).join("")}</div>` : ""}
     </div>
     <div class="card">
       <h3>Suggestion box</h3>
@@ -2704,20 +2839,19 @@ function renderHost(){
     catch (e) { $("hostMsg").textContent = "Couldn't change it: " + (e.code || e.message); }
   });
   document.querySelectorAll("[data-qinfo]").forEach(b => b.onclick = () => { S.qInfo = S.qInfo === b.dataset.qinfo ? null : b.dataset.qinfo; renderHost(); });
-  const ovOn = $("ovOn"), ovSel = $("ovSel"); ovOn.onchange = () => { ovSel.disabled = !ovOn.checked; };
-  $("ovSave").onclick = async () => { const P = dropPlan(); const m = await setOverride(P.today, ovOn.checked ? ovSel.value : null); $("ovMsg").textContent = m || (ovOn.checked ? "Saved. That's tonight's drop." : "Saved. The poll decides tonight."); };
+  document.querySelectorAll("[data-ovsave]").forEach(b => b.onclick = async () => { const day = b.dataset.ovsave, sel = document.querySelector(`[data-ovday="${day}"]`); const m = await setOverride(day, sel && sel.value ? sel.value : null); $("ovMsg").textContent = m || (sel && sel.value ? `Saved. That drops ${fmtDay(day)}.` : `Saved. The poll and the queue decide ${fmtDay(day)}.`); });
   const ri = $("reqIn"), ra = $("reqAdd");
   const addReq = async () => {
     const t = ri.value; if (!t.trim()) { $("reqMsg").textContent = "Type a theme first."; ri.focus(); return; }
     ra.disabled = true; $("reqMsg").textContent = "Adding…";
-    const m = await requestTheme(t);
-    $("reqMsg").textContent = m === "Queued." ? "Added to the list below." : m;
+    const m = await requestTheme(t, true);
+    $("reqMsg").textContent = m === "Queued." ? "Added. It's on the poll." : m;
     if (m === "Queued.") ri.value = "";
     ra.disabled = false;
   };
   ri.onkeydown = e => { if (e.key === "Enter") { e.preventDefault(); addReq(); } };
   ra.onclick = addReq;
-  document.querySelectorAll("[data-delreq]").forEach(b => b.onclick = async () => { try { await col("requests").doc(b.dataset.delreq).delete(); } catch (e) { alert("Couldn't delete: " + (e.code || e.message)); } });
+  document.querySelectorAll("[data-delreq]").forEach(b => b.onclick = async () => { if (!confirm("Delete this idea?")) return; const m = await withdrawTheme(b.dataset.delreq); if (m) alert(m); });
   document.querySelectorAll("[data-delsugg]").forEach(b => b.onclick = async () => { if (!confirm("Delete this suggestion?")) return; try { await col("suggestions").doc(b.dataset.delsugg).delete(); } catch (e) { alert("Couldn't delete: " + (e.code || e.message)); } });
   $("seasonAnn").onclick = async () => {
     try { await col("site").doc("config").set({ announcement: seasonAnnText() }, { merge: true }); $("seasonMsg").textContent = "Posted."; }
@@ -2904,8 +3038,33 @@ function startTimer(){
 }
 
 /* --- quiz --- */
+/* --- the vote prompt: once per poll per device, the first time a player taps Play while there is
+   an open poll they have not voted in. Vote, add an idea, or skip; then the run starts. --- */
+const VOTE_ASK = "voteAsk:" + (GAME.id || "babies");
+let voteAskedNow = null; // this visit, in case storage is off
+const voteAsked = key => { if (voteAskedNow === key) return true; try { return localStorage.getItem(VOTE_ASK) === key; } catch (e) { return false; } };
+const markVoteAsked = key => { voteAskedNow = key; try { localStorage.setItem(VOTE_ASK, key); } catch (e) {} };
+function needsVotePrompt(){ const P = dropPlan(); return votesReady && P.options.length > 0 && !P.options.some(o => o.id === myVote(P.pollKey)) && !voteAsked(P.pollKey); }
+function openVoteSheet(then){
+  const P = dropPlan(); markVoteAsked(P.pollKey);
+  const el = document.createElement("div"); el.className = "hsheet"; el.setAttribute("role", "dialog"); el.setAttribute("aria-label", "Vote for the next drop");
+  el.innerHTML = `<div class="hbox"><h2>Vote for ${fmtDay(P.decides)}'s drop</h2><p class="hsub">Quick one before you play. The poll picks the drop after next; most votes wins.</p>
+    <div class="vopts">${P.options.map(o => `<button class="pollopt" data-vp="${esc(o.id)}"><div class="prow"><span class="pname">${esc(o.name)}</span>${o.kind === "theme" ? `<span class="pill">${esc((o.by || "Someone").split(" ")[0])}'s idea</span>` : `<span class="pcount">${o.n} questions</span>`}</div><div class="pblurb">${o.kind === "theme" ? "Not written yet. If it wins, it gets written in time." : esc(o.subject)}</div></button>`).join("")}</div>
+    <div class="inrow"><input id="vsTheme" class="field" maxlength="200" placeholder="Or suggest a theme and vote for it"><button class="btn small" id="vsAdd">Add</button></div>
+    <p class="note" id="vsMsg" style="margin:6px 0 0"></p>
+    <div class="row spread" style="margin-top:12px"><button class="linkbtn" id="vsSkip">Skip for now</button><span class="note" style="margin:0">You can change it on the Vote tab.</span></div></div>`;
+  document.body.appendChild(el);
+  let done = false; const close = () => { if (done) return; done = true; el.classList.add("out"); setTimeout(() => el.remove(), 300); if (then) then(); };
+  el.querySelectorAll("[data-vp]").forEach(b => b.onclick = async () => { sfx("click"); el.querySelectorAll("[data-vp]").forEach(x => { x.disabled = true; }); b.dataset.mine = "1"; await castVote(b.dataset.vp); close(); });
+  const vi = el.querySelector("#vsTheme"), va = el.querySelector("#vsAdd"), vm = el.querySelector("#vsMsg");
+  const add = async () => { const t = vi.value; if (!t.trim()) { vm.textContent = "Type a theme first."; vi.focus(); return; } va.disabled = true; vm.textContent = "Adding…"; const m = await requestTheme(t); if (m !== "Queued.") { vm.textContent = m; va.disabled = false; return; } if (S.lastThemeId) await castVote(THEME + S.lastThemeId); close(); };
+  vi.onkeydown = e => { if (e.key === "Enter") { e.preventDefault(); add(); } }; va.onclick = add;
+  el.querySelector("#vsSkip").onclick = () => { sfx("click"); close(); };
+  el.onclick = e => { if (e.target === el) close(); };
+}
 function startQuiz(){
   if (!scoresReady || myRun() || !isOpen(round)) return renderAll();
+  if (needsVotePrompt()) return openVoteSheet(() => startQuiz());
   const all = round.questions.map((_, k) => k);
   if (SETTINGS.shuffleQuestions) for (let k = all.length - 1; k > 0; k--) { const j = Math.floor(Math.random() * (k + 1)); [all[k], all[j]] = [all[j], all[k]]; }
   S.order = all.slice(0, gameLength());

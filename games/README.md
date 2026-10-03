@@ -17,7 +17,7 @@ Shared: the Firebase project and Google sign-in. Nothing else.
 
 Its own: the question bank (some people play more than one game, so no question
 is ever reused across games, and a sister site is built without the original
-game's built-in rounds), the nightly queue and poll, scores, leaderboards,
+game's built-in rounds), the drop queue and poll, scores, leaderboards,
 seasons, medals, trophy case, chat, presence, profiles and avatars, host
 overrides, closed and promoted rounds, suggestions and theme requests, and the
 site tagline and announcement. All of it lives under `games/<id>/` in Firestore
@@ -41,7 +41,7 @@ with the same security rules as the original game (see `firestore.rules`,
     "playersInGroup": 5,                      // a round closes itself once this many have played it
     "siteTagline": "…",
     "season": { "boundaries": ["2026-10-05"] },   // Season 2 starts at midnight going into this date (a Monday), New York time; every 7 days after
-    "drop": { "start": "2026-09-25" },             // first poll day; the first nightly drop is the midnight after it
+    "drop": { "start": "2026-09-25" },             // first poll day of the nightly era (until 3 Oct 2026); the Mon/Wed/Fri/Sun schedule in SETTINGS applies to every game
     "catchupNote": true                            // one-time card: rounds played this season and rounds waiting, with a save-to-home-screen link. Off: the first visit gets a plain save-to-home-screen card instead (homeScreenNote)
   },
   "theme": { "fonts": "family=Outfit:wght@700;800", "css": ["…"] }   // extra Google Fonts query and CSS appended to the head

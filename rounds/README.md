@@ -35,27 +35,35 @@ in both games (rounds played before 4 Oct 2026 had 20). Shorter rounds are fine.
 round** may be anything other than standard multiple choice; true/false,
 select-all and put-in-order all count toward that cap.
 
-Optional round fields: `"draft": true` puts the round in the nightly-drop queue
+Optional round fields: `"draft": true` puts the round in the drop queue
 instead of straight into the lobby (use it for every new round); `"added"` is
 stamped automatically on first publish; `"emblem": "🎬"` sets the big emoji on
 the round's poster tile.
 
-## The nightly drop and the queue
+## The drop and the queue
 
 Every round file here should carry `"draft": true`. Draft rounds form the
-queue. Each night at midnight New York time one round leaves the queue and goes
-live: the poll on the site shows the first three rounds waiting (oldest first),
-the most-voted one drops, the host can override. So the queue needs topping up.
+queue. A round drops (leaves the queue and goes live) at midnight New York time
+going into Monday, Wednesday, Friday and Sunday. The poll on the site runs from
+one drop to the next and picks the drop **after** next: its options are the
+first three rounds waiting (oldest first) plus every theme idea players have
+typed in. A theme that wins is written into a round before its drop day; if the
+round is not ready in time, the best-placed written round drops instead and the
+theme drops as soon as it is written. The host can pick any waiting round for a
+coming drop day, which beats the poll. (Until 3 Oct 2026 there was one drop
+every night, chosen by that day's poll.)
 
 The **Queue status** workflow runs every morning and commits `queue-status.json`
-at the repository root: how many rounds are waiting, tonight's poll, recent
-drops, and any theme requests the host typed on the Host tab. A daily Claude
-session reads it and writes enough rounds to keep five waiting. See
+at the repository root: how many rounds are waiting, the poll now open, the next
+two drops, recent drops, and the theme ideas that won a poll and are still to be
+written (`requestsWaiting`, each with its drop day). A daily Claude session
+reads it, writes those first, and tops the queue back up to five. See
 `scripts/QUEUE.md`.
 
-A round written for a host request should carry `"requestId": "<the request id>"`
+A round written for a theme idea must carry `"requestId": "<the request id>"`
 exactly as `queue-status.json` lists it (a sister game's id is prefixed, e.g.
-`hamps:abc`) so the request is ticked off when the round publishes.
+`hamps:abc`): that is how the drop logic matches the round to the idea that won,
+and the publish step ticks the idea off.
 
 Validate files locally without publishing:
 

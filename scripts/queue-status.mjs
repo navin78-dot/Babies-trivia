@@ -1,7 +1,8 @@
-// Reports the nightly-drop queue for every game: which written rounds are still
-// waiting, what is on tonight's poll, and which theme requests the host has queued.
-// Runs in GitHub Actions with the service-account key, and reuses the exact drop
-// logic from index.html so the answer matches what every phone works out.
+// Reports the drop queue for every game: which written rounds are still waiting,
+// what is on the poll now, which theme ideas have won a poll and must be written
+// before their drop day, and recent drops. Runs in GitHub Actions with the
+// service-account key, and reuses the exact drop logic from index.html so the
+// answer matches what every phone works out.
 //
 // Every game has its own question bank and its own queue (people who play two
 // games must not meet the same questions twice). The top level of the report is
@@ -22,7 +23,7 @@ const settings = html.match(/const SETTINGS = \{[\s\S]*?\n\};/)[0];
 const code = settings
   + "\nObject.entries(OVERRIDES || {}).forEach(([k, v]) => { SETTINGS[k] = v && typeof v === 'object' && !Array.isArray(v) ? Object.assign({}, SETTINGS[k], v) : v; });\n"
   + slice("const SEASON = SETTINGS.season;", "const SEASON_KEY") + slice("const myVote = day =>", "async function castVote(id){")
-  + "\nreturn { dropPlan, seasonOf, currentSeason, addedMs };";
+  + "\nconst roundById = id => ROUNDS.find(r => r.id === id) || null;\nreturn { dropPlan, seasonOf, currentSeason, addedMs };";
 
 // rounds baked into index.html belong to the original game only
 const builtin = [...html.matchAll(/\n    id: "([a-z0-9-]+)",\n    added: "([^"]+)",\n    name: "([^"]+)",\n    subject: "([^"]*)",/g)]
@@ -38,21 +39,25 @@ async function report(game){
   const ROUNDS = (game.id ? [] : builtin.filter(b => !dbRounds.some(r => r.id === b.id))).concat(dbRounds);
   const name = id => (ROUNDS.find(r => r.id === id) || {}).name || id;
   const cfg = cfgSnap.exists ? cfgSnap.data() : {};
-  const env = { ROUNDS, liveIds: new Set(Array.isArray(cfg.liveRounds) ? cfg.liveRounds : []), siteCfg: cfg, votes: votesSnap.docs.map(d => d.data()), me: null, OVERRIDES: game.settings || {} };
+  const requests = reqSnap.docs.map(d => ({ id: d.id, ...d.data() }));
+  const env = { ROUNDS, liveIds: new Set(Array.isArray(cfg.liveRounds) ? cfg.liveRounds : []), siteCfg: cfg, votes: votesSnap.docs.map(d => d.data()), requests, me: null, isHost: false, OVERRIDES: game.settings || {} };
   const { dropPlan, currentSeason } = new Function(...Object.keys(env), code)(...Object.values(env));
   const P = dropPlan();
-  const waiting = reqSnap.docs.map(d => ({ id: d.id, ...d.data() })).filter(r => (r.status || "waiting") === "waiting");
+  // themes that won a poll and have no round file yet: each must be written before its drop day
+  const waiting = P.needsWriting.map(x => ({ id: game.id ? `${game.id}:${x.reqId}` : x.reqId, theme: x.req.theme, by: x.req.name || "", dropDay: x.day }));
   const fill = Math.max(0, TARGET - P.queue.length);
   return {
     game: game.id || "babies", roundsDir: game.roundsDir,
     today: P.today, season: currentSeason(),
     queueCount: P.queue.length, target: TARGET, fill,
-    queue: P.queue.map(r => ({ id: r.id, name: r.name, subject: r.subject || "", onPollSince: P.first[r.id] || null, retired: P.retired.has(r.id) })),
-    tonightsPoll: P.options.map(r => r.id), override: P.ov || null,
+    queue: P.queue.map(r => ({ id: r.id, name: r.name, subject: r.subject || "", onPollSince: P.first[r.id] || null, retired: P.retired.has(r.id), requestId: r.requestId || null })),
+    poll: { key: P.pollKey, closes: P.closes, decides: P.decides, options: P.options.map(o => o.kind === "theme" ? { id: o.id, theme: o.name, by: o.by } : { id: o.id }) },
+    upcoming: P.upcoming.map(u => ({ day: u.day, id: u.plan ? u.plan.id : null, name: u.plan && !u.plan.id.startsWith("req:") ? name(u.plan.id) : null, how: u.plan ? u.plan.how : "nothing" })),
     dropped: P.history.map(x => ({ day: x.day, id: x.id, name: name(x.id), how: x.how })),
-    requestsWaiting: waiting.map(r => ({ id: game.id ? `${game.id}:${r.id}` : r.id, theme: r.theme })),
+    requestsWaiting: waiting,
+    ideas: requests.filter(x => (x.status || "waiting") === "waiting" && !P.retired.has("req:" + x.id)).map(x => ({ id: x.id, theme: x.theme, by: x.name || "" })),
     existingSubjects: ROUNDS.map(r => `${r.name} (${r.subject || ""})`),
-    need: fill + waiting.length, // a host request is always written, even with a full queue
+    need: fill + waiting.length, // a won theme is always written, even with a full queue
   };
 }
 
