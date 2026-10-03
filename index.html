@@ -535,6 +535,7 @@ input[type=range]{width:100%;accent-color:var(--accent)}
 .hsheet .hicon img{width:48px;height:48px;border-radius:11px;box-shadow:0 4px 12px rgba(0,0,0,.25)}
 .hsheet .hicon span{font-size:13px;color:var(--ink2)}
 .hsheet .btn{width:100%}
+.hsheet .videa{background:var(--paper2);border-radius:14px;padding:12px 12px 10px;margin-top:4px}.hsheet .videa b{display:block;font-size:14px;margin-bottom:2px}.hsheet .videa .note{margin:0 0 8px;font-size:13px}.hsheet .videa .field{background:var(--paper);margin:0;font-size:16px;padding:12px 14px}.hsheet .videa .btn{width:auto;margin-top:10px}
 .mehome{display:flex;align-items:center;gap:12px}
 .mehome img{width:44px;height:44px;border-radius:10px;box-shadow:0 4px 12px rgba(0,0,0,.25);flex:0 0 auto}
 .mehome .btn{margin-left:auto;flex:0 0 auto}
@@ -3055,8 +3056,7 @@ function openVoteSheet(then){
   const el = document.createElement("div"); el.className = "hsheet"; el.setAttribute("role", "dialog"); el.setAttribute("aria-label", "Vote for the next drop");
   el.innerHTML = `<div class="hbox"><h2>Vote for ${fmtDay(P.decides)}'s drop</h2><p class="hsub">Quick one. The poll picks the drop after next; most votes wins.</p>
     <div class="vopts">${P.options.map(o => `<button class="pollopt" data-vp="${esc(o.id)}"><div class="prow"><span class="pname">${esc(o.name)}</span>${o.kind === "theme" ? `<span class="pill">${esc((o.by || "Someone").split(" ")[0])}'s idea</span>` : `<span class="pcount">${o.n} questions</span>`}</div><div class="pblurb">${o.kind === "theme" ? "Not written yet. If it wins, it gets written in time." : esc(o.subject)}</div></button>`).join("")}</div>
-    <div class="inrow"><input id="vsTheme" class="field" maxlength="200" placeholder="Or suggest a theme and vote for it"><button class="btn small" id="vsAdd">Add</button></div>
-    <p class="note" id="vsMsg" style="margin:6px 0 0"></p>
+    <div class="videa"><b>Or suggest your own theme</b><p class="note">It goes on the poll with your vote on it.</p><input id="vsTheme" class="field" maxlength="200" placeholder="e.g. 90s hip hop, or Bollywood villains"><div class="row spread" style="align-items:center"><button class="btn small" id="vsAdd">Add and vote for it</button><span class="note" id="vsMsg" style="margin:0"></span></div></div>
     <div class="row spread" style="margin-top:12px"><button class="linkbtn" id="vsSkip">Skip for now</button><span class="note" style="margin:0">You can change it on the Vote tab.</span></div></div>`;
   document.body.appendChild(el);
   let done = false; const close = () => { if (done) return; done = true; el.classList.add("out"); setTimeout(() => el.remove(), 300); if (then) then(); };
