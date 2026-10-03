@@ -637,7 +637,7 @@ const SETTINGS = {
   season: { boundaries: ["2026-09-27", "2026-10-05"], hour: 0, days: 7, tz: "America/New_York" }, // each date is midnight New York time going into that day: Season 2 began Sunday 27 Sep 2026, Season 3 Monday 5 Oct; after the last date a new season every 7 days, so seasons run Monday to Sunday night
   drop: { start: "2026-09-21", hour: 0, options: 3, retireAfterDays: 7, // until dailyUntil: one new round every midnight New York time, chosen by that day's poll unless the host overrides
     dailyUntil: "2026-10-03",                                             // the last nightly drop
-    weekly: { from: "2026-10-05", days: [1, 3, 5, 0], retireAfterPolls: 3 } }, // then drops at midnight going into Mon, Wed, Fri and Sun (0 = Sunday); the poll open between two drops picks the drop after next, so a theme someone suggests can win and still be written in time. An option leaves the poll after this many polls without winning.
+    weekly: { from: "2026-10-05", days: [0, 2, 4, 6], retireAfterPolls: 3 } }, // then drops at midnight going into Sun, Tue, Thu and Sat (0 = Sunday); the poll open between two drops picks the drop after next, so a theme someone suggests can win and still be written in time. An option leaves the poll after this many polls without winning.
   catchupNote: false,       // true = the first time each player opens the site, a card shows how many rounds they have played this season and how many are waiting, with a save-to-home-screen link (a sister game turns this on in games/<id>.json)
   homeScreenNote: true,     // true = when catchupNote is off, the first visit instead gets a one-time card asking to save the site to the home screen
 };
@@ -665,7 +665,7 @@ Object.entries(GAME.settings || {}).forEach(([k, v]) => { SETTINGS[k] = v && typ
    (the Dark versions are used when the player's device is in dark mode).
    ===================================================================== */
 /* Wording for the drop poll. The options are the rounds written and waiting in the queue plus every open theme idea. */
-const POLL = { question: "What drops next?", note: "A new round at midnight New York time going into Monday, Wednesday, Friday and Sunday. This poll picks the drop after next, so a theme you suggest can win and still get written in time. Most votes wins." };
+const POLL = { question: "What drops next?", note: "A new round at midnight New York time going into Sunday, Tuesday, Thursday and Saturday. This poll picks the drop after next, so a theme you suggest can win and still get written in time. Most votes wins." };
 
 /* BUILTIN-ROUNDS-START */
 let ROUNDS = [
@@ -1882,8 +1882,8 @@ const voteCount = (id, day) => votes.filter(v => v.choice === id && v.day === da
    Until DROP.dailyUntil it was nightly: every midnight New York time one round dropped, chosen by
    that day's poll (the first few rounds waiting, oldest first), ties to the one that had waited
    longest, a host override beating the poll.
-   From DROP.weekly.from a round drops only at midnight going into DROP.weekly.days (Mon, Wed, Fri,
-   Sun). The poll open between two drops picks the drop AFTER next, so a theme someone typed can win
+   From DROP.weekly.from a round drops only at midnight going into DROP.weekly.days (Sun, Tue, Thu,
+   Sat). The poll open between two drops picks the drop AFTER next, so a theme someone typed can win
    and still be written in time. Poll options are the first few rounds waiting plus every open theme
    idea. A winning theme is "owed": the daily top-up writes it (the round file carries the request's
    id) and it drops on its day; if it is not written in time the best-placed written round drops
@@ -2320,7 +2320,7 @@ function pollHtml(){
     : `<p class="note">Tap one to vote. ${total ? total + (total === 1 ? " vote" : " votes") + " so far." : "Be the first."}</p>`;
   const coming = P.upcoming.map(u => `<div class="lb" style="grid-template-columns:auto 1fr;cursor:default"><div class="who" style="white-space:nowrap"><b>${fmtDay(u.day)}</b><small>${fmtKey(u.day)}</small></div><div class="note" style="margin:0">${planText(u.plan)}</div></div>`).join("");
   const hist = P.history.slice(-5).reverse();
-  const histHtml = hist.length ? `<div class="section"><h3>Recent drops</h3><span class="note">Mon, Wed, Fri and Sun</span></div><div class="board">${hist.map(x => { const r = roundById(x.id); return `<div class="lb" data-r="${esc(x.id)}" style="grid-template-columns:1fr auto;cursor:pointer"><div class="who">${esc(r ? r.name : x.id)}<small>${fmtKey(x.day)}</small></div><div class="time">${r ? boardFor(r.id).length + " played" : ""}</div></div>`; }).join("")}</div>` : "";
+  const histHtml = hist.length ? `<div class="section"><h3>Recent drops</h3><span class="note">Sun, Tue, Thu and Sat</span></div><div class="board">${hist.map(x => { const r = roundById(x.id); return `<div class="lb" data-r="${esc(x.id)}" style="grid-template-columns:1fr auto;cursor:pointer"><div class="who">${esc(r ? r.name : x.id)}<small>${fmtKey(x.day)}</small></div><div class="time">${r ? boardFor(r.id).length + " played" : ""}</div></div>`; }).join("")}</div>` : "";
   return `<div class="card lift" style="margin-bottom:14px"><h2>Vote for ${fmtDay(P.decides)}'s drop</h2><p class="note" style="margin:0 0 10px">${esc(POLL.note)}</p>
       <div class="row spread" style="gap:8px"><span class="note" style="margin:0">Poll closes at midnight going into ${fmtDay(P.closes)}.</span><span class="pill" style="white-space:nowrap">Closes in <span class="szc" data-end="${closesAt}">${countdownText(closesAt)}</span></span></div></div>
     ${rows}${status}<p class="note" id="pollMsg"></p>
@@ -2781,7 +2781,7 @@ function hostDropHtml(){
   const sugg = suggestions.slice().sort((a, b) => (b.finishedAt || "").localeCompare(a.finishedAt || ""));
   return `<div class="card">
       <h3>Coming up</h3>
-      <p class="note" style="margin:0 0 8px">Drops at midnight New York time going into Monday, Wednesday, Friday and Sunday. The poll open now (closes going into ${fmtDay(P.closes)}) picks ${fmtDay(P.decides)}'s drop${P.options.length ? `; ${total ? `<b>${esc(optName(P.options[counts.indexOf(best)].id))}</b> is leading with ${best}` : "no votes yet"}` : ""}. Pick a round yourself for either day and it beats the poll.</p>
+      <p class="note" style="margin:0 0 8px">Drops at midnight New York time going into Sunday, Tuesday, Thursday and Saturday. The poll open now (closes going into ${fmtDay(P.closes)}) picks ${fmtDay(P.decides)}'s drop${P.options.length ? `; ${total ? `<b>${esc(optName(P.options[counts.indexOf(best)].id))}</b> is leading with ${best}` : "no votes yet"}` : ""}. Pick a round yourself for either day and it beats the poll.</p>
       <div class="qlist">${coming}</div><p class="note" id="ovMsg" style="margin:6px 0 0"></p>
       ${needs ? `<h3 style="margin-top:16px">Needs writing</h3><p class="note" style="margin:0 0 6px">Theme ideas that won a poll. The daily top-up writes each one into a round before its drop day; the round file carries the idea's id so it is matched up.</p><div class="roundlist">${needs}</div>` : ""}
       <h3 style="margin-top:16px">The queue</h3>

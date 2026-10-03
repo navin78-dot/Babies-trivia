@@ -8,7 +8,7 @@ people play more than one game, so a question written for one game is never
 reused in another, and if a theme comes up twice it gets different questions.
 
 How drops work: a round goes live at midnight New York time going into Monday,
-Wednesday, Friday and Sunday. The poll between two drops picks the drop after
+Tuesday, Thursday and Saturday. The poll between two drops picks the drop after
 next, from the first three rounds waiting plus every theme idea players typed
 in. A winning theme is written by this session; the round file carries the
 idea's id so the site matches them up.

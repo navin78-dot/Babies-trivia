@@ -44,7 +44,7 @@ the round's poster tile.
 
 Every round file here should carry `"draft": true`. Draft rounds form the
 queue. A round drops (leaves the queue and goes live) at midnight New York time
-going into Monday, Wednesday, Friday and Sunday. The poll on the site runs from
+going into Sunday, Tuesday, Thursday and Saturday. The poll on the site runs from
 one drop to the next and picks the drop **after** next: its options are the
 first three rounds waiting (oldest first) plus every theme idea players have
 typed in. A theme that wins is written into a round before its drop day; if the
