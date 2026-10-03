@@ -98,6 +98,14 @@ service cloud.firestore {
       allow delete: if isHost();
     }
 
+    // Push subscriptions, one doc per device, named "<uid>_<hash>". Only the owner touches theirs;
+    // the sender runs as the service account, which bypasses rules. secrets/vapid and site/push
+    // have no rule at all, so no client can read them.
+    match /push/{id} {
+      allow read, delete: if signedIn() && id.matches('^' + request.auth.uid + '_.*');
+      allow create, update: if signedIn() && id.matches('^' + request.auth.uid + '_.*') && request.resource.data.uid == request.auth.uid;
+    }
+
     // Player profiles (avatar, chat read marker). Everyone reads, each player writes their own.
     match /profiles/{uid} {
       allow read: if signedIn();
@@ -179,6 +187,11 @@ service cloud.firestore {
           && request.resource.data.text.size() <= 200;
         allow update: if false;
         allow delete: if isHost() && knownGame(game);
+      }
+
+      match /push/{id} {
+        allow read, delete: if signedIn() && knownGame(game) && id.matches('^' + request.auth.uid + '_.*');
+        allow create, update: if signedIn() && knownGame(game) && id.matches('^' + request.auth.uid + '_.*') && request.resource.data.uid == request.auth.uid;
       }
 
       match /profiles/{uid} {

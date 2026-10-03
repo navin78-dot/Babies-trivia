@@ -632,6 +632,7 @@ const SETTINGS = {
   timeBreaksTies: true,     // true = faster time wins a tie; false = ties share a rank
   shuffleQuestions: false,  // true = each player gets a different question order (same set, scores stay comparable)
   shuffleAnswers: true,     // true = answer choices are shuffled (same shuffle for everyone, seeded)
+  pushNotes: true,          // true = players can turn on a push notification for each drop (Me tab); sent by .github/workflows/push-drop.yml a few minutes after midnight. On iPhone only from the home-screen icon.
   confirmAnswers: false,    // true = a multiple-choice tap only highlights the option and a Lock in button confirms it, for groups who fat-finger (a sister game turns this on in games/<id>.json)
   newRoundsOpenByDefault: true, // kept for reference: every round is open until the host closes it on the Host tab
   timeLimitMs: 5 * 60 * 1000,   // countdown shown during a run; 0 or null = no limit. A round can override with its own timeLimitMs.
@@ -1637,7 +1638,7 @@ async function signIn(){
 auth.getRedirectResult().catch(() => {});
 auth.onAuthStateChanged(async u => {
   me = u; isHost = false; fatal = "";
-  if (me) { setTimeout(flushPending, 1500); isHost = await probeHost(); subscribeSite(); subscribeScores(); subscribePresence(); subscribeVotes(); subscribeRequests(); subscribeRounds(); subscribeProfiles(); subscribeChat(); if (isHost) subscribeHostData();
+  if (me) { setTimeout(flushPending, 1500); isHost = await probeHost(); subscribeSite(); subscribeScores(); subscribePresence(); subscribeVotes(); subscribeRequests(); subscribeRounds(); subscribeProfiles(); subscribeChat(); if (isHost) subscribeHostData(); initPush();
     if (pendingRound && roundById(pendingRound) && isPublished(roundById(pendingRound))) { const id = pendingRound; pendingRound = null; selectRound(id); return; } pendingRound = null; }
   else { if (unsubScores) { unsubScores(); unsubScores = null; } if (unsubSite) { unsubSite(); unsubSite = null; } if (unsubPresence) { unsubPresence(); unsubPresence = null; } if (unsubVotes) { unsubVotes(); unsubVotes = null; } if (unsubRounds) { unsubRounds(); unsubRounds = null; } if (unsubChat) { unsubChat(); unsubChat = null; } chat = []; chatReady = false; if (unsubSugg) { unsubSugg(); unsubSugg = null; } if (unsubReq) { unsubReq(); unsubReq = null; } suggestions = []; requests = []; if (unsubProfiles) { unsubProfiles(); unsubProfiles = null; } profiles = {}; votes = []; votesReady = false; presence = []; presenceRound = null; stopTimer(); if (hbTimer) { clearInterval(hbTimer); hbTimer = null; } round = null; S.tab = "play"; }
   renderAll();
@@ -2286,7 +2287,7 @@ function renderLobby(){
     if (sel && sel.scrollIntoView) { try { sel.scrollIntoView({ block: "nearest", inline: "nearest" }); } catch (e) {} }
   };
   const ann = (siteCfg.announcement || "").trim();
-  const strip = (lobbyTab === "rounds" ? saveBarHtml() : "") + pendingBannerHtml() + (lobbyTab === "rounds" ? chatPingHtml() : "") + (ann ? `<div class="banner ann">${esc(ann)}</div>` : "");
+  const strip = (lobbyTab === "rounds" ? saveBarHtml() + pushNudgeHtml() : "") + pendingBannerHtml() + (lobbyTab === "rounds" ? chatPingHtml() : "") + (ann ? `<div class="banner ann">${esc(ann)}</div>` : "");
   if (lobbyTab === "poll") { $view.innerHTML = strip + tabs + seasonLineHtml() + pollHtml(); wire(); wirePoll(); return; }
   if (lobbyTab === "stats") { $view.innerHTML = strip + tabs + seasonLineHtml() + statsHtml(); wire(); return; }
   if (lobbyTab === "learn") { $view.innerHTML = strip + tabs + seasonLineHtml() + learnHtml(); wire(); wireLearn(); return; }
@@ -2576,7 +2577,7 @@ function meHtml(){
   return builderHtml() + `
     ${soundCardHtml()}
     <div class="section"><h3>Your numbers</h3><span class="note">Official runs only</span></div>${numbers}
-    ${homeScreenCardHtml()}
+    ${homeScreenCardHtml()}${pushCardHtml()}
     <div class="section"><h3>Future suggestion box</h3><span class="note">Goes straight to the host</span></div>
     <div class="card"><p class="note" style="margin:0 0 8px">Themes you want, formats you'd change, anything. Only the host sees it.</p>
       <textarea id="suggIn" class="field" rows="3" maxlength="600" placeholder="e.g. A round on 90s hip hop. And can we get harder hard questions?"></textarea>
@@ -2593,7 +2594,7 @@ function wireMe(){
   const rnd = $("avRandom"); if (rnd) rnd.onclick = () => { Object.keys(AV).forEach(k => { const n = AV[k].length; S.av[k] = (k === "beard" || k === "acc") && Math.random() < .5 ? 0 : Math.floor(Math.random() * n); }); sfx("click"); redo(); };
   const sv2 = $("avSave"); if (sv2) sv2.onclick = () => saveAvatar(Object.assign({}, S.av));
   const rm = $("avRemove"); if (rm) rm.onclick = () => { S.av = null; saveAvatar(null); };
-  wireSoundCard();
+  wireSoundCard(); wirePushCard();
   const sg = $("suggSend"); if (sg) sg.onclick = async () => { const t = $("suggIn").value; if (!t.trim()) return; sg.disabled = true; $("suggMsg").textContent = "Sending…"; const m = await sendSuggestion(t); $("suggMsg").textContent = m; if (m.startsWith("Sent")) $("suggIn").value = ""; sg.disabled = false; };
   const so = $("signoutMe"); if (so) so.onclick = async () => { await clearPresence(); auth.signOut(); };
   document.querySelectorAll(".lb[data-r]").forEach(el => el.onclick = () => selectRound(el.dataset.r, "board"));
@@ -3389,6 +3390,67 @@ function saveBarHtml(){
   const pulse = gone != null && gone < 5000 && !reducedMotion() ? ` pulse" style="--pulse-start:-${gone}ms` : "";
   return `<button class="savebar${pulse}" data-homescreen aria-label="Save this site to your home screen"><img src="${esc(ICON_180())}" alt=""><span><b>Save this site</b>to your home screen. One tap to open, and you'll see when a round drops.</span><i class="btn">Save</i></button>`;
 }
+/* --- push notifications: a phone that turned them on gets a nudge when a round drops. The page
+   registers sw.js, asks permission on a tap, and stores the subscription in the push collection
+   (one doc per device); scripts/push-drop.mjs sends them from GitHub Actions after midnight. On
+   iPhone this only works once the site is opened from its home-screen icon. --- */
+const pushSupported = () => "serviceWorker" in navigator && "PushManager" in window && "Notification" in window;
+const pushIosTab = () => /iphone|ipad|ipod/i.test(navigator.userAgent) && !onHomeScreen();
+let swReg = null, pushSub = null, pushReady = false;
+async function initPush(){
+  if (!SETTINGS.pushNotes || !pushSupported()) { pushReady = true; return; }
+  try { swReg = await navigator.serviceWorker.register("sw.js"); pushSub = await swReg.pushManager.getSubscription(); } catch (e) {}
+  pushReady = true; if (!round && (lobbyTab === "me" || lobbyTab === "rounds")) renderLobby();
+}
+const pushState = () => !SETTINGS.pushNotes ? "off-site" : pushIosTab() ? "needs-home" : !pushSupported() ? "unsupported" : !pushReady ? "loading" : Notification.permission === "denied" ? "denied" : pushSub ? "on" : "off";
+const b64ToBytes = s => { const pad = "=".repeat((4 - s.length % 4) % 4); const b = atob((s + pad).replace(/-/g, "+").replace(/_/g, "/")); return Uint8Array.from(b, c => c.charCodeAt(0)); };
+const pushDocId = endpoint => { let h = 0; for (const c of endpoint) h = (h * 31 + c.charCodeAt(0)) >>> 0; return me.uid + "_" + h.toString(36); };
+async function enablePush(){
+  const key = siteCfg.vapidPublic; if (!key) return "Not switched on at the server end yet. Ask the host to run the notification job once.";
+  try {
+    if (!swReg) swReg = await navigator.serviceWorker.register("sw.js");
+    const perm = await Notification.requestPermission();
+    if (perm !== "granted") return perm === "denied" ? "Notifications are blocked for this site in your phone's settings." : "No permission given, so nothing changed.";
+    pushSub = await swReg.pushManager.subscribe({ userVisibleOnly: true, applicationServerKey: b64ToBytes(key) });
+    const j = pushSub.toJSON();
+    await col("push").doc(pushDocId(j.endpoint)).set({ uid: me.uid, name: me.displayName || "", endpoint: j.endpoint, keys: j.keys, ua: navigator.userAgent.slice(0, 120), at: firebase.firestore.FieldValue.serverTimestamp() });
+    return "";
+  } catch (e) { return "Couldn't turn it on (" + (e.code || e.message) + ")."; }
+}
+async function disablePush(){
+  try { if (pushSub) { const j = pushSub.toJSON(); try { await col("push").doc(pushDocId(j.endpoint)).delete(); } catch (e) {} await pushSub.unsubscribe(); pushSub = null; } return ""; }
+  catch (e) { return "Couldn't turn it off (" + (e.code || e.message) + ")."; }
+}
+function pushCardHtml(){
+  if (!SETTINGS.pushNotes) return "";
+  const st = pushState();
+  const body = st === "needs-home" ? `<span class="note" style="margin:0">Save the site to your home screen first (above), open it from the icon, and come back here.</span>`
+    : st === "unsupported" ? `<span class="note" style="margin:0">This browser can't do notifications. On a phone, open the site from its home-screen icon.</span>`
+    : st === "loading" ? `<span class="note" style="margin:0">Checking…</span>`
+    : st === "denied" ? `<span class="note" style="margin:0">Blocked for this site in your phone's settings. Allow notifications there, then come back.</span>`
+    : st === "on" ? `<span class="note" style="margin:0">On for this device: one notification when a round drops, nothing else.</span><button class="btn ghost small" id="pushOff">Turn off</button>`
+    : `<span class="note" style="margin:0">One notification when a new round drops, nothing else.</span><button class="btn small" id="pushOn">Turn on</button>`;
+  return `<div class="section"><h3>Know when a round drops</h3><span class="note">Notifications on this device</span></div>
+    <div class="card"><div class="row spread" style="gap:12px;align-items:center">${body}</div><p class="note" id="pushMsg" style="margin:6px 0 0"></p></div>`;
+}
+function wirePushCard(){
+  const on = $("pushOn"), off = $("pushOff"), msg = $("pushMsg");
+  if (on) on.onclick = async () => { on.disabled = true; msg.textContent = "Asking your phone…"; const m = await enablePush(); if (m) { msg.textContent = m; on.disabled = false; return; } sfx("click"); lobbyTab = "me"; renderLobby(); const x = $("pushMsg"); if (x) x.textContent = "Done. You'll hear about the next drop."; };
+  if (off) off.onclick = async () => { off.disabled = true; const m = await disablePush(); if (m) { msg.textContent = m; off.disabled = false; return; } lobbyTab = "me"; renderLobby(); };
+}
+/* a one-line nudge on the home page for phones that have the icon but not notifications yet */
+const PUSH_NUDGE = "pushNudge:" + (GAME.id || "babies");
+function pushNudgeHtml(){
+  if (!SETTINGS.pushNotes || !onHomeScreen() || !pushReady || pushState() !== "off") return "";
+  try { if (localStorage.getItem(PUSH_NUDGE)) return ""; } catch (e) {}
+  return `<div class="banner ann" style="display:flex;gap:10px;align-items:center;flex-wrap:wrap"><span style="flex:1;min-width:0">Want a nudge when a round drops?</span><button class="btn small" data-pushnudge="on">Turn on</button><button class="linkbtn" data-pushnudge="no">Not now</button></div>`;
+}
+document.addEventListener("click", async e => {
+  const b = e.target.closest && e.target.closest("[data-pushnudge]"); if (!b) return;
+  e.preventDefault(); sfx("click");
+  if (b.dataset.pushnudge === "no") { try { localStorage.setItem(PUSH_NUDGE, "1"); } catch (err) {} if (!round) renderLobby(); return; }
+  b.disabled = true; const m = await enablePush(); if (m) alert(m); if (!round) renderLobby();
+});
 function homeScreenCardHtml(){
   if (onHomeScreen()) return `<div class="section"><h3>On your home screen</h3><span class="note">You're opening this from the icon already</span></div>`;
   return `<div class="section"><h3>Keep it one tap away</h3><span class="note">Put ${esc(SITE_NAME)} on your home screen</span></div>

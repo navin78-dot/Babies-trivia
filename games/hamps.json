@@ -14,6 +14,7 @@
   "settings": {
     "playersInGroup": 20,
     "confirmAnswers": true,
+    "pushNotes": false,
     "siteTagline": "Pick a round. One run each, and it counts.",
     "season": {
       "boundaries": ["2026-10-04"]

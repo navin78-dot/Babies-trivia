@@ -15,6 +15,7 @@ on:
     paths:
       - index.html
       - manifest.webmanifest
+      - sw.js
       - icons/**
       - games/*.json
       - scripts/build-site.mjs
@@ -42,8 +43,8 @@ jobs:
 
       - name: Build both sites
         run: |
-          mkdir -p dist/babies/icons && cp index.html manifest.webmanifest dist/babies/ && cp icons/babies-*.png dist/babies/icons/
-          node scripts/build-site.mjs hamps dist/hamps
+          mkdir -p dist/babies/icons && cp index.html manifest.webmanifest sw.js dist/babies/ && cp icons/babies-*.png dist/babies/icons/
+          node scripts/build-site.mjs hamps dist/hamps && cp sw.js dist/hamps/
 
       - name: Check the token is present
         id: token

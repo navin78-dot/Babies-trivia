@@ -1,0 +1,43 @@
+name: Push notification for the drop
+
+# A few minutes after midnight New York time, tells every phone that turned notifications on
+# that a round has dropped. Two runs cover daylight saving (04:10 UTC is 00:10 New York in
+# summer, 05:10 UTC in winter); a marker in Firestore stops the second one from sending again.
+# Run it by hand with "test" ticked to send a test notification to everyone subscribed.
+
+on:
+  schedule:
+    - cron: "10 4 * * *"
+    - cron: "10 5 * * *"
+  workflow_dispatch:
+    inputs:
+      test:
+        description: "Send a test notification instead of today's drop"
+        type: boolean
+        default: false
+      message:
+        description: "Text of the test notification (optional)"
+        type: string
+        default: ""
+
+jobs:
+  push:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: Write the service-account key
+        env:
+          KEY: ${{ secrets.FIREBASE_SERVICE_ACCOUNT }}
+        run: |
+          if [ -z "$KEY" ]; then echo "::error::Repository secret FIREBASE_SERVICE_ACCOUNT is not set."; exit 1; fi
+          printf '%s' "$KEY" > "$RUNNER_TEMP/service-account.json"
+      - name: Send
+        env:
+          GOOGLE_APPLICATION_CREDENTIALS: ${{ runner.temp }}/service-account.json
+          PUSH_MESSAGE: ${{ inputs.message }}
+        run: |
+          npm install firebase-admin@^12 web-push@^3 --no-save --no-audit --no-fund
+          if [ "${{ inputs.test }}" = "true" ]; then node scripts/push-drop.mjs --test; else node scripts/push-drop.mjs; fi
