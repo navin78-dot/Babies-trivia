@@ -637,7 +637,7 @@ const SETTINGS = {
   season: { boundaries: ["2026-09-27"], hour: 0, days: 7, tz: "America/New_York" }, // each date is midnight New York time going into that day: Season 2 began Sunday 27 Sep 2026; after the last date a new season every 7 days, so a season runs Sunday to Saturday night
   drop: { start: "2026-09-21", hour: 0, options: 3, retireAfterDays: 7, // until dailyUntil: one new round every midnight New York time, chosen by that day's poll unless the host overrides
     dailyUntil: "2026-10-03",                                             // the last nightly drop
-    weekly: { from: "2026-10-05", days: [0, 2, 4, 6], retireAfterPolls: 3 } }, // then drops at midnight going into Sun, Tue, Thu and Sat (0 = Sunday); the poll open between two drops picks the drop after next, so a theme someone suggests can win and still be written in time. An option leaves the poll after this many polls without winning.
+    weekly: { from: "2026-10-04", days: [0, 2, 4, 6], retireAfterPolls: 3 } }, // then drops at midnight going into Sun, Tue, Thu and Sat (0 = Sunday); the poll open between two drops picks the drop after next, so a theme someone suggests can win and still be written in time. An option leaves the poll after this many polls without winning.
   catchupNote: false,       // true = the first time each player opens the site, a card shows how many rounds they have played this season and how many are waiting, with a save-to-home-screen link (a sister game turns this on in games/<id>.json)
   homeScreenNote: true,     // true = when catchupNote is off, the first visit instead gets a one-time card asking to save the site to the home screen
 };
