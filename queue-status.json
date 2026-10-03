@@ -3,9 +3,9 @@
   "roundsDir": "rounds",
   "today": "2026-10-03",
   "season": 2,
-  "queueCount": 4,
+  "queueCount": 5,
   "target": 5,
-  "fill": 1,
+  "fill": 0,
   "queue": [
     {
       "id": "great-heists",
@@ -33,6 +33,13 @@
       "name": "Page Turners",
       "subject": "Books and authors",
       "onPollSince": "2026-10-03",
+      "retired": false
+    },
+    {
+      "id": "force-of-nature",
+      "name": "Force of Nature",
+      "subject": "Weather, oceans, volcanoes and earthquakes",
+      "onPollSince": null,
       "retired": false
     }
   ],
@@ -137,6 +144,7 @@
     "The Corner Office (Business leaders and companies)",
     "Curtain Up (Broadway and musicals)",
     "Extra Time (Sport)",
+    "Force of Nature (Weather, oceans, volcanoes and earthquakes)",
     "Founding Years (American history, 1500 to 1850)",
     "Grand Designs (Architecture and famous buildings)",
     "Page Turners (Books and authors)",
@@ -147,16 +155,16 @@
     "Where On Earth (Geography)",
     "Wild Things (Animals)"
   ],
-  "need": 1,
+  "need": 0,
   "games": {
     "hamps": {
       "game": "hamps",
       "roundsDir": "games/hamps/rounds",
       "today": "2026-10-03",
       "season": 1,
-      "queueCount": 4,
+      "queueCount": 5,
       "target": 5,
-      "fill": 1,
+      "fill": 0,
       "queue": [
         {
           "id": "dressed-to-kill",
@@ -183,6 +191,13 @@
           "id": "money-talks",
           "name": "Money Talks",
           "subject": "Money, markets and economics",
+          "onPollSince": null,
+          "retired": false
+        },
+        {
+          "id": "by-the-numbers",
+          "name": "By the Numbers",
+          "subject": "Maths, numbers and measurement",
           "onPollSince": null,
           "retired": false
         }
@@ -247,6 +262,7 @@
       "existingSubjects": [
         "Art Attack (Art and artists)",
         "Binge Worthy (Television of the streaming age)",
+        "By the Numbers (Maths, numbers and measurement)",
         "Chart Toppers (Pop music)",
         "Crowned Heads (Royals through history)",
         "Dressed to Kill (Fashion)",
@@ -262,8 +278,8 @@
         "Reel Talk (Movies)",
         "Say What (Words and language)"
       ],
-      "need": 1
+      "need": 0
     }
   },
-  "totalNeed": 2
+  "totalNeed": 0
 }
