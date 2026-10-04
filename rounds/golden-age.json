@@ -1,0 +1,160 @@
+{
+  "id": "golden-age",
+  "name": "Golden Age",
+  "subject": "Old Hollywood, 1930 to 1960",
+  "tagline": "Eleven questions on the studios, stars and scandals of the black-and-white years. Starts easy, ends hard.",
+  "draft": true,
+  "emblem": "🎬",
+  "theme": {
+    "font": "Limelight",
+    "accent": "#D4A017",
+    "accent2": "#B91C1C",
+    "accentDark": "#FCD34D",
+    "accent2Dark": "#F87171"
+  },
+  "questions": [
+    {
+      "d": "easy",
+      "q": "In Casablanca, Humphrey Bogart's Rick asks Sam to play which song?",
+      "o": [
+        "As Time Goes By",
+        "La Marseillaise",
+        "Moonlight Serenade",
+        "Begin the Beguine"
+      ],
+      "a": 0,
+      "w": "'As Time Goes By'. The line is 'Play it, Sam', not 'Play it again, Sam', which nobody says in the film.",
+      "more": "The song was written for a 1931 Broadway show and nearly cut from the film; the composer Max Steiner wanted to replace it with his own tune, but Ingrid Bergman had already cut her hair for her next role and the scenes could not be reshot. Dooley Wilson, who played Sam, was a drummer and mimed the piano. The film was shot in 1942 without a finished script."
+    },
+    {
+      "d": "easy",
+      "q": "Which comedy double act, one thin and one stout, made 'another nice mess' their catchphrase in more than a hundred films?",
+      "o": [
+        "Laurel and Hardy",
+        "Abbott and Costello",
+        "The Marx Brothers",
+        "Martin and Lewis"
+      ],
+      "a": 0,
+      "w": "Stan Laurel and Oliver Hardy, paired by the producer Hal Roach in 1927. The line is usually misquoted as 'another fine mess', which was the title of one of their shorts.",
+      "more": "Laurel was English, from Ulverston, and had sailed to America in 1910 in the same music-hall troupe as Charlie Chaplin, as his understudy. Hardy's piano-moving short The Music Box won the first Oscar for a live-action comedy short in 1932. Laurel wrote most of the gags and refused to perform after Hardy died in 1957."
+    },
+    {
+      "d": "easy",
+      "q": "Marilyn Monroe's white dress blows up over a subway grate in which 1955 film?",
+      "o": [
+        "The Seven Year Itch",
+        "Some Like It Hot",
+        "Gentlemen Prefer Blondes",
+        "Niagara"
+      ],
+      "a": 0,
+      "w": "The Seven Year Itch. The scene was shot on Lexington Avenue in front of thousands of onlookers, then reshot on a closed set because the crowd's noise ruined the sound.",
+      "more": "Her husband Joe DiMaggio watched the street shoot in fury and the marriage ended weeks later. The dress sold at auction in 2011 for 4.6 million dollars. Monroe was born Norma Jeane Mortenson and chose Marilyn from a Broadway star; Monroe was her mother's maiden name."
+    },
+    {
+      "d": "easy",
+      "q": "A roaring lion has opened the films of which studio since 1924?",
+      "o": [
+        "MGM",
+        "Paramount",
+        "Warner Bros.",
+        "Universal"
+      ],
+      "a": 0,
+      "w": "Metro-Goldwyn-Mayer, whose Latin motto 'Ars Gratia Artis', art for art's sake, circles the lion.",
+      "more": "Seven lions have played the part; the first, Slats, never roared because films were silent. Leo, the lion seen from 1957 to 2021, was filmed in a single session and survived two train crashes, a flood and a plane crash on a publicity tour. MGM boasted it had 'more stars than there are in heaven', and in 1939 released both Gone with the Wind and The Wizard of Oz."
+    },
+    {
+      "d": "easy",
+      "q": "The statuette handed out at the Academy Awards is nicknamed what?",
+      "o": [
+        "Oscar",
+        "Tony",
+        "Emmy",
+        "Felix"
+      ],
+      "a": 0,
+      "w": "Oscar. The first ceremony, in 1929, lasted fifteen minutes and the winners had been announced three months earlier.",
+      "more": "The most repeated origin story is that an Academy librarian said the figure looked like her Uncle Oscar. During the Second World War the statuettes were made of painted plaster because of the metal shortage. Walt Disney holds the record with 22 competitive wins."
+    },
+    {
+      "d": "medium",
+      "q": "Which 1941 film, often voted the greatest ever made, opens with a dying newspaper tycoon whispering 'Rosebud'?",
+      "o": [
+        "Citizen Kane",
+        "The Maltese Falcon",
+        "Sunset Boulevard",
+        "Double Indemnity"
+      ],
+      "a": 0,
+      "w": "Citizen Kane, which Orson Welles directed, co-wrote and starred in at 25.",
+      "more": "The character was based on William Randolph Hearst, who banned any mention of the film in his newspapers and tried to have the negative destroyed. It won only one Oscar, for its screenplay, and was booed at the ceremony. Rosebud is the brand name of the sled Kane lost as a boy."
+    },
+    {
+      "d": "medium",
+      "q": "The Hays Code, which from 1934 banned on-screen nudity, 'excessive' kissing and criminals getting away with it, was Hollywood's own what?",
+      "o": [
+        "Self-censorship rules",
+        "Union contract",
+        "Tax arrangement",
+        "Distribution agreement"
+      ],
+      "a": 0,
+      "w": "A set of self-imposed censorship rules, adopted to head off government control after a run of scandals and racy 'pre-Code' films.",
+      "more": "It is why married couples slept in twin beds for thirty years and why Rhett Butler's 'Frankly, my dear, I don't give a damn' needed special permission in 1939. Hitchcock got round the three-second kiss limit in Notorious by having the actors break off and resume for two and a half minutes. The code collapsed in the 1960s and was replaced by the ratings system in 1968."
+    },
+    {
+      "d": "medium",
+      "q": "Which 1950 film has Gloria Swanson, as a faded silent star, declare 'All right, Mr DeMille, I'm ready for my close-up'?",
+      "o": [
+        "Sunset Boulevard",
+        "All About Eve",
+        "A Star Is Born",
+        "Singin' in the Rain"
+      ],
+      "a": 0,
+      "w": "Sunset Boulevard, Billy Wilder's poison-pen letter to Hollywood, narrated by a dead screenwriter floating in a pool.",
+      "more": "Swanson really had been one of the biggest silent stars, and Erich von Stroheim, playing her butler, really had directed her in a 1929 film that is shown in the movie. Cecil B. DeMille plays himself. After a preview, Louis B. Mayer of MGM shouted that Wilder should be tarred and feathered for biting the hand that fed him; Wilder told him where to go."
+    },
+    {
+      "d": "hard",
+      "q": "Which 1927 film, with Al Jolson singing and ad-libbing 'You ain't heard nothin' yet', is counted as the first feature-length talkie?",
+      "o": [
+        "The Jazz Singer",
+        "Sunrise",
+        "Wings",
+        "The Broadway Melody"
+      ],
+      "a": 0,
+      "w": "The Jazz Singer, from Warner Bros., which had only a few minutes of synchronised speech but changed everything.",
+      "more": "Within two years Hollywood had converted almost entirely to sound, ending the careers of stars with the wrong voices, the story Singin' in the Rain tells. Wings won the first Best Picture Oscar; The Jazz Singer got only a special award because the Academy thought a talkie would have an unfair edge. Jolson performed in blackface, which has made the film a difficult landmark."
+    },
+    {
+      "d": "hard",
+      "q": "In 1947 ten screenwriters and directors who refused to answer questions about communism before Congress were jailed and blacklisted. What were they called?",
+      "o": [
+        "The Hollywood Ten",
+        "The Unfriendly Witnesses",
+        "The Red Dozen",
+        "The Waldorf Group"
+      ],
+      "a": 0,
+      "w": "The Hollywood Ten, among them Dalton Trumbo, who kept writing under false names and won two Oscars he could not collect.",
+      "more": "Trumbo's Roman Holiday Oscar was credited to a front and only restored to him in 1993; his name openly on Spartacus and Exodus in 1960 broke the blacklist. The studio bosses had met at the Waldorf Astoria to agree the ban. The blacklist eventually caught hundreds, and Charlie Chaplin was barred from re-entering the United States."
+    },
+    {
+      "d": "hard",
+      "type": "order",
+      "q": "Put these films in the order they were released, earliest first.",
+      "o": [
+        "King Kong",
+        "Gone with the Wind",
+        "Singin' in the Rain",
+        "Some Like It Hot"
+      ],
+      "w": "King Kong (1933), Gone with the Wind (1939), Singin' in the Rain (1952), Some Like It Hot (1959).",
+      "more": "Kong was animated by stop-motion with an eighteen-inch model; Gone with the Wind is still the highest-grossing film ever once ticket prices are adjusted. Gene Kelly filmed the title number of Singin' in the Rain with a fever of 39 degrees. Some Like It Hot was released without the Production Code's seal of approval and its success helped kill the code."
+    }
+  ]
+}
