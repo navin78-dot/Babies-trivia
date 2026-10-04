@@ -4,6 +4,7 @@ name: Host tools
 # Uses FIREBASE_SERVICE_ACCOUNT. Tools:
 #   override       set or clear a game's nightly-drop override (needs day and round)
 #   reset-catchup  show the one-time catch-up card again (needs who: "all" or the end of a uid)
+#   make-live      make a waiting round live now, keeping its saved runs (needs round; day = ISO timestamp for its added date, optional)
 
 on:
   workflow_dispatch:
@@ -12,14 +13,14 @@ on:
         description: "Which tool"
         required: true
         type: choice
-        options: [override, reset-catchup]
+        options: [override, reset-catchup, make-live]
         default: override
       game:
         description: "Game id: babies or hamps"
         required: true
         default: hamps
       day:
-        description: "override: poll day, YYYY-MM-DD New York time. The round drops at the midnight that ends this day."
+        description: "override: the drop day, YYYY-MM-DD New York time. make-live: ISO timestamp to record as the round's added date (optional)."
         required: false
       round:
         description: "override: round id to drop, or 'clear' to remove the override"
@@ -50,5 +51,6 @@ jobs:
           case "${{ inputs.tool }}" in
             override) node scripts/set-override.mjs "${{ inputs.game }}" "${{ inputs.day }}" "${{ inputs.round }}" ;;
             reset-catchup) node scripts/reset-catchup.mjs "${{ inputs.game }}" "${{ inputs.who }}" ;;
+            make-live) node scripts/make-live.mjs "${{ inputs.game }}" "${{ inputs.round }}" ${{ inputs.day }} ;;
             *) echo "::error::unknown tool"; exit 1 ;;
           esac

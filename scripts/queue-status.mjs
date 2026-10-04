@@ -43,6 +43,18 @@ async function report(game){
   const env = { ROUNDS, liveIds: new Set(Array.isArray(cfg.liveRounds) ? cfg.liveRounds : []), siteCfg: cfg, votes: votesSnap.docs.map(d => d.data()), requests, me: null, isHost: false, OVERRIDES: game.settings || {} };
   const { dropPlan, currentSeason } = new Function(...Object.keys(env), code)(...Object.values(env));
   const P = dropPlan();
+  // Guard: a round that anyone has already played must stay visible, whatever the drop plan says. If one has
+  // saved runs but is not published (not live, not dropped), make it live now, dated at its first run, and say so.
+  const scoresSnap = await root.collection("scores").get();
+  const played = {}; scoresSnap.docs.forEach(d => { const s = d.data(); if (s.roundId) played[s.roundId] = Math.min(played[s.roundId] || Infinity, Date.parse(s.finishedAt || 0) || Infinity); });
+  const dropped = new Set(P.history.map(x => x.id)), live = new Set(env.liveIds);
+  for (const [rid, firstMs] of Object.entries(played)) {
+    const r = ROUNDS.find(x => x.id === rid); if (!r || !r.draft || live.has(rid) || dropped.has(rid)) continue;
+    live.add(rid); const added = new Date(Math.min(firstMs, Date.now()) - 36e5).toISOString();
+    await root.collection("rounds").doc(rid).set({ added }, { merge: true });
+    await root.collection("site").doc("config").set({ liveRounds: [...live] }, { merge: true });
+    console.log(`::warning::${game.id || "babies"}: "${r.name}" had saved runs but was not published; made it live (added ${added}) so no played game is hidden`);
+  }
   // themes that won a poll and have no round file yet: each must be written before its drop day
   const waiting = P.needsWriting.map(x => ({ id: game.id ? `${game.id}:${x.reqId}` : x.reqId, theme: x.req.theme, by: x.req.name || "", dropDay: x.day }));
   const fill = Math.max(0, TARGET - P.queue.length);
