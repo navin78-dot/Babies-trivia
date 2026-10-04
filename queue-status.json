@@ -3,9 +3,9 @@
   "roundsDir": "rounds",
   "today": "2026-10-04",
   "season": 3,
-  "queueCount": 4,
+  "queueCount": 6,
   "target": 5,
-  "fill": 1,
+  "fill": 0,
   "queue": [
     {
       "id": "great-heists",
@@ -13,14 +13,6 @@
       "subject": "Heists and frauds",
       "onPollSince": "2026-09-21",
       "retired": true,
-      "requestId": null
-    },
-    {
-      "id": "bright-ideas",
-      "name": "Bright Ideas",
-      "subject": "Inventions",
-      "onPollSince": "2026-09-29",
-      "retired": false,
       "requestId": null
     },
     {
@@ -38,6 +30,30 @@
       "onPollSince": "2026-10-03",
       "retired": false,
       "requestId": null
+    },
+    {
+      "id": "force-of-nature",
+      "name": "Force of Nature",
+      "subject": "Weather, oceans, volcanoes and earthquakes",
+      "onPollSince": "2026-10-04",
+      "retired": false,
+      "requestId": null
+    },
+    {
+      "id": "golden-age",
+      "name": "Golden Age",
+      "subject": "Old Hollywood, 1930 to 1960",
+      "onPollSince": "2026-10-04",
+      "retired": false,
+      "requestId": null
+    },
+    {
+      "id": "thali-time",
+      "name": "Thali Time",
+      "subject": "Indian food",
+      "onPollSince": null,
+      "retired": false,
+      "requestId": "RSueNgVA0VlQbw6J0acl"
     }
   ],
   "poll": {
@@ -46,13 +62,13 @@
     "decides": "2026-10-08",
     "options": [
       {
-        "id": "bright-ideas"
-      },
-      {
-        "id": "grand-designs"
-      },
-      {
         "id": "page-turners"
+      },
+      {
+        "id": "force-of-nature"
+      },
+      {
+        "id": "golden-age"
       },
       {
         "id": "req:X90JJfp94UvQ76hY7R5x",
@@ -64,9 +80,9 @@
   "upcoming": [
     {
       "day": "2026-10-06",
-      "id": "req:RSueNgVA0VlQbw6J0acl",
-      "name": null,
-      "how": "unwritten"
+      "id": "grand-designs",
+      "name": "Grand Designs",
+      "how": "poll"
     },
     {
       "day": "2026-10-08",
@@ -150,25 +166,13 @@
     },
     {
       "day": "2026-10-04",
-      "id": "force-of-nature",
-      "name": "Force of Nature",
+      "id": "bright-ideas",
+      "name": "Bright Ideas",
       "how": "queue"
     }
   ],
-  "requestsWaiting": [
-    {
-      "id": "RSueNgVA0VlQbw6J0acl",
-      "theme": "Indian food",
-      "by": "Navin Katyal",
-      "dropDay": "2026-10-06"
-    }
-  ],
+  "requestsWaiting": [],
   "ideas": [
-    {
-      "id": "RSueNgVA0VlQbw6J0acl",
-      "theme": "Indian food",
-      "by": "Navin Katyal"
-    },
     {
       "id": "X90JJfp94UvQ76hY7R5x",
       "theme": "Manhattan history",
@@ -197,25 +201,27 @@
     "Extra Time (Sport)",
     "Force of Nature (Weather, oceans, volcanoes and earthquakes)",
     "Founding Years (American history, 1500 to 1850)",
+    "Golden Age (Old Hollywood, 1930 to 1960)",
     "Grand Designs (Architecture and famous buildings)",
     "Page Turners (Books and authors)",
     "Ripped From the Headlines (Current events, 2026)",
     "Summer Blockbusters (Big movies)",
+    "Thali Time (Indian food)",
     "Totally Famous (1990s celebrities)",
     "Toy Box (Toys and board games)",
     "Where On Earth (Geography)",
     "Wild Things (Animals)"
   ],
-  "need": 2,
+  "need": 0,
   "games": {
     "hamps": {
       "game": "hamps",
       "roundsDir": "games/hamps/rounds",
       "today": "2026-10-04",
       "season": 2,
-      "queueCount": 4,
+      "queueCount": 5,
       "target": 5,
-      "fill": 1,
+      "fill": 0,
       "queue": [
         {
           "id": "dressed-to-kill",
@@ -246,6 +252,14 @@
           "name": "Money Talks",
           "subject": "Money, markets and economics",
           "onPollSince": "2026-10-04",
+          "retired": false,
+          "requestId": null
+        },
+        {
+          "id": "high-seas",
+          "name": "High Seas",
+          "subject": "Ships, sailing and the sea",
+          "onPollSince": null,
           "retired": false,
           "requestId": null
         }
@@ -360,6 +374,7 @@
         "Eureka (Science and the human body)",
         "Game On (Sport)",
         "Gods and Monsters (Mythology)",
+        "High Seas (Ships, sailing and the sea)",
         "Kitchen Confidential (Food and drink)",
         "Log On (Technology and the internet)",
         "Money Talks (Money, markets and economics)",
@@ -368,8 +383,8 @@
         "Reel Talk (Movies)",
         "Say What (Words and language)"
       ],
-      "need": 1
+      "need": 0
     }
   },
-  "totalNeed": 3
+  "totalNeed": 0
 }
