@@ -22,6 +22,7 @@ const slice = (a, b) => { const i = html.indexOf(a), j = html.indexOf(b, i); if 
 const settings = html.match(/const SETTINGS = \{[\s\S]*?\n\};/)[0];
 const code = settings
   + "\nObject.entries(OVERRIDES || {}).forEach(([k, v]) => { SETTINGS[k] = v && typeof v === 'object' && !Array.isArray(v) ? Object.assign({}, SETTINGS[k], v) : v; });\n"
+  + "\nconst playedBy = r => scores.some(s => s.roundId === r.id);\n" // defined in index.html outside the slice below; the plan keeps played rounds out of the pool
   + slice("const SEASON = SETTINGS.season;", "const SEASON_KEY") + slice("const myVote = day =>", "async function castVote(id){")
   + "\nconst roundById = id => ROUNDS.find(r => r.id === id) || null;\nreturn { dropPlan, seasonOf, currentSeason, addedMs };";
 
@@ -34,18 +35,17 @@ if (existsSync("games")) for (const f of readdirSync("games").filter(f => f.ends
 
 async function report(game){
   const root = game.id ? db.collection("games").doc(game.id) : db;
-  const [roundsSnap, cfgSnap, votesSnap, reqSnap] = await Promise.all([root.collection("rounds").get(), root.collection("site").doc("config").get(), root.collection("votes").get(), root.collection("requests").get()]);
+  const [roundsSnap, cfgSnap, votesSnap, reqSnap, scoresSnap] = await Promise.all([root.collection("rounds").get(), root.collection("site").doc("config").get(), root.collection("votes").get(), root.collection("requests").get(), root.collection("scores").get()]);
   const dbRounds = roundsSnap.docs.map(d => ({ id: d.id, ...d.data() }));
   const ROUNDS = (game.id ? [] : builtin.filter(b => !dbRounds.some(r => r.id === b.id))).concat(dbRounds);
   const name = id => (ROUNDS.find(r => r.id === id) || {}).name || id;
   const cfg = cfgSnap.exists ? cfgSnap.data() : {};
   const requests = reqSnap.docs.map(d => ({ id: d.id, ...d.data() }));
-  const env = { ROUNDS, liveIds: new Set(Array.isArray(cfg.liveRounds) ? cfg.liveRounds : []), siteCfg: cfg, votes: votesSnap.docs.map(d => d.data()), requests, me: null, isHost: false, OVERRIDES: game.settings || {} };
+  const env = { ROUNDS, liveIds: new Set(Array.isArray(cfg.liveRounds) ? cfg.liveRounds : []), siteCfg: cfg, votes: votesSnap.docs.map(d => d.data()), requests, scores: scoresSnap.docs.map(d => d.data()), me: null, isHost: false, OVERRIDES: game.settings || {} };
   const { dropPlan, currentSeason } = new Function(...Object.keys(env), code)(...Object.values(env));
   const P = dropPlan();
   // Guard: a round that anyone has already played must stay visible, whatever the drop plan says. If one has
   // saved runs but is not published (not live, not dropped), make it live now, dated at its first run, and say so.
-  const scoresSnap = await root.collection("scores").get();
   const played = {}; scoresSnap.docs.forEach(d => { const s = d.data(); if (s.roundId) played[s.roundId] = Math.min(played[s.roundId] || Infinity, Date.parse(s.finishedAt || 0) || Infinity); });
   const dropped = new Set(P.history.map(x => x.id)), live = new Set(env.liveIds);
   for (const [rid, firstMs] of Object.entries(played)) {
