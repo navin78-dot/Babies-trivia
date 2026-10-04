@@ -10,7 +10,7 @@ import { readFileSync, writeFileSync } from "node:fs";
 
 const TOKEN = process.env.NETLIFY_AUTH_TOKEN;
 if (!TOKEN) { console.error("NETLIFY_AUTH_TOKEN is not set"); process.exit(1); }
-const ALLOWANCE = 1000, PER_DEPLOY = 15, CYCLE_DAY = 21; // from Netlify's own email: 1000 credits, cycle runs the 21st to the 20th
+const ALLOWANCE = 2000, PER_DEPLOY = 15, CYCLE_DAY = 21; // from Netlify's own email: 1000 credits a month, cycle runs the 21st to the 20th, plus 1000 bought on 4 Oct 2026 (set back to 1000 once that top-up is used or expires)
 const SITES = { babies: { id: "9036149d-951a-4517-bda1-41097f45e30e", domain: "babiestrivia.netlify.app" } };
 for (const f of ["hamps"]) { const g = JSON.parse(readFileSync(`games/${f}.json`, "utf8")); SITES[g.id] = { id: g.netlify.siteId, domain: g.netlify.domain }; }
 

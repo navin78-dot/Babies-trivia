@@ -1594,7 +1594,8 @@ const SITE_NAME_HTML = GAME.titleHtml + `<span class="sr">${String(GAME.name).re
 const esc = s => String(s).replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
 const fmtTime = ms => { const s = Math.max(0, Math.round(ms / 1000)); return Math.floor(s / 60) + ":" + String(s % 60).padStart(2, "0"); };
 const fmtDate = iso => { try { return new Date(iso).toLocaleDateString(undefined, { month: "short", day: "numeric" }); } catch (e) { return ""; } };
-const isPublished = r => !r.draft || liveIds.has(r.id) || !!promotedDay(r);
+const playedBy = r => scores.some(s => s.roundId === r.id); // a game anyone has played is never hidden, whatever the drop plan says
+const isPublished = r => !r.draft || liveIds.has(r.id) || !!promotedDay(r) || playedBy(r);
 const everyonePlayed = r => SETTINGS.playersInGroup > 0 && boardFor(r.id).length >= SETTINGS.playersInGroup;
 const seasonOver = r => seasonOfRound(r) < currentSeason();
 const isOpen = r => isPublished(r) && !seasonOver(r) && !closedIds.has(r.id) && !everyonePlayed(r);
@@ -1910,7 +1911,7 @@ let planCache = null;
 function dropPlan(){
   if (planCache) return planCache;
   const today = nyDay(Date.now());
-  const pool = ROUNDS.filter(r => r.draft && !liveIds.has(r.id)).sort((a, b) => (a.added || "").localeCompare(b.added || "") || ROUNDS.indexOf(a) - ROUNDS.indexOf(b));
+  const pool = ROUNDS.filter(r => r.draft && !liveIds.has(r.id) && !playedBy(r)).sort((a, b) => (a.added || "").localeCompare(b.added || "") || ROUNDS.indexOf(a) - ROUNDS.indexOf(b));
   const overrides = (siteCfg.overrides && typeof siteCfg.overrides === "object") ? siteCfg.overrides : {};
   const promoted = {}, retired = new Set(), first = {}, history = [];
   const decided = {}, pending = new Set(), owed = {}, lost = {}; // decided: drop day -> what the poll chose; pending: round ids chosen for a day still to come; owed: request id -> the drop day it won; lost: option id -> polls sat on without winning
@@ -2009,7 +2010,11 @@ function dropPlan(){
     out || { era: "weekly", pollKey: today, closes: nextDropDay(today), decides: nextDropDay(nextDropDay(today)), options: [], upcoming: [] }));
 }
 const promotedDay = r => dropPlan().promoted[r.id] || null;
-const addedMs = r => { const d = promotedDay(r); return d ? keyMs(d) : (r.added ? Date.parse(r.added) : 0); };
+const addedMs = r => {
+  const d = promotedDay(r); if (d) return keyMs(d);
+  if (r.draft && !liveIds.has(r.id)) { const t = Math.min(...scores.filter(s => s.roundId === r.id).map(s => Date.parse(s.finishedAt || "") || Infinity)); if (isFinite(t)) return t - 36e5; } // visible only because someone played it: it belongs to the day of that first run
+  return r.added ? Date.parse(r.added) : 0;
+};
 const optName = id => isTheme(id) ? ((reqById(id.slice(THEME.length)) || {}).theme || "a theme idea") : ((roundById(id) || {}).name || id);
 const planText = plan => { // what a coming drop day gets, in plain words
   if (!plan) return "nothing yet: the queue is empty";
