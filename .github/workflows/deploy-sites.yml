@@ -63,13 +63,10 @@ jobs:
         run: |
           set -euo pipefail
           msg=$(git log -1 --pretty=%s | head -c 120)
-          # Babies only when one of its files changed in this push (a Hamps-only change should not touch it).
-          babies_changed=1
-          if [ "${{ github.event_name }}" = "push" ] && git rev-parse HEAD~1 >/dev/null 2>&1; then
-            git diff --quiet HEAD~1 HEAD -- index.html manifest.webmanifest icons && babies_changed=0 || babies_changed=1
-          fi
+          # Whether a site needs uploading is decided below by comparing the build with what the site already
+          # serves, never by diffing commits: a push can carry several commits (a report commit on top of a site
+          # change once made this step skip Babies and ship only Hamps).
           for site in babies hamps; do
-            if [ "$site" = "babies" ] && [ "$babies_changed" = "0" ]; then echo "babies: nothing changed, skipping"; continue; fi
             id=$BABIES_SITE_ID; host=babiestrivia.netlify.app; [ "$site" = "hamps" ] && id=$HAMPS_SITE_ID && host=hampscrew.netlify.app
             # Every successful production deploy costs 15 Netlify credits, so never upload a page the site already serves.
             same=1
