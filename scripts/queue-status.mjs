@@ -22,7 +22,7 @@ const slice = (a, b) => { const i = html.indexOf(a), j = html.indexOf(b, i); if 
 const settings = html.match(/const SETTINGS = \{[\s\S]*?\n\};/)[0];
 const code = settings
   + "\nObject.entries(OVERRIDES || {}).forEach(([k, v]) => { SETTINGS[k] = v && typeof v === 'object' && !Array.isArray(v) ? Object.assign({}, SETTINGS[k], v) : v; });\n"
-  + "\nconst playedBy = r => scores.some(s => s.roundId === r.id);\n" // defined in index.html outside the slice below; the plan keeps played rounds out of the pool
+  + "\nconst firstPlayMs = r => { let t = Infinity; for (const s of scores) if (s.roundId === r.id) { const v = Date.parse(s.finishedAt || ''); if (v && v < t) t = v; } return t; }; const playedBy = r => firstPlayMs(r) < Infinity;\n" // defined in index.html outside the slice below
   + slice("const SEASON = SETTINGS.season;", "const SEASON_KEY") + slice("const myVote = day =>", "async function castVote(id){")
   + "\nconst roundById = id => ROUNDS.find(r => r.id === id) || null;\nreturn { dropPlan, seasonOf, currentSeason, addedMs };";
 
@@ -36,7 +36,7 @@ if (existsSync("games")) for (const f of readdirSync("games").filter(f => f.ends
 async function report(game){
   const root = game.id ? db.collection("games").doc(game.id) : db;
   const [roundsSnap, cfgSnap, votesSnap, reqSnap, scoresSnap] = await Promise.all([root.collection("rounds").get(), root.collection("site").doc("config").get(), root.collection("votes").get(), root.collection("requests").get(), root.collection("scores").get()]);
-  const dbRounds = roundsSnap.docs.map(d => ({ id: d.id, ...d.data() }));
+  const dbRounds = roundsSnap.docs.map(d => ({ id: d.id, ...d.data() })).filter(r => Array.isArray(r.questions) && r.questions.length); // the page ignores a document without questions too
   const ROUNDS = (game.id ? [] : builtin.filter(b => !dbRounds.some(r => r.id === b.id))).concat(dbRounds);
   const name = id => (ROUNDS.find(r => r.id === id) || {}).name || id;
   const cfg = cfgSnap.exists ? cfgSnap.data() : {};
@@ -44,17 +44,12 @@ async function report(game){
   const env = { ROUNDS, liveIds: new Set(Array.isArray(cfg.liveRounds) ? cfg.liveRounds : []), siteCfg: cfg, votes: votesSnap.docs.map(d => d.data()), requests, scores: scoresSnap.docs.map(d => d.data()), me: null, isHost: false, OVERRIDES: game.settings || {} };
   const { dropPlan, currentSeason } = new Function(...Object.keys(env), code)(...Object.values(env));
   const P = dropPlan();
-  // Guard: a round that anyone has already played must stay visible, whatever the drop plan says. If one has
-  // saved runs but is not published (not live, not dropped), make it live now, dated at its first run, and say so.
-  const played = {}; scoresSnap.docs.forEach(d => { const s = d.data(); if (s.roundId) played[s.roundId] = Math.min(played[s.roundId] || Infinity, Date.parse(s.finishedAt || 0) || Infinity); });
-  const dropped = new Set(P.history.map(x => x.id)), live = new Set(env.liveIds);
-  for (const [rid, firstMs] of Object.entries(played)) {
-    const r = ROUNDS.find(x => x.id === rid); if (!r || !r.draft || live.has(rid) || dropped.has(rid)) continue;
-    live.add(rid); const added = new Date(Math.min(firstMs, Date.now()) - 36e5).toISOString();
-    await root.collection("rounds").doc(rid).set({ added }, { merge: true });
-    await root.collection("site").doc("config").set({ liveRounds: [...live] }, { merge: true });
-    console.log(`::warning::${game.id || "babies"}: "${r.name}" had saved runs but was not published; made it live (added ${added}) so no played game is hidden`);
-  }
+  // Guard: a round that anyone has already played must stay visible. The page enforces this itself (a played round
+  // counts as published); the report only checks and shouts, it never writes, because a wrong plan once made an
+  // automatic version of this check "heal" twenty rounds that were fine and rewrite their dates.
+  const dropped = new Set(P.history.map(x => x.id));
+  for (const r of ROUNDS) if (r.draft && !env.liveIds.has(r.id) && !dropped.has(r.id) && env.scores.some(s => s.roundId === r.id))
+    console.log(`::warning::${game.id || "babies"}: "${r.name}" has saved runs but the drop plan does not list it as dropped; the page shows it anyway (played rounds are always visible). If it should be a proper round for a day, use the make-live host tool.`);
   // themes that won a poll and have no round file yet: each must be written before its drop day
   const waiting = P.needsWriting.map(x => ({ id: game.id ? `${game.id}:${x.reqId}` : x.reqId, theme: x.req.theme, by: x.req.name || "", dropDay: x.day }));
   const fill = Math.max(0, TARGET - P.queue.length);
