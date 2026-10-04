@@ -1945,7 +1945,12 @@ function dropPlan(){
   const periodOpts = k => { // what the poll of period k offers: the first few written rounds waiting, then every open theme idea
     const end = bounds[k + 1], endMs = keyMs(end);
     const rounds = eligible(end).slice(0, DROP.options).map(roundOpt);
-    const themes = requests.filter(x => (x.status || "waiting") === "waiting" && !owed[x.id] && !retired.has(THEME + x.id) && Date.parse(x.finishedAt || 0) < endMs && !fulfilled(x.id, end))
+    // A theme stays on the record of a past poll whatever its status is now: when its round is published the
+    // request is marked "written", and filtering on that here rewrote history (the theme vanished from the poll
+    // it had won, a different round was declared the winner, and the round that had already dropped that
+    // morning was swapped for another one under players' feet). Whether a theme is offered depends only on
+    // dates: it is on the poll until a round exists for it by the time the poll closes.
+    const themes = requests.filter(x => !owed[x.id] && !retired.has(THEME + x.id) && Date.parse(x.finishedAt || 0) < endMs && !fulfilled(x.id, end))
       .sort((a, b) => (a.finishedAt || "").localeCompare(b.finishedAt || "")).map(themeOpt);
     return rounds.concat(themes);
   };
