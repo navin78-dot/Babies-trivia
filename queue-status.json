@@ -1,54 +1,80 @@
 {
   "game": "babies",
   "roundsDir": "rounds",
-  "today": "2026-10-03",
-  "season": 2,
-  "queueCount": 5,
+  "today": "2026-10-04",
+  "season": 3,
+  "queueCount": 4,
   "target": 5,
-  "fill": 0,
+  "fill": 1,
   "queue": [
     {
       "id": "great-heists",
       "name": "Great Heists and Cons",
       "subject": "Heists and frauds",
       "onPollSince": "2026-09-21",
-      "retired": true
+      "retired": true,
+      "requestId": null
     },
     {
       "id": "bright-ideas",
       "name": "Bright Ideas",
       "subject": "Inventions",
       "onPollSince": "2026-09-29",
-      "retired": false
+      "retired": false,
+      "requestId": null
     },
     {
       "id": "grand-designs",
       "name": "Grand Designs",
       "subject": "Architecture and famous buildings",
       "onPollSince": "2026-09-30",
-      "retired": false
+      "retired": false,
+      "requestId": null
     },
     {
       "id": "page-turners",
       "name": "Page Turners",
       "subject": "Books and authors",
       "onPollSince": "2026-10-03",
-      "retired": false
-    },
-    {
-      "id": "force-of-nature",
-      "name": "Force of Nature",
-      "subject": "Weather, oceans, volcanoes and earthquakes",
-      "onPollSince": null,
-      "retired": false
+      "retired": false,
+      "requestId": null
     }
   ],
-  "tonightsPoll": [
-    "bright-ideas",
-    "grand-designs",
-    "page-turners"
+  "poll": {
+    "key": "2026-10-04",
+    "closes": "2026-10-06",
+    "decides": "2026-10-08",
+    "options": [
+      {
+        "id": "bright-ideas"
+      },
+      {
+        "id": "grand-designs"
+      },
+      {
+        "id": "page-turners"
+      },
+      {
+        "id": "req:X90JJfp94UvQ76hY7R5x",
+        "theme": "Manhattan history",
+        "by": "Navin Katyal"
+      }
+    ]
+  },
+  "upcoming": [
+    {
+      "day": "2026-10-06",
+      "id": "req:RSueNgVA0VlQbw6J0acl",
+      "name": null,
+      "how": "unwritten"
+    },
+    {
+      "day": "2026-10-08",
+      "id": "req:X90JJfp94UvQ76hY7R5x",
+      "name": null,
+      "how": "leading"
+    }
   ],
-  "override": null,
   "dropped": [
     {
       "day": "2026-09-22",
@@ -121,9 +147,34 @@
       "id": "curtain-up",
       "name": "Curtain Up",
       "how": "poll"
+    },
+    {
+      "day": "2026-10-04",
+      "id": "force-of-nature",
+      "name": "Force of Nature",
+      "how": "queue"
     }
   ],
-  "requestsWaiting": [],
+  "requestsWaiting": [
+    {
+      "id": "RSueNgVA0VlQbw6J0acl",
+      "theme": "Indian food",
+      "by": "Navin Katyal",
+      "dropDay": "2026-10-06"
+    }
+  ],
+  "ideas": [
+    {
+      "id": "RSueNgVA0VlQbw6J0acl",
+      "theme": "Indian food",
+      "by": "Navin Katyal"
+    },
+    {
+      "id": "X90JJfp94UvQ76hY7R5x",
+      "theme": "Manhattan history",
+      "by": "Navin Katyal"
+    }
+  ],
   "existingSubjects": [
     "Strike a Pose (Madonna)",
     "Over the Millennia (World history)",
@@ -155,59 +206,85 @@
     "Where On Earth (Geography)",
     "Wild Things (Animals)"
   ],
-  "need": 0,
+  "need": 2,
   "games": {
     "hamps": {
       "game": "hamps",
       "roundsDir": "games/hamps/rounds",
-      "today": "2026-10-03",
-      "season": 1,
-      "queueCount": 5,
+      "today": "2026-10-04",
+      "season": 2,
+      "queueCount": 4,
       "target": 5,
-      "fill": 0,
+      "fill": 1,
       "queue": [
         {
           "id": "dressed-to-kill",
           "name": "Dressed to Kill",
           "subject": "Fashion",
           "onPollSince": "2026-10-01",
-          "retired": false
+          "retired": false,
+          "requestId": null
         },
         {
           "id": "log-on",
           "name": "Log On",
           "subject": "Technology and the internet",
           "onPollSince": "2026-10-02",
-          "retired": false
+          "retired": false,
+          "requestId": null
         },
         {
           "id": "pedal-to-the-metal",
           "name": "Pedal to the Metal",
           "subject": "Cars and motoring",
           "onPollSince": "2026-10-03",
-          "retired": false
+          "retired": false,
+          "requestId": null
         },
         {
           "id": "money-talks",
           "name": "Money Talks",
           "subject": "Money, markets and economics",
-          "onPollSince": null,
-          "retired": false
-        },
-        {
-          "id": "by-the-numbers",
-          "name": "By the Numbers",
-          "subject": "Maths, numbers and measurement",
-          "onPollSince": null,
-          "retired": false
+          "onPollSince": "2026-10-04",
+          "retired": false,
+          "requestId": null
         }
       ],
-      "tonightsPoll": [
-        "dressed-to-kill",
-        "log-on",
-        "pedal-to-the-metal"
+      "poll": {
+        "key": "2026-10-04",
+        "closes": "2026-10-06",
+        "decides": "2026-10-08",
+        "options": [
+          {
+            "id": "log-on"
+          },
+          {
+            "id": "pedal-to-the-metal"
+          },
+          {
+            "id": "money-talks"
+          },
+          {
+            "id": "req:QpQ5RIzhzwhTzNRAcRJg",
+            "theme": "Hamptons restaurants",
+            "by": "Navin Katyal"
+          }
+        ]
+      },
+      "upcoming": [
+        {
+          "day": "2026-10-06",
+          "id": "dressed-to-kill",
+          "name": "Dressed to Kill",
+          "how": "poll"
+        },
+        {
+          "day": "2026-10-08",
+          "id": "req:QpQ5RIzhzwhTzNRAcRJg",
+          "name": null,
+          "how": "leading"
+        }
       ],
-      "override": null,
       "dropped": [
         {
           "day": "2026-09-26",
@@ -256,9 +333,22 @@
           "id": "art-attack",
           "name": "Art Attack",
           "how": "poll"
+        },
+        {
+          "day": "2026-10-04",
+          "id": "by-the-numbers",
+          "name": "By the Numbers",
+          "how": "queue"
         }
       ],
       "requestsWaiting": [],
+      "ideas": [
+        {
+          "id": "QpQ5RIzhzwhTzNRAcRJg",
+          "theme": "Hamptons restaurants",
+          "by": "Navin Katyal"
+        }
+      ],
       "existingSubjects": [
         "Art Attack (Art and artists)",
         "Binge Worthy (Television of the streaming age)",
@@ -278,8 +368,8 @@
         "Reel Talk (Movies)",
         "Say What (Words and language)"
       ],
-      "need": 0
+      "need": 1
     }
   },
-  "totalNeed": 0
+  "totalNeed": 3
 }
