@@ -3,10 +3,34 @@
   "roundsDir": "rounds",
   "today": "2026-10-04",
   "season": 3,
-  "queueCount": 2,
+  "queueCount": 5,
   "target": 5,
-  "fill": 3,
+  "fill": 0,
   "queue": [
+    {
+      "id": "great-heists",
+      "name": "Great Heists and Cons",
+      "subject": "Heists and frauds",
+      "onPollSince": "2026-09-21",
+      "retired": true,
+      "requestId": null
+    },
+    {
+      "id": "grand-designs",
+      "name": "Grand Designs",
+      "subject": "Architecture and famous buildings",
+      "onPollSince": "2026-09-29",
+      "retired": false,
+      "requestId": null
+    },
+    {
+      "id": "page-turners",
+      "name": "Page Turners",
+      "subject": "Books and authors",
+      "onPollSince": "2026-10-02",
+      "retired": false,
+      "requestId": null
+    },
     {
       "id": "golden-age",
       "name": "Golden Age",
@@ -30,17 +54,13 @@
     "decides": "2026-10-08",
     "options": [
       {
+        "id": "grand-designs"
+      },
+      {
+        "id": "page-turners"
+      },
+      {
         "id": "golden-age"
-      },
-      {
-        "id": "req:TEl5AfFr8yrQiiDeJO8h",
-        "theme": "Geography",
-        "by": ""
-      },
-      {
-        "id": "req:nP6Xrp9aJZXcZSWFvJ16",
-        "theme": "American history from 1500 to 1850",
-        "by": ""
       },
       {
         "id": "req:X90JJfp94UvQ76hY7R5x",
@@ -66,21 +86,81 @@
   "dropped": [
     {
       "day": "2026-09-22",
-      "id": "great-heists",
-      "name": "Great Heists and Cons",
+      "id": "plate-to-place",
+      "name": "Plate to Place",
+      "how": "poll"
+    },
+    {
+      "day": "2026-09-23",
+      "id": "console-wars",
+      "name": "Console Wars",
+      "how": "poll"
+    },
+    {
+      "day": "2026-09-24",
+      "id": "one-hit-wonders",
+      "name": "One Hit Wonders",
+      "how": "poll"
+    },
+    {
+      "day": "2026-09-25",
+      "id": "founding-years",
+      "name": "Founding Years",
+      "how": "override"
+    },
+    {
+      "day": "2026-09-26",
+      "id": "summer-blockbusters",
+      "name": "Summer Blockbusters",
+      "how": "poll"
+    },
+    {
+      "day": "2026-09-27",
+      "id": "where-on-earth",
+      "name": "Where On Earth",
+      "how": "poll"
+    },
+    {
+      "day": "2026-09-28",
+      "id": "between-the-sheets",
+      "name": "Between the Sheets",
+      "how": "override"
+    },
+    {
+      "day": "2026-09-29",
+      "id": "toy-box",
+      "name": "Toy Box",
       "how": "poll"
     },
     {
       "day": "2026-09-30",
-      "id": "grand-designs",
-      "name": "Grand Designs",
+      "id": "wild-things",
+      "name": "Wild Things",
+      "how": "poll"
+    },
+    {
+      "day": "2026-10-01",
+      "id": "extra-time",
+      "name": "Extra Time",
+      "how": "poll"
+    },
+    {
+      "day": "2026-10-02",
+      "id": "cape-and-cowl",
+      "name": "Cape and Cowl",
       "how": "poll"
     },
     {
       "day": "2026-10-03",
-      "id": "page-turners",
-      "name": "Page Turners",
+      "id": "curtain-up",
+      "name": "Curtain Up",
       "how": "poll"
+    },
+    {
+      "day": "2026-10-04",
+      "id": "force-of-nature",
+      "name": "Force of Nature",
+      "how": "override"
     }
   ],
   "requestsWaiting": [],
@@ -124,22 +204,54 @@
     "Where On Earth (Geography)",
     "Wild Things (Animals)"
   ],
-  "need": 3,
+  "need": 0,
   "games": {
     "hamps": {
       "game": "hamps",
       "roundsDir": "games/hamps/rounds",
       "today": "2026-10-04",
       "season": 2,
-      "queueCount": 1,
+      "queueCount": 5,
       "target": 5,
-      "fill": 4,
+      "fill": 0,
       "queue": [
+        {
+          "id": "dressed-to-kill",
+          "name": "Dressed to Kill",
+          "subject": "Fashion",
+          "onPollSince": "2026-10-01",
+          "retired": false,
+          "requestId": null
+        },
+        {
+          "id": "log-on",
+          "name": "Log On",
+          "subject": "Technology and the internet",
+          "onPollSince": "2026-10-02",
+          "retired": false,
+          "requestId": null
+        },
+        {
+          "id": "pedal-to-the-metal",
+          "name": "Pedal to the Metal",
+          "subject": "Cars and motoring",
+          "onPollSince": "2026-10-03",
+          "retired": false,
+          "requestId": null
+        },
+        {
+          "id": "money-talks",
+          "name": "Money Talks",
+          "subject": "Money, markets and economics",
+          "onPollSince": "2026-10-04",
+          "retired": false,
+          "requestId": null
+        },
         {
           "id": "high-seas",
           "name": "High Seas",
           "subject": "Ships, sailing and the sea",
-          "onPollSince": "2026-10-04",
+          "onPollSince": null,
           "retired": false,
           "requestId": null
         }
@@ -150,7 +262,18 @@
         "decides": "2026-10-08",
         "options": [
           {
-            "id": "high-seas"
+            "id": "log-on"
+          },
+          {
+            "id": "pedal-to-the-metal"
+          },
+          {
+            "id": "money-talks"
+          },
+          {
+            "id": "req:QpQ5RIzhzwhTzNRAcRJg",
+            "theme": "Hamptons restaurants",
+            "by": "Navin Katyal"
           },
           {
             "id": "req:MjDrPqYmYbHTPEhURPzv",
@@ -162,51 +285,74 @@
       "upcoming": [
         {
           "day": "2026-10-06",
-          "id": "req:QpQ5RIzhzwhTzNRAcRJg",
-          "name": null,
-          "how": "unwritten"
+          "id": "dressed-to-kill",
+          "name": "Dressed to Kill",
+          "how": "poll"
         },
         {
           "day": "2026-10-08",
-          "id": "req:MjDrPqYmYbHTPEhURPzv",
+          "id": "req:QpQ5RIzhzwhTzNRAcRJg",
           "name": null,
           "how": "leading"
         }
       ],
       "dropped": [
         {
+          "day": "2026-09-26",
+          "id": "eureka",
+          "name": "Eureka",
+          "how": "poll"
+        },
+        {
+          "day": "2026-09-27",
+          "id": "binge-worthy",
+          "name": "Binge Worthy",
+          "how": "poll"
+        },
+        {
+          "day": "2026-09-28",
+          "id": "east-hampton",
+          "name": "Out East",
+          "how": "override"
+        },
+        {
+          "day": "2026-09-29",
+          "id": "say-what",
+          "name": "Say What",
+          "how": "poll"
+        },
+        {
           "day": "2026-09-30",
-          "id": "dressed-to-kill",
-          "name": "Dressed to Kill",
+          "id": "crowned-heads",
+          "name": "Crowned Heads",
           "how": "poll"
         },
         {
           "day": "2026-10-01",
-          "id": "log-on",
-          "name": "Log On",
+          "id": "game-on",
+          "name": "Game On",
           "how": "poll"
         },
         {
           "day": "2026-10-02",
-          "id": "pedal-to-the-metal",
-          "name": "Pedal to the Metal",
+          "id": "gods-and-monsters",
+          "name": "Gods and Monsters",
           "how": "poll"
         },
         {
           "day": "2026-10-03",
-          "id": "money-talks",
-          "name": "Money Talks",
+          "id": "art-attack",
+          "name": "Art Attack",
           "how": "poll"
-        }
-      ],
-      "requestsWaiting": [
+        },
         {
-          "id": "hamps:QpQ5RIzhzwhTzNRAcRJg",
-          "theme": "Hamptons restaurants",
-          "by": "Navin Katyal",
-          "dropDay": "2026-10-06"
+          "day": "2026-10-04",
+          "id": "by-the-numbers",
+          "name": "By the Numbers",
+          "how": "queue"
         }
       ],
+      "requestsWaiting": [],
       "ideas": [
         {
           "id": "MjDrPqYmYbHTPEhURPzv",
@@ -239,8 +385,8 @@
         "Reel Talk (Movies)",
         "Say What (Words and language)"
       ],
-      "need": 5
+      "need": 0
     }
   },
-  "totalNeed": 8
+  "totalNeed": 0
 }
