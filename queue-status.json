@@ -3,7 +3,7 @@
   "roundsDir": "rounds",
   "today": "2026-10-04",
   "season": 3,
-  "queueCount": 6,
+  "queueCount": 5,
   "target": 5,
   "fill": 0,
   "queue": [
@@ -16,18 +16,10 @@
       "requestId": null
     },
     {
-      "id": "bright-ideas",
-      "name": "Bright Ideas",
-      "subject": "Inventions",
-      "onPollSince": "2026-09-29",
-      "retired": false,
-      "requestId": null
-    },
-    {
       "id": "grand-designs",
       "name": "Grand Designs",
       "subject": "Architecture and famous buildings",
-      "onPollSince": "2026-09-30",
+      "onPollSince": "2026-09-29",
       "retired": false,
       "requestId": null
     },
@@ -35,7 +27,7 @@
       "id": "page-turners",
       "name": "Page Turners",
       "subject": "Books and authors",
-      "onPollSince": "2026-10-03",
+      "onPollSince": "2026-10-02",
       "retired": false,
       "requestId": null
     },
@@ -43,7 +35,7 @@
       "id": "golden-age",
       "name": "Golden Age",
       "subject": "Old Hollywood, 1930 to 1960",
-      "onPollSince": null,
+      "onPollSince": "2026-10-04",
       "retired": false,
       "requestId": null
     },
@@ -62,13 +54,13 @@
     "decides": "2026-10-08",
     "options": [
       {
-        "id": "bright-ideas"
-      },
-      {
         "id": "grand-designs"
       },
       {
         "id": "page-turners"
+      },
+      {
+        "id": "golden-age"
       },
       {
         "id": "req:X90JJfp94UvQ76hY7R5x",
