@@ -1,7 +1,7 @@
 {
   "game": "babies",
   "roundsDir": "rounds",
-  "today": "2026-10-04",
+  "today": "2026-10-05",
   "season": 3,
   "queueCount": 5,
   "target": 5,
@@ -78,8 +78,8 @@
     },
     {
       "day": "2026-10-08",
-      "id": "req:X90JJfp94UvQ76hY7R5x",
-      "name": null,
+      "id": "page-turners",
+      "name": "Page Turners",
       "how": "leading"
     }
   ],
@@ -209,7 +209,7 @@
     "hamps": {
       "game": "hamps",
       "roundsDir": "games/hamps/rounds",
-      "today": "2026-10-04",
+      "today": "2026-10-05",
       "season": 2,
       "queueCount": 5,
       "target": 5,
