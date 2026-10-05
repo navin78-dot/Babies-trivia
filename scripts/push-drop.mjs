@@ -24,7 +24,9 @@ const settings = html.match(/const SETTINGS = \{[\s\S]*?\n\};/)[0];
 const code = settings
   + "\nObject.entries(OVERRIDES || {}).forEach(([k, v]) => { SETTINGS[k] = v && typeof v === 'object' && !Array.isArray(v) ? Object.assign({}, SETTINGS[k], v) : v; });\n"
   + slice("const SEASON = SETTINGS.season;", "const SEASON_KEY") + slice("const myVote = day =>", "async function castVote(id){")
-  + "\nconst roundById = id => ROUNDS.find(r => r.id === id) || null;\nreturn { dropPlan, SETTINGS };";
+  + "\nconst roundById = id => ROUNDS.find(r => r.id === id) || null;\n"
+  + "const firstPlayMs = r => { let t = Infinity; for (const s of scores) if (s.roundId === r.id) { const v = Date.parse(s.finishedAt || ''); if (v && v < t) t = v; } return t; }; const playedBy = r => firstPlayMs(r) < Infinity;\n" // defined in index.html outside the slices above; the plan needs them and the scores
+  + "return { dropPlan, SETTINGS };";
 const builtin = [...html.matchAll(/\n    id: "([a-z0-9-]+)",\n    added: "([^"]+)",\n    name: "([^"]+)",\n    subject: "([^"]*)",/g)]
   .map(m => { const head = html.slice(m.index, html.indexOf("questions: [", m.index)); return { id: m[1], added: m[2], name: m[3], subject: m[4], draft: /\n    draft: true,/.test(head), questions: [] }; });
 
@@ -42,12 +44,12 @@ if (!keys || !keys.publicKey || !keys.privateKey) {
 
 for (const game of games) {
   const root = game.id ? db.collection("games").doc(game.id) : db;
-  const [roundsSnap, cfgSnap, votesSnap, reqSnap, subsSnap, sentSnap] = await Promise.all([root.collection("rounds").get(), root.collection("site").doc("config").get(), root.collection("votes").get(), root.collection("requests").get(), root.collection("push").get(), root.collection("site").doc("push").get()]);
+  const [roundsSnap, cfgSnap, votesSnap, reqSnap, subsSnap, sentSnap, scoresSnap] = await Promise.all([root.collection("rounds").get(), root.collection("site").doc("config").get(), root.collection("votes").get(), root.collection("requests").get(), root.collection("push").get(), root.collection("site").doc("push").get(), root.collection("scores").get()]);
   const cfg = cfgSnap.exists ? cfgSnap.data() : {};
   if (cfg.vapidPublic !== keys.publicKey) { await root.collection("site").doc("config").set({ vapidPublic: keys.publicKey }, { merge: true }); console.log(`${game.slug}: published the public key`); }
-  const dbRounds = roundsSnap.docs.map(d => ({ id: d.id, ...d.data() }));
+  const dbRounds = roundsSnap.docs.map(d => ({ id: d.id, ...d.data() })).filter(r => Array.isArray(r.questions) && r.questions.length);
   const ROUNDS = (game.id ? [] : builtin.filter(b => !dbRounds.some(r => r.id === b.id))).concat(dbRounds);
-  const env = { ROUNDS, liveIds: new Set(Array.isArray(cfg.liveRounds) ? cfg.liveRounds : []), siteCfg: cfg, votes: votesSnap.docs.map(d => d.data()), requests: reqSnap.docs.map(d => ({ id: d.id, ...d.data() })), me: null, isHost: false, OVERRIDES: game.settings || {} };
+  const env = { ROUNDS, liveIds: new Set(Array.isArray(cfg.liveRounds) ? cfg.liveRounds : []), siteCfg: cfg, votes: votesSnap.docs.map(d => d.data()), requests: reqSnap.docs.map(d => ({ id: d.id, ...d.data() })), scores: scoresSnap.docs.map(d => d.data()), me: null, isHost: false, OVERRIDES: game.settings || {} };
   const { dropPlan, SETTINGS } = new Function(...Object.keys(env), code)(...Object.values(env));
   if (SETTINGS.pushNotes === false) { console.log(`${game.slug}: push is off in settings`); continue; }
   const P = dropPlan();
