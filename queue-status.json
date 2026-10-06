@@ -1,11 +1,11 @@
 {
   "game": "babies",
   "roundsDir": "rounds",
-  "today": "2026-10-05",
+  "today": "2026-10-06",
   "season": 3,
-  "queueCount": 5,
+  "queueCount": 4,
   "target": 5,
-  "fill": 0,
+  "fill": 1,
   "queue": [
     {
       "id": "great-heists",
@@ -38,26 +38,15 @@
       "onPollSince": "2026-10-04",
       "retired": false,
       "requestId": null
-    },
-    {
-      "id": "thali-time",
-      "name": "Thali Time",
-      "subject": "Indian food",
-      "onPollSince": null,
-      "retired": false,
-      "requestId": "RSueNgVA0VlQbw6J0acl"
     }
   ],
   "poll": {
-    "key": "2026-10-04",
-    "closes": "2026-10-06",
-    "decides": "2026-10-08",
+    "key": "2026-10-06",
+    "closes": "2026-10-08",
+    "decides": "2026-10-10",
     "options": [
       {
         "id": "grand-designs"
-      },
-      {
-        "id": "page-turners"
       },
       {
         "id": "golden-age"
@@ -71,15 +60,15 @@
   },
   "upcoming": [
     {
-      "day": "2026-10-06",
-      "id": "thali-time",
-      "name": "Thali Time",
-      "how": "theme"
-    },
-    {
       "day": "2026-10-08",
       "id": "page-turners",
       "name": "Page Turners",
+      "how": "poll"
+    },
+    {
+      "day": "2026-10-10",
+      "id": "grand-designs",
+      "name": "Grand Designs",
       "how": "leading"
     }
   ],
@@ -161,6 +150,12 @@
       "id": "force-of-nature",
       "name": "Force of Nature",
       "how": "override"
+    },
+    {
+      "day": "2026-10-06",
+      "id": "thali-time",
+      "name": "Thali Time",
+      "how": "theme"
     }
   ],
   "requestsWaiting": [],
@@ -204,25 +199,17 @@
     "Where On Earth (Geography)",
     "Wild Things (Animals)"
   ],
-  "need": 0,
+  "need": 1,
   "games": {
     "hamps": {
       "game": "hamps",
       "roundsDir": "games/hamps/rounds",
-      "today": "2026-10-05",
+      "today": "2026-10-06",
       "season": 2,
-      "queueCount": 5,
+      "queueCount": 4,
       "target": 5,
-      "fill": 0,
+      "fill": 1,
       "queue": [
-        {
-          "id": "dressed-to-kill",
-          "name": "Dressed to Kill",
-          "subject": "Fashion",
-          "onPollSince": "2026-10-01",
-          "retired": false,
-          "requestId": null
-        },
         {
           "id": "log-on",
           "name": "Log On",
@@ -257,9 +244,9 @@
         }
       ],
       "poll": {
-        "key": "2026-10-04",
-        "closes": "2026-10-06",
-        "decides": "2026-10-08",
+        "key": "2026-10-06",
+        "closes": "2026-10-08",
+        "decides": "2026-10-10",
         "options": [
           {
             "id": "log-on"
@@ -271,11 +258,6 @@
             "id": "money-talks"
           },
           {
-            "id": "req:QpQ5RIzhzwhTzNRAcRJg",
-            "theme": "Hamptons restaurants",
-            "by": "Navin Katyal"
-          },
-          {
             "id": "req:MjDrPqYmYbHTPEhURPzv",
             "theme": "80s TV",
             "by": "Navin Katyal"
@@ -284,15 +266,15 @@
       },
       "upcoming": [
         {
-          "day": "2026-10-06",
-          "id": "dressed-to-kill",
-          "name": "Dressed to Kill",
-          "how": "poll"
-        },
-        {
           "day": "2026-10-08",
           "id": "req:QpQ5RIzhzwhTzNRAcRJg",
           "name": null,
+          "how": "unwritten"
+        },
+        {
+          "day": "2026-10-10",
+          "id": "money-talks",
+          "name": "Money Talks",
           "how": "leading"
         }
       ],
@@ -350,9 +332,22 @@
           "id": "by-the-numbers",
           "name": "By the Numbers",
           "how": "queue"
+        },
+        {
+          "day": "2026-10-06",
+          "id": "dressed-to-kill",
+          "name": "Dressed to Kill",
+          "how": "poll"
         }
       ],
-      "requestsWaiting": [],
+      "requestsWaiting": [
+        {
+          "id": "hamps:QpQ5RIzhzwhTzNRAcRJg",
+          "theme": "Hamptons restaurants",
+          "by": "Navin Katyal",
+          "dropDay": "2026-10-08"
+        }
+      ],
       "ideas": [
         {
           "id": "MjDrPqYmYbHTPEhURPzv",
@@ -385,8 +380,8 @@
         "Reel Talk (Movies)",
         "Say What (Words and language)"
       ],
-      "need": 0
+      "need": 2
     }
   },
-  "totalNeed": 0
+  "totalNeed": 3
 }
