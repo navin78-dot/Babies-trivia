@@ -1,7 +1,7 @@
 {
   "game": "babies",
   "roundsDir": "rounds",
-  "today": "2026-10-06",
+  "today": "2026-10-07",
   "season": 3,
   "queueCount": 4,
   "target": 5,
@@ -55,6 +55,11 @@
         "id": "req:X90JJfp94UvQ76hY7R5x",
         "theme": "Manhattan history",
         "by": "Navin Katyal"
+      },
+      {
+        "id": "req:atItYC2Q22WfwygX0mdP",
+        "theme": "Bollywood",
+        "by": "Shivangi Bhatt"
       }
     ]
   },
@@ -164,6 +169,11 @@
       "id": "X90JJfp94UvQ76hY7R5x",
       "theme": "Manhattan history",
       "by": "Navin Katyal"
+    },
+    {
+      "id": "atItYC2Q22WfwygX0mdP",
+      "theme": "Bollywood",
+      "by": "Shivangi Bhatt"
     }
   ],
   "existingSubjects": [
@@ -204,7 +214,7 @@
     "hamps": {
       "game": "hamps",
       "roundsDir": "games/hamps/rounds",
-      "today": "2026-10-06",
+      "today": "2026-10-07",
       "season": 2,
       "queueCount": 4,
       "target": 5,
@@ -273,8 +283,8 @@
         },
         {
           "day": "2026-10-10",
-          "id": "money-talks",
-          "name": "Money Talks",
+          "id": "req:MjDrPqYmYbHTPEhURPzv",
+          "name": null,
           "how": "leading"
         }
       ],
