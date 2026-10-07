@@ -1,0 +1,166 @@
+{
+  "id": "last-call",
+  "name": "Last Call",
+  "subject": "Wine, beer and cocktails",
+  "tagline": "Eleven questions on what's in the glass, who invented it and why it's called that. Starts easy, ends hard.",
+  "draft": true,
+  "emblem": "🍸",
+  "theme": {
+    "font": "Cormorant Garamond",
+    "accent": "#B91C1C",
+    "accent2": "#CA8A04",
+    "accentDark": "#F87171",
+    "accent2Dark": "#FACC15"
+  },
+  "questions": [
+    {
+      "d": "easy",
+      "q": "A mojito is made with lime, mint, sugar, soda and which spirit?",
+      "o": [
+        "Rum",
+        "Vodka",
+        "Gin",
+        "Tequila"
+      ],
+      "a": 0,
+      "w": "White rum. The drink is Cuban, and Havana's La Bodeguita del Medio claims it, with a scrawled endorsement from Ernest Hemingway on the wall that experts think is a forgery.",
+      "more": "Its ancestor may be the Draque, a 1500s sugar-cane spirit mixed with lime and mint to fight scurvy on Francis Drake's ships. Rum is distilled from sugar-cane juice or molasses, which is why the Caribbean, Brazil and the old slave-sugar economies make it. Bacardi, founded in Santiago de Cuba in 1862, moved to Puerto Rico after the revolution."
+    },
+    {
+      "d": "easy",
+      "q": "A margarita is made with lime, orange liqueur and which spirit?",
+      "o": [
+        "Tequila",
+        "Rum",
+        "Vodka",
+        "Gin"
+      ],
+      "a": 0,
+      "w": "Tequila, which by law must come from the blue agave plant, mostly in the Mexican state of Jalisco.",
+      "more": "At least four bars and a Texas socialite claim to have invented the margarita in the 1930s and 40s, and nobody has settled it. Its name is Spanish for daisy, and a 'daisy' was an old family of cocktails made with spirit, citrus and liqueur, so it may simply be the tequila daisy translated."
+    },
+    {
+      "d": "easy",
+      "q": "What is the main grain in most beer?",
+      "o": [
+        "Barley",
+        "Wheat",
+        "Rice",
+        "Corn"
+      ],
+      "a": 0,
+      "w": "Malted barley, which is sprouted, dried and sometimes roasted; darker roasts give darker beers.",
+      "more": "Hops, the bitter flowers, were a medieval addition that happened to preserve beer, which is how India Pale Ale got its name: heavily hopped so it would survive the voyage to British troops in India. Germany's 1516 purity law allowed only water, barley and hops; yeast had not been discovered yet."
+    },
+    {
+      "d": "easy",
+      "q": "What colour is the wine made from the Pinot Noir grape?",
+      "o": [
+        "Red",
+        "White",
+        "Rosé",
+        "Orange"
+      ],
+      "a": 0,
+      "w": "Red, usually a pale, light one, though its juice is clear and it also goes into champagne.",
+      "more": "Noir is French for black, after the grape's dark skin; all the colour in red wine comes from the skins soaking in the juice. Pinot Noir is notoriously hard to grow and is the grape of Burgundy. The 2004 film Sideways, whose hero adored it and sneered at merlot, measurably moved American sales of both."
+    },
+    {
+      "d": "easy",
+      "q": "Which Irish stout, poured slowly in two stages, is famous for the harp on its label?",
+      "o": [
+        "Guinness",
+        "Murphy's",
+        "Beamish",
+        "Kilkenny"
+      ],
+      "a": 0,
+      "w": "Guinness, brewed at St James's Gate in Dublin since 1759, when Arthur Guinness signed a 9,000-year lease.",
+      "more": "The harp faces the other way from the one on Irish coins and passports because Guinness trademarked it first, in 1876, and the state had to flip its version. The creamy head comes from nitrogen rather than carbon dioxide, an invention of the 1950s. The two-part pour is supposed to take 119.5 seconds."
+    },
+    {
+      "d": "medium",
+      "q": "Which cocktail, named after a pre-war Manhattan hotel bar, mixes gin, lime and sugar and has given its name to many fruity cousins?",
+      "o": [
+        "The gimlet",
+        "The sidecar",
+        "The daiquiri",
+        "The gin rickey"
+      ],
+      "a": 0,
+      "w": "None of those are named after a hotel; the question is a trap. The gimlet is gin and lime cordial, named, most say, after a Royal Navy surgeon called Gimlette who dosed sailors' lime juice with gin.",
+      "more": "Rose's lime cordial was the Navy's scurvy preventive and the gin made it palatable, which is also where 'limey' comes from. The daiquiri is rum, lime and sugar from Cuba, the sidecar is cognac and Cointreau from Paris, and the rickey, with no sugar, was a Washington lobbyist's drink of the 1880s."
+    },
+    {
+      "d": "medium",
+      "q": "A sommelier's 'legs' or 'tears' on the inside of a wine glass are mainly a sign of what?",
+      "o": [
+        "Alcohol content",
+        "Quality",
+        "Age",
+        "Sugar"
+      ],
+      "a": 0,
+      "w": "Alcohol. Alcohol evaporates faster than water, which pulls the film of wine up the glass until it beads and runs down, and more alcohol means more legs.",
+      "more": "The effect was explained by the physicist James Thomson in 1855, a decade before his brother Lord Kelvin became famous. Sugar and glycerol thicken the tears a little, but legs tell you nothing about whether the wine is any good, whatever anyone swirling a glass says."
+    },
+    {
+      "d": "medium",
+      "q": "What does the age statement on a bottle of Scotch whisky, such as '12 years', refer to?",
+      "o": [
+        "The youngest whisky in the bottle",
+        "The oldest whisky in the bottle",
+        "The average age",
+        "How long since the distillery opened"
+      ],
+      "a": 0,
+      "w": "The youngest spirit in the blend. A 12-year-old may contain much older whisky, but nothing younger.",
+      "more": "Whisky only ages in the cask; once bottled it stops. Scotch must sit in oak for at least three years, and the 'angel's share' lost to evaporation is about two per cent a year, which is why a 50-year-old bottle costs what it does. American bourbon must use new charred oak barrels, so used ones are shipped to Scotland by the million."
+    },
+    {
+      "d": "hard",
+      "q": "The Negroni was created in Florence around 1919 when a count asked a bartender to strengthen which existing cocktail?",
+      "o": [
+        "The Americano",
+        "The Martini",
+        "The Manhattan",
+        "The Spritz"
+      ],
+      "a": 0,
+      "w": "The Americano, Campari and sweet vermouth with soda. Count Camillo Negroni asked for gin instead of the soda.",
+      "more": "The bartender, Fosco Scarselli, marked the new drink with an orange slice instead of the Americano's lemon so the two would not be confused. The count's family still sells a Negroni-branded aperitif. The Americano itself got its name from the American tourists who liked it, and it is the first drink James Bond orders in the novels."
+    },
+    {
+      "d": "hard",
+      "q": "Which 1976 blind tasting in Paris, where French judges ranked Californian wines above top Bordeaux and Burgundy, is known as what?",
+      "o": [
+        "The Judgment of Paris",
+        "The Paris Upset",
+        "The Napa Verdict",
+        "The Bottle Shock"
+      ],
+      "a": 0,
+      "w": "The Judgment of Paris, organised by the British wine merchant Steven Spurrier.",
+      "more": "A 1973 Stag's Leap Cabernet beat Mouton Rothschild, and a Chateau Montelena Chardonnay beat the white Burgundies. The only journalist present, from Time magazine, wrote four paragraphs that changed the wine world. The French judges were furious and one tried to take her scorecard back. The story became the film Bottle Shock, and both winning bottles are in the Smithsonian."
+    },
+    {
+      "d": "hard",
+      "type": "select",
+      "q": "Which of these spirits are made from grapes? Select all that apply.",
+      "o": [
+        "Cognac",
+        "Pisco",
+        "Grappa",
+        "Calvados",
+        "Cachaça"
+      ],
+      "a": [
+        0,
+        1,
+        2
+      ],
+      "w": "Cognac is distilled wine from the Charente, pisco is grape brandy from Peru and Chile, and grappa is made from the skins and seeds left after pressing. Calvados is apple brandy from Normandy; cachaça is Brazilian sugar-cane spirit.",
+      "more": "Peru and Chile have fought for decades over who owns pisco, and the pisco sour is both countries' national drink. Grappa was peasant thrift, squeezing one more drink out of the pomace. Cognac is 'brandy', from the Dutch 'brandewijn', burnt wine, and most of it is drunk in the United States and China."
+    }
+  ]
+}
