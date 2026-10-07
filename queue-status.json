@@ -3,9 +3,9 @@
   "roundsDir": "rounds",
   "today": "2026-10-07",
   "season": 3,
-  "queueCount": 4,
+  "queueCount": 5,
   "target": 5,
-  "fill": 1,
+  "fill": 0,
   "queue": [
     {
       "id": "great-heists",
@@ -38,6 +38,14 @@
       "onPollSince": "2026-10-04",
       "retired": false,
       "requestId": null
+    },
+    {
+      "id": "last-call",
+      "name": "Last Call",
+      "subject": "Wine, beer and cocktails",
+      "onPollSince": "2026-10-06",
+      "retired": false,
+      "requestId": null
     }
   ],
   "poll": {
@@ -50,6 +58,9 @@
       },
       {
         "id": "golden-age"
+      },
+      {
+        "id": "last-call"
       },
       {
         "id": "req:X90JJfp94UvQ76hY7R5x",
@@ -200,6 +211,7 @@
     "Founding Years (American history, 1500 to 1850)",
     "Golden Age (Old Hollywood, 1930 to 1960)",
     "Grand Designs (Architecture and famous buildings)",
+    "Last Call (Wine, beer and cocktails)",
     "Page Turners (Books and authors)",
     "Ripped From the Headlines (Current events, 2026)",
     "Summer Blockbusters (Big movies)",
@@ -209,16 +221,16 @@
     "Where On Earth (Geography)",
     "Wild Things (Animals)"
   ],
-  "need": 1,
+  "need": 0,
   "games": {
     "hamps": {
       "game": "hamps",
       "roundsDir": "games/hamps/rounds",
       "today": "2026-10-07",
       "season": 2,
-      "queueCount": 4,
+      "queueCount": 6,
       "target": 5,
-      "fill": 1,
+      "fill": 0,
       "queue": [
         {
           "id": "log-on",
@@ -251,6 +263,22 @@
           "onPollSince": null,
           "retired": false,
           "requestId": null
+        },
+        {
+          "id": "concrete-jungle",
+          "name": "Concrete Jungle",
+          "subject": "New York City",
+          "onPollSince": null,
+          "retired": false,
+          "requestId": null
+        },
+        {
+          "id": "table-for-twenty",
+          "name": "Table for Twenty",
+          "subject": "Hamptons restaurants",
+          "onPollSince": null,
+          "retired": false,
+          "requestId": "hamps:QpQ5RIzhzwhTzNRAcRJg"
         }
       ],
       "poll": {
@@ -277,9 +305,9 @@
       "upcoming": [
         {
           "day": "2026-10-08",
-          "id": "req:QpQ5RIzhzwhTzNRAcRJg",
-          "name": null,
-          "how": "unwritten"
+          "id": "table-for-twenty",
+          "name": "Table for Twenty",
+          "how": "theme"
         },
         {
           "day": "2026-10-10",
@@ -350,23 +378,11 @@
           "how": "poll"
         }
       ],
-      "requestsWaiting": [
-        {
-          "id": "hamps:QpQ5RIzhzwhTzNRAcRJg",
-          "theme": "Hamptons restaurants",
-          "by": "Navin Katyal",
-          "dropDay": "2026-10-08"
-        }
-      ],
+      "requestsWaiting": [],
       "ideas": [
         {
           "id": "MjDrPqYmYbHTPEhURPzv",
           "theme": "80s TV",
-          "by": "Navin Katyal"
-        },
-        {
-          "id": "QpQ5RIzhzwhTzNRAcRJg",
-          "theme": "Hamptons restaurants",
           "by": "Navin Katyal"
         }
       ],
@@ -375,6 +391,7 @@
         "Binge Worthy (Television of the streaming age)",
         "By the Numbers (Maths, numbers and measurement)",
         "Chart Toppers (Pop music)",
+        "Concrete Jungle (New York City)",
         "Crowned Heads (Royals through history)",
         "Dressed to Kill (Fashion)",
         "Out East (East Hampton and Montauk)",
@@ -388,10 +405,11 @@
         "Passport Control (Travel and world places)",
         "Pedal to the Metal (Cars and motoring)",
         "Reel Talk (Movies)",
-        "Say What (Words and language)"
+        "Say What (Words and language)",
+        "Table for Twenty (Hamptons restaurants)"
       ],
-      "need": 2
+      "need": 0
     }
   },
-  "totalNeed": 3
+  "totalNeed": 0
 }
