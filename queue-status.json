@@ -3,9 +3,9 @@
   "roundsDir": "rounds",
   "today": "2026-10-08",
   "season": 3,
-  "queueCount": 4,
+  "queueCount": 5,
   "target": 5,
-  "fill": 1,
+  "fill": 0,
   "queue": [
     {
       "id": "great-heists",
@@ -38,6 +38,14 @@
       "onPollSince": "2026-10-06",
       "retired": false,
       "requestId": null
+    },
+    {
+      "id": "body-of-evidence",
+      "name": "Body of Evidence",
+      "subject": "The human body",
+      "onPollSince": "2026-10-08",
+      "retired": false,
+      "requestId": null
     }
   ],
   "poll": {
@@ -50,6 +58,9 @@
       },
       {
         "id": "last-call"
+      },
+      {
+        "id": "body-of-evidence"
       },
       {
         "id": "req:X90JJfp94UvQ76hY7R5x",
@@ -196,6 +207,7 @@
     "To the Moon and Mars (Spaceflight)",
     "Where Words Come From (Word origins)",
     "Between the Sheets (Sex)",
+    "Body of Evidence (The human body)",
     "Bright Ideas (Inventions)",
     "Cape and Cowl (Comic books and superheroes)",
     "Console Wars (Video games)",
@@ -216,14 +228,14 @@
     "Where On Earth (Geography)",
     "Wild Things (Animals)"
   ],
-  "need": 1,
+  "need": 0,
   "games": {
     "hamps": {
       "game": "hamps",
       "roundsDir": "games/hamps/rounds",
       "today": "2026-10-08",
       "season": 2,
-      "queueCount": 5,
+      "queueCount": 6,
       "target": 5,
       "fill": 0,
       "queue": [
@@ -266,6 +278,14 @@
           "onPollSince": "2026-10-08",
           "retired": false,
           "requestId": null
+        },
+        {
+          "id": "prime-time",
+          "name": "Prime Time",
+          "subject": "1980s television",
+          "onPollSince": null,
+          "retired": false,
+          "requestId": "hamps:MjDrPqYmYbHTPEhURPzv"
         }
       ],
       "poll": {
@@ -287,9 +307,9 @@
       "upcoming": [
         {
           "day": "2026-10-10",
-          "id": "req:MjDrPqYmYbHTPEhURPzv",
-          "name": null,
-          "how": "unwritten"
+          "id": "prime-time",
+          "name": "Prime Time",
+          "how": "theme"
         },
         {
           "day": "2026-10-11",
@@ -366,21 +386,8 @@
           "how": "theme"
         }
       ],
-      "requestsWaiting": [
-        {
-          "id": "hamps:MjDrPqYmYbHTPEhURPzv",
-          "theme": "80s TV",
-          "by": "Navin Katyal",
-          "dropDay": "2026-10-10"
-        }
-      ],
-      "ideas": [
-        {
-          "id": "MjDrPqYmYbHTPEhURPzv",
-          "theme": "80s TV",
-          "by": "Navin Katyal"
-        }
-      ],
+      "requestsWaiting": [],
+      "ideas": [],
       "existingSubjects": [
         "Art Attack (Art and artists)",
         "Binge Worthy (Television of the streaming age)",
@@ -399,12 +406,13 @@
         "Money Talks (Money, markets and economics)",
         "Passport Control (Travel and world places)",
         "Pedal to the Metal (Cars and motoring)",
+        "Prime Time (1980s television)",
         "Reel Talk (Movies)",
         "Say What (Words and language)",
         "Table for Twenty (Hamptons restaurants)"
       ],
-      "need": 1
+      "need": 0
     }
   },
-  "totalNeed": 2
+  "totalNeed": 0
 }
