@@ -1,11 +1,11 @@
 {
   "game": "babies",
   "roundsDir": "rounds",
-  "today": "2026-10-07",
+  "today": "2026-10-08",
   "season": 3,
-  "queueCount": 5,
+  "queueCount": 4,
   "target": 5,
-  "fill": 0,
+  "fill": 1,
   "queue": [
     {
       "id": "great-heists",
@@ -20,14 +20,6 @@
       "name": "Grand Designs",
       "subject": "Architecture and famous buildings",
       "onPollSince": "2026-09-29",
-      "retired": false,
-      "requestId": null
-    },
-    {
-      "id": "page-turners",
-      "name": "Page Turners",
-      "subject": "Books and authors",
-      "onPollSince": "2026-10-02",
       "retired": false,
       "requestId": null
     },
@@ -49,13 +41,10 @@
     }
   ],
   "poll": {
-    "key": "2026-10-06",
-    "closes": "2026-10-08",
-    "decides": "2026-10-10",
+    "key": "2026-10-08",
+    "closes": "2026-10-10",
+    "decides": "2026-10-11",
     "options": [
-      {
-        "id": "grand-designs"
-      },
       {
         "id": "golden-age"
       },
@@ -76,15 +65,15 @@
   },
   "upcoming": [
     {
-      "day": "2026-10-08",
-      "id": "page-turners",
-      "name": "Page Turners",
-      "how": "poll"
-    },
-    {
       "day": "2026-10-10",
       "id": "grand-designs",
       "name": "Grand Designs",
+      "how": "poll"
+    },
+    {
+      "day": "2026-10-11",
+      "id": "golden-age",
+      "name": "Golden Age",
       "how": "leading"
     }
   ],
@@ -172,6 +161,12 @@
       "id": "thali-time",
       "name": "Thali Time",
       "how": "theme"
+    },
+    {
+      "day": "2026-10-08",
+      "id": "page-turners",
+      "name": "Page Turners",
+      "how": "poll"
     }
   ],
   "requestsWaiting": [],
@@ -221,14 +216,14 @@
     "Where On Earth (Geography)",
     "Wild Things (Animals)"
   ],
-  "need": 0,
+  "need": 1,
   "games": {
     "hamps": {
       "game": "hamps",
       "roundsDir": "games/hamps/rounds",
-      "today": "2026-10-07",
+      "today": "2026-10-08",
       "season": 2,
-      "queueCount": 6,
+      "queueCount": 5,
       "target": 5,
       "fill": 0,
       "queue": [
@@ -237,7 +232,7 @@
           "name": "Log On",
           "subject": "Technology and the internet",
           "onPollSince": "2026-10-02",
-          "retired": false,
+          "retired": true,
           "requestId": null
         },
         {
@@ -245,7 +240,7 @@
           "name": "Pedal to the Metal",
           "subject": "Cars and motoring",
           "onPollSince": "2026-10-03",
-          "retired": false,
+          "retired": true,
           "requestId": null
         },
         {
@@ -260,7 +255,7 @@
           "id": "high-seas",
           "name": "High Seas",
           "subject": "Ships, sailing and the sea",
-          "onPollSince": null,
+          "onPollSince": "2026-10-08",
           "retired": false,
           "requestId": null
         },
@@ -268,51 +263,38 @@
           "id": "concrete-jungle",
           "name": "Concrete Jungle",
           "subject": "New York City",
-          "onPollSince": null,
+          "onPollSince": "2026-10-08",
           "retired": false,
           "requestId": null
-        },
-        {
-          "id": "table-for-twenty",
-          "name": "Table for Twenty",
-          "subject": "Hamptons restaurants",
-          "onPollSince": null,
-          "retired": false,
-          "requestId": "hamps:QpQ5RIzhzwhTzNRAcRJg"
         }
       ],
       "poll": {
-        "key": "2026-10-06",
-        "closes": "2026-10-08",
-        "decides": "2026-10-10",
+        "key": "2026-10-08",
+        "closes": "2026-10-10",
+        "decides": "2026-10-11",
         "options": [
-          {
-            "id": "log-on"
-          },
-          {
-            "id": "pedal-to-the-metal"
-          },
           {
             "id": "money-talks"
           },
           {
-            "id": "req:MjDrPqYmYbHTPEhURPzv",
-            "theme": "80s TV",
-            "by": "Navin Katyal"
+            "id": "high-seas"
+          },
+          {
+            "id": "concrete-jungle"
           }
         ]
       },
       "upcoming": [
         {
-          "day": "2026-10-08",
-          "id": "table-for-twenty",
-          "name": "Table for Twenty",
-          "how": "theme"
-        },
-        {
           "day": "2026-10-10",
           "id": "req:MjDrPqYmYbHTPEhURPzv",
           "name": null,
+          "how": "unwritten"
+        },
+        {
+          "day": "2026-10-11",
+          "id": "money-talks",
+          "name": "Money Talks",
           "how": "leading"
         }
       ],
@@ -376,9 +358,22 @@
           "id": "dressed-to-kill",
           "name": "Dressed to Kill",
           "how": "poll"
+        },
+        {
+          "day": "2026-10-08",
+          "id": "table-for-twenty",
+          "name": "Table for Twenty",
+          "how": "theme"
         }
       ],
-      "requestsWaiting": [],
+      "requestsWaiting": [
+        {
+          "id": "hamps:MjDrPqYmYbHTPEhURPzv",
+          "theme": "80s TV",
+          "by": "Navin Katyal",
+          "dropDay": "2026-10-10"
+        }
+      ],
       "ideas": [
         {
           "id": "MjDrPqYmYbHTPEhURPzv",
@@ -408,8 +403,8 @@
         "Say What (Words and language)",
         "Table for Twenty (Hamptons restaurants)"
       ],
-      "need": 0
+      "need": 1
     }
   },
-  "totalNeed": 0
+  "totalNeed": 2
 }
