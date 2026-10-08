@@ -1,0 +1,106 @@
+{
+  "id": "body-of-evidence",
+  "name": "Body of Evidence",
+  "subject": "The human body",
+  "tagline": "Eleven questions on the machine you're sitting in, from the bone in your thigh to the nerve in your elbow. Starts easy, ends hard.",
+  "draft": true,
+  "emblem": "🫀",
+  "theme": {
+    "font": "Outfit",
+    "accent": "#E11D48",
+    "accent2": "#0D9488",
+    "accentDark": "#FB7185",
+    "accent2Dark": "#2DD4BF"
+  },
+  "questions": [
+    {
+      "d": "easy",
+      "q": "How many chambers does the human heart have?",
+      "o": ["Four", "Two", "Three", "Six"],
+      "a": 0,
+      "w": "Four: two atria on top that take blood in, and two ventricles below that pump it out.",
+      "more": "The right side sends blood to the lungs to pick up oxygen and the left side sends it around the whole body, which is why the left ventricle has by far the thickest wall. The 'lub-dub' a doctor hears through a stethoscope is the sound of the valves snapping shut, not the muscle itself. At a resting seventy beats a minute the heart beats about 100,000 times a day."
+    },
+    {
+      "d": "easy",
+      "q": "What is the longest bone in the human body?",
+      "o": ["The femur, in the thigh", "The tibia, in the shin", "The humerus, in the upper arm", "The pelvis"],
+      "a": 0,
+      "w": "The femur, or thigh bone, is the longest and strongest bone in the body, about a quarter of your height.",
+      "more": "It is hollow, and the marrow inside it is one of the places blood cells are made. A newborn has around 300 bones, many of them still soft cartilage, and dozens fuse together as the child grows. Bone is living tissue that rebuilds itself constantly, so the skeleton you have now is not the one you had ten years ago."
+    },
+    {
+      "d": "easy",
+      "q": "What is the largest muscle in the human body?",
+      "o": ["The gluteus maximus, in the buttock", "The latissimus dorsi, in the back", "The pectoralis major, in the chest", "The heart"],
+      "a": 0,
+      "w": "The gluteus maximus. It straightens the hip, which is what keeps you upright and gets you up stairs.",
+      "more": "Humans have far bigger buttocks than any other ape because we walk on two legs and run long distances. The strongest muscle for its size is the masseter in the jaw, which can clamp the molars together with a force of over 90 kilograms. The busiest are the muscles that move the eyes, which make something like 100,000 small movements a day."
+    },
+    {
+      "d": "easy",
+      "q": "Which blood cells carry oxygen from your lungs to the rest of your body?",
+      "o": ["Red blood cells", "White blood cells", "Platelets", "Plasma"],
+      "a": 0,
+      "w": "Red blood cells, which are packed with haemoglobin, an iron-rich protein that grabs oxygen and gives blood its colour.",
+      "more": "An adult has around 25 trillion of them, each one living about 120 days before the spleen and liver recycle it, so the bone marrow turns out roughly two million new ones every second. White blood cells hunt infections and platelets plug leaks. Plasma, the pale liquid everything floats in, is mostly water and makes up over half of blood's volume."
+    },
+    {
+      "d": "easy",
+      "q": "What is the hardest substance in the human body?",
+      "o": ["Tooth enamel", "Bone", "Fingernail", "Cartilage"],
+      "a": 0,
+      "w": "Tooth enamel, the outer layer of each tooth, is about 96 per cent mineral and harder than bone.",
+      "more": "Unlike bone it cannot repair itself, because the cells that make it are shed once a tooth comes through, which is why a cavity never heals on its own. Enamel is only a couple of millimetres thick at its thickest. Fluoride in toothpaste and tap water works by bonding into the enamel's surface and making it more resistant to acid."
+    },
+    {
+      "d": "medium",
+      "q": "What is the smallest bone in the human body?",
+      "o": ["The stapes, in the ear", "The hyoid, in the throat", "The coccyx, at the base of the spine", "The patella, the kneecap"],
+      "a": 0,
+      "w": "The stapes, or stirrup, in the middle ear is about three millimetres long. It passes vibrations from the eardrum into the inner ear.",
+      "more": "It works with two other tiny bones, the hammer and the anvil, and the three together are called the ossicles. They are the only bones that are already full size when you are born. Acting as a lever, they boost the pressure of sound waves around twentyfold so that they can push through the fluid of the inner ear."
+    },
+    {
+      "d": "medium",
+      "q": "Hitting your 'funny bone' sends a tingle down your arm. What are you actually hitting?",
+      "o": ["The ulnar nerve", "The end of the humerus", "A tendon", "Cartilage in the elbow joint"],
+      "a": 0,
+      "w": "The ulnar nerve, which runs just under the skin behind the inside of the elbow with no muscle to cushion it. A knock there fires it off.",
+      "more": "The nerve supplies the ring and little fingers, which is why the tingle lands there rather than in the thumb. The name is probably a pun on the humerus, the upper-arm bone whose end the nerve wraps around. Leaning on the elbow for long stretches can squeeze the same nerve, a condition called cubital tunnel syndrome."
+    },
+    {
+      "d": "medium",
+      "q": "Which organ makes insulin, the hormone that lets your cells take sugar out of the blood?",
+      "o": ["The pancreas", "The liver", "The kidneys", "The thyroid"],
+      "a": 0,
+      "w": "The pancreas, in clusters of cells called the islets of Langerhans. Too little insulin, or cells that stop responding to it, is diabetes.",
+      "more": "Frederick Banting and Charles Best isolated insulin in Toronto in 1921, and in January 1922 it saved a fourteen-year-old boy who was dying of diabetes. Banting shared the 1923 Nobel Prize with the professor whose lab he had borrowed and split his prize money with Best in protest. The discoverers sold the patent to the University of Toronto for one dollar each so that no company could own it."
+    },
+    {
+      "d": "hard",
+      "q": "More than half of the bones in your body are in which two parts?",
+      "o": ["The hands and feet", "The spine and ribs", "The skull and jaw", "The arms and legs"],
+      "a": 0,
+      "w": "The hands and feet. Each hand has 27 bones and each foot 26, so the four together hold 106, over half of an adult's total.",
+      "more": "All those small bones are what let a hand grip a pen and a foot balance on a kerb. The skull has 22 bones, most of them fused along wavy lines called sutures, and the spine has 33 vertebrae, of which the bottom nine are fused into the sacrum and tailbone. Men and women have the same number of ribs, twelve pairs, whatever the old story says."
+    },
+    {
+      "d": "hard",
+      "q": "True or false: your left lung is smaller than your right one.",
+      "o": ["True", "False"],
+      "a": 0,
+      "w": "True. The left lung has two lobes and a notch cut into it to make room for the heart, while the right has three lobes.",
+      "more": "Spread flat, the hundreds of millions of air sacs inside the lungs would cover around 70 square metres, far more than your skin. You breathe about 20,000 times a day, and most of the work is done not by the lungs themselves but by the diaphragm, the sheet of muscle underneath them. A hiccup is the diaphragm twitching and the vocal cords slamming shut a split second later."
+    },
+    {
+      "d": "hard",
+      "type": "select",
+      "q": "Which of these can a person live without? Select all that apply.",
+      "o": ["The spleen", "The gallbladder", "The appendix", "One kidney", "The liver", "The skin"],
+      "a": [0, 1, 2, 3],
+      "w": "The spleen, the gallbladder, the appendix and one kidney can all go. Nobody survives without a liver, and the skin keeps water in and infection out.",
+      "more": "Gallbladder removal is one of the commonest operations in the world; the bile it stored simply drips straight into the gut instead. Someone who gives a kidney to a relative watches the other one grow to take on most of the work. The liver is the one organ that regrows, and a donor can give away more than half of theirs and have it back to size within months, but take the whole thing out and there is nothing to grow from."
+    }
+  ]
+}

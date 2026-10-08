@@ -1,0 +1,106 @@
+{
+  "id": "prime-time",
+  "name": "Prime Time",
+  "subject": "1980s television",
+  "requestId": "hamps:MjDrPqYmYbHTPEhURPzv",
+  "tagline": "Eleven questions from the decade of talking cars, shoulder pads and cliffhangers, when the whole country watched the same thing on the same night. A theme the crew voted for.",
+  "draft": true,
+  "emblem": "📺",
+  "theme": {
+    "font": "Audiowide",
+    "accent": "#DB2777",
+    "accent2": "#06B6D4",
+    "accentDark": "#F472B6",
+    "accent2Dark": "#22D3EE"
+  },
+  "questions": [
+    {
+      "d": "easy",
+      "q": "Which sitcom, which began in 1982, was set in a Boston bar 'where everybody knows your name'?",
+      "o": ["Cheers", "Taxi", "Night Court", "Barney Miller"],
+      "a": 0,
+      "w": "Cheers ran on NBC from 1982 to 1993. The bar was modelled on the Bull & Finch pub on Beacon Street, which still trades on the connection.",
+      "more": "The first season finished near the bottom of the ratings and NBC nearly cancelled it, then it spent most of a decade in the top ten. Shelley Long's Diane left in 1987 and Kirstie Alley's Rebecca took over the bar, while Woody Harrelson had replaced Nicholas Colasanto's Coach after Colasanto died in 1985. The theme, 'Where Everybody Knows Your Name', was written and sung by Gary Portnoy."
+    },
+    {
+      "d": "easy",
+      "q": "In Knight Rider, Michael Knight's partner was a talking black Pontiac Trans Am. What was it called?",
+      "o": ["KITT", "KARR", "Herbie", "Turbo"],
+      "a": 0,
+      "w": "KITT, short for Knight Industries Two Thousand. KARR was its evil prototype, which turned up twice to cause trouble.",
+      "more": "The series ran on NBC from 1982 to 1986 and made David Hasselhoff a star before Baywatch. KITT's voice was William Daniels, who asked not to be credited on screen and was at the same time winning Emmys as the surgeon Mark Craig on St. Elsewhere. The car was a modified 1982 Pontiac Firebird Trans Am, and several were wrecked making the show."
+    },
+    {
+      "d": "easy",
+      "q": "Which 1985 sitcom put four older women, Dorothy, Rose, Blanche and Sophia, in a shared house in Miami?",
+      "o": ["The Golden Girls", "Designing Women", "Kate & Allie", "Empty Nest"],
+      "a": 0,
+      "w": "The Golden Girls, which ran on NBC until 1992 and whose theme was 'Thank You for Being a Friend'.",
+      "more": "All four leads, Bea Arthur, Betty White, Rue McClanahan and Estelle Getty, won Emmys for the show, a rare feat for a cast. Getty played Dorothy's eighty-year-old mother Sophia in heavy make-up although she was a year younger than Bea Arthur. The cheesecake the women ate at the kitchen table became the show's signature, and Betty White said she never liked it."
+    },
+    {
+      "d": "easy",
+      "q": "'Who shot J.R.?' kept the world guessing through the summer of 1980. Which show was it?",
+      "o": ["Dallas", "Dynasty", "Knots Landing", "Falcon Crest"],
+      "a": 0,
+      "w": "Dallas. J.R. Ewing, played by Larry Hagman, was shot in the March 1980 season finale, and the answer took eight months to arrive.",
+      "more": "The episode that revealed the shooter, in November 1980, was watched by an estimated 83 million Americans, then the biggest audience for a television episode ever. The culprit was Kristin Shepard, his wife's sister and his former mistress, played by Mary Crosby, Bing Crosby's daughter. British bookmakers took bets on the answer, and the cast filmed several endings so that no one on set could leak the real one."
+    },
+    {
+      "d": "easy",
+      "q": "Michael J. Fox became a star as Alex P. Keaton, the Reagan-loving son of two former hippies, in which sitcom?",
+      "o": ["Family Ties", "Growing Pains", "Who's the Boss?", "The Facts of Life"],
+      "a": 0,
+      "w": "Family Ties, which ran on NBC from 1982 to 1989. Alex carried a briefcase to school and kept a picture of Nixon by his bed.",
+      "more": "The show was built around the parents, but Fox's teenage Republican stole it and won three Emmys in a row. In early 1985 he filmed Family Ties by day and Back to the Future by night, sleeping in a car between the two sets. Ronald Reagan called it his favourite programme, which the show's liberal creator took with mixed feelings."
+    },
+    {
+      "d": "medium",
+      "q": "NBC's programming chief Brandon Tartikoff is said to have summed up which 1984 series in a two-word memo, 'MTV cops'?",
+      "o": ["Miami Vice", "Magnum, P.I.", "Hunter", "Hill Street Blues"],
+      "a": 0,
+      "w": "Miami Vice, with Don Johnson as Sonny Crockett and Philip Michael Thomas as Ricardo Tubbs, cut to pop hits like a long music video.",
+      "more": "Executive producer Michael Mann banned earth tones from the screen, so the show ran on pastels, white linen and T-shirts under Armani jackets, and men across America stopped wearing socks. Crockett lived on a sailboat with a pet alligator called Elvis and drove a Ferrari, first a black Daytona replica and then a white Testarossa the company supplied after complaining about the fake. The pilot's use of Phil Collins's 'In the Air Tonight' set the template for every stylish cop show since."
+    },
+    {
+      "d": "medium",
+      "q": "Bruce Willis and Cybill Shepherd bickered their way through cases at the Blue Moon Detective Agency in which show?",
+      "o": ["Moonlighting", "Hart to Hart", "Scarecrow and Mrs. King", "Riptide"],
+      "a": 0,
+      "w": "Moonlighting, which ran on ABC from 1985 to 1989 and turned a New York bartender named Bruce Willis into a leading man.",
+      "more": "Willis was picked from some three thousand actors who auditioned for David Addison. The characters talked over each other, broke the fourth wall and finally slept together in a 1987 episode, after which the ratings slid and television learned a lesson it still calls the Moonlighting curse. Willis made Die Hard in 1988 while the show was still on the air."
+    },
+    {
+      "d": "medium",
+      "q": "Before getting their own show in December 1989, the Simpsons appeared as short cartoons on which Fox sketch series?",
+      "o": ["The Tracey Ullman Show", "In Living Color", "Saturday Night Live", "The Ben Stiller Show"],
+      "a": 0,
+      "w": "The Tracey Ullman Show, where the family first appeared in a short in April 1987.",
+      "more": "Matt Groening sketched the family in the lobby while waiting to pitch something else, and named them after his own parents and sisters, Homer, Margaret, Lisa and Maggie; Bart is an anagram of 'brat'. Forty-eight shorts ran on Ullman's show before the half-hour series opened with a Christmas special. It has now run for more than thirty-five seasons, longer than any other American scripted prime-time series."
+    },
+    {
+      "d": "hard",
+      "q": "The most-watched hour in the history of American soap opera was a November 1981 wedding on which daytime show?",
+      "o": ["General Hospital", "Days of Our Lives", "All My Children", "The Young and the Restless"],
+      "a": 0,
+      "w": "General Hospital. Luke Spencer and Laura Webber married in front of about 30 million viewers, more than most prime-time shows drew.",
+      "more": "Elizabeth Taylor, a fan of the show, asked to be written in and turned up as the villainous Helena Cassadine to curse the newlyweds. Genie Francis was nineteen when she played the bride; she and Anthony Geary were still playing the couple, on and off, decades later. The wedding put a daytime soap on the cover of Newsweek and gave ABC's daytime schedule its best year."
+    },
+    {
+      "d": "hard",
+      "q": "Pierce Brosnan lost the part of James Bond in 1986 because NBC renewed which detective series he starred in?",
+      "o": ["Remington Steele", "Simon & Simon", "Matt Houston", "Hardcastle and McCormick"],
+      "a": 0,
+      "w": "Remington Steele. NBC had cancelled it, but the publicity around Brosnan's Bond casting persuaded the network to bring it back within its option period, and the producers would not release him.",
+      "more": "The part in The Living Daylights went to Timothy Dalton instead, and the revived Remington Steele lasted only six more episodes. Brosnan finally got the tuxedo nine years later in GoldenEye. The show's premise was that Stephanie Zimbalist's detective Laura Holt invented a male boss because clients would not hire a woman, then had to live with the con man who turned up claiming the name."
+    },
+    {
+      "d": "hard",
+      "type": "order",
+      "q": "Put these shows in the order they first went on air, earliest first.",
+      "o": ["Dynasty", "The A-Team", "ALF", "The Wonder Years"],
+      "w": "Dynasty began in January 1981, The A-Team in January 1983, ALF in September 1986 and The Wonder Years in January 1988.",
+      "more": "Dynasty was ABC's answer to Dallas, and only took off when Joan Collins arrived as Alexis in the second season. The A-Team made Mr. T a household name as B.A. Baracus, who pitied fools and would not fly. ALF was a furry alien from the planet Melmac who crashed into a suburban garage and kept trying to eat the family cat, and The Wonder Years premiered right after Super Bowl XXII and won the Emmy for best comedy after only six episodes had aired."
+    }
+  ]
+}
