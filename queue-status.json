@@ -1,7 +1,7 @@
 {
   "game": "babies",
   "roundsDir": "rounds",
-  "today": "2026-10-08",
+  "today": "2026-10-09",
   "season": 3,
   "queueCount": 5,
   "target": 5,
@@ -83,8 +83,8 @@
     },
     {
       "day": "2026-10-11",
-      "id": "golden-age",
-      "name": "Golden Age",
+      "id": "body-of-evidence",
+      "name": "Body of Evidence",
       "how": "leading"
     }
   ],
@@ -233,7 +233,7 @@
     "hamps": {
       "game": "hamps",
       "roundsDir": "games/hamps/rounds",
-      "today": "2026-10-08",
+      "today": "2026-10-09",
       "season": 2,
       "queueCount": 6,
       "target": 5,
@@ -301,6 +301,11 @@
           },
           {
             "id": "concrete-jungle"
+          },
+          {
+            "id": "req:mOsLg9vbWBExzBREvwyb",
+            "theme": "Musicals or movie soundtracks",
+            "by": "Shan Bates"
           }
         ]
       },
@@ -313,8 +318,8 @@
         },
         {
           "day": "2026-10-11",
-          "id": "money-talks",
-          "name": "Money Talks",
+          "id": "concrete-jungle",
+          "name": "Concrete Jungle",
           "how": "leading"
         }
       ],
@@ -387,7 +392,13 @@
         }
       ],
       "requestsWaiting": [],
-      "ideas": [],
+      "ideas": [
+        {
+          "id": "mOsLg9vbWBExzBREvwyb",
+          "theme": "Musicals or movie soundtracks",
+          "by": "Shan Bates"
+        }
+      ],
       "existingSubjects": [
         "Art Attack (Art and artists)",
         "Binge Worthy (Television of the streaming age)",
