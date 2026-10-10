@@ -1,0 +1,106 @@
+{
+  "id": "toon-in",
+  "name": "Toon In",
+  "subject": "Animated films",
+  "tagline": "Eleven questions on the films you've seen forty times with a child on your lap, from Disney's folly to a rat who cooks. Starts easy, ends hard.",
+  "draft": true,
+  "emblem": "🎈",
+  "theme": {
+    "font": "Lilita One",
+    "accent": "#F59E0B",
+    "accent2": "#8B5CF6",
+    "accentDark": "#FBBF24",
+    "accent2Dark": "#A78BFA"
+  },
+  "questions": [
+    {
+      "d": "easy",
+      "q": "Which 1937 film was Disney's first full-length animated feature, written off in advance by Hollywood as 'Disney's Folly'?",
+      "o": ["Snow White and the Seven Dwarfs", "Pinocchio", "Fantasia", "Bambi"],
+      "a": 0,
+      "w": "Snow White and the Seven Dwarfs. It cost nearly 1.5 million dollars, a fortune in the Depression, and became the highest-grossing sound film yet made.",
+      "more": "Walt Disney mortgaged his house to finish it, and the premiere audience in Los Angeles in December 1937 included Charlie Chaplin and Marlene Dietrich. It held the box-office record until Gone with the Wind came along two years later. In 1939 the Academy gave Disney an honorary Oscar for it, one full-size statuette and seven miniature ones, handed over by the ten-year-old Shirley Temple."
+    },
+    {
+      "d": "easy",
+      "q": "Robin Williams improvised for hours as the voice of the fast-talking Genie in which 1992 Disney film?",
+      "o": ["Aladdin", "Hercules", "The Little Mermaid", "Pocahontas"],
+      "a": 0,
+      "w": "Aladdin. Williams recorded something like sixteen hours of material, and the animators drew the Genie's shape-shifting around his riffs.",
+      "more": "He took the union minimum of 75,000 dollars on condition that his voice would not be used to sell merchandise, and when Disney used it anyway he refused to work for the studio for years; it sent him a Picasso by way of apology. So much of the dialogue was improvised that the Academy reportedly ruled the film ineligible for the adapted-screenplay Oscar. He came back for the third Aladdin film in 1996 once the executive he blamed had left."
+    },
+    {
+      "d": "easy",
+      "q": "Which 2001 film about a grumpy green ogre won the first Oscar ever given for Best Animated Feature?",
+      "o": ["Shrek", "Monsters, Inc.", "Ice Age", "Finding Nemo"],
+      "a": 0,
+      "w": "Shrek, which beat Monsters, Inc. and Jimmy Neutron: Boy Genius when the category was introduced in 2002.",
+      "more": "It began as a 1990 picture book by William Steig, a New Yorker cartoonist, and Chris Farley had recorded most of the ogre's lines before he died in 1997; Mike Myers took over and then insisted on redoing the whole part in a Scottish accent. Eddie Murphy's Donkey and Cameron Diaz's Fiona completed the cast. The short, vain Lord Farquaad was widely read as a dig at Disney's Michael Eisner by Jeffrey Katzenberg, who had left Disney to co-found the studio that made it."
+    },
+    {
+      "d": "easy",
+      "q": "In Pixar's Up, 78-year-old Carl Fredricksen gets his house to South America by what means?",
+      "o": ["Thousands of helium balloons", "A hot-air balloon", "A home-made airship", "A giant kite"],
+      "a": 0,
+      "w": "Thousands of balloons, tied to the chimney. The animators rendered more than ten thousand of them for the lift-off shot alone.",
+      "more": "Carl is heading for Paradise Falls, which the filmmakers based on the flat-topped tepui mountains and Angel Falls in Venezuela after a research trip there. The wordless montage of his marriage in the first ten minutes is regularly voted one of the saddest sequences ever animated. Up opened the Cannes Film Festival in 2009, the first animated film to do so, and was nominated for Best Picture."
+    },
+    {
+      "d": "easy",
+      "q": "The Minions, the babbling yellow henchmen, made their first appearance in which 2010 film?",
+      "o": ["Despicable Me", "Megamind", "Hotel Transylvania", "The Lorax"],
+      "a": 0,
+      "w": "Despicable Me, in which they work for Steve Carell's supervillain Gru, who adopts three orphan girls as part of a scheme to steal the Moon.",
+      "more": "Their gibberish is a mash-up of real words from Spanish, Italian, French, Korean and English, and most of it is voiced by the film's co-director Pierre Coffin. The characters were a cost-saving idea: an army of small identical sidekicks was cheaper to animate than a crew of human henchmen. The Despicable Me and Minions films together have taken more at the box office than any other animated series."
+    },
+    {
+      "d": "medium",
+      "q": "The big grey forest spirit on Studio Ghibli's logo comes from which 1988 Hayao Miyazaki film?",
+      "o": ["My Neighbor Totoro", "Kiki's Delivery Service", "Ponyo", "Princess Mononoke"],
+      "a": 0,
+      "w": "My Neighbor Totoro, in which two young sisters move to the countryside and find the creature asleep inside a giant camphor tree.",
+      "more": "It was released in Japan as a double bill with Grave of the Fireflies, a harrowing film about two children starving in wartime, which must be the strangest pairing in cinema history. Totoro was a slow earner at first and became a phenomenon through merchandise, above all the plush toys. The studio took its name from an Italian word for a hot Saharan wind, which Miyazaki, an aircraft obsessive, knew from a Second World War Italian plane."
+    },
+    {
+      "d": "medium",
+      "q": "Which 1991 film was the first animated feature ever nominated for the Best Picture Oscar?",
+      "o": ["Beauty and the Beast", "The Little Mermaid", "Aladdin", "The Lion King"],
+      "a": 0,
+      "w": "Beauty and the Beast. It lost to The Silence of the Lambs but won for its score and its title song.",
+      "more": "The lyricist Howard Ashman died of AIDS eight months before it opened, and the film ends with a dedication to the man 'who gave a mermaid her voice and a beast his soul'. Angela Lansbury, as the teapot Mrs Potts, thought the title song should go to someone else and recorded it in a single take. The ballroom scene, with its swooping camera, was one of the first times Disney put hand-drawn characters inside a computer-generated set."
+    },
+    {
+      "d": "medium",
+      "q": "Wallace and Gromit, the cheese-loving inventor and his long-suffering dog, are brought to life using which technique?",
+      "o": ["Stop-motion with clay models", "Hand-drawn cels", "Computer animation", "Rotoscoping over live actors"],
+      "a": 0,
+      "w": "Stop-motion. Nick Park and Aardman Animations in Bristol pose plasticine models and photograph them one frame at a time, 24 frames for every second of film.",
+      "more": "An animator on a Wallace and Gromit film does well to finish two or three seconds of footage in a day. Park's shorts The Wrong Trousers and A Close Shave each won an Oscar, and the pair's first full-length film, The Curse of the Were-Rabbit, won another in 2006. Aardman's Chicken Run remains the highest-grossing stop-motion film ever made, and sales of Wensleydale, Wallace's favourite cheese, rose on the back of the films."
+    },
+    {
+      "d": "hard",
+      "q": "Who has won more Academy Awards than anyone else, with 22 competitive Oscars plus four honorary ones?",
+      "o": ["Walt Disney", "John Williams", "Edith Head", "Steven Spielberg"],
+      "a": 0,
+      "w": "Walt Disney, from 59 nominations. Most of the wins were for animated shorts, starting with the first Oscar ever given to a cartoon, for Flowers and Trees in 1932.",
+      "more": "He won four in a single night in 1954, which is also a record. The costume designer Edith Head holds the women's record with eight, and the composer John Williams, with more than fifty nominations, has the most of anyone still living. Disney never won for a feature-length cartoon, because the Best Animated Feature category did not exist until 35 years after his death."
+    },
+    {
+      "d": "hard",
+      "type": "order",
+      "q": "Put these Pixar films in the order they came out, earliest first.",
+      "o": ["A Bug's Life", "Monsters, Inc.", "The Incredibles", "Ratatouille"],
+      "w": "A Bug's Life (1998), Monsters, Inc. (2001), The Incredibles (2004), Ratatouille (2007).",
+      "more": "A Bug's Life opened weeks after Antz, a rival insect film that Jeffrey Katzenberg rushed out to beat it, which turned a personal feud into a studio war. Monsters, Inc. was the first Pixar feature not directed by John Lasseter, and The Incredibles the first built around human characters, which the animators found far harder than toys or fish. Ratatouille's original director was replaced partway through, and Brad Bird rebuilt it in under two years into an Oscar winner about a rat who cooks."
+    },
+    {
+      "d": "hard",
+      "type": "select",
+      "q": "Which of these films were made by Pixar? Select all that apply.",
+      "o": ["WALL-E", "Coco", "Brave", "Zootopia", "Moana", "Kung Fu Panda"],
+      "a": [0, 1, 2],
+      "w": "WALL-E, Coco and Brave are Pixar. Zootopia and Moana come from Walt Disney Animation Studios, Disney's own in-house studio, and Kung Fu Panda is DreamWorks.",
+      "more": "Disney bought Pixar in 2006 for 7.4 billion dollars in stock, which made Steve Jobs Disney's largest shareholder, but kept the two studios separate: Pixar in Emeryville, across the bay from San Francisco, and Disney Animation in Burbank. Zootopia and Moana came out of Burbank within months of each other in 2016. Brave, from 2012, was Pixar's first film with a female lead and its first fairy tale."
+    }
+  ]
+}
