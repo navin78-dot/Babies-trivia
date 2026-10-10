@@ -1,11 +1,11 @@
 {
   "game": "babies",
   "roundsDir": "rounds",
-  "today": "2026-10-09",
+  "today": "2026-10-10",
   "season": 3,
-  "queueCount": 5,
+  "queueCount": 4,
   "target": 5,
-  "fill": 0,
+  "fill": 1,
   "queue": [
     {
       "id": "great-heists",
@@ -16,19 +16,11 @@
       "requestId": null
     },
     {
-      "id": "grand-designs",
-      "name": "Grand Designs",
-      "subject": "Architecture and famous buildings",
-      "onPollSince": "2026-09-29",
-      "retired": false,
-      "requestId": null
-    },
-    {
       "id": "golden-age",
       "name": "Golden Age",
       "subject": "Old Hollywood, 1930 to 1960",
       "onPollSince": "2026-10-04",
-      "retired": false,
+      "retired": true,
       "requestId": null
     },
     {
@@ -49,23 +41,12 @@
     }
   ],
   "poll": {
-    "key": "2026-10-08",
-    "closes": "2026-10-10",
-    "decides": "2026-10-11",
+    "key": "2026-10-10",
+    "closes": "2026-10-11",
+    "decides": "2026-10-13",
     "options": [
       {
-        "id": "golden-age"
-      },
-      {
         "id": "last-call"
-      },
-      {
-        "id": "body-of-evidence"
-      },
-      {
-        "id": "req:X90JJfp94UvQ76hY7R5x",
-        "theme": "Manhattan history",
-        "by": "Navin Katyal"
       },
       {
         "id": "req:atItYC2Q22WfwygX0mdP",
@@ -76,15 +57,15 @@
   },
   "upcoming": [
     {
-      "day": "2026-10-10",
-      "id": "grand-designs",
-      "name": "Grand Designs",
-      "how": "poll"
-    },
-    {
       "day": "2026-10-11",
       "id": "body-of-evidence",
       "name": "Body of Evidence",
+      "how": "poll"
+    },
+    {
+      "day": "2026-10-13",
+      "id": "last-call",
+      "name": "Last Call",
       "how": "leading"
     }
   ],
@@ -178,15 +159,16 @@
       "id": "page-turners",
       "name": "Page Turners",
       "how": "poll"
+    },
+    {
+      "day": "2026-10-10",
+      "id": "grand-designs",
+      "name": "Grand Designs",
+      "how": "poll"
     }
   ],
   "requestsWaiting": [],
   "ideas": [
-    {
-      "id": "X90JJfp94UvQ76hY7R5x",
-      "theme": "Manhattan history",
-      "by": "Navin Katyal"
-    },
     {
       "id": "atItYC2Q22WfwygX0mdP",
       "theme": "Bollywood",
@@ -228,14 +210,14 @@
     "Where On Earth (Geography)",
     "Wild Things (Animals)"
   ],
-  "need": 0,
+  "need": 1,
   "games": {
     "hamps": {
       "game": "hamps",
       "roundsDir": "games/hamps/rounds",
-      "today": "2026-10-09",
+      "today": "2026-10-10",
       "season": 2,
-      "queueCount": 6,
+      "queueCount": 5,
       "target": 5,
       "fill": 0,
       "queue": [
@@ -260,7 +242,7 @@
           "name": "Money Talks",
           "subject": "Money, markets and economics",
           "onPollSince": "2026-10-04",
-          "retired": false,
+          "retired": true,
           "requestId": null
         },
         {
@@ -278,29 +260,15 @@
           "onPollSince": "2026-10-08",
           "retired": false,
           "requestId": null
-        },
-        {
-          "id": "prime-time",
-          "name": "Prime Time",
-          "subject": "1980s television",
-          "onPollSince": null,
-          "retired": false,
-          "requestId": "hamps:MjDrPqYmYbHTPEhURPzv"
         }
       ],
       "poll": {
-        "key": "2026-10-08",
-        "closes": "2026-10-10",
-        "decides": "2026-10-11",
+        "key": "2026-10-10",
+        "closes": "2026-10-11",
+        "decides": "2026-10-13",
         "options": [
           {
-            "id": "money-talks"
-          },
-          {
             "id": "high-seas"
-          },
-          {
-            "id": "concrete-jungle"
           },
           {
             "id": "req:mOsLg9vbWBExzBREvwyb",
@@ -311,15 +279,15 @@
       },
       "upcoming": [
         {
-          "day": "2026-10-10",
-          "id": "prime-time",
-          "name": "Prime Time",
-          "how": "theme"
-        },
-        {
           "day": "2026-10-11",
           "id": "concrete-jungle",
           "name": "Concrete Jungle",
+          "how": "poll"
+        },
+        {
+          "day": "2026-10-13",
+          "id": "req:mOsLg9vbWBExzBREvwyb",
+          "name": null,
           "how": "leading"
         }
       ],
@@ -389,6 +357,12 @@
           "id": "table-for-twenty",
           "name": "Table for Twenty",
           "how": "theme"
+        },
+        {
+          "day": "2026-10-10",
+          "id": "prime-time",
+          "name": "Prime Time",
+          "how": "theme"
         }
       ],
       "requestsWaiting": [],
@@ -425,5 +399,5 @@
       "need": 0
     }
   },
-  "totalNeed": 0
+  "totalNeed": 1
 }
