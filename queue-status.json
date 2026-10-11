@@ -1,11 +1,11 @@
 {
   "game": "babies",
   "roundsDir": "rounds",
-  "today": "2026-10-10",
-  "season": 3,
-  "queueCount": 5,
+  "today": "2026-10-11",
+  "season": 4,
+  "queueCount": 4,
   "target": 5,
-  "fill": 0,
+  "fill": 1,
   "queue": [
     {
       "id": "great-heists",
@@ -28,15 +28,7 @@
       "name": "Last Call",
       "subject": "Wine, beer and cocktails",
       "onPollSince": "2026-10-06",
-      "retired": false,
-      "requestId": null
-    },
-    {
-      "id": "body-of-evidence",
-      "name": "Body of Evidence",
-      "subject": "The human body",
-      "onPollSince": "2026-10-08",
-      "retired": false,
+      "retired": true,
       "requestId": null
     },
     {
@@ -49,35 +41,23 @@
     }
   ],
   "poll": {
-    "key": "2026-10-10",
-    "closes": "2026-10-11",
-    "decides": "2026-10-13",
-    "options": [
-      {
-        "id": "last-call"
-      },
-      {
-        "id": "toon-in"
-      },
-      {
-        "id": "req:atItYC2Q22WfwygX0mdP",
-        "theme": "Bollywood",
-        "by": "Shivangi Bhatt"
-      }
-    ]
+    "key": "2026-10-11",
+    "closes": "2026-10-13",
+    "decides": "2026-10-15",
+    "options": []
   },
   "upcoming": [
     {
-      "day": "2026-10-11",
-      "id": "body-of-evidence",
-      "name": "Body of Evidence",
+      "day": "2026-10-13",
+      "id": "toon-in",
+      "name": "Toon In",
       "how": "poll"
     },
     {
-      "day": "2026-10-13",
-      "id": "last-call",
-      "name": "Last Call",
-      "how": "leading"
+      "day": "2026-10-15",
+      "id": "great-heists",
+      "name": "Great Heists and Cons",
+      "how": "queue"
     }
   ],
   "dropped": [
@@ -176,16 +156,16 @@
       "id": "grand-designs",
       "name": "Grand Designs",
       "how": "poll"
+    },
+    {
+      "day": "2026-10-11",
+      "id": "body-of-evidence",
+      "name": "Body of Evidence",
+      "how": "poll"
     }
   ],
   "requestsWaiting": [],
-  "ideas": [
-    {
-      "id": "atItYC2Q22WfwygX0mdP",
-      "theme": "Bollywood",
-      "by": "Shivangi Bhatt"
-    }
-  ],
+  "ideas": [],
   "existingSubjects": [
     "Strike a Pose (Madonna)",
     "Over the Millennia (World history)",
@@ -222,16 +202,16 @@
     "Where On Earth (Geography)",
     "Wild Things (Animals)"
   ],
-  "need": 0,
+  "need": 1,
   "games": {
     "hamps": {
       "game": "hamps",
       "roundsDir": "games/hamps/rounds",
-      "today": "2026-10-10",
-      "season": 2,
-      "queueCount": 5,
+      "today": "2026-10-11",
+      "season": 3,
+      "queueCount": 4,
       "target": 5,
-      "fill": 0,
+      "fill": 1,
       "queue": [
         {
           "id": "log-on",
@@ -264,42 +244,29 @@
           "onPollSince": "2026-10-08",
           "retired": false,
           "requestId": null
-        },
-        {
-          "id": "concrete-jungle",
-          "name": "Concrete Jungle",
-          "subject": "New York City",
-          "onPollSince": "2026-10-08",
-          "retired": false,
-          "requestId": null
         }
       ],
       "poll": {
-        "key": "2026-10-10",
-        "closes": "2026-10-11",
-        "decides": "2026-10-13",
+        "key": "2026-10-11",
+        "closes": "2026-10-13",
+        "decides": "2026-10-15",
         "options": [
           {
             "id": "high-seas"
-          },
-          {
-            "id": "req:mOsLg9vbWBExzBREvwyb",
-            "theme": "Musicals or movie soundtracks",
-            "by": "Shan Bates"
           }
         ]
       },
       "upcoming": [
         {
-          "day": "2026-10-11",
-          "id": "concrete-jungle",
-          "name": "Concrete Jungle",
-          "how": "poll"
-        },
-        {
           "day": "2026-10-13",
           "id": "req:mOsLg9vbWBExzBREvwyb",
           "name": null,
+          "how": "unwritten"
+        },
+        {
+          "day": "2026-10-15",
+          "id": "high-seas",
+          "name": "High Seas",
           "how": "leading"
         }
       ],
@@ -375,9 +342,22 @@
           "id": "prime-time",
           "name": "Prime Time",
           "how": "theme"
+        },
+        {
+          "day": "2026-10-11",
+          "id": "concrete-jungle",
+          "name": "Concrete Jungle",
+          "how": "poll"
         }
       ],
-      "requestsWaiting": [],
+      "requestsWaiting": [
+        {
+          "id": "hamps:mOsLg9vbWBExzBREvwyb",
+          "theme": "Musicals or movie soundtracks",
+          "by": "Shan Bates",
+          "dropDay": "2026-10-13"
+        }
+      ],
       "ideas": [
         {
           "id": "mOsLg9vbWBExzBREvwyb",
@@ -408,8 +388,8 @@
         "Say What (Words and language)",
         "Table for Twenty (Hamptons restaurants)"
       ],
-      "need": 0
+      "need": 2
     }
   },
-  "totalNeed": 0
+  "totalNeed": 3
 }
