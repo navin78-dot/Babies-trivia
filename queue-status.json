@@ -3,9 +3,9 @@
   "roundsDir": "rounds",
   "today": "2026-10-11",
   "season": 4,
-  "queueCount": 4,
+  "queueCount": 5,
   "target": 5,
-  "fill": 1,
+  "fill": 0,
   "queue": [
     {
       "id": "great-heists",
@@ -38,13 +38,25 @@
       "onPollSince": "2026-10-10",
       "retired": false,
       "requestId": null
+    },
+    {
+      "id": "terrible-lizards",
+      "name": "Terrible Lizards",
+      "subject": "Dinosaurs and prehistoric life",
+      "onPollSince": "2026-10-11",
+      "retired": false,
+      "requestId": null
     }
   ],
   "poll": {
     "key": "2026-10-11",
     "closes": "2026-10-13",
     "decides": "2026-10-15",
-    "options": []
+    "options": [
+      {
+        "id": "terrible-lizards"
+      }
+    ]
   },
   "upcoming": [
     {
@@ -55,9 +67,9 @@
     },
     {
       "day": "2026-10-15",
-      "id": "great-heists",
-      "name": "Great Heists and Cons",
-      "how": "queue"
+      "id": "terrible-lizards",
+      "name": "Terrible Lizards",
+      "how": "leading"
     }
   ],
   "dropped": [
@@ -195,6 +207,7 @@
     "Page Turners (Books and authors)",
     "Ripped From the Headlines (Current events, 2026)",
     "Summer Blockbusters (Big movies)",
+    "Terrible Lizards (Dinosaurs and prehistoric life)",
     "Thali Time (Indian food)",
     "Toon In (Animated films)",
     "Totally Famous (1990s celebrities)",
@@ -202,16 +215,16 @@
     "Where On Earth (Geography)",
     "Wild Things (Animals)"
   ],
-  "need": 1,
+  "need": 0,
   "games": {
     "hamps": {
       "game": "hamps",
       "roundsDir": "games/hamps/rounds",
       "today": "2026-10-11",
       "season": 3,
-      "queueCount": 4,
+      "queueCount": 6,
       "target": 5,
-      "fill": 1,
+      "fill": 0,
       "queue": [
         {
           "id": "log-on",
@@ -244,6 +257,22 @@
           "onPollSince": "2026-10-08",
           "retired": false,
           "requestId": null
+        },
+        {
+          "id": "cue-the-music",
+          "name": "Cue the Music",
+          "subject": "Movie musicals and soundtracks",
+          "onPollSince": null,
+          "retired": false,
+          "requestId": "hamps:mOsLg9vbWBExzBREvwyb"
+        },
+        {
+          "id": "grape-expectations",
+          "name": "Grape Expectations",
+          "subject": "Wine",
+          "onPollSince": "2026-10-11",
+          "retired": false,
+          "requestId": null
         }
       ],
       "poll": {
@@ -253,15 +282,18 @@
         "options": [
           {
             "id": "high-seas"
+          },
+          {
+            "id": "grape-expectations"
           }
         ]
       },
       "upcoming": [
         {
           "day": "2026-10-13",
-          "id": "req:mOsLg9vbWBExzBREvwyb",
-          "name": null,
-          "how": "unwritten"
+          "id": "cue-the-music",
+          "name": "Cue the Music",
+          "how": "theme"
         },
         {
           "day": "2026-10-15",
@@ -350,21 +382,8 @@
           "how": "poll"
         }
       ],
-      "requestsWaiting": [
-        {
-          "id": "hamps:mOsLg9vbWBExzBREvwyb",
-          "theme": "Musicals or movie soundtracks",
-          "by": "Shan Bates",
-          "dropDay": "2026-10-13"
-        }
-      ],
-      "ideas": [
-        {
-          "id": "mOsLg9vbWBExzBREvwyb",
-          "theme": "Musicals or movie soundtracks",
-          "by": "Shan Bates"
-        }
-      ],
+      "requestsWaiting": [],
+      "ideas": [],
       "existingSubjects": [
         "Art Attack (Art and artists)",
         "Binge Worthy (Television of the streaming age)",
@@ -372,11 +391,13 @@
         "Chart Toppers (Pop music)",
         "Concrete Jungle (New York City)",
         "Crowned Heads (Royals through history)",
+        "Cue the Music (Movie musicals and soundtracks)",
         "Dressed to Kill (Fashion)",
         "Out East (East Hampton and Montauk)",
         "Eureka (Science and the human body)",
         "Game On (Sport)",
         "Gods and Monsters (Mythology)",
+        "Grape Expectations (Wine)",
         "High Seas (Ships, sailing and the sea)",
         "Kitchen Confidential (Food and drink)",
         "Log On (Technology and the internet)",
@@ -388,8 +409,8 @@
         "Say What (Words and language)",
         "Table for Twenty (Hamptons restaurants)"
       ],
-      "need": 2
+      "need": 0
     }
   },
-  "totalNeed": 3
+  "totalNeed": 0
 }
