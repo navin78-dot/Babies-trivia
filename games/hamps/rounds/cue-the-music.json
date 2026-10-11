@@ -1,0 +1,107 @@
+{
+  "id": "cue-the-music",
+  "name": "Cue the Music",
+  "subject": "Movie musicals and soundtracks",
+  "requestId": "hamps:mOsLg9vbWBExzBREvwyb",
+  "tagline": "Eleven questions on songs that belong to a screen, from Rydell High to the envelope that went to the wrong film. A theme the crew voted for.",
+  "draft": true,
+  "emblem": "🎼",
+  "theme": {
+    "font": "Abril Fatface",
+    "accent": "#B91C1C",
+    "accent2": "#F59E0B",
+    "accentDark": "#F87171",
+    "accent2Dark": "#FCD34D"
+  },
+  "questions": [
+    {
+      "d": "easy",
+      "q": "Danny and Sandy, Rydell High and 'Summer Nights': which 1978 film musical?",
+      "o": ["Grease", "Hairspray", "Bye Bye Birdie", "Cry-Baby"],
+      "a": 0,
+      "w": "Grease, with John Travolta and Olivia Newton-John. For thirty years it was the highest-grossing movie musical ever made.",
+      "more": "Newton-John was 29 when she played a high-school senior, and Stockard Channing, as Rizzo, was 33. 'You're the One That I Want' and 'Hopelessly Devoted to You' were written for the film and were never in the stage show, which had started in a Chicago community theatre in 1971. The skin-tight black trousers of the finale had a broken zip, so Newton-John was sewn into them each morning."
+    },
+    {
+      "d": "easy",
+      "q": "'Nobody puts Baby in a corner.' Which 1987 film ends with that line and a lift to '(I've Had) The Time of My Life'?",
+      "o": ["Dirty Dancing", "Flashdance", "Footloose", "Ghost"],
+      "a": 0,
+      "w": "Dirty Dancing, with Patrick Swayze and Jennifer Grey at a Catskills resort in the summer of 1963. The song won the Oscar.",
+      "more": "A small studio made it for about six million dollars and it took more than two hundred million worldwide, then became the first film to sell a million copies on video. Swayze and Grey had fallen out while making Red Dawn and had to be talked into working together again. Grey had never rehearsed the final lift at full height; the take in the film is the first time she did it."
+    },
+    {
+      "d": "easy",
+      "q": "Whitney Houston's 'I Will Always Love You', from The Bodyguard, was written and first recorded in 1974 by whom?",
+      "o": ["Dolly Parton", "Carole King", "Linda Ronstadt", "Diana Ross"],
+      "a": 0,
+      "w": "Dolly Parton, who wrote it as a goodbye to her mentor Porter Wagoner when she left his television show to go solo.",
+      "more": "Elvis Presley wanted to record it, but his manager demanded half the publishing rights and Parton turned him down, a decision she says made her millions when Houston's version spent fourteen weeks at number one. It was Kevin Costner, her co-star, who suggested the song for the film. The Bodyguard soundtrack is still the best-selling soundtrack album of all time, with more than 45 million copies sold."
+    },
+    {
+      "d": "easy",
+      "q": "Survivor's 'Eye of the Tiger' was written at Sylvester Stallone's request for which 1982 film?",
+      "o": ["Rocky III", "Rocky", "Top Gun", "Over the Top"],
+      "a": 0,
+      "w": "Rocky III. Stallone had wanted Queen's 'Another One Bites the Dust' for the training scenes and could not get the rights.",
+      "more": "The band wrote it after watching a rough cut of the fight scenes, and it spent six weeks at number one and won a Grammy. It was nominated for the Oscar but lost to 'Up Where We Belong' from An Officer and a Gentleman. The film also gave the world Mr. T as Clubber Lang, two years before The A-Team."
+    },
+    {
+      "d": "easy",
+      "q": "'We Don't Talk About Bruno', a number one that was never even released as a single, comes from which 2021 Disney film about the Madrigal family of Colombia?",
+      "o": ["Encanto", "Coco", "Moana", "Luca"],
+      "a": 0,
+      "w": "Encanto. It was the first song from a Disney animated film to top the Billboard Hot 100 since 'A Whole New World' in 1993.",
+      "more": "Lin-Manuel Miranda wrote the songs, and the studio had already submitted a different one, 'Dos Oruguitas', for the Oscars before Bruno took off, so the biggest hit of the year was never in the running. The whole cast performed it at the ceremony anyway. The magical house, Casita, and the setting draw on Colombian magical realism in the tradition of Gabriel García Márquez."
+    },
+    {
+      "d": "medium",
+      "q": "At the 2017 Oscars, which musical was announced as Best Picture before the mistake was corrected and the award went to Moonlight?",
+      "o": ["La La Land", "The Greatest Showman", "Les Misérables", "A Star Is Born"],
+      "a": 0,
+      "w": "La La Land. Warren Beatty had been handed a duplicate of the Best Actress envelope, which Emma Stone had just won for the film, and Faye Dunaway read out the title on it.",
+      "more": "It still won six Oscars that night, including Best Director for Damien Chazelle, who at 32 became the youngest winner ever. Ryan Gosling spent months learning the piano so that every note he plays on screen is his own. The opening number was shot on a closed ramp between two Los Angeles freeways in a heatwave, with more than a hundred dancers."
+    },
+    {
+      "d": "medium",
+      "q": "Which German composer, who scored Gladiator, Inception, Interstellar and Dune, has been nominated for a dozen Oscars and won two?",
+      "o": ["Hans Zimmer", "Ennio Morricone", "Danny Elfman", "Howard Shore"],
+      "a": 0,
+      "w": "Hans Zimmer. His wins were for The Lion King in 1995 and Dune in 2022.",
+      "more": "He started out playing keyboards in 1980s pop bands and can be spotted in the Buggles' video for 'Video Killed the Radio Star'. The deep brass 'braam' he built for Inception was copied by movie trailers for a decade. He skipped the 2022 ceremony to play a concert in Amsterdam and was asleep in his hotel when the Dune award was announced."
+    },
+    {
+      "d": "medium",
+      "q": "The Bee Gees wrote 'Stayin' Alive', 'Night Fever' and 'How Deep Is Your Love' for which 1977 film?",
+      "o": ["Saturday Night Fever", "Xanadu", "Thank God It's Friday", "Can't Stop the Music"],
+      "a": 0,
+      "w": "Saturday Night Fever, which made John Travolta a film star at 23 and turned disco into a worldwide craze.",
+      "more": "The brothers wrote most of the songs in a few days at a château in France without having read the script. The soundtrack sold more than forty million copies and was the best-selling album of all time until Thriller. 'Stayin' Alive' runs at 103 beats a minute, almost exactly the rhythm recommended for CPR chest compressions, and first-aid instructors still teach it that way; the magazine article the film was based on was later admitted by its author to be largely invented."
+    },
+    {
+      "d": "hard",
+      "q": "Audrey Hepburn's singing in My Fair Lady, Natalie Wood's in West Side Story and Deborah Kerr's in The King and I were all dubbed by the same uncredited soprano. Who?",
+      "o": ["Marni Nixon", "Julie Andrews", "Barbra Streisand", "Doris Day"],
+      "a": 0,
+      "w": "Marni Nixon, Hollywood's 'ghostess with the mostest', who finally appeared on screen as one of the nuns in The Sound of Music.",
+      "more": "Hepburn recorded every song for My Fair Lady and was told only afterwards that nearly all of them would be replaced; she was then left off the Oscar shortlist while Julie Andrews, who had created Eliza on Broadway and lost the film role to her, won Best Actress that same year for Mary Poppins. Nixon was paid a flat fee for West Side Story and no royalties until Leonard Bernstein quietly gave her a share of his. Her son is the singer-songwriter Andrew Gold."
+    },
+    {
+      "d": "hard",
+      "type": "order",
+      "q": "Put these movie musicals in the order they were released, earliest first.",
+      "o": ["Cabaret", "Fame", "Moulin Rouge!", "The Greatest Showman"],
+      "w": "Cabaret (1972), Fame (1980), Moulin Rouge! (2001), The Greatest Showman (2017).",
+      "more": "Cabaret won eight Oscars, including Best Director for Bob Fosse and Best Actress for Liza Minnelli, and still lost Best Picture to The Godfather. Fame's title song won the Oscar for Irene Cara, who also sang it. Moulin Rouge! had Nicole Kidman and Ewan McGregor singing pop hits in 1899 Paris and brought the genre back from the dead, and The Greatest Showman's soundtrack was Britain's best-selling album of 2018 despite the film's lukewarm reviews."
+    },
+    {
+      "d": "hard",
+      "type": "select",
+      "q": "Which of these songs won the Oscar for Best Original Song? Select all that apply.",
+      "o": ["'Shallow', from A Star Is Born", "'Skyfall', from Skyfall", "'Lose Yourself', from 8 Mile", "'Footloose', from Footloose", "'Ghostbusters', from Ghostbusters", "'Danger Zone', from Top Gun"],
+      "a": [0, 1, 2],
+      "w": "'Shallow' (2019), 'Skyfall' (2013) and 'Lose Yourself' (2003) all won. 'Footloose' and 'Ghostbusters' were nominated and lost, and 'Danger Zone' was never nominated; the Top Gun song that won that year was 'Take My Breath Away'.",
+      "more": "'Lose Yourself' was the first hip-hop song to win, and Eminem, convinced he had no chance, was asleep at home in Detroit when it did; he finally performed it at the ceremony seventeen years later. 'Skyfall' was the first James Bond theme to win, after fifty years of trying. 'Footloose' and 'Ghostbusters' lost on the same night in 1985, both to Stevie Wonder's 'I Just Called to Say I Love You'."
+    }
+  ]
+}

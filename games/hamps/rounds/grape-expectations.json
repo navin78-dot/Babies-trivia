@@ -1,0 +1,106 @@
+{
+  "id": "grape-expectations",
+  "name": "Grape Expectations",
+  "subject": "Wine",
+  "tagline": "Eleven questions on what's in the glass, from why rosé is pink to the film that ruined Merlot's reputation. Starts easy, ends hard.",
+  "draft": true,
+  "emblem": "🍇",
+  "theme": {
+    "font": "Marcellus",
+    "accent": "#9F1239",
+    "accent2": "#CA8A04",
+    "accentDark": "#FB7185",
+    "accent2Dark": "#FACC15"
+  },
+  "questions": [
+    {
+      "d": "easy",
+      "q": "Which Italian sparkling wine, made from the Glera grape in the hills north of Venice, now outsells Champagne?",
+      "o": ["Prosecco", "Cava", "Lambrusco", "Asti"],
+      "a": 0,
+      "w": "Prosecco. Unlike Champagne it gets its bubbles in big pressurised tanks rather than inside the bottle, which keeps it cheap and fruity.",
+      "more": "Its heartland between the towns of Conegliano and Valdobbiadene became a UNESCO World Heritage site in 2019. Sales took off around the world on the back of the Aperol spritz. To protect the name, the Italians renamed the grape itself from Prosecco to Glera in 2009 so that 'Prosecco' could be registered as a place rather than a variety anyone could grow."
+    },
+    {
+      "d": "easy",
+      "q": "What gives rosé wine its pink colour?",
+      "o": ["A few hours' contact with the skins of red grapes", "Mixing red and white wine", "A naturally pink grape", "A splash of grape juice added at bottling"],
+      "a": 0,
+      "w": "Red grapes have pale juice; the colour is in the skins. A rosé gets a few hours of skin contact before the juice is drained off, against days or weeks for a red.",
+      "more": "Blending red and white is banned for still wine in the European Union, with Champagne the one exception. Provence makes most of France's rosé, and its very pale style became the summer default everywhere. Closer to home, Wölffer Estate in Sagaponack sells its Summer in a Bottle rosé by the truckload every June."
+    },
+    {
+      "d": "easy",
+      "q": "Malbec, a grape that struggled in its native south-west France, became the signature red of which country?",
+      "o": ["Argentina", "Chile", "South Africa", "Australia"],
+      "a": 0,
+      "w": "Argentina, above all in the high-altitude vineyards around Mendoza in the foothills of the Andes.",
+      "more": "A French agronomist brought the cuttings over in 1853, and Malbec World Day on 17 April marks the date. In France it survives mainly in Cahors, whose inky wine was known for centuries as the black wine. Mendoza's vineyards sit around a thousand metres up, where cold nights keep the grapes fresh and the thin air deepens their colour."
+    },
+    {
+      "d": "easy",
+      "q": "Which of these grapes makes white wine?",
+      "o": ["Chardonnay", "Merlot", "Sangiovese", "Cabernet Sauvignon"],
+      "a": 0,
+      "w": "Chardonnay, the grape of Chablis, white Burgundy and much of Champagne. The other three are red.",
+      "more": "It is the most widely planted white grape in the world, and its taste depends more on the winemaker than almost any other: buttery and oaky in California, lean and flinty in Chablis. A 1990s backlash gave rise to the slogan 'anything but Chardonnay'. A Champagne labelled blanc de blancs is made from Chardonnay alone."
+    },
+    {
+      "d": "easy",
+      "q": "How much wine does a magnum hold?",
+      "o": ["1.5 litres, two standard bottles", "1 litre", "3 litres, four standard bottles", "750 millilitres, in a heavier bottle"],
+      "a": 0,
+      "w": "1.5 litres. A standard bottle is 750 millilitres, so a magnum is two bottles' worth.",
+      "more": "Bigger formats carry biblical names in Champagne: a Jeroboam holds four bottles, a Methuselah eight and a Nebuchadnezzar twenty. Wine ages more slowly in a magnum because there is less air per litre under the cork, which is why collectors pay a premium for them. One story credits the 750 ml standard to the lung capacity of eighteenth-century glassblowers; a duller one says it was simply a fifth of an imperial gallon."
+    },
+    {
+      "d": "medium",
+      "q": "Beaujolais Nouveau, rushed into shops on the third Thursday of November only weeks after the harvest, is made from which grape?",
+      "o": ["Gamay", "Pinot Noir", "Cabernet Franc", "Cinsault"],
+      "a": 0,
+      "w": "Gamay. The grapes are fermented whole in a technique called carbonic maceration, which gives the wine its banana and bubblegum flavours.",
+      "more": "The release date was fixed by law in 1985, and in the 1970s and 80s the merchant Georges Duboeuf turned it into a worldwide race, with cases flown to Tokyo and New York to be opened at midnight. The fashion faded as drinkers tired of thin wine at inflated prices. The serious Beaujolais villages, such as Morgon and Fleurie, have since won the region back some respect."
+    },
+    {
+      "d": "medium",
+      "q": "A wine that is 'corked' has been tainted by a compound called TCA. What does it smell of?",
+      "o": ["Damp cardboard", "Vinegar", "Rotten eggs", "Nail-polish remover"],
+      "a": 0,
+      "w": "Damp cardboard, wet dog or a musty cellar. It comes from mould in the cork reacting with chlorine, and the human nose can detect it at a few parts per trillion.",
+      "more": "Estimates of how many natural-cork bottles are affected range from one to five in a hundred, which is why Australia and New Zealand switched almost entirely to screw caps. Vinegar smells mean acetic acid, rotten eggs mean hydrogen sulphide from a struggling fermentation, and the nail-polish note is ethyl acetate; none of them is what a sommelier means by corked. Bits of cork floating in the glass are harmless and nothing to do with it."
+    },
+    {
+      "d": "medium",
+      "q": "Which French wine region's reds are divided into a Left Bank led by Cabernet Sauvignon and a Right Bank led by Merlot?",
+      "o": ["Bordeaux", "Burgundy", "The Rhône", "The Loire"],
+      "a": 0,
+      "w": "Bordeaux. The banks are those of the Gironde estuary and its rivers: the Médoc and Graves on the left, Saint-Émilion and Pomerol on the right.",
+      "more": "The 1855 classification, drawn up for Napoleon III's Paris exhibition, ranked the left-bank châteaux into five growths and has changed only once since, when Mouton Rothschild was promoted to the first rank in 1973. The most expensive Bordeaux of all, Pétrus, is a right-bank wine made almost entirely from Merlot. The region makes more fine wine than anywhere else on earth, around 700 million bottles a year."
+    },
+    {
+      "d": "hard",
+      "q": "Sales of which wine slumped in America after the 2004 film Sideways, in which Paul Giamatti's character refuses to drink it?",
+      "o": ["Merlot", "Chardonnay", "Zinfandel", "Cabernet Sauvignon"],
+      "a": 0,
+      "w": "Merlot. 'I am not drinking any Merlot!' he shouts, and its sales dipped while Pinot Noir, which he rhapsodises about, jumped.",
+      "more": "Economists later measured the Sideways effect at a few per cent off Merlot's growth and a double-digit boost for Pinot Noir. The joke is that the treasured bottle Miles finally drinks from a paper cup in a burger bar, a 1961 Cheval Blanc, is made mostly of Merlot and Cabernet Franc. The film was shot in the Santa Ynez Valley north of Santa Barbara, whose tasting rooms still trade on it."
+    },
+    {
+      "d": "hard",
+      "q": "Roughly how much pressure is inside a bottle of Champagne?",
+      "o": ["About six atmospheres, two or three times a car tyre", "About the same as a car tyre", "About twenty atmospheres, like a scuba tank", "Barely above the air outside"],
+      "a": 0,
+      "w": "Five to six atmospheres, built up by a second fermentation inside the sealed bottle. That is why the cork is wired down, and why it can leave the bottle at around 40 kilometres an hour.",
+      "more": "The monk Dom Pérignon did not invent sparkling wine and spent much of his career trying to stop his wine fizzing. An English scientist, Christopher Merret, described adding sugar to make wine sparkle in a paper of 1662, decades before the Champagne houses took it up. The dead yeast from the second fermentation is worked down into the neck by turning the bottles a little each day, a process Madame Clicquot's cellars perfected, then frozen into a plug and shot out before the final cork goes in."
+    },
+    {
+      "d": "hard",
+      "type": "select",
+      "q": "Which of these grapes are red? Select all that apply.",
+      "o": ["Syrah", "Riesling", "Grenache", "Viognier", "Nebbiolo", "Gewürztraminer"],
+      "a": [0, 2, 4],
+      "w": "Syrah, Grenache and Nebbiolo are red. Riesling, Viognier and Gewürztraminer are white.",
+      "more": "Syrah is the same grape Australians call Shiraz. Grenache, or Garnacha in Spain, is the backbone of Châteauneuf-du-Pape and of most Provence rosé. Nebbiolo makes Barolo and Barbaresco in Piedmont and is named for the autumn fog, nebbia, that rolls over the vines at harvest; Riesling is Germany's great grape and the one wine professionals most often say they drink at home."
+    }
+  ]
+}

@@ -1,0 +1,106 @@
+{
+  "id": "terrible-lizards",
+  "name": "Terrible Lizards",
+  "subject": "Dinosaurs and prehistoric life",
+  "tagline": "Eleven questions on the animals that ran the planet for 160 million years, from the tyrant king to the turkey-sized truth about raptors. Starts easy, ends hard.",
+  "draft": true,
+  "emblem": "🦖",
+  "theme": {
+    "font": "Titan One",
+    "accent": "#16A34A",
+    "accent2": "#D97706",
+    "accentDark": "#4ADE80",
+    "accent2Dark": "#FBBF24"
+  },
+  "questions": [
+    {
+      "d": "easy",
+      "q": "What does the word 'dinosaur', coined by the British anatomist Richard Owen in 1842, mean?",
+      "o": ["Terrible lizard", "Thunder beast", "Ancient dragon", "Giant reptile"],
+      "a": 0,
+      "w": "Terrible lizard, from the Greek deinos and sauros, although Owen meant 'fearfully great' rather than nasty, and dinosaurs were not lizards at all.",
+      "more": "Owen went on to found London's Natural History Museum. The first life-size dinosaur models, built in the grounds of the Crystal Palace in 1854, were so wrong that the Iguanodon's thumb spike sits on its nose, and the sculptors held a New Year's Eve dinner for twenty-one guests inside the mould of it. Dinosaurs' closest living relatives are crocodiles and, of course, birds."
+    },
+    {
+      "d": "easy",
+      "q": "Which dinosaur, whose name means 'tyrant lizard king', had a bite of several tonnes but arms barely a metre long?",
+      "o": ["Tyrannosaurus rex", "Allosaurus", "Spinosaurus", "Giganotosaurus"],
+      "a": 0,
+      "w": "Tyrannosaurus rex, which lived in western North America in the last two million years before the dinosaurs died out.",
+      "more": "An adult was about twelve metres long and weighed as much as eight tonnes, with teeth the size of bananas. The most complete skeleton, Sue, was dug up in South Dakota in 1990 and sold at auction for 8.4 million dollars to the Field Museum in Chicago; another, Stan, fetched 31.8 million in 2020. Nobody is sure what the tiny arms were for, though they were strong enough to lift a couple of hundred kilograms."
+    },
+    {
+      "d": "easy",
+      "q": "True or false: birds are living dinosaurs.",
+      "o": ["True", "False"],
+      "a": 0,
+      "w": "True. Birds descend from small feathered meat-eaters in the same group as T. rex, so the dinosaurs never entirely died out.",
+      "more": "The link was spotted early: Archaeopteryx, a crow-sized animal with feathers, teeth and a bony tail, turned up in a Bavarian quarry in 1861, two years after Darwin's Origin of Species. For a century the idea was out of fashion until fossils of feathered dinosaurs began pouring out of China in the 1990s. A pigeon on a window ledge is a closer relative of T. rex than a crocodile is."
+    },
+    {
+      "d": "easy",
+      "q": "An asteroid strike about 66 million years ago wiped out the non-bird dinosaurs. Where is the crater?",
+      "o": ["Under Mexico's Yucatán Peninsula", "In the Australian outback", "Under the Sahara", "On the seabed off Japan"],
+      "a": 0,
+      "w": "Under the Yucatán, half on land and half under the Gulf of Mexico. It is named Chicxulub after the nearest village and is about 180 kilometres across.",
+      "more": "The rock that made it was roughly ten kilometres wide. Oil-company geologists found the buried crater in the late 1970s but nobody connected it to the dinosaurs until 1980, when the physicist Luis Alvarez and his geologist son Walter found a worldwide layer of iridium, an element rare on earth but common in asteroids, exactly at the boundary. Around three quarters of all species on the planet vanished, and the survivors included the small furry ancestors of every mammal alive today."
+    },
+    {
+      "d": "easy",
+      "q": "Which three-horned, frilled plant-eater was among the very last dinosaurs and a favourite prey of T. rex?",
+      "o": ["Triceratops", "Stegosaurus", "Ankylosaurus", "Styracosaurus"],
+      "a": 0,
+      "w": "Triceratops, whose name means 'three-horned face'. Bones have been found with healed T. rex bite marks, so some of them got away.",
+      "more": "It was named in 1889 by Othniel Marsh, who at first thought the horns belonged to a giant bison. An adult was the size of an elephant, with a skull up to two and a half metres long, one of the largest of any land animal. Palaeontologists argued for years over whether Torosaurus, with its bigger frill, was a separate animal or just a fully grown Triceratops."
+    },
+    {
+      "d": "medium",
+      "q": "The Velociraptor of Jurassic Park is far bigger than the real animal. The real one was about the size of a what?",
+      "o": ["A turkey", "A horse", "A lion", "A crocodile"],
+      "a": 0,
+      "w": "A turkey: about half a metre tall at the hip and fifteen kilograms, with feathers. The film's raptors were modelled on a bigger American cousin, Deinonychus.",
+      "more": "Velociraptor lived in the deserts of Mongolia around 75 million years ago, and one famous fossil preserves it locked in combat with a Protoceratops, both buried mid-fight by a collapsing dune. Bumps on a Velociraptor arm bone found in 2007 are the anchor points for large feathers. By a coincidence the film-makers enjoyed, a raptor as big as the movie's, Utahraptor, was described just as the film came out in 1993."
+    },
+    {
+      "d": "medium",
+      "type": "order",
+      "q": "Put these geological periods in order, earliest first.",
+      "o": ["Permian", "Triassic", "Jurassic", "Cretaceous"],
+      "w": "Permian, then Triassic, Jurassic and Cretaceous. The dinosaurs appeared in the Triassic, about 230 million years ago, and died out at the end of the Cretaceous.",
+      "more": "The Permian ended 252 million years ago with the Great Dying, the worst extinction ever, which cleared the way for the dinosaurs. Their reign lasted so long that Stegosaurus, from the late Jurassic, was further back in time from T. rex than T. rex is from us. The Jurassic got its name from the Jura mountains between France and Switzerland, where rocks of that age were first studied."
+    },
+    {
+      "d": "medium",
+      "q": "Which long-necked dinosaur's name was thrown out by scientists in 1903 as a duplicate, then brought back in 2015 after a fresh study of the bones?",
+      "o": ["Brontosaurus", "Diplodocus", "Brachiosaurus", "Apatosaurus"],
+      "a": 0,
+      "w": "Brontosaurus, the 'thunder lizard'. Scientists decided it was the same animal as Apatosaurus, named two years earlier, so the older name won, until a 2015 analysis found enough differences to split them again.",
+      "more": "The name never left the public's mind, partly because the American Museum of Natural History in New York kept the label on its famous skeleton for decades, and partly because of a US postage stamp. That skeleton also wore the wrong head for most of a century, a Camarasaurus skull, until it was corrected in the 1990s. The long-necked sauropods were the largest animals ever to walk on land, with Argentinosaurus perhaps reaching 35 metres."
+    },
+    {
+      "d": "hard",
+      "q": "Mary Anning, who found the first complete ichthyosaur and plesiosaur skeletons as a young woman in the early 1800s, worked the cliffs of which English seaside town?",
+      "o": ["Lyme Regis, in Dorset", "Whitby, in Yorkshire", "Brighton, in Sussex", "Scarborough, in Yorkshire"],
+      "a": 0,
+      "w": "Lyme Regis, on what is now called the Jurassic Coast. She was twelve when she and her brother dug out the first ichthyosaur.",
+      "more": "She sold fossils to the gentlemen scientists of the day, who published her finds under their own names, and as a woman she was barred from the Geological Society for her whole life. Her plesiosaur was so strange that the great French anatomist Georges Cuvier at first called it a fake. The tongue-twister 'she sells seashells on the seashore' is often said to be about her, though nobody has proved it."
+    },
+    {
+      "d": "hard",
+      "q": "The Bone Wars of the late 1800s were a bitter race to name new dinosaurs between which two American fossil hunters?",
+      "o": ["Marsh and Cope", "Leidy and Hatcher", "Osborn and Brown", "Lyell and Owen"],
+      "a": 0,
+      "w": "Othniel Charles Marsh of Yale and Edward Drinker Cope of Philadelphia, who between them named more than 130 species, including Triceratops, Stegosaurus, Diplodocus and Allosaurus.",
+      "more": "They began as friends and fell out after Cope mounted a marine reptile with its head on the end of its tail and Marsh pointed it out. Over the next twenty years their crews bribed each other's diggers, spied, stole fossils and dynamited sites to keep rivals away from them. Both died almost broke, but the haul they fought over filled the great museums and gave the public its first picture of the dinosaur age."
+    },
+    {
+      "d": "hard",
+      "type": "select",
+      "q": "Which of these were dinosaurs? Select all that apply.",
+      "o": ["Stegosaurus", "Pterodactyl", "Plesiosaur", "Iguanodon", "Dimetrodon", "Diplodocus"],
+      "a": [0, 3, 5],
+      "w": "Stegosaurus, Iguanodon and Diplodocus. Pterodactyls were flying reptiles and plesiosaurs swimming ones, both cousins rather than dinosaurs, and Dimetrodon, the sail-backed one, lived 40 million years before the first dinosaur and is more closely related to you.",
+      "more": "Dinosaurs are defined by details of the hips and legs that let them stand upright with their legs beneath them, which none of the flyers or swimmers had. Iguanodon was only the second dinosaur ever named, in 1825, and the thumb spike that the Victorians put on its nose was its weapon. Apex, the most complete Stegosaurus ever found, sold in 2024 for 44.6 million dollars, the most ever paid for a fossil, and its buyer lent it to the American Museum of Natural History in New York."
+    }
+  ]
+}
