@@ -1,7 +1,7 @@
 {
   "game": "babies",
   "roundsDir": "rounds",
-  "today": "2026-10-11",
+  "today": "2026-10-12",
   "season": 4,
   "queueCount": 5,
   "target": 5,
@@ -55,6 +55,16 @@
     "options": [
       {
         "id": "terrible-lizards"
+      },
+      {
+        "id": "req:1IVTVtrtX9uLp8CAZVo3",
+        "theme": "American foods",
+        "by": "Joanna Kuppy"
+      },
+      {
+        "id": "req:Ukj1y99mZZfSnQ0KIEP2",
+        "theme": "Taylor swift trivia",
+        "by": "Navin Katyal"
       }
     ]
   },
@@ -67,8 +77,8 @@
     },
     {
       "day": "2026-10-15",
-      "id": "terrible-lizards",
-      "name": "Terrible Lizards",
+      "id": "req:1IVTVtrtX9uLp8CAZVo3",
+      "name": null,
       "how": "leading"
     }
   ],
@@ -177,7 +187,18 @@
     }
   ],
   "requestsWaiting": [],
-  "ideas": [],
+  "ideas": [
+    {
+      "id": "1IVTVtrtX9uLp8CAZVo3",
+      "theme": "American foods",
+      "by": "Joanna Kuppy"
+    },
+    {
+      "id": "Ukj1y99mZZfSnQ0KIEP2",
+      "theme": "Taylor swift trivia",
+      "by": "Navin Katyal"
+    }
+  ],
   "existingSubjects": [
     "Strike a Pose (Madonna)",
     "Over the Millennia (World history)",
@@ -220,7 +241,7 @@
     "hamps": {
       "game": "hamps",
       "roundsDir": "games/hamps/rounds",
-      "today": "2026-10-11",
+      "today": "2026-10-12",
       "season": 3,
       "queueCount": 6,
       "target": 5,
@@ -285,6 +306,11 @@
           },
           {
             "id": "grape-expectations"
+          },
+          {
+            "id": "req:yNyX0f3tOOYNys4N6QoQ",
+            "theme": "Planets",
+            "by": "Ketan Mehta"
           }
         ]
       },
@@ -297,8 +323,8 @@
         },
         {
           "day": "2026-10-15",
-          "id": "high-seas",
-          "name": "High Seas",
+          "id": "req:yNyX0f3tOOYNys4N6QoQ",
+          "name": null,
           "how": "leading"
         }
       ],
@@ -383,7 +409,13 @@
         }
       ],
       "requestsWaiting": [],
-      "ideas": [],
+      "ideas": [
+        {
+          "id": "yNyX0f3tOOYNys4N6QoQ",
+          "theme": "Planets",
+          "by": "Ketan Mehta"
+        }
+      ],
       "existingSubjects": [
         "Art Attack (Art and artists)",
         "Binge Worthy (Television of the streaming age)",
