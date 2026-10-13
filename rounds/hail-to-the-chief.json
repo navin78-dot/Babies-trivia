@@ -1,0 +1,106 @@
+{
+  "id": "hail-to-the-chief",
+  "name": "Hail to the Chief",
+  "subject": "US presidents",
+  "tagline": "Eleven questions on the people who have held the top job, from the faces on the mountain to the man who lasted a month. Starts easy, ends hard.",
+  "draft": true,
+  "emblem": "🎩",
+  "theme": {
+    "font": "Rozha One",
+    "accent": "#1D4ED8",
+    "accent2": "#B91C1C",
+    "accentDark": "#60A5FA",
+    "accent2Dark": "#F87171"
+  },
+  "questions": [
+    {
+      "d": "easy",
+      "q": "Mount Rushmore shows four presidents: Washington, Jefferson, Lincoln and who?",
+      "o": ["Theodore Roosevelt", "Franklin D. Roosevelt", "Andrew Jackson", "Ulysses S. Grant"],
+      "a": 0,
+      "w": "Theodore Roosevelt, chosen for building the Panama Canal and for the national parks. The sculptor Gutzon Borglum carved the four between 1927 and 1941.",
+      "more": "The faces were meant to go down to the waist, but the money ran out when Borglum died. Jefferson was first carved on Washington's right, until the rock there proved too cracked; the half-finished face was blasted off and started again on the left. The Black Hills are sacred to the Lakota, who were promised them by treaty in 1868, and the monument remains contested ground."
+    },
+    {
+      "d": "easy",
+      "q": "Which president was shot by the actor John Wilkes Booth at Ford's Theatre in April 1865, days after the Civil War ended?",
+      "o": ["Abraham Lincoln", "Andrew Johnson", "James Garfield", "Ulysses S. Grant"],
+      "a": 0,
+      "w": "Abraham Lincoln, who was watching a comedy called Our American Cousin and died the next morning in a boarding house across the street.",
+      "more": "Booth was one of the most famous actors in the country, which is how he walked into the presidential box unchallenged. Lincoln's son Robert was in Washington that night and declined an invitation to the play; he went on to be close by when Garfield was shot in 1881 and when McKinley was shot in 1901, and afterwards refused presidential invitations. Lincoln was the first president to be assassinated, and his stovepipe hat from that night is in the Smithsonian."
+    },
+    {
+      "d": "easy",
+      "q": "Who is the only president to have served more than two terms, winning four elections between 1932 and 1944?",
+      "o": ["Franklin D. Roosevelt", "Theodore Roosevelt", "Woodrow Wilson", "Dwight D. Eisenhower"],
+      "a": 0,
+      "w": "Franklin D. Roosevelt, who led the country through the Depression and most of the Second World War and died in office in April 1945.",
+      "more": "Washington had set a two-term custom that nobody broke until Roosevelt, and the 22nd Amendment made the limit law in 1951. He had been paralysed from the waist down by polio since 1921 and went to great lengths to hide it, with the press agreeing not to photograph him in his wheelchair. His radio 'fireside chats' drew audiences that television presidents would envy."
+    },
+    {
+      "d": "easy",
+      "q": "Which president resigned in 1974 over the Watergate scandal?",
+      "o": ["Richard Nixon", "Lyndon B. Johnson", "Gerald Ford", "Jimmy Carter"],
+      "a": 0,
+      "w": "Richard Nixon, the only president ever to resign. The scandal began with a burglary at the Democratic Party's offices in the Watergate complex in June 1972.",
+      "more": "What sank him was not the break-in but the cover-up, and the secret White House tapes that proved it; the Supreme Court ordered them released and he was gone within weeks. His successor Gerald Ford pardoned him a month later, which probably cost Ford the 1976 election. The source known as Deep Throat was revealed in 2005 to have been the FBI's deputy director, Mark Felt, and every scandal since has had '-gate' stuck on the end of it."
+    },
+    {
+      "d": "easy",
+      "q": "Which president had been a Hollywood actor, appearing in more than fifty films before he went into politics?",
+      "o": ["Ronald Reagan", "George H. W. Bush", "Gerald Ford", "Jimmy Carter"],
+      "a": 0,
+      "w": "Ronald Reagan, whose films included Bedtime for Bonzo, opposite a chimpanzee. He was governor of California for eight years before winning the presidency in 1980.",
+      "more": "He was shot outside a Washington hotel ten weeks into his first term and joked to his wife from the stretcher, 'Honey, I forgot to duck'. He kept a jar of jelly beans on the desk in the Oval Office and once flew three and a half tons of them to his inauguration. At 69 he was the oldest person elected president, a record since broken twice."
+    },
+    {
+      "d": "medium",
+      "q": "Who was the youngest person ever elected president, at 43, in 1960?",
+      "o": ["John F. Kennedy", "Theodore Roosevelt", "Bill Clinton", "Barack Obama"],
+      "a": 0,
+      "w": "John F. Kennedy. Theodore Roosevelt was younger, at 42, when he took over after McKinley's assassination, but he was not elected to the job until later.",
+      "more": "Kennedy was the first Catholic president and won by one of the narrowest margins in history after the first televised debates, in which radio listeners thought Nixon had won and viewers thought the opposite. He was assassinated in Dallas in November 1963, less than three years into his term. Bill Clinton, at 46, is the third youngest to take office."
+    },
+    {
+      "d": "medium",
+      "q": "Which president served two non-consecutive terms in the 1800s, which is why he counts as both the 22nd and the 24th president?",
+      "o": ["Grover Cleveland", "Benjamin Harrison", "William McKinley", "Chester A. Arthur"],
+      "a": 0,
+      "w": "Grover Cleveland, who won in 1884, lost in 1888 despite winning the popular vote, and came back to win in 1892.",
+      "more": "He was the only president to do it until Donald Trump returned to office in 2025 as the 47th president after serving as the 45th. Cleveland married 21-year-old Frances Folsom in the White House in 1886, the only president to wed there, and she remains the youngest First Lady. The Baby Ruth candy bar was supposedly named after their daughter, though most people assume it honours the baseball player."
+    },
+    {
+      "d": "medium",
+      "q": "Who is the only person to have become president without ever being elected president or vice-president?",
+      "o": ["Gerald Ford", "Lyndon B. Johnson", "Harry S. Truman", "Chester A. Arthur"],
+      "a": 0,
+      "w": "Gerald Ford. Nixon appointed him vice-president in 1973 after Spiro Agnew resigned, and he moved up when Nixon resigned the following summer.",
+      "more": "He had been a star centre on the University of Michigan football team and turned down offers from the Lions and the Packers to go to law school. Within seventeen days in September 1975 he survived two assassination attempts in California, both by women. He lived to 93, longer than any other president until Jimmy Carter passed him."
+    },
+    {
+      "d": "hard",
+      "q": "Which president died after only 31 days in office in 1841, the shortest term in history?",
+      "o": ["William Henry Harrison", "Zachary Taylor", "James Garfield", "Warren G. Harding"],
+      "a": 0,
+      "w": "William Henry Harrison, who gave a two-hour inaugural address in the cold without a coat and was dead a month later.",
+      "more": "The pneumonia story has been retold for nearly two centuries, but a 2014 study of his symptoms points to typhoid from the White House water supply, which sat downstream of a marsh where the city dumped its sewage. He had won on the slogan 'Tippecanoe and Tyler Too', and his death handed the job to John Tyler, the first vice-president to take over. His grandson Benjamin Harrison became president in 1889."
+    },
+    {
+      "d": "hard",
+      "type": "order",
+      "q": "Put these presidents in the order they served, earliest first.",
+      "o": ["James Monroe", "Ulysses S. Grant", "Woodrow Wilson", "Dwight D. Eisenhower"],
+      "w": "Monroe (1817 to 1825), Grant (1869 to 1877), Wilson (1913 to 1921), Eisenhower (1953 to 1961).",
+      "more": "Monroe's name lives on in the Monroe Doctrine, which warned Europe off the Americas in 1823, and in Monrovia, the capital of Liberia. Grant commanded the Union army before his presidency and is the face on the fifty-dollar bill. Wilson took the country into the First World War and then failed to get Congress to join the League of Nations he had designed, and Eisenhower commanded the D-Day landings before he was president and built the interstate highway system after he became one."
+    },
+    {
+      "d": "hard",
+      "type": "select",
+      "q": "Which of these presidents died in office? Select all that apply.",
+      "o": ["James Garfield", "William McKinley", "Warren G. Harding", "Zachary Taylor", "Woodrow Wilson", "James K. Polk"],
+      "a": [0, 1, 2, 3],
+      "w": "Garfield and McKinley were assassinated, Harding died of a heart attack in a San Francisco hotel in 1923, and Taylor died in 1850 after a Fourth of July of cherries and iced milk. Wilson had a massive stroke in office but survived it, and Polk died three months after leaving office.",
+      "more": "Garfield was shot in July 1881 and lingered for eleven weeks while doctors probed the wound with unwashed fingers; Alexander Graham Bell tried to find the bullet with a metal detector of his own design, but the bed's metal springs confused it. Wilson's wife Edith hid the extent of his stroke and ran the White House for the last year and a half of his term. Taylor's body was exhumed in 1991 to test a theory that he had been poisoned with arsenic, and he had not."
+    }
+  ]
+}

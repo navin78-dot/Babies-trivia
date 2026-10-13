@@ -1,0 +1,107 @@
+{
+  "id": "free-refill",
+  "name": "Land of the Free Refill",
+  "subject": "American foods",
+  "requestId": "1IVTVtrtX9uLp8CAZVo3",
+  "tagline": "Eleven questions on the food America gave the world, or just gave itself, from Buffalo to the TV tray. A theme the group voted for.",
+  "draft": true,
+  "emblem": "🍔",
+  "theme": {
+    "font": "Carter One",
+    "accent": "#DC2626",
+    "accent2": "#2563EB",
+    "accentDark": "#F87171",
+    "accent2Dark": "#60A5FA"
+  },
+  "questions": [
+    {
+      "d": "easy",
+      "q": "Buffalo wings, deep-fried and tossed in hot sauce and butter, were invented in 1964 at the Anchor Bar in which city?",
+      "o": ["Buffalo, New York", "Chicago", "Nashville", "Kansas City"],
+      "a": 0,
+      "w": "Buffalo, where Teressa Bellissimo is said to have fried up some wings as a late-night snack for her son and his friends, with celery and blue cheese on the side because that was what the kitchen had.",
+      "more": "Wings had been the cheapest part of the chicken, destined for stock, until the Anchor Bar made them a dish. Frank's RedHot became the sauce of record, and Americans now eat well over a billion wings on Super Bowl Sunday alone. Buffalo also gave the world beef on weck, which has never travelled as well."
+    },
+    {
+      "d": "easy",
+      "q": "The Big Mac, two all-beef patties and special sauce on a three-part bun, was introduced in 1967 by which chain?",
+      "o": ["McDonald's", "Burger King", "Wendy's", "White Castle"],
+      "a": 0,
+      "w": "McDonald's. A franchisee in Uniontown, Pennsylvania, named Jim Delligatti invented it to compete with a rival's double-decker, and it went nationwide the following year.",
+      "more": "Delligatti was paid nothing for the idea beyond a plaque, and later said he was happy with the franchises it helped him buy. The Economist has published a Big Mac Index since 1986, using the burger's price in each country as a rough guide to whether its currency is overvalued. White Castle, founded in Kansas in 1921 and selling five-cent sliders by the sack, was America's first fast-food burger chain, decades before the golden arches."
+    },
+    {
+      "d": "easy",
+      "q": "The classic Thanksgiving dessert is a pie made from which vegetable?",
+      "o": ["Pumpkin", "Sweet potato", "Carrot", "Rhubarb"],
+      "a": 0,
+      "w": "Pumpkin, usually from a can. Libby's, which makes most of America's canned pumpkin, actually uses a pale, tan-skinned squash called the Dickinson that looks nothing like a jack-o'-lantern.",
+      "more": "The 1621 harvest meal at Plymouth that the holiday remembers almost certainly had no pie, since the colonists had no ovens and little sugar; the menu was closer to venison and wildfowl. Thanksgiving became a national holiday in 1863, when Abraham Lincoln proclaimed it after a decades-long letter campaign by the magazine editor Sarah Josepha Hale, who also wrote 'Mary Had a Little Lamb'. Sweet potato pie is the traditional rival in the South."
+    },
+    {
+      "d": "easy",
+      "q": "Pat's and Geno's, rival stands on one corner of South Philadelphia, sell which sandwich 'wit' or 'witout' onions?",
+      "o": ["The cheesesteak", "The hoagie", "The Reuben", "The po' boy"],
+      "a": 0,
+      "w": "The cheesesteak: thinly sliced ribeye griddled with onions and melted cheese on a long roll. 'Wit' means with onions, and the cheese is Cheez Whiz, provolone or American.",
+      "more": "Pat Olivieri was a hot-dog vendor who grilled some beef for his own lunch in 1930 and sold it to a passing cab driver instead. Geno's opened across the street in 1966, and the two have traded customers and insults at all hours since. Cheez Whiz only arrived in 1952, so the original was eaten with no cheese at all."
+    },
+    {
+      "d": "easy",
+      "q": "A s'more is a toasted marshmallow and a square of chocolate sandwiched between two of what?",
+      "o": ["Graham crackers", "Digestive biscuits", "Saltines", "Waffles"],
+      "a": 0,
+      "w": "Graham crackers. The first printed recipe, called 'Some More', appeared in a 1927 Girl Scout handbook of campfire cooking.",
+      "more": "Graham crackers are named after Sylvester Graham, a Connecticut preacher of the 1830s who believed a bland diet of coarse wholemeal would curb Americans' appetites of every kind. His followers would not have approved of the chocolate. National S'mores Day is 10 August, and the name is simply 'some more' said with a full mouth."
+    },
+    {
+      "d": "medium",
+      "q": "Which salad, named after the owner of Hollywood's Brown Derby restaurant, lines up chicken, bacon, avocado, egg, tomato and blue cheese in neat rows?",
+      "o": ["The Cobb salad", "The Waldorf salad", "The Caesar salad", "The chef's salad"],
+      "a": 0,
+      "w": "The Cobb salad, after Bob Cobb, who is said to have thrown it together from the restaurant's fridge late one night in 1937.",
+      "more": "The Brown Derby, shaped like a hat, was where studio executives and stars ate, and the Cobb became the lunch of choice for anyone who wanted to be seen. The chopped salad is traditionally arranged in stripes so the diner can see every ingredient before it is tossed. The Waldorf, its East Coast rival, came out of the Waldorf hotel in New York in the 1890s and originally had no walnuts."
+    },
+    {
+      "d": "medium",
+      "q": "A Chicago-style hot dog comes 'dragged through the garden' with mustard, relish, onions, tomato, a pickle, peppers and celery salt. Which condiment is famously banned?",
+      "o": ["Ketchup", "Mayonnaise", "Mustard", "Relish"],
+      "a": 0,
+      "w": "Ketchup. Chicagoans hold that it drowns the dog, and some stands refuse to stock it.",
+      "more": "The style grew out of the Depression, when a nickel bought a Vienna Beef frankfurter loaded with enough vegetables to count as a meal. The poppy-seed bun and the neon-green relish are part of the specification. Clint Eastwood's Dirty Harry put the rule on film in 1983: 'Nobody, I mean nobody, puts ketchup on a hot dog.'"
+    },
+    {
+      "d": "medium",
+      "q": "Which city's barbecue is known for a thick, sweet, tomato-and-molasses sauce and for 'burnt ends', the crusty tips of a smoked brisket?",
+      "o": ["Kansas City", "Memphis", "Austin", "Raleigh"],
+      "a": 0,
+      "w": "Kansas City, which smokes everything and sauces it all. Memphis is known for dry-rubbed ribs, Texas for salt-and-pepper brisket and the Carolinas for whole hog with vinegar.",
+      "more": "Henry Perry, who sold smoked meat from a stand near the stockyards from 1908, is called the father of Kansas City barbecue, and his apprentices founded Arthur Bryant's and Gates. The food writer Calvin Trillin once called Bryant's the single best restaurant in the world. One of the city's most celebrated joints, Joe's Kansas City, still operates out of a working petrol station."
+    },
+    {
+      "d": "hard",
+      "q": "Which American invention of 1953 was created to use up 260 tons of leftover Thanksgiving turkey that a food company had overordered?",
+      "o": ["The TV dinner", "The frozen pizza", "Instant mashed potato", "The pot pie"],
+      "a": 0,
+      "w": "The TV dinner. Swanson of Omaha packed turkey, cornbread stuffing, peas and sweet potatoes into a compartmented aluminium tray and sold it in a box designed to look like a television set.",
+      "more": "It cost 98 cents and sold ten million in its first year, which says something about how new television still was: families ate in front of the set with the tray on a folding table. A salesman named Gerry Thomas claimed to have invented it, a story the Swanson family disputed for the rest of his life. One of the original trays is in the Smithsonian."
+    },
+    {
+      "d": "hard",
+      "type": "select",
+      "q": "Which of these foreign-sounding foods were actually invented in the United States? Select all that apply.",
+      "o": ["German chocolate cake", "English muffins", "Chimichangas", "Chicken tikka masala", "Pad thai", "Bagels"],
+      "a": [0, 1, 2],
+      "w": "German chocolate cake is named after Samuel German, an American who made a baking chocolate; English muffins were created in New York in 1880 by Samuel Bath Thomas and are unknown in England; and the chimichanga, a deep-fried burrito, comes from Tucson, Arizona. Chicken tikka masala was invented in Britain, pad thai in Thailand and the bagel in Poland.",
+      "more": "The cake recipe was printed in a Dallas newspaper in 1957 and the apostrophe in 'German's' fell off along the way. The chimichanga's origin story has a Tucson cook dropping a burrito into the fryer and starting to swear in Spanish before switching, in front of children, to a made-up word. A Glasgow curry house claims tikka masala was born when a customer sent his dry chicken back and the chef improvised a sauce from a tin of tomato soup."
+    },
+    {
+      "d": "hard",
+      "type": "order",
+      "q": "Put these American snack inventions in order of first appearance, earliest first.",
+      "o": ["Potato chips", "Jell-O", "Oreos", "Twinkies"],
+      "w": "Potato chips (by legend, Saratoga Springs in 1853), Jell-O (1897), Oreos (1912), Twinkies (1930).",
+      "more": "The chip story has a Saratoga chef named George Crum slicing potatoes paper-thin to spite a fussy customer, although recipes for fried potato slices exist in older English cookbooks. Jell-O came out of a carpenter's kitchen in LeRoy, New York, and the first Oreos were baked in a Nabisco factory in Chelsea, on the Manhattan street now named Oreo Way. Twinkies were filled with banana cream until the Second World War, when banana rationing forced the switch to vanilla."
+    }
+  ]
+}

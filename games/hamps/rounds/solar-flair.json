@@ -1,0 +1,107 @@
+{
+  "id": "solar-flair",
+  "name": "Solar Flair",
+  "subject": "The planets",
+  "requestId": "hamps:yNyX0f3tOOYNys4N6QoQ",
+  "tagline": "Eleven questions on our neighbours around the Sun, from the storm bigger than Earth to the moon that outgrew a planet. A theme the crew voted for.",
+  "draft": true,
+  "emblem": "🪐",
+  "theme": {
+    "font": "Orbitron",
+    "accent": "#4F46E5",
+    "accent2": "#F59E0B",
+    "accentDark": "#818CF8",
+    "accent2Dark": "#FCD34D"
+  },
+  "questions": [
+    {
+      "d": "easy",
+      "q": "Which is the largest planet in the solar system, with room inside it for more than a thousand Earths?",
+      "o": ["Jupiter", "Saturn", "Neptune", "Uranus"],
+      "a": 0,
+      "w": "Jupiter. It is eleven Earths wide and weighs two and a half times as much as all the other planets put together.",
+      "more": "It is made mostly of hydrogen and helium, like the Sun, and has no solid surface to stand on. Despite its size it spins faster than any other planet, with a day of under ten hours. NASA's Juno spacecraft has been circling it since 2016, flying low over its cloud tops every few weeks."
+    },
+    {
+      "d": "easy",
+      "q": "Which planet's rings, made mostly of chunks of water ice, can be seen through a small backyard telescope?",
+      "o": ["Saturn", "Jupiter", "Uranus", "Neptune"],
+      "a": 0,
+      "w": "Saturn. The rings stretch some 280,000 kilometres from edge to edge yet are mostly less than a kilometre thick.",
+      "more": "Galileo saw them in 1610 but his telescope was too weak to make them out, so he recorded that Saturn had 'ears'. All four giant planets turn out to have rings, but the others are thin and dark and were not found until the 1970s and 80s. Saturn is the least dense planet, lighter than water, so in a big enough bathtub it would float."
+    },
+    {
+      "d": "easy",
+      "q": "In 2006 astronomers voted to reclassify which body, counted as the ninth planet since 1930, as a dwarf planet?",
+      "o": ["Pluto", "Ceres", "Eris", "Sedna"],
+      "a": 0,
+      "w": "Pluto. The trigger was the discovery of Eris, a similar world further out, which forced astronomers to decide what a planet was.",
+      "more": "Pluto is smaller than our Moon and was found in 1930 by Clyde Tombaugh, a 24-year-old farm boy hired to compare photographic plates; an eleven-year-old English girl, Venetia Burney, suggested the name over breakfast. The New Horizons probe flew past in 2015 and found a heart-shaped plain of nitrogen ice, which was named after Tombaugh. The vote in Prague still upsets people who learned nine planets at school."
+    },
+    {
+      "d": "easy",
+      "q": "True or false: Mercury, the planet closest to the Sun, is the hottest planet.",
+      "o": ["True", "False"],
+      "a": 1,
+      "w": "False. Venus is hotter, around 465 degrees Celsius day and night, because its thick carbon-dioxide atmosphere traps the heat. Mercury has almost no atmosphere and swings from 430 degrees by day to minus 180 at night.",
+      "more": "The air pressure on the surface of Venus is about ninety times Earth's, the same as being 900 metres underwater, and its clouds are sulphuric acid. The Soviet Venera landers that reached the surface in the 1970s and 80s survived for an hour or two at most before being cooked. Venus also spins backwards, so slowly that its day is longer than its year."
+    },
+    {
+      "d": "easy",
+      "q": "What is Jupiter's Great Red Spot?",
+      "o": ["A storm larger than Earth", "A volcano", "An impact crater", "A desert of red dust"],
+      "a": 0,
+      "w": "A storm. It is an anticyclone wider than Earth, with winds of over 400 kilometres an hour, and it has been raging for at least 190 years.",
+      "more": "Astronomers have tracked it continuously since 1831, and a spot seen in the 1660s may have been the same storm. It is shrinking: in the nineteenth century it was three Earths wide and now it is little more than one. Juno's instruments found that it reaches a few hundred kilometres down into the planet's atmosphere."
+    },
+    {
+      "d": "medium",
+      "q": "Who discovered the first planet unknown to the ancients, in 1781, from a garden in Bath, England?",
+      "o": ["William Herschel", "Edmond Halley", "Galileo Galilei", "Johannes Kepler"],
+      "a": 0,
+      "w": "William Herschel, a German-born musician and amateur astronomer, who found Uranus with a telescope he had built himself and at first took it for a comet.",
+      "more": "He wanted to name it Georgium Sidus, George's Star, after King George III, which went down badly outside Britain; the King gave him a pension anyway. His sister Caroline swept the skies alongside him and discovered eight comets of her own. Uranus turned out to spin on its side, its axis tipped almost flat, probably after a collision with something Earth-sized early in its history."
+    },
+    {
+      "d": "medium",
+      "q": "Mars has two tiny moons named after the Greek words for fear and panic. What are they called?",
+      "o": ["Phobos and Deimos", "Romulus and Remus", "Castor and Pollux", "Ares and Eris"],
+      "a": 0,
+      "w": "Phobos and Deimos, found by Asaph Hall in 1877. Both are lumpy rocks only a few kilometres across, probably captured asteroids or debris from an ancient impact.",
+      "more": "Phobos orbits so close and so fast that it rises in the west and crosses the sky three times a day. It is spiralling inwards and will either crash into Mars or be torn into a ring within fifty million years. Japan's MMX mission aims to land on it and bring a sample home."
+    },
+    {
+      "d": "medium",
+      "q": "The tallest mountain in the solar system, a volcano on Mars two and a half times the height of Everest, is called what?",
+      "o": ["Olympus Mons", "Mauna Kea", "Maxwell Montes", "Elysium Mons"],
+      "a": 0,
+      "w": "Olympus Mons, about 22 kilometres high and 600 kilometres across, roughly the size of France.",
+      "more": "Its slopes are so gentle that someone standing on them would not know they were on a mountain, and from the base the summit is below the horizon. It grew so big because Mars has no moving tectonic plates, so the same hot spot kept piling up lava in one place for hundreds of millions of years. Nearby is Valles Marineris, a canyon that would stretch from New York to Los Angeles."
+    },
+    {
+      "d": "hard",
+      "q": "What is the largest moon in the solar system, bigger than the planet Mercury?",
+      "o": ["Ganymede", "Titan", "Callisto", "Triton"],
+      "a": 0,
+      "w": "Ganymede, one of Jupiter's moons, which is 5,268 kilometres across. Saturn's Titan is a close second.",
+      "more": "It is the only moon with a magnetic field of its own, and it hides a salty ocean beneath a hundred kilometres of ice. The European JUICE spacecraft, launched in 2023, will arrive at Jupiter in 2031 and end its mission in orbit around Ganymede. If it circled the Sun instead of Jupiter it would count as a planet."
+    },
+    {
+      "d": "hard",
+      "type": "order",
+      "q": "Put these discoveries in order, earliest first.",
+      "o": ["Galileo sees four moons of Jupiter", "Neptune is found where mathematicians predicted it", "Pluto is spotted on photographic plates", "The first planet around another Sun-like star is confirmed"],
+      "w": "Galileo in 1610, Neptune in 1846, Pluto in 1930 and the exoplanet 51 Pegasi b in 1995.",
+      "more": "Galileo's four moons were the first objects ever seen orbiting something other than Earth, which was awkward for the Church. Neptune was found within a degree of where Urbain Le Verrier said it would be after he worked backwards from wobbles in Uranus's orbit. The 1995 discovery, a giant planet whipping round its star every four days, won Michel Mayor and Didier Queloz the Nobel Prize, and more than five thousand exoplanets have been found since."
+    },
+    {
+      "d": "hard",
+      "type": "select",
+      "q": "Which of these are moons of Jupiter? Select all that apply.",
+      "o": ["Io", "Europa", "Callisto", "Titan", "Triton", "Charon"],
+      "a": [0, 1, 2],
+      "w": "Io, Europa and Callisto, three of the four big moons Galileo saw. Titan orbits Saturn, Triton orbits Neptune and Charon orbits Pluto.",
+      "more": "Io is the most volcanic body in the solar system, kneaded by Jupiter's gravity until it erupts constantly, and Europa's cracked ice shell covers an ocean holding perhaps twice as much water as all of Earth's. NASA's Europa Clipper, launched in 2024, arrives in 2030 to find out whether anything could live there. Jupiter has around ninety-five known moons, most of them small captured rocks."
+    }
+  ]
+}
