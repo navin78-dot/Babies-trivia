@@ -1,11 +1,11 @@
 {
   "game": "babies",
   "roundsDir": "rounds",
-  "today": "2026-10-12",
+  "today": "2026-10-13",
   "season": 4,
-  "queueCount": 5,
+  "queueCount": 4,
   "target": 5,
-  "fill": 0,
+  "fill": 1,
   "queue": [
     {
       "id": "great-heists",
@@ -32,14 +32,6 @@
       "requestId": null
     },
     {
-      "id": "toon-in",
-      "name": "Toon In",
-      "subject": "Animated films",
-      "onPollSince": "2026-10-10",
-      "retired": false,
-      "requestId": null
-    },
-    {
       "id": "terrible-lizards",
       "name": "Terrible Lizards",
       "subject": "Dinosaurs and prehistoric life",
@@ -49,17 +41,12 @@
     }
   ],
   "poll": {
-    "key": "2026-10-11",
-    "closes": "2026-10-13",
-    "decides": "2026-10-15",
+    "key": "2026-10-13",
+    "closes": "2026-10-15",
+    "decides": "2026-10-17",
     "options": [
       {
         "id": "terrible-lizards"
-      },
-      {
-        "id": "req:1IVTVtrtX9uLp8CAZVo3",
-        "theme": "American foods",
-        "by": "Joanna Kuppy"
       },
       {
         "id": "req:Ukj1y99mZZfSnQ0KIEP2",
@@ -70,15 +57,15 @@
   },
   "upcoming": [
     {
-      "day": "2026-10-13",
-      "id": "toon-in",
-      "name": "Toon In",
-      "how": "poll"
-    },
-    {
       "day": "2026-10-15",
       "id": "req:1IVTVtrtX9uLp8CAZVo3",
       "name": null,
+      "how": "unwritten"
+    },
+    {
+      "day": "2026-10-17",
+      "id": "terrible-lizards",
+      "name": "Terrible Lizards",
       "how": "leading"
     }
   ],
@@ -184,9 +171,22 @@
       "id": "body-of-evidence",
       "name": "Body of Evidence",
       "how": "poll"
+    },
+    {
+      "day": "2026-10-13",
+      "id": "toon-in",
+      "name": "Toon In",
+      "how": "poll"
     }
   ],
-  "requestsWaiting": [],
+  "requestsWaiting": [
+    {
+      "id": "1IVTVtrtX9uLp8CAZVo3",
+      "theme": "American foods",
+      "by": "Joanna Kuppy",
+      "dropDay": "2026-10-15"
+    }
+  ],
   "ideas": [
     {
       "id": "1IVTVtrtX9uLp8CAZVo3",
@@ -236,14 +236,14 @@
     "Where On Earth (Geography)",
     "Wild Things (Animals)"
   ],
-  "need": 0,
+  "need": 2,
   "games": {
     "hamps": {
       "game": "hamps",
       "roundsDir": "games/hamps/rounds",
-      "today": "2026-10-12",
+      "today": "2026-10-13",
       "season": 3,
-      "queueCount": 6,
+      "queueCount": 5,
       "target": 5,
       "fill": 0,
       "queue": [
@@ -276,16 +276,8 @@
           "name": "High Seas",
           "subject": "Ships, sailing and the sea",
           "onPollSince": "2026-10-08",
-          "retired": false,
+          "retired": true,
           "requestId": null
-        },
-        {
-          "id": "cue-the-music",
-          "name": "Cue the Music",
-          "subject": "Movie musicals and soundtracks",
-          "onPollSince": null,
-          "retired": false,
-          "requestId": "hamps:mOsLg9vbWBExzBREvwyb"
         },
         {
           "id": "grape-expectations",
@@ -297,34 +289,26 @@
         }
       ],
       "poll": {
-        "key": "2026-10-11",
-        "closes": "2026-10-13",
-        "decides": "2026-10-15",
+        "key": "2026-10-13",
+        "closes": "2026-10-15",
+        "decides": "2026-10-17",
         "options": [
           {
-            "id": "high-seas"
-          },
-          {
             "id": "grape-expectations"
-          },
-          {
-            "id": "req:yNyX0f3tOOYNys4N6QoQ",
-            "theme": "Planets",
-            "by": "Ketan Mehta"
           }
         ]
       },
       "upcoming": [
         {
-          "day": "2026-10-13",
-          "id": "cue-the-music",
-          "name": "Cue the Music",
-          "how": "theme"
-        },
-        {
           "day": "2026-10-15",
           "id": "req:yNyX0f3tOOYNys4N6QoQ",
           "name": null,
+          "how": "unwritten"
+        },
+        {
+          "day": "2026-10-17",
+          "id": "grape-expectations",
+          "name": "Grape Expectations",
           "how": "leading"
         }
       ],
@@ -406,9 +390,22 @@
           "id": "concrete-jungle",
           "name": "Concrete Jungle",
           "how": "poll"
+        },
+        {
+          "day": "2026-10-13",
+          "id": "cue-the-music",
+          "name": "Cue the Music",
+          "how": "theme"
         }
       ],
-      "requestsWaiting": [],
+      "requestsWaiting": [
+        {
+          "id": "hamps:yNyX0f3tOOYNys4N6QoQ",
+          "theme": "Planets",
+          "by": "Ketan Mehta",
+          "dropDay": "2026-10-15"
+        }
+      ],
       "ideas": [
         {
           "id": "yNyX0f3tOOYNys4N6QoQ",
@@ -441,8 +438,8 @@
         "Say What (Words and language)",
         "Table for Twenty (Hamptons restaurants)"
       ],
-      "need": 0
+      "need": 1
     }
   },
-  "totalNeed": 0
+  "totalNeed": 3
 }
