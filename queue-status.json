@@ -3,9 +3,9 @@
   "roundsDir": "rounds",
   "today": "2026-10-13",
   "season": 4,
-  "queueCount": 4,
+  "queueCount": 6,
   "target": 5,
-  "fill": 1,
+  "fill": 0,
   "queue": [
     {
       "id": "great-heists",
@@ -38,6 +38,22 @@
       "onPollSince": "2026-10-11",
       "retired": false,
       "requestId": null
+    },
+    {
+      "id": "free-refill",
+      "name": "Land of the Free Refill",
+      "subject": "American foods",
+      "onPollSince": null,
+      "retired": false,
+      "requestId": "1IVTVtrtX9uLp8CAZVo3"
+    },
+    {
+      "id": "hail-to-the-chief",
+      "name": "Hail to the Chief",
+      "subject": "US presidents",
+      "onPollSince": "2026-10-13",
+      "retired": false,
+      "requestId": null
     }
   ],
   "poll": {
@@ -49,6 +65,9 @@
         "id": "terrible-lizards"
       },
       {
+        "id": "hail-to-the-chief"
+      },
+      {
         "id": "req:Ukj1y99mZZfSnQ0KIEP2",
         "theme": "Taylor swift trivia",
         "by": "Navin Katyal"
@@ -58,9 +77,9 @@
   "upcoming": [
     {
       "day": "2026-10-15",
-      "id": "req:1IVTVtrtX9uLp8CAZVo3",
-      "name": null,
-      "how": "unwritten"
+      "id": "free-refill",
+      "name": "Land of the Free Refill",
+      "how": "theme"
     },
     {
       "day": "2026-10-17",
@@ -179,20 +198,8 @@
       "how": "poll"
     }
   ],
-  "requestsWaiting": [
-    {
-      "id": "1IVTVtrtX9uLp8CAZVo3",
-      "theme": "American foods",
-      "by": "Joanna Kuppy",
-      "dropDay": "2026-10-15"
-    }
-  ],
+  "requestsWaiting": [],
   "ideas": [
-    {
-      "id": "1IVTVtrtX9uLp8CAZVo3",
-      "theme": "American foods",
-      "by": "Joanna Kuppy"
-    },
     {
       "id": "Ukj1y99mZZfSnQ0KIEP2",
       "theme": "Taylor swift trivia",
@@ -222,8 +229,10 @@
     "Extra Time (Sport)",
     "Force of Nature (Weather, oceans, volcanoes and earthquakes)",
     "Founding Years (American history, 1500 to 1850)",
+    "Land of the Free Refill (American foods)",
     "Golden Age (Old Hollywood, 1930 to 1960)",
     "Grand Designs (Architecture and famous buildings)",
+    "Hail to the Chief (US presidents)",
     "Last Call (Wine, beer and cocktails)",
     "Page Turners (Books and authors)",
     "Ripped From the Headlines (Current events, 2026)",
@@ -236,14 +245,14 @@
     "Where On Earth (Geography)",
     "Wild Things (Animals)"
   ],
-  "need": 2,
+  "need": 0,
   "games": {
     "hamps": {
       "game": "hamps",
       "roundsDir": "games/hamps/rounds",
       "today": "2026-10-13",
       "season": 3,
-      "queueCount": 5,
+      "queueCount": 6,
       "target": 5,
       "fill": 0,
       "queue": [
@@ -286,6 +295,14 @@
           "onPollSince": "2026-10-11",
           "retired": false,
           "requestId": null
+        },
+        {
+          "id": "solar-flair",
+          "name": "Solar Flair",
+          "subject": "The planets",
+          "onPollSince": null,
+          "retired": false,
+          "requestId": "hamps:yNyX0f3tOOYNys4N6QoQ"
         }
       ],
       "poll": {
@@ -301,9 +318,9 @@
       "upcoming": [
         {
           "day": "2026-10-15",
-          "id": "req:yNyX0f3tOOYNys4N6QoQ",
-          "name": null,
-          "how": "unwritten"
+          "id": "solar-flair",
+          "name": "Solar Flair",
+          "how": "theme"
         },
         {
           "day": "2026-10-17",
@@ -398,21 +415,8 @@
           "how": "theme"
         }
       ],
-      "requestsWaiting": [
-        {
-          "id": "hamps:yNyX0f3tOOYNys4N6QoQ",
-          "theme": "Planets",
-          "by": "Ketan Mehta",
-          "dropDay": "2026-10-15"
-        }
-      ],
-      "ideas": [
-        {
-          "id": "yNyX0f3tOOYNys4N6QoQ",
-          "theme": "Planets",
-          "by": "Ketan Mehta"
-        }
-      ],
+      "requestsWaiting": [],
+      "ideas": [],
       "existingSubjects": [
         "Art Attack (Art and artists)",
         "Binge Worthy (Television of the streaming age)",
@@ -436,10 +440,11 @@
         "Prime Time (1980s television)",
         "Reel Talk (Movies)",
         "Say What (Words and language)",
+        "Solar Flair (The planets)",
         "Table for Twenty (Hamptons restaurants)"
       ],
-      "need": 1
+      "need": 0
     }
   },
-  "totalNeed": 3
+  "totalNeed": 0
 }
