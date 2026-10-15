@@ -1,9 +1,9 @@
 {
   "game": "babies",
   "roundsDir": "rounds",
-  "today": "2026-10-14",
+  "today": "2026-10-15",
   "season": 4,
-  "queueCount": 6,
+  "queueCount": 5,
   "target": 5,
   "fill": 0,
   "queue": [
@@ -40,14 +40,6 @@
       "requestId": null
     },
     {
-      "id": "free-refill",
-      "name": "Land of the Free Refill",
-      "subject": "American foods",
-      "onPollSince": null,
-      "retired": false,
-      "requestId": "1IVTVtrtX9uLp8CAZVo3"
-    },
-    {
       "id": "hail-to-the-chief",
       "name": "Hail to the Chief",
       "subject": "US presidents",
@@ -57,13 +49,10 @@
     }
   ],
   "poll": {
-    "key": "2026-10-13",
-    "closes": "2026-10-15",
-    "decides": "2026-10-17",
+    "key": "2026-10-15",
+    "closes": "2026-10-17",
+    "decides": "2026-10-18",
     "options": [
-      {
-        "id": "terrible-lizards"
-      },
       {
         "id": "hail-to-the-chief"
       },
@@ -71,20 +60,25 @@
         "id": "req:Ukj1y99mZZfSnQ0KIEP2",
         "theme": "Taylor swift trivia",
         "by": "Navin Katyal"
+      },
+      {
+        "id": "req:VctTa2quCKwouluZiqcm",
+        "theme": "80’s New Wave Hits",
+        "by": "Shivangi Bhatt"
       }
     ]
   },
   "upcoming": [
     {
-      "day": "2026-10-15",
-      "id": "free-refill",
-      "name": "Land of the Free Refill",
-      "how": "theme"
-    },
-    {
       "day": "2026-10-17",
       "id": "terrible-lizards",
       "name": "Terrible Lizards",
+      "how": "poll"
+    },
+    {
+      "day": "2026-10-18",
+      "id": "req:VctTa2quCKwouluZiqcm",
+      "name": null,
       "how": "leading"
     }
   ],
@@ -196,6 +190,12 @@
       "id": "toon-in",
       "name": "Toon In",
       "how": "poll"
+    },
+    {
+      "day": "2026-10-15",
+      "id": "free-refill",
+      "name": "Land of the Free Refill",
+      "how": "theme"
     }
   ],
   "requestsWaiting": [],
@@ -204,6 +204,11 @@
       "id": "Ukj1y99mZZfSnQ0KIEP2",
       "theme": "Taylor swift trivia",
       "by": "Navin Katyal"
+    },
+    {
+      "id": "VctTa2quCKwouluZiqcm",
+      "theme": "80’s New Wave Hits",
+      "by": "Shivangi Bhatt"
     }
   ],
   "existingSubjects": [
@@ -250,9 +255,9 @@
     "hamps": {
       "game": "hamps",
       "roundsDir": "games/hamps/rounds",
-      "today": "2026-10-14",
+      "today": "2026-10-15",
       "season": 3,
-      "queueCount": 6,
+      "queueCount": 5,
       "target": 5,
       "fill": 0,
       "queue": [
@@ -295,38 +300,26 @@
           "onPollSince": "2026-10-11",
           "retired": false,
           "requestId": null
-        },
-        {
-          "id": "solar-flair",
-          "name": "Solar Flair",
-          "subject": "The planets",
-          "onPollSince": null,
-          "retired": false,
-          "requestId": "hamps:yNyX0f3tOOYNys4N6QoQ"
         }
       ],
       "poll": {
-        "key": "2026-10-13",
-        "closes": "2026-10-15",
-        "decides": "2026-10-17",
-        "options": [
-          {
-            "id": "grape-expectations"
-          }
-        ]
+        "key": "2026-10-15",
+        "closes": "2026-10-17",
+        "decides": "2026-10-18",
+        "options": []
       },
       "upcoming": [
-        {
-          "day": "2026-10-15",
-          "id": "solar-flair",
-          "name": "Solar Flair",
-          "how": "theme"
-        },
         {
           "day": "2026-10-17",
           "id": "grape-expectations",
           "name": "Grape Expectations",
-          "how": "leading"
+          "how": "poll"
+        },
+        {
+          "day": "2026-10-18",
+          "id": "log-on",
+          "name": "Log On",
+          "how": "queue"
         }
       ],
       "dropped": [
@@ -412,6 +405,12 @@
           "day": "2026-10-13",
           "id": "cue-the-music",
           "name": "Cue the Music",
+          "how": "theme"
+        },
+        {
+          "day": "2026-10-15",
+          "id": "solar-flair",
+          "name": "Solar Flair",
           "how": "theme"
         }
       ],
