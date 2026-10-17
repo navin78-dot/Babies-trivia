@@ -1,0 +1,107 @@
+{
+  "id": "in-my-trivia-era",
+  "name": "In My Trivia Era",
+  "subject": "Taylor Swift",
+  "requestId": "Ukj1y99mZZfSnQ0KIEP2",
+  "tagline": "Eleven questions on the biggest pop star on the planet, from a Christmas-tree farm in Pennsylvania to a two-billion-dollar tour. A theme the group voted for.",
+  "draft": true,
+  "emblem": "🫶",
+  "theme": {
+    "font": "Lora",
+    "accent": "#7C3AED",
+    "accent2": "#F472B6",
+    "accentDark": "#A78BFA",
+    "accent2Dark": "#F9A8D4"
+  },
+  "questions": [
+    {
+      "d": "easy",
+      "q": "Taylor Swift was born in December 1989 and grew up on a Christmas-tree farm in which state?",
+      "o": ["Pennsylvania", "Tennessee", "Texas", "New York"],
+      "a": 0,
+      "w": "Pennsylvania. She was born in West Reading and grew up in nearby Wyomissing, and the family moved to the Nashville area when she was fourteen so she could chase a country-music career.",
+      "more": "She was named after James Taylor, and her father was a Merrill Lynch stockbroker who transferred to the Nashville office to make the move possible. She signed a songwriting deal with Sony at fourteen, the youngest writer the publisher had ever taken on. Her first single, 'Tim McGraw', came out in 2006 when she was sixteen."
+    },
+    {
+      "d": "easy",
+      "q": "Which Taylor Swift song, with the chorus 'players gonna play, play, play, play, play', was the first single from her album 1989?",
+      "o": ["Shake It Off", "Blank Space", "Style", "Bad Blood"],
+      "a": 0,
+      "w": "'Shake It Off', released in 2014. The album, named after her birth year, was her declared break from country into pop.",
+      "more": "She pulled her whole catalogue from Spotify the month 1989 came out, in a row over how little streaming paid songwriters, and did not put it back for almost three years. Two writers sued over the 'players gonna play, haters gonna hate' line, claiming it copied their 2001 song, and the case dragged on until 2022 before it was dropped. 1989 sold more than a million copies in its first week, which no album had managed since 2002."
+    },
+    {
+      "d": "easy",
+      "q": "Who interrupted her acceptance speech at the 2009 MTV Video Music Awards with the words 'Imma let you finish'?",
+      "o": ["Kanye West", "Jay-Z", "Eminem", "Lil Wayne"],
+      "a": 0,
+      "w": "Kanye West, who grabbed the microphone to say Beyoncé's 'Single Ladies' video was better than her 'You Belong with Me'. She was nineteen.",
+      "more": "Beyoncé won the night's biggest award later on and brought Swift back out to finish her speech. The feud flared again in 2016 over a lyric in West's song 'Famous' and a leaked phone call, which painted her as a liar until the full recording surfaced in 2020 and showed she had never agreed to the line. Her 2017 album Reputation, snakes and all, was her answer to the whole affair."
+    },
+    {
+      "d": "easy",
+      "q": "Her partner Travis Kelce plays which position in American football?",
+      "o": ["Tight end", "Quarterback", "Wide receiver", "Kicker"],
+      "a": 0,
+      "w": "Tight end, for the Kansas City Chiefs, with whom he has won three Super Bowls.",
+      "more": "He tried to give her a friendship bracelet with his phone number on it at one of her shows in July 2023 and could not get backstage, then said so on his podcast, which worked better. She turned up at a Chiefs game that September and television ratings among young women jumped. They announced their engagement in August 2025 with a post that began, 'Your English teacher and your gym teacher are getting married.'"
+    },
+    {
+      "d": "easy",
+      "q": "Her record-breaking stadium tour of 2023 and 2024 was the first in history to take more than how much at the box office?",
+      "o": ["2 billion dollars", "200 million dollars", "500 million dollars", "20 billion dollars"],
+      "a": 0,
+      "w": "Over two billion dollars, across 149 shows on five continents, each of them around three and a half hours long.",
+      "more": "No tour had ever passed one billion before it, and it passed two. Local economies measured the effect in hotel rooms and restaurant bookings, which economists took to calling Swiftonomics, and a Seattle seismologist recorded fans dancing as the equivalent of a magnitude 2.3 earthquake. The concert film she released herself in October 2023 became the highest-grossing concert film ever made."
+    },
+    {
+      "d": "medium",
+      "q": "Her three cats are named after characters from television and film. What are they called?",
+      "o": ["Meredith, Olivia and Benjamin", "Luna, Milo and Bella", "Rizzo, Sandy and Danny", "Phoebe, Monica and Rachel"],
+      "a": 0,
+      "w": "Meredith Grey, after the Grey's Anatomy surgeon; Olivia Benson, after the Law & Order detective; and Benjamin Button, a kitten she met on the set of her 'ME!' video and took home.",
+      "more": "Olivia, who has appeared in advertisements and music videos of her own, was estimated by one pet website to be worth 97 million dollars, which made her the third-richest animal in the world. Mariska Hargitay, who plays the real Olivia Benson, returned the favour by naming her own cat Karma after a Swift song. Swift herself played a cat, Bombalurina, in the 2019 film of the musical Cats."
+    },
+    {
+      "d": "medium",
+      "q": "In 2010 she became the youngest person ever to win the Grammy for Album of the Year, at twenty. For which album?",
+      "o": ["Fearless", "Taylor Swift", "Speak Now", "Red"],
+      "a": 0,
+      "w": "Fearless, her second album, with 'Love Story' and 'You Belong with Me' on it.",
+      "more": "It is the most-awarded album in country-music history. Billie Eilish took the youngest-winner record in 2020 at eighteen. Fearless was also the first album Swift re-recorded, in April 2021, and the new version went straight to number one, outselling the original."
+    },
+    {
+      "d": "medium",
+      "q": "Why did she re-record her first six albums as 'Taylor's Version' from 2021 onwards?",
+      "o": ["Her original master recordings had been sold to someone she did not want profiting from them", "The original tapes were destroyed in a studio fire", "She wanted to change lyrics she had come to regret", "Her old record label had gone bankrupt"],
+      "a": 0,
+      "w": "Her old label, Big Machine, was sold in 2019 to the manager Scooter Braun, masters and all, and she said she had never been given a fair chance to buy them herself.",
+      "more": "Re-recording let her own new versions and made the old ones worth less, and fans duly switched: each Taylor's Version outsold its original. Braun's company sold the masters on to a private-equity firm in 2020, and in May 2025 she announced she had bought them back, writing that all the music she had ever made now belonged to her. Labels have since started writing longer waits before re-recording into new contracts because of her."
+    },
+    {
+      "d": "hard",
+      "q": "In 2021 she set the record for the longest song ever to top the Billboard Hot 100, with a ten-minute version of which track?",
+      "o": ["All Too Well", "Dear John", "Champagne Problems", "The Last Great American Dynasty"],
+      "a": 0,
+      "w": "'All Too Well (10 Minute Version)', from Red (Taylor's Version). At ten minutes and thirteen seconds it beat Don McLean's 'American Pie', which had held the record since 1972.",
+      "more": "The song is widely taken to be about Jake Gyllenhaal and a scarf she left at his sister's house, which he has been asked about ever since. The short film she wrote and directed to go with it, starring Sadie Sink and Dylan O'Brien, won the Grammy for best music video. McLean sent her flowers."
+    },
+    {
+      "d": "hard",
+      "type": "order",
+      "q": "Put these albums in the order they were released, earliest first.",
+      "o": ["Speak Now", "Red", "Reputation", "Folklore"],
+      "w": "Speak Now (2010), Red (2012), Reputation (2017), Folklore (2020).",
+      "more": "She wrote every song on Speak Now alone, to answer critics who said she must have had help. Red gave her a first Hot 100 number one with 'We Are Never Ever Getting Back Together', and Reputation was the dark, snake-themed comeback after the Kanye West feud. Folklore was written and recorded in lockdown with collaborators she never met in person, announced the morning it came out in July 2020, and won Album of the Year."
+    },
+    {
+      "d": "hard",
+      "type": "select",
+      "q": "Which of these have actually happened? Select all that apply.",
+      "o": ["She was named Time magazine's Person of the Year", "She held all ten places in the top ten of the Billboard Hot 100 in a single week", "A US Senate committee held a hearing after Ticketmaster's sale of her tour tickets collapsed", "She has won an Academy Award", "She has hosted the Oscars", "She played a cat in a film musical"],
+      "a": [0, 1, 2, 5],
+      "w": "Time made her Person of the Year in 2023, the first entertainer chosen for her own work; she swept the entire top ten in November 2022, which no artist had ever done; the Senate Judiciary Committee grilled Ticketmaster in January 2023; and she was Bombalurina in Cats. She has never won an Oscar or hosted the ceremony.",
+      "more": "The Ticketmaster presale in November 2022 drew 3.5 billion requests, crashed, and was cancelled for the general public, and senators quoted her lyrics at the hearing. Her song 'Carolina', for the film Where the Crawdads Sing, made the Oscar shortlist but not the nominations. She was Spotify's most-streamed artist in the world in both 2023 and 2024."
+    }
+  ]
+}

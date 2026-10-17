@@ -1,0 +1,106 @@
+{
+  "id": "baby-talk",
+  "name": "Baby Talk",
+  "subject": "Babies",
+  "tagline": "Eleven questions on the small people this game is named after, from the shark that took over YouTube to the twins who shared one role. Starts easy, ends hard.",
+  "draft": true,
+  "emblem": "🍼",
+  "theme": {
+    "font": "Chewy",
+    "accent": "#EC4899",
+    "accent2": "#38BDF8",
+    "accentDark": "#F9A8D4",
+    "accent2Dark": "#7DD3FC"
+  },
+  "questions": [
+    {
+      "d": "easy",
+      "q": "Which children's song's dance video is the most-watched video in the history of YouTube, with well over ten billion plays?",
+      "o": ["Baby Shark", "Despacito", "The Wheels on the Bus", "Johny Johny Yes Papa"],
+      "a": 0,
+      "w": "'Baby Shark Dance', uploaded in 2016 by the South Korean company Pinkfong. It overtook 'Despacito' in 2020 and passed ten billion views in 2022.",
+      "more": "The song itself is an old campfire chant that nobody owns, which is why the lawsuits over it went nowhere. The Washington Nationals adopted it as a rallying song on the way to winning the 2019 World Series after one of their players chose it as his walk-up music for his toddler. Parents everywhere know the 'doo doo doo doo doo doo' by heart, whether they want to or not."
+    },
+    {
+      "d": "easy",
+      "q": "Whose 2010 single 'Baby' was for years the most-disliked video on YouTube?",
+      "o": ["Justin Bieber", "Rebecca Black", "Miley Cyrus", "One Direction"],
+      "a": 0,
+      "w": "Justin Bieber, who was fifteen when he recorded it with the rapper Ludacris. The video collected more than ten million thumbs-down before YouTube hid dislike counts in 2021.",
+      "more": "Bieber had been discovered on YouTube two years earlier, singing covers in Stratford, Ontario, by the manager Scooter Braun. The video was also one of the first ever to pass a billion views, so plenty of people were watching as well as sneering. The same year he released a 3D concert film and a fragrance, and was still too young to drive."
+    },
+    {
+      "d": "easy",
+      "q": "In the 1995 film Babe, what kind of animal is Babe, who wants to be a sheepdog?",
+      "o": ["A pig", "A lamb", "A duck", "A goat"],
+      "a": 0,
+      "w": "A pig, who herds sheep by asking them politely. The film is based on Dick King-Smith's children's book The Sheep-Pig.",
+      "more": "Forty-eight piglets played Babe because they grew too big for the part within weeks. It was nominated for seven Oscars, including Best Picture, and won for its visual effects, which made the animals' mouths move. James Cromwell, who played the farmer and says 'That'll do, pig', became a vegan during the shoot."
+    },
+    {
+      "d": "easy",
+      "q": "Which disposable nappy brand was launched in 1961 by a Procter & Gamble engineer who was tired of changing his grandchildren's cloth ones?",
+      "o": ["Pampers", "Huggies", "Luvs", "Johnson's"],
+      "a": 0,
+      "w": "Pampers, invented by Victor Mills, a chemical engineer who had earlier worked on Pringles and Duncan Hines cake mix.",
+      "more": "The first versions cost ten cents each, which parents thought too much, and sold slowly until the price came down. Huggies did not arrive until 1978. Pampers is now the company's biggest brand, selling more than ten billion dollars' worth a year, and a baby gets through around six thousand nappies before potty training."
+    },
+    {
+      "d": "easy",
+      "q": "Which toy got its name from a 1902 hunting trip on which President Theodore Roosevelt refused to shoot a bear that had been tied to a tree for him?",
+      "o": ["The teddy bear", "The rocking horse", "The jack-in-the-box", "The Slinky"],
+      "a": 0,
+      "w": "The teddy bear. A Washington Post cartoon of the incident inspired a Brooklyn shopkeeper, Morris Michtom, to put two stuffed bears in his window labelled 'Teddy's bear'.",
+      "more": "Michtom wrote to the president for permission to use his name and his toy company grew into Ideal, one of the biggest in America. In Germany the Steiff company began making jointed bears the same year without knowing about any of this, and the two claims to the first teddy have never been settled. Roosevelt himself thought the nickname Teddy was undignified and asked people not to use it."
+    },
+    {
+      "d": "medium",
+      "q": "The character everyone called Baby Yoda, from the Star Wars series The Mandalorian, is actually named what?",
+      "o": ["Grogu", "Yaddle", "Kuiil", "Din"],
+      "a": 0,
+      "w": "Grogu. The name was revealed in the second season in 2020, a year after the character became the internet's favourite baby.",
+      "more": "He is fifty years old, which for his species counts as a toddler. Disney kept him out of the shops before the show launched so the surprise would not leak, and lost a Christmas of sales doing it. The puppet, operated by several people at once, was said to have cost around five million dollars, and Werner Herzog, who acted alongside it, called it heartbreakingly beautiful."
+    },
+    {
+      "d": "medium",
+      "q": "Which twins shared the role of Michelle Tanner on Full House from the age of nine months?",
+      "o": ["Mary-Kate and Ashley Olsen", "Tia and Tamera Mowry", "Dylan and Cole Sprouse", "Jenna and Barbara Bush"],
+      "a": 0,
+      "w": "Mary-Kate and Ashley Olsen, cast because they were the only babies at the audition who did not cry. Child-labour rules limit how long an infant can work, so twins are standard casting for a baby.",
+      "more": "By the time the show ended in 1995 the two of them had a video empire, and their company Dualstar made them the youngest self-made millionaires in America. They left acting at eighteen and now run the fashion label The Row, which sells very plain, very expensive clothes. They declined to appear in the Netflix sequel Fuller House."
+    },
+    {
+      "d": "medium",
+      "q": "Louise Brown, born in Oldham, England, in July 1978, was the first baby in the world born by what method?",
+      "o": ["In vitro fertilisation", "Surrogacy", "Water birth", "Sperm donation"],
+      "a": 0,
+      "w": "IVF, in which the egg is fertilised in a laboratory dish and the embryo placed in the womb. The press called her the first test-tube baby, though no test tube was involved.",
+      "more": "Her parents had tried for nine years and were volunteers for the gynaecologist Patrick Steptoe and the physiologist Robert Edwards, who had failed with hundreds of attempts before hers. Edwards won the Nobel Prize for it in 2010; Steptoe had died too early to share it. More than twelve million people have since been born the same way, and Louise's younger sister Natalie, also an IVF baby, was the first of them to have a child of her own."
+    },
+    {
+      "d": "hard",
+      "q": "The 1932 kidnapping of a 20-month-old boy from his New Jersey home, called 'the crime of the century', took the son of which famous American?",
+      "o": ["Charles Lindbergh", "Henry Ford", "Babe Ruth", "Al Capone"],
+      "a": 0,
+      "w": "Charles Lindbergh, the aviator who had flown the Atlantic alone five years earlier. The baby was taken from his cot by ladder, a ransom of 50,000 dollars was paid, and his body was found in woods nearby ten weeks later.",
+      "more": "A German-born carpenter, Bruno Richard Hauptmann, was convicted after ransom notes were traced to him and executed in 1936, protesting his innocence to the end. Congress responded with the Lindbergh Law, which made kidnapping across state lines a federal crime. Agatha Christie borrowed the case for the back-story of Murder on the Orient Express two years later."
+    },
+    {
+      "d": "hard",
+      "q": "True or false: identical twins have identical fingerprints.",
+      "o": ["True", "False"],
+      "a": 1,
+      "w": "False. Fingerprints are shaped partly by conditions in the womb, such as how each twin lay and what it touched, so identical twins have similar but distinguishable prints.",
+      "more": "Identical twins start from one fertilised egg and share almost all their DNA, which is why DNA tests struggle to tell them apart while fingerprint tests do not. Prints are fixed by about the seventeenth week of pregnancy and never change afterwards, which is why police have used them since the 1890s. Twins have become more common since the 1980s because of fertility treatment and older mothers."
+    },
+    {
+      "d": "hard",
+      "type": "select",
+      "q": "Which of these are real names for baby animals? Select all that apply.",
+      "o": ["A puggle", "A cygnet", "A porcupette", "A squab", "A fawnlet", "A hamsterling"],
+      "a": [0, 1, 2, 3],
+      "w": "A puggle is a baby echidna or platypus, a cygnet a baby swan, a porcupette a baby porcupine and a squab a baby pigeon. Fawnlet and hamsterling are made up; a baby deer is a fawn and a baby hamster is a pup.",
+      "more": "Puggles hatch from eggs, since echidnas and platypuses are the only mammals that lay them, and then spend weeks in a pouch. Porcupettes are born with soft quills that harden within hours, to their mothers' relief. Squab is also the word on a menu when the pigeon is on the plate."
+    }
+  ]
+}

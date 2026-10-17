@@ -1,0 +1,106 @@
+{
+  "id": "fore",
+  "name": "Fore!",
+  "subject": "Golf",
+  "tagline": "Eleven questions on the game played out here on some of the oldest courses in America, from the green jacket to the club that founded the USGA. Starts easy, ends hard.",
+  "draft": true,
+  "emblem": "⛳",
+  "theme": {
+    "font": "Spectral",
+    "accent": "#166534",
+    "accent2": "#EAB308",
+    "accentDark": "#4ADE80",
+    "accent2Dark": "#FDE047"
+  },
+  "questions": [
+    {
+      "d": "easy",
+      "q": "The winner of which major championship is helped into a green jacket by the previous year's champion?",
+      "o": ["The Masters", "The US Open", "The Open Championship", "The PGA Championship"],
+      "a": 0,
+      "w": "The Masters, played every April at Augusta National in Georgia. Members have worn the green jackets since 1937 and the champion has been given one since 1949, when Sam Snead was the first.",
+      "more": "The winner keeps the jacket for a year and then has to leave it at the club, where it hangs in the champions' locker room. The course was built on an old plant nursery, and every hole is named after a tree or shrub, from Tea Olive to Holly. Augusta was founded by Bobby Jones, the great amateur, and opened in 1933."
+    },
+    {
+      "d": "easy",
+      "q": "What do golfers shout to warn anyone in the way that a ball is heading towards them?",
+      "o": ["Fore!", "Duck!", "Ball!", "Heads!"],
+      "a": 0,
+      "w": "Fore! The word is probably short for 'forecaddie', the person sent ahead to watch where balls landed, or simply for 'before'.",
+      "more": "A driven golf ball leaves the club at around 170 miles an hour, which is why the warning matters. Written rules for the game go back to 1744 in Edinburgh, and the two bodies that write them today, the R&A in Scotland and the USGA in America, did not agree a single rulebook until 1952. Calling 'fore' is the one rule everyone learns first."
+    },
+    {
+      "d": "easy",
+      "q": "Which Scottish town's Old Course is known as the home of golf, with records of the game being played there since 1552?",
+      "o": ["St Andrews", "Carnoustie", "Troon", "Gleneagles"],
+      "a": 0,
+      "w": "St Andrews. The Old Course is a public links owned by the town, and on Sundays it is closed to golf so locals can walk their dogs on it.",
+      "more": "Its eighteen holes set the standard for the whole game after the club cut the course from twenty-two in 1764. The Royal and Ancient Golf Club, founded in 1754, has its clubhouse behind the first tee and wrote the rules for most of the world for two centuries. Champions traditionally pause for a photograph on the little stone Swilcan Bridge on the eighteenth, which is older than the game itself."
+    },
+    {
+      "d": "easy",
+      "q": "Which competition, held every two years, pits a team from the United States against a team from Europe?",
+      "o": ["The Ryder Cup", "The Walker Cup", "The Solheim Cup", "The Presidents Cup"],
+      "a": 0,
+      "w": "The Ryder Cup, which began in 1927 as America against Great Britain. The rest of Europe was let in from 1979 because the British kept losing.",
+      "more": "Samuel Ryder, an English seed merchant who sold seeds in penny packets, put up the gold cup. The players are not paid and the matches are played as a team, which is why professionals who earn millions elsewhere are regularly seen in tears. The 2025 edition was held at Bethpage Black on Long Island and won by Europe, which has now taken eleven of the last fifteen."
+    },
+    {
+      "d": "easy",
+      "q": "Which golfer, aged 21, won the 1997 Masters by a record twelve shots, the first of his fifteen major titles?",
+      "o": ["Tiger Woods", "Phil Mickelson", "Ernie Els", "Greg Norman"],
+      "a": 0,
+      "w": "Tiger Woods, the youngest Masters champion ever, in his first year as a professional.",
+      "more": "He went on to hold all four major titles at once in 2000 and 2001, which nobody else has done in the modern game. After back surgery that fused his spine he won the Masters again in 2019, eleven years after his previous major, in what is generally called the greatest comeback in the sport. Only Jack Nicklaus has won more majors."
+    },
+    {
+      "d": "medium",
+      "q": "What is the trophy awarded to the winner of The Open Championship, golf's oldest major, called?",
+      "o": ["The Claret Jug", "The Wanamaker Trophy", "The Green Jacket", "The Silver Salver"],
+      "a": 0,
+      "w": "The Claret Jug, properly the Golf Champion Trophy, first presented in 1873. The original stays with the R&A and the champion gets a replica to fill as he sees fit.",
+      "more": "The first Open was played in 1860 at Prestwick with eight players, and the winner was given a red Moroccan-leather belt instead. Young Tom Morris won the belt three times in a row and got to keep it, which is why a new trophy was needed. The Wanamaker Trophy goes to the winner of the PGA Championship and is so heavy it has to be carried with both arms."
+    },
+    {
+      "d": "medium",
+      "q": "Which Southampton club, founded in 1891 with a clubhouse by Stanford White, is the oldest incorporated golf club in America and one of the five that founded the USGA?",
+      "o": ["Shinnecock Hills", "National Golf Links of America", "Sebonack", "The Bridge"],
+      "a": 0,
+      "w": "Shinnecock Hills, whose clubhouse of 1892 is the oldest in the country still in use. It has hosted the US Open six times, in 1896, 1986, 1995, 2004, 2018 and 2026.",
+      "more": "The 1896 Open there was the second ever played, and the field included John Shippen, a sixteen-year-old of Black and Shinnecock heritage who had helped build the course and finished fifth after some of the professionals threatened to walk out rather than play with him. The National Golf Links next door was built in 1911 by Charles Blair Macdonald as a copy of the best holes in Britain. The Bridge, in Bridgehampton, sits on the old motor-racing circuit."
+    },
+    {
+      "d": "medium",
+      "q": "In golf, what is a 'mulligan'?",
+      "o": ["A do-over shot, not allowed under the rules", "A hole played in a single stroke", "A bet that doubles on the back nine", "A club halfway between a wedge and a putter"],
+      "a": 0,
+      "w": "A free second attempt after a bad shot, usually off the first tee, which friendly games allow and the rulebook does not.",
+      "more": "The usual story credits David Mulligan, a Montreal hotelier of the 1920s who hit a wild drive, teed up another and called it a correction shot; his friends gave it his name instead. Bill Clinton was so fond of them that the press called his 'Billigans'. Dwight Eisenhower played Augusta so often that a pine he kept hitting on the seventeenth was known as the Eisenhower Tree until an ice storm took it down in 2014."
+    },
+    {
+      "d": "hard",
+      "q": "Which Swedish golfer, with ten majors and 72 tour wins, played in a men's PGA Tour event in 2003, the first woman to do so in 58 years?",
+      "o": ["Annika Sörenstam", "Lorena Ochoa", "Karrie Webb", "Se Ri Pak"],
+      "a": 0,
+      "w": "Annika Sörenstam, who missed the cut at the Colonial in Texas by four shots and was applauded off the course. Babe Zaharias had been the last woman to play with the men, in 1945.",
+      "more": "Two years earlier she had shot 59 in a tournament, still the only woman to do it on the LPGA Tour. Some male players complained about her invitation and one withdrew; most of them turned out to watch her tee off. She retired in 2008 and runs a foundation and a vineyard, and her 72 LPGA wins are the third most ever."
+    },
+    {
+      "d": "hard",
+      "type": "order",
+      "q": "Put these golf firsts in order, earliest first.",
+      "o": ["The first US Open is played at Newport, Rhode Island", "The first Ryder Cup is played", "Bobby Jones wins all four majors of his day in one year", "The first Masters is played at Augusta"],
+      "w": "The US Open in 1895, the Ryder Cup in 1927, Jones's Grand Slam in 1930 and the first Masters in 1934.",
+      "more": "That first US Open was a one-day, 36-hole affair with eleven players, won by a 21-year-old English assistant professional. Jones won the Open and Amateur championships of both Britain and America in 1930 and retired from competition at 28, then built Augusta with the money from instructional films. He called the Masters the Augusta National Invitation Tournament for its first five years because he thought 'Masters' sounded immodest."
+    },
+    {
+      "d": "hard",
+      "type": "select",
+      "q": "Which of these players have completed the career Grand Slam, winning all four modern majors at least once? Select all that apply.",
+      "o": ["Gene Sarazen", "Gary Player", "Ben Hogan", "Phil Mickelson", "Arnold Palmer", "Tom Watson"],
+      "a": [0, 1, 2],
+      "w": "Sarazen, Player and Hogan did it. Mickelson has finished second at the US Open six times without winning it, and neither Palmer nor Watson ever won the PGA Championship.",
+      "more": "Only six men have managed the set: those three, Jack Nicklaus, Tiger Woods and Rory McIlroy, who finally added the Masters in 2025 after eleven years of trying. Sarazen was the first, in 1935, helped by a double-eagle at Augusta that is still called the shot heard round the world. Palmer, who did more than anyone to make golf a television sport, lost the PGA three times as runner-up."
+    }
+  ]
+}
