@@ -3,9 +3,9 @@
   "roundsDir": "rounds",
   "today": "2026-10-17",
   "season": 4,
-  "queueCount": 4,
+  "queueCount": 6,
   "target": 5,
-  "fill": 1,
+  "fill": 0,
   "queue": [
     {
       "id": "great-heists",
@@ -38,6 +38,22 @@
       "onPollSince": "2026-10-13",
       "retired": false,
       "requestId": null
+    },
+    {
+      "id": "baby-talk",
+      "name": "Baby Talk",
+      "subject": "Babies",
+      "onPollSince": "2026-10-17",
+      "retired": false,
+      "requestId": null
+    },
+    {
+      "id": "in-my-trivia-era",
+      "name": "In My Trivia Era",
+      "subject": "Taylor Swift",
+      "onPollSince": null,
+      "retired": false,
+      "requestId": "Ukj1y99mZZfSnQ0KIEP2"
     }
   ],
   "poll": {
@@ -49,6 +65,9 @@
         "id": "hail-to-the-chief"
       },
       {
+        "id": "baby-talk"
+      },
+      {
         "id": "req:VctTa2quCKwouluZiqcm",
         "theme": "80’s New Wave Hits",
         "by": "Shivangi Bhatt"
@@ -58,9 +77,9 @@
   "upcoming": [
     {
       "day": "2026-10-18",
-      "id": "req:Ukj1y99mZZfSnQ0KIEP2",
-      "name": null,
-      "how": "unwritten"
+      "id": "in-my-trivia-era",
+      "name": "In My Trivia Era",
+      "how": "theme"
     },
     {
       "day": "2026-10-20",
@@ -191,20 +210,8 @@
       "how": "poll"
     }
   ],
-  "requestsWaiting": [
-    {
-      "id": "Ukj1y99mZZfSnQ0KIEP2",
-      "theme": "Taylor swift trivia",
-      "by": "Navin Katyal",
-      "dropDay": "2026-10-18"
-    }
-  ],
+  "requestsWaiting": [],
   "ideas": [
-    {
-      "id": "Ukj1y99mZZfSnQ0KIEP2",
-      "theme": "Taylor swift trivia",
-      "by": "Navin Katyal"
-    },
     {
       "id": "VctTa2quCKwouluZiqcm",
       "theme": "80’s New Wave Hits",
@@ -224,6 +231,7 @@
     "Great Heists and Cons (Heists and frauds)",
     "To the Moon and Mars (Spaceflight)",
     "Where Words Come From (Word origins)",
+    "Baby Talk (Babies)",
     "Between the Sheets (Sex)",
     "Body of Evidence (The human body)",
     "Bright Ideas (Inventions)",
@@ -238,6 +246,7 @@
     "Golden Age (Old Hollywood, 1930 to 1960)",
     "Grand Designs (Architecture and famous buildings)",
     "Hail to the Chief (US presidents)",
+    "In My Trivia Era (Taylor Swift)",
     "Last Call (Wine, beer and cocktails)",
     "Page Turners (Books and authors)",
     "Ripped From the Headlines (Current events, 2026)",
@@ -250,16 +259,16 @@
     "Where On Earth (Geography)",
     "Wild Things (Animals)"
   ],
-  "need": 2,
+  "need": 0,
   "games": {
     "hamps": {
       "game": "hamps",
       "roundsDir": "games/hamps/rounds",
       "today": "2026-10-17",
       "season": 3,
-      "queueCount": 4,
+      "queueCount": 5,
       "target": 5,
-      "fill": 1,
+      "fill": 0,
       "queue": [
         {
           "id": "log-on",
@@ -292,25 +301,37 @@
           "onPollSince": "2026-10-08",
           "retired": true,
           "requestId": null
+        },
+        {
+          "id": "fore",
+          "name": "Fore!",
+          "subject": "Golf",
+          "onPollSince": "2026-10-17",
+          "retired": false,
+          "requestId": null
         }
       ],
       "poll": {
         "key": "2026-10-17",
         "closes": "2026-10-18",
         "decides": "2026-10-20",
-        "options": []
+        "options": [
+          {
+            "id": "fore"
+          }
+        ]
       },
       "upcoming": [
         {
           "day": "2026-10-18",
-          "id": "log-on",
-          "name": "Log On",
+          "id": "fore",
+          "name": "Fore!",
           "how": "queue"
         },
         {
           "day": "2026-10-20",
-          "id": "pedal-to-the-metal",
-          "name": "Pedal to the Metal",
+          "id": "log-on",
+          "name": "Log On",
           "how": "queue"
         }
       ],
@@ -425,6 +446,7 @@
         "Dressed to Kill (Fashion)",
         "Out East (East Hampton and Montauk)",
         "Eureka (Science and the human body)",
+        "Fore! (Golf)",
         "Game On (Sport)",
         "Gods and Monsters (Mythology)",
         "Grape Expectations (Wine)",
@@ -440,8 +462,8 @@
         "Solar Flair (The planets)",
         "Table for Twenty (Hamptons restaurants)"
       ],
-      "need": 1
+      "need": 0
     }
   },
-  "totalNeed": 3
+  "totalNeed": 0
 }
