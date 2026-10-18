@@ -1,0 +1,106 @@
+{
+  "id": "turning-points",
+  "name": "Turning Points",
+  "subject": "World history",
+  "tagline": "Eleven questions on the days the world changed, from a Paris prison to a line drawn across India in five weeks. Starts easy, ends hard.",
+  "draft": true,
+  "emblem": "📜",
+  "theme": {
+    "font": "EB Garamond",
+    "accent": "#7C2D12",
+    "accent2": "#B45309",
+    "accentDark": "#FDBA74",
+    "accent2Dark": "#FCD34D"
+  },
+  "questions": [
+    {
+      "d": "easy",
+      "q": "The storming of which Paris prison on 14 July 1789 is taken as the start of the French Revolution?",
+      "o": ["The Bastille", "The Conciergerie", "The Louvre", "The Tuileries"],
+      "a": 0,
+      "w": "The Bastille, a medieval fortress that had become a symbol of royal power. The crowd was mainly after the gunpowder stored inside; they found just seven prisoners to free.",
+      "more": "The building was pulled down within months and an entrepreneur sold the stones as souvenirs. Lafayette sent its main key to George Washington, and it still hangs in the hall at Mount Vernon. The date has been France's national holiday since 1880."
+    },
+    {
+      "d": "easy",
+      "q": "Which disease, carried by fleas on rats, killed around a third of Europe's population between 1347 and 1351?",
+      "o": ["Bubonic plague", "Smallpox", "Cholera", "Typhus"],
+      "a": 0,
+      "w": "Bubonic plague, the Black Death, which arrived on Genoese trading ships at the Sicilian port of Messina in 1347 and spread across the continent in four years.",
+      "more": "Estimates of the toll run from a third to a half of all Europeans, and the population took two centuries to recover. The shortage of workers that followed pushed up wages and helped end serfdom in western Europe, so the catastrophe reshaped society as well as emptying it. The bacterium responsible was not identified until 1894, in Hong Kong, by Alexandre Yersin, and it is named after him."
+    },
+    {
+      "d": "easy",
+      "q": "Whose voyage of 1492, paid for by the Spanish monarchs Ferdinand and Isabella, opened the Americas to Europe?",
+      "o": ["Christopher Columbus", "Amerigo Vespucci", "Vasco da Gama", "John Cabot"],
+      "a": 0,
+      "w": "Christopher Columbus, a Genoese sailor who made landfall in the Bahamas on 12 October 1492 after five weeks at sea and believed to his death that he had reached Asia.",
+      "more": "He made four voyages and never set foot on the North American mainland. What followed is called the Columbian exchange: potatoes, tomatoes, maize and chocolate went east, and horses, wheat, sugar cane and smallpox went west, which killed most of the people already living there. The continents ended up named after Vespucci, who worked out that they were not Asia at all."
+    },
+    {
+      "d": "easy",
+      "q": "Who led the Bolsheviks to power in Russia in October 1917, in the revolution that created the Soviet Union?",
+      "o": ["Vladimir Lenin", "Joseph Stalin", "Leon Trotsky", "Alexander Kerensky"],
+      "a": 0,
+      "w": "Vladimir Lenin. The tsar had already abdicated that spring; Lenin's party overthrew the provisional government that replaced him in a coup in Petrograd that cost fewer lives than the film of it.",
+      "more": "Germany had smuggled Lenin home from exile in Switzerland in a sealed train, reasoning that he would take Russia out of the war, which he did. The deposed tsar and his family were shot in a cellar the following summer, and a civil war killed millions before the Soviet Union was proclaimed in 1922. Lenin died in 1924 and his embalmed body has lain on display in Red Square ever since."
+    },
+    {
+      "d": "easy",
+      "q": "In 1945 delegates from fifty countries met in which American city to sign the charter that founded the United Nations?",
+      "o": ["San Francisco", "New York", "Washington", "Chicago"],
+      "a": 0,
+      "w": "San Francisco, where the conference ran from April to June 1945 while the war in the Pacific was still being fought. The charter came into force on 24 October, which is still United Nations Day.",
+      "more": "The organisation then had nowhere to live: the first General Assembly met in London, and the headquarters came to New York only because John D. Rockefeller Jr. bought a strip of slaughterhouses on the East River and gave it to the UN in 1946. The name 'United Nations' had been Roosevelt's, coined for the wartime alliance in 1942. There are now 193 member states."
+    },
+    {
+      "d": "medium",
+      "q": "Which canal, opened in 1869, cut the sea journey from Europe to India by thousands of miles?",
+      "o": ["The Suez Canal", "The Kiel Canal", "The Corinth Canal", "The Grand Canal"],
+      "a": 0,
+      "w": "The Suez Canal, dug across Egypt in ten years under the French diplomat Ferdinand de Lesseps. Ships no longer had to sail around the whole of Africa.",
+      "more": "Britain had opposed it, then bought Egypt's shares in 1875 when the ruler went bankrupt, with a loan arranged overnight from the Rothschild bank. Egypt's nationalisation of the canal in 1956 set off the Suez Crisis, which ended the careers of a British prime minister and Britain's standing as a great power. In 2021 a single ship, the Ever Given, wedged itself across the channel and blocked a tenth of world trade for six days."
+    },
+    {
+      "d": "medium",
+      "q": "The Rosetta Stone, found by Napoleon's soldiers in Egypt in 1799, carries the same decree in Greek and two other scripts. What did it finally let scholars read?",
+      "o": ["Egyptian hieroglyphs", "Linear B", "Cuneiform", "The Phaistos Disc"],
+      "a": 0,
+      "w": "Egyptian hieroglyphs, which nobody had been able to read for nearly 1,500 years. Jean-François Champollion cracked them in 1822 by working back from the Greek and from the royal names ringed in cartouches.",
+      "more": "The stone records a decree of 196 BC in honour of the boy king Ptolemy V, written in hieroglyphs, in the everyday Egyptian script called demotic, and in Greek. The British took it from the French in 1801 under the terms of their surrender in Egypt, and it has been in the British Museum since 1802, where it is the most visited object in the building. Egypt has asked for it back more than once."
+    },
+    {
+      "d": "medium",
+      "q": "When Britain left India in August 1947 the country was partitioned into two independent states, India and which other?",
+      "o": ["Pakistan", "Bangladesh", "Burma", "Ceylon"],
+      "a": 0,
+      "w": "Pakistan, in two halves a thousand miles apart; the eastern half broke away to become Bangladesh in 1971.",
+      "more": "The border was drawn in five weeks by Cyril Radcliffe, a British lawyer who had never been to India before and never went back, and it was published two days after independence. Somewhere between ten and fifteen million people crossed it in both directions, in the largest migration in history, and the killing along the way is reckoned at up to a million dead. The two countries have fought several wars since, and both now have nuclear weapons."
+    },
+    {
+      "d": "hard",
+      "q": "True or false: the Hundred Years' War between England and France lasted exactly a hundred years.",
+      "o": ["True", "False"],
+      "a": 1,
+      "w": "False. It ran from 1337 to 1453, which is 116 years, and it was a series of wars with long truces rather than one continuous fight. Historians gave it the name in the nineteenth century.",
+      "more": "It produced the English longbow victories at Crécy and Agincourt and, on the French side, Joan of Arc, a teenage peasant who turned the war around at Orléans in 1429 and was burned at the stake two years later. France won in the end and England lost everything on the continent except Calais. It ended in the same year that Constantinople fell to the Ottomans, which is why 1453 is sometimes used as the close of the Middle Ages."
+    },
+    {
+      "d": "hard",
+      "type": "order",
+      "q": "Put these events in order, earliest first.",
+      "o": ["The Spanish Armada is defeated", "The Great Fire of London", "Napoleon is beaten at Waterloo", "New Zealand becomes the first country to give women the vote"],
+      "w": "The Armada in 1588, the Great Fire in 1666, Waterloo in 1815 and New Zealand's Electoral Act in 1893.",
+      "more": "The Armada was broken by English fireships off Calais and then wrecked by storms off Scotland and Ireland; Elizabeth I struck a medal reading 'God blew and they were scattered'. The Great Fire started in a bakery in Pudding Lane and destroyed 13,000 houses but, by the records, killed only six people. New Zealand's vote came after a petition organised by Kate Sheppard, who is now on the country's ten-dollar note; Swiss women waited until 1971."
+    },
+    {
+      "d": "hard",
+      "type": "select",
+      "q": "Which of these empires still existed in the year 1900? Select all that apply.",
+      "o": ["The Ottoman Empire", "The Austro-Hungarian Empire", "The Russian Empire", "The Mughal Empire", "The Inca Empire", "The Holy Roman Empire"],
+      "a": [0, 1, 2],
+      "w": "The Ottoman, Austro-Hungarian and Russian empires were all still standing in 1900, and all three were destroyed by the First World War within two decades. The Mughals ended in 1857, the Incas in the 1570s and the Holy Roman Empire in 1806.",
+      "more": "Napoleon dissolved the Holy Roman Empire after a thousand years, long after Voltaire had quipped that it was neither holy, nor Roman, nor an empire. The last Mughal emperor was exiled to Burma by the British after the rebellion of 1857. The Russian Empire fell to revolution in 1917, Austria-Hungary was carved into new countries in 1918, and the Ottoman sultanate was abolished in 1922, with Turkey emerging from the wreckage."
+    }
+  ]
+}
