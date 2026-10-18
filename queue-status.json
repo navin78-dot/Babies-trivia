@@ -1,9 +1,9 @@
 {
   "game": "babies",
   "roundsDir": "rounds",
-  "today": "2026-10-17",
-  "season": 4,
-  "queueCount": 6,
+  "today": "2026-10-18",
+  "season": 5,
+  "queueCount": 5,
   "target": 5,
   "fill": 0,
   "queue": [
@@ -36,7 +36,7 @@
       "name": "Hail to the Chief",
       "subject": "US presidents",
       "onPollSince": "2026-10-13",
-      "retired": false,
+      "retired": true,
       "requestId": null
     },
     {
@@ -46,43 +46,34 @@
       "onPollSince": "2026-10-17",
       "retired": false,
       "requestId": null
-    },
-    {
-      "id": "in-my-trivia-era",
-      "name": "In My Trivia Era",
-      "subject": "Taylor Swift",
-      "onPollSince": null,
-      "retired": false,
-      "requestId": "Ukj1y99mZZfSnQ0KIEP2"
     }
   ],
   "poll": {
-    "key": "2026-10-17",
-    "closes": "2026-10-18",
-    "decides": "2026-10-20",
+    "key": "2026-10-18",
+    "closes": "2026-10-20",
+    "decides": "2026-10-22",
     "options": [
-      {
-        "id": "hail-to-the-chief"
-      },
-      {
-        "id": "baby-talk"
-      },
       {
         "id": "req:VctTa2quCKwouluZiqcm",
         "theme": "80’s New Wave Hits",
         "by": "Shivangi Bhatt"
+      },
+      {
+        "id": "req:Y55KgJTCDG6QLkEF3Ct1",
+        "theme": "Sex",
+        "by": "Ketan Mehta"
       }
     ]
   },
   "upcoming": [
     {
-      "day": "2026-10-18",
-      "id": "in-my-trivia-era",
-      "name": "In My Trivia Era",
-      "how": "theme"
+      "day": "2026-10-20",
+      "id": "baby-talk",
+      "name": "Baby Talk",
+      "how": "poll"
     },
     {
-      "day": "2026-10-20",
+      "day": "2026-10-22",
       "id": "req:VctTa2quCKwouluZiqcm",
       "name": null,
       "how": "leading"
@@ -208,6 +199,12 @@
       "id": "terrible-lizards",
       "name": "Terrible Lizards",
       "how": "poll"
+    },
+    {
+      "day": "2026-10-18",
+      "id": "in-my-trivia-era",
+      "name": "In My Trivia Era",
+      "how": "theme"
     }
   ],
   "requestsWaiting": [],
@@ -216,6 +213,11 @@
       "id": "VctTa2quCKwouluZiqcm",
       "theme": "80’s New Wave Hits",
       "by": "Shivangi Bhatt"
+    },
+    {
+      "id": "Y55KgJTCDG6QLkEF3Ct1",
+      "theme": "Sex",
+      "by": "Ketan Mehta"
     }
   ],
   "existingSubjects": [
@@ -264,20 +266,12 @@
     "hamps": {
       "game": "hamps",
       "roundsDir": "games/hamps/rounds",
-      "today": "2026-10-17",
-      "season": 3,
-      "queueCount": 5,
+      "today": "2026-10-18",
+      "season": 4,
+      "queueCount": 4,
       "target": 5,
-      "fill": 0,
+      "fill": 1,
       "queue": [
-        {
-          "id": "log-on",
-          "name": "Log On",
-          "subject": "Technology and the internet",
-          "onPollSince": "2026-10-02",
-          "retired": true,
-          "requestId": null
-        },
         {
           "id": "pedal-to-the-metal",
           "name": "Pedal to the Metal",
@@ -312,27 +306,29 @@
         }
       ],
       "poll": {
-        "key": "2026-10-17",
-        "closes": "2026-10-18",
-        "decides": "2026-10-20",
+        "key": "2026-10-18",
+        "closes": "2026-10-20",
+        "decides": "2026-10-22",
         "options": [
           {
-            "id": "fore"
+            "id": "req:pN7BX9S0a737Nb2tLXHl",
+            "theme": "Miami",
+            "by": "Ketan Mehta"
           }
         ]
       },
       "upcoming": [
         {
-          "day": "2026-10-18",
+          "day": "2026-10-20",
           "id": "fore",
           "name": "Fore!",
-          "how": "queue"
+          "how": "poll"
         },
         {
-          "day": "2026-10-20",
-          "id": "log-on",
-          "name": "Log On",
-          "how": "queue"
+          "day": "2026-10-22",
+          "id": "req:pN7BX9S0a737Nb2tLXHl",
+          "name": null,
+          "how": "leading"
         }
       ],
       "dropped": [
@@ -431,10 +427,22 @@
           "id": "grape-expectations",
           "name": "Grape Expectations",
           "how": "poll"
+        },
+        {
+          "day": "2026-10-18",
+          "id": "log-on",
+          "name": "Log On",
+          "how": "queue"
         }
       ],
       "requestsWaiting": [],
-      "ideas": [],
+      "ideas": [
+        {
+          "id": "pN7BX9S0a737Nb2tLXHl",
+          "theme": "Miami",
+          "by": "Ketan Mehta"
+        }
+      ],
       "existingSubjects": [
         "Art Attack (Art and artists)",
         "Binge Worthy (Television of the streaming age)",
@@ -462,8 +470,8 @@
         "Solar Flair (The planets)",
         "Table for Twenty (Hamptons restaurants)"
       ],
-      "need": 0
+      "need": 1
     }
   },
-  "totalNeed": 0
+  "totalNeed": 1
 }
