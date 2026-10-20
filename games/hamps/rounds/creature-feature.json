@@ -1,0 +1,106 @@
+{
+  "id": "creature-feature",
+  "name": "Creature Feature",
+  "subject": "Animals",
+  "tagline": "Eleven questions on the other species, from the cat that out-accelerates a sports car to the crab whose blood keeps your vaccines clean. Starts easy, ends hard.",
+  "draft": true,
+  "emblem": "🦏",
+  "theme": {
+    "font": "Sniglet",
+    "accent": "#0F766E",
+    "accent2": "#EA580C",
+    "accentDark": "#2DD4BF",
+    "accent2Dark": "#FB923C"
+  },
+  "questions": [
+    {
+      "d": "easy",
+      "q": "Which animal is the fastest on land, reaching around 100 kilometres an hour within a few strides?",
+      "o": ["The cheetah", "The pronghorn", "The greyhound", "The lion"],
+      "a": 0,
+      "w": "The cheetah, which goes from standing to 100 in about three seconds, quicker than most sports cars, but can only keep it up for twenty seconds or so.",
+      "more": "Its claws do not fully retract, giving it grip like running spikes, and its long tail works as a rudder in turns. Unlike the other big cats it cannot roar; it chirps and purrs. Around 7,000 are left in the wild, most of them in southern and eastern Africa."
+    },
+    {
+      "d": "easy",
+      "q": "Which is the only bird that can fly backwards?",
+      "o": ["The hummingbird", "The swift", "The kingfisher", "The kestrel"],
+      "a": 0,
+      "w": "The hummingbird, whose shoulder joint lets its wings rotate in a figure of eight, so it can hover, fly backwards and even upside down.",
+      "more": "The wings beat up to eighty times a second and the heart up to 1,200 times a minute, so a hummingbird has to drink around half its own weight in nectar every day. The bee hummingbird of Cuba weighs less than a penny and is the smallest bird on earth. They live only in the Americas, which is why Europe's old painters never got them right."
+    },
+    {
+      "d": "easy",
+      "q": "Flamingos are born grey. What turns them pink?",
+      "o": ["Pigments in the shrimp and algae they eat", "Sunlight", "Blood vessels close to the skin", "Minerals in the mud"],
+      "a": 0,
+      "w": "Carotenoid pigments in their food, the same chemicals that make carrots orange. Zoo flamingos fade unless the pigments are added to their feed.",
+      "more": "They feed with their heads upside down, pumping water through a comb-like beak to trap the tiny creatures. Standing on one leg appears to take no muscular effort at all, which is why a dead flamingo can be propped on one leg too. The deeper the pink, the better fed the bird, which matters when it comes to choosing a mate."
+    },
+    {
+      "d": "easy",
+      "q": "True or false: under its fur, a polar bear's skin is black.",
+      "o": ["True", "False"],
+      "a": 0,
+      "w": "True. The skin is black to soak up heat, and the fur is not really white either: each hair is a hollow, transparent tube that scatters light the way snow does.",
+      "more": "A polar bear can smell a seal through a metre of ice from more than a kilometre away, and will swim for days between ice floes. It is the largest land carnivore and the only bear classed as a marine mammal. Shrinking sea ice is why it became the face of climate change."
+    },
+    {
+      "d": "easy",
+      "q": "What does a camel store in its hump?",
+      "o": ["Fat", "Water", "Milk", "Bone"],
+      "a": 0,
+      "w": "Fat, up to 35 kilograms of it, which the camel lives off when food runs out. The water goes everywhere else: a thirsty camel can drink 100 litres in ten minutes.",
+      "more": "Dromedaries, with one hump, come from Arabia and North Africa; Bactrian camels, with two, come from the cold deserts of Central Asia. They can close their nostrils against sand and have a third eyelid to wipe their eyes. Australia has the world's largest herd of wild camels, descended from animals brought in to cross the outback in the nineteenth century."
+    },
+    {
+      "d": "medium",
+      "q": "Hippos ooze a red fluid that early explorers took for sweat made of blood. What does it actually do?",
+      "o": ["Works as a sunscreen and antiseptic", "Attracts mates", "Warns off crocodiles", "Keeps flies away"],
+      "a": 0,
+      "w": "It is a sunscreen and an antiseptic in one, protecting skin that spends the day in water and the night out of it. It is colourless when it appears and turns red, then brown, in the air.",
+      "more": "Hippos kill around 500 people a year in Africa, more than lions do, and can outrun a human on land. They do not actually swim; they walk and bounce along the riverbed. Colombia has a wild herd of more than 150, descended from four that Pablo Escobar kept at his ranch."
+    },
+    {
+      "d": "medium",
+      "q": "Which Australian marsupial sleeps up to twenty hours a day because its diet of eucalyptus leaves gives it so little energy?",
+      "o": ["The koala", "The wombat", "The quokka", "The sugar glider"],
+      "a": 0,
+      "w": "The koala. Eucalyptus is poisonous to most animals and barely nutritious, so a koala eats a kilogram of leaves a day and then sleeps it off.",
+      "more": "It is not a bear, and it has fingerprints so like a human's that they could confuse a crime scene. Koalas rarely drink; the name is often said to come from an Aboriginal word meaning 'no water'. Chlamydia and bushfires have cut the population badly, and the species was listed as endangered in eastern Australia in 2022."
+    },
+    {
+      "d": "medium",
+      "q": "The narwhal's spiral 'horn', up to three metres long, is actually what?",
+      "o": ["A tooth", "A horn of keratin", "An extension of the skull", "A fin"],
+      "a": 0,
+      "w": "A tooth, a canine that grows out through the upper lip in a left-handed spiral, almost always in males.",
+      "more": "It has around ten million nerve endings and seems to work as a sensor for the water around it as well as a status symbol. Medieval Europeans sold narwhal tusks as unicorn horns for many times their weight in gold, and Elizabeth I was given one valued at the price of a castle. Narwhals live only in the Arctic, in the seas between Canada, Greenland and Russia."
+    },
+    {
+      "d": "hard",
+      "q": "Why does the pharmaceutical industry catch and bleed hundreds of thousands of horseshoe crabs every year?",
+      "o": ["Their blue blood clots around bacterial toxins, so it is used to test medicines and implants for contamination", "Their blood can be transfused into any animal", "It is the base of the blue dye used in pills", "It contains a natural antibiotic"],
+      "a": 0,
+      "w": "Their copper-based blue blood reacts to bacterial toxins by clotting, and a test made from it has been used since the 1970s to check that vaccines, injections and implants are clean.",
+      "more": "A litre is worth around 15,000 dollars, and the crabs are returned to the sea after giving up about a third of their blood, though many die. Horseshoe crabs have been around for 450 million years, longer than the dinosaurs, and are closer to spiders than to crabs. A synthetic substitute now exists and the industry is slowly switching to it."
+    },
+    {
+      "d": "hard",
+      "type": "order",
+      "q": "Put these animals in order of how long they live, longest first.",
+      "o": ["Galápagos tortoise", "African grey parrot", "Horse", "Mayfly"],
+      "w": "Galápagos tortoises live well past 100 and some beyond 150, grey parrots around 50 to 60 years, horses 25 to 30, and an adult mayfly a day or less.",
+      "more": "Jonathan, a giant tortoise on the island of St Helena, hatched around 1832 and is the oldest known land animal alive. Parrots are notorious for outliving their owners and being passed down in wills. Adult mayflies have no working mouths; they exist only to mate, which is why a whole year's generation hatches and dies within the same few days."
+    },
+    {
+      "d": "hard",
+      "type": "select",
+      "q": "Which of these animals are mammals? Select all that apply.",
+      "o": ["Sea otter", "Walrus", "Manatee", "Whale shark", "Penguin", "Komodo dragon"],
+      "a": [0, 1, 2],
+      "w": "Sea otters, walruses and manatees are mammals: they breathe air, give birth to live young and feed them milk. The whale shark is a fish, the penguin a bird and the Komodo dragon a lizard.",
+      "more": "Sea otters hold hands while they sleep so they do not drift apart, and keep a favourite stone for cracking shellfish. Manatees are probably what sailors took for mermaids, which says something about how long they had been at sea. The whale shark is the largest fish in the world, and the Komodo dragon's bite is venomous as well as filthy."
+    }
+  ]
+}

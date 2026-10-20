@@ -1,0 +1,107 @@
+{
+  "id": "pretty-in-synth",
+  "name": "Pretty in Synth",
+  "subject": "1980s new wave",
+  "requestId": "VctTa2quCKwouluZiqcm",
+  "tagline": "Eleven questions on the decade of synthesisers, eyeliner and haircuts that needed their own insurance, from Sheffield to the Rose Bowl. A theme the group voted for.",
+  "draft": true,
+  "emblem": "🎹",
+  "theme": {
+    "font": "Audiowide",
+    "accent": "#9333EA",
+    "accent2": "#22D3EE",
+    "accentDark": "#C084FC",
+    "accent2Dark": "#67E8F9"
+  },
+  "questions": [
+    {
+      "d": "easy",
+      "q": "Which band's 1982 hit 'Hungry Like the Wolf' had a video shot in the jungles of Sri Lanka, part of an early love affair with MTV?",
+      "o": ["Duran Duran", "Spandau Ballet", "ABC", "Culture Club"],
+      "a": 0,
+      "w": "Duran Duran, from Birmingham, who took their name from the villain of the 1968 film Barbarella and spent the decade filming videos in places prettier than Birmingham.",
+      "more": "'Rio', 'The Reflex' and 'A View to a Kill', still the only James Bond theme to reach number one in America, followed. Simon Le Bon nearly drowned in 1985 when his yacht capsized during an ocean race off Cornwall. They are still touring with most of the original line-up and were inducted into the Rock and Roll Hall of Fame in 2022."
+    },
+    {
+      "d": "easy",
+      "q": "'Sweet Dreams (Are Made of This)', with Annie Lennox in a man's suit and a bright orange crop, was a 1983 hit for which duo?",
+      "o": ["Eurythmics", "Yazoo", "Soft Cell", "Tears for Fears"],
+      "a": 0,
+      "w": "Eurythmics, Lennox and Dave Stewart, who had been a couple in their previous band and kept working together after they split up.",
+      "more": "They recorded it in a tiny studio above a picture-framing shop in north London, paid for with a bank loan, and the record company was reluctant to release it as a single at all. The video, with Lennox in a boardroom beside a cow, made her a star overnight and reportedly had MTV asking for proof that she was a woman. She has since won more Brit Awards than any other female artist."
+    },
+    {
+      "d": "easy",
+      "q": "'Don't You (Forget About Me)', the song that closes the 1985 teen film The Breakfast Club, was a number one for which Scottish band?",
+      "o": ["Simple Minds", "Big Country", "Deacon Blue", "Altered Images"],
+      "a": 0,
+      "w": "Simple Minds, from Glasgow, who did not write it, did not want to record it and were talked into it in a single afternoon.",
+      "more": "The songwriter Keith Forsey had offered it to Bryan Ferry and Billy Idol first. The band thought it beneath them, cut it in about three hours and left it off their next album, and it became their only American number one. The 'la la la' ending was improvised because Jim Kerr had not bothered to write any more words."
+    },
+    {
+      "d": "easy",
+      "q": "Which band, fronted by Robert Smith in smudged lipstick and backcombed hair, made 'Just Like Heaven', 'Lovesong' and 'Friday I'm in Love'?",
+      "o": ["The Cure", "Depeche Mode", "The Smiths", "Siouxsie and the Banshees"],
+      "a": 0,
+      "w": "The Cure, formed in Crawley, south of London, in 1976, and still fronted by Smith nearly fifty years later.",
+      "more": "Smith has said the lipstick began as a joke when he borrowed his wife's make-up for a video. The band's gloomy reputation sits oddly with 'Friday I'm in Love', which Smith wrote as a deliberately silly pop song. Their 2024 album Songs of a Lost World, the first in sixteen years, went straight to number one in Britain, and Smith made headlines by refusing to let Ticketmaster pile fees onto the tour tickets."
+    },
+    {
+      "d": "easy",
+      "q": "'Take On Me', with its pencil-sketch video of a boy stepping out of a comic strip, was a 1985 hit for which Norwegian band?",
+      "o": ["a-ha", "Roxette", "Europe", "Ace of Base"],
+      "a": 0,
+      "w": "a-ha, whose singer Morten Harket hits a note at the end of the chorus that most people do not attempt in the car. The other three are Swedish.",
+      "more": "The song flopped twice before the video, in which about 3,000 frames were traced by hand over four months, sent it to number one in America. The band went on to write the Bond theme 'The Living Daylights' and are still together; the video passed a billion views on YouTube in 2020. The chorus climbs through more than two octaves, which is why karaoke versions tend to end badly."
+    },
+    {
+      "d": "medium",
+      "q": "Which Sheffield band had the 1981 Christmas number one with 'Don't You Want Me', a duet between the singer and a girl he had recruited from a disco?",
+      "o": ["The Human League", "Heaven 17", "ABC", "Cabaret Voltaire"],
+      "a": 0,
+      "w": "The Human League. Phil Oakey spotted Joanne Catherall and Susanne Sulley dancing in a Sheffield club and hired them on the spot; neither had sung professionally.",
+      "more": "Half the band had just walked out to form Heaven 17, and the album Dare was made in a hurry with the newcomers. Oakey thought 'Don't You Want Me' the weakest track on it and fought the label over releasing it as a fourth single; it sold more than a million copies in Britain and went to number one in America the next summer. Catherall and Sulley are still in the band more than forty years on."
+    },
+    {
+      "d": "medium",
+      "q": "Which band from Basildon in Essex took its name from a French fashion magazine and went from the chirpy 'Just Can't Get Enough' to filling stadiums with 'Enjoy the Silence'?",
+      "o": ["Depeche Mode", "Pet Shop Boys", "Erasure", "New Order"],
+      "a": 0,
+      "w": "Depeche Mode. The name comes from Dépêche Mode, a magazine, and roughly means 'fashion dispatch'.",
+      "more": "Vince Clarke, who wrote the early hits, left after the first album to form Yazoo and then Erasure, and Martin Gore took over the writing. Their 1988 concert at the Rose Bowl in California drew more than 60,000 people for a band that critics had written off as teen synth-pop. They have sold over 100 million records and were still filling arenas in 2024, after the death of founding keyboardist Andy Fletcher."
+    },
+    {
+      "d": "medium",
+      "q": "Which New York band, led by David Byrne in an enormous suit in the concert film Stop Making Sense, asked 'How did I get here?' in 'Once in a Lifetime'?",
+      "o": ["Talking Heads", "Blondie", "Television", "The B-52's"],
+      "a": 0,
+      "w": "Talking Heads, formed by three art-school students from Rhode Island who moved into a loft in Manhattan and played the punk club CBGB.",
+      "more": "Brian Eno produced their best albums and helped turn them from nervy punks into a funk orchestra. Stop Making Sense, directed by Jonathan Demme in 1984, is regularly called the greatest concert film ever made, and its restoration in 2023 got the four of them into a room together for the first time in twenty years. The big suit came after a Japanese designer told Byrne that on stage everything should be bigger."
+    },
+    {
+      "d": "hard",
+      "q": "Which Manchester band rose from the ashes of Joy Division after the death of Ian Curtis and made 'Blue Monday', the best-selling 12-inch single ever?",
+      "o": ["New Order", "The Smiths", "The Stone Roses", "Happy Mondays"],
+      "a": 0,
+      "w": "New Order. The surviving members regrouped within months of Curtis's suicide in 1980 and swapped guitars for synthesisers.",
+      "more": "'Blue Monday' came in a die-cut sleeve designed to look like a floppy disk that cost more to make than the record sold for, so by legend their label Factory lost money on every copy. The band's money went into the Haçienda nightclub, which more or less invented British rave culture and lost even more. Their 1990 England World Cup song 'World in Motion' is the only football record anyone admits to liking."
+    },
+    {
+      "d": "hard",
+      "type": "order",
+      "q": "Put these singles in the order they were released, earliest first.",
+      "o": ["'Heart of Glass' by Blondie", "'Vienna' by Ultravox", "'Relax' by Frankie Goes to Hollywood", "'West End Girls' by Pet Shop Boys"],
+      "w": "'Heart of Glass' in 1979, 'Vienna' in 1981, 'Relax' in late 1983 and 'West End Girls', in the version everyone knows, in 1985.",
+      "more": "'Heart of Glass' was Blondie's disco turn and horrified their punk fans. 'Vienna' is famous for the record it did not break: it sat at number two in Britain for four weeks, kept off the top by, among other things, a novelty record called 'Shaddap You Face'. The BBC banned 'Relax' for its lyrics, which sent it to number one, and 'West End Girls' had flopped in a first version in 1984 before being re-recorded."
+    },
+    {
+      "d": "hard",
+      "type": "select",
+      "q": "Which of these bands were British? Select all that apply.",
+      "o": ["Devo", "The B-52's", "Tears for Fears", "The Cars", "Spandau Ballet", "A Flock of Seagulls"],
+      "a": [2, 4, 5],
+      "w": "Tears for Fears came from Bath, Spandau Ballet from London and A Flock of Seagulls from Liverpool. Devo were from Akron, Ohio, the B-52's from Athens, Georgia, and the Cars from Boston.",
+      "more": "A Flock of Seagulls' singer Mike Score had been a hairdresser, which explains the haircut, and the band is now better known for it than for 'I Ran'. Devo's name is short for 'de-evolution', the theory that humanity is going backwards, which they argued while wearing flowerpot hats. Tears for Fears took their name from the primal-scream therapy of Arthur Janov, whose patients had included John Lennon."
+    }
+  ]
+}

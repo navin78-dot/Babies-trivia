@@ -1,0 +1,106 @@
+{
+  "id": "mic-drop",
+  "name": "Mic Drop",
+  "subject": "Hip-hop",
+  "tagline": "Eleven questions on fifty years of beats and rhymes, from a Bronx rec room to a two-million-dollar album nobody is allowed to hear. Starts easy, ends hard.",
+  "draft": true,
+  "emblem": "🎤",
+  "theme": {
+    "font": "Permanent Marker",
+    "accent": "#F59E0B",
+    "accent2": "#A3E635",
+    "accentDark": "#FBBF24",
+    "accent2Dark": "#BEF264"
+  },
+  "questions": [
+    {
+      "d": "easy",
+      "q": "'Rapper's Delight' (1979), the first rap record to become a hit, was by which group?",
+      "o": ["The Sugarhill Gang", "Grandmaster Flash and the Furious Five", "Run-DMC", "Kurtis Blow"],
+      "a": 0,
+      "w": "The Sugarhill Gang, three men from New Jersey put together by the record executive Sylvia Robinson, who had heard rapping at a Harlem club and decided it could be sold.",
+      "more": "The full version runs nearly fifteen minutes over the bassline of Chic's 'Good Times', whose writers sued and got a credit. Big Bank Hank's verses were borrowed from a notebook belonging to Grandmaster Caz, who never saw a penny. Most of the Bronx DJs who had invented the music had never imagined it could be put on a record at all."
+    },
+    {
+      "d": "easy",
+      "q": "Which rapper, raised in Brooklyn's Marcy Houses, built Roc-A-Fella Records and Roc Nation and became hip-hop's first billionaire?",
+      "o": ["Jay-Z", "Nas", "Diddy", "50 Cent"],
+      "a": 0,
+      "w": "Jay-Z, born Shawn Carter in 1969, who sold his first album out of the boot of a car when no label would sign him.",
+      "more": "He is tied for the most Grammys of any rapper, has had more number-one albums than any other solo act of his generation, and spent three years running Def Jam Records. He married Beyoncé in 2008, and the two of them are the richest couple in music. 'Empire State of Mind', with Alicia Keys, is as close as New York has to an official anthem."
+    },
+    {
+      "d": "easy",
+      "q": "Which 1986 collaboration between Run-DMC and Aerosmith, with a video in which the two bands smash through a wall, put rap on MTV?",
+      "o": ["'Walk This Way'", "'It's Tricky'", "'Rock Box'", "'My Adidas'"],
+      "a": 0,
+      "w": "'Walk This Way', an Aerosmith song from 1975 that Run-DMC had only ever known as a drum break; their producer Rick Rubin made them learn the words.",
+      "more": "It revived Aerosmith's career, took rap into the top five for the first time and made Run-DMC the first rap act with a platinum album. Their song 'My Adidas' led to the first endorsement deal between a sports brand and musicians, after an executive watched a Madison Square Garden crowd hold up thousands of trainers. Jam Master Jay, the group's DJ, was shot dead in his Queens studio in 2002."
+    },
+    {
+      "d": "easy",
+      "q": "Which group's 1988 album Straight Outta Compton, with Dr. Dre, Ice Cube and Eazy-E, earned a warning letter from the FBI?",
+      "o": ["N.W.A", "Public Enemy", "Cypress Hill", "Geto Boys"],
+      "a": 0,
+      "w": "N.W.A, from Compton in Los Angeles County. The FBI objected to a song about the police, and the letter helped sell two million copies.",
+      "more": "Ice Cube left over money within a year, Dre left to found Death Row Records and produce Snoop Dogg, and Eazy-E died of AIDS in 1995 at 30. Dre later sold his Beats headphone company to Apple for three billion dollars. The 2015 film of the group's story was the highest-grossing music biopic ever until Bohemian Rhapsody."
+    },
+    {
+      "d": "easy",
+      "q": "Which rapper, born Marshall Mathers in 1972 and raised on the wrong side of Detroit's 8 Mile Road, became the best-selling hip-hop artist of all time?",
+      "o": ["Eminem", "Macklemore", "Vanilla Ice", "Post Malone"],
+      "a": 0,
+      "w": "Eminem, who was discovered by Dr. Dre after finishing second in a 1997 rap battle in Los Angeles.",
+      "more": "His Marshall Mathers LP sold 1.76 million copies in its first week in 2000, then a record for a rap album, and he has sold more than 220 million records. 8 Mile, the 2002 film loosely based on his early years, won him an Oscar for its song. His alter ego Slim Shady was officially killed off on a 2024 album called The Death of Slim Shady."
+    },
+    {
+      "d": "medium",
+      "q": "Which 1998 album was the first hip-hop record to win the Grammy for Album of the Year?",
+      "o": ["The Miseducation of Lauryn Hill", "The Score, by the Fugees", "Illmatic, by Nas", "Supa Dupa Fly, by Missy Elliott"],
+      "a": 0,
+      "w": "The Miseducation of Lauryn Hill, which won five Grammys in one night in 1999, then a record for a woman.",
+      "more": "Hill made it at 23 after leaving the Fugees, whose 'Killing Me Softly' she had sung, and she has never released another studio album. She served three months in prison in 2013 over unfiled tax returns and is famous for arriving at her own concerts hours late. 'Doo Wop (That Thing)' went straight in at number one, the first debut single by a female artist to do so."
+    },
+    {
+      "d": "medium",
+      "q": "Hip-hop's birth is usually dated to a back-to-school party in a Bronx rec room in August 1973, where which DJ extended the drum breaks of records on two turntables?",
+      "o": ["DJ Kool Herc", "Grandmaster Flash", "Afrika Bambaataa", "Grand Wizzard Theodore"],
+      "a": 0,
+      "w": "DJ Kool Herc, born Clive Campbell in Jamaica, at 1520 Sedgwick Avenue. His sister Cindy threw the party to raise money for school clothes.",
+      "more": "Herc noticed the dancers waiting for the percussion breaks and used two copies of the same record to loop them, which he called the merry-go-round; the dancers became b-boys and the talking over the top became rapping. The building was saved from developers in 2008 and the party's fiftieth anniversary was marked with concerts across the city in 2023. Grand Wizzard Theodore, a few blocks away, invented scratching by accident when his mother told him to turn the music down."
+    },
+    {
+      "d": "medium",
+      "q": "Which Atlanta duo of André 3000 and Big Boi had 'Ms. Jackson' and 'Hey Ya!'?",
+      "o": ["OutKast", "Goodie Mob", "Migos", "Run the Jewels"],
+      "a": 0,
+      "w": "OutKast, who put the South on the hip-hop map after being booed at the 1995 Source Awards, where André told the crowd, 'The South got something to say.'",
+      "more": "Their double album Speakerboxxx/The Love Below won Album of the Year at the Grammys in 2004, only the second hip-hop record to do so. In the 'Hey Ya!' video André plays all eight members of a Beatles-style band. He has not made a rap album since; in 2023 he released an album of flute music instead, which went to number one on the jazz chart."
+    },
+    {
+      "d": "hard",
+      "q": "Which collective from Staten Island, with RZA, GZA, Method Man and Ghostface Killah among its nine members, named itself after a kung-fu film?",
+      "o": ["Wu-Tang Clan", "A Tribe Called Quest", "Mobb Deep", "De La Soul"],
+      "a": 0,
+      "w": "Wu-Tang Clan, whose 1993 debut Enter the Wu-Tang (36 Chambers) was made for about 36,000 dollars under a deal that let every member sign solo records with other labels.",
+      "more": "In 2015 they sold a single copy of an album, Once Upon a Time in Shaolin, for two million dollars to the pharmaceutical executive Martin Shkreli, on the condition that it not be released to the public until 2103. The government seized it when Shkreli was convicted of fraud and sold it to a group of crypto investors, who now put it on display in museums. The Wu-Tang logo is one of the most tattooed in music."
+    },
+    {
+      "d": "hard",
+      "type": "order",
+      "q": "Put these songs in the order they were released, earliest first.",
+      "o": ["'The Message' by Grandmaster Flash and the Furious Five", "'(You Gotta) Fight for Your Right (To Party!)' by the Beastie Boys", "'Juicy' by the Notorious B.I.G.", "'In Da Club' by 50 Cent"],
+      "w": "'The Message' in 1982, 'Fight for Your Right' in 1986, 'Juicy' in 1994 and 'In Da Club' in 2003.",
+      "more": "'The Message' was the first hit to describe life in the projects rather than a party, and Flash himself barely appears on it. The Beastie Boys were three white kids from New York who started as a punk band and became the first rap act with a number-one album. 'Juicy' tells Biggie's own rise out of Brooklyn, and 50 Cent was signed by Eminem and Dr. Dre after surviving being shot nine times."
+    },
+    {
+      "d": "hard",
+      "type": "select",
+      "q": "Which of these rappers are from New York City? Select all that apply.",
+      "o": ["Nas", "The Notorious B.I.G.", "Cardi B", "Snoop Dogg", "Drake", "Megan Thee Stallion"],
+      "a": [0, 1, 2],
+      "w": "Nas is from Queensbridge, Biggie was from Brooklyn and Cardi B is from the Bronx. Snoop Dogg is from Long Beach, California, Drake from Toronto and Megan Thee Stallion from Houston.",
+      "more": "Nas's Illmatic, made in 1994 when he was twenty, is routinely called the greatest rap album ever. Biggie was shot dead in Los Angeles in March 1997, six months after Tupac, and his murder has never been solved. Cardi B was a stripper and reality-television star before 'Bodak Yellow' made her the first solo female rapper to top the Hot 100 since Lauryn Hill."
+    }
+  ]
+}
