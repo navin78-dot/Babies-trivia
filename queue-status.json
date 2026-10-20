@@ -1,11 +1,11 @@
 {
   "game": "babies",
   "roundsDir": "rounds",
-  "today": "2026-10-19",
+  "today": "2026-10-20",
   "season": 5,
-  "queueCount": 5,
+  "queueCount": 4,
   "target": 5,
-  "fill": 0,
+  "fill": 1,
   "queue": [
     {
       "id": "great-heists",
@@ -38,26 +38,13 @@
       "onPollSince": "2026-10-13",
       "retired": true,
       "requestId": null
-    },
-    {
-      "id": "baby-talk",
-      "name": "Baby Talk",
-      "subject": "Babies",
-      "onPollSince": "2026-10-17",
-      "retired": false,
-      "requestId": null
     }
   ],
   "poll": {
-    "key": "2026-10-18",
-    "closes": "2026-10-20",
-    "decides": "2026-10-22",
+    "key": "2026-10-20",
+    "closes": "2026-10-22",
+    "decides": "2026-10-24",
     "options": [
-      {
-        "id": "req:VctTa2quCKwouluZiqcm",
-        "theme": "80’s New Wave Hits",
-        "by": "Shivangi Bhatt"
-      },
       {
         "id": "req:Y55KgJTCDG6QLkEF3Ct1",
         "theme": "Sex",
@@ -67,14 +54,14 @@
   },
   "upcoming": [
     {
-      "day": "2026-10-20",
-      "id": "baby-talk",
-      "name": "Baby Talk",
-      "how": "poll"
-    },
-    {
       "day": "2026-10-22",
       "id": "req:VctTa2quCKwouluZiqcm",
+      "name": null,
+      "how": "unwritten"
+    },
+    {
+      "day": "2026-10-24",
+      "id": "req:Y55KgJTCDG6QLkEF3Ct1",
       "name": null,
       "how": "leading"
     }
@@ -205,9 +192,22 @@
       "id": "in-my-trivia-era",
       "name": "In My Trivia Era",
       "how": "theme"
+    },
+    {
+      "day": "2026-10-20",
+      "id": "baby-talk",
+      "name": "Baby Talk",
+      "how": "poll"
     }
   ],
-  "requestsWaiting": [],
+  "requestsWaiting": [
+    {
+      "id": "VctTa2quCKwouluZiqcm",
+      "theme": "80’s New Wave Hits",
+      "by": "Shivangi Bhatt",
+      "dropDay": "2026-10-22"
+    }
+  ],
   "ideas": [
     {
       "id": "VctTa2quCKwouluZiqcm",
@@ -261,16 +261,16 @@
     "Where On Earth (Geography)",
     "Wild Things (Animals)"
   ],
-  "need": 0,
+  "need": 2,
   "games": {
     "hamps": {
       "game": "hamps",
       "roundsDir": "games/hamps/rounds",
-      "today": "2026-10-19",
+      "today": "2026-10-20",
       "season": 4,
-      "queueCount": 5,
+      "queueCount": 4,
       "target": 5,
-      "fill": 0,
+      "fill": 1,
       "queue": [
         {
           "id": "pedal-to-the-metal",
@@ -297,14 +297,6 @@
           "requestId": null
         },
         {
-          "id": "fore",
-          "name": "Fore!",
-          "subject": "Golf",
-          "onPollSince": "2026-10-17",
-          "retired": false,
-          "requestId": null
-        },
-        {
           "id": "turning-points",
           "name": "Turning Points",
           "subject": "World history",
@@ -314,31 +306,33 @@
         }
       ],
       "poll": {
-        "key": "2026-10-18",
-        "closes": "2026-10-20",
-        "decides": "2026-10-22",
+        "key": "2026-10-20",
+        "closes": "2026-10-22",
+        "decides": "2026-10-24",
         "options": [
-          {
-            "id": "turning-points"
-          },
           {
             "id": "req:pN7BX9S0a737Nb2tLXHl",
             "theme": "Miami",
             "by": "Ketan Mehta"
+          },
+          {
+            "id": "req:8Tw1Q17qcDW8YECJW6Yk",
+            "theme": "Saturday cartoons",
+            "by": "Salil Gandhi"
           }
         ]
       },
       "upcoming": [
         {
-          "day": "2026-10-20",
-          "id": "fore",
-          "name": "Fore!",
-          "how": "poll"
-        },
-        {
           "day": "2026-10-22",
           "id": "turning-points",
           "name": "Turning Points",
+          "how": "poll"
+        },
+        {
+          "day": "2026-10-24",
+          "id": "req:8Tw1Q17qcDW8YECJW6Yk",
+          "name": null,
           "how": "leading"
         }
       ],
@@ -444,10 +438,21 @@
           "id": "log-on",
           "name": "Log On",
           "how": "queue"
+        },
+        {
+          "day": "2026-10-20",
+          "id": "fore",
+          "name": "Fore!",
+          "how": "poll"
         }
       ],
       "requestsWaiting": [],
       "ideas": [
+        {
+          "id": "8Tw1Q17qcDW8YECJW6Yk",
+          "theme": "Saturday cartoons",
+          "by": "Salil Gandhi"
+        },
         {
           "id": "pN7BX9S0a737Nb2tLXHl",
           "theme": "Miami",
@@ -482,8 +487,8 @@
         "Table for Twenty (Hamptons restaurants)",
         "Turning Points (World history)"
       ],
-      "need": 0
+      "need": 1
     }
   },
-  "totalNeed": 0
+  "totalNeed": 3
 }
