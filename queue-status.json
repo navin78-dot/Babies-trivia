@@ -3,9 +3,9 @@
   "roundsDir": "rounds",
   "today": "2026-10-20",
   "season": 5,
-  "queueCount": 4,
+  "queueCount": 6,
   "target": 5,
-  "fill": 1,
+  "fill": 0,
   "queue": [
     {
       "id": "great-heists",
@@ -38,6 +38,22 @@
       "onPollSince": "2026-10-13",
       "retired": true,
       "requestId": null
+    },
+    {
+      "id": "mic-drop",
+      "name": "Mic Drop",
+      "subject": "Hip-hop",
+      "onPollSince": "2026-10-20",
+      "retired": false,
+      "requestId": null
+    },
+    {
+      "id": "pretty-in-synth",
+      "name": "Pretty in Synth",
+      "subject": "1980s new wave",
+      "onPollSince": null,
+      "retired": false,
+      "requestId": "VctTa2quCKwouluZiqcm"
     }
   ],
   "poll": {
@@ -45,6 +61,9 @@
     "closes": "2026-10-22",
     "decides": "2026-10-24",
     "options": [
+      {
+        "id": "mic-drop"
+      },
       {
         "id": "req:Y55KgJTCDG6QLkEF3Ct1",
         "theme": "Sex",
@@ -55,14 +74,14 @@
   "upcoming": [
     {
       "day": "2026-10-22",
-      "id": "req:VctTa2quCKwouluZiqcm",
-      "name": null,
-      "how": "unwritten"
+      "id": "pretty-in-synth",
+      "name": "Pretty in Synth",
+      "how": "theme"
     },
     {
       "day": "2026-10-24",
-      "id": "req:Y55KgJTCDG6QLkEF3Ct1",
-      "name": null,
+      "id": "mic-drop",
+      "name": "Mic Drop",
       "how": "leading"
     }
   ],
@@ -200,20 +219,8 @@
       "how": "poll"
     }
   ],
-  "requestsWaiting": [
-    {
-      "id": "VctTa2quCKwouluZiqcm",
-      "theme": "80’s New Wave Hits",
-      "by": "Shivangi Bhatt",
-      "dropDay": "2026-10-22"
-    }
-  ],
+  "requestsWaiting": [],
   "ideas": [
-    {
-      "id": "VctTa2quCKwouluZiqcm",
-      "theme": "80’s New Wave Hits",
-      "by": "Shivangi Bhatt"
-    },
     {
       "id": "Y55KgJTCDG6QLkEF3Ct1",
       "theme": "Sex",
@@ -250,7 +257,9 @@
     "Hail to the Chief (US presidents)",
     "In My Trivia Era (Taylor Swift)",
     "Last Call (Wine, beer and cocktails)",
+    "Mic Drop (Hip-hop)",
     "Page Turners (Books and authors)",
+    "Pretty in Synth (1980s new wave)",
     "Ripped From the Headlines (Current events, 2026)",
     "Summer Blockbusters (Big movies)",
     "Terrible Lizards (Dinosaurs and prehistoric life)",
@@ -261,16 +270,16 @@
     "Where On Earth (Geography)",
     "Wild Things (Animals)"
   ],
-  "need": 2,
+  "need": 0,
   "games": {
     "hamps": {
       "game": "hamps",
       "roundsDir": "games/hamps/rounds",
       "today": "2026-10-20",
       "season": 4,
-      "queueCount": 4,
+      "queueCount": 5,
       "target": 5,
-      "fill": 1,
+      "fill": 0,
       "queue": [
         {
           "id": "pedal-to-the-metal",
@@ -303,6 +312,14 @@
           "onPollSince": "2026-10-18",
           "retired": false,
           "requestId": null
+        },
+        {
+          "id": "creature-feature",
+          "name": "Creature Feature",
+          "subject": "Animals",
+          "onPollSince": "2026-10-20",
+          "retired": false,
+          "requestId": null
         }
       ],
       "poll": {
@@ -310,6 +327,9 @@
         "closes": "2026-10-22",
         "decides": "2026-10-24",
         "options": [
+          {
+            "id": "creature-feature"
+          },
           {
             "id": "req:pN7BX9S0a737Nb2tLXHl",
             "theme": "Miami",
@@ -465,6 +485,7 @@
         "By the Numbers (Maths, numbers and measurement)",
         "Chart Toppers (Pop music)",
         "Concrete Jungle (New York City)",
+        "Creature Feature (Animals)",
         "Crowned Heads (Royals through history)",
         "Cue the Music (Movie musicals and soundtracks)",
         "Dressed to Kill (Fashion)",
@@ -487,8 +508,8 @@
         "Table for Twenty (Hamptons restaurants)",
         "Turning Points (World history)"
       ],
-      "need": 1
+      "need": 0
     }
   },
-  "totalNeed": 3
+  "totalNeed": 0
 }
