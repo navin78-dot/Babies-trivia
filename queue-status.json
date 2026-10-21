@@ -1,7 +1,7 @@
 {
   "game": "babies",
   "roundsDir": "rounds",
-  "today": "2026-10-20",
+  "today": "2026-10-21",
   "season": 5,
   "queueCount": 6,
   "target": 5,
@@ -80,8 +80,8 @@
     },
     {
       "day": "2026-10-24",
-      "id": "mic-drop",
-      "name": "Mic Drop",
+      "id": "req:Y55KgJTCDG6QLkEF3Ct1",
+      "name": null,
       "how": "leading"
     }
   ],
@@ -275,7 +275,7 @@
     "hamps": {
       "game": "hamps",
       "roundsDir": "games/hamps/rounds",
-      "today": "2026-10-20",
+      "today": "2026-10-21",
       "season": 4,
       "queueCount": 5,
       "target": 5,
