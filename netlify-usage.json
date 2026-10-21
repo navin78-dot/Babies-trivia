@@ -1,49 +1,34 @@
 {
-  "asOf": "2026-10-20T17:34:56.400Z",
+  "asOf": "2026-10-21T17:42:13.112Z",
   "cycle": {
-    "start": "2026-09-21",
-    "end": "2026-10-21"
+    "start": "2026-10-21",
+    "end": "2026-11-21"
   },
   "allowance": 2000,
   "creditsPerDeploy": 15,
   "sites": {
     "babies": {
       "domain": "babiestrivia.netlify.app",
-      "productionDeploys": 50,
-      "cancelledOrFailed": 120,
-      "byDay": {
-        "2026-10-04": 3,
-        "2026-10-03": 5,
-        "2026-09-27": 6,
-        "2026-09-26": 1,
-        "2026-09-25": 3,
-        "2026-09-24": 6,
-        "2026-09-22": 5,
-        "2026-09-21": 21
-      },
-      "lastDeploy": "2026-10-04T18:47:42.093Z"
+      "productionDeploys": 0,
+      "cancelledOrFailed": 1,
+      "byDay": {},
+      "lastDeploy": null
     },
     "hamps": {
       "domain": "hampscrew.netlify.app",
-      "productionDeploys": 19,
+      "productionDeploys": 0,
       "cancelledOrFailed": 0,
-      "byDay": {
-        "2026-10-04": 3,
-        "2026-10-03": 5,
-        "2026-09-27": 7,
-        "2026-09-26": 1,
-        "2026-09-25": 3
-      },
-      "lastDeploy": "2026-10-04T18:47:49.244Z"
+      "byDay": {},
+      "lastDeploy": null
     }
   },
   "estimate": {
-    "productionDeploys": 69,
-    "creditsUsed": 1035,
-    "percentUsed": 52,
-    "creditsLeft": 965,
-    "deploysLeft": 64,
-    "daysLeftInCycle": 1,
+    "productionDeploys": 0,
+    "creditsUsed": 0,
+    "percentUsed": 0,
+    "creditsLeft": 2000,
+    "deploysLeft": 133,
+    "daysLeftInCycle": 31,
     "note": "Counts successful production deploys only, at 15 credits each; bandwidth is not counted and is negligible for these sites. Netlify's own emails at 50/75/90/100% are the ground truth; if one disagrees with this, trust the email."
   }
 }
