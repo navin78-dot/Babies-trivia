@@ -1,9 +1,9 @@
 {
   "game": "babies",
   "roundsDir": "rounds",
-  "today": "2026-10-21",
+  "today": "2026-10-22",
   "season": 5,
-  "queueCount": 6,
+  "queueCount": 5,
   "target": 5,
   "fill": 0,
   "queue": [
@@ -46,42 +46,29 @@
       "onPollSince": "2026-10-20",
       "retired": false,
       "requestId": null
-    },
-    {
-      "id": "pretty-in-synth",
-      "name": "Pretty in Synth",
-      "subject": "1980s new wave",
-      "onPollSince": null,
-      "retired": false,
-      "requestId": "VctTa2quCKwouluZiqcm"
     }
   ],
   "poll": {
-    "key": "2026-10-20",
-    "closes": "2026-10-22",
-    "decides": "2026-10-24",
+    "key": "2026-10-22",
+    "closes": "2026-10-24",
+    "decides": "2026-10-25",
     "options": [
       {
         "id": "mic-drop"
-      },
-      {
-        "id": "req:Y55KgJTCDG6QLkEF3Ct1",
-        "theme": "Sex",
-        "by": "Ketan Mehta"
       }
     ]
   },
   "upcoming": [
     {
-      "day": "2026-10-22",
-      "id": "pretty-in-synth",
-      "name": "Pretty in Synth",
-      "how": "theme"
-    },
-    {
       "day": "2026-10-24",
       "id": "req:Y55KgJTCDG6QLkEF3Ct1",
       "name": null,
+      "how": "unwritten"
+    },
+    {
+      "day": "2026-10-25",
+      "id": "mic-drop",
+      "name": "Mic Drop",
       "how": "leading"
     }
   ],
@@ -217,9 +204,22 @@
       "id": "baby-talk",
       "name": "Baby Talk",
       "how": "poll"
+    },
+    {
+      "day": "2026-10-22",
+      "id": "pretty-in-synth",
+      "name": "Pretty in Synth",
+      "how": "theme"
     }
   ],
-  "requestsWaiting": [],
+  "requestsWaiting": [
+    {
+      "id": "Y55KgJTCDG6QLkEF3Ct1",
+      "theme": "Sex",
+      "by": "Ketan Mehta",
+      "dropDay": "2026-10-24"
+    }
+  ],
   "ideas": [
     {
       "id": "Y55KgJTCDG6QLkEF3Ct1",
@@ -270,16 +270,16 @@
     "Where On Earth (Geography)",
     "Wild Things (Animals)"
   ],
-  "need": 0,
+  "need": 1,
   "games": {
     "hamps": {
       "game": "hamps",
       "roundsDir": "games/hamps/rounds",
-      "today": "2026-10-21",
+      "today": "2026-10-22",
       "season": 4,
-      "queueCount": 5,
+      "queueCount": 4,
       "target": 5,
-      "fill": 0,
+      "fill": 1,
       "queue": [
         {
           "id": "pedal-to-the-metal",
@@ -306,14 +306,6 @@
           "requestId": null
         },
         {
-          "id": "turning-points",
-          "name": "Turning Points",
-          "subject": "World history",
-          "onPollSince": "2026-10-18",
-          "retired": false,
-          "requestId": null
-        },
-        {
           "id": "creature-feature",
           "name": "Creature Feature",
           "subject": "Animals",
@@ -323,18 +315,10 @@
         }
       ],
       "poll": {
-        "key": "2026-10-20",
-        "closes": "2026-10-22",
-        "decides": "2026-10-24",
+        "key": "2026-10-22",
+        "closes": "2026-10-24",
+        "decides": "2026-10-25",
         "options": [
-          {
-            "id": "creature-feature"
-          },
-          {
-            "id": "req:pN7BX9S0a737Nb2tLXHl",
-            "theme": "Miami",
-            "by": "Ketan Mehta"
-          },
           {
             "id": "req:8Tw1Q17qcDW8YECJW6Yk",
             "theme": "Saturday cartoons",
@@ -344,15 +328,15 @@
       },
       "upcoming": [
         {
-          "day": "2026-10-22",
-          "id": "turning-points",
-          "name": "Turning Points",
-          "how": "poll"
-        },
-        {
           "day": "2026-10-24",
           "id": "creature-feature",
           "name": "Creature Feature",
+          "how": "poll"
+        },
+        {
+          "day": "2026-10-25",
+          "id": "req:8Tw1Q17qcDW8YECJW6Yk",
+          "name": null,
           "how": "leading"
         }
       ],
@@ -464,6 +448,12 @@
           "id": "fore",
           "name": "Fore!",
           "how": "poll"
+        },
+        {
+          "day": "2026-10-22",
+          "id": "turning-points",
+          "name": "Turning Points",
+          "how": "poll"
         }
       ],
       "requestsWaiting": [],
@@ -472,11 +462,6 @@
           "id": "8Tw1Q17qcDW8YECJW6Yk",
           "theme": "Saturday cartoons",
           "by": "Salil Gandhi"
-        },
-        {
-          "id": "pN7BX9S0a737Nb2tLXHl",
-          "theme": "Miami",
-          "by": "Ketan Mehta"
         }
       ],
       "existingSubjects": [
@@ -508,8 +493,8 @@
         "Table for Twenty (Hamptons restaurants)",
         "Turning Points (World history)"
       ],
-      "need": 0
+      "need": 1
     }
   },
-  "totalNeed": 0
+  "totalNeed": 2
 }
