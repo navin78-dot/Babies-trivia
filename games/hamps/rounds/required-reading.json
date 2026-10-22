@@ -1,0 +1,106 @@
+{
+  "id": "required-reading",
+  "name": "Required Reading",
+  "subject": "Books and writers",
+  "tagline": "Eleven questions on the books you were meant to have read, from the moors of Yorkshire to the mansions of the North Shore. Starts easy, ends hard.",
+  "draft": true,
+  "emblem": "📖",
+  "theme": {
+    "font": "Crimson Text",
+    "accent": "#1E3A8A",
+    "accent2": "#B45309",
+    "accentDark": "#93C5FD",
+    "accent2Dark": "#FCD34D"
+  },
+  "questions": [
+    {
+      "d": "easy",
+      "q": "Wuthering Heights, with Heathcliff and Cathy out on the Yorkshire moors, was the only novel by which of the Brontë sisters?",
+      "o": ["Emily", "Charlotte", "Anne", "Maria"],
+      "a": 0,
+      "w": "Emily Brontë, who published it in 1847 under the name Ellis Bell and died of tuberculosis a year later, aged 30.",
+      "more": "All three sisters wrote under male pseudonyms, Currer, Ellis and Acton Bell, because, as Charlotte put it, women writers were 'liable to be looked on with prejudice'. Charlotte's Jane Eyre came out the same year and sold far better; Victorian critics found Wuthering Heights brutal. Kate Bush wrote her song about it at 18 after catching the end of a television adaptation, and it made her the first woman to top the British charts with a song she had written herself."
+    },
+    {
+      "d": "easy",
+      "q": "Which Herman Melville novel opens with the words 'Call me Ishmael'?",
+      "o": ["Moby-Dick", "Billy Budd", "Typee", "The Sea-Wolf"],
+      "a": 0,
+      "w": "Moby-Dick, from 1851, in which Captain Ahab hunts the white whale that took his leg. It sold about 3,000 copies in Melville's lifetime.",
+      "more": "Melville spent his last nineteen years as a customs inspector on the New York docks and died forgotten in 1891; the book was rediscovered in the 1920s and now sits on every list of great American novels. The first mate, Starbuck, gave his name to a coffee chain whose founders had first considered calling it Pequod, after the ship. The whale was based on a real albino sperm whale, Mocha Dick, that attacked ships off Chile."
+    },
+    {
+      "d": "easy",
+      "q": "Which Roald Dahl character finds the last golden ticket and wins a tour of Willy Wonka's chocolate factory?",
+      "o": ["Charlie Bucket", "Augustus Gloop", "Mike Teavee", "James Trotter"],
+      "a": 0,
+      "w": "Charlie Bucket, the poor boy who shares a bed with four grandparents and finds the ticket in a bar bought with a coin from the gutter.",
+      "more": "Dahl wrote the 1964 book, and most of his others, in a shed at the bottom of his garden in Buckinghamshire, in pencil on yellow American legal paper. Gene Wilder played Wonka in 1971, Johnny Depp in 2005 and Timothée Chalamet in a 2023 prequel. Dahl's children's books have sold around 300 million copies, despite his having been, by most accounts, a thoroughly unpleasant man."
+    },
+    {
+      "d": "easy",
+      "q": "Which 1925 novel, narrated by Nick Carraway, is set among the mansions and parties of Long Island's North Shore?",
+      "o": ["The Great Gatsby", "Tender Is the Night", "The Age of Innocence", "The Beautiful and Damned"],
+      "a": 0,
+      "w": "The Great Gatsby. F. Scott Fitzgerald's West Egg and East Egg are Great Neck and Sands Point, where he rented a house in 1922 and watched the parties across Manhasset Bay.",
+      "more": "It sold about 20,000 copies and Fitzgerald died in 1940 believing it a failure; free copies handed to American soldiers in the Second World War turned it into a classic. The green light at the end of Daisy's dock is the most over-analysed object in American literature. The book entered the public domain in 2021, which is why there has since been a Gatsby musical, a zombie version and a prequel about Nick."
+    },
+    {
+      "d": "easy",
+      "q": "Which Stephen King novel, his first, is about a bullied teenage girl with telekinetic powers and a prom that goes very badly?",
+      "o": ["Carrie", "Misery", "The Shining", "Pet Sematary"],
+      "a": 0,
+      "w": "Carrie, published in 1974. King threw the first pages in the bin and his wife Tabitha fished them out and told him to keep going.",
+      "more": "The paperback rights sold for 400,000 dollars, which let him give up teaching high-school English. He has since written more than sixty novels and sold over 350 million books, most of them set in Maine, where he still lives. Brian De Palma's 1976 film, with Sissy Spacek drenched in pig's blood, was the first of dozens of King adaptations."
+    },
+    {
+      "d": "medium",
+      "q": "Which Dostoevsky novel follows the student Raskolnikov through St Petersburg after he murders an old pawnbroker with an axe?",
+      "o": ["Crime and Punishment", "The Brothers Karamazov", "The Idiot", "Notes from Underground"],
+      "a": 0,
+      "w": "Crime and Punishment, from 1866, in which the crime takes a few pages and the punishment, mostly self-inflicted, takes the rest of the book.",
+      "more": "Dostoevsky knew about punishment: at 28 he was sentenced to death for belonging to a discussion group, marched in front of a firing squad and reprieved at the last second, before four years in a Siberian prison camp. He was also a hopeless gambler, and in the same year as this novel he dictated The Gambler in 26 days to pay a debt, then married the stenographer. His flat in St Petersburg is now a museum."
+    },
+    {
+      "d": "medium",
+      "q": "Which 1932 novel imagines a World State where babies are grown in bottles, everyone takes a drug called soma and the cinemas show 'feelies'?",
+      "o": ["Brave New World", "Fahrenheit 451", "We", "The Handmaid's Tale"],
+      "a": 0,
+      "w": "Brave New World, by Aldous Huxley, who took the title from Miranda's line in The Tempest.",
+      "more": "Huxley had taught French at Eton, where one of his pupils was the future George Orwell, and the two men's dystopias are still argued over: Orwell feared what we hate, Huxley what we love. He emigrated to California, wrote screenplays, experimented with mescaline and LSD, and died on 22 November 1963, the same day as John F. Kennedy and C. S. Lewis. His last request was for a dose of LSD, which his wife gave him."
+    },
+    {
+      "d": "medium",
+      "q": "Who wrote Frankenstein at the age of 18, after a ghost-story contest with Byron and Percy Shelley at a villa on Lake Geneva in 1816?",
+      "o": ["Mary Shelley", "Ann Radcliffe", "Jane Austen", "Elizabeth Gaskell"],
+      "a": 0,
+      "w": "Mary Shelley, who published it anonymously in 1818; many reviewers assumed her husband had written it.",
+      "more": "The summer of 1816 was so cold and wet that the party was stuck indoors, which is how the contest came about; Byron's doctor, John Polidori, produced the first vampire story the same week. Frankenstein is the scientist, not the monster, who is never given a name. After Percy drowned in 1822 she is said to have kept his heart, wrapped in a page of his poetry, in her desk."
+    },
+    {
+      "d": "hard",
+      "q": "Which novel, published in two parts in 1605 and 1615 and often called the first modern novel, follows a Spanish gentleman who takes windmills for giants?",
+      "o": ["Don Quixote", "The Decameron", "Gargantua and Pantagruel", "Tom Jones"],
+      "a": 0,
+      "w": "Don Quixote, by Miguel de Cervantes, who gave the world the word 'quixotic' and the phrase 'tilting at windmills'.",
+      "more": "Cervantes lost the use of his left hand fighting the Turks at Lepanto, was captured by pirates on the way home and spent five years as a slave in Algiers before being ransomed. He and Shakespeare died within days of each other in April 1616, though on different calendars they were ten days apart. A survey of a hundred leading authors in 2002 voted it the best book ever written."
+    },
+    {
+      "d": "hard",
+      "type": "order",
+      "q": "Put these novels in the order they were published, earliest first.",
+      "o": ["Robinson Crusoe", "Jane Eyre", "Dracula", "The Catcher in the Rye"],
+      "w": "Robinson Crusoe in 1719, Jane Eyre in 1847, Dracula in 1897 and The Catcher in the Rye in 1951.",
+      "more": "Daniel Defoe based Crusoe partly on Alexander Selkirk, a Scottish sailor marooned for four years on an island off Chile. Bram Stoker never went to Transylvania; he researched it in Whitby library, and Whitby is where the count comes ashore in the book. J. D. Salinger published nothing after 1965 and spent the last fifty years of his life hiding from the readers of a book that still sells about a quarter of a million copies a year."
+    },
+    {
+      "d": "hard",
+      "type": "select",
+      "q": "Which of these writers won the Nobel Prize in Literature? Select all that apply.",
+      "o": ["Ernest Hemingway", "Toni Morrison", "Bob Dylan", "James Joyce", "Mark Twain", "Vladimir Nabokov"],
+      "a": [0, 1, 2],
+      "w": "Hemingway won in 1954, Morrison in 1993 and Dylan, to general astonishment, in 2016. Joyce, Twain and Nabokov never did, and nor did Tolstoy, Proust, Chekhov or Borges.",
+      "more": "Hemingway could not travel to collect his prize because of injuries from two plane crashes in Africa in the same week. Morrison was the first Black woman to win, for novels including Beloved. Dylan did not respond to the Swedish Academy for two weeks, skipped the ceremony and delivered his lecture six months later, just in time to collect the money."
+    }
+  ]
+}

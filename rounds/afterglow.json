@@ -1,0 +1,107 @@
+{
+  "id": "afterglow",
+  "name": "Afterglow",
+  "subject": "Sex, part two",
+  "requestId": "Y55KgJTCDG6QLkEF3Ct1",
+  "tagline": "Eleven more questions about the thing everybody is thinking about, from a London rubber company to the pebble a penguin proposes with. A theme the group voted for.",
+  "draft": true,
+  "emblem": "💋",
+  "theme": {
+    "font": "Cormorant Garamond",
+    "accent": "#BE123C",
+    "accent2": "#F59E0B",
+    "accentDark": "#FB7185",
+    "accent2Dark": "#FCD34D"
+  },
+  "questions": [
+    {
+      "d": "easy",
+      "q": "The condom brand Durex took its name from the first letters of three words. Which three?",
+      "o": ["Durability, reliability and excellence", "Durable rubber, extra strong", "Dutch rubber exports", "Designed under rigorous examination"],
+      "a": 0,
+      "w": "Durability, reliability and excellence, a name the London Rubber Company registered in 1929. The firm had started in 1915 selling imported condoms from the back of a barber's shop.",
+      "more": "Condoms had been around for centuries before that, made from linen or animal gut; Casanova called his 'English riding coats' and tested them by blowing them up. Rubber ones followed Charles Goodyear's vulcanisation process of 1839, and latex arrived in the 1930s, making them thin enough to catch on. Used perfectly, a condom is about 98 per cent effective; used the way people actually use them, closer to 87."
+    },
+    {
+      "d": "easy",
+      "q": "Which hormone, made mainly in the testes but also in the ovaries, drives sex drive in both men and women?",
+      "o": ["Testosterone", "Cortisol", "Thyroxine", "Serotonin"],
+      "a": 0,
+      "w": "Testosterone. Women make about a tenth as much as men, in the ovaries and adrenal glands, and it matters just as much to their libido.",
+      "more": "Levels in men peak in the late teens and twenties and then fall by roughly one per cent a year, which is why 'low T' clinics do a roaring trade. It also builds muscle and bone, deepens the voice at puberty and is behind male-pattern baldness. It was first isolated in 1935 by a Dutch team, and the two chemists who synthesised it the same year shared a Nobel Prize in 1939."
+    },
+    {
+      "d": "easy",
+      "q": "In When Harry Met Sally, Meg Ryan loudly fakes an orgasm in a New York deli. What does a woman at the next table tell the waiter?",
+      "o": ["'I'll have what she's having'", "'Check, please'", "'Is she all right?'", "'We'll need a minute'"],
+      "a": 0,
+      "w": "'I'll have what she's having.' The line was delivered by Estelle Reiner, the mother of the director Rob Reiner, and the idea came from Billy Crystal.",
+      "more": "The scene was shot at Katz's Delicatessen on the Lower East Side, where a sign still hangs over the table reading 'Where Harry met Sally... hope you have what she had!' Nora Ephron wrote the script after long conversations with Reiner about how differently men and women saw dating. The film came out in 1989 and the American Film Institute ranks the line among the greatest in movie history."
+    },
+    {
+      "d": "easy",
+      "q": "E. L. James's Fifty Shades of Grey, which has sold more than 150 million copies, began life as fan fiction based on which book series?",
+      "o": ["Twilight", "Harry Potter", "The Hunger Games", "Pride and Prejudice"],
+      "a": 0,
+      "w": "Twilight. James posted it online as 'Master of the Universe', with Edward and Bella renamed Christian Grey and Anastasia Steele once the vampires had been removed.",
+      "more": "She wrote it under the name Snowqueens Icedragon while working in television in London, and the trilogy became the fastest-selling paperback in British history. The hardware chain B&Q sent staff a memo warning of a run on rope and cable ties. The 2015 film, with Dakota Johnson and Jamie Dornan, took more than 570 million dollars despite a famously frosty press tour."
+    },
+    {
+      "d": "easy",
+      "q": "Oysters, chocolate, chilli and figs are all sold as aphrodisiacs. According to the US Food and Drug Administration, how many foods have been shown to work?",
+      "o": ["None", "One, oysters", "Two, oysters and chocolate", "Three, oysters, chocolate and chilli"],
+      "a": 0,
+      "w": "None. The FDA ruled in 1989 that there was no scientific evidence that any over-the-counter aphrodisiac does anything, and the research since has not changed its mind.",
+      "more": "Oysters are high in zinc, which the body needs to make testosterone, but a dozen on ice will not change your evening. Chocolate contains a chemical linked to the feeling of being in love, which the digestive system breaks down long before it reaches the brain. The one 'aphrodisiac' with a measurable effect, Spanish fly, is a beetle extract that works by irritating the urinary tract and can kill you."
+    },
+    {
+      "d": "medium",
+      "q": "At the 1960 obscenity trial over which D. H. Lawrence novel did the prosecutor ask the jury whether it was a book 'you would wish your wife or your servants to read'?",
+      "o": ["Lady Chatterley's Lover", "Ulysses", "Lolita", "Tropic of Cancer"],
+      "a": 0,
+      "w": "Lady Chatterley's Lover. The question made the prosecution look absurd, Penguin Books was acquitted, and the full text went on sale in Britain for the first time, 32 years after Lawrence wrote it.",
+      "more": "It sold 200,000 copies on the first day and three million within a year. Philip Larkin dated the sexual revolution from it in a poem: 'Sexual intercourse began in 1963, between the end of the Chatterley ban and the Beatles' first LP.' Lawrence himself had died in 1930, having had the book printed privately in Florence."
+    },
+    {
+      "d": "medium",
+      "q": "Which dating app, launched in 2012, turned 'swipe right' into an everyday phrase?",
+      "o": ["Tinder", "Grindr", "Bumble", "Hinge"],
+      "a": 0,
+      "w": "Tinder, which began at a University of Southern California party and now claims more than a billion swipes a day.",
+      "more": "One of its co-founders, Whitney Wolfe Herd, left after a sexual-harassment lawsuit and started Bumble, where women have to message first; when Bumble floated in 2021 she became the youngest self-made female billionaire. Grindr, for gay men, had got there first in 2009 and pioneered the location-based grid. Tinder, Hinge and OkCupid all belong to the same company, Match Group, which is why they feel suspiciously alike."
+    },
+    {
+      "d": "medium",
+      "q": "The human egg is the largest cell in the body and the sperm the smallest. Roughly how many sperm are released in a single ejaculation?",
+      "o": ["Around 200 to 300 million", "Around 2 to 3 million", "Around 20,000", "Around 2 billion"],
+      "a": 0,
+      "w": "Around 200 to 300 million, of which only a few hundred get anywhere near the egg. The egg, at a tenth of a millimetre, is just visible to the naked eye.",
+      "more": "Each sperm takes about ten weeks to make, and the testes sit outside the body because the process needs to run a couple of degrees cooler than the rest of you. Studies pooling data from around the world suggest sperm counts have roughly halved since the 1970s, for reasons nobody has pinned down. A man produces more sperm in a few days than the roughly 400 eggs a woman releases in her entire life."
+    },
+    {
+      "d": "hard",
+      "q": "'Sadism' and 'masochism' are both named after writers. The Marquis de Sade is one; who is the other?",
+      "o": ["Leopold von Sacher-Masoch", "Giacomo Casanova", "Richard von Krafft-Ebing", "Havelock Ellis"],
+      "a": 0,
+      "w": "Leopold von Sacher-Masoch, an Austrian whose 1870 novella Venus in Furs is about a man who signs himself over as a slave to the woman he loves, which was more or less his own arrangement.",
+      "more": "Both words were coined by the psychiatrist Richard von Krafft-Ebing in his 1886 catalogue of deviance, Psychopathia Sexualis, to the fury of Sacher-Masoch's family. De Sade spent 32 of his 74 years locked in prisons and asylums, where he wrote most of his books. The Velvet Underground borrowed the title Venus in Furs for a song in 1967."
+    },
+    {
+      "d": "hard",
+      "type": "order",
+      "q": "Put these in the order they happened, earliest first.",
+      "o": ["Casanova writes his memoirs", "Playboy publishes its first issue", "The Joy of Sex is published", "Sex and the City first airs"],
+      "w": "Casanova wrote his memoirs in the 1790s, Playboy launched in 1953, The Joy of Sex came out in 1972 and Sex and the City began in 1998.",
+      "more": "Casanova's twelve-volume Histoire de ma vie, written in French in a Bohemian castle where he worked as a librarian, was not printed uncensored until 1960. Hugh Hefner put the first Playboy together at his kitchen table and left the date off the cover in case there was never a second issue. Alex Comfort's The Joy of Sex, with its famous bearded man, sold twelve million copies, and Sex and the City ran for six seasons and did wonders for the sales of Manolo Blahnik shoes and Cosmopolitans."
+    },
+    {
+      "d": "hard",
+      "type": "select",
+      "q": "Which of these animal mating facts are true? Select all that apply.",
+      "o": ["Male anglerfish fuse permanently to the female's body", "Flatworms fence with their penises to decide which of them gets pregnant", "Female praying mantises sometimes eat the male during mating", "Giraffes mate for life", "Swans change sex each spring", "Some penguins propose with a pebble"],
+      "a": [0, 1, 2, 5],
+      "w": "The anglerfish, the flatworm, the mantis and the penguin are all real. Giraffes do not pair up at all, and swans, which do mate for life, certainly do not change sex.",
+      "more": "Deep-sea male anglerfish are tiny and bite into the female, after which their bodies merge and they become a permanent sperm supply. Hermaphrodite flatworms duel because the loser has to carry the eggs. Gentoo and Adélie penguins court by offering a pebble for the nest, and the males have been seen stealing the best ones from the neighbours."
+    }
+  ]
+}
