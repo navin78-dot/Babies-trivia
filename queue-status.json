@@ -3,7 +3,7 @@
   "roundsDir": "rounds",
   "today": "2026-10-22",
   "season": 5,
-  "queueCount": 5,
+  "queueCount": 6,
   "target": 5,
   "fill": 0,
   "queue": [
@@ -46,6 +46,14 @@
       "onPollSince": "2026-10-20",
       "retired": false,
       "requestId": null
+    },
+    {
+      "id": "afterglow",
+      "name": "Afterglow",
+      "subject": "Sex, part two",
+      "onPollSince": null,
+      "retired": false,
+      "requestId": "Y55KgJTCDG6QLkEF3Ct1"
     }
   ],
   "poll": {
@@ -61,9 +69,9 @@
   "upcoming": [
     {
       "day": "2026-10-24",
-      "id": "req:Y55KgJTCDG6QLkEF3Ct1",
-      "name": null,
-      "how": "unwritten"
+      "id": "afterglow",
+      "name": "Afterglow",
+      "how": "theme"
     },
     {
       "day": "2026-10-25",
@@ -212,21 +220,8 @@
       "how": "theme"
     }
   ],
-  "requestsWaiting": [
-    {
-      "id": "Y55KgJTCDG6QLkEF3Ct1",
-      "theme": "Sex",
-      "by": "Ketan Mehta",
-      "dropDay": "2026-10-24"
-    }
-  ],
-  "ideas": [
-    {
-      "id": "Y55KgJTCDG6QLkEF3Ct1",
-      "theme": "Sex",
-      "by": "Ketan Mehta"
-    }
-  ],
+  "requestsWaiting": [],
+  "ideas": [],
   "existingSubjects": [
     "Strike a Pose (Madonna)",
     "Over the Millennia (World history)",
@@ -240,6 +235,7 @@
     "Great Heists and Cons (Heists and frauds)",
     "To the Moon and Mars (Spaceflight)",
     "Where Words Come From (Word origins)",
+    "Afterglow (Sex, part two)",
     "Baby Talk (Babies)",
     "Between the Sheets (Sex)",
     "Body of Evidence (The human body)",
@@ -270,16 +266,16 @@
     "Where On Earth (Geography)",
     "Wild Things (Animals)"
   ],
-  "need": 1,
+  "need": 0,
   "games": {
     "hamps": {
       "game": "hamps",
       "roundsDir": "games/hamps/rounds",
       "today": "2026-10-22",
       "season": 4,
-      "queueCount": 4,
+      "queueCount": 5,
       "target": 5,
-      "fill": 1,
+      "fill": 0,
       "queue": [
         {
           "id": "pedal-to-the-metal",
@@ -312,6 +308,14 @@
           "onPollSince": "2026-10-20",
           "retired": false,
           "requestId": null
+        },
+        {
+          "id": "required-reading",
+          "name": "Required Reading",
+          "subject": "Books and writers",
+          "onPollSince": "2026-10-22",
+          "retired": false,
+          "requestId": null
         }
       ],
       "poll": {
@@ -319,6 +323,9 @@
         "closes": "2026-10-24",
         "decides": "2026-10-25",
         "options": [
+          {
+            "id": "required-reading"
+          },
           {
             "id": "req:8Tw1Q17qcDW8YECJW6Yk",
             "theme": "Saturday cartoons",
@@ -488,13 +495,14 @@
         "Pedal to the Metal (Cars and motoring)",
         "Prime Time (1980s television)",
         "Reel Talk (Movies)",
+        "Required Reading (Books and writers)",
         "Say What (Words and language)",
         "Solar Flair (The planets)",
         "Table for Twenty (Hamptons restaurants)",
         "Turning Points (World history)"
       ],
-      "need": 1
+      "need": 0
     }
   },
-  "totalNeed": 2
+  "totalNeed": 0
 }
