@@ -63,6 +63,11 @@
     "options": [
       {
         "id": "mic-drop"
+      },
+      {
+        "id": "req:i3iEGAExkxxWl5rNkpIY",
+        "theme": "Trees",
+        "by": "Shivangi Bhatt"
       }
     ]
   },
@@ -75,8 +80,8 @@
     },
     {
       "day": "2026-10-25",
-      "id": "mic-drop",
-      "name": "Mic Drop",
+      "id": "req:i3iEGAExkxxWl5rNkpIY",
+      "name": null,
       "how": "leading"
     }
   ],
@@ -221,7 +226,13 @@
     }
   ],
   "requestsWaiting": [],
-  "ideas": [],
+  "ideas": [
+    {
+      "id": "i3iEGAExkxxWl5rNkpIY",
+      "theme": "Trees",
+      "by": "Shivangi Bhatt"
+    }
+  ],
   "existingSubjects": [
     "Strike a Pose (Madonna)",
     "Over the Millennia (World history)",
@@ -342,8 +353,8 @@
         },
         {
           "day": "2026-10-25",
-          "id": "req:8Tw1Q17qcDW8YECJW6Yk",
-          "name": null,
+          "id": "required-reading",
+          "name": "Required Reading",
           "how": "leading"
         }
       ],
