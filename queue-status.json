@@ -279,9 +279,9 @@
       "roundsDir": "games/hamps/rounds",
       "today": "2026-10-24",
       "season": 4,
-      "queueCount": 4,
+      "queueCount": 6,
       "target": 5,
-      "fill": 1,
+      "fill": 0,
       "queue": [
         {
           "id": "pedal-to-the-metal",
@@ -314,6 +314,22 @@
           "onPollSince": "2026-10-22",
           "retired": false,
           "requestId": null
+        },
+        {
+          "id": "laugh-track",
+          "name": "Laugh Track",
+          "subject": "Comedy",
+          "onPollSince": "2026-10-24",
+          "retired": false,
+          "requestId": null
+        },
+        {
+          "id": "saturday-morning",
+          "name": "Saturday Morning",
+          "subject": "Saturday-morning cartoons",
+          "onPollSince": null,
+          "retired": false,
+          "requestId": "hamps:8Tw1Q17qcDW8YECJW6Yk"
         }
       ],
       "poll": {
@@ -323,15 +339,18 @@
         "options": [
           {
             "id": "required-reading"
+          },
+          {
+            "id": "laugh-track"
           }
         ]
       },
       "upcoming": [
         {
           "day": "2026-10-25",
-          "id": "req:8Tw1Q17qcDW8YECJW6Yk",
-          "name": null,
-          "how": "unwritten"
+          "id": "saturday-morning",
+          "name": "Saturday Morning",
+          "how": "theme"
         },
         {
           "day": "2026-10-27",
@@ -462,21 +481,8 @@
           "how": "poll"
         }
       ],
-      "requestsWaiting": [
-        {
-          "id": "hamps:8Tw1Q17qcDW8YECJW6Yk",
-          "theme": "Saturday cartoons",
-          "by": "Salil Gandhi",
-          "dropDay": "2026-10-25"
-        }
-      ],
-      "ideas": [
-        {
-          "id": "8Tw1Q17qcDW8YECJW6Yk",
-          "theme": "Saturday cartoons",
-          "by": "Salil Gandhi"
-        }
-      ],
+      "requestsWaiting": [],
+      "ideas": [],
       "existingSubjects": [
         "Art Attack (Art and artists)",
         "Binge Worthy (Television of the streaming age)",
@@ -495,6 +501,7 @@
         "Grape Expectations (Wine)",
         "High Seas (Ships, sailing and the sea)",
         "Kitchen Confidential (Food and drink)",
+        "Laugh Track (Comedy)",
         "Log On (Technology and the internet)",
         "Money Talks (Money, markets and economics)",
         "Passport Control (Travel and world places)",
@@ -502,13 +509,14 @@
         "Prime Time (1980s television)",
         "Reel Talk (Movies)",
         "Required Reading (Books and writers)",
+        "Saturday Morning (Saturday-morning cartoons)",
         "Say What (Words and language)",
         "Solar Flair (The planets)",
         "Table for Twenty (Hamptons restaurants)",
         "Turning Points (World history)"
       ],
-      "need": 2
+      "need": 0
     }
   },
-  "totalNeed": 2
+  "totalNeed": 0
 }
