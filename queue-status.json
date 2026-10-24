@@ -1,9 +1,9 @@
 {
   "game": "babies",
   "roundsDir": "rounds",
-  "today": "2026-10-23",
+  "today": "2026-10-24",
   "season": 5,
-  "queueCount": 6,
+  "queueCount": 5,
   "target": 5,
   "fill": 0,
   "queue": [
@@ -46,24 +46,13 @@
       "onPollSince": "2026-10-20",
       "retired": false,
       "requestId": null
-    },
-    {
-      "id": "afterglow",
-      "name": "Afterglow",
-      "subject": "Sex, part two",
-      "onPollSince": null,
-      "retired": false,
-      "requestId": "Y55KgJTCDG6QLkEF3Ct1"
     }
   ],
   "poll": {
-    "key": "2026-10-22",
-    "closes": "2026-10-24",
-    "decides": "2026-10-25",
+    "key": "2026-10-24",
+    "closes": "2026-10-25",
+    "decides": "2026-10-27",
     "options": [
-      {
-        "id": "mic-drop"
-      },
       {
         "id": "req:i3iEGAExkxxWl5rNkpIY",
         "theme": "Trees",
@@ -73,13 +62,13 @@
   },
   "upcoming": [
     {
-      "day": "2026-10-24",
-      "id": "afterglow",
-      "name": "Afterglow",
-      "how": "theme"
+      "day": "2026-10-25",
+      "id": "mic-drop",
+      "name": "Mic Drop",
+      "how": "poll"
     },
     {
-      "day": "2026-10-25",
+      "day": "2026-10-27",
       "id": "req:i3iEGAExkxxWl5rNkpIY",
       "name": null,
       "how": "leading"
@@ -223,6 +212,12 @@
       "id": "pretty-in-synth",
       "name": "Pretty in Synth",
       "how": "theme"
+    },
+    {
+      "day": "2026-10-24",
+      "id": "afterglow",
+      "name": "Afterglow",
+      "how": "theme"
     }
   ],
   "requestsWaiting": [],
@@ -282,11 +277,11 @@
     "hamps": {
       "game": "hamps",
       "roundsDir": "games/hamps/rounds",
-      "today": "2026-10-23",
+      "today": "2026-10-24",
       "season": 4,
-      "queueCount": 5,
+      "queueCount": 4,
       "target": 5,
-      "fill": 0,
+      "fill": 1,
       "queue": [
         {
           "id": "pedal-to-the-metal",
@@ -313,14 +308,6 @@
           "requestId": null
         },
         {
-          "id": "creature-feature",
-          "name": "Creature Feature",
-          "subject": "Animals",
-          "onPollSince": "2026-10-20",
-          "retired": false,
-          "requestId": null
-        },
-        {
           "id": "required-reading",
           "name": "Required Reading",
           "subject": "Books and writers",
@@ -330,29 +317,24 @@
         }
       ],
       "poll": {
-        "key": "2026-10-22",
-        "closes": "2026-10-24",
-        "decides": "2026-10-25",
+        "key": "2026-10-24",
+        "closes": "2026-10-25",
+        "decides": "2026-10-27",
         "options": [
           {
             "id": "required-reading"
-          },
-          {
-            "id": "req:8Tw1Q17qcDW8YECJW6Yk",
-            "theme": "Saturday cartoons",
-            "by": "Salil Gandhi"
           }
         ]
       },
       "upcoming": [
         {
-          "day": "2026-10-24",
-          "id": "creature-feature",
-          "name": "Creature Feature",
-          "how": "poll"
+          "day": "2026-10-25",
+          "id": "req:8Tw1Q17qcDW8YECJW6Yk",
+          "name": null,
+          "how": "unwritten"
         },
         {
-          "day": "2026-10-25",
+          "day": "2026-10-27",
           "id": "required-reading",
           "name": "Required Reading",
           "how": "leading"
@@ -472,9 +454,22 @@
           "id": "turning-points",
           "name": "Turning Points",
           "how": "poll"
+        },
+        {
+          "day": "2026-10-24",
+          "id": "creature-feature",
+          "name": "Creature Feature",
+          "how": "poll"
         }
       ],
-      "requestsWaiting": [],
+      "requestsWaiting": [
+        {
+          "id": "hamps:8Tw1Q17qcDW8YECJW6Yk",
+          "theme": "Saturday cartoons",
+          "by": "Salil Gandhi",
+          "dropDay": "2026-10-25"
+        }
+      ],
       "ideas": [
         {
           "id": "8Tw1Q17qcDW8YECJW6Yk",
@@ -512,8 +507,8 @@
         "Table for Twenty (Hamptons restaurants)",
         "Turning Points (World history)"
       ],
-      "need": 0
+      "need": 2
     }
   },
-  "totalNeed": 0
+  "totalNeed": 2
 }
