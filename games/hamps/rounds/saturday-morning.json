@@ -1,0 +1,107 @@
+{
+  "id": "saturday-morning",
+  "name": "Saturday Morning",
+  "subject": "Saturday-morning cartoons",
+  "requestId": "hamps:8Tw1Q17qcDW8YECJW6Yk",
+  "tagline": "Eleven questions on the cartoons you watched in pyjamas with a bowl of cereal, from Jellystone Park to the sewers of New York. A theme the crew voted for.",
+  "draft": true,
+  "emblem": "🥣",
+  "theme": {
+    "font": "Luckiest Guy",
+    "accent": "#F97316",
+    "accent2": "#3B82F6",
+    "accentDark": "#FDBA74",
+    "accent2Dark": "#93C5FD"
+  },
+  "questions": [
+    {
+      "d": "easy",
+      "q": "Which cowardly Great Dane has been solving mysteries with Shaggy, Fred, Daphne and Velma since 1969?",
+      "o": ["Scooby-Doo", "Marmaduke", "Astro", "Hong Kong Phooey"],
+      "a": 0,
+      "w": "Scooby-Doo, whose name a CBS executive took from Frank Sinatra's 'doo-be-doo-be-doo' at the end of 'Strangers in the Night'.",
+      "more": "Hanna-Barbera created the show after parents' groups complained that Saturday-morning superhero cartoons were too violent, which is why every ghost turns out to be a man in a mask who would have got away with it if not for those meddling kids. Shaggy was voiced for decades by Casey Kasem, the radio host of American Top 40. Scrappy-Doo, added in 1979 to save the ratings, is still the most hated character in cartoon history."
+    },
+    {
+      "d": "easy",
+      "q": "Which 1980s cartoon, made to sell a toy line, has robots that turn into trucks and jets, led by Optimus Prime against Megatron?",
+      "o": ["Transformers", "Voltron", "Robotech", "Go-Bots"],
+      "a": 0,
+      "w": "Transformers, 'robots in disguise', which Hasbro built from a line of Japanese toys in 1984 and wrapped a cartoon around.",
+      "more": "The 1986 animated film killed off Optimus Prime in the first act to make room for new toys, and the studio was flooded with letters from traumatised children; Orson Welles voiced the planet-eating villain in his last role. Michael Bay's live-action films, from 2007, have taken more than five billion dollars. The original toys, in their boxes, now sell for thousands."
+    },
+    {
+      "d": "easy",
+      "q": "'By the power of Grayskull!' Which cartoon hero, with a pageboy haircut and a cowardly pet tiger called Cringer, fought Skeletor on the planet Eternia?",
+      "o": ["He-Man", "Thundarr", "Lion-O", "Conan"],
+      "a": 0,
+      "w": "He-Man, from Masters of the Universe, which ran from 1983 and was the first cartoon openly built around a toy line after the rules on children's advertising were relaxed that year.",
+      "more": "Each episode ended with a moral lecture to keep regulators happy, usually delivered by a character who had just hit someone with a sword. The spin-off She-Ra followed in 1985 to sell dolls to girls. Dolph Lundgren played him in a 1987 film that lost money, and Netflix revived the franchise twice in 2021."
+    },
+    {
+      "d": "easy",
+      "q": "In The Smurfs, who was the only female Smurf in the village, created from clay by the wizard Gargamel to sow discord?",
+      "o": ["Smurfette", "Sassette", "Nanny Smurf", "Smurfella"],
+      "a": 0,
+      "w": "Smurfette. Gargamel made her with black hair and a bad attitude; Papa Smurf's magic turned her blonde and kind, which tells you a lot about 1960s Belgium.",
+      "more": "The Smurfs began in 1958 as side characters in a Belgian comic by Peyo, and Hanna-Barbera's series ran for 256 episodes from 1981 and won Emmys. Gargamel's cat is called Azrael, after the angel of death. The critic Katha Pollitt coined 'the Smurfette principle' in 1991 for any cast of male characters with a single woman among them, and the term stuck."
+    },
+    {
+      "d": "easy",
+      "q": "Which four crime-fighting reptiles, trained by a rat named Splinter in the New York sewers, are named after Renaissance artists?",
+      "o": ["The Teenage Mutant Ninja Turtles", "The Battletoads", "The Street Sharks", "The Biker Mice from Mars"],
+      "a": 0,
+      "w": "The Teenage Mutant Ninja Turtles: Leonardo, Donatello, Raphael and Michelangelo, who live on pizza and say 'Cowabunga'.",
+      "more": "They began in 1984 as a black-and-white parody comic that Kevin Eastman and Peter Laird printed with a tax refund and a loan from an uncle, and the 1987 cartoon turned them into a toy craze that peaked at around a billion dollars a year. The 1990 live-action film was the highest-grossing independent film ever made at the time. The other three options were all real attempts to copy the formula."
+    },
+    {
+      "d": "medium",
+      "q": "Which series of three-minute musical cartoons, slotted between Saturday shows from 1973, taught a generation how a bill becomes a law and what a conjunction is for?",
+      "o": ["Schoolhouse Rock!", "Sesame Street", "The Electric Company", "Reading Rainbow"],
+      "a": 0,
+      "w": "Schoolhouse Rock!, which ran on ABC until 1985 and gave America 'Conjunction Junction', 'I'm Just a Bill' and 'Three Is a Magic Number'.",
+      "more": "It started when an advertising executive noticed that his son could not learn his multiplication tables but knew every rock lyric on the radio, and hired a jazz musician to set the times tables to music. The songs are now sung at political rallies and in law-school lectures. A fiftieth-anniversary special aired in 2023 with the original cartoons intact."
+    },
+    {
+      "d": "medium",
+      "q": "Which 1987 Disney series followed Scrooge McDuck and his nephews Huey, Dewey and Louie on treasure hunts, with a theme song that still gets stuck in heads?",
+      "o": ["DuckTales", "TaleSpin", "Chip 'n Dale Rescue Rangers", "Darkwing Duck"],
+      "a": 0,
+      "w": "DuckTales, 'woo-oo', based on the Scrooge McDuck comics that Carl Barks drew for decades.",
+      "more": "Scrooge's habit of diving into his money bin like a swimming pool came straight from the comics, where he first appeared in 1947 as the richest duck in the world. The show's success led to the Disney Afternoon, two hours of cartoons every weekday that filled 1990s childhoods. A 2017 reboot cast David Tennant as Scrooge, with a Scottish accent the original never had."
+    },
+    {
+      "d": "medium",
+      "q": "Which rabbit first asked 'What's up, Doc?' in 1940 and was voiced for nearly fifty years by Mel Blanc, 'the man of a thousand voices'?",
+      "o": ["Bugs Bunny", "Roger Rabbit", "Peter Rabbit", "Oswald the Lucky Rabbit"],
+      "a": 0,
+      "w": "Bugs Bunny, whose first proper cartoon, A Wild Hare, was directed by Tex Avery. Blanc also voiced Daffy Duck, Porky Pig, Tweety, Sylvester and Foghorn Leghorn.",
+      "more": "Blanc was so associated with the parts that his gravestone in Hollywood reads 'That's all folks'. Bugs got a star on the Hollywood Walk of Fame in 1985, only the second cartoon character to receive one after Mickey Mouse. In Space Jam in 1996 he played basketball alongside Michael Jordan, which did neither of their reputations any harm."
+    },
+    {
+      "d": "hard",
+      "q": "Which cartoon of 1959 to 1964, about a flying squirrel and a dim moose from Frostbite Falls, Minnesota, slipped Cold War satire past children through the spies Boris and Natasha?",
+      "o": ["Rocky and Bullwinkle", "Underdog", "Mighty Mouse", "Tom Slick"],
+      "a": 0,
+      "w": "Rocky and Bullwinkle, from Jay Ward's studio, with the villains Boris Badenov and Natasha Fatale taking orders from Fearless Leader of Pottsylvania.",
+      "more": "The puns were aimed at the parents and the episodes were written faster than the animators could draw, which is why the animation is so cheap and the jokes so good. Its segments included Fractured Fairy Tales and Mr. Peabody, the time-travelling dog whose WABAC machine got its own film in 2014. June Foray voiced both Rocky and Natasha and kept working into her nineties."
+    },
+    {
+      "d": "hard",
+      "type": "order",
+      "q": "Put these cartoons in the order they first went on air, earliest first.",
+      "o": ["The Flintstones", "Josie and the Pussycats", "Inspector Gadget", "SpongeBob SquarePants"],
+      "w": "The Flintstones in 1960, Josie and the Pussycats in 1970, Inspector Gadget in 1983 and SpongeBob SquarePants in 1999.",
+      "more": "The Flintstones was the first animated series shown in prime time and was sponsored, in its early seasons, by Winston cigarettes, with Fred and Barney lighting up in the adverts. Inspector Gadget was voiced by Don Adams, the bumbling spy from Get Smart, in more or less the same voice. SpongeBob was created by a marine-biology teacher, Stephen Hillenburg, and has made Nickelodeon more than thirteen billion dollars in merchandise."
+    },
+    {
+      "d": "hard",
+      "type": "select",
+      "q": "Which of these cartoons were made by Hanna-Barbera? Select all that apply.",
+      "o": ["The Jetsons", "Yogi Bear", "Wacky Races", "ThunderCats", "G.I. Joe", "The Care Bears"],
+      "a": [0, 1, 2],
+      "w": "The Jetsons, Yogi Bear and Wacky Races were all Hanna-Barbera. ThunderCats came from Rankin/Bass, G.I. Joe from Sunbow and Marvel, and the Care Bears from the Canadian studio Nelvana.",
+      "more": "William Hanna and Joseph Barbera had won seven Oscars making Tom and Jerry at MGM before the studio shut its cartoon unit in 1957 and they set up on their own for television. They invented 'limited animation', reusing backgrounds and moving only mouths and arms, which is how they turned out a cartoon a week on a budget. Yogi Bear, 'smarter than the average bear', stole picnic baskets in Jellystone Park, and Wacky Races gave the world Dick Dastardly and his sniggering dog Muttley."
+    }
+  ]
+}

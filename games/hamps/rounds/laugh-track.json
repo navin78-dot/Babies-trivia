@@ -1,0 +1,106 @@
+{
+  "id": "laugh-track",
+  "name": "Laugh Track",
+  "subject": "Comedy",
+  "tagline": "Eleven questions on the people paid to make you laugh, from coconut-shell horses to a slap heard around the world. Starts easy, ends hard.",
+  "draft": true,
+  "emblem": "😂",
+  "theme": {
+    "font": "Boogaloo",
+    "accent": "#DC2626",
+    "accent2": "#FACC15",
+    "accentDark": "#F87171",
+    "accent2Dark": "#FDE047"
+  },
+  "questions": [
+    {
+      "d": "easy",
+      "q": "Which British comedy troupe's 1975 film has King Arthur riding an invisible horse while his servant bangs two coconut shells together?",
+      "o": ["Monty Python", "The Goodies", "The Two Ronnies", "Beyond the Fringe"],
+      "a": 0,
+      "w": "Monty Python, in Monty Python and the Holy Grail. The coconuts were there because the budget would not stretch to horses.",
+      "more": "The film was financed largely by rock bands, among them Pink Floyd, Led Zeppelin and Genesis, who wanted a tax write-off. The troupe's television series, Monty Python's Flying Circus, ran on the BBC from 1969 to 1974, and their sketch about a café serving nothing but Spam is why junk email is called spam. The stage musical Spamalot, adapted from the Grail film, won the Tony for best musical in 2005."
+    },
+    {
+      "d": "easy",
+      "q": "Which 1950s sitcom made Lucille Ball the biggest star on television and, through her production company Desilu, went on to bankroll Star Trek?",
+      "o": ["I Love Lucy", "The Honeymooners", "Leave It to Beaver", "The Dick Van Dyke Show"],
+      "a": 0,
+      "w": "I Love Lucy, which ran from 1951 to 1957 and was filmed on 35mm in front of a live audience with three cameras, a set-up every sitcom since has copied.",
+      "more": "Shooting on film rather than broadcasting live meant the episodes could be shown again, which more or less invented the rerun and made Ball and Desi Arnaz very rich. When Ball became pregnant the show wrote it in, though CBS would not allow the word 'pregnant' to be spoken; 44 million people watched Little Ricky's birth, more than watched Eisenhower's inauguration the next day. After the divorce Ball ran Desilu alone and approved both Star Trek and Mission: Impossible."
+    },
+    {
+      "d": "easy",
+      "q": "At the 2022 Oscars, Will Smith walked on stage and slapped which comedian over a joke about his wife's shaved head?",
+      "o": ["Chris Rock", "Kevin Hart", "Dave Chappelle", "Ricky Gervais"],
+      "a": 0,
+      "w": "Chris Rock, who had compared Jada Pinkett Smith to G.I. Jane. Smith won Best Actor about forty minutes later and was then banned from the ceremony for ten years.",
+      "more": "Pinkett Smith has alopecia, which the joke did not mention and Rock said he did not know about. He waited a year to respond at length, in a live Netflix special, and declined to press charges. The Academy's slow reaction on the night, letting Smith stay and collect his award, was criticised almost as much as the slap."
+    },
+    {
+      "d": "easy",
+      "q": "Which comedian joined the cast of Saturday Night Live at 19 and is credited with saving the show in the early 1980s with characters like Buckwheat and Gumby?",
+      "o": ["Eddie Murphy", "Chevy Chase", "Bill Murray", "Mike Myers"],
+      "a": 0,
+      "w": "Eddie Murphy, who was on the show from 1980 to 1984 and made 48 Hrs. and Beverly Hills Cop while still a cast member.",
+      "more": "He fell out with the show for decades over a joke at his expense and did not return to host until 2019, when the episode drew the biggest audience in years. His stand-up films Delirious and Raw remain the benchmark for a generation of comics, red leather suit included. He was given the Mark Twain Prize for American Humor in 2015."
+    },
+    {
+      "d": "easy",
+      "q": "Which 1980 spoof of disaster movies gave us 'Surely you can't be serious' and the reply 'I am serious, and don't call me Shirley'?",
+      "o": ["Airplane!", "The Naked Gun", "Spaceballs", "Top Secret!"],
+      "a": 0,
+      "w": "Airplane!, in which Leslie Nielsen delivers the line. The directors cast serious dramatic actors and told them to play every absurd line straight.",
+      "more": "It lifts its plot, and many lines, almost word for word from a forgotten 1957 thriller called Zero Hour!, whose rights the filmmakers bought for a few thousand dollars. It cost about 3.5 million dollars and took 83 million, and it turned Nielsen, at 54, from a stern leading man into a comedy star for the rest of his life. The same team went on to make The Naked Gun films with him."
+    },
+    {
+      "d": "medium",
+      "q": "Which comedian walked away from a 50-million-dollar contract in 2005, abandoning his hit sketch show in the middle of its third season and turning up in South Africa?",
+      "o": ["Dave Chappelle", "Chris Tucker", "Martin Lawrence", "Katt Williams"],
+      "a": 0,
+      "w": "Dave Chappelle, whose Chappelle's Show on Comedy Central was the biggest-selling television DVD ever at the time.",
+      "more": "He said later that he had watched a crew member laugh at a sketch about race in a way that made him feel the jokes were being enjoyed for the wrong reasons. He spent the next decade doing surprise stand-up sets before signing a Netflix deal in 2016 that reportedly paid 20 million dollars a special. He received the Mark Twain Prize in 2019."
+    },
+    {
+      "d": "medium",
+      "q": "Tina Fey's 2008 impression of which vice-presidential candidate, with the line 'I can see Russia from my house', became the most-watched clips in Saturday Night Live's history to that point?",
+      "o": ["Sarah Palin", "Hillary Clinton", "Michele Bachmann", "Nancy Pelosi"],
+      "a": 0,
+      "w": "Sarah Palin, who never actually said the Russia line; she had said you could see Russia from land in Alaska, and Fey's version is what everyone remembers.",
+      "more": "Palin gamely appeared on the show alongside Fey a few weeks before the election. Fey had been the show's first female head writer, created 30 Rock and wrote Mean Girls, and she won an Emmy for the impression. Studies afterwards found the sketches measurably hurt Palin's standing with voters, which political scientists call the Fey effect."
+    },
+    {
+      "d": "medium",
+      "q": "Mel Brooks is one of the few people to have won an Emmy, a Grammy, an Oscar and a Tony. His Oscar was for writing which 1967 film, later turned into a record-breaking musical?",
+      "o": ["The Producers", "Blazing Saddles", "Young Frankenstein", "Spaceballs"],
+      "a": 0,
+      "w": "The Producers, about two crooks who stage a musical called Springtime for Hitler in the hope that it will flop. The 2001 stage version won twelve Tonys, still the record.",
+      "more": "Brooks, who served as a combat engineer in the Second World War, has said that mocking Hitler is the best revenge available. He was married to the actress Anne Bancroft for 41 years and was still making television in his late nineties. Blazing Saddles, his western with the campfire bean scene, is regularly cited as a film that could not be made today, usually by people who have not watched it recently."
+    },
+    {
+      "d": "hard",
+      "q": "Which 1984 mock documentary follows a fading British heavy-metal band whose amplifiers go 'up to eleven'?",
+      "o": ["This Is Spinal Tap", "A Mighty Wind", "Best in Show", "Fear of a Black Hat"],
+      "a": 0,
+      "w": "This Is Spinal Tap, largely improvised by Christopher Guest, Michael McKean and Harry Shearer, with a Stonehenge stage prop that arrives eighteen inches high instead of eighteen feet.",
+      "more": "Real musicians found it painful rather than funny: members of Aerosmith and Metallica have said it was too close to their own lives. 'Up to eleven' made it into the Oxford English Dictionary. The three of them, now in their seventies, reunited for a sequel in 2025 and still cannot keep a drummer alive."
+    },
+    {
+      "d": "hard",
+      "type": "order",
+      "q": "Put these comedies in the order their first episodes aired, earliest first.",
+      "o": ["The Honeymooners", "Fawlty Towers", "Curb Your Enthusiasm", "Abbott Elementary"],
+      "w": "The Honeymooners in 1955, Fawlty Towers in 1975, Curb Your Enthusiasm in 2000 and Abbott Elementary in 2021.",
+      "more": "Jackie Gleason's Honeymooners made only 39 half-hour episodes, now called the Classic 39, and 'To the moon, Alice!' came from them. Fawlty Towers made just twelve episodes, with Basil based on a real Torquay hotelier who had thrown John Cleese's suitcase into the street. Curb's scripts are outlines that the cast improvise around, and Abbott Elementary's creator Quinta Brunson became the first Black woman to win the Emmy for writing a comedy series."
+    },
+    {
+      "d": "hard",
+      "type": "select",
+      "q": "Which of these comedians were born outside the United States? Select all that apply.",
+      "o": ["Mike Myers", "John Oliver", "Trevor Noah", "Kevin Hart", "Amy Schumer", "Steve Martin"],
+      "a": [0, 1, 2],
+      "w": "Myers is from Scarborough, Ontario, Oliver from Birmingham in England and Noah from Johannesburg. Hart is from Philadelphia, Schumer from New York and Martin from Waco, Texas.",
+      "more": "Noah was born under apartheid to a Black mother and a white Swiss father, which made his existence a crime at the time and gave his memoir its title. Oliver came to America as a Daily Show correspondent in 2006 and became a citizen in 2019, a process he has mined for material ever since. Myers, the son of Liverpudlian parents, based Austin Powers on his father's taste in British comedy."
+    }
+  ]
+}
