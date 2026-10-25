@@ -1,0 +1,106 @@
+{
+  "id": "brush-strokes",
+  "name": "Brush Strokes",
+  "subject": "Art",
+  "tagline": "Eleven questions on the pictures everyone has seen on a tote bag, from a Japanese wave to a steel rabbit worth 91 million dollars. Starts easy, ends hard.",
+  "draft": true,
+  "emblem": "🖼️",
+  "theme": {
+    "font": "Prata",
+    "accent": "#0369A1",
+    "accent2": "#F43F5E",
+    "accentDark": "#38BDF8",
+    "accent2Dark": "#FB7185"
+  },
+  "questions": [
+    {
+      "d": "easy",
+      "q": "The Great Wave off Kanagawa, with Mount Fuji tiny in the background, is a woodblock print by which Japanese artist?",
+      "o": ["Hokusai", "Hiroshige", "Utamaro", "Yoshitoshi"],
+      "a": 0,
+      "w": "Katsushika Hokusai, who made it around 1831, in his seventies, as part of a series called Thirty-six Views of Mount Fuji.",
+      "more": "Because it is a print, thousands were made, and museums from the British Museum to the Met each own one. Its deep blue came from Prussian blue pigment, newly arrived from Europe, and the image went back the other way to influence Monet, Van Gogh and the cover of Debussy's La Mer. Japan put it on a banknote in 2024."
+    },
+    {
+      "d": "easy",
+      "q": "Grant Wood's 1930 painting of a stern farmer holding a pitchfork beside a woman, in front of a white wooden house, is called what?",
+      "o": ["American Gothic", "The Farmer's Wife", "Midwest", "Harvest"],
+      "a": 0,
+      "w": "American Gothic, named for the pointed church-style window of the house, which still stands in Eldon, Iowa.",
+      "more": "The models were Wood's sister Nan and his dentist, Dr Byron McKeeby, and the pair are meant to be a farmer and his daughter, not a married couple, which Nan insisted on for the rest of her life. Iowans were offended at first, thinking they were being mocked. It hangs in the Art Institute of Chicago and is probably the most parodied painting in America."
+    },
+    {
+      "d": "easy",
+      "q": "Which American painter's Nighthawks (1942) shows three customers and a counterman in a brightly lit late-night diner?",
+      "o": ["Edward Hopper", "Norman Rockwell", "Andrew Wyeth", "Thomas Hart Benton"],
+      "a": 0,
+      "w": "Edward Hopper, who said it was inspired by a restaurant on Greenwich Avenue in New York, and that he had unconsciously painted the loneliness of a large city.",
+      "more": "He finished it a few weeks after Pearl Harbor and the Art Institute of Chicago bought it that year for 3,000 dollars. The diner has no visible door, which is part of why it feels like a fish tank. It has been parodied with everyone from the Simpsons to Hollywood stars, and the parody with Bogart, Dean, Monroe and Elvis at the counter, Boulevard of Broken Dreams, is one of the best-selling posters ever printed."
+    },
+    {
+      "d": "easy",
+      "q": "Which soft-spoken painter with a perm taught viewers to add 'happy little trees' on The Joy of Painting from 1983 to 1994?",
+      "o": ["Bob Ross", "Thomas Kinkade", "Bill Alexander", "LeRoy Neiman"],
+      "a": 0,
+      "w": "Bob Ross, who made 403 episodes and finished a landscape in each one in under half an hour.",
+      "more": "He had spent twenty years in the Air Force as a sergeant who shouted at people, and vowed never to raise his voice again when he left. He painted three versions of every picture, one before the show to copy, one on air and one afterwards for the instruction books, and the perm was originally a way to save money on haircuts. The paintings were almost never sold, which is why his company and not his family controls them, a story told in a 2021 Netflix documentary."
+    },
+    {
+      "d": "easy",
+      "q": "Which Viennese painter's The Kiss, a couple wrapped in a swirl of gold leaf, is Austria's most famous painting?",
+      "o": ["Gustav Klimt", "Egon Schiele", "Oskar Kokoschka", "Alphonse Mucha"],
+      "a": 0,
+      "w": "Gustav Klimt, who painted it in 1907 and 1908 and used real gold leaf; his father had been a gold engraver.",
+      "more": "It hangs in the Belvedere in Vienna, which refuses to lend it. His Portrait of Adele Bloch-Bauer I, looted by the Nazis and returned to her niece after a long court fight, was bought in 2006 for 135 million dollars and now hangs in the Neue Galerie on Fifth Avenue. Klimt never married and is said to have fathered at least fourteen children."
+    },
+    {
+      "d": "medium",
+      "q": "Which Belgian surrealist painted a pipe above the words 'Ceci n'est pas une pipe'?",
+      "o": ["René Magritte", "Max Ernst", "Paul Delvaux", "Giorgio de Chirico"],
+      "a": 0,
+      "w": "René Magritte, in The Treachery of Images (1929). His point was that it is a painting of a pipe, not a pipe: you cannot stuff it with tobacco.",
+      "more": "He also gave the world the bowler-hatted man with a green fruit in front of his face, The Son of Man, and the lovers kissing through shrouds. Paul McCartney owned one of his green-fruit paintings, which inspired the logo of the Beatles' Apple Records. Magritte worked in his dining room in a suit, and lived quietly in Brussels for most of his life."
+    },
+    {
+      "d": "medium",
+      "q": "Which Brooklyn-born artist went from spraying the tag SAMO on downtown Manhattan walls to selling out galleries by the age of 22, and died at 27 in 1988?",
+      "o": ["Jean-Michel Basquiat", "Keith Haring", "Kenny Scharf", "Futura"],
+      "a": 0,
+      "w": "Jean-Michel Basquiat, the son of a Haitian father and a Puerto Rican mother, whose crowned figures and scrawled words made him the star of the 1980s New York scene.",
+      "more": "He collaborated with Andy Warhol, briefly dated Madonna and died of a heroin overdose in his studio on Great Jones Street. In 2017 a Japanese billionaire paid 110.5 million dollars for one of his skull paintings, the most ever for an American artist at auction. His sisters now run his estate and have mounted exhibitions of his work in Manhattan."
+    },
+    {
+      "d": "medium",
+      "q": "Which Japanese artist, now in her late nineties and living by choice in a Tokyo psychiatric hospital since 1977, covers pumpkins, whole rooms and Louis Vuitton bags in polka dots?",
+      "o": ["Yayoi Kusama", "Takashi Murakami", "Yoko Ono", "Mariko Mori"],
+      "a": 0,
+      "w": "Yayoi Kusama, born in 1929, whose Infinity Mirror Rooms draw the longest queues of any living artist's work.",
+      "more": "She walks across the road to her studio every morning. She arrived in New York in 1958 and staged naked happenings in the 1960s, then went home and was largely forgotten until the art world rediscovered her in the 1990s. Her giant yellow pumpkin on the island of Naoshima was swept into the sea by a typhoon in 2021 and has since been replaced, and she is the best-selling female artist alive."
+    },
+    {
+      "d": "hard",
+      "q": "Whose stainless-steel Rabbit sold in 2019 for 91 million dollars, the most ever paid at auction for a work by a living artist?",
+      "o": ["Jeff Koons", "Damien Hirst", "David Hockney", "Gerhard Richter"],
+      "a": 0,
+      "w": "Jeff Koons, whose 1986 Rabbit is a mirror-polished cast of a cheap inflatable toy. The buyer was the hedge-fund billionaire Steve Cohen.",
+      "more": "Koons, a former commodities broker, took the record from David Hockney, whose swimming-pool painting had held it for six months. His Balloon Dogs, ten feet high and also polished steel, sell for tens of millions and have been the subject of lawsuits from people who say they are just balloon dogs. His Bouquet of Tulips, a gift to Paris after the 2015 attacks, was accepted with visible reluctance."
+    },
+    {
+      "d": "hard",
+      "type": "order",
+      "q": "Put these paintings in order of when they were made, earliest first.",
+      "o": ["The Arnolfini Portrait", "Las Meninas", "Whistler's Mother", "Whaam!"],
+      "w": "Jan van Eyck's Arnolfini Portrait in 1434, Velázquez's Las Meninas in 1656, Whistler's Mother in 1871 and Roy Lichtenstein's Whaam! in 1963.",
+      "more": "The Arnolfini Portrait, in London's National Gallery, has a convex mirror in which the painter himself appears, and scholars still argue about whether the woman is pregnant or just fashionable. Las Meninas, in the Prado, has the painter staring out at you from inside his own picture of the Spanish royal family. Whistler's title was actually Arrangement in Grey and Black No. 1, and Whaam!, a blown-up comic-book panel of a fighter jet, hangs in Tate Modern."
+    },
+    {
+      "d": "hard",
+      "type": "select",
+      "q": "Which of these artists were women? Select all that apply.",
+      "o": ["Artemisia Gentileschi", "Georgia O'Keeffe", "Hilma af Klint", "Caravaggio", "Mark Rothko", "Henri Matisse"],
+      "a": [0, 1, 2],
+      "w": "Gentileschi, O'Keeffe and af Klint. Caravaggio was a brawling Italian who killed a man, Rothko painted glowing rectangles of colour, and Matisse ended his life cutting paper with scissors.",
+      "more": "Gentileschi, a baroque painter of ferocious biblical heroines, testified under torture at the trial of the man who raped her in 1612 and became the first woman admitted to Florence's academy of art. O'Keeffe's giant flowers and New Mexico bones made her the most famous American woman painter, and one of her flower paintings set a record for a female artist at 44 million dollars. Hilma af Klint, a Swede, painted abstract pictures from 1906, years before Kandinsky, and left orders that they not be shown until twenty years after her death; when the Guggenheim finally exhibited them in 2018 it drew the biggest crowds in the museum's history."
+    }
+  ]
+}

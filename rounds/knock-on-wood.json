@@ -1,0 +1,107 @@
+{
+  "id": "knock-on-wood",
+  "name": "Knock on Wood",
+  "subject": "Trees",
+  "requestId": "i3iEGAExkxxWl5rNkpIY",
+  "tagline": "Eleven questions on the tall quiet neighbours, from the sap in your pancakes to a forest in Utah that is one single tree. A theme the group voted for.",
+  "draft": true,
+  "emblem": "🌳",
+  "theme": {
+    "font": "Averia Serif Libre",
+    "accent": "#15803D",
+    "accent2": "#92400E",
+    "accentDark": "#4ADE80",
+    "accent2Dark": "#FBBF24"
+  },
+  "questions": [
+    {
+      "d": "easy",
+      "q": "The sap of which tree is boiled down to make the syrup poured over pancakes?",
+      "o": ["The sugar maple", "The silver birch", "The white oak", "The black walnut"],
+      "a": 0,
+      "w": "The sugar maple. It takes about forty litres of sap, tapped in late winter when nights freeze and days thaw, to make a single litre of syrup.",
+      "more": "Quebec produces around seventy per cent of the world's supply and keeps a strategic reserve of it in warehouses, from which thieves siphoned nearly 3,000 tonnes in 2012 in what the press called the Great Canadian Maple Syrup Heist. Native Americans were tapping maples long before Europeans arrived. The leaf on Canada's flag, adopted in 1965, is a stylised maple with eleven points."
+    },
+    {
+      "d": "easy",
+      "q": "Which Californian trees, the tallest living things on Earth, can grow past 110 metres?",
+      "o": ["Coast redwoods", "Giant sequoias", "Douglas firs", "Sitka spruces"],
+      "a": 0,
+      "w": "Coast redwoods. The tallest known, named Hyperion, stands about 116 metres in Redwood National Park, taller than the Statue of Liberty on its pedestal, and its exact location is kept secret.",
+      "more": "Giant sequoias, their inland cousins in the Sierra Nevada, are shorter but far bulkier: General Sherman is the largest single tree on the planet by volume. Redwood bark can be thirty centimetres thick and is almost fireproof, which is how some of them have lived two thousand years. About 95 per cent of the original redwood forest was logged in the century after the Gold Rush."
+    },
+    {
+      "d": "easy",
+      "q": "The rings inside a tree trunk are a record of what?",
+      "o": ["Its age, one ring for each year of growth", "How many times lightning has struck it", "How many branches it has grown", "How far its roots reach"],
+      "a": 0,
+      "w": "Its age. Each ring is a year's growth, pale wood from spring and darker wood from late summer, and a wide ring means a good year.",
+      "more": "Reading the rings is called dendrochronology, and by matching overlapping patterns in old timbers scientists have built an unbroken record of European oak and pine going back more than 12,000 years. It dates Viking ships, Stradivarius violins and medieval roof beams to the year. A bristlecone pine in California's White Mountains, nicknamed Methuselah, has around 4,850 rings and is still alive."
+    },
+    {
+      "d": "easy",
+      "q": "Acorns are the seeds of which tree?",
+      "o": ["The oak", "The beech", "The chestnut", "The walnut"],
+      "a": 0,
+      "w": "The oak. A big oak can drop ten thousand acorns in a good year, and the squirrels and jays that bury them and forget where are how oak forests spread.",
+      "more": "An oak supports more species of insect and bird than any other tree in Britain, and its wood built the navy: HMS Victory took about six thousand trees. Charles II hid in an oak after losing the Battle of Worcester in 1651, which is why so many English pubs are called the Royal Oak. Wine and whisky are aged in oak barrels because the wood breathes a little and lends vanilla flavours."
+    },
+    {
+      "d": "easy",
+      "q": "Which tree, the national emblem of Lebanon and on its flag, supplied the timber for the ships of the Phoenicians and for Solomon's Temple?",
+      "o": ["The cedar", "The cypress", "The olive", "The fig"],
+      "a": 0,
+      "w": "The cedar of Lebanon, prized across the ancient world for timber that resisted rot and insects and smelled sweet.",
+      "more": "The forests that once covered the mountains were cut down over three thousand years, and the famous Cedars of God grove now holds only a few hundred old trees. The Epic of Gilgamesh sends its hero to the Cedar Forest to cut it down, which may be the oldest logging story ever told. Cedar chests keep moths out of woollens for the same reason the timber lasted."
+    },
+    {
+      "d": "medium",
+      "q": "The bark of which tree, chewed for pain since the ancient Egyptians, gave the world the active ingredient in aspirin?",
+      "o": ["The willow", "The birch", "The yew", "The alder"],
+      "a": 0,
+      "w": "The willow. Its bark contains salicin, which the body turns into salicylic acid, and a Bayer chemist, Felix Hoffmann, made a gentler version in 1897 that was sold as aspirin.",
+      "more": "Hippocrates recommended willow-bark tea for fevers and the pains of childbirth. The brand name Aspirin was German property until the Treaty of Versailles handed it to the Allies as part of the war reparations, which is why Americans buy generic aspirin and Germans still buy Bayer's. The yew, by contrast, gave medicine the cancer drug Taxol, first extracted from its bark."
+    },
+    {
+      "d": "medium",
+      "q": "Which tree produces cork, stripped from its trunk every nine years or so without killing it?",
+      "o": ["The cork oak", "The rubber tree", "The baobab", "The paperbark"],
+      "a": 0,
+      "w": "The cork oak, which grows in Portugal, Spain and North Africa. A tree is first harvested at about 25 and can be stripped fifteen times in a life of two centuries.",
+      "more": "Portugal makes about half the world's cork, and the harvesters, who peel it by hand with axes, are among the best-paid farm workers in Europe. Cork is bark made of dead cells full of air, which is why it floats, insulates and squashes back into shape, and NASA used it on rocket heat shields. The switch to screw caps worried conservationists, because the cork forests are the last stronghold of the Iberian lynx."
+    },
+    {
+      "d": "medium",
+      "q": "Which African 'tree of life', which stores thousands of litres of water in a trunk up to ten metres across, also lines a famous avenue in Madagascar?",
+      "o": ["The baobab", "The acacia", "The marula", "The mopane"],
+      "a": 0,
+      "w": "The baobab, which can live two thousand years and looks as if it has been planted upside down with its roots in the air.",
+      "more": "Hollow baobabs have served as a bar, a prison and a bus shelter. The fruit, sold as 'monkey bread', is dried into a powder now marketed in the West as a superfood. Nine of the thirteen oldest known baobabs died between 2005 and 2017, and researchers suspect the warming climate, which was front-page news on a continent that regards them as sacred."
+    },
+    {
+      "d": "hard",
+      "q": "Pando, often called the heaviest living organism on Earth, is a single colony of which tree, some 47,000 stems sharing one root system across 43 hectares of Utah?",
+      "o": ["Quaking aspen", "Coast redwood", "Banyan", "Lodgepole pine"],
+      "a": 0,
+      "w": "Quaking aspen. Every stem is genetically identical, a clone sprouting from roots that may be thousands of years old; the name is Latin for 'I spread'.",
+      "more": "The whole thing weighs around six thousand tonnes and sits in Fishlake National Forest, where it is slowly dying because deer and cattle eat the young shoots before they can replace the old trunks. Aspens are named for leaves on flattened stalks that tremble in the slightest breeze. In autumn the colony turns gold all at once, since it is one tree."
+    },
+    {
+      "d": "hard",
+      "q": "True or false: a banana plant is a tree.",
+      "o": ["True", "False"],
+      "a": 1,
+      "w": "False. It is the world's largest herb. The 'trunk' is a tight bundle of leaf bases with no wood in it, and the plant dies back after fruiting once.",
+      "more": "The banana is technically a berry, while the strawberry is not, which is the sort of thing botanists enjoy. Almost every banana sold in the West is a Cavendish, a single clone, which is why a fungus spreading through plantations is a serious worry; the previous favourite, the Gros Michel, was wiped out the same way in the 1950s. Bamboo, likewise, is a grass, however tall it grows."
+    },
+    {
+      "d": "hard",
+      "type": "select",
+      "q": "Which of these are conifers? Select all that apply.",
+      "o": ["Yew", "Larch", "Juniper", "Holly", "Palm", "Magnolia"],
+      "a": [0, 1, 2],
+      "w": "Yew, larch and juniper all bear cones. Holly and magnolia are flowering trees, and palms are closer to grasses than to anything with needles.",
+      "more": "The larch is the odd conifer that drops its needles every autumn after turning gold. Every part of a yew is poisonous except the red flesh around the seed, and the yews in English churchyards are often older than the churches. Juniper berries, which are really tiny cones, are what give gin its flavour, and magnolias are so ancient that they evolved before bees and are still pollinated by beetles."
+    }
+  ]
+}
