@@ -1,11 +1,11 @@
 {
   "game": "babies",
   "roundsDir": "rounds",
-  "today": "2026-10-24",
-  "season": 5,
-  "queueCount": 5,
+  "today": "2026-10-25",
+  "season": 6,
+  "queueCount": 4,
   "target": 5,
-  "fill": 0,
+  "fill": 1,
   "queue": [
     {
       "id": "great-heists",
@@ -38,40 +38,26 @@
       "onPollSince": "2026-10-13",
       "retired": true,
       "requestId": null
-    },
-    {
-      "id": "mic-drop",
-      "name": "Mic Drop",
-      "subject": "Hip-hop",
-      "onPollSince": "2026-10-20",
-      "retired": false,
-      "requestId": null
     }
   ],
   "poll": {
-    "key": "2026-10-24",
-    "closes": "2026-10-25",
-    "decides": "2026-10-27",
-    "options": [
-      {
-        "id": "req:i3iEGAExkxxWl5rNkpIY",
-        "theme": "Trees",
-        "by": "Shivangi Bhatt"
-      }
-    ]
+    "key": "2026-10-25",
+    "closes": "2026-10-27",
+    "decides": "2026-10-29",
+    "options": []
   },
   "upcoming": [
-    {
-      "day": "2026-10-25",
-      "id": "mic-drop",
-      "name": "Mic Drop",
-      "how": "poll"
-    },
     {
       "day": "2026-10-27",
       "id": "req:i3iEGAExkxxWl5rNkpIY",
       "name": null,
-      "how": "leading"
+      "how": "unwritten"
+    },
+    {
+      "day": "2026-10-29",
+      "id": "great-heists",
+      "name": "Great Heists and Cons",
+      "how": "queue"
     }
   ],
   "dropped": [
@@ -218,9 +204,22 @@
       "id": "afterglow",
       "name": "Afterglow",
       "how": "theme"
+    },
+    {
+      "day": "2026-10-25",
+      "id": "mic-drop",
+      "name": "Mic Drop",
+      "how": "poll"
     }
   ],
-  "requestsWaiting": [],
+  "requestsWaiting": [
+    {
+      "id": "i3iEGAExkxxWl5rNkpIY",
+      "theme": "Trees",
+      "by": "Shivangi Bhatt",
+      "dropDay": "2026-10-27"
+    }
+  ],
   "ideas": [
     {
       "id": "i3iEGAExkxxWl5rNkpIY",
@@ -272,14 +271,14 @@
     "Where On Earth (Geography)",
     "Wild Things (Animals)"
   ],
-  "need": 0,
+  "need": 2,
   "games": {
     "hamps": {
       "game": "hamps",
       "roundsDir": "games/hamps/rounds",
-      "today": "2026-10-24",
-      "season": 4,
-      "queueCount": 6,
+      "today": "2026-10-25",
+      "season": 5,
+      "queueCount": 5,
       "target": 5,
       "fill": 0,
       "queue": [
@@ -322,24 +321,13 @@
           "onPollSince": "2026-10-24",
           "retired": false,
           "requestId": null
-        },
-        {
-          "id": "saturday-morning",
-          "name": "Saturday Morning",
-          "subject": "Saturday-morning cartoons",
-          "onPollSince": null,
-          "retired": false,
-          "requestId": "hamps:8Tw1Q17qcDW8YECJW6Yk"
         }
       ],
       "poll": {
-        "key": "2026-10-24",
-        "closes": "2026-10-25",
-        "decides": "2026-10-27",
+        "key": "2026-10-25",
+        "closes": "2026-10-27",
+        "decides": "2026-10-29",
         "options": [
-          {
-            "id": "required-reading"
-          },
           {
             "id": "laugh-track"
           }
@@ -347,15 +335,15 @@
       },
       "upcoming": [
         {
-          "day": "2026-10-25",
-          "id": "saturday-morning",
-          "name": "Saturday Morning",
-          "how": "theme"
-        },
-        {
           "day": "2026-10-27",
           "id": "required-reading",
           "name": "Required Reading",
+          "how": "poll"
+        },
+        {
+          "day": "2026-10-29",
+          "id": "laugh-track",
+          "name": "Laugh Track",
           "how": "leading"
         }
       ],
@@ -479,6 +467,12 @@
           "id": "creature-feature",
           "name": "Creature Feature",
           "how": "poll"
+        },
+        {
+          "day": "2026-10-25",
+          "id": "saturday-morning",
+          "name": "Saturday Morning",
+          "how": "theme"
         }
       ],
       "requestsWaiting": [],
@@ -518,5 +512,5 @@
       "need": 0
     }
   },
-  "totalNeed": 0
+  "totalNeed": 2
 }
