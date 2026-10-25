@@ -1,5 +1,5 @@
 {
-  "asOf": "2026-10-24T16:17:22.574Z",
+  "asOf": "2026-10-25T16:52:05.485Z",
   "cycle": {
     "start": "2026-10-21",
     "end": "2026-11-21"
@@ -10,7 +10,7 @@
     "babies": {
       "domain": "babiestrivia.netlify.app",
       "productionDeploys": 0,
-      "cancelledOrFailed": 12,
+      "cancelledOrFailed": 16,
       "byDay": {},
       "lastDeploy": null
     },
@@ -28,7 +28,7 @@
     "percentUsed": 0,
     "creditsLeft": 2000,
     "deploysLeft": 133,
-    "daysLeftInCycle": 28,
+    "daysLeftInCycle": 27,
     "note": "Counts successful production deploys only, at 15 credits each; bandwidth is not counted and is negligible for these sites. Netlify's own emails at 50/75/90/100% are the ground truth; if one disagrees with this, trust the email."
   }
 }
