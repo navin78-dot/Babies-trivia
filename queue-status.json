@@ -3,9 +3,9 @@
   "roundsDir": "rounds",
   "today": "2026-10-25",
   "season": 6,
-  "queueCount": 4,
+  "queueCount": 6,
   "target": 5,
-  "fill": 1,
+  "fill": 0,
   "queue": [
     {
       "id": "great-heists",
@@ -38,26 +38,46 @@
       "onPollSince": "2026-10-13",
       "retired": true,
       "requestId": null
+    },
+    {
+      "id": "brush-strokes",
+      "name": "Brush Strokes",
+      "subject": "Art",
+      "onPollSince": "2026-10-25",
+      "retired": false,
+      "requestId": null
+    },
+    {
+      "id": "knock-on-wood",
+      "name": "Knock on Wood",
+      "subject": "Trees",
+      "onPollSince": null,
+      "retired": false,
+      "requestId": "i3iEGAExkxxWl5rNkpIY"
     }
   ],
   "poll": {
     "key": "2026-10-25",
     "closes": "2026-10-27",
     "decides": "2026-10-29",
-    "options": []
+    "options": [
+      {
+        "id": "brush-strokes"
+      }
+    ]
   },
   "upcoming": [
     {
       "day": "2026-10-27",
-      "id": "req:i3iEGAExkxxWl5rNkpIY",
-      "name": null,
-      "how": "unwritten"
+      "id": "knock-on-wood",
+      "name": "Knock on Wood",
+      "how": "theme"
     },
     {
       "day": "2026-10-29",
-      "id": "great-heists",
-      "name": "Great Heists and Cons",
-      "how": "queue"
+      "id": "brush-strokes",
+      "name": "Brush Strokes",
+      "how": "leading"
     }
   ],
   "dropped": [
@@ -212,21 +232,8 @@
       "how": "poll"
     }
   ],
-  "requestsWaiting": [
-    {
-      "id": "i3iEGAExkxxWl5rNkpIY",
-      "theme": "Trees",
-      "by": "Shivangi Bhatt",
-      "dropDay": "2026-10-27"
-    }
-  ],
-  "ideas": [
-    {
-      "id": "i3iEGAExkxxWl5rNkpIY",
-      "theme": "Trees",
-      "by": "Shivangi Bhatt"
-    }
-  ],
+  "requestsWaiting": [],
+  "ideas": [],
   "existingSubjects": [
     "Strike a Pose (Madonna)",
     "Over the Millennia (World history)",
@@ -245,6 +252,7 @@
     "Between the Sheets (Sex)",
     "Body of Evidence (The human body)",
     "Bright Ideas (Inventions)",
+    "Brush Strokes (Art)",
     "Cape and Cowl (Comic books and superheroes)",
     "Console Wars (Video games)",
     "The Corner Office (Business leaders and companies)",
@@ -257,6 +265,7 @@
     "Grand Designs (Architecture and famous buildings)",
     "Hail to the Chief (US presidents)",
     "In My Trivia Era (Taylor Swift)",
+    "Knock on Wood (Trees)",
     "Last Call (Wine, beer and cocktails)",
     "Mic Drop (Hip-hop)",
     "Page Turners (Books and authors)",
@@ -271,7 +280,7 @@
     "Where On Earth (Geography)",
     "Wild Things (Animals)"
   ],
-  "need": 2,
+  "need": 0,
   "games": {
     "hamps": {
       "game": "hamps",
@@ -512,5 +521,5 @@
       "need": 0
     }
   },
-  "totalNeed": 2
+  "totalNeed": 0
 }
