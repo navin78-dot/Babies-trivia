@@ -339,6 +339,11 @@
         "options": [
           {
             "id": "laugh-track"
+          },
+          {
+            "id": "req:bIbkvrCibtAC1I9c0mtP",
+            "theme": "Halloween",
+            "by": "Shan Bates"
           }
         ]
       },
@@ -485,7 +490,13 @@
         }
       ],
       "requestsWaiting": [],
-      "ideas": [],
+      "ideas": [
+        {
+          "id": "bIbkvrCibtAC1I9c0mtP",
+          "theme": "Halloween",
+          "by": "Shan Bates"
+        }
+      ],
       "existingSubjects": [
         "Art Attack (Art and artists)",
         "Binge Worthy (Television of the streaming age)",
