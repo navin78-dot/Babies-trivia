@@ -281,9 +281,9 @@
       "roundsDir": "games/hamps/rounds",
       "today": "2026-10-27",
       "season": 5,
-      "queueCount": 4,
+      "queueCount": 5,
       "target": 5,
-      "fill": 1,
+      "fill": 0,
       "queue": [
         {
           "id": "pedal-to-the-metal",
@@ -316,6 +316,14 @@
           "onPollSince": "2026-10-24",
           "retired": false,
           "requestId": null
+        },
+        {
+          "id": "trick-or-treat",
+          "name": "Trick or Treat",
+          "subject": "Halloween",
+          "onPollSince": "2026-10-27",
+          "retired": false,
+          "requestId": "hamps:bIbkvrCibtAC1I9c0mtP"
         }
       ],
       "poll": {
@@ -324,9 +332,7 @@
         "decides": "2026-10-31",
         "options": [
           {
-            "id": "req:bIbkvrCibtAC1I9c0mtP",
-            "theme": "Halloween",
-            "by": "Shan Bates"
+            "id": "trick-or-treat"
           }
         ]
       },
@@ -339,8 +345,8 @@
         },
         {
           "day": "2026-10-31",
-          "id": "req:bIbkvrCibtAC1I9c0mtP",
-          "name": null,
+          "id": "trick-or-treat",
+          "name": "Trick or Treat",
           "how": "leading"
         }
       ],
@@ -479,13 +485,7 @@
         }
       ],
       "requestsWaiting": [],
-      "ideas": [
-        {
-          "id": "bIbkvrCibtAC1I9c0mtP",
-          "theme": "Halloween",
-          "by": "Shan Bates"
-        }
-      ],
+      "ideas": [],
       "existingSubjects": [
         "Art Attack (Art and artists)",
         "Binge Worthy (Television of the streaming age)",
@@ -516,10 +516,11 @@
         "Say What (Words and language)",
         "Solar Flair (The planets)",
         "Table for Twenty (Hamptons restaurants)",
+        "Trick or Treat (Halloween)",
         "Turning Points (World history)"
       ],
-      "need": 1
+      "need": 0
     }
   },
-  "totalNeed": 1
+  "totalNeed": 0
 }
