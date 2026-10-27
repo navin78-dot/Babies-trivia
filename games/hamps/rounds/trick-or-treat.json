@@ -1,0 +1,107 @@
+{
+  "id": "trick-or-treat",
+  "name": "Trick or Treat",
+  "subject": "Halloween",
+  "requestId": "hamps:bIbkvrCibtAC1I9c0mtP",
+  "tagline": "Eleven questions for All Hallows' Eve, from turnip lanterns in Ireland to a two-dollar Captain Kirk mask. A theme the crew asked for.",
+  "draft": true,
+  "emblem": "🎃",
+  "theme": {
+    "font": "Creepster",
+    "accent": "#EA580C",
+    "accent2": "#7C3AED",
+    "accentDark": "#FB923C",
+    "accent2Dark": "#A78BFA"
+  },
+  "questions": [
+    {
+      "d": "easy",
+      "q": "Halloween grew out of which ancient Celtic festival, held at the end of the harvest, when the dead were believed to walk among the living?",
+      "o": ["Samhain", "Beltane", "Imbolc", "Lughnasadh"],
+      "a": 0,
+      "w": "Samhain, pronounced 'sow-in', marked the start of winter on the night of 31 October. People lit bonfires and wore disguises so the wandering spirits would not recognise them.",
+      "more": "The Church placed All Saints' Day on 1 November in the ninth century, which made 31 October All Hallows' Eve, and the Scots shortened that to Hallowe'en. Beltane was the fire festival at the other end of the year, in May. Irish and Scottish immigrants carried the customs to America in the nineteenth century, where they grew into a holiday on which Americans now spend more than twelve billion dollars a year."
+    },
+    {
+      "d": "easy",
+      "q": "Long before pumpkins took over in America, Irish and Scottish families carved their jack-o'-lanterns from which vegetable?",
+      "o": ["Turnips", "Potatoes", "Cabbages", "Onions"],
+      "a": 0,
+      "w": "Turnips, hollowed out with a knife and lit with an ember or a candle stub, with faces that were far more frightening than anything a pumpkin can manage.",
+      "more": "The lantern is named for Stingy Jack, an Irish drunk who tricked the Devil and was turned away from both heaven and hell, condemned to wander with a burning coal inside a carved turnip. Irish immigrants in America found pumpkins bigger, softer and everywhere in October, and switched. A carved turnip lantern from the early 1900s sits in the National Museum of Ireland, and it is genuinely horrible to look at."
+    },
+    {
+      "d": "easy",
+      "q": "Which 1978 film, made for about 300,000 dollars, introduced the masked killer Michael Myers and made Jamie Lee Curtis a star?",
+      "o": ["Halloween", "Friday the 13th", "A Nightmare on Elm Street", "The Texas Chain Saw Massacre"],
+      "a": 0,
+      "w": "Halloween, directed by John Carpenter, who also wrote its piano theme in a few days. It took around seventy million dollars and was for years the most profitable independent film ever made.",
+      "more": "It was shot in twenty days in the spring in South Pasadena, so the crew scattered painted paper leaves for every autumn scene and collected them again afterwards. Jamie Lee Curtis was paid 8,000 dollars for her first film, and the character of Michael Myers was named after a British distributor who had helped sell Carpenter's previous picture. The series has since run to thirteen films, and Curtis came back to finish it in 2022."
+    },
+    {
+      "d": "easy",
+      "q": "In the 1966 television special It's the Great Pumpkin, Charlie Brown, who spends the whole of Halloween night in the pumpkin patch waiting for the Great Pumpkin to appear?",
+      "o": ["Linus", "Charlie Brown", "Snoopy", "Pig-Pen"],
+      "a": 0,
+      "w": "Linus, who is sure the Great Pumpkin rises from the most sincere pumpkin patch in the world. He is still waiting at dawn, and Sally, who missed trick-or-treating to sit with him, is furious.",
+      "more": "It first aired on CBS on 27 October 1966 and has been shown every year since, now on Apple TV. Charlie Brown's bag of treats contains nothing but rocks, and Snoopy spends the night as the First World War flying ace, shot down by the Red Baron. The special's producers received bags of candy in the mail from children who felt sorry for Charlie Brown."
+    },
+    {
+      "d": "easy",
+      "q": "In which 1993 film do the Sanderson sisters, three witches hanged in Salem in 1693, come back to life on Halloween night?",
+      "o": ["Hocus Pocus", "Practical Magic", "The Witches", "The Craft"],
+      "a": 0,
+      "w": "Hocus Pocus, with Bette Midler, Sarah Jessica Parker and Kathy Najimy as Winifred, Sarah and Mary Sanderson, brought back by a teenager who lights the black-flame candle.",
+      "more": "Disney released it in July, it lost money, and critics shrugged. Years of October showings on cable turned it into the most-watched Halloween film in America, and a sequel finally arrived on Disney+ in 2022 with the three stars back. Midler has called Winifred her favourite role, and the sisters' cottage and the town common were filmed in the real Salem, Massachusetts."
+    },
+    {
+      "d": "medium",
+      "q": "Which American author's 1820 story The Legend of Sleepy Hollow sends the gangly schoolteacher Ichabod Crane fleeing from the Headless Horseman?",
+      "o": ["Washington Irving", "Nathaniel Hawthorne", "James Fenimore Cooper", "Herman Melville"],
+      "a": 0,
+      "w": "Washington Irving, a New Yorker, who set the story in a real Dutch village on the Hudson in Westchester County. The horseman is the ghost of a Hessian soldier who lost his head to a cannonball.",
+      "more": "The village of North Tarrytown voted in 1996 to rename itself Sleepy Hollow, and Irving is buried in its cemetery. Irving also gave the world Rip Van Winkle and the name Knickerbocker, and he invented the idea that Columbus's contemporaries thought the Earth was flat. Tim Burton's 1999 film version turned Ichabod into a detective and the horseman into Christopher Walken."
+    },
+    {
+      "d": "medium",
+      "q": "'Quoth the Raven, \"Nevermore.\"' Which American writer published The Raven in 1845 and is credited with inventing the detective story?",
+      "o": ["Edgar Allan Poe", "Walt Whitman", "Ralph Waldo Emerson", "Henry Wadsworth Longfellow"],
+      "a": 0,
+      "w": "Edgar Allan Poe, who was paid about nine dollars for the poem. His 1841 story The Murders in the Rue Morgue introduced the brilliant detective and the baffled narrator that Sherlock Holmes later copied.",
+      "more": "Poe was found delirious on a Baltimore street in October 1849, wearing someone else's clothes, and died four days later at forty without ever explaining what had happened; theories run from rabies to being drugged and dragged round polling stations to vote. Baltimore's football team, the Ravens, took their name from the poem in 1996. For decades a mysterious visitor left three roses and a bottle of cognac on his grave every January."
+    },
+    {
+      "d": "medium",
+      "q": "Jack Nicholson improvised 'Here's Johnny!' while hacking through a bathroom door in which 1980 Stanley Kubrick film, set in the snowed-in Overlook Hotel?",
+      "o": ["The Shining", "The Omen", "Poltergeist", "The Amityville Horror"],
+      "a": 0,
+      "w": "The Shining. The line was Ed McMahon's nightly introduction of Johnny Carson on The Tonight Show, which Kubrick, living in England, did not recognise and nearly cut.",
+      "more": "Stephen King, who wrote the 1977 novel, disliked the film so much that he later made his own television version. The door scene took three days and about sixty doors, because the prop doors broke too easily and Nicholson, a former volunteer fire marshal, went through them in one swing. The hotel exterior is the Timberline Lodge in Oregon, which asked for the haunted room to be changed from 217 to 237 so that nobody would be scared off booking it."
+    },
+    {
+      "d": "hard",
+      "q": "The blank white mask worn by Michael Myers in Halloween (1978) was a cheap store-bought mask of which actor, spray-painted white?",
+      "o": ["William Shatner", "Don Knotts", "Richard Nixon", "Lon Chaney"],
+      "a": 0,
+      "w": "William Shatner. The crew bought a Captain Kirk mask for under two dollars at a magic shop on Hollywood Boulevard, cut the eyeholes wider, pulled off the eyebrows and sideburns and painted it white.",
+      "more": "The other candidate was a sad-faced clown mask, which the crew rejected as not frightening enough. Shatner did not learn about it for years and has since gone trick-or-treating in a Michael Myers mask with his children, which neighbours did not find funny. The original mask was lost, and the versions in later sequels were remoulded from it with varying success."
+    },
+    {
+      "d": "hard",
+      "type": "order",
+      "q": "Put these horror films in the order they were released, earliest first.",
+      "o": ["Nosferatu", "The Exorcist", "The Blair Witch Project", "Get Out"],
+      "w": "Nosferatu in 1922, The Exorcist in 1973, The Blair Witch Project in 1999 and Get Out in 2017.",
+      "more": "Nosferatu was an unauthorised German adaptation of Bram Stoker's Dracula, and Stoker's widow won a court order to have every print destroyed; it survived only through copies already shipped abroad. The Exorcist was the first horror film nominated for the Best Picture Oscar, and cinemas kept smelling salts on hand. The Blair Witch Project cost about 60,000 dollars and took nearly 250 million, helped by a website that listed its three actors as missing, and Jordan Peele's Get Out won him the Oscar for best original screenplay, the first ever for a Black writer."
+    },
+    {
+      "d": "hard",
+      "type": "select",
+      "q": "Which of these candies were already on sale before 1930? Select all that apply.",
+      "o": ["Candy corn", "Tootsie Rolls", "Reese's Peanut Butter Cups", "Skittles", "Sour Patch Kids", "Starburst"],
+      "a": [0, 1, 2],
+      "w": "Candy corn dates from the 1880s, the Tootsie Roll from 1896 and Reese's cups from 1928. Starburst arrived in 1960, Skittles in the 1970s and Sour Patch Kids in 1985.",
+      "more": "Candy corn was invented in Philadelphia by a Wunderle Candy Company employee and was first sold as 'chicken feed'; about nine billion pieces are made every year, most of them bought in October and many of them hated. Leo Hirschfield named the Tootsie Roll after his daughter Clara, and H. B. Reese was a former Hershey dairy farmer who made his cups in his basement. Americans spend around three and a half billion dollars on Halloween candy every year, and surveys usually crown Reese's cups the favourite."
+    }
+  ]
+}
