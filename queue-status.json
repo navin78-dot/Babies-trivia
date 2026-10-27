@@ -1,9 +1,9 @@
 {
   "game": "babies",
   "roundsDir": "rounds",
-  "today": "2026-10-26",
+  "today": "2026-10-27",
   "season": 6,
-  "queueCount": 6,
+  "queueCount": 5,
   "target": 5,
   "fill": 0,
   "queue": [
@@ -46,38 +46,26 @@
       "onPollSince": "2026-10-25",
       "retired": false,
       "requestId": null
-    },
-    {
-      "id": "knock-on-wood",
-      "name": "Knock on Wood",
-      "subject": "Trees",
-      "onPollSince": null,
-      "retired": false,
-      "requestId": "i3iEGAExkxxWl5rNkpIY"
     }
   ],
   "poll": {
-    "key": "2026-10-25",
-    "closes": "2026-10-27",
-    "decides": "2026-10-29",
-    "options": [
-      {
-        "id": "brush-strokes"
-      }
-    ]
+    "key": "2026-10-27",
+    "closes": "2026-10-29",
+    "decides": "2026-10-31",
+    "options": []
   },
   "upcoming": [
-    {
-      "day": "2026-10-27",
-      "id": "knock-on-wood",
-      "name": "Knock on Wood",
-      "how": "theme"
-    },
     {
       "day": "2026-10-29",
       "id": "brush-strokes",
       "name": "Brush Strokes",
-      "how": "leading"
+      "how": "poll"
+    },
+    {
+      "day": "2026-10-31",
+      "id": "great-heists",
+      "name": "Great Heists and Cons",
+      "how": "queue"
     }
   ],
   "dropped": [
@@ -230,6 +218,12 @@
       "id": "mic-drop",
       "name": "Mic Drop",
       "how": "poll"
+    },
+    {
+      "day": "2026-10-27",
+      "id": "knock-on-wood",
+      "name": "Knock on Wood",
+      "how": "theme"
     }
   ],
   "requestsWaiting": [],
@@ -285,11 +279,11 @@
     "hamps": {
       "game": "hamps",
       "roundsDir": "games/hamps/rounds",
-      "today": "2026-10-26",
+      "today": "2026-10-27",
       "season": 5,
-      "queueCount": 5,
+      "queueCount": 4,
       "target": 5,
-      "fill": 0,
+      "fill": 1,
       "queue": [
         {
           "id": "pedal-to-the-metal",
@@ -316,14 +310,6 @@
           "requestId": null
         },
         {
-          "id": "required-reading",
-          "name": "Required Reading",
-          "subject": "Books and writers",
-          "onPollSince": "2026-10-22",
-          "retired": false,
-          "requestId": null
-        },
-        {
           "id": "laugh-track",
           "name": "Laugh Track",
           "subject": "Comedy",
@@ -333,13 +319,10 @@
         }
       ],
       "poll": {
-        "key": "2026-10-25",
-        "closes": "2026-10-27",
-        "decides": "2026-10-29",
+        "key": "2026-10-27",
+        "closes": "2026-10-29",
+        "decides": "2026-10-31",
         "options": [
-          {
-            "id": "laugh-track"
-          },
           {
             "id": "req:bIbkvrCibtAC1I9c0mtP",
             "theme": "Halloween",
@@ -349,15 +332,15 @@
       },
       "upcoming": [
         {
-          "day": "2026-10-27",
-          "id": "required-reading",
-          "name": "Required Reading",
-          "how": "poll"
-        },
-        {
           "day": "2026-10-29",
           "id": "laugh-track",
           "name": "Laugh Track",
+          "how": "poll"
+        },
+        {
+          "day": "2026-10-31",
+          "id": "req:bIbkvrCibtAC1I9c0mtP",
+          "name": null,
           "how": "leading"
         }
       ],
@@ -487,6 +470,12 @@
           "id": "saturday-morning",
           "name": "Saturday Morning",
           "how": "theme"
+        },
+        {
+          "day": "2026-10-27",
+          "id": "required-reading",
+          "name": "Required Reading",
+          "how": "poll"
         }
       ],
       "requestsWaiting": [],
@@ -529,8 +518,8 @@
         "Table for Twenty (Hamptons restaurants)",
         "Turning Points (World history)"
       ],
-      "need": 0
+      "need": 1
     }
   },
-  "totalNeed": 0
+  "totalNeed": 1
 }
