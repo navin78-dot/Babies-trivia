@@ -3,9 +3,9 @@
   "roundsDir": "rounds",
   "today": "2026-10-29",
   "season": 6,
-  "queueCount": 4,
+  "queueCount": 5,
   "target": 5,
-  "fill": 1,
+  "fill": 0,
   "queue": [
     {
       "id": "great-heists",
@@ -38,6 +38,14 @@
       "onPollSince": "2026-10-13",
       "retired": true,
       "requestId": null
+    },
+    {
+      "id": "period-pieces",
+      "name": "Period Pieces",
+      "subject": "Historical fashion",
+      "onPollSince": "2026-10-29",
+      "retired": false,
+      "requestId": "MQJdobookt0sm24k2dgg"
     }
   ],
   "poll": {
@@ -46,24 +54,22 @@
     "decides": "2026-11-01",
     "options": [
       {
-        "id": "req:MQJdobookt0sm24k2dgg",
-        "theme": "Historical fashion",
-        "by": "Shivangi Bhatt"
+        "id": "period-pieces"
       }
     ]
   },
   "upcoming": [
     {
       "day": "2026-10-31",
-      "id": "great-heists",
-      "name": "Great Heists and Cons",
+      "id": "period-pieces",
+      "name": "Period Pieces",
       "how": "queue"
     },
     {
       "day": "2026-11-01",
-      "id": "req:MQJdobookt0sm24k2dgg",
-      "name": null,
-      "how": "leading"
+      "id": "great-heists",
+      "name": "Great Heists and Cons",
+      "how": "queue"
     }
   ],
   "dropped": [
@@ -231,13 +237,7 @@
     }
   ],
   "requestsWaiting": [],
-  "ideas": [
-    {
-      "id": "MQJdobookt0sm24k2dgg",
-      "theme": "Historical fashion",
-      "by": "Shivangi Bhatt"
-    }
-  ],
+  "ideas": [],
   "existingSubjects": [
     "Strike a Pose (Madonna)",
     "Over the Millennia (World history)",
@@ -273,6 +273,7 @@
     "Last Call (Wine, beer and cocktails)",
     "Mic Drop (Hip-hop)",
     "Page Turners (Books and authors)",
+    "Period Pieces (Historical fashion)",
     "Pretty in Synth (1980s new wave)",
     "Ripped From the Headlines (Current events, 2026)",
     "Summer Blockbusters (Big movies)",
@@ -284,16 +285,16 @@
     "Where On Earth (Geography)",
     "Wild Things (Animals)"
   ],
-  "need": 1,
+  "need": 0,
   "games": {
     "hamps": {
       "game": "hamps",
       "roundsDir": "games/hamps/rounds",
       "today": "2026-10-29",
       "season": 5,
-      "queueCount": 4,
+      "queueCount": 5,
       "target": 5,
-      "fill": 1,
+      "fill": 0,
       "queue": [
         {
           "id": "pedal-to-the-metal",
@@ -326,13 +327,25 @@
           "onPollSince": "2026-10-27",
           "retired": false,
           "requestId": "hamps:bIbkvrCibtAC1I9c0mtP"
+        },
+        {
+          "id": "campaign-trail",
+          "name": "Campaign Trail",
+          "subject": "US elections and voting",
+          "onPollSince": "2026-10-29",
+          "retired": false,
+          "requestId": null
         }
       ],
       "poll": {
         "key": "2026-10-29",
         "closes": "2026-10-31",
         "decides": "2026-11-01",
-        "options": []
+        "options": [
+          {
+            "id": "campaign-trail"
+          }
+        ]
       },
       "upcoming": [
         {
@@ -343,9 +356,9 @@
         },
         {
           "day": "2026-11-01",
-          "id": "pedal-to-the-metal",
-          "name": "Pedal to the Metal",
-          "how": "queue"
+          "id": "campaign-trail",
+          "name": "Campaign Trail",
+          "how": "leading"
         }
       ],
       "dropped": [
@@ -494,6 +507,7 @@
         "Art Attack (Art and artists)",
         "Binge Worthy (Television of the streaming age)",
         "By the Numbers (Maths, numbers and measurement)",
+        "Campaign Trail (US elections and voting)",
         "Chart Toppers (Pop music)",
         "Concrete Jungle (New York City)",
         "Creature Feature (Animals)",
@@ -523,8 +537,8 @@
         "Trick or Treat (Halloween)",
         "Turning Points (World history)"
       ],
-      "need": 1
+      "need": 0
     }
   },
-  "totalNeed": 2
+  "totalNeed": 0
 }
