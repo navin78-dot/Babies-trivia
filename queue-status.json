@@ -1,11 +1,11 @@
 {
   "game": "babies",
   "roundsDir": "rounds",
-  "today": "2026-10-28",
+  "today": "2026-10-29",
   "season": 6,
-  "queueCount": 5,
+  "queueCount": 4,
   "target": 5,
-  "fill": 0,
+  "fill": 1,
   "queue": [
     {
       "id": "great-heists",
@@ -38,34 +38,32 @@
       "onPollSince": "2026-10-13",
       "retired": true,
       "requestId": null
-    },
-    {
-      "id": "brush-strokes",
-      "name": "Brush Strokes",
-      "subject": "Art",
-      "onPollSince": "2026-10-25",
-      "retired": false,
-      "requestId": null
     }
   ],
   "poll": {
-    "key": "2026-10-27",
-    "closes": "2026-10-29",
-    "decides": "2026-10-31",
-    "options": []
+    "key": "2026-10-29",
+    "closes": "2026-10-31",
+    "decides": "2026-11-01",
+    "options": [
+      {
+        "id": "req:MQJdobookt0sm24k2dgg",
+        "theme": "Historical fashion",
+        "by": "Shivangi Bhatt"
+      }
+    ]
   },
   "upcoming": [
-    {
-      "day": "2026-10-29",
-      "id": "brush-strokes",
-      "name": "Brush Strokes",
-      "how": "poll"
-    },
     {
       "day": "2026-10-31",
       "id": "great-heists",
       "name": "Great Heists and Cons",
       "how": "queue"
+    },
+    {
+      "day": "2026-11-01",
+      "id": "req:MQJdobookt0sm24k2dgg",
+      "name": null,
+      "how": "leading"
     }
   ],
   "dropped": [
@@ -224,10 +222,22 @@
       "id": "knock-on-wood",
       "name": "Knock on Wood",
       "how": "theme"
+    },
+    {
+      "day": "2026-10-29",
+      "id": "brush-strokes",
+      "name": "Brush Strokes",
+      "how": "poll"
     }
   ],
   "requestsWaiting": [],
-  "ideas": [],
+  "ideas": [
+    {
+      "id": "MQJdobookt0sm24k2dgg",
+      "theme": "Historical fashion",
+      "by": "Shivangi Bhatt"
+    }
+  ],
   "existingSubjects": [
     "Strike a Pose (Madonna)",
     "Over the Millennia (World history)",
@@ -274,16 +284,16 @@
     "Where On Earth (Geography)",
     "Wild Things (Animals)"
   ],
-  "need": 0,
+  "need": 1,
   "games": {
     "hamps": {
       "game": "hamps",
       "roundsDir": "games/hamps/rounds",
-      "today": "2026-10-28",
+      "today": "2026-10-29",
       "season": 5,
-      "queueCount": 5,
+      "queueCount": 4,
       "target": 5,
-      "fill": 0,
+      "fill": 1,
       "queue": [
         {
           "id": "pedal-to-the-metal",
@@ -310,14 +320,6 @@
           "requestId": null
         },
         {
-          "id": "laugh-track",
-          "name": "Laugh Track",
-          "subject": "Comedy",
-          "onPollSince": "2026-10-24",
-          "retired": false,
-          "requestId": null
-        },
-        {
           "id": "trick-or-treat",
           "name": "Trick or Treat",
           "subject": "Halloween",
@@ -327,27 +329,23 @@
         }
       ],
       "poll": {
-        "key": "2026-10-27",
-        "closes": "2026-10-29",
-        "decides": "2026-10-31",
-        "options": [
-          {
-            "id": "trick-or-treat"
-          }
-        ]
+        "key": "2026-10-29",
+        "closes": "2026-10-31",
+        "decides": "2026-11-01",
+        "options": []
       },
       "upcoming": [
-        {
-          "day": "2026-10-29",
-          "id": "laugh-track",
-          "name": "Laugh Track",
-          "how": "poll"
-        },
         {
           "day": "2026-10-31",
           "id": "trick-or-treat",
           "name": "Trick or Treat",
-          "how": "leading"
+          "how": "poll"
+        },
+        {
+          "day": "2026-11-01",
+          "id": "pedal-to-the-metal",
+          "name": "Pedal to the Metal",
+          "how": "queue"
         }
       ],
       "dropped": [
@@ -482,6 +480,12 @@
           "id": "required-reading",
           "name": "Required Reading",
           "how": "poll"
+        },
+        {
+          "day": "2026-10-29",
+          "id": "laugh-track",
+          "name": "Laugh Track",
+          "how": "poll"
         }
       ],
       "requestsWaiting": [],
@@ -519,8 +523,8 @@
         "Trick or Treat (Halloween)",
         "Turning Points (World history)"
       ],
-      "need": 0
+      "need": 1
     }
   },
-  "totalNeed": 0
+  "totalNeed": 2
 }
