@@ -1,0 +1,167 @@
+{
+  "id": "campaign-trail",
+  "name": "Campaign Trail",
+  "subject": "US elections and voting",
+  "tagline": "Eleven questions on how America votes, from the donkey and the elephant to a headline that got it spectacularly wrong. In time for the midterms. Starts easy, ends hard.",
+  "draft": true,
+  "emblem": "🗳️",
+  "theme": {
+    "font": "Oswald",
+    "accent": "#1D4ED8",
+    "accent2": "#DC2626",
+    "accentDark": "#60A5FA",
+    "accent2Dark": "#F87171"
+  },
+  "questions": [
+    {
+      "d": "easy",
+      "q": "How many electoral votes does a candidate need to win the presidency?",
+      "o": [
+        "270",
+        "250",
+        "300",
+        "435"
+      ],
+      "a": 0,
+      "w": "270, a majority of the 538 electoral votes: one for each of the 435 House seats and 100 Senate seats, plus three for Washington, DC.",
+      "more": "Every state except Maine and Nebraska gives all of its electoral votes to whoever wins the state, which is why a candidate can win the presidency while losing the national popular vote, as happened in 2000 and 2016. If nobody reaches 270 the House of Representatives chooses the president, with each state delegation casting one vote. That has happened twice, in 1800 and 1824."
+    },
+    {
+      "d": "easy",
+      "q": "Which two animals stand for the Democratic and Republican parties, thanks largely to the cartoonist Thomas Nast in the 1870s?",
+      "o": [
+        "The donkey and the elephant",
+        "The eagle and the bear",
+        "The fox and the bull",
+        "The mule and the moose"
+      ],
+      "a": 0,
+      "w": "The donkey for the Democrats and the elephant for the Republicans. Nast drew both in Harper's Weekly, and the Republicans adopted theirs; the Democrats have never made the donkey official.",
+      "more": "The donkey goes back to 1828, when Andrew Jackson's opponents called him a jackass and he put the animal on his posters. Nast, a German immigrant, also gave America its modern image of Santa Claus and helped bring down the corrupt Boss Tweed of Tammany Hall, who complained that his voters could not read but could certainly see pictures. The elephant first appeared in 1874 in a cartoon called Third-Term Panic."
+    },
+    {
+      "d": "easy",
+      "q": "On which day of the week are American federal elections always held?",
+      "o": [
+        "Tuesday",
+        "Sunday",
+        "Saturday",
+        "Monday"
+      ],
+      "a": 0,
+      "w": "Tuesday, specifically the Tuesday after the first Monday in November, a date Congress fixed in 1845.",
+      "more": "In 1845 most voters were farmers who went to church on Sunday, needed Monday to travel to the county seat by horse and had to be back for market day on Wednesday, so Tuesday it was. November came after the harvest and before the worst of the winter. Most other democracies vote at the weekend, and making Election Day a public holiday has been proposed in Congress many times without success."
+    },
+    {
+      "d": "easy",
+      "q": "What is the name for the national election held halfway through a president's four-year term, like the one on 3 November 2026?",
+      "o": [
+        "A midterm election",
+        "A primary election",
+        "A runoff election",
+        "A recall election"
+      ],
+      "a": 0,
+      "w": "A midterm election, in which every seat in the House of Representatives, about a third of the Senate and most governorships are decided.",
+      "more": "The president's party nearly always loses House seats in the midterms; since the Second World War it has gained seats only three times, in 1934, 1998 and 2002. Turnout is usually well below a presidential year, though 2018 drew the highest midterm turnout in a century. In 2026 there are 36 governorships on the ballot as well as the 435 House seats."
+    },
+    {
+      "d": "easy",
+      "q": "Which state casts the most electoral votes in a presidential election?",
+      "o": [
+        "California",
+        "Texas",
+        "Florida",
+        "New York"
+      ],
+      "a": 0,
+      "w": "California, with 54. Texas has 40, Florida 30 and New York 28, and the smallest states have three each.",
+      "more": "Electoral votes are reallocated after every ten-year census, and the 2020 count moved votes from the Northeast and Midwest towards the South and West: California lost a vote for the first time in its history, while Texas gained two. New York had the most electoral votes for more than a century until California overtook it after the 1970 census. Wyoming's three votes represent about 190,000 people each, California's 54 about 720,000."
+    },
+    {
+      "d": "medium",
+      "q": "In November 1948 the Chicago Daily Tribune went to press with the headline 'DEWEY DEFEATS TRUMAN'. Who had actually won?",
+      "o": [
+        "Harry S. Truman",
+        "Thomas Dewey",
+        "Strom Thurmond",
+        "Henry Wallace"
+      ],
+      "a": 0,
+      "w": "Truman, the incumbent, who was photographed two days later holding the paper aloft and grinning on the back of a train in St. Louis.",
+      "more": "Every major poll had Dewey, the governor of New York, winning comfortably, and the pollsters had stopped asking questions weeks before the vote. Truman had spent the autumn on a 'whistle-stop' tour by train, giving hundreds of speeches from the rear platform. The Tribune had printed early because its typesetters were on strike, and the photograph is probably the most famous in the history of American elections."
+    },
+    {
+      "d": "medium",
+      "q": "The 2000 presidential election was finally settled 36 days after the vote by the Supreme Court, which stopped a recount in which state?",
+      "o": [
+        "Florida",
+        "Ohio",
+        "Pennsylvania",
+        "Michigan"
+      ],
+      "a": 0,
+      "w": "Florida, where George W. Bush's official margin over Al Gore was 537 votes out of nearly six million, enough to give him the state's electoral votes and the presidency.",
+      "more": "The recount introduced America to the hanging chad, the bit of a punch-card ballot that had not quite been punched through, and to Palm Beach County's confusing 'butterfly ballot', which sent thousands of votes meant for Gore to Pat Buchanan. Gore won the national popular vote by about half a million. The Supreme Court's ruling in Bush v. Gore was 5 to 4, and the court said it should not be treated as a precedent."
+    },
+    {
+      "d": "medium",
+      "q": "Drawing electoral districts in strange shapes to favour one party is named after which Massachusetts governor, who signed off on a salamander-shaped district in 1812?",
+      "o": [
+        "Elbridge Gerry",
+        "John Hancock",
+        "Samuel Adams",
+        "Caleb Strong"
+      ],
+      "a": 0,
+      "w": "Elbridge Gerry, whose name was fused with 'salamander' into 'gerrymander' by the Boston Gazette, complete with a cartoon of the district as a winged monster.",
+      "more": "Gerry pronounced his name with a hard G, as in Gary, so the word has been mispronounced for two centuries. He had signed the Declaration of Independence and went on to be James Madison's vice president, dying in office in 1814. Modern computer mapping has made gerrymandering far more precise, and the Supreme Court ruled in 2019 that federal courts cannot police partisan gerrymanders at all."
+    },
+    {
+      "d": "hard",
+      "q": "Which Texas billionaire won nearly 19 per cent of the vote as an independent in 1992, the best showing by a third-party candidate in eighty years, without winning a single electoral vote?",
+      "o": [
+        "Ross Perot",
+        "Ralph Nader",
+        "John Anderson",
+        "Pat Buchanan"
+      ],
+      "a": 0,
+      "w": "Ross Perot, who bought half-hour blocks of prime-time television to explain the national debt with flip charts and pointed at the camera a great deal.",
+      "more": "Perot led some polls in the summer of 1992, dropped out in July claiming Republican dirty tricks against his daughter's wedding, then re-entered in October. His running mate, Admiral James Stockdale, opened the vice-presidential debate with 'Who am I? Why am I here?', which did not help. He ran again in 1996 for his own Reform Party and got eight per cent, and the party's next notable candidate was Donald Trump, briefly, in 2000."
+    },
+    {
+      "d": "hard",
+      "type": "order",
+      "q": "Put these changes to American voting in the order they happened, earliest first.",
+      "o": [
+        "The Voting Rights Act is signed",
+        "The voting age is lowered to 18",
+        "The 'Motor Voter' law lets people register at the DMV",
+        "Citizens United opens the door to super PACs"
+      ],
+      "w": "The Voting Rights Act in 1965, the 26th Amendment lowering the voting age in 1971, the National Voter Registration Act in 1993 and the Supreme Court's Citizens United ruling in 2010.",
+      "more": "Lyndon Johnson signed the Voting Rights Act after the Selma marches, and Black registration in Mississippi rose from under seven per cent to almost sixty within two years. The 26th Amendment was ratified in about a hundred days, the fastest ever, pushed by the argument that eighteen-year-olds old enough to be drafted for Vietnam were old enough to vote. Citizens United held that corporations and unions could spend unlimited sums on election advertising, as long as they did not coordinate with the candidates."
+    },
+    {
+      "d": "hard",
+      "type": "select",
+      "q": "Which of these are usually counted as swing states in presidential elections? Select all that apply.",
+      "o": [
+        "Wisconsin",
+        "Michigan",
+        "Nevada",
+        "Vermont",
+        "Wyoming",
+        "Massachusetts"
+      ],
+      "a": [
+        0,
+        1,
+        2
+      ],
+      "w": "Wisconsin and Michigan, two of the so-called blue wall states that decided 2016, 2020 and 2024, and Nevada, which has been within a few points in every election since 2008. Vermont and Massachusetts vote reliably Democratic and Wyoming reliably Republican.",
+      "more": "Because of the winner-take-all system, candidates spend almost all of their time and money in the handful of states that could go either way, and a voter in Wisconsin sees more campaign advertising in a month than a Californian does in a lifetime. Wyoming has voted Republican in every election since 1968, and Vermont was once the most Republican state in the country, voting for the party in every election from 1856 to 1988 with a single exception. Pennsylvania, with nineteen electoral votes, was the most fought-over prize of 2024."
+    }
+  ]
+}

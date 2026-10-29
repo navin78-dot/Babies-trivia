@@ -1,0 +1,168 @@
+{
+  "id": "period-pieces",
+  "name": "Period Pieces",
+  "subject": "Historical fashion",
+  "requestId": "MQJdobookt0sm24k2dgg",
+  "tagline": "Eleven questions on what people wore and why, from a dye squeezed out of sea snails to a swimsuit named after a bomb test. A theme the group asked for.",
+  "draft": true,
+  "emblem": "👗",
+  "theme": {
+    "font": "Playfair Display",
+    "accent": "#86198F",
+    "accent2": "#B45309",
+    "accentDark": "#E879F9",
+    "accent2Dark": "#FBBF24"
+  },
+  "questions": [
+    {
+      "d": "easy",
+      "q": "In ancient Rome only the emperor could wear a toga dyed entirely in which colour, made at enormous cost from the glands of sea snails?",
+      "o": [
+        "Purple",
+        "Gold",
+        "Red",
+        "Blue"
+      ],
+      "a": 0,
+      "w": "Purple. Tyrian purple, named for the Phoenician city of Tyre, took around ten thousand murex snails to dye a single garment, and Nero made wearing it without permission a capital offence.",
+      "more": "The dye works stank so badly that they were kept outside city walls, and the colour did not fade but deepened in sunlight. Byzantine emperors' children were 'born in the purple', in a chamber lined with the stuff, and the recipe was lost when the Byzantine Empire fell in the 1400s. Purple stayed a rich person's colour until 1856, when an eighteen-year-old chemistry student in London, William Perkin, stumbled on a synthetic mauve while trying to make quinine."
+    },
+    {
+      "d": "easy",
+      "q": "Queen Victoria started a fashion that is still with us when she married Prince Albert in 1840 wearing a dress of which colour?",
+      "o": [
+        "White",
+        "Silver",
+        "Blue",
+        "Red"
+      ],
+      "a": 0,
+      "w": "White. Before Victoria, brides simply wore their best dress in any colour, and royal brides usually chose silver or gold cloth. She picked white satin trimmed with handmade Honiton lace, partly to help struggling lacemakers in Devon.",
+      "more": "Newspapers and magazines reported every detail, and within a generation white was the colour a bride was expected to wear, helped by a magazine's invention that it had always symbolised purity. Victoria also chose a wreath of orange blossom instead of a crown, which brides copied for decades. The dress survives at Kensington Palace, though it is now too fragile to display for long."
+    },
+    {
+      "d": "easy",
+      "q": "Which two-piece swimsuit did the French engineer Louis Réard unveil in Paris in July 1946, naming it after a Pacific atoll where the United States had tested an atomic bomb four days earlier?",
+      "o": [
+        "The bikini",
+        "The tankini",
+        "The monokini",
+        "The maillot"
+      ],
+      "a": 0,
+      "w": "The bikini. Réard hoped it would be as explosive as the bomb, and no Paris model would wear it, so he hired a nude dancer from the Casino de Paris to pose in it.",
+      "more": "It was banned on beaches in Spain, Italy and Belgium and declared sinful by the Vatican, and American women largely ignored it until Ursula Andress walked out of the sea in one in the first James Bond film in 1962. A rival designer had launched a two-piece called the Atome a few weeks earlier, billed as the smallest swimsuit in the world; Réard advertised his as smaller than the smallest. The 1960 novelty hit about an itsy bitsy yellow polka-dot one did the rest."
+    },
+    {
+      "d": "easy",
+      "q": "Which London designer is credited with popularising the miniskirt in the 1960s, and named it after her favourite car?",
+      "o": [
+        "Mary Quant",
+        "Vivienne Westwood",
+        "Barbara Hulanicki",
+        "Zandra Rhodes"
+      ],
+      "a": 0,
+      "w": "Mary Quant, whose boutique Bazaar on the King's Road in Chelsea dressed Swinging London. She named the skirt after the Mini, and always said the girls on the King's Road had really invented it by asking for shorter and shorter hems.",
+      "more": "The Paris designer André Courrèges claimed the miniskirt too, and the argument was never settled. Quant also popularised coloured tights, hot pants and the skinny-rib sweater, and sold her look through a chain of American department stores with a daisy logo. She was made a Dame in 2015 and died in 2023 at 93."
+    },
+    {
+      "d": "easy",
+      "q": "Which fastener, perfected by a Swedish-American engineer in 1913, got its everyday name from the sound it made when the B.F. Goodrich company put it on rubber galoshes in 1923?",
+      "o": [
+        "The zip",
+        "The press stud",
+        "The safety pin",
+        "Velcro"
+      ],
+      "a": 0,
+      "w": "The zip, or zipper. Gideon Sundback's 'hookless fastener' sat on boots and tobacco pouches for twenty years before clothing makers trusted it.",
+      "more": "Children's clothes were the breakthrough, sold on the promise that a child could dress alone, and in 1937 Esquire magazine declared the zip the winner of the 'Battle of the Fly' over buttons for men's trousers. Velcro came much later, patented in 1955 by a Swiss engineer who had looked at burrs stuck to his dog under a microscope. The first American zips were made in Meadville, Pennsylvania, which was for years the zipper capital of the world."
+    },
+    {
+      "d": "medium",
+      "q": "High heels were first worn in the tenth century not by women but by whom?",
+      "o": [
+        "Persian cavalrymen, to lock their feet into the stirrups",
+        "Venetian courtesans, to be seen above the crowd",
+        "Roman senators, to look taller in the forum",
+        "Chinese court officials, to keep their robes off the ground"
+      ],
+      "a": 0,
+      "w": "Persian cavalrymen, who could stand up in their stirrups and shoot a bow more steadily with a heel hooked under the stirrup. A Persian embassy brought the style to Europe in 1599, and aristocratic men took it up to look martial.",
+      "more": "Louis XIV decreed that only members of his court could wear red heels, and women began wearing heels in the 1630s precisely because it looked masculine. Men gave them up in the mid-1700s, when the Enlightenment decided that practical dress was rational and manly, and heels became a women's thing. The stiletto, named after a thin dagger, needed a steel rod inside it and only became possible in the 1950s."
+    },
+    {
+      "d": "medium",
+      "q": "According to legend, in the 550s two monks smuggled the eggs of which creature out of China in hollow walking sticks, breaking a monopoly China had guarded for thousands of years?",
+      "o": [
+        "Silkworms",
+        "Honeybees",
+        "Cochineal beetles",
+        "Pearl oysters"
+      ],
+      "a": 0,
+      "w": "Silkworms, carried to the Byzantine court, which had been paying China in gold for centuries. China had kept the secret of silk for some three thousand years, and exporting silkworms or their eggs carried the death penalty.",
+      "more": "A single cocoon unwinds into a thread up to a kilometre long, and it takes around three thousand of them to make a kilogram of silk. The Silk Road is named for the cloth, which Rome paid for in gold and which Roman moralists condemned as indecently transparent. China still produces most of the world's silk, and the Byzantine industry the monks started supplied Europe's royalty for a thousand years."
+    },
+    {
+      "d": "medium",
+      "q": "Nylon stockings went on sale across America on 15 May 1940 and sold close to four million pairs in the first few days. Which company had invented nylon, the first entirely synthetic fibre?",
+      "o": [
+        "DuPont",
+        "Dow Chemical",
+        "Monsanto",
+        "3M"
+      ],
+      "a": 0,
+      "w": "DuPont, where the chemist Wallace Carothers produced it in 1935. Silk stockings laddered and were imported from Japan, so a cheap, strong American substitute was an instant sensation.",
+      "more": "The day was called N-Day, and shops in New York sold 72,000 pairs before lunch. When America entered the war, all nylon went to parachutes, ropes and tyre cord, and women drew fake seams up the backs of their bare legs with eyebrow pencil. When stockings returned in 1945 the 'nylon riots' saw forty thousand people queue in Pittsburgh for thirteen thousand pairs."
+    },
+    {
+      "d": "hard",
+      "q": "Which queen's hairdresser built towering powdered 'poufs' decorated with model ships and birdcages, and whose dressmaker Rose Bertin was nicknamed the Minister of Fashion?",
+      "o": [
+        "Marie Antoinette",
+        "Catherine the Great",
+        "Queen Anne",
+        "Empress Joséphine"
+      ],
+      "a": 0,
+      "w": "Marie Antoinette, whose hairdresser Léonard once topped her head with a model of the frigate Belle Poule to celebrate a naval victory in 1778. Bertin was the first celebrity designer, and the queen's bills for some three hundred gowns a year helped make her hated.",
+      "more": "In 1783 she sat for a portrait in a plain white muslin dress, the chemise à la reine, which scandalised Paris because it looked like underwear and ruined the French silk trade because everyone copied it. The famous line about letting the people eat cake was attached to her long after her death and almost certainly made up. She went to the guillotine in 1793 in a plain white shift, her hair cropped short."
+    },
+    {
+      "d": "hard",
+      "type": "order",
+      "q": "Put these fashions in the order they first appeared, earliest first.",
+      "o": [
+        "The toga",
+        "The ruff",
+        "The crinoline",
+        "The flapper dress"
+      ],
+      "w": "The toga of ancient Rome, the starched ruff of the 1500s, the steel-hooped crinoline of the 1850s and the loose, short flapper dress of the 1920s.",
+      "more": "The toga was so awkward that Romans wore it only when they had to, and one emperor had to order senators to put one on before entering the forum. The ruff was starched stiff with a technique brought from the Netherlands and could be a foot wide, which is why Elizabethan portraits look the way they do. The crinoline cage, patented in 1856, freed women from layers of heavy petticoats but caught fire so often that it killed an estimated three thousand of them; the flapper's dropped waist and bared legs were a direct reaction against all of it."
+    },
+    {
+      "d": "hard",
+      "type": "select",
+      "q": "Which of these garments are named after a person? Select all that apply.",
+      "o": [
+        "Cardigan",
+        "Leotard",
+        "Wellington boots",
+        "Pyjamas",
+        "Jersey",
+        "Cashmere"
+      ],
+      "a": [
+        0,
+        1,
+        2
+      ],
+      "w": "The cardigan takes its name from the Earl of Cardigan, who led the Charge of the Light Brigade in 1854; the leotard from Jules Léotard, the French trapeze artist who inspired 'The Daring Young Man on the Flying Trapeze'; and wellingtons from the Duke of Wellington, who had his bootmaker cut down his cavalry boots.",
+      "more": "Pyjamas comes from a Persian word for leg clothing, picked up by the British in India; jersey from the Channel Island whose fishermen's knitwear it copied; and cashmere from the Kashmir goat, whose underfleece is combed out by hand each spring. Clothes named after people also include the mackintosh, the raglan sleeve, the bloomer and the stetson. The cardigan was knitted to be worn under a uniform jacket in the Crimean cold, and its namesake was better known in his lifetime for being vain, quarrelsome and lucky to survive the charge."
+    }
+  ]
+}
