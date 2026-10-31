@@ -1,0 +1,106 @@
+{
+  "id": "seventh-inning-stretch",
+  "name": "Seventh-Inning Stretch",
+  "subject": "Baseball",
+  "tagline": "Eleven questions on America's pastime, from a Bronx dynasty to a billy goat with a grudge. Starts easy, ends hard.",
+  "draft": true,
+  "emblem": "⚾",
+  "theme": {
+    "font": "Graduate",
+    "accent": "#1E3A8A",
+    "accent2": "#B91C1C",
+    "accentDark": "#93C5FD",
+    "accent2Dark": "#FCA5A5"
+  },
+  "questions": [
+    {
+      "d": "easy",
+      "q": "Which team has won the World Series 27 times, more than twice as many as any other?",
+      "o": ["The New York Yankees", "The St. Louis Cardinals", "The Boston Red Sox", "The Los Angeles Dodgers"],
+      "a": 0,
+      "w": "The Yankees, whose titles run from 1923 to 2009. The Cardinals are next with eleven.",
+      "more": "The pinstripes date from 1912, and the story that they were added to make a heavy player look slimmer is a myth, since he joined later. The Mets have two titles, the Miracle of 1969 and the 1986 series that got away from Boston through Bill Buckner's legs, and the Yankees beat them in the Subway Series of 2000. The current Yankee Stadium opened in 2009 across the street from the old one, and the team won the World Series in its first season there."
+    },
+    {
+      "d": "easy",
+      "q": "What is a home run hit with the bases loaded called?",
+      "o": ["A grand slam", "A triple play", "A walk-off", "A dinger"],
+      "a": 0,
+      "w": "A grand slam, worth four runs, the most a single swing can score. The term came from the card game bridge, where it means winning every trick.",
+      "more": "Lou Gehrig's 23 career grand slams stood as the record for more than seventy years until Alex Rodriguez passed him in 2013. A walk-off is any hit that ends the game in the home team's final turn at bat, so named because the losing side simply walks off the field, and a dinger is just slang for a home run. A triple play, three outs on one ball, is rarer than a no-hitter."
+    },
+    {
+      "d": "easy",
+      "q": "'Buy me some peanuts and...' What completes the line in 'Take Me Out to the Ball Game', sung at every seventh-inning stretch?",
+      "o": ["Cracker Jack", "Popcorn", "A hot dog", "A pretzel"],
+      "a": 0,
+      "w": "Cracker Jack, the caramel popcorn with a prize in every box. Jack Norworth wrote the words on a New York subway in 1908 after seeing a poster for a game, and did not go to one himself for another 32 years.",
+      "more": "The stretch itself is older than the song, and the story that President Taft started it by standing up to ease his bulk at a 1910 game is almost certainly invented. Harry Caray made the singalong a ritual at Chicago's Wrigley Field from 1982, leaning out of the broadcast booth with a microphone. Cracker Jack replaced its toy prizes with codes for a phone game in 2016, to general dismay."
+    },
+    {
+      "d": "easy",
+      "q": "Who broke baseball's colour barrier when he took the field for the Brooklyn Dodgers on 15 April 1947?",
+      "o": ["Jackie Robinson", "Willie Mays", "Hank Aaron", "Satchel Paige"],
+      "a": 0,
+      "w": "Jackie Robinson, who won the first Rookie of the Year award that season while enduring abuse from crowds, opponents and some teammates, having promised the Dodgers' boss Branch Rickey that he would not fight back.",
+      "more": "His number 42 was retired by every team in 1997, the only number so honoured, and every player in the league wears it on 15 April. Robinson had been a four-sport star at UCLA and an army lieutenant who was court-martialled, and acquitted, for refusing to move to the back of a bus in Texas. In 2024 the major leagues finally added the records of the Negro leagues, where he had played for the Kansas City Monarchs, to their official statistics."
+    },
+    {
+      "d": "easy",
+      "q": "Which slugger did the Boston Red Sox sell to the Yankees in 1920, a deal Boston fans blamed for an 86-year title drought they called the Curse of the Bambino?",
+      "o": ["Babe Ruth", "Lou Gehrig", "Ty Cobb", "Joe DiMaggio"],
+      "a": 0,
+      "w": "Babe Ruth, sold for 100,000 dollars to shore up the owner's finances. In his first season in New York, Ruth hit more home runs by himself than any other entire team, and Boston did not win the World Series again until 2004.",
+      "more": "Ruth began as a pitcher and won three World Series games on the mound for Boston before anyone thought to let him bat every day. His 'called shot' of 1932, when he appeared to point at the bleachers before hitting the next pitch there, is still argued about. The makers of the Baby Ruth candy bar insisted it was named after a long-dead president's daughter rather than the ballplayer, which spared them paying him anything."
+    },
+    {
+      "d": "medium",
+      "q": "Which team ended a 108-year wait, the longest in American sport, by winning the 2016 World Series?",
+      "o": ["The Chicago Cubs", "The Chicago White Sox", "The Cleveland Indians", "The Pittsburgh Pirates"],
+      "a": 0,
+      "w": "The Chicago Cubs, who beat Cleveland 8–7 in ten innings in Game 7 after a seventeen-minute rain delay. Their previous title had come in 1908, before the First World War, the Titanic or sliced bread.",
+      "more": "The drought was blamed on the Curse of the Billy Goat, laid in 1945 when a tavern owner named Billy Sianis was thrown out of Wrigley Field along with his pet goat and swore the Cubs would never win again. Wrigley kept its ivy-covered walls and refused to install floodlights until 1988. An estimated five million people turned out for the victory parade, one of the largest gatherings in American history."
+    },
+    {
+      "d": "medium",
+      "q": "Which Yankees pitcher threw the only perfect game in World Series history, 27 batters up and 27 down against the Brooklyn Dodgers in 1956?",
+      "o": ["Don Larsen", "Whitey Ford", "Sandy Koufax", "Cy Young"],
+      "a": 0,
+      "w": "Don Larsen, in Game 5, after which the catcher Yogi Berra leapt into his arms in the photograph everyone has seen. Larsen was an otherwise ordinary pitcher who lost more games than he won over his career.",
+      "more": "Fewer than twenty-five perfect games have been thrown in a century and a half of major-league baseball, and Larsen had been knocked out in the second inning of Game 2 the same week. He sold the uniform he wore that day in 2012 for about three-quarters of a million dollars to pay for his grandchildren's education. Berra, who caught it, is better remembered for sayings like 'It ain't over till it's over'."
+    },
+    {
+      "d": "medium",
+      "q": "Mariano Rivera recorded a record 652 saves for the Yankees throwing almost nothing but which pitch, which breaks late into a left-handed hitter's hands and famously shattered bats?",
+      "o": ["The cutter", "The slider", "The knuckleball", "The splitter"],
+      "a": 0,
+      "w": "The cut fastball, or cutter. Rivera said it arrived as a gift from God while he was playing catch in 1997, when he could not stop the ball from moving, and he rode it to five World Series rings.",
+      "more": "He came in from the bullpen to 'Enter Sandman' for seventeen seasons, and hitters on their way back to the dugout were sometimes handed the pieces of their bats. Rivera was the last player allowed to wear number 42 after it was retired across the league, and in 2019 he became the first player ever elected to the Hall of Fame unanimously. He grew up in a Panamanian fishing village using a milk carton for a glove."
+    },
+    {
+      "d": "hard",
+      "q": "Which pitcher struck out a record 5,714 batters over 27 seasons and threw seven no-hitters, the last of them at the age of 44?",
+      "o": ["Nolan Ryan", "Randy Johnson", "Roger Clemens", "Steve Carlton"],
+      "a": 0,
+      "w": "Nolan Ryan, who pitched for the Mets, Angels, Astros and Rangers from 1966 to 1993. Nobody else has reached 5,000 strikeouts.",
+      "more": "His fastball was timed at 100.9 miles an hour in 1974, with equipment that measured it late in flight, so it was probably faster. The Mets traded him away in 1971 for an infielder named Jim Fregosi, often called the worst trade in the club's history. At 46, in his final season, he put a 26-year-old batter who charged the mound in a headlock and punched him six times, and became even more of a Texas folk hero."
+    },
+    {
+      "d": "hard",
+      "type": "order",
+      "q": "Put these baseball moments in order, earliest first.",
+      "o": ["The first World Series is played", "The Dodgers and Giants leave New York for California", "Hank Aaron passes Babe Ruth's career home-run record", "Cal Ripken breaks Lou Gehrig's record for consecutive games played"],
+      "w": "The first World Series in 1903, when Boston beat Pittsburgh in a best-of-nine, the move west in 1958, Aaron's 715th home run in April 1974 and Ripken's 2,131st straight game in September 1995.",
+      "more": "Brooklyn never forgave the Dodgers' owner Walter O'Malley, and one old joke has a Brooklynite with a gun and two bullets choosing between Hitler, Stalin and O'Malley by shooting O'Malley twice. Aaron received sacks of hate mail and death threats as he closed in on Ruth's 714, and hit the record homer in Atlanta off the Dodgers' Al Downing. Ripken kept going to 2,632 straight games before finally sitting one out in 1998."
+    },
+    {
+      "d": "hard",
+      "type": "select",
+      "q": "Which of these teams have never won the World Series? Select all that apply.",
+      "o": ["Seattle Mariners", "San Diego Padres", "Colorado Rockies", "Kansas City Royals", "Washington Nationals", "Texas Rangers"],
+      "a": [0, 1, 2],
+      "w": "The Mariners, Padres and Rockies. Seattle has never even reached a World Series. The Royals won in 1985 and 2015, the Nationals in 2019 and the Rangers in 2023.",
+      "more": "The 2026 World Series paired two more teams that had never won it, the Milwaukee Brewers and the Tampa Bay Rays, so one of them has just come off this list. The Padres lost both of their World Series, in 1984 and 1998, and the Rockies were swept in their only appearance in 2007. Seattle's wait is now the longest in the sport, despite having had Ken Griffey Jr., Randy Johnson, Alex Rodriguez and Ichiro Suzuki on the same roster at various points in the 1990s."
+    }
+  ]
+}

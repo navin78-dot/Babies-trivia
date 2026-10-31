@@ -1,0 +1,106 @@
+{
+  "id": "doctors-orders",
+  "name": "Doctor's Orders",
+  "subject": "Medicine",
+  "tagline": "Eleven questions on the history of healing, from a dentist with a jar of ether to a surgeon who swapped a heart. Starts easy, ends hard.",
+  "draft": true,
+  "emblem": "🩺",
+  "theme": {
+    "font": "Libre Baskerville",
+    "accent": "#0E7490",
+    "accent2": "#BE123C",
+    "accentDark": "#22D3EE",
+    "accent2Dark": "#FB7185"
+  },
+  "questions": [
+    {
+      "d": "easy",
+      "q": "Which disease, which killed around 300 million people in the twentieth century, was declared wiped out by the World Health Organization in 1980, the only human disease ever eradicated?",
+      "o": ["Smallpox", "Polio", "Measles", "Tuberculosis"],
+      "a": 0,
+      "w": "Smallpox. The last natural case was a hospital cook in Somalia in 1977, and after a worldwide search found no more, the WHO declared the world free of it on 8 May 1980.",
+      "more": "Edward Jenner started it in 1796 by scratching pus from a milkmaid's cowpox blister into the arm of an eight-year-old boy, and 'vaccine' comes from vacca, the Latin for cow. The last person to die of smallpox was a medical photographer in Birmingham, England, in 1978, infected from a laboratory on the floor below. Two frozen stocks of the virus survive, one in Atlanta and one in Siberia, and the argument about whether to destroy them has gone on for forty years."
+    },
+    {
+      "d": "easy",
+      "q": "Which German physicist discovered X-rays in 1895 and took one of the first pictures of his wife's hand, wedding ring and all?",
+      "o": ["Wilhelm Röntgen", "Max Planck", "Heinrich Hertz", "Werner Heisenberg"],
+      "a": 0,
+      "w": "Wilhelm Röntgen, who called them X-rays because he did not know what they were. His wife looked at the bones of her own hand and said, 'I have seen my death.'",
+      "more": "Within months doctors were using the rays to find bullets and set bones, and shoe shops were using them to fit shoes, which went on until the 1950s. Röntgen refused to patent the discovery so that everyone could use it, and won the very first Nobel Prize in Physics in 1901, giving the money to his university. In German and many other languages the rays are still called Röntgen rays."
+    },
+    {
+      "d": "easy",
+      "q": "What do doctors call the harmless dummy pill or sham treatment given to some patients in a drug trial, from the Latin for 'I shall please'?",
+      "o": ["A placebo", "A tincture", "A panacea", "A tonic"],
+      "a": 0,
+      "w": "A placebo. A new drug has to beat it, because patients who believe they are being treated often improve anyway, which is the placebo effect.",
+      "more": "Placebos work better when they are red, when they are capsules rather than tablets, when they are expensive and when there are four of them rather than two, and sham surgery has matched real surgery in several knee trials. The opposite, feeling worse because you expect to, is the nocebo effect, which is why reading the side-effects leaflet can bring on the side effects. The word was borrowed from the Catholic vespers for the dead, where it opened the first line of a psalm."
+    },
+    {
+      "d": "easy",
+      "q": "British sailors earned the nickname 'limeys' because the Royal Navy issued them citrus juice to prevent which disease, caused by a lack of vitamin C?",
+      "o": ["Scurvy", "Rickets", "Beriberi", "Pellagra"],
+      "a": 0,
+      "w": "Scurvy, which loosened teeth, reopened old wounds and killed more sailors in the age of sail than storms, shipwreck and battle put together.",
+      "more": "The ship's surgeon James Lind proved citrus worked in 1747, in what is often called the first controlled clinical trial, with twelve scurvy-ridden sailors split into pairs given cider, vinegar, seawater, oranges and so on. The navy took another fifty years to act, then switched from lemons to West Indian limes, which happened to contain far less vitamin C, and scurvy came back on the polar expeditions. Humans, guinea pigs and fruit bats are among the few mammals that cannot make their own vitamin C."
+    },
+    {
+      "d": "easy",
+      "q": "Which instrument, invented in 1816 by a French doctor too embarrassed to press his ear to a young woman's chest, lets doctors listen to the heart and lungs?",
+      "o": ["The stethoscope", "The thermometer", "The otoscope", "The sphygmomanometer"],
+      "a": 0,
+      "w": "The stethoscope. René Laennec rolled a sheet of paper into a tube, found he could hear the heartbeat more clearly than with his ear, and then made a wooden version like a short flute.",
+      "more": "The name comes from the Greek for 'chest' and 'to look at', though nobody looks at anything. The two-eared rubber version arrived in the 1850s and has barely changed since, which is why it is still the thing doctors wear round their necks in every television drama. Laennec died of tuberculosis at 45, a disease he had done more than anyone to describe using his own invention."
+    },
+    {
+      "d": "medium",
+      "q": "In October 1846 a Boston dentist, William Morton, gave the first public demonstration of painless surgery, putting a patient to sleep with which substance?",
+      "o": ["Ether", "Chloroform", "Nitrous oxide", "Opium"],
+      "a": 0,
+      "w": "Ether, in the operating theatre of Massachusetts General Hospital, still known as the Ether Dome. The surgeon removed a tumour from the patient's neck and told the crowd, 'Gentlemen, this is no humbug.'",
+      "more": "Before anaesthesia a good surgeon was a fast one, and the Scottish surgeon Robert Liston could take off a leg in under three minutes, once removing his assistant's fingers along with it. Chloroform followed within a year, and Queen Victoria took it for the birth of her eighth child in 1853, which did more than any medical paper to make pain relief in childbirth respectable. Morton spent the rest of his life fighting over the credit and the patent and died broke."
+    },
+    {
+      "d": "medium",
+      "q": "Which Hungarian doctor was mocked in the 1840s for insisting that medical students wash their hands between the dissecting room and the maternity ward, a rule that cut deaths from childbed fever from one mother in six to under one in fifty?",
+      "o": ["Ignaz Semmelweis", "Joseph Lister", "Louis Pasteur", "Robert Koch"],
+      "a": 0,
+      "w": "Ignaz Semmelweis, at the Vienna General Hospital in 1847, who made students scrub with chlorinated lime. Nobody yet knew about germs, so his colleagues took the suggestion that their hands were killing women as an insult.",
+      "more": "Semmelweis grew increasingly bitter, wrote open letters calling obstetricians murderers, and in 1865 was tricked into an asylum, where he was beaten by the guards and died two weeks later at 47 of an infected wound. Pasteur's germ theory vindicated him within twenty years. The tendency to reject new evidence because it contradicts established belief is now called the Semmelweis reflex."
+    },
+    {
+      "d": "medium",
+      "q": "Asked on television in 1955 who owned the patent on his new vaccine, which American scientist replied, 'Well, the people, I would say. There is no patent. Could you patent the sun?'",
+      "o": ["Jonas Salk", "Albert Sabin", "Linus Pauling", "Edward Teller"],
+      "a": 0,
+      "w": "Jonas Salk, whose polio vaccine had just passed the largest medical trial in history, with 1.8 million children taking part as 'Polio Pioneers'.",
+      "more": "Polio paralysed more than 57,000 Americans in 1952 alone, closed swimming pools every summer and put children in iron lungs, so the announcement that the vaccine worked set church bells ringing across the country. Albert Sabin's oral vaccine on a sugar cube replaced Salk's injections in most of the world a few years later. Polio is now close to being the second human disease eradicated, with wild cases left in only Pakistan and Afghanistan."
+    },
+    {
+      "d": "hard",
+      "q": "Who performed the world's first human heart transplant, in South Africa in December 1967?",
+      "o": ["Christiaan Barnard", "Michael DeBakey", "Denton Cooley", "Norman Shumway"],
+      "a": 0,
+      "w": "Christiaan Barnard, at Groote Schuur Hospital. The patient, a grocer called Louis Washkansky, lived for eighteen days before dying of pneumonia, his immune system suppressed by the drugs that stopped him rejecting the heart.",
+      "more": "The donor was Denise Darvall, a 25-year-old bank clerk knocked down by a car, whose father agreed to the operation within minutes. Barnard had learned the technique from Norman Shumway in California, who had been expected to go first but was held back by American rules on when a donor counted as dead. The operation made Barnard the most famous doctor in the world overnight, and he spent much of the next decade on magazine covers with film stars."
+    },
+    {
+      "d": "hard",
+      "type": "order",
+      "q": "Put these medical firsts in order, earliest first.",
+      "o": ["Louis Pasteur gives the first rabies vaccine", "Insulin is first injected into a diabetic patient", "The first MRI scan of a human body", "Dolly the sheep is cloned"],
+      "w": "Pasteur's rabies vaccine in 1885, insulin in 1922, the first human MRI scan in 1977 and Dolly in 1996.",
+      "more": "Pasteur's patient was a nine-year-old boy bitten by a rabid dog, and the treatment worked even though Pasteur was not a doctor and could have been prosecuted. The first insulin patient, fourteen-year-old Leonard Thompson of Toronto, weighed 65 pounds and had been expected to die within weeks; the discoverers sold the patent to the university for a dollar. Dolly was named after Dolly Parton because she was cloned from a mammary cell, and she lived at the Roslin Institute in Scotland until 2003."
+    },
+    {
+      "d": "hard",
+      "type": "select",
+      "q": "Which of these were first sold as medicines? Select all that apply.",
+      "o": ["7 Up", "Heroin", "Listerine", "Oreos", "Pringles", "Jell-O"],
+      "a": [0, 1, 2],
+      "w": "7 Up, Heroin and Listerine. 7 Up was launched in 1929 as a lithium-laced mood lifter, Heroin was a Bayer brand of cough medicine from 1898, and Listerine began in 1879 as a surgical antiseptic.",
+      "more": "7 Up's original name was Bib-Label Lithiated Lemon-Lime Soda, and it kept the lithium, now a prescription drug for bipolar disorder, until 1948. Bayer sold Heroin over the counter as a non-addictive substitute for morphine, which it is not, and withdrew it in 1913. Listerine, named after the antiseptic pioneer Joseph Lister, was sold as a floor cleaner and a cure for gonorrhoea before its makers invented the medical-sounding word 'halitosis' in the 1920s and made a fortune selling it as a mouthwash."
+    }
+  ]
+}
