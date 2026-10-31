@@ -3,9 +3,9 @@
   "roundsDir": "rounds",
   "today": "2026-10-31",
   "season": 6,
-  "queueCount": 4,
+  "queueCount": 5,
   "target": 5,
-  "fill": 1,
+  "fill": 0,
   "queue": [
     {
       "id": "golden-age",
@@ -38,13 +38,25 @@
       "onPollSince": "2026-10-29",
       "retired": false,
       "requestId": "MQJdobookt0sm24k2dgg"
+    },
+    {
+      "id": "doctors-orders",
+      "name": "Doctor's Orders",
+      "subject": "Medicine",
+      "onPollSince": "2026-10-31",
+      "retired": false,
+      "requestId": null
     }
   ],
   "poll": {
     "key": "2026-10-31",
     "closes": "2026-11-01",
     "decides": "2026-11-03",
-    "options": []
+    "options": [
+      {
+        "id": "doctors-orders"
+      }
+    ]
   },
   "upcoming": [
     {
@@ -55,9 +67,9 @@
     },
     {
       "day": "2026-11-03",
-      "id": "golden-age",
-      "name": "Golden Age",
-      "how": "queue"
+      "id": "doctors-orders",
+      "name": "Doctor's Orders",
+      "how": "leading"
     }
   ],
   "dropped": [
@@ -255,6 +267,7 @@
     "Console Wars (Video games)",
     "The Corner Office (Business leaders and companies)",
     "Curtain Up (Broadway and musicals)",
+    "Doctor's Orders (Medicine)",
     "Extra Time (Sport)",
     "Force of Nature (Weather, oceans, volcanoes and earthquakes)",
     "Founding Years (American history, 1500 to 1850)",
@@ -279,16 +292,16 @@
     "Where On Earth (Geography)",
     "Wild Things (Animals)"
   ],
-  "need": 1,
+  "need": 0,
   "games": {
     "hamps": {
       "game": "hamps",
       "roundsDir": "games/hamps/rounds",
       "today": "2026-10-31",
       "season": 5,
-      "queueCount": 4,
+      "queueCount": 5,
       "target": 5,
-      "fill": 1,
+      "fill": 0,
       "queue": [
         {
           "id": "pedal-to-the-metal",
@@ -321,13 +334,25 @@
           "onPollSince": "2026-10-29",
           "retired": false,
           "requestId": null
+        },
+        {
+          "id": "seventh-inning-stretch",
+          "name": "Seventh-Inning Stretch",
+          "subject": "Baseball",
+          "onPollSince": "2026-10-31",
+          "retired": false,
+          "requestId": null
         }
       ],
       "poll": {
         "key": "2026-10-31",
         "closes": "2026-11-01",
         "decides": "2026-11-03",
-        "options": []
+        "options": [
+          {
+            "id": "seventh-inning-stretch"
+          }
+        ]
       },
       "upcoming": [
         {
@@ -338,9 +363,9 @@
         },
         {
           "day": "2026-11-03",
-          "id": "pedal-to-the-metal",
-          "name": "Pedal to the Metal",
-          "how": "queue"
+          "id": "seventh-inning-stretch",
+          "name": "Seventh-Inning Stretch",
+          "how": "leading"
         }
       ],
       "dropped": [
@@ -520,13 +545,14 @@
         "Required Reading (Books and writers)",
         "Saturday Morning (Saturday-morning cartoons)",
         "Say What (Words and language)",
+        "Seventh-Inning Stretch (Baseball)",
         "Solar Flair (The planets)",
         "Table for Twenty (Hamptons restaurants)",
         "Trick or Treat (Halloween)",
         "Turning Points (World history)"
       ],
-      "need": 1
+      "need": 0
     }
   },
-  "totalNeed": 2
+  "totalNeed": 0
 }
