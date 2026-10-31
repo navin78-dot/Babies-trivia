@@ -351,6 +351,11 @@
         "options": [
           {
             "id": "seventh-inning-stretch"
+          },
+          {
+            "id": "req:H2qk1CZbwsImhTgVGkuz",
+            "theme": "90s era",
+            "by": "Shan Bates"
           }
         ]
       },
@@ -363,8 +368,8 @@
         },
         {
           "day": "2026-11-03",
-          "id": "seventh-inning-stretch",
-          "name": "Seventh-Inning Stretch",
+          "id": "req:H2qk1CZbwsImhTgVGkuz",
+          "name": null,
           "how": "leading"
         }
       ],
@@ -515,7 +520,13 @@
         }
       ],
       "requestsWaiting": [],
-      "ideas": [],
+      "ideas": [
+        {
+          "id": "H2qk1CZbwsImhTgVGkuz",
+          "theme": "90s era",
+          "by": "Shan Bates"
+        }
+      ],
       "existingSubjects": [
         "Art Attack (Art and artists)",
         "Binge Worthy (Television of the streaming age)",
