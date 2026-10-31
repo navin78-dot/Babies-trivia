@@ -1,20 +1,12 @@
 {
   "game": "babies",
   "roundsDir": "rounds",
-  "today": "2026-10-30",
+  "today": "2026-10-31",
   "season": 6,
-  "queueCount": 5,
+  "queueCount": 4,
   "target": 5,
-  "fill": 0,
+  "fill": 1,
   "queue": [
-    {
-      "id": "great-heists",
-      "name": "Great Heists and Cons",
-      "subject": "Heists and frauds",
-      "onPollSince": "2026-09-21",
-      "retired": true,
-      "requestId": null
-    },
     {
       "id": "golden-age",
       "name": "Golden Age",
@@ -49,26 +41,22 @@
     }
   ],
   "poll": {
-    "key": "2026-10-29",
-    "closes": "2026-10-31",
-    "decides": "2026-11-01",
-    "options": [
-      {
-        "id": "period-pieces"
-      }
-    ]
+    "key": "2026-10-31",
+    "closes": "2026-11-01",
+    "decides": "2026-11-03",
+    "options": []
   },
   "upcoming": [
     {
-      "day": "2026-10-31",
+      "day": "2026-11-01",
       "id": "period-pieces",
       "name": "Period Pieces",
-      "how": "queue"
+      "how": "poll"
     },
     {
-      "day": "2026-11-01",
-      "id": "great-heists",
-      "name": "Great Heists and Cons",
+      "day": "2026-11-03",
+      "id": "golden-age",
+      "name": "Golden Age",
       "how": "queue"
     }
   ],
@@ -234,6 +222,12 @@
       "id": "brush-strokes",
       "name": "Brush Strokes",
       "how": "poll"
+    },
+    {
+      "day": "2026-10-31",
+      "id": "great-heists",
+      "name": "Great Heists and Cons",
+      "how": "queue"
     }
   ],
   "requestsWaiting": [],
@@ -285,16 +279,16 @@
     "Where On Earth (Geography)",
     "Wild Things (Animals)"
   ],
-  "need": 0,
+  "need": 1,
   "games": {
     "hamps": {
       "game": "hamps",
       "roundsDir": "games/hamps/rounds",
-      "today": "2026-10-30",
+      "today": "2026-10-31",
       "season": 5,
-      "queueCount": 5,
+      "queueCount": 4,
       "target": 5,
-      "fill": 0,
+      "fill": 1,
       "queue": [
         {
           "id": "pedal-to-the-metal",
@@ -321,14 +315,6 @@
           "requestId": null
         },
         {
-          "id": "trick-or-treat",
-          "name": "Trick or Treat",
-          "subject": "Halloween",
-          "onPollSince": "2026-10-27",
-          "retired": false,
-          "requestId": "hamps:bIbkvrCibtAC1I9c0mtP"
-        },
-        {
           "id": "campaign-trail",
           "name": "Campaign Trail",
           "subject": "US elections and voting",
@@ -338,27 +324,23 @@
         }
       ],
       "poll": {
-        "key": "2026-10-29",
-        "closes": "2026-10-31",
-        "decides": "2026-11-01",
-        "options": [
-          {
-            "id": "campaign-trail"
-          }
-        ]
+        "key": "2026-10-31",
+        "closes": "2026-11-01",
+        "decides": "2026-11-03",
+        "options": []
       },
       "upcoming": [
-        {
-          "day": "2026-10-31",
-          "id": "trick-or-treat",
-          "name": "Trick or Treat",
-          "how": "poll"
-        },
         {
           "day": "2026-11-01",
           "id": "campaign-trail",
           "name": "Campaign Trail",
-          "how": "leading"
+          "how": "poll"
+        },
+        {
+          "day": "2026-11-03",
+          "id": "pedal-to-the-metal",
+          "name": "Pedal to the Metal",
+          "how": "queue"
         }
       ],
       "dropped": [
@@ -499,6 +481,12 @@
           "id": "laugh-track",
           "name": "Laugh Track",
           "how": "poll"
+        },
+        {
+          "day": "2026-10-31",
+          "id": "trick-or-treat",
+          "name": "Trick or Treat",
+          "how": "poll"
         }
       ],
       "requestsWaiting": [],
@@ -537,8 +525,8 @@
         "Trick or Treat (Halloween)",
         "Turning Points (World history)"
       ],
-      "need": 0
+      "need": 1
     }
   },
-  "totalNeed": 0
+  "totalNeed": 2
 }
