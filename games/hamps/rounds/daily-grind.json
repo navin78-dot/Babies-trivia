@@ -1,0 +1,167 @@
+{
+  "id": "daily-grind",
+  "name": "Daily Grind",
+  "subject": "Coffee",
+  "tagline": "Eleven questions on the world's favourite drug, from hooded friars to a king who tried to ban it and lasted eleven days. Starts easy, ends hard.",
+  "draft": true,
+  "emblem": "☕",
+  "theme": {
+    "font": "Patua One",
+    "accent": "#78350F",
+    "accent2": "#0E7490",
+    "accentDark": "#F59E0B",
+    "accent2Dark": "#22D3EE"
+  },
+  "questions": [
+    {
+      "d": "easy",
+      "q": "Which strong shot of coffee takes its name from the Italian for 'pressed out', because hot water is forced through the grounds under pressure?",
+      "o": [
+        "Espresso",
+        "Ristretto",
+        "Lungo",
+        "Affogato"
+      ],
+      "a": 0,
+      "w": "Espresso, made in about 25 seconds at nine times atmospheric pressure. A ristretto is a shorter shot, a lungo a longer one, and an affogato is espresso poured over ice cream.",
+      "more": "Italians drink it standing at the bar, in one or two gulps, and the price is often fixed by law at around a euro; sitting down can double it. The crema on top is an emulsion of oils and carbon dioxide and only exists because of pressure, which is why a stovetop pot cannot make it. An espresso actually has less caffeine than a mug of filter coffee, simply because there is so much less of it."
+    },
+    {
+      "d": "easy",
+      "q": "Which coffee drink is named after the brown hooded robes worn by an order of Catholic friars?",
+      "o": [
+        "Cappuccino",
+        "Macchiato",
+        "Cortado",
+        "Flat white"
+      ],
+      "a": 0,
+      "w": "The cappuccino, from the Capuchin friars, whose habit was the colour of coffee with a little milk in it. The name was first used in Vienna, for a drink with cream and sugar.",
+      "more": "The modern version, a third each of espresso, steamed milk and foam, arrived with the espresso machine in the twentieth century. Italians regard a cappuccino after about eleven in the morning as something only tourists do, on the grounds that milk is a breakfast food. The capuchin monkey got its name from the same friars, because of the dark cap of fur on its head."
+    },
+    {
+      "d": "easy",
+      "q": "Which Seattle company, named after the first mate in a famous whaling novel, grew from a single shop in Pike Place Market into more than 38,000 coffee shops around the world?",
+      "o": [
+        "Starbucks",
+        "Peet's",
+        "Dunkin'",
+        "Tim Hortons"
+      ],
+      "a": 0,
+      "w": "Starbucks, founded in 1971 by three friends who sold beans rather than drinks. Howard Schultz, who joined in 1982 and bought the company in 1987, turned it into a chain of Italian-style coffee bars after a trip to Milan.",
+      "more": "The founders nearly called it Pequod, after the ship, before someone pointed out that nobody wants to drink anything called Pequod. The siren on the logo comes from an old Norse woodcut and lost her bare breasts in a 1992 redesign. The sizes are tall, grande and venti because Schultz wanted them to sound Italian; venti means twenty, for the twenty ounces in the cup."
+    },
+    {
+      "d": "easy",
+      "q": "Which country drinks the most coffee per person, around four cups a day for every man, woman and child, despite growing none at all?",
+      "o": [
+        "Finland",
+        "Italy",
+        "Colombia",
+        "The United States"
+      ],
+      "a": 0,
+      "w": "Finland, at about twelve kilograms of beans per person a year, with Norway, Iceland, Denmark and Sweden close behind. Two coffee breaks a day are written into Finnish labour agreements.",
+      "more": "The Nordic habit dates from the 1700s, when Sweden's king tried repeatedly to ban coffee and only made it more desirable. Finns tend to drink it light-roasted, weak and by the potful, which is how four cups a day is physically possible. Americans drink about half as much per head and Italians, for all their reputation, less than that."
+    },
+    {
+      "d": "easy",
+      "q": "Which milky coffee takes its name from the Italian word for milk, so that ordering one in Italy will get you a glass of milk?",
+      "o": [
+        "A latte",
+        "A mocha",
+        "A cortado",
+        "A breve"
+      ],
+      "a": 0,
+      "w": "A latte, short for caffè latte, which Italians drink at home for breakfast and almost never order in a bar. In Italy you ask for a caffè latte or you get what you asked for.",
+      "more": "The American version, with far more milk and often a flavoured syrup, was popularised in the 1980s by the Seattle coffee bars and is now the best-selling drink in most chains. Latte art, the leaf or heart poured into the foam, dates from about the same time and the same city. A mocha, with chocolate added, is named after the Yemeni port of Mocha, from which coffee was first shipped to Europe."
+    },
+    {
+      "d": "medium",
+      "q": "Decaffeinated coffee was invented in 1903 by a German merchant, Ludwig Roselius, who believed caffeine had killed his father. Which brand did he launch, its name a contraction of the French for 'without caffeine'?",
+      "o": [
+        "Sanka",
+        "Kaffee HAG",
+        "Maxwell House",
+        "Nescafé"
+      ],
+      "a": 0,
+      "w": "Sanka, from sans caféine. Roselius sold it as Kaffee HAG in Germany and as Sanka in France from 1910 and America from 1923, where its orange label still means decaf in diners today.",
+      "more": "His original process steamed the beans and washed them with benzene, a solvent now known to cause cancer, which was replaced long ago. The orange-handled decaf pot in American restaurants comes from Sanka giving them away free in the 1960s. Decaf still contains a little caffeine, around three per cent of the original, so ten cups of decaf add up to a small coffee."
+    },
+    {
+      "d": "medium",
+      "q": "Lloyd's of London, the insurance market, began in the 1680s as what kind of business?",
+      "o": [
+        "A coffee house",
+        "A tea warehouse",
+        "A shipyard",
+        "A goldsmith's shop"
+      ],
+      "a": 0,
+      "w": "A coffee house, run by Edward Lloyd near the Thames, where ship owners, captains and merchants gathered for news and started underwriting each other's cargoes over a cup.",
+      "more": "London had around 2,000 coffee houses by 1700, nicknamed penny universities because a penny bought entry and an afternoon of conversation and newspapers. The London Stock Exchange started in another one, Jonathan's, and the auction house Christie's in a third. Women were generally barred, and a 1674 pamphlet claimed on their behalf that coffee was making English husbands 'as unfruitful as the deserts' it came from."
+    },
+    {
+      "d": "medium",
+      "q": "Which coffee, among the most expensive in the world, is made from beans that have been eaten and excreted by a cat-like animal in Indonesia?",
+      "o": [
+        "Kopi luwak",
+        "Jamaica Blue Mountain",
+        "Kona",
+        "Yirgacheffe"
+      ],
+      "a": 0,
+      "w": "Kopi luwak, from the Asian palm civet, whose digestive enzymes are said to take the bitterness out of the beans. A cup can cost 50 dollars or more.",
+      "more": "Dutch colonial planters banned local workers from picking coffee for themselves, so they gathered the beans from civet droppings instead and found they liked the result. Demand has led to civets being kept in cages and force-fed cherries, which animal-welfare groups say ruins both the animals and the coffee. Tasting panels have generally found it smooth and unremarkable."
+    },
+    {
+      "d": "hard",
+      "q": "In December 1675 which English king issued a proclamation closing all coffee houses as breeding grounds for 'false, malicious and scandalous reports', and withdrew it eleven days later?",
+      "o": [
+        "Charles II",
+        "James II",
+        "William III",
+        "George I"
+      ],
+      "a": 0,
+      "w": "Charles II, who had been told that the coffee houses were full of people criticising his government, which they were. The outcry was so immediate that the ban was abandoned before it took effect.",
+      "more": "Coffee had been in England only since the 1650s, having arrived from the Ottoman Empire, and the first coffee house opened in Oxford in 1650. Rulers across Europe and the Middle East tried to suppress it at various points, including a Sultan who reportedly had drinkers sewn into sacks and thrown in the Bosphorus. The habit outlasted every one of them."
+    },
+    {
+      "d": "hard",
+      "type": "order",
+      "q": "Put these coffee milestones in order, earliest first.",
+      "o": [
+        "Coffee reaches Europe through Venice",
+        "The first espresso machine is patented in Turin",
+        "Instant coffee goes on sale as Nescafé",
+        "Nespresso capsules are launched"
+      ],
+      "w": "Venetian merchants brought coffee in around 1615, Angelo Moriondo patented a steam machine in 1884, Nestlé launched Nescafé in 1938 and the first Nespresso machines appeared in 1986.",
+      "more": "Nescafé was developed in the 1930s as a way to store a coffee surplus that would otherwise have rotted, and American soldiers' rations spread the habit worldwide. Nespresso sat unloved for years until a marketing push in the 2000s, with George Clooney from 2006, made it one of Nestlé's biggest businesses. The paper coffee filter was invented in 1908 by a Dresden housewife, Melitta Bentz, who used blotting paper from her son's school exercise book."
+    },
+    {
+      "d": "hard",
+      "type": "select",
+      "q": "Which of these countries are among the world's five biggest coffee growers? Select all that apply.",
+      "o": [
+        "Vietnam",
+        "Colombia",
+        "Indonesia",
+        "Italy",
+        "Jamaica",
+        "Kenya"
+      ],
+      "a": [
+        0,
+        1,
+        2
+      ],
+      "w": "Vietnam, Colombia and Indonesia, which with two others make up the top five. Italy grows no coffee at all, Jamaica's prized Blue Mountain crop is tiny, and Kenya is well outside the top ten.",
+      "more": "Vietnam grew almost no coffee before the 1990s and is now second in the world, mostly in the cheaper robusta variety that goes into instant coffee and espresso blends. Colombia's gentle, high-altitude arabica was sold to Americans for decades by Juan Valdez, a fictional farmer with a mule. Coffee is grown in about seventy countries, all of them in the band between the tropics known as the bean belt."
+    }
+  ]
+}

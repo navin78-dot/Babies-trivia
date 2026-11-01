@@ -1,0 +1,106 @@
+{
+  "id": "encore",
+  "name": "Encore!",
+  "subject": "Classical music",
+  "tagline": "Eleven questions on the music that was pop before pop, from a deaf man's Ninth to a ballet that started a riot. Starts easy, ends hard.",
+  "draft": true,
+  "emblem": "🎻",
+  "theme": {
+    "font": "Cinzel",
+    "accent": "#1E1B4B",
+    "accent2": "#CA8A04",
+    "accentDark": "#A5B4FC",
+    "accent2Dark": "#FDE047"
+  },
+  "questions": [
+    {
+      "d": "easy",
+      "q": "Which composer wrote his Ninth Symphony, with its 'Ode to Joy', when he was completely deaf?",
+      "o": ["Ludwig van Beethoven", "Wolfgang Amadeus Mozart", "Johann Sebastian Bach", "Franz Schubert"],
+      "a": 0,
+      "w": "Beethoven. At the premiere in Vienna in 1824 he stood with his back to the audience, still conducting after the orchestra had finished, until a singer turned him round to see the applause he could not hear.",
+      "more": "His hearing began to fail in his late twenties, and he carried notebooks for friends to write in; around 400 of those conversation books survive. The 'Ode to Joy' is now the anthem of the European Union, and the Ninth was the first symphony to put singers in a symphony at all. Legend has it that the length of a compact disc, 74 minutes, was chosen so that the whole Ninth would fit on one."
+    },
+    {
+      "d": "easy",
+      "q": "The Four Seasons, four violin concertos with birdsong, a barking dog and chattering teeth written into the score, is the most famous work of which Venetian composer?",
+      "o": ["Antonio Vivaldi", "Giuseppe Verdi", "Claudio Monteverdi", "Gioachino Rossini"],
+      "a": 0,
+      "w": "Antonio Vivaldi, a red-haired priest who taught music at a Venice orphanage for girls, whose orchestra became one of the sights of Europe.",
+      "more": "He published the concertos in 1725 with four sonnets describing exactly what the music depicts, down to the drunkards falling asleep in Autumn. Vivaldi died poor in Vienna in 1741 and was almost entirely forgotten until a trunk of his manuscripts turned up in the 1920s. Spring is now the most played piece of classical music on hold lines and in hotel lobbies, which is not his fault."
+    },
+    {
+      "d": "easy",
+      "q": "Which Russian composer wrote the ballets Swan Lake, The Sleeping Beauty and The Nutcracker?",
+      "o": ["Pyotr Ilyich Tchaikovsky", "Igor Stravinsky", "Sergei Rachmaninoff", "Sergei Prokofiev"],
+      "a": 0,
+      "w": "Tchaikovsky, who thought The Nutcracker was one of his weaker efforts. It now makes up around 40 per cent of the annual ticket income of American ballet companies.",
+      "more": "The Nutcracker's 'Dance of the Sugar Plum Fairy' uses a celesta, a keyboard instrument so new in 1892 that Tchaikovsky had it smuggled from Paris so no rival could use it first. Swan Lake flopped at its 1877 premiere and only became a hit after his death. His 1812 Overture, written to celebrate Russia beating Napoleon, calls for real cannon fire and is played every Fourth of July in the United States for no very good reason."
+    },
+    {
+      "d": "easy",
+      "q": "Which composer, born in Salzburg in 1756, was touring the courts of Europe at six, wrote more than 600 works and died at 35 leaving his Requiem unfinished?",
+      "o": ["Wolfgang Amadeus Mozart", "Joseph Haydn", "Franz Liszt", "Johannes Brahms"],
+      "a": 0,
+      "w": "Mozart, who wrote his first symphony at eight and his first opera at eleven. The Requiem was completed by his pupil Süssmayr, and the story that his rival Salieri poisoned him is an invention that the film Amadeus made famous.",
+      "more": "He was buried in a common grave outside Vienna, which was normal practice at the time rather than a sign of poverty, though he did die in debt. He had a scatological sense of humour that his letters make clear, and wrote a canon whose title translates as 'Lick me in the arse'. The 'Mozart effect', the idea that listening to his music makes babies smarter, comes from a small 1993 study that found a short-lived boost in adults and has never held up."
+    },
+    {
+      "d": "easy",
+      "q": "How many keys does a standard modern piano have?",
+      "o": ["88", "76", "100", "64"],
+      "a": 0,
+      "w": "88: 52 white and 36 black, spanning just over seven octaves. The piano arrived at that size around 1880 and has stayed there since.",
+      "more": "The instrument was invented in Florence around 1700 by Bartolomeo Cristofori, who called it the gravicembalo col piano e forte, the harpsichord with soft and loud, because unlike a harpsichord it could play both. A concert grand contains about 230 strings under some 20 tonnes of tension. Mozart's piano had only five octaves, which is why his music never goes very high or very low."
+    },
+    {
+      "d": "medium",
+      "q": "Audiences traditionally stand for the 'Hallelujah' chorus from Messiah, supposedly because King George II stood at a 1743 performance. Who composed it?",
+      "o": ["George Frideric Handel", "Johann Sebastian Bach", "Henry Purcell", "Joseph Haydn"],
+      "a": 0,
+      "w": "Handel, a German who settled in London and wrote the whole of Messiah in about 24 days in 1741. There is no contemporary evidence that the king was even there.",
+      "more": "Messiah was written for Easter and first performed in Dublin, and only later became Christmas music. Handel went blind in his last years, like Bach, and both men were operated on by the same travelling English eye surgeon, who made each of them worse. Handel is buried in Westminster Abbey, and his Zadok the Priest has been sung at every British coronation since 1727."
+    },
+    {
+      "d": "medium",
+      "q": "Which tenor's recording of 'Nessun dorma' became the theme of the 1990 football World Cup and made opera, briefly, the most popular music in Britain?",
+      "o": ["Luciano Pavarotti", "Plácido Domingo", "José Carreras", "Andrea Bocelli"],
+      "a": 0,
+      "w": "Luciano Pavarotti, whose version reached number two in the UK singles chart. The aria, from Puccini's Turandot, ends on the word 'Vincerò', 'I will win', which suited the occasion.",
+      "more": "Pavarotti, Domingo and Carreras sang together as the Three Tenors on the eve of the final in Rome, and the album became the best-selling classical record ever made. Pavarotti was famous for holding a large white handkerchief on stage and for never learning to read music well. He sang 'Nessun dorma' for the last time at the opening of the 2006 Winter Olympics in Turin, miming to a recording because he was already ill."
+    },
+    {
+      "d": "medium",
+      "q": "The galloping finale of which composer's William Tell Overture became the theme of The Lone Ranger on radio and television?",
+      "o": ["Gioachino Rossini", "Giacomo Puccini", "Giuseppe Verdi", "Franz Liszt"],
+      "a": 0,
+      "w": "Rossini, whose 1829 opera about the Swiss archer was his last. He retired at 37, rich and bored, and spent the next four decades giving dinner parties and inventing dishes.",
+      "more": "Tournedos Rossini, a steak topped with foie gras and truffle, is named after him. The overture is twelve minutes long and the famous gallop is only the last part; the beginning features five solo cellos. The conductor Arturo Toscanini is said to have remarked that an intellectual is someone who can hear the William Tell Overture without thinking of the Lone Ranger."
+    },
+    {
+      "d": "hard",
+      "q": "Which Stravinsky ballet caused a near riot at its Paris premiere in 1913, with the audience shouting, fighting and drowning out the orchestra?",
+      "o": ["The Rite of Spring", "The Firebird", "Petrushka", "Pulcinella"],
+      "a": 0,
+      "w": "The Rite of Spring, with its pounding rhythms and Nijinsky's stamping, pigeon-toed choreography about a girl dancing herself to death as a sacrifice. The composer fled the hall; the police were reportedly called at the interval.",
+      "more": "A year later the same music played in a concert hall was cheered, and Stravinsky was carried through the streets on the crowd's shoulders. The piece became the soundtrack to the dinosaurs in Disney's Fantasia, which Stravinsky disliked. The other three options are also Stravinsky ballets, and The Firebird, from 1910, is the one that made him famous."
+    },
+    {
+      "d": "hard",
+      "type": "order",
+      "q": "Put these works in the order they were written, earliest first.",
+      "o": ["Vivaldi's The Four Seasons", "Beethoven's Ninth Symphony", "Tchaikovsky's The Nutcracker", "Gershwin's Rhapsody in Blue"],
+      "w": "The Four Seasons around 1720, the Ninth in 1824, The Nutcracker in 1892 and Rhapsody in Blue in 1924.",
+      "more": "Gershwin wrote Rhapsody in Blue in about five weeks after reading in a newspaper that he was composing a jazz concerto for a concert he had never agreed to. The famous opening clarinet slide was a joke by the clarinettist in rehearsal that Gershwin kept. United Airlines has used the piece in its advertising since 1987, which is why it makes some Americans think of airports."
+    },
+    {
+      "d": "hard",
+      "type": "select",
+      "q": "Which of these composers were born in Austria? Select all that apply.",
+      "o": ["Mozart", "Haydn", "Schubert", "Beethoven", "Bach", "Chopin"],
+      "a": [0, 1, 2],
+      "w": "Mozart was born in Salzburg, Haydn in Rohrau and Schubert in Vienna. Beethoven was born in Bonn and only moved to Vienna at 21, Bach never left Germany, and Chopin was Polish.",
+      "more": "Vienna had all of them at once: Haydn taught Beethoven, Mozart and Haydn were friends, and Schubert was a torchbearer at Beethoven's funeral in 1827, a year before his own death at 31. Chopin left Warsaw at twenty and never returned, and when he died in Paris his sister smuggled his heart home in a jar of cognac, where it is sealed in a church pillar. Bach had twenty children, four of whom became well-known composers themselves."
+    }
+  ]
+}

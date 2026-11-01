@@ -1,0 +1,107 @@
+{
+  "id": "dial-up",
+  "name": "Dial-Up",
+  "subject": "The 1990s",
+  "requestId": "hamps:H2qk1CZbwsImhTgVGkuz",
+  "tagline": "Eleven questions on the decade of dial-up, from a talking furball the spies feared to the night the millennium nearly broke the computers. A theme the crew voted for.",
+  "draft": true,
+  "emblem": "📟",
+  "theme": {
+    "font": "Righteous",
+    "accent": "#0F766E",
+    "accent2": "#7C3AED",
+    "accentDark": "#5EEAD4",
+    "accent2Dark": "#C4B5FD"
+  },
+  "questions": [
+    {
+      "d": "easy",
+      "q": "Microsoft launched which operating system in August 1995 to the Rolling Stones' 'Start Me Up', with shoppers queuing at midnight to buy software for the first time in history?",
+      "o": ["Windows 95", "Windows 3.1", "Windows XP", "MS-DOS 6"],
+      "a": 0,
+      "w": "Windows 95, which introduced the Start button and the taskbar that Windows still has today. It sold seven million copies in its first five weeks.",
+      "more": "Microsoft reportedly paid the Stones around three million dollars for the song, and Jay Leno hosted the launch event in Redmond. The Empire State Building was lit in Windows colours, and in Britain the Times was given away free with a Windows advert wrapped round it. Internet Explorer was not included; it came in a separate add-on pack, which tells you how new the web still was."
+    },
+    {
+      "d": "easy",
+      "q": "Which online service's cheerful greeting, 'You've got mail!', was heard in millions of American homes in the 1990s and became the title of a 1998 Tom Hanks and Meg Ryan film?",
+      "o": ["AOL", "CompuServe", "Prodigy", "EarthLink"],
+      "a": 0,
+      "w": "America Online, which carpet-bombed the country with free trial discs; at one point its CDs accounted for about half of all the compact discs being made in the world.",
+      "more": "The voice belongs to Elwood Edwards, a radio announcer whose wife worked at the company, who recorded 'Welcome', 'You've got mail' and 'Goodbye' in his living room in 1989 for 200 dollars. AOL's 2000 merger with Time Warner, valued at 165 billion dollars, is routinely called the worst corporate merger in history. The screeching dial-up handshake that preceded every session is now a sound almost nobody under thirty has heard."
+    },
+    {
+      "d": "easy",
+      "q": "Which small plush animals, which their maker Ty deliberately 'retired' to create scarcity, were traded as serious investments in the late 1990s, with rare ones selling for thousands of dollars?",
+      "o": ["Beanie Babies", "Cabbage Patch Kids", "Pound Puppies", "Care Bears"],
+      "a": 0,
+      "w": "Beanie Babies, five-dollar toys stuffed with plastic pellets that at the height of the craze in 1998 made up about a tenth of everything sold on eBay.",
+      "more": "A divorcing couple in Las Vegas were ordered by a judge in 1999 to divide their collection on the courtroom floor, one bear at a time. Ty Warner became a billionaire and later pleaded guilty to hiding 25 million dollars in Swiss bank accounts. The bubble burst in 1999, and the plastic tubs of 'mint condition' bears in American attics are now worth roughly what was paid for them, minus thirty years."
+    },
+    {
+      "d": "easy",
+      "q": "What name was given to the fear that computers storing years as two digits would fail when 99 rolled over to 00 on 1 January 2000?",
+      "o": ["The Y2K bug", "The Blue Screen of Death", "The Love Bug", "The Big Crunch"],
+      "a": 0,
+      "w": "The Y2K bug, or millennium bug. Governments and companies spent an estimated 300 to 500 billion dollars checking and rewriting old code, and almost nothing went wrong.",
+      "more": "Whether that was because the work was done or because the danger was overstated is still argued, though a few systems did fail: some bus ticket machines in Australia, a video shop in New York that charged a customer 91,250 dollars for a tape a hundred years overdue. Survivalists stocked generators and tinned food, and the Federal Reserve printed an extra 50 billion dollars in case of bank runs. The programmers who fixed it got no parades."
+    },
+    {
+      "d": "easy",
+      "q": "Which rapper's 1990 hit 'Ice Ice Baby' was the first hip-hop single to reach number one on the Billboard Hot 100, riding a bass line lifted from 'Under Pressure'?",
+      "o": ["Vanilla Ice", "MC Hammer", "Young MC", "Tone Loc"],
+      "a": 0,
+      "w": "Vanilla Ice, born Robert Van Winkle in Dallas, who claimed his riff was different because it had one extra note, then settled out of court and gave the original's writers a songwriting credit.",
+      "more": "He followed it with 'Ninja Rap' in the second Teenage Mutant Ninja Turtles film and a career slide that became its own kind of fame. He later reinvented himself as a house flipper with a show on the DIY Network. 'Ice Ice Baby' still gets played at every wedding, usually about an hour after the speeches."
+    },
+    {
+      "d": "medium",
+      "q": "Which furry robotic toy of 1998, which seemed to learn English from its own gibberish language, sold forty million units in three years and was banned from the offices of America's National Security Agency as a spying risk?",
+      "o": ["Furby", "Tamagotchi", "Poo-Chi", "Teddy Ruxpin"],
+      "a": 0,
+      "w": "Furby, made by Tiger Electronics. It did not actually learn anything; it was programmed to swap its 'Furbish' words for English ones over time, which was enough to convince the NSA it might record conversations.",
+      "more": "It retailed at 35 dollars and changed hands for 300 in the weeks before Christmas 1998. Furbies spoke to each other by infrared, so a shelf of them in a shop would set each other off, and some owners reported theirs waking up and talking in the night. Hasbro relaunched it in 2012 and again in 2023, to a generation that had grown up and had children of its own."
+    },
+    {
+      "d": "medium",
+      "q": "In May 1997 the world chess champion Garry Kasparov lost a six-game match to which IBM computer, the first defeat of a reigning champion by a machine under tournament conditions?",
+      "o": ["Deep Blue", "Watson", "HAL", "Big Blue"],
+      "a": 0,
+      "w": "Deep Blue, which could examine 200 million positions a second. Kasparov had beaten an earlier version in 1996 and lost the rematch three and a half games to two and a half.",
+      "more": "He accused IBM of cheating, convinced that a human grandmaster had intervened in one game, and demanded a rematch; IBM declined and dismantled the machine. One move that unsettled him turned out to have been a bug, the computer choosing at random when it could not decide. IBM's share price rose fifteen per cent in the week after the match."
+    },
+    {
+      "d": "medium",
+      "q": "Seven weeks before the 1994 Winter Olympics, the figure skater Nancy Kerrigan was clubbed across the knee after a practice session. The attack had been arranged by the ex-husband of which rival?",
+      "o": ["Tonya Harding", "Kristi Yamaguchi", "Oksana Baiul", "Surya Bonaly"],
+      "a": 0,
+      "w": "Tonya Harding. Her ex-husband Jeff Gillooly hired a man to do it with a police baton; Kerrigan's cry of 'Why? Why?' was caught on camera and played endlessly.",
+      "more": "Both women went to Lillehammer, where the showdown drew one of the largest television audiences in American history; Kerrigan won silver and Harding, after a broken lace and tears, finished eighth. Harding pleaded guilty to hindering the investigation and was banned from the sport for life. Margot Robbie played her in I, Tonya in 2017, which was kinder to her than the 1990s had been."
+    },
+    {
+      "d": "hard",
+      "q": "Which file-sharing service, launched in 1999 by the teenager Shawn Fanning, let tens of millions of people swap music files for nothing until Metallica and the record labels sued it out of existence?",
+      "o": ["Napster", "LimeWire", "Kazaa", "Gnutella"],
+      "a": 0,
+      "w": "Napster, named after Fanning's nickname for his hair. At its peak in early 2001 it had around 80 million registered users, and college networks slowed to a crawl under the traffic.",
+      "more": "Metallica sued in April 2000 after a demo of 'I Disappear' leaked, and the drummer Lars Ulrich personally delivered boxes listing 335,000 users' names to Napster's office. The service was shut down in July 2001, but it had shown the industry what people wanted, and iTunes followed within two years. Fanning's partner Sean Parker went on to become the first president of Facebook."
+    },
+    {
+      "d": "hard",
+      "type": "order",
+      "q": "Put these 1990s events in order, earliest first.",
+      "o": ["Operation Desert Storm begins", "The Channel Tunnel opens", "Hong Kong is handed back to China", "Vladimir Putin first takes charge of Russia"],
+      "w": "Desert Storm in January 1991, the Channel Tunnel in May 1994, the Hong Kong handover on 1 July 1997 and Putin becoming acting president when Boris Yeltsin resigned on television on New Year's Eve 1999.",
+      "more": "The Gulf War was the first fought live on television, with CNN reporting from a Baghdad hotel as the bombs fell. The tunnel had been talked about since Napoleon's time and was opened by the Queen and President Mitterrand, who travelled through it in a Rolls-Royce on a train. Hong Kong's last governor, Chris Patten, sailed away with Prince Charles on the royal yacht in pouring rain, and Patten's daughters wept on the quay."
+    },
+    {
+      "d": "hard",
+      "type": "select",
+      "q": "Which of these were launched in the 1990s? Select all that apply.",
+      "o": ["eBay", "Pokémon", "Text messaging", "The iPod", "YouTube", "The Walkman"],
+      "a": [0, 1, 2],
+      "w": "eBay in 1995, Pokémon in 1996 and the first text message in 1992. The iPod arrived in 2001, YouTube in 2005 and the Walkman in 1979.",
+      "more": "eBay began as AuctionWeb, and the first item sold was a broken laser pointer, bought for 14 dollars by a man who collected broken laser pointers. The first text, sent from a computer to a phone by an engineer in Britain, read 'Merry Christmas', and nobody could reply because phones had no keyboards for it. Pokémon started as two Game Boy cartridges in Japan and is now, by most counts, the highest-grossing media franchise ever created."
+    }
+  ]
+}
