@@ -1,11 +1,11 @@
 {
   "game": "babies",
   "roundsDir": "rounds",
-  "today": "2026-10-31",
-  "season": 6,
-  "queueCount": 5,
+  "today": "2026-11-01",
+  "season": 7,
+  "queueCount": 4,
   "target": 5,
-  "fill": 0,
+  "fill": 1,
   "queue": [
     {
       "id": "golden-age",
@@ -32,14 +32,6 @@
       "requestId": null
     },
     {
-      "id": "period-pieces",
-      "name": "Period Pieces",
-      "subject": "Historical fashion",
-      "onPollSince": "2026-10-29",
-      "retired": false,
-      "requestId": "MQJdobookt0sm24k2dgg"
-    },
-    {
       "id": "doctors-orders",
       "name": "Doctor's Orders",
       "subject": "Medicine",
@@ -49,27 +41,23 @@
     }
   ],
   "poll": {
-    "key": "2026-10-31",
-    "closes": "2026-11-01",
-    "decides": "2026-11-03",
-    "options": [
-      {
-        "id": "doctors-orders"
-      }
-    ]
+    "key": "2026-11-01",
+    "closes": "2026-11-03",
+    "decides": "2026-11-05",
+    "options": []
   },
   "upcoming": [
-    {
-      "day": "2026-11-01",
-      "id": "period-pieces",
-      "name": "Period Pieces",
-      "how": "poll"
-    },
     {
       "day": "2026-11-03",
       "id": "doctors-orders",
       "name": "Doctor's Orders",
-      "how": "leading"
+      "how": "poll"
+    },
+    {
+      "day": "2026-11-05",
+      "id": "golden-age",
+      "name": "Golden Age",
+      "how": "queue"
     }
   ],
   "dropped": [
@@ -240,6 +228,12 @@
       "id": "great-heists",
       "name": "Great Heists and Cons",
       "how": "queue"
+    },
+    {
+      "day": "2026-11-01",
+      "id": "period-pieces",
+      "name": "Period Pieces",
+      "how": "poll"
     }
   ],
   "requestsWaiting": [],
@@ -292,16 +286,16 @@
     "Where On Earth (Geography)",
     "Wild Things (Animals)"
   ],
-  "need": 0,
+  "need": 1,
   "games": {
     "hamps": {
       "game": "hamps",
       "roundsDir": "games/hamps/rounds",
-      "today": "2026-10-31",
-      "season": 5,
-      "queueCount": 5,
+      "today": "2026-11-01",
+      "season": 6,
+      "queueCount": 4,
       "target": 5,
-      "fill": 0,
+      "fill": 1,
       "queue": [
         {
           "id": "pedal-to-the-metal",
@@ -328,14 +322,6 @@
           "requestId": null
         },
         {
-          "id": "campaign-trail",
-          "name": "Campaign Trail",
-          "subject": "US elections and voting",
-          "onPollSince": "2026-10-29",
-          "retired": false,
-          "requestId": null
-        },
-        {
           "id": "seventh-inning-stretch",
           "name": "Seventh-Inning Stretch",
           "subject": "Baseball",
@@ -345,30 +331,30 @@
         }
       ],
       "poll": {
-        "key": "2026-10-31",
-        "closes": "2026-11-01",
-        "decides": "2026-11-03",
+        "key": "2026-11-01",
+        "closes": "2026-11-03",
+        "decides": "2026-11-05",
         "options": [
           {
             "id": "seventh-inning-stretch"
           },
           {
-            "id": "req:H2qk1CZbwsImhTgVGkuz",
-            "theme": "90s era",
-            "by": "Shan Bates"
+            "id": "req:482yUmQcpMa2zb8T7k4O",
+            "theme": "Bbbvvvvvcandy bars",
+            "by": "Salil Gandhi"
           }
         ]
       },
       "upcoming": [
         {
-          "day": "2026-11-01",
-          "id": "campaign-trail",
-          "name": "Campaign Trail",
-          "how": "poll"
-        },
-        {
           "day": "2026-11-03",
           "id": "req:H2qk1CZbwsImhTgVGkuz",
+          "name": null,
+          "how": "unwritten"
+        },
+        {
+          "day": "2026-11-05",
+          "id": "req:482yUmQcpMa2zb8T7k4O",
           "name": null,
           "how": "leading"
         }
@@ -517,10 +503,28 @@
           "id": "trick-or-treat",
           "name": "Trick or Treat",
           "how": "poll"
+        },
+        {
+          "day": "2026-11-01",
+          "id": "campaign-trail",
+          "name": "Campaign Trail",
+          "how": "poll"
         }
       ],
-      "requestsWaiting": [],
+      "requestsWaiting": [
+        {
+          "id": "hamps:H2qk1CZbwsImhTgVGkuz",
+          "theme": "90s era",
+          "by": "Shan Bates",
+          "dropDay": "2026-11-03"
+        }
+      ],
       "ideas": [
+        {
+          "id": "482yUmQcpMa2zb8T7k4O",
+          "theme": "Bbbvvvvvcandy bars",
+          "by": "Salil Gandhi"
+        },
         {
           "id": "H2qk1CZbwsImhTgVGkuz",
           "theme": "90s era",
@@ -562,8 +566,8 @@
         "Trick or Treat (Halloween)",
         "Turning Points (World history)"
       ],
-      "need": 0
+      "need": 2
     }
   },
-  "totalNeed": 0
+  "totalNeed": 3
 }
