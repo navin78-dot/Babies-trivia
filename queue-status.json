@@ -3,9 +3,9 @@
   "roundsDir": "rounds",
   "today": "2026-11-01",
   "season": 7,
-  "queueCount": 4,
+  "queueCount": 5,
   "target": 5,
-  "fill": 1,
+  "fill": 0,
   "queue": [
     {
       "id": "golden-age",
@@ -38,13 +38,25 @@
       "onPollSince": "2026-10-31",
       "retired": false,
       "requestId": null
+    },
+    {
+      "id": "encore",
+      "name": "Encore!",
+      "subject": "Classical music",
+      "onPollSince": "2026-11-01",
+      "retired": false,
+      "requestId": null
     }
   ],
   "poll": {
     "key": "2026-11-01",
     "closes": "2026-11-03",
     "decides": "2026-11-05",
-    "options": []
+    "options": [
+      {
+        "id": "encore"
+      }
+    ]
   },
   "upcoming": [
     {
@@ -55,9 +67,9 @@
     },
     {
       "day": "2026-11-05",
-      "id": "golden-age",
-      "name": "Golden Age",
-      "how": "queue"
+      "id": "encore",
+      "name": "Encore!",
+      "how": "leading"
     }
   ],
   "dropped": [
@@ -262,6 +274,7 @@
     "The Corner Office (Business leaders and companies)",
     "Curtain Up (Broadway and musicals)",
     "Doctor's Orders (Medicine)",
+    "Encore! (Classical music)",
     "Extra Time (Sport)",
     "Force of Nature (Weather, oceans, volcanoes and earthquakes)",
     "Founding Years (American history, 1500 to 1850)",
@@ -286,16 +299,16 @@
     "Where On Earth (Geography)",
     "Wild Things (Animals)"
   ],
-  "need": 1,
+  "need": 0,
   "games": {
     "hamps": {
       "game": "hamps",
       "roundsDir": "games/hamps/rounds",
       "today": "2026-11-01",
       "season": 6,
-      "queueCount": 4,
+      "queueCount": 6,
       "target": 5,
-      "fill": 1,
+      "fill": 0,
       "queue": [
         {
           "id": "pedal-to-the-metal",
@@ -328,6 +341,22 @@
           "onPollSince": "2026-10-31",
           "retired": false,
           "requestId": null
+        },
+        {
+          "id": "daily-grind",
+          "name": "Daily Grind",
+          "subject": "Coffee",
+          "onPollSince": "2026-11-01",
+          "retired": false,
+          "requestId": null
+        },
+        {
+          "id": "dial-up",
+          "name": "Dial-Up",
+          "subject": "The 1990s",
+          "onPollSince": null,
+          "retired": false,
+          "requestId": "hamps:H2qk1CZbwsImhTgVGkuz"
         }
       ],
       "poll": {
@@ -339,6 +368,9 @@
             "id": "seventh-inning-stretch"
           },
           {
+            "id": "daily-grind"
+          },
+          {
             "id": "req:482yUmQcpMa2zb8T7k4O",
             "theme": "Bbbvvvvvcandy bars",
             "by": "Salil Gandhi"
@@ -348,9 +380,9 @@
       "upcoming": [
         {
           "day": "2026-11-03",
-          "id": "req:H2qk1CZbwsImhTgVGkuz",
-          "name": null,
-          "how": "unwritten"
+          "id": "dial-up",
+          "name": "Dial-Up",
+          "how": "theme"
         },
         {
           "day": "2026-11-05",
@@ -511,24 +543,12 @@
           "how": "poll"
         }
       ],
-      "requestsWaiting": [
-        {
-          "id": "hamps:H2qk1CZbwsImhTgVGkuz",
-          "theme": "90s era",
-          "by": "Shan Bates",
-          "dropDay": "2026-11-03"
-        }
-      ],
+      "requestsWaiting": [],
       "ideas": [
         {
           "id": "482yUmQcpMa2zb8T7k4O",
           "theme": "Bbbvvvvvcandy bars",
           "by": "Salil Gandhi"
-        },
-        {
-          "id": "H2qk1CZbwsImhTgVGkuz",
-          "theme": "90s era",
-          "by": "Shan Bates"
         }
       ],
       "existingSubjects": [
@@ -541,6 +561,8 @@
         "Creature Feature (Animals)",
         "Crowned Heads (Royals through history)",
         "Cue the Music (Movie musicals and soundtracks)",
+        "Daily Grind (Coffee)",
+        "Dial-Up (The 1990s)",
         "Dressed to Kill (Fashion)",
         "Out East (East Hampton and Montauk)",
         "Eureka (Science and the human body)",
@@ -566,8 +588,8 @@
         "Trick or Treat (Halloween)",
         "Turning Points (World history)"
       ],
-      "need": 2
+      "need": 0
     }
   },
-  "totalNeed": 3
+  "totalNeed": 0
 }
