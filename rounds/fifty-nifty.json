@@ -1,0 +1,106 @@
+{
+  "id": "fifty-nifty",
+  "name": "Fifty Nifty",
+  "subject": "The fifty states",
+  "tagline": "Eleven questions on the United States, one at a time, from the smallest of them to the one with only two escalators. Starts easy, ends hard.",
+  "draft": true,
+  "emblem": "🗺️",
+  "theme": {
+    "font": "Alfa Slab One",
+    "accent": "#9A3412",
+    "accent2": "#1E40AF",
+    "accentDark": "#FDBA74",
+    "accent2Dark": "#93C5FD"
+  },
+  "questions": [
+    {
+      "d": "easy",
+      "q": "Which is the smallest state by area, at a little over 1,200 square miles?",
+      "o": ["Rhode Island", "Delaware", "Connecticut", "Hawaii"],
+      "a": 0,
+      "w": "Rhode Island, which is about 48 miles long and 37 miles wide. The largest state is more than four hundred times its size.",
+      "more": "Despite the name, most of it is not an island; the official name was 'State of Rhode Island and Providence Plantations' until voters shortened it in 2020. It was the first colony to declare independence from Britain, in May 1776, and the last of the thirteen to ratify the Constitution, holding out until 1790. Its state bird is a chicken, the Rhode Island Red."
+    },
+    {
+      "d": "easy",
+      "q": "Which was the last state to join the Union, in August 1959?",
+      "o": ["Hawaii", "Alaska", "Arizona", "New Mexico"],
+      "a": 0,
+      "w": "Hawaii, seven months after Alaska. It is the only state made up entirely of islands, the only one that grows coffee commercially, and the only one with a royal palace.",
+      "more": "The United States annexed the islands in 1898, five years after American businessmen helped overthrow the Hawaiian monarchy. More than 90 per cent of voters backed statehood in 1959, and the fiftieth star was added to the flag on 4 July 1960, the design having been submitted by a seventeen-year-old for a school project. Hawaii is the only state whose land area is still growing, thanks to the lava from Kīlauea."
+    },
+    {
+      "d": "easy",
+      "q": "Which state is nicknamed the Lone Star State?",
+      "o": ["Texas", "Arizona", "Nevada", "Oklahoma"],
+      "a": 0,
+      "w": "Texas, after the single star on the flag it flew as an independent republic from 1836 to 1845, which it kept when it joined the Union.",
+      "more": "It is the second-largest state by both area and population, and the only one of the lower 48 with its own separate electricity grid, which is why its blackouts are its own. The belief that Texas alone may fly its flag at the same height as the national flag is a myth; every state may. Six flags have flown over it, those of Spain, France, Mexico, the Republic of Texas, the Confederacy and the United States, hence the theme parks."
+    },
+    {
+      "d": "easy",
+      "q": "Which state grows about a third of America's potatoes and prints 'Famous Potatoes' on its licence plates?",
+      "o": ["Idaho", "Maine", "Washington", "Wisconsin"],
+      "a": 0,
+      "w": "Idaho, whose volcanic soil on the Snake River plain suits the Russet Burbank, the long potato that becomes most of the country's fries.",
+      "more": "The state's billionaire potato king, J. R. Simplot, invented the frozen French fry and sold it to McDonald's in the 1960s. Idaho is the only state whose seal was designed by a woman, Emma Edwards Green, in 1891. Its capital, Boise, has the largest Basque community in the United States, descended from sheep herders from the Pyrenees."
+    },
+    {
+      "d": "easy",
+      "q": "The Grand Canyon, carved by the Colorado River over some six million years, is in which state?",
+      "o": ["Arizona", "Utah", "Nevada", "Colorado"],
+      "a": 0,
+      "w": "Arizona. The canyon is 277 miles long, up to eighteen miles wide and more than a mile deep, and the rocks at the bottom are nearly two billion years old.",
+      "more": "Arizona joined the Union in February 1912, the last of the 48 contiguous states, which is why it calls itself the Valentine State. It is one of two states that do not switch to daylight saving time, on the grounds that nobody in Phoenix wants an extra hour of afternoon sun in July. Phoenix is the most populous state capital in the country."
+    },
+    {
+      "d": "medium",
+      "q": "Which state's capital, Santa Fe, is both the oldest and the highest state capital in the country, at about 7,000 feet?",
+      "o": ["New Mexico", "Colorado", "Utah", "Wyoming"],
+      "a": 0,
+      "w": "New Mexico. Santa Fe was founded by the Spanish in 1610, a decade before the Pilgrims landed, and its Palace of the Governors is the oldest public building in continuous use in the United States.",
+      "more": "The state's official question is 'Red or green?', meaning which chile sauce you want on your food; the answer 'Christmas' gets you both. The first atomic bomb was built at Los Alamos and tested in the New Mexico desert in July 1945. And in 1947 something came down on a ranch near Roswell, which the Air Force says was a balloon and the gift shops say was not."
+    },
+    {
+      "d": "medium",
+      "q": "Which state's flag is the only one that is not a rectangle?",
+      "o": ["Ohio", "Maryland", "Oregon", "Colorado"],
+      "a": 0,
+      "w": "Ohio, whose flag is a swallow-tailed pennant called a burgee, adopted in 1902. Its seventeen stars mark Ohio as the seventeenth state.",
+      "more": "There is an official seventeen-step method for folding it. Oregon's is the only state flag with a different design on each side, a beaver on the back, and Maryland's heraldic black-and-gold is the only one based on a British coat of arms. Ohio calls itself the birthplace of aviation because the Wright brothers built their flyer in a Dayton bicycle shop, and seven presidents were born there, more than any state but Virginia."
+    },
+    {
+      "d": "medium",
+      "q": "Which state was the first to give women the vote, in 1869, half a century before the rest of the country, and is still the least populous of all?",
+      "o": ["Wyoming", "Vermont", "Alaska", "Montana"],
+      "a": 0,
+      "w": "Wyoming, the Equality State, home to about 580,000 people, fewer than live in Washington, DC. Most of Yellowstone, the world's first national park, lies within it.",
+      "more": "It also elected the first woman governor, Nellie Tayloe Ross, in 1924, and seated the first woman on a jury. Wyoming has more cattle than people and, famously, only two escalators in the entire state, both in a bank in Casper. Devils Tower, the rock the aliens visit in Close Encounters of the Third Kind, was the first national monument, declared by Theodore Roosevelt in 1906."
+    },
+    {
+      "d": "hard",
+      "q": "Which state has had the country's only single-chamber legislature since 1937, after a reformer argued that two houses of farmers arguing with each other was a waste of money?",
+      "o": ["Nebraska", "Kansas", "Iowa", "Vermont"],
+      "a": 0,
+      "w": "Nebraska, whose 49 senators also sit without party labels, the only such legislature in the country. The reformer was Senator George Norris, who sold it to voters in the middle of the Depression as a saving.",
+      "more": "Nebraska is also one of only two states that split their electoral votes by congressional district, and the Omaha district has gone against the rest of the state in three recent presidential elections. Kool-Aid was invented in Hastings, Nebraska, in 1927, and Arbor Day began in the state in 1872, when it had almost no trees. It is the only triply landlocked state: you must cross three states to reach an ocean, a gulf or a bay."
+    },
+    {
+      "d": "hard",
+      "type": "order",
+      "q": "Put these states in the order they joined the Union, earliest first.",
+      "o": ["Vermont", "Missouri", "Colorado", "Utah"],
+      "w": "Vermont in 1791, the first state added after the original thirteen; Missouri in 1821; Colorado in 1876, the year of the nation's hundredth birthday, which is why it is the Centennial State; and Utah in 1896.",
+      "more": "Vermont had spent fourteen years as an independent republic with its own coins and postal service before it joined. Utah applied for statehood six times over nearly fifty years and was admitted only after the Mormon church formally gave up polygamy in 1890. Colorado's voters turned down the chance to host the 1976 Winter Olympics, the only city ever to reject Games it had already been awarded."
+    },
+    {
+      "d": "hard",
+      "type": "select",
+      "q": "Which of these states share a land border with Canada? Select all that apply.",
+      "o": ["Montana", "North Dakota", "Minnesota", "Oregon", "Iowa", "Kentucky"],
+      "a": [0, 1, 2],
+      "w": "Montana, North Dakota and Minnesota. Oregon stops at the Columbia River with a whole state in between, and Iowa and Kentucky are nowhere near.",
+      "more": "Thirteen states touch Canada in all, if you count the ones that meet it across the Great Lakes, along the longest international border in the world. Minnesota's Northwest Angle is the only part of the lower 48 north of the 49th parallel, a surveying mistake that can be reached by road only through Canada. The border was left almost entirely unguarded for most of two centuries, and in places it runs through the middle of libraries and living rooms."
+    }
+  ]
+}

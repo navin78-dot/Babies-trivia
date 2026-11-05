@@ -1,0 +1,107 @@
+{
+  "id": "fun-size",
+  "name": "Fun Size",
+  "subject": "Candy bars",
+  "requestId": "hamps:482yUmQcpMa2zb8T7k4O",
+  "tagline": "Eleven questions on the bars at the checkout, from a horse called Snickers to a bear hiding in a mountain. A theme the crew voted for.",
+  "draft": true,
+  "emblem": "🍫",
+  "theme": {
+    "font": "Bangers",
+    "accent": "#B45309",
+    "accent2": "#BE185D",
+    "accentDark": "#FBBF24",
+    "accent2Dark": "#F472B6"
+  },
+  "questions": [
+    {
+      "d": "easy",
+      "q": "Which bar, the best-selling candy bar in the world, was named in 1930 after the Mars family's favourite horse?",
+      "o": ["Snickers", "Milky Way", "Baby Ruth", "Butterfinger"],
+      "a": 0,
+      "w": "Snickers, nougat, caramel and peanuts under milk chocolate, which sells around four billion dollars' worth a year. The horse had died a few months before the bar went on sale.",
+      "more": "In Britain it was called Marathon until 1990, and people there still complain about the change. The 'You're not you when you're hungry' campaign, launched with Betty White being tackled in a 2010 Super Bowl advert, is one of the most successful in advertising history. A Snickers was the first candy bar in space, eaten by an astronaut on the shuttle in the 1980s, which is the sort of thing the company likes to mention."
+    },
+    {
+      "d": "easy",
+      "q": "Which four-fingered wafer bar, made in York, England since 1935, comes in more than 300 flavours in Japan, where its name sounds like a phrase meaning 'you will surely win'?",
+      "o": ["Kit Kat", "Twix", "Crunchie", "Aero"],
+      "a": 0,
+      "w": "Kit Kat, which Japanese parents give to children before exams because 'kitto katsu' means 'surely win'. Flavours there have included wasabi, soy sauce, sake, melon and sweet potato.",
+      "more": "Rowntree's of York made it until Nestlé bought the company in 1988, but in the United States it has been made under licence by Hershey since 1970, which is why American Kit Kats taste different. 'Have a break, have a Kit Kat' dates from 1957. The name is thought to come from the Kit-Cat Club, an eighteenth-century London political club named after a pastry cook's mutton pies."
+    },
+    {
+      "d": "easy",
+      "q": "Which bar, launched in 1923, is named not after the galaxy but after a popular malted-milk milkshake whose taste it was meant to copy?",
+      "o": ["Milky Way", "Mars", "Three Musketeers", "Charleston Chew"],
+      "a": 0,
+      "w": "Milky Way, Frank Mars's first big success, made in Minneapolis and sold as 'a chocolate malted milk in a candy bar'. It made him rich enough to build a mansion with a horse farm attached.",
+      "more": "Confusingly, the Milky Way sold in Europe is a different, lighter bar with no caramel, and the American Milky Way is sold there as the Mars bar. The whipped nougat was the innovation: it was cheaper and lighter than solid chocolate, so the bar looked bigger than its rivals for the same nickel. Frank's son Forrest fell out with him, moved to England and started a rival company that eventually swallowed the original."
+    },
+    {
+      "d": "easy",
+      "q": "Which candy, developed in 1941 so that soldiers could carry chocolate in hot climates, promised that it 'melts in your mouth, not in your hand'?",
+      "o": ["M&M's", "Smarties", "Reese's Pieces", "Skittles"],
+      "a": 0,
+      "w": "M&M's. The hard sugar shell was borrowed from pellets Forrest Mars had seen soldiers eating in the Spanish Civil War, and the first customers were the American military.",
+      "more": "The two Ms are Mars and Murrie, Bruce Murrie being the son of the president of Hershey, which supplied the chocolate under wartime rationing in return for a stake. The slogan dates from 1954, the same year the peanut version arrived. In 1995 ten million Americans voted to replace the tan M&M with a new colour, and blue won."
+    },
+    {
+      "d": "easy",
+      "q": "Which crispy peanut-butter bar, named through a public contest in 1923, spent the 1990s being guarded by Bart Simpson, who warned 'Nobody better lay a finger on my' one?",
+      "o": ["Butterfinger", "PayDay", "5th Avenue", "Heath"],
+      "a": 0,
+      "w": "Butterfinger. The winning entry borrowed the sportscasters' insult for a clumsy fielder, and the Simpsons adverts ran for more than a decade from 1988.",
+      "more": "The Curtiss Candy Company of Chicago launched it by dropping bars from aeroplanes over cities with parachutes attached, a stunt it repeated across the country. The Italian group Ferrero bought the brand in 2018 and changed the recipe the following year, prompting the kind of outrage usually reserved for changes to the constitution. The old flaky centre was made with peanut butter cooked into a toffee and stretched like taffy."
+    },
+    {
+      "d": "medium",
+      "q": "Which triangular Swiss bar, created in Bern in 1908, hides the silhouette of a bear in the mountain on its packaging, the bear being the symbol of the city?",
+      "o": ["Toblerone", "Lindt", "Ritter Sport", "Milka"],
+      "a": 0,
+      "w": "Toblerone, a blend of its inventor's name, Theodor Tobler, and torrone, the Italian honey-and-almond nougat inside it. Most people have eaten hundreds without ever seeing the bear.",
+      "more": "Tobler claimed the triangles were inspired by a pyramid of dancers at the Folies Bergère rather than by the Matterhorn, which appeared on the wrapper only in 1970. The mountain had to come off the packaging in 2023 when some production moved to Slovakia, because Swiss law reserves national symbols for things made in Switzerland. It is the best-selling item in the world's airport duty-free shops."
+    },
+    {
+      "d": "medium",
+      "q": "Which bar got its name because it originally came as three small pieces in three flavours, chocolate, vanilla and strawberry, until wartime sugar rationing left only the chocolate?",
+      "o": ["3 Musketeers", "Milky Way", "Snickers", "Almond Joy"],
+      "a": 0,
+      "w": "3 Musketeers, launched by Mars in 1932 as three bite-sized pieces for a nickel. The vanilla and strawberry went in 1945 and never came back.",
+      "more": "It is essentially a Milky Way without the caramel, which is why Mars could make it cheaply during the Depression. The company markets it as the lighter choice, since the whipped nougat is mostly air and it has less fat than its stablemates. In Europe a very similar bar is sold as the Milky Way, which is where the confusion in the previous question comes from."
+    },
+    {
+      "d": "medium",
+      "q": "Which bar of biscuit, caramel and chocolate, sold in pairs, was called Raider across much of continental Europe until 1991, and takes its name from a blend of 'twin' and 'biscuits'?",
+      "o": ["Twix", "Kit Kat", "Bounty", "Lion"],
+      "a": 0,
+      "w": "Twix, launched in Britain in 1967 and in America in 1979. The 'Raider' name was dropped in 1991 to unify the brand, with adverts in Germany promising that nothing but the name would change.",
+      "more": "The 'Left Twix versus Right Twix' campaign of 2012 invented a feud between two factories making identical bars, and people still ask which side they are on. Mars has sold peanut butter, cookies-and-cream and even a Twix-flavoured coffee creamer. The bar is baked rather than just assembled, which makes it one of the few candy bars with a shortbread recipe at its heart."
+    },
+    {
+      "d": "hard",
+      "q": "Which candy's sales jumped by around two-thirds in 1982 after it appeared in a film about a stranded alien, a role the makers of M&M's had turned down?",
+      "o": ["Reese's Pieces", "Skittles", "Raisinets", "Junior Mints"],
+      "a": 0,
+      "w": "Reese's Pieces, which the boy Elliott uses to lure E.T. out of hiding. Hershey paid a million dollars to promote the film and got the most famous product placement in Hollywood history for it.",
+      "more": "Mars reportedly declined because it did not want its sweets associated with a creature it thought children would find ugly. The candy had only been launched four years earlier and was struggling. Within two weeks of the film's release, cinemas were stocking it at the concession stand and Hershey could not make it fast enough."
+    },
+    {
+      "d": "hard",
+      "type": "order",
+      "q": "Put these American candy bars in the order they first went on sale, earliest first.",
+      "o": ["Charleston Chew", "Nestlé Crunch", "Almond Joy", "100 Grand"],
+      "w": "Charleston Chew in 1925, named after the dance craze; Nestlé Crunch in 1938; Almond Joy in 1946; and 100 Grand in 1966, when it was called the $100,000 Bar.",
+      "more": "Charleston Chews are famous for being frozen and snapped into pieces, which the company eventually put on the wrapper. Almond Joy and its coconut sibling Mounds gave the world the jingle 'Sometimes you feel like a nut, sometimes you don't' in the 1970s. The $100,000 Bar was renamed in 1985, and radio stations have more than once been sued by listeners who won 'a hundred grand' and were handed a candy bar."
+    },
+    {
+      "d": "hard",
+      "type": "select",
+      "q": "Which of these candy bars are named after a person? Select all that apply.",
+      "o": ["Oh Henry!", "Clark Bar", "Hershey bar", "PayDay", "Whatchamacallit", "Crunchie"],
+      "a": [0, 1, 2],
+      "w": "Oh Henry!, Clark Bar and the Hershey bar. The Clark Bar is named for its Pittsburgh maker David L. Clark, the Hershey bar for Milton Hershey, and Oh Henry!, according to the company, for a boy named Henry who hung around the factory flirting with the girls who made the candy.",
+      "more": "Rival stories say Oh Henry! honours the writer O. Henry or a Louisiana candy maker, and nobody has settled it in a century. Clark Bars were shipped to doughboys in the First World War and nearly vanished in 2018 before a Pennsylvania candy company rescued the recipe. PayDay is a peanut-and-caramel bar with no chocolate, launched on a payday in 1932, and Whatchamacallit was named by a Hershey executive who could not think of anything better."
+    }
+  ]
+}
