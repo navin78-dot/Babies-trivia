@@ -363,6 +363,11 @@
         "options": [
           {
             "id": "daily-grind"
+          },
+          {
+            "id": "req:dFCmG1j3Xl0HqKfqhrZl",
+            "theme": "80s music",
+            "by": "Shan Bates"
           }
         ]
       },
@@ -375,8 +380,8 @@
         },
         {
           "day": "2026-11-08",
-          "id": "daily-grind",
-          "name": "Daily Grind",
+          "id": "req:dFCmG1j3Xl0HqKfqhrZl",
+          "name": null,
           "how": "leading"
         }
       ],
@@ -545,7 +550,13 @@
         }
       ],
       "requestsWaiting": [],
-      "ideas": [],
+      "ideas": [
+        {
+          "id": "dFCmG1j3Xl0HqKfqhrZl",
+          "theme": "80s music",
+          "by": "Shan Bates"
+        }
+      ],
       "existingSubjects": [
         "Art Attack (Art and artists)",
         "Binge Worthy (Television of the streaming age)",
