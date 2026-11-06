@@ -1,7 +1,7 @@
 {
   "game": "babies",
   "roundsDir": "rounds",
-  "today": "2026-11-05",
+  "today": "2026-11-06",
   "season": 7,
   "queueCount": 4,
   "target": 5,
@@ -47,6 +47,11 @@
     "options": [
       {
         "id": "fifty-nifty"
+      },
+      {
+        "id": "req:5xeOSJq5RzzgPspdH2Xr",
+        "theme": "90s sitcoms",
+        "by": "Shivangi Bhatt"
       }
     ]
   },
@@ -59,9 +64,9 @@
     },
     {
       "day": "2026-11-08",
-      "id": "golden-age",
-      "name": "Golden Age",
-      "how": "queue"
+      "id": "req:5xeOSJq5RzzgPspdH2Xr",
+      "name": null,
+      "how": "leading"
     }
   ],
   "dropped": [
@@ -253,7 +258,13 @@
     }
   ],
   "requestsWaiting": [],
-  "ideas": [],
+  "ideas": [
+    {
+      "id": "5xeOSJq5RzzgPspdH2Xr",
+      "theme": "90s sitcoms",
+      "by": "Shivangi Bhatt"
+    }
+  ],
   "existingSubjects": [
     "Strike a Pose (Madonna)",
     "Over the Millennia (World history)",
@@ -309,7 +320,7 @@
     "hamps": {
       "game": "hamps",
       "roundsDir": "games/hamps/rounds",
-      "today": "2026-11-05",
+      "today": "2026-11-06",
       "season": 6,
       "queueCount": 5,
       "target": 5,
