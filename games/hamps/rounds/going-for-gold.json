@@ -1,0 +1,167 @@
+{
+  "id": "going-for-gold",
+  "name": "Going for Gold",
+  "subject": "The Olympics",
+  "tagline": "Eleven questions on the Games, from the first ones in Athens to a swimmer who had never seen a fifty-metre pool. Starts easy, ends hard.",
+  "draft": true,
+  "emblem": "🥇",
+  "theme": {
+    "font": "Teko",
+    "accent": "#CA8A04",
+    "accent2": "#0369A1",
+    "accentDark": "#FDE047",
+    "accent2Dark": "#38BDF8"
+  },
+  "questions": [
+    {
+      "d": "easy",
+      "q": "Which city hosted the first modern Olympic Games, in 1896?",
+      "o": [
+        "Athens",
+        "Paris",
+        "Rome",
+        "London"
+      ],
+      "a": 0,
+      "w": "Athens, where 241 athletes from fourteen countries, all men, competed in a rebuilt marble stadium. The revival was the project of a French aristocrat, Pierre de Coubertin, who thought sport would make better soldiers.",
+      "more": "Winners received a silver medal and an olive branch; gold medals did not arrive until 1904. The marathon was invented for these Games, run from the village of Marathon to the stadium, and won by a Greek water carrier, Spyridon Louis, who became a national hero and was given free shaves for life by a barber. Women first competed in 1900, in tennis and golf."
+    },
+    {
+      "d": "easy",
+      "q": "What do the five interlocking Olympic rings represent?",
+      "o": [
+        "The five inhabited continents",
+        "The five original host nations",
+        "The five classical elements",
+        "The five founding sports"
+      ],
+      "a": 0,
+      "w": "The five continents of the inhabited world as the Olympic movement counted them, with the Americas as one, joined together. Coubertin designed the flag in 1913.",
+      "more": "Coubertin chose the six colours, including the white background, because every national flag in the world at the time could be made from them, so no ring stands for any particular continent, whatever your school teacher said. The flag first flew at the Antwerp Games of 1920 and was promptly stolen by an American diver, Hal Haig Prieste, who gave it back in 2000, aged 103. The motto 'Faster, Higher, Stronger' came from a Dominican priest."
+    },
+    {
+      "d": "easy",
+      "q": "Which American city hosted the Centennial Olympics of 1996, a hundred years after the first modern Games?",
+      "o": [
+        "Atlanta",
+        "Los Angeles",
+        "Chicago",
+        "Dallas"
+      ],
+      "a": 0,
+      "w": "Atlanta, chosen over Athens, which had assumed the anniversary Games were its by right and never quite forgave the Coca-Cola city for winning the vote.",
+      "more": "Muhammad Ali, his hands shaking from Parkinson's disease, lit the cauldron in front of a stunned stadium, and the moment is still the most replayed in the history of opening ceremonies. A pipe bomb in Centennial Olympic Park killed two people midway through the Games; the security guard who found it, Richard Jewell, was wrongly treated as a suspect for months. The Games were the first to turn a profit without public money and the last to be held in the United States for at least 32 years."
+    },
+    {
+      "d": "easy",
+      "q": "Which gymnast, who has four skills named after her in the sport's code of points, returned from withdrawing in Tokyo with a case of 'the twisties' to win three golds at Paris in 2024?",
+      "o": [
+        "Simone Biles",
+        "Suni Lee",
+        "Gabby Douglas",
+        "Aly Raisman"
+      ],
+      "a": 0,
+      "w": "Simone Biles, the most decorated gymnast in history with eleven Olympic medals, seven of them gold, and thirty world championship medals. The twisties is the gymnast's term for suddenly losing all sense of where you are in the air.",
+      "more": "She stands four feet eight inches tall and gets higher off the floor than most men in the sport. Her 2021 withdrawal, at the height of the Games, started a worldwide conversation about athletes' mental health, and she returned to competition only after two years away. She was one of the hundreds of gymnasts abused by the team doctor Larry Nassar, and her testimony to the Senate in 2021 helped expose how the governing bodies had failed them."
+    },
+    {
+      "d": "easy",
+      "q": "Which separate Games were first held in Chamonix in 1924, and have since 1994 taken place two years after each Summer Games rather than in the same year?",
+      "o": [
+        "The Winter Olympics",
+        "The Paralympics",
+        "The Commonwealth Games",
+        "The Youth Olympics"
+      ],
+      "a": 0,
+      "w": "The Winter Olympics. The 1924 event was billed as an International Winter Sports Week and only recognised as the first Winter Games two years later, once it had been a success.",
+      "more": "Norway tops the all-time Winter medal table despite having about five million people, and it has won more Winter golds than the United States. Figure skating and ice hockey had been part of the Summer Games before 1924; a Canadian team won the hockey in 1920 by scores like 15 to 0. The 1994 switch to alternating years was made so that television money would arrive every two years instead of every four."
+    },
+    {
+      "d": "medium",
+      "q": "The marathon's odd distance of 26 miles and 385 yards was fixed at which Games, where the course was lengthened so it could start under the windows of the royal nursery at Windsor Castle and finish in front of the royal box?",
+      "o": [
+        "London 1908",
+        "Paris 1900",
+        "Stockholm 1912",
+        "Amsterdam 1928"
+      ],
+      "a": 0,
+      "w": "London 1908. Earlier marathons had been about 25 miles and varied from race to race; the 1908 distance was made official in 1921 and every marathon since has carried the extra 385 yards for the British royal family.",
+      "more": "The race is remembered for the Italian Dorando Pietri, who entered the stadium first, collapsed five times on the final lap and was helped across the line by officials, then disqualified. Queen Alexandra gave him a gilded cup the next day and Irving Berlin wrote a song about him. The 1908 Games lasted six months and included tug of war, in which the British police teams took all three medals."
+    },
+    {
+      "d": "medium",
+      "q": "Which fourteen-year-old Romanian gymnast scored the first perfect 10 in Olympic history at Montreal in 1976, when the scoreboard, which could not display a 10, showed 1.00?",
+      "o": [
+        "Nadia Comăneci",
+        "Olga Korbut",
+        "Ludmilla Tourischeva",
+        "Nellie Kim"
+      ],
+      "a": 0,
+      "w": "Nadia Comăneci, who scored seven perfect 10s in Montreal and won three golds. She was discovered at six in a schoolyard by the coach Béla Károlyi, who later defected to America and trained its gymnasts.",
+      "more": "Her theme music on television, from a soap opera, was renamed 'Nadia's Theme' and became a hit. She defected from Romania on foot across the Hungarian border in 1989, weeks before the regime fell, and now lives in Oklahoma with her husband, the American gymnast Bart Conner. Perfect 10s no longer exist; gymnastics scrapped the system in 2006 for an open-ended score."
+    },
+    {
+      "d": "medium",
+      "q": "The 1980 'Miracle on Ice' saw a team of American college players beat which country's four-time defending champions, who had thrashed them 10 to 3 in an exhibition days earlier, at Lake Placid?",
+      "o": [
+        "The Soviet Union",
+        "Czechoslovakia",
+        "Canada",
+        "Sweden"
+      ],
+      "a": 0,
+      "w": "The Soviet Union, beaten 4 to 3 on 22 February 1980 as the commentator Al Michaels asked 'Do you believe in miracles?' The Americans still had to beat Finland two days later to take the gold, and did.",
+      "more": "The Soviet side was effectively professional, built around the Red Army club, and had won every Olympic title since 1964. The game was shown in America on tape delay in the evening, so most of the country already knew the score when it watched. Sports Illustrated put the celebration on its cover with no headline at all, the only time it has done so."
+    },
+    {
+      "d": "hard",
+      "q": "Which swimmer from Equatorial Guinea, nicknamed 'Eric the Eel', got into the 2000 Games on a wildcard, had never seen a 50-metre pool, and finished his 100-metre freestyle heat alone in the slowest time in Olympic history after his two rivals were disqualified for false starts?",
+      "o": [
+        "Eric Moussambani",
+        "Eric Liddell",
+        "Eric Shanteau",
+        "Eric Gyan"
+      ],
+      "a": 0,
+      "w": "Eric Moussambani, who had learned to swim eight months earlier in a hotel pool and a river, and nearly stopped in the second length. His time of 1 minute 52.72 seconds was slower than the world record for twice the distance, and the crowd gave him the loudest cheer of the day.",
+      "more": "The wildcard scheme was meant to encourage developing nations, and his race became its most famous result. He cut his time to under a minute within a few years but was kept out of the 2004 Games by a visa mix-up. He later became the coach of Equatorial Guinea's national swimming team, and the country finally built a 50-metre pool."
+    },
+    {
+      "d": "hard",
+      "type": "order",
+      "q": "Put these Olympic firsts in order, earliest first.",
+      "o": [
+        "The torch relay is introduced",
+        "The Games are broadcast live by satellite",
+        "Women run the Olympic marathon for the first time",
+        "NBA professionals compete as the Dream Team"
+      ],
+      "w": "The torch relay in 1936, the first live satellite pictures from Tokyo in 1964, the first women's marathon in 1984, won by Joan Benoit, and the Dream Team of Michael Jordan, Magic Johnson and Larry Bird in 1992.",
+      "more": "The relay was invented by the Nazi organisers of the 1936 Games as propaganda, and the Olympic movement kept it. Before 1984 the longest race open to women was 1,500 metres, on the theory that anything further would damage them; Benoit won in a time that would have beaten every men's champion before 1956. The Dream Team won its eight games by an average of 44 points and its coach never called a single time-out."
+    },
+    {
+      "d": "hard",
+      "type": "select",
+      "q": "Which of these have been official Olympic events? Select all that apply.",
+      "o": [
+        "Tug of war",
+        "Painting and sculpture",
+        "Live pigeon shooting",
+        "Chess",
+        "Darts",
+        "Ten-pin bowling"
+      ],
+      "a": [
+        0,
+        1,
+        2
+      ],
+      "w": "Tug of war was contested from 1900 to 1920, art competitions in architecture, literature, music, painting and sculpture from 1912 to 1948, and live pigeon shooting once, at Paris in 1900, when about 300 birds were killed. Chess, darts and bowling have never been Olympic events, though bowling was a demonstration sport in 1988.",
+      "more": "Other vanished events include the standing high jump, club swinging, the plunge for distance, in which swimmers dived and floated motionless as far as they could, and the 1900 swimming obstacle race through the Seine, which involved climbing over boats. Coubertin himself won the 1912 gold medal for literature under a pseudonym with an ode to sport. Breakdancing came and went in a single Games in 2024."
+    }
+  ]
+}

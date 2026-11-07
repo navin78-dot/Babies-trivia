@@ -1,0 +1,106 @@
+{
+  "id": "creepy-crawlies",
+  "name": "Creepy Crawlies",
+  "subject": "Insects",
+  "tagline": "Eleven questions on the small things that run the planet, from a butterfly that flies to Mexico to the beetle that fires boiling liquid out of its rear. Starts easy, ends hard.",
+  "draft": true,
+  "emblem": "🐞",
+  "theme": {
+    "font": "Fredoka",
+    "accent": "#65A30D",
+    "accent2": "#DC2626",
+    "accentDark": "#BEF264",
+    "accent2Dark": "#FCA5A5"
+  },
+  "questions": [
+    {
+      "d": "easy",
+      "q": "What is a scientist who studies insects called?",
+      "o": ["An entomologist", "An etymologist", "An ornithologist", "A herpetologist"],
+      "a": 0,
+      "w": "An entomologist, from the Greek for 'cut up', because an insect's body is divided into segments. An etymologist studies words, an ornithologist birds and a herpetologist reptiles.",
+      "more": "Around a million insect species have been described and entomologists think there may be five to ten million more, which would make insects well over half of all the animal species on Earth. Charles Darwin began as a beetle collector so keen that he once popped one in his mouth to free a hand. The job is not all butterflies: forensic entomologists work out the time of a death from the insects on the body."
+    },
+    {
+      "d": "easy",
+      "q": "How many legs does an insect have?",
+      "o": ["Six", "Eight", "Four", "Ten"],
+      "a": 0,
+      "w": "Six, in three pairs attached to the middle section of the body, the thorax. Anything with eight legs is an arachnid, and anything with more is something else again.",
+      "more": "An insect also has a body in three parts, head, thorax and abdomen, a hard outer skeleton that it has to shed to grow, and usually two pairs of wings. Flies have only one pair; the second has shrunk into tiny balancing knobs called halteres, which is why a fly can land upside down on a ceiling. Insects are the only invertebrates that ever learned to fly, and they did it around 400 million years ago, long before birds or bats."
+    },
+    {
+      "d": "easy",
+      "q": "Which orange-and-black butterfly makes a migration of up to 3,000 miles each autumn, from Canada and the northern United States to a few mountain forests in Mexico?",
+      "o": ["The monarch", "The swallowtail", "The painted lady", "The red admiral"],
+      "a": 0,
+      "w": "The monarch, whose millions settle so thickly on the fir trees of Michoacán that branches break under the weight. No individual butterfly makes the round trip; the ones that fly south are the great-grandchildren of the ones that left.",
+      "more": "How they navigate to the same patch of forest their ancestors used is still not fully understood, though they steer by the sun and an internal clock. The caterpillars eat only milkweed, which makes them poisonous to birds, and the bright colours are the warning. Numbers have fallen by around 80 per cent in thirty years, mainly because of herbicides killing the milkweed."
+    },
+    {
+      "d": "easy",
+      "q": "Which insects live in colonies of a single queen, thousands of female workers and a few male drones, and tell each other where to find flowers with a 'waggle dance'?",
+      "o": ["Honeybees", "Wasps", "Termites", "Butterflies"],
+      "a": 0,
+      "w": "Honeybees. A returning forager dances a figure of eight on the comb, and the angle and duration of the waggle tell the others the direction and distance of the food. The Austrian who decoded it, Karl von Frisch, won a Nobel Prize in 1973.",
+      "more": "A worker bee lives about six weeks in summer and makes roughly a twelfth of a teaspoon of honey in her whole life. The drones do no work, cannot sting and are thrown out of the hive to die in the autumn. The queen can lay 2,000 eggs a day and lives for years, and when the colony needs a new one the workers simply feed a chosen larva royal jelly."
+    },
+    {
+      "d": "easy",
+      "q": "Which spotted beetle is a gardener's best friend because it and its larvae eat aphids by the thousand?",
+      "o": ["The ladybug", "The weevil", "The firefly", "The stag beetle"],
+      "a": 0,
+      "w": "The ladybug, or ladybird, which can eat 5,000 aphids in its lifetime. The spots are not a sign of age; each species has its own number, from two to twenty-four.",
+      "more": "The name honours the Virgin Mary, 'Our Lady', whose red cloak the beetle was thought to resemble in medieval paintings. The bright colour is a warning: when threatened they bleed a foul-tasting yellow fluid from their knees. The Asian harlequin ladybird, introduced to control pests, has become a pest itself across Europe and America, eating native ladybirds as well as aphids."
+    },
+    {
+      "d": "medium",
+      "q": "Which insects spend 13 or 17 years underground and then emerge by the billion in a single spring to screech at 100 decibels, mate and die within weeks?",
+      "o": ["Cicadas", "Locusts", "Crickets", "Mayflies"],
+      "a": 0,
+      "w": "Periodical cicadas, found only in eastern North America, which come out in numbered broods. Brood X, the largest, last appeared in 2021 and is due again in 2038.",
+      "more": "The prime-number life cycles are thought to stop predators from synchronising with them, and the sheer numbers, up to 1.5 million an acre, mean the birds and squirrels simply cannot eat them all. The males make the noise with drum-like membranes on their abdomen. Cicadas are eaten in several countries and, briefly, in several Washington restaurants in 2021, where they were described as tasting like asparagus."
+    },
+    {
+      "d": "medium",
+      "q": "Which beetle did the ancient Egyptians hold sacred and carve by the thousand as amulets, because it rolled balls of dung across the sand the way their god rolled the sun across the sky?",
+      "o": ["The scarab", "The stag beetle", "The rhinoceros beetle", "The weevil"],
+      "a": 0,
+      "w": "The scarab, a dung beetle, which lays its eggs inside the ball; the young emerging from it looked to the Egyptians like life created from nothing. The god Khepri was drawn with a scarab for a head.",
+      "more": "Dung beetles can bury dung 250 times their own weight in a night and are the reason cattle country is not knee-deep in it; Australia had to import them in the 1960s because its native beetles would not touch cow dung. A 2013 experiment in a planetarium showed that one African species navigates in a straight line by the band of the Milky Way, the only animal known to do so. A heart scarab was placed on a mummy's chest to speak for it at the judgement of the dead."
+    },
+    {
+      "d": "medium",
+      "q": "In September 1947 engineers working on a computer at Harvard found the first literal 'bug' in a machine, taped it into the logbook and wrote 'first actual case of bug being found'. What kind of insect was it?",
+      "o": ["A moth", "A cockroach", "A beetle", "A fly"],
+      "a": 0,
+      "w": "A moth, trapped in a relay of the Mark II computer. The log page, with the moth still attached, is in the Smithsonian, and the team worked for the pioneering programmer Grace Hopper, who loved telling the story.",
+      "more": "The word 'bug' for a mechanical fault is much older; Thomas Edison used it in the 1870s, which is why the Harvard note says 'actual'. Moths navigate by keeping the Moon at a fixed angle, which is why a nearby light bulb sends them into a spiral. There are about ten times as many species of moth as of butterfly, and most of the ones that matter to humans, from the silk moth to the clothes moth, are drab brown things."
+    },
+    {
+      "d": "hard",
+      "q": "Which beetle defends itself by firing a boiling, caustic spray from its rear end, mixing two chemicals in an internal chamber so that the reaction happens on the way out?",
+      "o": ["The bombardier beetle", "The blister beetle", "The click beetle", "The tiger beetle"],
+      "a": 0,
+      "w": "The bombardier beetle, whose hydroquinones and hydrogen peroxide react explosively to produce a spray at 100 degrees Celsius, fired in pulses with an audible pop and aimed with a swivelling nozzle.",
+      "more": "Toads that swallow one often vomit it back up alive, after the beetle lets off its charge inside the stomach. Engineers have copied the two-chamber mechanism for fuel injectors and fire extinguishers. Charles Darwin, as a student, was once squirted in the mouth by one he had been holding there while he caught another, and recorded that it was unpleasant."
+    },
+    {
+      "d": "hard",
+      "type": "order",
+      "q": "Put these creatures in order of how many legs they have, fewest first.",
+      "o": ["A housefly", "A tarantula", "A woodlouse", "A centipede"],
+      "w": "A housefly has six, a tarantula eight, a woodlouse fourteen and a centipede anywhere from thirty to more than three hundred, always an odd number of pairs.",
+      "more": "Only the fly is an insect; the tarantula is an arachnid, the woodlouse a crustacean more closely related to shrimp than to any insect, and the centipede a myriapod. Despite the name, no centipede has exactly a hundred legs, because they come in odd pairs. Millipedes beat them all, and a species found in Australia in 2021 has 1,306, the first ever counted with more than a thousand."
+    },
+    {
+      "d": "hard",
+      "type": "select",
+      "q": "Which of these are insects? Select all that apply.",
+      "o": ["Ant", "Butterfly", "Beetle", "Spider", "Scorpion", "Earthworm"],
+      "a": [0, 1, 2],
+      "w": "Ants, butterflies and beetles. Spiders and scorpions are arachnids, with eight legs and no antennae, and the earthworm is an annelid with no legs at all.",
+      "more": "Beetles alone account for about a quarter of all known animal species, which prompted the biologist J. B. S. Haldane's remark that the Creator must have had an inordinate fondness for them. Ants may outweigh all the wild birds and mammals on Earth put together, and a single supercolony of Argentine ants stretches 6,000 kilometres along the Mediterranean coast. Butterflies taste with their feet."
+    }
+  ]
+}

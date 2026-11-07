@@ -1,0 +1,168 @@
+{
+  "id": "studio-audience",
+  "name": "Studio Audience",
+  "subject": "1990s sitcoms",
+  "requestId": "5xeOSJq5RzzgPspdH2Xr",
+  "tagline": "Eleven questions on the sitcoms of the nineties, from the nerd next door who broke everything to a finale that undid a whole season. A theme the group voted for.",
+  "draft": true,
+  "emblem": "🛋️",
+  "theme": {
+    "font": "Baloo 2",
+    "accent": "#DB2777",
+    "accent2": "#0891B2",
+    "accentDark": "#F9A8D4",
+    "accent2Dark": "#67E8F9"
+  },
+  "questions": [
+    {
+      "d": "easy",
+      "q": "'Did I do that?' Which suspender-wearing, high-trousered nerd next door was meant to appear in one episode of Family Matters in 1989 and ended up taking over the show?",
+      "o": [
+        "Steve Urkel",
+        "Carlton Banks",
+        "Screech Powers",
+        "Cody Lambert"
+      ],
+      "a": 0,
+      "w": "Steve Urkel, played by Jaleel White, who was twelve when he was cast as a one-off dinner date for Laura Winslow. The audience reaction was so strong that he became the main character of a show that was supposed to be about her parents.",
+      "more": "Family Matters was itself a spin-off, built around Harriette Winslow, the lift operator from Perfect Strangers, and ran for nine seasons to 1998. Urkel's catchphrases, his snorting laugh and his smooth alter ego Stefan Urquelle sold lunchboxes, a cereal and a talking doll. White has said he was so sick of the character by the end that he could not watch the show for years."
+    },
+    {
+      "d": "easy",
+      "q": "Which sitcom starred Tim Allen as the host of a cable show called Tool Time, with a neighbour named Wilson whose face was always hidden behind the garden fence?",
+      "o": [
+        "Home Improvement",
+        "Full House",
+        "Coach",
+        "Step by Step"
+      ],
+      "a": 0,
+      "w": "Home Improvement, which ran on ABC from 1991 to 1999 and was television's most-watched show in its third season. Tim 'The Tool Man' Taylor's answer to every problem was 'more power', followed by an explosion.",
+      "more": "Wilson's face was never shown in full as a running joke, though he took a bow unobscured at the final curtain call. The first Tool Time girl was Pamela Anderson, who left for Baywatch after two seasons. Jonathan Taylor Thomas, who played the middle son, was the biggest teen idol in America for a few years and walked away from the show to go to Harvard."
+    },
+    {
+      "d": "easy",
+      "q": "Zack Morris could stop time by shouting 'time out', Mr. Belding was the principal, and Screech was the sidekick at Bayside High. Which Saturday-morning sitcom?",
+      "o": [
+        "Saved by the Bell",
+        "Boy Meets World",
+        "Full House",
+        "Blossom"
+      ],
+      "a": 0,
+      "w": "Saved by the Bell, which ran on NBC on Saturday mornings from 1989 to 1993 and then forever in reruns. Mark-Paul Gosselaar played Zack, Mario Lopez the jock A.C. Slater and Tiffani Thiessen the cheerleader Kelly Kapowski.",
+      "more": "Its most famous scene is Jessie Spano's breakdown over caffeine pills, sobbing 'I'm so excited, I'm so scared', which was meant as a drugs warning and became a meme. The show began life as Good Morning, Miss Bliss, set in Indiana with Hayley Mills as the teacher, before the kids were moved to California. A revival with most of the original cast ran on Peacock in 2020."
+    },
+    {
+      "d": "easy",
+      "q": "Which 1996 sitcom starred Melissa Joan Hart as a half-witch living with her two aunts and a sarcastic talking black cat called Salem?",
+      "o": [
+        "Sabrina the Teenage Witch",
+        "Charmed",
+        "Clarissa Explains It All",
+        "Bewitched"
+      ],
+      "a": 0,
+      "w": "Sabrina the Teenage Witch, adapted from an Archie comic, which ran for seven seasons on ABC and then the WB. Salem was a warlock sentenced to a hundred years as a cat for trying to take over the world.",
+      "more": "Hart had already starred in Clarissa Explains It All on Nickelodeon, which made her the first girl to lead a live-action show on the channel. Salem was an animatronic puppet voiced by the writer Nick Bakay, and the puppet broke down so often that the crew kept several on hand. Netflix's 2018 Chilling Adventures of Sabrina went back to the comic and made it horror."
+    },
+    {
+      "d": "easy",
+      "q": "Which sitcom's theme song introduced a 'flashy girl from Flushing' who went to work for a Broadway producer called Maxwell Sheffield and his three children?",
+      "o": [
+        "The Nanny",
+        "Who's the Boss?",
+        "Mad About You",
+        "Caroline in the City"
+      ],
+      "a": 0,
+      "w": "The Nanny, in which Fran Drescher played Fran Fine, a fired bridal-shop assistant from Queens who talks her way into the job. It ran on CBS from 1993 to 1999, and she married the boss in the end.",
+      "more": "Drescher created the show with her then husband Peter Marc Jacobson, who later came out as gay; the two remained close and made a sitcom about it, Happily Divorced. The cartoon opening credits were used because the network thought the character needed explaining before viewers heard the voice. Drescher went on to lead the Hollywood actors' union through its 2023 strike."
+    },
+    {
+      "d": "medium",
+      "q": "Which sitcom, Fox's longest-running live-action comedy, followed the miserable shoe salesman Al Bundy and his family in Chicago to the strains of Frank Sinatra's 'Love and Marriage'?",
+      "o": [
+        "Married... with Children",
+        "Roseanne",
+        "Grace Under Fire",
+        "The Drew Carey Show"
+      ],
+      "a": 0,
+      "w": "Married... with Children, which ran from 1987 to 1997 with Ed O'Neill as Al and Katey Sagal as his big-haired wife Peggy. It was written as the anti-Cosby Show, and the network's first hit.",
+      "more": "A Michigan housewife's letter-writing campaign against the show in 1989 scared off several advertisers and roughly doubled the ratings. O'Neill went straight on to another long-running sitcom as Jay in Modern Family, and Sagal became the voice of Leela in Futurama. The show was cancelled without a proper finale; the cast learned about it from the news."
+    },
+    {
+      "d": "medium",
+      "q": "In April 1997, 42 million people watched 'The Puppy Episode', in which the star of which sitcom came out as gay, on screen and in real life, in the same week?",
+      "o": [
+        "Ellen",
+        "Cybill",
+        "Suddenly Susan",
+        "Caroline in the City"
+      ],
+      "a": 0,
+      "w": "Ellen, in which Ellen DeGeneres's character Ellen Morgan accidentally announced it into an airport microphone. DeGeneres appeared on the cover of Time the same month with the words 'Yep, I'm Gay'.",
+      "more": "The episode's title was an in-joke: when the writers had asked the network how to fix the character's love life, an executive suggested getting her a puppy. Oprah Winfrey played the therapist and Laura Dern the love interest, and Dern has said she could not get work for more than a year afterwards. The show was cancelled a season later, and DeGeneres did not work on television again until her talk show in 2003."
+    },
+    {
+      "d": "medium",
+      "q": "Which sitcom had John Lithgow leading a crew of aliens who had taken human form to study Earth from a small college town, with a teenage Joseph Gordon-Levitt as the oldest of them in a child's body?",
+      "o": [
+        "3rd Rock from the Sun",
+        "Mork & Mindy",
+        "ALF",
+        "Dinosaurs"
+      ],
+      "a": 0,
+      "w": "3rd Rock from the Sun, which ran on NBC from 1996 to 2001. Lithgow, as the high commander Dick Solomon, won three Emmys for it.",
+      "more": "Kristen Johnston played the security officer Sally, a man on his home planet who was furious about being given the female body, and French Stewart squinted his way through the whole run as Harry. The aliens' home planet was never named, and the show was made by the same couple who had created Grounded for Life and later That '70s Show. Gordon-Levitt left acting for college afterwards and came back as a film star."
+    },
+    {
+      "d": "hard",
+      "q": "Which sitcom's 1997 finale revealed that its entire final season, in which the family won the lottery, had been a story written by the title character, and that her husband Dan had in fact died of his heart attack?",
+      "o": [
+        "Roseanne",
+        "Grace Under Fire",
+        "Murphy Brown",
+        "The Nanny"
+      ],
+      "a": 0,
+      "w": "Roseanne, which had spent eight seasons as television's most honest portrait of a working-class family and then, in its ninth, had the Conners win 108 million dollars. The finale explained the whole year away as Roseanne's writing after Dan's death.",
+      "more": "The twist was so disliked that when the show was revived in 2018 the writers simply ignored it, and Dan was alive again. Roseanne Barr was fired from that revival within weeks over a racist tweet, and the show carried on without her as The Conners, killing her character off with an opioid overdose. The original's house exterior stands in Evansville, Indiana, and fans still turn up to photograph it."
+    },
+    {
+      "d": "hard",
+      "type": "order",
+      "q": "Put these sitcoms in the order their first episodes aired, earliest first.",
+      "o": [
+        "Blossom",
+        "Boy Meets World",
+        "Everybody Loves Raymond",
+        "Will & Grace"
+      ],
+      "w": "Blossom in January 1991, Boy Meets World in September 1993, Everybody Loves Raymond in September 1996 and Will & Grace in September 1998.",
+      "more": "Blossom's Mayim Bialik went on to a doctorate in neuroscience and then to play a neuroscientist in The Big Bang Theory, while Joey Lawrence's 'Whoa!' briefly made him a pop star. Boy Meets World's teacher Mr. Feeny followed the children from sixth grade to college, which took some arranging. Will & Grace is credited by Joe Biden, among others, with doing more to change American attitudes to gay people than anything else on television."
+    },
+    {
+      "d": "hard",
+      "type": "select",
+      "q": "Which of these 1990s sitcoms were set in New York City? Select all that apply.",
+      "o": [
+        "Mad About You",
+        "Spin City",
+        "Caroline in the City",
+        "Coach",
+        "Grace Under Fire",
+        "Step by Step"
+      ],
+      "a": [
+        0,
+        1,
+        2
+      ],
+      "w": "Mad About You followed a Manhattan couple, Paul Reiser and Helen Hunt; Spin City put Michael J. Fox in the mayor's office; and Caroline in the City was a cartoonist in Manhattan. Coach was set at a Minnesota college, Grace Under Fire in small-town Missouri and Step by Step in Wisconsin.",
+      "more": "Helen Hunt was paid a million dollars an episode for the last season of Mad About You, a record at the time. Fox left Spin City in 2000 as his Parkinson's disease worsened and was replaced by Charlie Sheen, whose character arrived as the new deputy mayor. Caroline in the City briefly crossed over with Friends, with its star Lea Thompson turning up in the Friends coffee shop, and nobody has quite explained why."
+    }
+  ]
+}

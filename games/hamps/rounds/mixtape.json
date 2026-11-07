@@ -1,0 +1,107 @@
+{
+  "id": "mixtape",
+  "name": "Mixtape",
+  "subject": "1980s music",
+  "requestId": "hamps:dFCmG1j3Xl0HqKfqhrZl",
+  "tagline": "Eleven questions on the decade of big hair and bigger choruses, from a Jersey anthem to a Grammy that had to be handed back. A theme the crew voted for.",
+  "draft": true,
+  "emblem": "📼",
+  "theme": {
+    "font": "Bungee",
+    "accent": "#C026D3",
+    "accent2": "#0EA5E9",
+    "accentDark": "#E879F9",
+    "accent2Dark": "#7DD3FC"
+  },
+  "questions": [
+    {
+      "d": "easy",
+      "q": "Which Bon Jovi hit of 1986, about Tommy and Gina getting by on love in hard times, has a chorus insisting 'Whoa, we're halfway there'?",
+      "o": ["Livin' on a Prayer", "You Give Love a Bad Name", "Wanted Dead or Alive", "Bad Medicine"],
+      "a": 0,
+      "w": "'Livin' on a Prayer', from the album Slippery When Wet, which sold 28 million copies and made the band from Sayreville, New Jersey, the biggest in the world for a couple of years.",
+      "more": "Jon Bon Jovi did not think much of the song at first and had to be talked into keeping it on the album. The key change in the final chorus, up a minor third, is one of the most imitated in pop, and the song became a stadium singalong for teams from the New Jersey Devils to Celtic. The band's 1989 acoustic version of it at the MTV awards is sometimes credited with starting the unplugged craze."
+    },
+    {
+      "d": "easy",
+      "q": "Which singer's 1987 debut single, 'Never Gonna Give You Up', came back twenty years later as the internet prank known as Rickrolling?",
+      "o": ["Rick Astley", "Rick Springfield", "Rick James", "Rick Ocasek"],
+      "a": 0,
+      "w": "Rick Astley, a tea boy at the Stock Aitken Waterman studio in London who was given a song and an impossibly deep voice for a 21-year-old with a quiff. It was number one in 25 countries.",
+      "more": "Rickrolling began in 2007 when a link promising a video-game trailer sent people to the song instead, and Astley gamely rolled himself onto the Macy's Thanksgiving parade float in 2008. He quit music at 27, came back in his fifties, and in 2016 had a number one album in Britain singing and playing almost everything himself. The video's cheap dance moves have had well over a billion views."
+    },
+    {
+      "d": "easy",
+      "q": "'Africa' and 'Rosanna' were 1982 hits for which Los Angeles studio musicians, whose name most people assume comes from Dorothy's dog in The Wizard of Oz?",
+      "o": ["Toto", "Chicago", "Kansas", "Boston"],
+      "a": 0,
+      "w": "Toto, whose members had played on hundreds of other people's records, including most of Michael Jackson's Thriller. 'Africa' was written by a man who had never been there, from watching documentaries.",
+      "more": "The band has said the name was partly the dog and partly Latin for 'all-encompassing', which sounds like something decided afterwards. 'Africa' has had a strange second life: Weezer covered it in 2018 after a fan campaign, and a sound installation in the Namib Desert plays it on a loop, powered by solar panels. 'Rosanna' was named after the actress Rosanna Arquette, who was dating the keyboard player."
+    },
+    {
+      "d": "easy",
+      "q": "Which British duo became the first Western pop act to play in China, in 1985, the year their singer's 'Careless Whisper' topped the American chart?",
+      "o": ["Wham!", "Pet Shop Boys", "Tears for Fears", "Soft Cell"],
+      "a": 0,
+      "w": "Wham!, George Michael and Andrew Ridgeley, whose ten days in China were a publicity stunt by their manager that produced a documentary and a lot of bemused Chinese audiences who had been told not to dance.",
+      "more": "Michael wrote 'Careless Whisper' on a bus at seventeen, and its saxophone line took dozens of takes with several players before anyone could play it the way he hummed it. The duo split in 1986 with a farewell concert at Wembley; Michael went on to Faith, and Ridgeley to Formula Three racing and a quiet life in Cornwall. 'Last Christmas' finally reached number one in Britain in 2021, 36 years after it came out."
+    },
+    {
+      "d": "easy",
+      "q": "Which 1985 charity single, written by Michael Jackson and Lionel Richie and recorded overnight by more than forty stars under a sign reading 'Check your egos at the door', raised money for famine relief?",
+      "o": ["We Are the World", "Do They Know It's Christmas?", "That's What Friends Are For", "Hands Across America"],
+      "a": 0,
+      "w": "'We Are the World', produced by Quincy Jones and recorded in Los Angeles on the night of the American Music Awards, when everyone was already in town. It sold more than twenty million copies.",
+      "more": "Bob Dylan froze on his solo line until Stevie Wonder sang it back to him in a Dylan impression. Prince was invited and did not turn up, and Cyndi Lauper's jewellery jangled so much on the first take that she had to take it all off. The British record that inspired it, Band Aid's 'Do They Know It's Christmas?', had been recorded in a single day the previous November."
+    },
+    {
+      "d": "medium",
+      "q": "Which Dire Straits song, with a video of blocky computer-animated workmen, was the first clip played on MTV Europe in 1987 and features Sting singing 'I want my MTV'?",
+      "o": ["Money for Nothing", "Walk of Life", "Sultans of Swing", "Brothers in Arms"],
+      "a": 0,
+      "w": "'Money for Nothing', whose lyrics Mark Knopfler took down almost verbatim from a man he overheard in a New York appliance store sneering at the musicians on the shop's television screens.",
+      "more": "Sting's line was sung to the tune of his own 'Don't Stand So Close to Me', which earned him a songwriting credit. The album it came from, Brothers in Arms, was the first to sell a million copies on compact disc and the record everyone used to show off their new CD player. The video's animation looks primitive now and was the most expensive ever made at the time."
+    },
+    {
+      "d": "medium",
+      "q": "Which singer, 44 years old and largely written off after leaving an abusive marriage, made the comeback of the decade in 1984 with 'What's Love Got to Do with It', her first American number one?",
+      "o": ["Tina Turner", "Dionne Warwick", "Grace Jones", "Chaka Khan"],
+      "a": 0,
+      "w": "Tina Turner, who had left Ike Turner in 1976 with 36 cents and a petrol card and spent years playing cabaret. Private Dancer sold ten million copies and won her three Grammys in one night.",
+      "more": "The song had been turned down by Cliff Richard and recorded without success by Bucks Fizz before she took it. Turner went on to the biggest-selling tour of 1988 and a Guinness record crowd of 180,000 in Rio, and her 1986 memoir became the film with Angela Bassett. She retired to Switzerland, took citizenship there and died in 2023 at 83."
+    },
+    {
+      "d": "medium",
+      "q": "Which Paul Simon album of 1986, recorded partly in Johannesburg with Ladysmith Black Mambazo in defiance of a cultural boycott, won the Grammy for Album of the Year?",
+      "o": ["Graceland", "Hearts and Bones", "The Rhythm of the Saints", "Still Crazy After All These Years"],
+      "a": 0,
+      "w": "Graceland, which revived Simon's career after a flop and made the Zulu choir world-famous. The United Nations committee on apartheid criticised him for breaking the boycott, and some artists refused to appear with him.",
+      "more": "The title track is about a drive to Elvis Presley's mansion with his young son after his divorce from Carrie Fisher. 'You Can Call Me Al' was named after a party guest who mistook Simon and his wife for Al and Betty, and its video with Chevy Chase miming the words was the first one Simon enjoyed making. The album has sold around sixteen million copies."
+    },
+    {
+      "d": "hard",
+      "q": "Which duo had their 1990 Grammy for Best New Artist taken away when it emerged that they had not sung a note on their hits 'Girl You Know It's True' and 'Blame It on the Rain'?",
+      "o": ["Milli Vanilli", "Black Box", "C+C Music Factory", "Technotronic"],
+      "a": 0,
+      "w": "Milli Vanilli, two dancers from Munich, Rob Pilatus and Fab Morvan, who fronted vocals recorded by session singers for the German producer Frank Farian. A backing track skipped during a live show in 1989 and repeated 'girl you know it's' over and over.",
+      "more": "Farian confessed in November 1990 and the Grammy was revoked within days, the only time that has happened. The pair tried to relaunch themselves singing for real, and Pilatus spiralled into drugs and died in 1998 on the eve of a comeback tour. Farian had done the same thing a decade earlier with Boney M, whose frontman also never sang."
+    },
+    {
+      "d": "hard",
+      "type": "order",
+      "q": "Put these hits in the order they were released, earliest first.",
+      "o": ["'Don't Stop Believin'' by Journey", "'Every Breath You Take' by the Police", "'Walk Like an Egyptian' by the Bangles", "'Sweet Child o' Mine' by Guns N' Roses"],
+      "w": "Journey in 1981, the Police in 1983, the Bangles in 1986 and Guns N' Roses in 1988.",
+      "more": "'Don't Stop Believin'' never reached the top five when it came out and became the most downloaded song of the twentieth century only after The Sopranos ended on it in 2007. 'Every Breath You Take' is a stalker's song that gets played at weddings, and Sting has said the royalties from Puff Daddy's 1997 sample alone pay for his lunch every day. Slash came up with the riff of 'Sweet Child o' Mine' as a joke, a string-skipping exercise he thought was circus music."
+    },
+    {
+      "d": "hard",
+      "type": "select",
+      "q": "Which of these 1980s hits were written for films? Select all that apply.",
+      "o": ["'Footloose'", "'Take My Breath Away'", "'Flashdance... What a Feeling'", "'Jump'", "'Girls Just Want to Have Fun'", "'Karma Chameleon'"],
+      "a": [0, 1, 2],
+      "w": "'Footloose' by Kenny Loggins for the 1984 film, 'Take My Breath Away' by Berlin for Top Gun in 1986, and Irene Cara's 'Flashdance... What a Feeling' in 1983; the last two won the Oscar for best song. Van Halen, Cyndi Lauper and Culture Club wrote theirs for nobody but themselves.",
+      "more": "Loggins also sang 'Danger Zone' for Top Gun and 'I'm Alright' for Caddyshack, which earned him the title king of the movie soundtrack. 'Take My Breath Away' was written by Giorgio Moroder, the Italian producer who had invented much of disco's sound a decade earlier. 'Girls Just Want to Have Fun' was originally written by a man, Robert Hazard, as a song about a boy who gets lucky, and Lauper rewrote its meaning entirely."
+    }
+  ]
+}
