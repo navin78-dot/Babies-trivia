@@ -1,7 +1,7 @@
 {
   "game": "babies",
   "roundsDir": "rounds",
-  "today": "2026-11-06",
+  "today": "2026-11-07",
   "season": 7,
   "queueCount": 4,
   "target": 5,
@@ -32,40 +32,35 @@
       "requestId": null
     },
     {
-      "id": "fifty-nifty",
-      "name": "Fifty Nifty",
-      "subject": "The fifty states",
-      "onPollSince": "2026-11-05",
+      "id": "much-ado",
+      "name": "Much Ado",
+      "subject": "Shakespeare",
+      "onPollSince": "2026-11-07",
       "retired": false,
       "requestId": null
     }
   ],
   "poll": {
-    "key": "2026-11-05",
-    "closes": "2026-11-07",
-    "decides": "2026-11-08",
+    "key": "2026-11-07",
+    "closes": "2026-11-08",
+    "decides": "2026-11-10",
     "options": [
       {
-        "id": "fifty-nifty"
-      },
-      {
-        "id": "req:5xeOSJq5RzzgPspdH2Xr",
-        "theme": "90s sitcoms",
-        "by": "Shivangi Bhatt"
+        "id": "much-ado"
       }
     ]
   },
   "upcoming": [
     {
-      "day": "2026-11-07",
-      "id": "fifty-nifty",
-      "name": "Fifty Nifty",
-      "how": "queue"
-    },
-    {
       "day": "2026-11-08",
       "id": "req:5xeOSJq5RzzgPspdH2Xr",
       "name": null,
+      "how": "unwritten"
+    },
+    {
+      "day": "2026-11-10",
+      "id": "much-ado",
+      "name": "Much Ado",
       "how": "leading"
     }
   ],
@@ -255,9 +250,22 @@
       "id": "encore",
       "name": "Encore!",
       "how": "poll"
+    },
+    {
+      "day": "2026-11-07",
+      "id": "fifty-nifty",
+      "name": "Fifty Nifty",
+      "how": "queue"
     }
   ],
-  "requestsWaiting": [],
+  "requestsWaiting": [
+    {
+      "id": "5xeOSJq5RzzgPspdH2Xr",
+      "theme": "90s sitcoms",
+      "by": "Shivangi Bhatt",
+      "dropDay": "2026-11-08"
+    }
+  ],
   "ideas": [
     {
       "id": "5xeOSJq5RzzgPspdH2Xr",
@@ -302,6 +310,7 @@
     "Knock on Wood (Trees)",
     "Last Call (Wine, beer and cocktails)",
     "Mic Drop (Hip-hop)",
+    "Much Ado (Shakespeare)",
     "Page Turners (Books and authors)",
     "Period Pieces (Historical fashion)",
     "Pretty in Synth (1980s new wave)",
@@ -315,16 +324,16 @@
     "Where On Earth (Geography)",
     "Wild Things (Animals)"
   ],
-  "need": 1,
+  "need": 2,
   "games": {
     "hamps": {
       "game": "hamps",
       "roundsDir": "games/hamps/rounds",
-      "today": "2026-11-06",
+      "today": "2026-11-07",
       "season": 6,
-      "queueCount": 5,
+      "queueCount": 4,
       "target": 5,
-      "fill": 0,
+      "fill": 1,
       "queue": [
         {
           "id": "pedal-to-the-metal",
@@ -355,45 +364,28 @@
           "name": "Daily Grind",
           "subject": "Coffee",
           "onPollSince": "2026-11-01",
-          "retired": false,
+          "retired": true,
           "requestId": null
-        },
-        {
-          "id": "fun-size",
-          "name": "Fun Size",
-          "subject": "Candy bars",
-          "onPollSince": null,
-          "retired": false,
-          "requestId": "hamps:482yUmQcpMa2zb8T7k4O"
         }
       ],
       "poll": {
-        "key": "2026-11-05",
-        "closes": "2026-11-07",
-        "decides": "2026-11-08",
-        "options": [
-          {
-            "id": "daily-grind"
-          },
-          {
-            "id": "req:dFCmG1j3Xl0HqKfqhrZl",
-            "theme": "80s music",
-            "by": "Shan Bates"
-          }
-        ]
+        "key": "2026-11-07",
+        "closes": "2026-11-08",
+        "decides": "2026-11-10",
+        "options": []
       },
       "upcoming": [
-        {
-          "day": "2026-11-07",
-          "id": "fun-size",
-          "name": "Fun Size",
-          "how": "theme"
-        },
         {
           "day": "2026-11-08",
           "id": "req:dFCmG1j3Xl0HqKfqhrZl",
           "name": null,
-          "how": "leading"
+          "how": "unwritten"
+        },
+        {
+          "day": "2026-11-10",
+          "id": "pedal-to-the-metal",
+          "name": "Pedal to the Metal",
+          "how": "queue"
         }
       ],
       "dropped": [
@@ -558,9 +550,22 @@
           "id": "seventh-inning-stretch",
           "name": "Seventh-Inning Stretch",
           "how": "fallback"
+        },
+        {
+          "day": "2026-11-07",
+          "id": "fun-size",
+          "name": "Fun Size",
+          "how": "theme"
         }
       ],
-      "requestsWaiting": [],
+      "requestsWaiting": [
+        {
+          "id": "hamps:dFCmG1j3Xl0HqKfqhrZl",
+          "theme": "80s music",
+          "by": "Shan Bates",
+          "dropDay": "2026-11-08"
+        }
+      ],
       "ideas": [
         {
           "id": "dFCmG1j3Xl0HqKfqhrZl",
@@ -606,8 +611,8 @@
         "Trick or Treat (Halloween)",
         "Turning Points (World history)"
       ],
-      "need": 0
+      "need": 2
     }
   },
-  "totalNeed": 1
+  "totalNeed": 4
 }
