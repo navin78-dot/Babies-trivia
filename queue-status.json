@@ -3,9 +3,9 @@
   "roundsDir": "rounds",
   "today": "2026-11-07",
   "season": 7,
-  "queueCount": 4,
+  "queueCount": 6,
   "target": 5,
-  "fill": 1,
+  "fill": 0,
   "queue": [
     {
       "id": "golden-age",
@@ -38,6 +38,22 @@
       "onPollSince": "2026-11-07",
       "retired": false,
       "requestId": null
+    },
+    {
+      "id": "creepy-crawlies",
+      "name": "Creepy Crawlies",
+      "subject": "Insects",
+      "onPollSince": "2026-11-07",
+      "retired": false,
+      "requestId": null
+    },
+    {
+      "id": "studio-audience",
+      "name": "Studio Audience",
+      "subject": "1990s sitcoms",
+      "onPollSince": null,
+      "retired": false,
+      "requestId": "5xeOSJq5RzzgPspdH2Xr"
     }
   ],
   "poll": {
@@ -47,15 +63,18 @@
     "options": [
       {
         "id": "much-ado"
+      },
+      {
+        "id": "creepy-crawlies"
       }
     ]
   },
   "upcoming": [
     {
       "day": "2026-11-08",
-      "id": "req:5xeOSJq5RzzgPspdH2Xr",
-      "name": null,
-      "how": "unwritten"
+      "id": "studio-audience",
+      "name": "Studio Audience",
+      "how": "theme"
     },
     {
       "day": "2026-11-10",
@@ -258,21 +277,8 @@
       "how": "queue"
     }
   ],
-  "requestsWaiting": [
-    {
-      "id": "5xeOSJq5RzzgPspdH2Xr",
-      "theme": "90s sitcoms",
-      "by": "Shivangi Bhatt",
-      "dropDay": "2026-11-08"
-    }
-  ],
-  "ideas": [
-    {
-      "id": "5xeOSJq5RzzgPspdH2Xr",
-      "theme": "90s sitcoms",
-      "by": "Shivangi Bhatt"
-    }
-  ],
+  "requestsWaiting": [],
+  "ideas": [],
   "existingSubjects": [
     "Strike a Pose (Madonna)",
     "Over the Millennia (World history)",
@@ -295,6 +301,7 @@
     "Cape and Cowl (Comic books and superheroes)",
     "Console Wars (Video games)",
     "The Corner Office (Business leaders and companies)",
+    "Creepy Crawlies (Insects)",
     "Curtain Up (Broadway and musicals)",
     "Doctor's Orders (Medicine)",
     "Encore! (Classical music)",
@@ -315,6 +322,7 @@
     "Period Pieces (Historical fashion)",
     "Pretty in Synth (1980s new wave)",
     "Ripped From the Headlines (Current events, 2026)",
+    "Studio Audience (1990s sitcoms)",
     "Summer Blockbusters (Big movies)",
     "Terrible Lizards (Dinosaurs and prehistoric life)",
     "Thali Time (Indian food)",
@@ -324,16 +332,16 @@
     "Where On Earth (Geography)",
     "Wild Things (Animals)"
   ],
-  "need": 2,
+  "need": 0,
   "games": {
     "hamps": {
       "game": "hamps",
       "roundsDir": "games/hamps/rounds",
       "today": "2026-11-07",
       "season": 6,
-      "queueCount": 4,
+      "queueCount": 6,
       "target": 5,
-      "fill": 1,
+      "fill": 0,
       "queue": [
         {
           "id": "pedal-to-the-metal",
@@ -366,26 +374,46 @@
           "onPollSince": "2026-11-01",
           "retired": true,
           "requestId": null
+        },
+        {
+          "id": "going-for-gold",
+          "name": "Going for Gold",
+          "subject": "The Olympics",
+          "onPollSince": "2026-11-07",
+          "retired": false,
+          "requestId": null
+        },
+        {
+          "id": "mixtape",
+          "name": "Mixtape",
+          "subject": "1980s music",
+          "onPollSince": null,
+          "retired": false,
+          "requestId": "hamps:dFCmG1j3Xl0HqKfqhrZl"
         }
       ],
       "poll": {
         "key": "2026-11-07",
         "closes": "2026-11-08",
         "decides": "2026-11-10",
-        "options": []
+        "options": [
+          {
+            "id": "going-for-gold"
+          }
+        ]
       },
       "upcoming": [
         {
           "day": "2026-11-08",
-          "id": "req:dFCmG1j3Xl0HqKfqhrZl",
-          "name": null,
-          "how": "unwritten"
+          "id": "mixtape",
+          "name": "Mixtape",
+          "how": "theme"
         },
         {
           "day": "2026-11-10",
-          "id": "pedal-to-the-metal",
-          "name": "Pedal to the Metal",
-          "how": "queue"
+          "id": "going-for-gold",
+          "name": "Going for Gold",
+          "how": "leading"
         }
       ],
       "dropped": [
@@ -558,21 +586,8 @@
           "how": "theme"
         }
       ],
-      "requestsWaiting": [
-        {
-          "id": "hamps:dFCmG1j3Xl0HqKfqhrZl",
-          "theme": "80s music",
-          "by": "Shan Bates",
-          "dropDay": "2026-11-08"
-        }
-      ],
-      "ideas": [
-        {
-          "id": "dFCmG1j3Xl0HqKfqhrZl",
-          "theme": "80s music",
-          "by": "Shan Bates"
-        }
-      ],
+      "requestsWaiting": [],
+      "ideas": [],
       "existingSubjects": [
         "Art Attack (Art and artists)",
         "Binge Worthy (Television of the streaming age)",
@@ -592,11 +607,13 @@
         "Fun Size (Candy bars)",
         "Game On (Sport)",
         "Gods and Monsters (Mythology)",
+        "Going for Gold (The Olympics)",
         "Grape Expectations (Wine)",
         "High Seas (Ships, sailing and the sea)",
         "Kitchen Confidential (Food and drink)",
         "Laugh Track (Comedy)",
         "Log On (Technology and the internet)",
+        "Mixtape (1980s music)",
         "Money Talks (Money, markets and economics)",
         "Passport Control (Travel and world places)",
         "Pedal to the Metal (Cars and motoring)",
@@ -611,8 +628,8 @@
         "Trick or Treat (Halloween)",
         "Turning Points (World history)"
       ],
-      "need": 2
+      "need": 0
     }
   },
-  "totalNeed": 4
+  "totalNeed": 0
 }
