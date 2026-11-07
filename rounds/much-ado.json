@@ -1,0 +1,165 @@
+{
+  "id": "much-ado",
+  "name": "Much Ado",
+  "subject": "Shakespeare",
+  "tagline": "Eleven questions on the man from Stratford, from a Danish prince with a skull to the bed he left his wife. Starts easy, ends hard.",
+  "draft": true,
+  "emblem": "🎭",
+  "theme": {
+    "font": "IM Fell English",
+    "accent": "#6B21A8",
+    "accent2": "#B45309",
+    "accentDark": "#D8B4FE",
+    "accent2Dark": "#FBBF24"
+  },
+  "questions": [
+    {
+      "d": "easy",
+      "q": "'To be, or not to be, that is the question.' Which play is the brooding prince of Denmark asking it in?",
+      "o": [
+        "Hamlet",
+        "Macbeth",
+        "King Lear",
+        "Othello"
+      ],
+      "a": 0,
+      "w": "Hamlet, in the third act, while deciding whether to avenge his murdered father or end it all. It is Shakespeare's longest play, close to four hours uncut.",
+      "more": "The skull he addresses belongs to Yorick, the court jester he knew as a boy, and real skulls bequeathed by actors have been used in productions, including that of the pianist André Tchaikowsky at the Royal Shakespeare Company in 2008. Shakespeare's own son was called Hamnet and died at eleven, a few years before the play was written. Almost everyone is dead by the end, which is how you know it is a tragedy."
+    },
+    {
+      "d": "easy",
+      "q": "Which tragedy is so surrounded by superstition that actors refuse to say its name inside a theatre, calling it 'the Scottish play' instead?",
+      "o": [
+        "Macbeth",
+        "Hamlet",
+        "Julius Caesar",
+        "Titus Andronicus"
+      ],
+      "a": 0,
+      "w": "Macbeth, with its three witches, its sleepwalking queen and its ambitious general who murders his way to the throne. Saying the name is supposed to bring disaster, and the cure involves leaving the room, spinning round three times and swearing.",
+      "more": "It was written around 1606 for the new king, James I, who was Scottish, obsessed with witchcraft and descended from Banquo, which explains a great deal about the plot. It is Shakespeare's shortest tragedy. The curse legend is usually traced to the number of accidents in productions, most of which involve sword fights in the dark."
+    },
+    {
+      "d": "easy",
+      "q": "Shakespeare was born in 1564 and is buried in which English market town on the River Avon?",
+      "o": [
+        "Stratford-upon-Avon",
+        "Bath",
+        "Canterbury",
+        "Oxford"
+      ],
+      "a": 0,
+      "w": "Stratford-upon-Avon, in Warwickshire, where his father was a glove maker and sometime mayor. He died there on 23 April 1616, traditionally also his birthday, and is buried in Holy Trinity Church.",
+      "more": "His gravestone carries a curse on anyone who moves his bones, which is why he was never transferred to Westminster Abbey with the other poets. The town now draws about three million visitors a year to a house he may or may not have been born in. Nobody knows exactly what he did between leaving Stratford in the 1580s and turning up as a London playwright in 1592, a gap biographers call the lost years."
+    },
+    {
+      "d": "easy",
+      "q": "Which round, open-air London theatre, where many of his plays were first performed, was rebuilt near its original site on the south bank of the Thames and reopened in 1997?",
+      "o": [
+        "The Globe",
+        "The Rose",
+        "The Swan",
+        "The Curtain"
+      ],
+      "a": 0,
+      "w": "The Globe, built in 1599 from the timbers of an older playhouse that the company dismantled and carried across the river after a dispute with the landlord. Shakespeare owned a share of it.",
+      "more": "The original burned down in 1613 when a stage cannon set the thatched roof alight during a performance of Henry VIII; the only casualty was a man whose breeches caught fire and were put out with ale. The reconstruction was the life's work of the American actor Sam Wanamaker, who died before it opened, and it is the only building in London allowed a thatched roof since the Great Fire of 1666. Standing tickets in the yard still cost a few pounds, as they cost a penny in 1599."
+    },
+    {
+      "d": "easy",
+      "q": "In which comedy do the fairy king Oberon and his servant Puck meddle with lovers in a wood, and a weaver called Bottom wakes up with the head of a donkey?",
+      "o": [
+        "A Midsummer Night's Dream",
+        "Twelfth Night",
+        "As You Like It",
+        "The Taming of the Shrew"
+      ],
+      "a": 0,
+      "w": "A Midsummer Night's Dream, in which the fairy queen Titania falls in love with the donkey-headed Bottom under a spell. Puck sums it up: 'Lord, what fools these mortals be.'",
+      "more": "Mendelssohn wrote his famous Wedding March as incidental music for the play in 1842, and it became the standard tune for walking out of church after Queen Victoria's daughter used it in 1858. The play is the most performed Shakespeare comedy in schools, because it has fairies and nobody dies. Puck's other name, Robin Goodfellow, was a real figure of English folklore blamed for souring milk."
+    },
+    {
+      "d": "medium",
+      "q": "Which villain, often called the most purely evil character Shakespeare wrote, poisons Othello's mind against his wife Desdemona over a lost handkerchief?",
+      "o": [
+        "Iago",
+        "Edmund",
+        "Claudius",
+        "Shylock"
+      ],
+      "a": 0,
+      "w": "Iago, Othello's ensign, who never fully explains why and refuses to speak once he is caught: 'From this time forth I never will speak word.' He has more lines than Othello does.",
+      "more": "The 'green-eyed monster' of jealousy is Iago's phrase. Othello, a Black general in the service of Venice, was played by white actors in dark make-up for more than three centuries; the African-American actor Ira Aldridge took the role in London in 1825 to a mix of acclaim and racist abuse. Verdi turned the play into the opera Otello, and the Oscar-nominated 1995 film gave the part to Laurence Fishburne."
+    },
+    {
+      "d": "medium",
+      "q": "Who did the eighteen-year-old Shakespeare marry in a hurry in 1582, she being eight years older and already pregnant?",
+      "o": [
+        "Anne Hathaway",
+        "Mary Arden",
+        "Judith Sadler",
+        "Joan Hart"
+      ],
+      "a": 0,
+      "w": "Anne Hathaway, a farmer's daughter from the nearby village of Shottery. Their daughter Susanna was born six months after the wedding, followed by the twins Hamnet and Judith in 1585.",
+      "more": "Her family's thatched farmhouse, Anne Hathaway's Cottage, is now one of the most photographed buildings in England. Shakespeare spent most of the next twenty-five years in London while she stayed in Stratford, and what they thought of each other is anyone's guess. The actress Anne Hathaway was indeed named after her, by parents who clearly knew what they were doing."
+    },
+    {
+      "d": "medium",
+      "q": "Which late play, set on an enchanted island ruled by the exiled magician Prospero with his daughter Miranda, the spirit Ariel and the monster Caliban, is often read as Shakespeare's farewell to the stage?",
+      "o": [
+        "The Tempest",
+        "The Winter's Tale",
+        "Cymbeline",
+        "Pericles"
+      ],
+      "a": 0,
+      "w": "The Tempest, written around 1611. Prospero breaks his staff and drowns his book at the end, and Shakespeare retired to Stratford soon afterwards.",
+      "more": "Miranda's cry of 'O brave new world, that has such people in't' has been borrowed for book titles ever since. The island has been read as everything from Bermuda, where a real shipwreck had made news in 1609, to an allegory of colonialism, with Caliban as the dispossessed native. The 1956 science-fiction film Forbidden Planet is The Tempest in space, with a robot instead of a spirit."
+    },
+    {
+      "d": "hard",
+      "q": "In his will, Shakespeare left his wife a single item, which scholars have argued about for four centuries. What was it?",
+      "o": [
+        "His second-best bed",
+        "His writing desk",
+        "A share in the Globe",
+        "A single shilling"
+      ],
+      "a": 0,
+      "w": "His 'second best bed with the furniture', added between the lines as an afterthought. The rest went mainly to his daughter Susanna.",
+      "more": "Some read it as a snub; others point out that the best bed was kept for guests and the second-best was the marital one, so it may have been a tender gesture. Widows were in any case entitled to a third of the estate under common law, so Anne was not left destitute. The will, signed in a shaky hand a month before he died, is one of only six surviving examples of his signature, each spelled differently."
+    },
+    {
+      "d": "hard",
+      "type": "select",
+      "q": "Which of these words and phrases are first recorded in Shakespeare's plays? Select all that apply.",
+      "o": [
+        "Eyeball",
+        "Swagger",
+        "Wild-goose chase",
+        "Bucket list",
+        "Catch-22",
+        "Yolo"
+      ],
+      "a": [
+        0,
+        1,
+        2
+      ],
+      "w": "Eyeball, from The Tempest; swagger, from A Midsummer Night's Dream; and wild-goose chase, from Romeo and Juliet, where it described a horse race. Bucket list came from a 2007 film, Catch-22 from Joseph Heller's 1961 novel, and yolo from the internet.",
+      "more": "Shakespeare is credited with the first recorded use of around 1,700 words, including assassination, bedroom, lonely, gossip and fashionable, though he probably popularised many rather than inventing them. Phrases we still use include 'break the ice', 'heart of gold', 'in a pickle', 'the world's mine oyster' and 'good riddance'. The Oxford English Dictionary cites him more than any other writer."
+    },
+    {
+      "d": "hard",
+      "q": "True or false: all of Shakespeare's plays were published in his lifetime.",
+      "o": [
+        "True",
+        "False"
+      ],
+      "a": 1,
+      "w": "False. Eighteen of them, including Macbeth, Twelfth Night, Julius Caesar and The Tempest, appeared in print for the first time in the First Folio of 1623, seven years after his death, and would otherwise have been lost.",
+      "more": "The Folio was put together by two of his fellow actors, John Heminges and Henry Condell, from scripts and prompt books, and about 235 of the roughly 750 copies survive. One sold in New York in 2020 for just under ten million dollars, the most ever paid for a work of literature at auction. Plays in his day belonged to the acting company, not the author, and were often printed from pirated texts scribbled down in the audience."
+    }
+  ]
+}
