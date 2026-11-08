@@ -1,9 +1,9 @@
 {
   "game": "babies",
   "roundsDir": "rounds",
-  "today": "2026-11-07",
-  "season": 7,
-  "queueCount": 6,
+  "today": "2026-11-08",
+  "season": 8,
+  "queueCount": 5,
   "target": 5,
   "fill": 0,
   "queue": [
@@ -46,24 +46,13 @@
       "onPollSince": "2026-11-07",
       "retired": false,
       "requestId": null
-    },
-    {
-      "id": "studio-audience",
-      "name": "Studio Audience",
-      "subject": "1990s sitcoms",
-      "onPollSince": null,
-      "retired": false,
-      "requestId": "5xeOSJq5RzzgPspdH2Xr"
     }
   ],
   "poll": {
-    "key": "2026-11-07",
-    "closes": "2026-11-08",
-    "decides": "2026-11-10",
+    "key": "2026-11-08",
+    "closes": "2026-11-10",
+    "decides": "2026-11-12",
     "options": [
-      {
-        "id": "much-ado"
-      },
       {
         "id": "creepy-crawlies"
       }
@@ -71,15 +60,15 @@
   },
   "upcoming": [
     {
-      "day": "2026-11-08",
-      "id": "studio-audience",
-      "name": "Studio Audience",
-      "how": "theme"
-    },
-    {
       "day": "2026-11-10",
       "id": "much-ado",
       "name": "Much Ado",
+      "how": "poll"
+    },
+    {
+      "day": "2026-11-12",
+      "id": "creepy-crawlies",
+      "name": "Creepy Crawlies",
       "how": "leading"
     }
   ],
@@ -275,6 +264,12 @@
       "id": "fifty-nifty",
       "name": "Fifty Nifty",
       "how": "queue"
+    },
+    {
+      "day": "2026-11-08",
+      "id": "studio-audience",
+      "name": "Studio Audience",
+      "how": "theme"
     }
   ],
   "requestsWaiting": [],
@@ -337,9 +332,9 @@
     "hamps": {
       "game": "hamps",
       "roundsDir": "games/hamps/rounds",
-      "today": "2026-11-07",
-      "season": 6,
-      "queueCount": 6,
+      "today": "2026-11-08",
+      "season": 7,
+      "queueCount": 5,
       "target": 5,
       "fill": 0,
       "queue": [
@@ -382,38 +377,26 @@
           "onPollSince": "2026-11-07",
           "retired": false,
           "requestId": null
-        },
-        {
-          "id": "mixtape",
-          "name": "Mixtape",
-          "subject": "1980s music",
-          "onPollSince": null,
-          "retired": false,
-          "requestId": "hamps:dFCmG1j3Xl0HqKfqhrZl"
         }
       ],
       "poll": {
-        "key": "2026-11-07",
-        "closes": "2026-11-08",
-        "decides": "2026-11-10",
-        "options": [
-          {
-            "id": "going-for-gold"
-          }
-        ]
+        "key": "2026-11-08",
+        "closes": "2026-11-10",
+        "decides": "2026-11-12",
+        "options": []
       },
       "upcoming": [
-        {
-          "day": "2026-11-08",
-          "id": "mixtape",
-          "name": "Mixtape",
-          "how": "theme"
-        },
         {
           "day": "2026-11-10",
           "id": "going-for-gold",
           "name": "Going for Gold",
-          "how": "leading"
+          "how": "poll"
+        },
+        {
+          "day": "2026-11-12",
+          "id": "pedal-to-the-metal",
+          "name": "Pedal to the Metal",
+          "how": "queue"
         }
       ],
       "dropped": [
@@ -583,6 +566,12 @@
           "day": "2026-11-07",
           "id": "fun-size",
           "name": "Fun Size",
+          "how": "theme"
+        },
+        {
+          "day": "2026-11-08",
+          "id": "mixtape",
+          "name": "Mixtape",
           "how": "theme"
         }
       ],
