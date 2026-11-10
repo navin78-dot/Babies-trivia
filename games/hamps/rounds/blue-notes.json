@@ -1,0 +1,106 @@
+{
+  "id": "blue-notes",
+  "name": "Blue Notes",
+  "subject": "Jazz",
+  "tagline": "Eleven questions on America's own art form, from New Orleans street bands to a record that sold five million copies. Starts easy, ends hard.",
+  "draft": true,
+  "emblem": "🎷",
+  "theme": {
+    "font": "Josefin Slab",
+    "accent": "#1D4ED8",
+    "accent2": "#B45309",
+    "accentDark": "#93C5FD",
+    "accent2Dark": "#FCD34D"
+  },
+  "questions": [
+    {
+      "d": "easy",
+      "q": "Jazz grew up in the early 1900s in the clubs and street parades of which Louisiana city?",
+      "o": ["New Orleans", "Baton Rouge", "Memphis", "Mobile"],
+      "a": 0,
+      "w": "New Orleans, where African-American musicians blended ragtime, blues and brass-band marches. Its funeral parades, with sombre music out and lively music back, shaped the sound.",
+      "more": "The city's Congo Square had been a gathering place for enslaved and free Black people to make music in the 1800s, and its musicians were later drawn north to Chicago and New York. Storyville, a legal red-light district, employed many early players until it was shut in 1917. Jazz and the city are still bound together, and its annual Jazz Fest draws hundreds of thousands."
+    },
+    {
+      "d": "easy",
+      "q": "Which gravel-voiced trumpeter, nicknamed Satchmo, sang 'What a Wonderful World'?",
+      "o": ["Louis Armstrong", "Chet Baker", "Dizzy Gillespie", "Wynton Marsalis"],
+      "a": 0,
+      "w": "Louis Armstrong, born in New Orleans around 1901. He is credited with turning jazz from collective improvisation into a showcase for solo virtuosity.",
+      "more": "He recorded 'What a Wonderful World' in 1967 and it was a flop in America but a number one in Britain, and it found its biggest audience after its use in a 1987 film. His early Hot Five and Hot Seven recordings of the 1920s are the most influential in the music's history. He kept touring until shortly before his death in 1971."
+    },
+    {
+      "d": "easy",
+      "q": "What is the name for the jazz technique of singing improvised nonsense syllables as if the voice were an instrument, made famous by Ella Fitzgerald?",
+      "o": ["Scat singing", "Vocalese", "Yodelling", "Beatboxing"],
+      "a": 0,
+      "w": "Scat singing. Armstrong is said to have popularised it after dropping his lyric sheet during a 1926 recording and improvising the words.",
+      "more": "Ella Fitzgerald, known as the First Lady of Song, was a master of it, and won thirteen Grammys across a career of more than five decades. Her 'songbook' albums, which each covered one composer, are classics. She discovered she could sing at an amateur night in Harlem at seventeen, when she meant to dance."
+    },
+    {
+      "d": "easy",
+      "q": "Which instrumental from 1959, written in the unusual 5/4 time, was the first jazz single to sell a million copies?",
+      "o": ["Take Five", "So What", "Round Midnight", "Autumn Leaves"],
+      "a": 0,
+      "w": "'Take Five', recorded by the Dave Brubeck Quartet and composed by their saxophonist Paul Desmond. Its odd rhythm made it instantly recognisable.",
+      "more": "It came from the album Time Out, which experimented with unusual time signatures and became the first jazz album to sell a million copies. Brubeck had toured the Middle East and Asia and heard the rhythms there. The record company was so sure it wouldn't sell that it almost didn't release it."
+    },
+    {
+      "d": "easy",
+      "q": "Which 1959 album, recorded in two sessions in New York, is generally reckoned the best-selling jazz record of all time?",
+      "o": ["Kind of Blue", "Giant Steps", "A Love Supreme", "Time Out"],
+      "a": 0,
+      "w": "Kind of Blue, built on scales and modes rather than chord changes. It has sold more than five million copies in the United States.",
+      "more": "The musicians had very little preparation: the band leader sketched out the ideas shortly before the sessions and the players recorded most tracks in one take. The line-up included John Coltrane, Cannonball Adderley and Bill Evans. In 2009 the US House of Representatives passed a resolution honouring it as a national treasure."
+    },
+    {
+      "d": "medium",
+      "q": "Which saxophonist, nicknamed 'Bird', co-created the fast, complex style of bebop with Dizzy Gillespie in the 1940s?",
+      "o": ["Charlie Parker", "Sonny Rollins", "Stan Getz", "Lester Young"],
+      "a": 0,
+      "w": "Charlie Parker, who played alto saxophone and recorded dazzling improvisations at astonishing speed. He died at 34 in 1955.",
+      "more": "His nickname probably came from a story about a chicken that was run over by the band's car and cooked afterwards. He transformed jazz from dance music into an art music for listeners, which shaped everything after. The New York jazz club Birdland was named in his honour."
+    },
+    {
+      "d": "medium",
+      "q": "Which singer, nicknamed Lady Day, recorded 'Strange Fruit' in 1939, a haunting song about the lynching of Black Americans?",
+      "o": ["Billie Holiday", "Sarah Vaughan", "Nina Simone", "Dinah Washington"],
+      "a": 0,
+      "w": "Billie Holiday. The song's lyrics came from a poem by a New York schoolteacher, Abel Meeropol, and she closed her sets with it, in a darkened room, with no encore.",
+      "more": "Her record company would not release it and it appeared on a small label. She struggled with addiction and racism through her career and died at 44 in 1959. Her voice, small and fragile, made her a model for generations of singers."
+    },
+    {
+      "d": "medium",
+      "q": "Which Greenwich Village basement club, open since 1935 and famed for its acoustics, has hosted live recordings by John Coltrane and Bill Evans?",
+      "o": ["The Village Vanguard", "The Blue Note", "Birdland", "The Cotton Club"],
+      "a": 0,
+      "w": "The Village Vanguard, a wedge-shaped room on Seventh Avenue South. It began as a place for poets and folk singers and became jazz's most revered stage.",
+      "more": "Coltrane's 1961 Live at the Village Vanguard and Evans's Sunday at the Village Vanguard, made in 1961, are classics. The club still holds its Monday-night residency by the Vanguard Jazz Orchestra, which began in 1966. The Cotton Club was a Harlem venue that barred Black patrons."
+    },
+    {
+      "d": "hard",
+      "q": "Which 1965 four-part suite by John Coltrane, a spiritual offering of thanks, is often named among the greatest jazz albums?",
+      "o": ["A Love Supreme", "Blue Train", "My Favorite Things", "Giant Steps"],
+      "a": 0,
+      "w": "A Love Supreme, recorded in a single evening in December 1964. Coltrane described it as a thanks to God after he overcame heroin addiction.",
+      "more": "Its four parts are 'Acknowledgement', 'Resolution', 'Pursuance' and 'Psalm', and the last is Coltrane's saxophone playing the words of his own prayer. The record was a surprise commercial success for such demanding music. Coltrane died of liver cancer in 1967 at 40."
+    },
+    {
+      "d": "hard",
+      "type": "order",
+      "q": "Put these jazz milestones in order, earliest first.",
+      "o": ["The Original Dixieland Jazz Band cuts the first jazz record", "Duke Ellington's orchestra begins at the Cotton Club", "Parker and Gillespie record 'Ko-Ko'", "Ornette Coleman records Free Jazz"],
+      "w": "The first jazz record in 1917, Ellington's Cotton Club residency from late 1927, 'Ko-Ko' in November 1945 and Free Jazz in December 1960.",
+      "more": "The Original Dixieland Jazz Band was a white group from New Orleans, which is why many historians note that the first recording does not reflect the music's Black origins. Ellington's years at the Cotton Club gave him a radio audience across the country. Coleman's Free Jazz used two quartets improvising together with no fixed chords, and its title named a movement."
+    },
+    {
+      "d": "hard",
+      "type": "select",
+      "q": "Which of these jazz musicians were pianists? Select all that apply.",
+      "o": ["Thelonious Monk", "Bill Evans", "Herbie Hancock", "Dizzy Gillespie", "Charles Mingus", "Art Blakey"],
+      "a": [0, 1, 2],
+      "w": "Monk, Evans and Hancock all played piano. Gillespie was a trumpeter, Mingus a double-bassist and Blakey a drummer.",
+      "more": "Monk wrote 'Round Midnight', one of the most recorded jazz standards, and wore hats and sunglasses on stage. Hancock played with Miles Davis as a young man, then had a pop hit with 'Rockit' in 1983. Evans's gentle, harmonically rich style shaped almost every jazz pianist who followed."
+    }
+  ]
+}
