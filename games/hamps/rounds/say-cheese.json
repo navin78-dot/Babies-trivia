@@ -1,0 +1,106 @@
+{
+  "id": "say-cheese",
+  "name": "Say Cheese",
+  "subject": "Photography",
+  "tagline": "Eleven questions on the art of freezing a moment, from a view out of a window in France to a nanny whose photographs were found in a storage locker. Starts easy, ends hard.",
+  "draft": true,
+  "emblem": "📷",
+  "theme": {
+    "font": "Special Elite",
+    "accent": "#334155",
+    "accent2": "#DC2626",
+    "accentDark": "#CBD5E1",
+    "accent2Dark": "#FCA5A5"
+  },
+  "questions": [
+    {
+      "d": "easy",
+      "q": "Which company, founded by George Eastman, made photography popular with the slogan 'You press the button, we do the rest'?",
+      "o": ["Kodak", "Polaroid", "Fujifilm", "Agfa"],
+      "a": 0,
+      "w": "Kodak. Eastman's first mass-market camera, in 1888, came loaded with film for a hundred pictures and was posted back to the company for developing.",
+      "more": "In 1900 the cheap Brownie camera, priced at one dollar, put photography in the hands of children and ordinary families. Kodak invented the first digital camera in 1975 but sat on it to protect its film business, and filed for bankruptcy in 2012. It emerged from bankruptcy as a much smaller company."
+    },
+    {
+      "d": "easy",
+      "q": "Which instant camera, invented by Edwin Land, produced a finished print within about a minute from 1948?",
+      "o": ["The Polaroid", "The Brownie", "The Leica", "The Instamatic"],
+      "a": 0,
+      "w": "The Polaroid Land Camera. Land came up with the idea after his three-year-old daughter asked why she couldn't see a photograph he had just taken.",
+      "more": "Land founded the company in 1937 and was often compared to Steve Jobs for his showmanship, with Jobs himself calling him a hero. Polaroid went bankrupt in 2001 and again in 2008, but a group of enthusiasts revived instant film. Andy Warhol was a prolific Polaroid photographer of his friends."
+    },
+    {
+      "d": "easy",
+      "q": "In photography, which setting controls how long the shutter stays open, freezing fast motion or blurring it?",
+      "o": ["Shutter speed", "Aperture", "ISO", "White balance"],
+      "a": 0,
+      "w": "Shutter speed, measured in fractions of a second. A fast setting such as 1/1000 freezes a bird in flight, while a slow one smears moving water into silk.",
+      "more": "Aperture controls how wide the lens opens and so how much light enters and how much of the picture is in focus, while ISO sets the sensor's sensitivity. Together the three are called the exposure triangle. The earliest photographs needed exposures of hours or even days, which is why early portraits show people stiffly posed with clamps behind their heads."
+    },
+    {
+      "d": "easy",
+      "q": "Which brownish tone, named after the ink of the cuttlefish, gives old photographs their antique look?",
+      "o": ["Sepia", "Ochre", "Umber", "Sienna"],
+      "a": 0,
+      "w": "Sepia, from the Greek word for cuttlefish. Photographers toned prints in sepia because it made them last longer, not just look warmer.",
+      "more": "Sepia ink was used by artists long before photography. Toning replaced the silver in the image with a more stable compound, so sepia prints often survive better than untoned ones. Phone filters that imitate the look are among the most commonly used."
+    },
+    {
+      "d": "easy",
+      "q": "Which magazine, founded in 1888 and recognisable by its yellow border, made photographs of far-off places and animals famous around the world?",
+      "o": ["National Geographic", "Life", "Vogue", "Time"],
+      "a": 0,
+      "w": "National Geographic, published by a society of explorers and scientists in Washington. Its 1985 cover of an Afghan girl with sea-green eyes is among the most famous photographs ever taken.",
+      "more": "The photographer, Steve McCurry, found the girl again in 2002, seventeen years later, and she turned out to be named Sharbat Gula. The magazine was among the first to print colour photographs in volume. It has been published in dozens of languages and its yellow rectangle is one of the best-known magazine logos."
+    },
+    {
+      "d": "medium",
+      "q": "Which French photographer, co-founder of the Magnum agency, coined the phrase 'the decisive moment' for the instant when a scene comes together?",
+      "o": ["Henri Cartier-Bresson", "Robert Doisneau", "Brassaï", "Eugène Atget"],
+      "a": 0,
+      "w": "Henri Cartier-Bresson, who worked with a small Leica and never cropped his pictures. His 1952 book on the idea is among the most influential in photography.",
+      "more": "He co-founded Magnum Photos in 1947 with Robert Capa and others, as a cooperative owned by its photographers. He trained as a painter and often said that he had given up photography for drawing in later life. He didn't want to be recognised and kept his face out of the public eye for years."
+    },
+    {
+      "d": "medium",
+      "q": "Which war photographer's pictures of the D-Day landings on Omaha Beach in 1944 were mostly ruined in a darkroom accident, leaving a few blurred frames?",
+      "o": ["Robert Capa", "Margaret Bourke-White", "Don McCullin", "W. Eugene Smith"],
+      "a": 0,
+      "w": "Robert Capa, who waded ashore with the first wave. A lab assistant dried his film too hot, melting the emulsion on all but eleven frames.",
+      "more": "Life magazine captioned the survivors as 'slightly out of focus', which Capa turned into the title of his memoir. He said that if your pictures weren't good enough, you weren't close enough. He died in 1954 after stepping on a landmine in Vietnam while covering the French war there."
+    },
+    {
+      "d": "medium",
+      "q": "Which Frenchman made the earliest surviving photograph from nature, 'View from the Window at Le Gras', in the 1820s, with an exposure of many hours?",
+      "o": ["Nicéphore Niépce", "Louis Daguerre", "Hippolyte Bayard", "Nadar"],
+      "a": 0,
+      "w": "Nicéphore Niépce, who coated a pewter plate with bitumen that hardened where light struck it. The picture shows rooftops outside his home, lit from both sides because the sun moved during the exposure.",
+      "more": "He later went into partnership with Daguerre, who developed a faster process after Niépce's death in 1833 and announced it to the world in 1839. The plate is kept at the University of Texas and was long thought lost. Niépce had also been working on an engine and, among other inventions, a bicycle-like machine."
+    },
+    {
+      "d": "hard",
+      "q": "Which Chicago nanny's more than 100,000 street photographs, taken from the 1950s on, were found unseen in storage lockers bought at auction and made her one of the most celebrated photographers of her time after her death?",
+      "o": ["Vivian Maier", "Diane Arbus", "Gordon Parks", "Helen Levitt"],
+      "a": 0,
+      "w": "Vivian Maier, who worked as a nanny and never showed her pictures to anyone. A young collector, John Maloof, bought a box of her negatives in 2007 and began tracing who she was.",
+      "more": "She died in 2009, shortly before her work became widely known. Her self-portraits in shop windows and mirrors are among her best-known images. A 2013 documentary, Finding Vivian Maier, was nominated for an Oscar."
+    },
+    {
+      "d": "hard",
+      "type": "order",
+      "q": "Put these photographic milestones in order, earliest first.",
+      "o": ["The daguerreotype is announced", "The Kodak Brownie goes on sale", "The Polaroid Land Camera appears", "The first digital camera is built"],
+      "w": "The daguerreotype in 1839, the Brownie in 1900, the Polaroid Land Camera in 1948 and the first digital camera in 1975.",
+      "more": "The digital prototype was built by a Kodak engineer, Steve Sasson, and weighed about eight pounds. It recorded a black-and-white picture in 23 seconds onto a cassette tape. Kodak's management, he later said, reacted by asking him to keep it quiet."
+    },
+    {
+      "d": "hard",
+      "type": "select",
+      "q": "Which of these are photographers? Select all that apply.",
+      "o": ["Annie Leibovitz", "Richard Avedon", "Cindy Sherman", "Jeff Koons", "Roy Lichtenstein", "Keith Haring"],
+      "a": [0, 1, 2],
+      "w": "Annie Leibovitz, Richard Avedon and Cindy Sherman. Koons was a sculptor, Lichtenstein a painter of comic-book pictures and Haring a street artist.",
+      "more": "Leibovitz took the 1980 Rolling Stone cover of John Lennon curled naked around Yoko Ono, hours before his death. Avedon became famous for stark white-background portraits of everyone from the Beatles to Marilyn Monroe. Sherman is best known for photographing herself in a series of invented characters, such as film stills of women who never existed."
+    }
+  ]
+}

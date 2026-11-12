@@ -1,0 +1,167 @@
+{
+  "id": "party-time",
+  "name": "Party Time",
+  "subject": "Festivals around the world",
+  "tagline": "Eleven questions on the days the world stops to celebrate, from lamps and coloured powder to a German beer tent the size of a village. Starts easy, ends hard.",
+  "draft": true,
+  "emblem": "🎉",
+  "theme": {
+    "font": "Pacifico",
+    "accent": "#C2410C",
+    "accent2": "#7E22CE",
+    "accentDark": "#FDBA74",
+    "accent2Dark": "#D8B4FE"
+  },
+  "questions": [
+    {
+      "d": "easy",
+      "q": "Which Jewish festival of lights, lasting eight nights, is marked by lighting one more candle each evening on a special nine-branched candelabrum?",
+      "o": [
+        "Hanukkah",
+        "Passover",
+        "Purim",
+        "Sukkot"
+      ],
+      "a": 0,
+      "w": "Hanukkah, which remembers the rededication of the Temple in Jerusalem in the second century BCE. The candelabrum is called a hanukkiah, and its ninth candle, the shamash, is used to light the others.",
+      "more": "The story says a day's supply of sacred oil burned for eight days. Families eat foods fried in oil, such as potato latkes and jam doughnuts, play a spinning-top game called dreidel and give small gifts or gelt, chocolate coins. Hanukkah falls in November or December and is a minor festival in the Jewish calendar, though it has become better known because of its closeness to Christmas."
+    },
+    {
+      "d": "easy",
+      "q": "Which festival, with dragon dances, red envelopes of money and family reunion dinners, marks the start of the lunar new year in China?",
+      "o": [
+        "Chinese New Year",
+        "The Mid-Autumn Festival",
+        "The Dragon Boat Festival",
+        "The Lantern Festival"
+      ],
+      "a": 0,
+      "w": "Chinese New Year, also called the Spring Festival, which falls between late January and mid-February. It ends fifteen days later with the Lantern Festival.",
+      "more": "Each year is linked to one of twelve zodiac animals, and the journeys home around it are called the largest annual human migration on Earth, with billions of trips made in a few weeks. Red is thought to scare away a monster called Nian. Children receive money in red envelopes, and sweeping the house during the festival is traditionally avoided in case luck is swept away."
+    },
+    {
+      "d": "easy",
+      "q": "Which German city hosts Oktoberfest, the world's largest beer festival, which begins in September and draws around six million visitors?",
+      "o": [
+        "Munich",
+        "Berlin",
+        "Hamburg",
+        "Cologne"
+      ],
+      "a": 0,
+      "w": "Munich, where the festival began in 1810 as a party for the wedding of the Bavarian crown prince, and has been held on the Theresienwiese ever since.",
+      "more": "Only beer brewed within Munich's city limits can be served, and it is poured in one-litre glasses called Maß. The festival has been cancelled over two dozen times for wars and epidemics, including in 2020 and 2021. Visitors drink millions of litres and eat hundreds of thousands of roast chickens."
+    },
+    {
+      "d": "easy",
+      "q": "Which Mexican festival, held on 1 and 2 November, has families build altars with marigolds, sugar skulls and photographs to welcome back the spirits of the dead?",
+      "o": [
+        "The Day of the Dead",
+        "Cinco de Mayo",
+        "Las Posadas",
+        "The Guelaguetza"
+      ],
+      "a": 0,
+      "w": "The Day of the Dead, or Día de los Muertos. It is a joyful remembrance, not a sad one, and is recognised by UNESCO as intangible cultural heritage.",
+      "more": "Families clean graves, leave out the dead person's favourite food and sometimes spend the night in the cemetery. Cinco de Mayo, often confused with Mexican independence, actually marks a battle against the French in 1862. The Day of the Dead's imagery, including the skeleton figure La Catrina, became widely known through the 2017 film Coco."
+    },
+    {
+      "d": "easy",
+      "q": "Which spring festival, in which people throw coloured powder and water at one another, celebrates the victory of good over evil in Hindu tradition?",
+      "o": [
+        "Holi",
+        "Diwali",
+        "Onam",
+        "Pongal"
+      ],
+      "a": 0,
+      "w": "Holi, the festival of colours, held at the full moon in February or March. It is also celebrated by Hindu communities around the world and by many who are not Hindu.",
+      "more": "It begins with a bonfire the night before, recalling the story of Prahlada and his aunt Holika. In the next day's play, strangers and friends alike are splashed and powdered with colours called gulal, and special drinks and sweets are shared. Colour runs inspired by it are now held in many countries."
+    },
+    {
+      "d": "medium",
+      "q": "In which year did Abraham Lincoln proclaim Thanksgiving a national holiday in the United States, in the middle of the Civil War?",
+      "o": [
+        "1863",
+        "1776",
+        "1789",
+        "1914"
+      ],
+      "a": 0,
+      "w": "1863, in a proclamation that urged Americans to give thanks. He set it for the last Thursday of November.",
+      "more": "Sarah Josepha Hale, the editor of a women's magazine and the author of 'Mary Had a Little Lamb', had campaigned for it for years with letters to presidents. In 1939 Franklin Roosevelt moved it a week earlier to extend the Christmas shopping season, which angered many; in 1941 Congress fixed it at the fourth Thursday, where it remains."
+    },
+    {
+      "d": "medium",
+      "q": "Which Islamic festival marks the end of Ramadan, the month of daytime fasting, with prayers, charity and feasts?",
+      "o": [
+        "Eid al-Fitr",
+        "Eid al-Adha",
+        "Mawlid",
+        "Ashura"
+      ],
+      "a": 0,
+      "w": "Eid al-Fitr, the 'festival of breaking the fast', which begins when the new moon is sighted and lasts up to three days.",
+      "more": "Muslims give a donation called zakat al-fitr to the poor before the Eid prayer, so that everyone can join the celebration. Eid al-Adha, the 'festival of sacrifice', falls about two months later and marks the end of the annual pilgrimage to Mecca. Because the Islamic calendar is lunar, Eid moves about eleven days earlier each year in the Western calendar."
+    },
+    {
+      "d": "medium",
+      "q": "Which Scots word is used for New Year's Eve and the celebrations that go with it, including first-footing, in which the first visitor of the year brings gifts?",
+      "o": [
+        "Hogmanay",
+        "Beltane",
+        "Burns Night",
+        "Samhain"
+      ],
+      "a": 0,
+      "w": "Hogmanay. A tall dark-haired stranger bringing coal, shortbread or whisky is the luckiest first-foot, and a fair or red-haired one the unluckiest.",
+      "more": "Edinburgh's street party draws up to 75,000 people to a fireworks display, and the custom of joining hands to sing 'Auld Lang Syne' at midnight spread from Scotland around the world. The song's words were written by Robert Burns in 1788. The Scots once made more of New Year than of Christmas, which the Church of Scotland discouraged for centuries."
+    },
+    {
+      "d": "hard",
+      "q": "What is the Japanese custom of gathering under blossoming cherry trees in spring to picnic and admire the flowers called?",
+      "o": [
+        "Hanami",
+        "Tanabata",
+        "Obon",
+        "Setsubun"
+      ],
+      "a": 0,
+      "w": "Hanami, literally 'flower viewing'. Families, friends and colleagues spread out blue tarpaulins, often hours or days ahead to save a spot, and eat and drink beneath the petals.",
+      "more": "The practice goes back more than a thousand years, to the Heian court in Kyoto. Weather forecasters publish a 'cherry blossom front' that moves north up the country from late March, and the blossoms last only about a week, which is part of the point. Their brief beauty is a classic symbol of the fleeting nature of life."
+    },
+    {
+      "d": "hard",
+      "type": "order",
+      "q": "Put these festivals in the order they usually fall in the calendar year, earliest first.",
+      "o": [
+        "Chinese New Year",
+        "Holi",
+        "Oktoberfest",
+        "Thanksgiving"
+      ],
+      "w": "Chinese New Year in late January or February, Holi in March, Oktoberfest from late September into early October, and Thanksgiving on the fourth Thursday of November.",
+      "more": "Chinese New Year follows the lunar calendar, so its date moves from year to year, while Oktoberfest is fixed to end on the first Sunday in October. Holi falls at a full moon in the Hindu month of Phalguna. Thanksgiving in Canada is held earlier, on the second Monday of October."
+    },
+    {
+      "d": "hard",
+      "type": "select",
+      "q": "Which of these festivals take place in Spain? Select all that apply.",
+      "o": [
+        "La Tomatina",
+        "The Running of the Bulls",
+        "Las Fallas",
+        "Oktoberfest",
+        "Holi",
+        "Songkran"
+      ],
+      "a": [
+        0,
+        1,
+        2
+      ],
+      "w": "La Tomatina, a tomato fight in Buñol; the Running of the Bulls at San Fermín in Pamplona; and Las Fallas, in Valencia, where huge papier-mâché sculptures are burned. Oktoberfest is German, Holi Indian and Songkran Thai.",
+      "more": "La Tomatina is held on the last Wednesday of August and now caps its crowd with ticketed entry. The Pamplona bull run covers an 875-metre route and appears in Ernest Hemingway's novel The Sun Also Rises. Las Fallas finishes each March with the burning of hundreds of sculptures in a night of fire called La Cremà."
+    }
+  ]
+}
