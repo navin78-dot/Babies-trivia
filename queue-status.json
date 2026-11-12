@@ -3,9 +3,9 @@
   "roundsDir": "rounds",
   "today": "2026-11-12",
   "season": 8,
-  "queueCount": 4,
+  "queueCount": 5,
   "target": 5,
-  "fill": 1,
+  "fill": 0,
   "queue": [
     {
       "id": "golden-age",
@@ -38,13 +38,25 @@
       "onPollSince": "2026-11-10",
       "retired": false,
       "requestId": "C9mEnzMMmWwvMBb4N1t9"
+    },
+    {
+      "id": "party-time",
+      "name": "Party Time",
+      "subject": "Festivals around the world",
+      "onPollSince": "2026-11-12",
+      "retired": false,
+      "requestId": null
     }
   ],
   "poll": {
     "key": "2026-11-12",
     "closes": "2026-11-14",
     "decides": "2026-11-15",
-    "options": []
+    "options": [
+      {
+        "id": "party-time"
+      }
+    ]
   },
   "upcoming": [
     {
@@ -55,9 +67,9 @@
     },
     {
       "day": "2026-11-15",
-      "id": "golden-age",
-      "name": "Golden Age",
-      "how": "queue"
+      "id": "party-time",
+      "name": "Party Time",
+      "how": "leading"
     }
   ],
   "dropped": [
@@ -315,6 +327,7 @@
     "Mic Drop (Hip-hop)",
     "Much Ado (Shakespeare)",
     "Page Turners (Books and authors)",
+    "Party Time (Festivals around the world)",
     "Period Pieces (Historical fashion)",
     "Pretty in Synth (1980s new wave)",
     "Ripped From the Headlines (Current events, 2026)",
@@ -328,16 +341,16 @@
     "Where On Earth (Geography)",
     "Wild Things (Animals)"
   ],
-  "need": 1,
+  "need": 0,
   "games": {
     "hamps": {
       "game": "hamps",
       "roundsDir": "games/hamps/rounds",
       "today": "2026-11-12",
       "season": 7,
-      "queueCount": 4,
+      "queueCount": 5,
       "target": 5,
-      "fill": 1,
+      "fill": 0,
       "queue": [
         {
           "id": "money-talks",
@@ -370,13 +383,25 @@
           "onPollSince": "2026-11-10",
           "retired": false,
           "requestId": null
+        },
+        {
+          "id": "say-cheese",
+          "name": "Say Cheese",
+          "subject": "Photography",
+          "onPollSince": "2026-11-12",
+          "retired": false,
+          "requestId": null
         }
       ],
       "poll": {
         "key": "2026-11-12",
         "closes": "2026-11-14",
         "decides": "2026-11-15",
-        "options": []
+        "options": [
+          {
+            "id": "say-cheese"
+          }
+        ]
       },
       "upcoming": [
         {
@@ -387,9 +412,9 @@
         },
         {
           "day": "2026-11-15",
-          "id": "money-talks",
-          "name": "Money Talks",
-          "how": "queue"
+          "id": "say-cheese",
+          "name": "Say Cheese",
+          "how": "leading"
         }
       ],
       "dropped": [
@@ -616,6 +641,7 @@
         "Reel Talk (Movies)",
         "Required Reading (Books and writers)",
         "Saturday Morning (Saturday-morning cartoons)",
+        "Say Cheese (Photography)",
         "Say What (Words and language)",
         "Seventh-Inning Stretch (Baseball)",
         "Solar Flair (The planets)",
@@ -623,8 +649,8 @@
         "Trick or Treat (Halloween)",
         "Turning Points (World history)"
       ],
-      "need": 1
+      "need": 0
     }
   },
-  "totalNeed": 2
+  "totalNeed": 0
 }
