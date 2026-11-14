@@ -3,9 +3,9 @@
   "roundsDir": "rounds",
   "today": "2026-11-14",
   "season": 8,
-  "queueCount": 4,
+  "queueCount": 5,
   "target": 5,
-  "fill": 1,
+  "fill": 0,
   "queue": [
     {
       "id": "golden-age",
@@ -38,13 +38,25 @@
       "onPollSince": "2026-11-12",
       "retired": false,
       "requestId": null
+    },
+    {
+      "id": "two-to-tango",
+      "name": "Two to Tango",
+      "subject": "Dance",
+      "onPollSince": "2026-11-14",
+      "retired": false,
+      "requestId": null
     }
   ],
   "poll": {
     "key": "2026-11-14",
     "closes": "2026-11-15",
     "decides": "2026-11-17",
-    "options": []
+    "options": [
+      {
+        "id": "two-to-tango"
+      }
+    ]
   },
   "upcoming": [
     {
@@ -55,9 +67,9 @@
     },
     {
       "day": "2026-11-17",
-      "id": "golden-age",
-      "name": "Golden Age",
-      "how": "queue"
+      "id": "two-to-tango",
+      "name": "Two to Tango",
+      "how": "leading"
     }
   ],
   "dropped": [
@@ -332,19 +344,20 @@
     "Toon In (Animated films)",
     "Totally Famous (1990s celebrities)",
     "Toy Box (Toys and board games)",
+    "Two to Tango (Dance)",
     "Where On Earth (Geography)",
     "Wild Things (Animals)"
   ],
-  "need": 1,
+  "need": 0,
   "games": {
     "hamps": {
       "game": "hamps",
       "roundsDir": "games/hamps/rounds",
       "today": "2026-11-14",
       "season": 7,
-      "queueCount": 4,
+      "queueCount": 5,
       "target": 5,
-      "fill": 1,
+      "fill": 0,
       "queue": [
         {
           "id": "money-talks",
@@ -377,13 +390,25 @@
           "onPollSince": "2026-11-12",
           "retired": false,
           "requestId": null
+        },
+        {
+          "id": "peak-performance",
+          "name": "Peak Performance",
+          "subject": "Mountains and climbing",
+          "onPollSince": "2026-11-14",
+          "retired": false,
+          "requestId": null
         }
       ],
       "poll": {
         "key": "2026-11-14",
         "closes": "2026-11-15",
         "decides": "2026-11-17",
-        "options": []
+        "options": [
+          {
+            "id": "peak-performance"
+          }
+        ]
       },
       "upcoming": [
         {
@@ -394,9 +419,9 @@
         },
         {
           "day": "2026-11-17",
-          "id": "money-talks",
-          "name": "Money Talks",
-          "how": "queue"
+          "id": "peak-performance",
+          "name": "Peak Performance",
+          "how": "leading"
         }
       ],
       "dropped": [
@@ -624,6 +649,7 @@
         "Mixtape (1980s music)",
         "Money Talks (Money, markets and economics)",
         "Passport Control (Travel and world places)",
+        "Peak Performance (Mountains and climbing)",
         "Pedal to the Metal (Cars and motoring)",
         "Prime Time (1980s television)",
         "Reel Talk (Movies)",
@@ -637,8 +663,8 @@
         "Trick or Treat (Halloween)",
         "Turning Points (World history)"
       ],
-      "need": 1
+      "need": 0
     }
   },
-  "totalNeed": 2
+  "totalNeed": 0
 }
