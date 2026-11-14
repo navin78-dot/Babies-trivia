@@ -407,6 +407,11 @@
         "options": [
           {
             "id": "peak-performance"
+          },
+          {
+            "id": "req:HkjvKq9eoXgKyhBblSsP",
+            "theme": "Ice cream",
+            "by": "Shan Bates"
           }
         ]
       },
@@ -419,8 +424,8 @@
         },
         {
           "day": "2026-11-17",
-          "id": "peak-performance",
-          "name": "Peak Performance",
+          "id": "req:HkjvKq9eoXgKyhBblSsP",
+          "name": null,
           "how": "leading"
         }
       ],
@@ -619,7 +624,13 @@
         }
       ],
       "requestsWaiting": [],
-      "ideas": [],
+      "ideas": [
+        {
+          "id": "HkjvKq9eoXgKyhBblSsP",
+          "theme": "Ice cream",
+          "by": "Shan Bates"
+        }
+      ],
       "existingSubjects": [
         "Art Attack (Art and artists)",
         "Binge Worthy (Television of the streaming age)",
