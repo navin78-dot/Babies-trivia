@@ -1,11 +1,11 @@
 {
   "game": "babies",
   "roundsDir": "rounds",
-  "today": "2026-11-13",
+  "today": "2026-11-14",
   "season": 8,
-  "queueCount": 5,
+  "queueCount": 4,
   "target": 5,
-  "fill": 0,
+  "fill": 1,
   "queue": [
     {
       "id": "golden-age",
@@ -32,14 +32,6 @@
       "requestId": null
     },
     {
-      "id": "king-of-romance",
-      "name": "King of Romance",
-      "subject": "Yash Raj Films",
-      "onPollSince": "2026-11-10",
-      "retired": false,
-      "requestId": "C9mEnzMMmWwvMBb4N1t9"
-    },
-    {
       "id": "party-time",
       "name": "Party Time",
       "subject": "Festivals around the world",
@@ -49,27 +41,23 @@
     }
   ],
   "poll": {
-    "key": "2026-11-12",
-    "closes": "2026-11-14",
-    "decides": "2026-11-15",
-    "options": [
-      {
-        "id": "party-time"
-      }
-    ]
+    "key": "2026-11-14",
+    "closes": "2026-11-15",
+    "decides": "2026-11-17",
+    "options": []
   },
   "upcoming": [
-    {
-      "day": "2026-11-14",
-      "id": "king-of-romance",
-      "name": "King of Romance",
-      "how": "poll"
-    },
     {
       "day": "2026-11-15",
       "id": "party-time",
       "name": "Party Time",
-      "how": "leading"
+      "how": "poll"
+    },
+    {
+      "day": "2026-11-17",
+      "id": "golden-age",
+      "name": "Golden Age",
+      "how": "queue"
     }
   ],
   "dropped": [
@@ -282,6 +270,12 @@
       "id": "creepy-crawlies",
       "name": "Creepy Crawlies",
       "how": "poll"
+    },
+    {
+      "day": "2026-11-14",
+      "id": "king-of-romance",
+      "name": "King of Romance",
+      "how": "poll"
     }
   ],
   "requestsWaiting": [],
@@ -341,16 +335,16 @@
     "Where On Earth (Geography)",
     "Wild Things (Animals)"
   ],
-  "need": 0,
+  "need": 1,
   "games": {
     "hamps": {
       "game": "hamps",
       "roundsDir": "games/hamps/rounds",
-      "today": "2026-11-13",
+      "today": "2026-11-14",
       "season": 7,
-      "queueCount": 5,
+      "queueCount": 4,
       "target": 5,
-      "fill": 0,
+      "fill": 1,
       "queue": [
         {
           "id": "money-talks",
@@ -377,14 +371,6 @@
           "requestId": null
         },
         {
-          "id": "blue-notes",
-          "name": "Blue Notes",
-          "subject": "Jazz",
-          "onPollSince": "2026-11-10",
-          "retired": false,
-          "requestId": null
-        },
-        {
           "id": "say-cheese",
           "name": "Say Cheese",
           "subject": "Photography",
@@ -394,27 +380,23 @@
         }
       ],
       "poll": {
-        "key": "2026-11-12",
-        "closes": "2026-11-14",
-        "decides": "2026-11-15",
-        "options": [
-          {
-            "id": "say-cheese"
-          }
-        ]
+        "key": "2026-11-14",
+        "closes": "2026-11-15",
+        "decides": "2026-11-17",
+        "options": []
       },
       "upcoming": [
-        {
-          "day": "2026-11-14",
-          "id": "blue-notes",
-          "name": "Blue Notes",
-          "how": "poll"
-        },
         {
           "day": "2026-11-15",
           "id": "say-cheese",
           "name": "Say Cheese",
-          "how": "leading"
+          "how": "poll"
+        },
+        {
+          "day": "2026-11-17",
+          "id": "money-talks",
+          "name": "Money Talks",
+          "how": "queue"
         }
       ],
       "dropped": [
@@ -603,6 +585,12 @@
           "id": "pedal-to-the-metal",
           "name": "Pedal to the Metal",
           "how": "queue"
+        },
+        {
+          "day": "2026-11-14",
+          "id": "blue-notes",
+          "name": "Blue Notes",
+          "how": "poll"
         }
       ],
       "requestsWaiting": [],
@@ -649,8 +637,8 @@
         "Trick or Treat (Halloween)",
         "Turning Points (World history)"
       ],
-      "need": 0
+      "need": 1
     }
   },
-  "totalNeed": 0
+  "totalNeed": 2
 }
