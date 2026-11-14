@@ -1,0 +1,106 @@
+{
+  "id": "two-to-tango",
+  "name": "Two to Tango",
+  "subject": "Dance",
+  "tagline": "Eleven questions on moving to music, from a Buenos Aires embrace to the move that made a pop star glide backwards. Starts easy, ends hard.",
+  "draft": true,
+  "emblem": "💃",
+  "theme": {
+    "font": "Playfair Display SC",
+    "accent": "#BE123C",
+    "accent2": "#4338CA",
+    "accentDark": "#FDA4AF",
+    "accent2Dark": "#A5B4FC"
+  },
+  "questions": [
+    {
+      "d": "easy",
+      "q": "Which close-embrace dance, born in the port districts of Buenos Aires and Montevideo in the late 1800s, is known for its sharp head turns and dramatic pauses?",
+      "o": ["The tango", "The rumba", "The foxtrot", "The waltz"],
+      "a": 0,
+      "w": "The tango, which grew up among immigrants, sailors and dockworkers around the River Plate. UNESCO added it to its list of intangible cultural heritage in 2009, nominated jointly by Argentina and Uruguay.",
+      "more": "It reached Paris in the early 1900s and became a fashionable craze before it was respectable in its home country. The Vatican is said to have condemned it for a time. Its characteristic music uses the bandoneón, a type of small button accordion, and the great composer of tango nuevo was Astor Piazzolla."
+    },
+    {
+      "d": "easy",
+      "q": "Which passionate Spanish dance, from Andalusia in the south, is performed to guitar music, hand-clapping and rapid stamping footwork?",
+      "o": ["Flamenco", "The paso doble", "The jota", "The sardana"],
+      "a": 0,
+      "w": "Flamenco, which blends song, guitar and dance, and grew from the cultures of the Roma, Moorish and Jewish communities of Andalusia. UNESCO recognised it in 2010.",
+      "more": "Its emotional core is called duende, a hard-to-translate word for a moment of raw, heightened feeling between performer and audience. Dancers wear shoes with nails in the heel and toe to create percussion. The art form has its own regional styles, from the sombre soleá to the joyful bulerías."
+    },
+    {
+      "d": "easy",
+      "q": "Which gliding dance move, unveiled on a 1983 television special to the song 'Billie Jean', appeared to carry the dancer backwards while he walked forwards?",
+      "o": ["The moonwalk", "The robot", "The electric slide", "The worm"],
+      "a": 0,
+      "w": "The moonwalk, which a pop superstar made famous at the Motown 25 anniversary show in 1983, though the move had been performed by street dancers and others for years before.",
+      "more": "The dancer Jeffrey Daniel of the group Shalamar had shown the move on Top of the Pops in 1982 and later taught it to its performer. The performance was watched by tens of millions and was named by many as among the greatest on television. The moonwalk has since passed into everyday language for any smooth backward slide."
+    },
+    {
+      "d": "easy",
+      "q": "What is the ballet term for a full turn of the body on one foot, spun on the ball or tip of the toe?",
+      "o": ["A pirouette", "An arabesque", "A plié", "A jeté"],
+      "a": 0,
+      "w": "A pirouette, from the French for a spinning top. Dancers use a fixed point called 'spotting' to keep their head turning faster than their body, which stops them getting dizzy.",
+      "more": "An arabesque is a pose on one leg with the other extended behind, a plié a bend of the knees and a jeté a leap from one foot to the other. Ballet terms are in French because the art form was formalised at the court of Louis XIV, who danced it himself. The record for pirouettes in a row in one go is more than a hundred."
+    },
+    {
+      "d": "easy",
+      "q": "Which actress partnered Fred Astaire in ten films, with a famous cartoon later claiming that she did everything he did 'backwards and in high heels'?",
+      "o": ["Ginger Rogers", "Cyd Charisse", "Judy Garland", "Rita Hayworth"],
+      "a": 0,
+      "w": "Ginger Rogers, whose films with Astaire in the 1930s, from Top Hat to Swing Time, were among the biggest box-office hits of the Depression.",
+      "more": "The line comes from a 1982 comic strip by Bob Thaves and has been repeated ever since. Rogers also won the Oscar for best actress in 1941 for Kitty Foyle, a straight dramatic role. Astaire danced with other partners, among them Cyd Charisse and Rita Hayworth, but the pairing with Rogers is the one remembered."
+    },
+    {
+      "d": "medium",
+      "q": "Which Irish dance show began as a seven-minute interval act at the 1994 Eurovision Song Contest in Dublin and went on to tour the world for decades?",
+      "o": ["Riverdance", "Lord of the Dance", "Celtic Woman", "Feet of Flames"],
+      "a": 0,
+      "w": "Riverdance, whose interval act was watched by about 300 million people and was so well received that it was expanded into a full stage show in 1995.",
+      "more": "Its stars Jean Butler and Michael Flatley were Irish-American champion dancers, and the music was composed by Bill Whelan. Flatley later left to make a rival show, Lord of the Dance, which also toured widely. The show is credited with turning Irish step dancing from a competitive pastime into a stage spectacular."
+    },
+    {
+      "d": "medium",
+      "q": "Which Māori war dance, with stamping, chanting and fierce expressions, is performed by New Zealand's national rugby team before their matches?",
+      "o": ["The haka", "The poi", "The hula", "The kapa"],
+      "a": 0,
+      "w": "The haka. The All Blacks' best-known version is 'Ka Mate', composed around 1820 by the chief Te Rauparaha after he escaped from his enemies by hiding in a food pit.",
+      "more": "Haka are performed at many occasions, including weddings, funerals and welcomes, and are not only war dances. The All Blacks have also performed a newer one, 'Kapa o Pango', since 2005. In 2024 a young Māori MP performed a haka in New Zealand's parliament to protest a bill, and the video went viral worldwide."
+    },
+    {
+      "d": "medium",
+      "q": "Which Soviet ballet star defected to the West at Le Bourget airport in Paris in 1961, later forming a celebrated partnership with Margot Fonteyn?",
+      "o": ["Rudolf Nureyev", "Mikhail Baryshnikov", "Vaslav Nijinsky", "Anton Dolin"],
+      "a": 0,
+      "w": "Rudolf Nureyev, who leapt from his minders into the arms of French police and asked for asylum. He was 23 and a star of the Kirov Ballet.",
+      "more": "He joined London's Royal Ballet and danced with Fonteyn, 19 years his senior, in a partnership that extended her career for another decade. Baryshnikov, another Soviet star, defected in 1974 while on tour in Canada. Nureyev died of an AIDS-related illness in 1993 at the age of 54."
+    },
+    {
+      "d": "hard",
+      "q": "Which choreographer and director, known for bowler hats, turned-in knees and a signature jazz-hands style, won an Oscar, a Tony and an Emmy in the same year, 1973?",
+      "o": ["Bob Fosse", "Jerome Robbins", "Gower Champion", "Michael Bennett"],
+      "a": 0,
+      "w": "Bob Fosse, who won the Oscar for directing Cabaret, the Tony for choreographing Pippin and an Emmy for the television special Liza with a Z.",
+      "more": "He was the first person to win all three in a single year. His distinctive style came partly from his own body: he had a stoop, was going bald and had turned-in feet, and used hats, gloves and small, isolated movements to hide or highlight them. He also directed All That Jazz, a semi-autobiographical film about his own life."
+    },
+    {
+      "d": "hard",
+      "type": "order",
+      "q": "Put these dance crazes in the order they first swept the world, earliest first.",
+      "o": ["The Charleston", "The Twist", "The Hustle", "The Cha Cha Slide"],
+      "w": "The Charleston in 1923, the Twist in 1960, the Hustle in 1975 and the Cha Cha Slide in 2000.",
+      "more": "The Charleston took its name from a song in the all-Black Broadway show Runnin' Wild and became the emblem of the Jazz Age. Chubby Checker's version of 'The Twist' topped the American charts twice, in 1960 and 1962. The Cha Cha Slide was written by a Chicago DJ as a workout track and, with its spoken instructions, is now a fixture at weddings."
+    },
+    {
+      "d": "hard",
+      "type": "select",
+      "q": "Which of these are ballets? Select all that apply.",
+      "o": ["Giselle", "Coppélia", "La Bayadère", "Carmen", "Aida", "Tosca"],
+      "a": [0, 1, 2],
+      "w": "Giselle, Coppélia and La Bayadère are ballets. Carmen, Aida and Tosca are operas, although Carmen has often been adapted for dance.",
+      "more": "Giselle, from 1841, tells of a peasant girl who dies of heartbreak and returns as a ghost, and is one of the oldest ballets still performed. Coppélia, from 1870, is a comedy about a toymaker's life-sized doll. La Bayadère, from 1877, is set in India and contains a famous scene in which dozens of dancers descend a ramp one at a time in identical arabesques."
+    }
+  ]
+}

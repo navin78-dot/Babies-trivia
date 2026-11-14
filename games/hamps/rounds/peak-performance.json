@@ -1,0 +1,106 @@
+{
+  "id": "peak-performance",
+  "name": "Peak Performance",
+  "subject": "Mountains and climbing",
+  "tagline": "Eleven questions on the high places, from the roof of the world to a man who climbed a cliff face with no rope. Starts easy, ends hard.",
+  "draft": true,
+  "emblem": "🏔️",
+  "theme": {
+    "font": "Kanit",
+    "accent": "#0F766E",
+    "accent2": "#1D4ED8",
+    "accentDark": "#5EEAD4",
+    "accent2Dark": "#93C5FD"
+  },
+  "questions": [
+    {
+      "d": "easy",
+      "q": "Which New Zealand beekeeper and Nepalese Sherpa were the first climbers confirmed to have reached the summit of Mount Everest?",
+      "o": ["Edmund Hillary and Tenzing Norgay", "George Mallory and Sandy Irvine", "Reinhold Messner and Peter Habeler", "John Hunt and Charles Evans"],
+      "a": 0,
+      "w": "Edmund Hillary and Tenzing Norgay, who stood on top on 29 May 1953 as part of a British expedition led by John Hunt. News of it reached London on the morning of Queen Elizabeth II's coronation.",
+      "more": "Hillary and Tenzing never said which of them stepped on top first, insisting they had reached it as a team. George Mallory and Sandy Irvine disappeared high on the mountain in 1924, and whether they reached the top is still debated. Hillary spent much of the rest of his life building schools and hospitals for Sherpa communities."
+    },
+    {
+      "d": "easy",
+      "q": "Mont Blanc, the highest mountain in western Europe, is part of which mountain range?",
+      "o": ["The Alps", "The Pyrenees", "The Carpathians", "The Apennines"],
+      "a": 0,
+      "w": "The Alps, which curve across eight countries. Mont Blanc, at 4,806 metres, sits on the border of France and Italy, and the two countries still argue over exactly where the line falls at its summit.",
+      "more": "It was first climbed in 1786 by a local crystal hunter, Jacques Balmat, and a doctor, Michel-Gabriel Paccard, and its conquest is often counted as the start of modern mountaineering. A road tunnel nearly twelve kilometres long runs beneath it. The tunnel's 1999 fire killed 39 people and closed it for three years."
+    },
+    {
+      "d": "easy",
+      "q": "Which mountain in Alaska, called Mount McKinley until its name was officially restored in 2015, is the highest peak in North America?",
+      "o": ["Denali", "Mount Logan", "Mount Whitney", "Mount Rainier"],
+      "a": 0,
+      "w": "Denali, at 6,190 metres. The name means 'the high one' in the Koyukon language of Alaska's Athabaskan people.",
+      "more": "The mountain is so far north that its cold and weather make it one of the hardest climbs of its height; the air pressure at its summit is equivalent to that at a far higher altitude nearer the equator. It was renamed for President McKinley, who never visited Alaska, in 1917. Its summit was first reached in 1913."
+    },
+    {
+      "d": "easy",
+      "q": "K2, the second-highest mountain on Earth, nicknamed the Savage Mountain for its deadly reputation, rises in which range?",
+      "o": ["The Karakoram", "The Hindu Kush", "The Pamirs", "The Tian Shan"],
+      "a": 0,
+      "w": "The Karakoram, on the border of Pakistan and China. At 8,611 metres it is about 240 metres lower than Everest but is considered a much harder and more dangerous climb.",
+      "more": "Its death rate has historically been among the highest of the world's 8,000-metre peaks, with roughly one climber dying for every four who summit. It was first climbed in 1954 by two Italians. Because it has no easy route, it has never been climbed in winter by a large guided party; the first winter ascent was by a team of Nepali climbers in January 2021."
+    },
+    {
+      "d": "easy",
+      "q": "Which mountain range runs for about 7,000 kilometres down the western edge of South America, making it the longest continental range in the world?",
+      "o": ["The Andes", "The Rockies", "The Appalachians", "The Urals"],
+      "a": 0,
+      "w": "The Andes, which run through seven countries from Venezuela to Chile. Its highest peak, Aconcagua, at 6,961 metres, is the tallest mountain outside Asia.",
+      "more": "The range is home to the Inca capital of Cusco and to Machu Picchu, built high on a ridge in the fifteenth century. Potatoes, tomatoes and llamas all come from the Andes. The range was formed by the Nazca plate sliding beneath the South American plate and is still rising and shaking."
+    },
+    {
+      "d": "medium",
+      "q": "Which Englishman led the first ascent of the Matterhorn in 1865, a climb in which four of the seven climbers died on the way down?",
+      "o": ["Edward Whymper", "Alfred Mummery", "Leslie Stephen", "John Tyndall"],
+      "a": 0,
+      "w": "Edward Whymper, an illustrator and engraver who had tried and failed to climb the mountain several times. On the descent a rope snapped and four of the party fell to their deaths.",
+      "more": "The disaster caused a scandal in Britain, and Queen Victoria is said to have considered banning the sport. Whymper survived and went on to climb in the Andes and the Canadian Rockies. The mountain still has one of the highest death tolls of any Alpine peak."
+    },
+    {
+      "d": "medium",
+      "q": "Which volcano in Washington state erupted catastrophically in May 1980, blowing away about 400 metres of its summit and killing 57 people?",
+      "o": ["Mount St. Helens", "Mount Rainier", "Mount Hood", "Mount Shasta"],
+      "a": 0,
+      "w": "Mount St. Helens, whose north face collapsed in the largest landslide in recorded history, followed by a lateral blast that flattened forests for miles around.",
+      "more": "The ash cloud rose some 24 kilometres and fell across eleven states. The volcano had given plenty of warning, with earthquakes and a growing bulge in its flank, but the blast was far bigger than predicted. It is now a national monument and has been slowly rebuilding a lava dome inside its crater."
+    },
+    {
+      "d": "medium",
+      "q": "Which free-standing volcano in Tanzania, rising from the plains to 5,895 metres, is the highest mountain in Africa?",
+      "o": ["Kilimanjaro", "Mount Kenya", "Mount Stanley", "Meru"],
+      "a": 0,
+      "w": "Kilimanjaro, a dormant volcano with three cones and a permanent cap of ice that has been shrinking for more than a century.",
+      "more": "About 30,000 people attempt to climb it each year, and because it needs no technical skills it is often called the highest walkable mountain in the world. Its name is of uncertain origin; it may come from Swahili and local words for 'mountain' and 'whiteness'. Scientists say its glaciers could vanish within a few decades."
+    },
+    {
+      "d": "hard",
+      "q": "Which American climber scaled the 900-metre granite face of El Capitan in Yosemite in June 2017 without ropes or protection, a feat captured in an Oscar-winning documentary?",
+      "o": ["Alex Honnold", "Tommy Caldwell", "Chris Sharma", "Dean Potter"],
+      "a": 0,
+      "w": "Alex Honnold, who climbed it in just under four hours. The film Free Solo, about his preparation, won the Oscar for best documentary feature in 2019.",
+      "more": "He practised every move on the route repeatedly with ropes first, and a scan of his brain found that his amygdala, linked to fear, was unusually quiet. His partner in the climb's preparation, Tommy Caldwell, had earlier led the first free ascent of the Dawn Wall on the same cliff. Free soloing is considered among the most dangerous of all sports."
+    },
+    {
+      "d": "hard",
+      "type": "order",
+      "q": "Put these mountaineering firsts in order, earliest first.",
+      "o": ["The first ascent of Mont Blanc", "The first ascent of the Matterhorn", "The first ascent of Everest", "The first ascent of K2"],
+      "w": "Mont Blanc in 1786, the Matterhorn in 1865, Everest in 1953 and K2 in 1954.",
+      "more": "The Italians Achille Compagnoni and Lino Lacedelli reached K2's summit on 31 July 1954, and their oxygen was nearly gone as they came down. The Matterhorn's first climbers made the attempt on a July day; it took Whymper seven failed tries before success. Mountaineering as a sport grew out of the Alps in the late nineteenth century, a stretch called the golden age of alpinism."
+    },
+    {
+      "d": "hard",
+      "type": "select",
+      "q": "Which of these mountains are in the Himalayas? Select all that apply.",
+      "o": ["Annapurna", "Nanga Parbat", "Kangchenjunga", "The Eiger", "Aconcagua", "Mount Elbrus"],
+      "a": [0, 1, 2],
+      "w": "Annapurna, Nanga Parbat and Kangchenjunga are all Himalayan, among the fourteen peaks above 8,000 metres. The Eiger is in the Alps, Aconcagua in the Andes and Elbrus in the Caucasus.",
+      "more": "Annapurna was the first 8,000-metre peak ever climbed, by a French expedition in 1950. Nanga Parbat in Pakistan is nicknamed the Killer Mountain, for the many climbers lost on it in the early twentieth century. Kangchenjunga, on the border of India and Nepal, is the third-highest in the world; climbers traditionally stop just short of its summit out of respect for local belief."
+    }
+  ]
+}
