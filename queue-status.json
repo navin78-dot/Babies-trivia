@@ -349,9 +349,9 @@
       "roundsDir": "games/hamps/rounds",
       "today": "2026-11-15",
       "season": 8,
-      "queueCount": 4,
+      "queueCount": 6,
       "target": 5,
-      "fill": 1,
+      "fill": 0,
       "queue": [
         {
           "id": "money-talks",
@@ -384,6 +384,22 @@
           "onPollSince": "2026-11-14",
           "retired": false,
           "requestId": null
+        },
+        {
+          "id": "best-in-show",
+          "name": "Best in Show",
+          "subject": "Dogs",
+          "onPollSince": "2026-11-15",
+          "retired": false,
+          "requestId": null
+        },
+        {
+          "id": "brain-freeze",
+          "name": "Brain Freeze",
+          "subject": "Ice cream",
+          "onPollSince": null,
+          "retired": false,
+          "requestId": "hamps:HkjvKq9eoXgKyhBblSsP"
         }
       ],
       "poll": {
@@ -395,6 +411,9 @@
             "id": "peak-performance"
           },
           {
+            "id": "best-in-show"
+          },
+          {
             "id": "req:oLARKID5Zoq9c9Hzz344",
             "theme": "Candy bars",
             "by": "Salil Gandhi"
@@ -404,9 +423,9 @@
       "upcoming": [
         {
           "day": "2026-11-17",
-          "id": "req:HkjvKq9eoXgKyhBblSsP",
-          "name": null,
-          "how": "unwritten"
+          "id": "brain-freeze",
+          "name": "Brain Freeze",
+          "how": "theme"
         },
         {
           "day": "2026-11-19",
@@ -615,20 +634,8 @@
           "how": "poll"
         }
       ],
-      "requestsWaiting": [
-        {
-          "id": "hamps:HkjvKq9eoXgKyhBblSsP",
-          "theme": "Ice cream",
-          "by": "Shan Bates",
-          "dropDay": "2026-11-17"
-        }
-      ],
+      "requestsWaiting": [],
       "ideas": [
-        {
-          "id": "HkjvKq9eoXgKyhBblSsP",
-          "theme": "Ice cream",
-          "by": "Shan Bates"
-        },
         {
           "id": "oLARKID5Zoq9c9Hzz344",
           "theme": "Candy bars",
@@ -637,8 +644,10 @@
       ],
       "existingSubjects": [
         "Art Attack (Art and artists)",
+        "Best in Show (Dogs)",
         "Binge Worthy (Television of the streaming age)",
         "Blue Notes (Jazz)",
+        "Brain Freeze (Ice cream)",
         "By the Numbers (Maths, numbers and measurement)",
         "Campaign Trail (US elections and voting)",
         "Chart Toppers (Pop music)",
@@ -678,8 +687,8 @@
         "Trick or Treat (Halloween)",
         "Turning Points (World history)"
       ],
-      "need": 2
+      "need": 0
     }
   },
-  "totalNeed": 3
+  "totalNeed": 1
 }
