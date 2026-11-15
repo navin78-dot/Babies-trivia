@@ -1,0 +1,168 @@
+{
+  "id": "brain-freeze",
+  "name": "Brain Freeze",
+  "subject": "Ice cream",
+  "requestId": "hamps:HkjvKq9eoXgKyhBblSsP",
+  "tagline": "Eleven questions on the scoop, the cone and the freezer aisle, from an orchid pod to a mystery Danish name that isn't Danish. A theme the crew voted for.",
+  "draft": true,
+  "emblem": "🍦",
+  "theme": {
+    "font": "Chewy",
+    "accent": "#DB2777",
+    "accent2": "#0891B2",
+    "accentDark": "#F9A8D4",
+    "accent2Dark": "#67E8F9"
+  },
+  "questions": [
+    {
+      "d": "easy",
+      "q": "Which flavour, taken from the cured pod of an orchid, is the best-selling flavour of ice cream in the world?",
+      "o": [
+        "Vanilla",
+        "Chocolate",
+        "Strawberry",
+        "Mint chip"
+      ],
+      "a": 0,
+      "w": "Vanilla, from the pods of a climbing orchid that is native to Mexico. It is the second most expensive spice in the world by weight, after saffron.",
+      "more": "Each flower opens for only a few hours and must be pollinated by hand outside Mexico, a technique discovered in 1841 by a twelve-year-old enslaved boy on the island of Réunion named Edmond Albius. Most of the world's vanilla now comes from Madagascar. In everyday language 'vanilla' has come to mean plain, which is unfair to a flavour that costs so much."
+    },
+    {
+      "d": "easy",
+      "q": "Which Italian frozen dessert, whose name is just the Italian word for 'frozen', is churned more slowly than American ice cream, so that it is denser and less airy?",
+      "o": [
+        "Gelato",
+        "Sorbet",
+        "Granita",
+        "Semifreddo"
+      ],
+      "a": 0,
+      "w": "Gelato. It contains more milk than cream and is served a little warmer than ice cream, which lets the flavour come through more strongly.",
+      "more": "Because less air is whipped in, gelato is much denser, with ice cream often containing up to half its volume in air. Stories credit Bernardo Buontalenti, a sixteenth-century architect at the Medici court in Florence, with inventing an early version. Gelaterie in Italy keep the flavours in covered metal tubs because the cold keeps them from developing ice crystals."
+    },
+    {
+      "d": "easy",
+      "q": "Which dessert, invented in 1904 by a pharmacist's apprentice in Latrobe, Pennsylvania, is served in a long dish with three scoops of ice cream, sauces and a cherry on top?",
+      "o": [
+        "The banana split",
+        "The sundae",
+        "The knickerbocker glory",
+        "The Baked Alaska"
+      ],
+      "a": 0,
+      "w": "The banana split, created by David Strickler, a twenty-three-year-old working at a drugstore soda fountain. He sold it for ten cents, twice the price of other sundaes.",
+      "more": "He wanted to make something that would attract students from nearby Saint Vincent College. Latrobe holds an annual Great American Banana Split Festival, and the town claims the dessert as its own. The three scoops traditionally are vanilla, chocolate and strawberry."
+    },
+    {
+      "d": "easy",
+      "q": "Which Vermont ice cream company, founded in 1978 by two friends in a converted gas station, names flavours such as Cherry Garcia and Chunky Monkey?",
+      "o": [
+        "Ben & Jerry's",
+        "Breyers",
+        "Blue Bell",
+        "Friendly's"
+      ],
+      "a": 0,
+      "w": "Ben & Jerry's, started in Burlington by Ben Cohen and Jerry Greenfield, who had taken a five-dollar correspondence course in ice-cream making.",
+      "more": "Cherry Garcia is named after the Grateful Dead guitarist Jerry Garcia. The company was sold to the multinational Unilever in 2000, which led to years of arguments with its founders over its political activism. Its ice cream is known for big chunks of cookie dough, brownie and fudge."
+    },
+    {
+      "d": "easy",
+      "q": "In the United States, what is a drink made of a scoop of ice cream floating in a glass of fizzy soda, such as root beer, called?",
+      "o": [
+        "A float",
+        "A shake",
+        "A malt",
+        "A spider"
+      ],
+      "a": 0,
+      "w": "A float. It is also known as a black cow in some regions, and a 'coke float' when made with cola.",
+      "more": "A soda-fountain worker in Philadelphia named Robert Green is said to have invented the ice cream soda in 1874 when he ran out of ice during a festival and substituted ice cream. In Australia the same drink is called a spider. A milkshake, by contrast, is made by blending the ice cream with milk."
+    },
+    {
+      "d": "medium",
+      "q": "Häagen-Dazs has a Scandinavian-sounding name that means nothing in Danish or any other language. Its founder invented it in 1960 in which New York borough?",
+      "o": [
+        "The Bronx",
+        "Brooklyn",
+        "Queens",
+        "Staten Island"
+      ],
+      "a": 0,
+      "w": "The Bronx, where the Polish-born Reuben Mattus sold his ice cream from a truck. He made up a name that sounded Danish to suggest quality, partly as a tribute to Denmark's treatment of its Jews during the Second World War.",
+      "more": "The map of Scandinavia that appeared on the early tubs was his addition. He sold ice cream with fewer air bubbles and a higher fat content than rivals, and priced it far above them. The company was bought by Pillsbury in 1983 and is now owned by General Mills."
+    },
+    {
+      "d": "medium",
+      "q": "Dolley Madison is said to have served ice cream at her husband's inaugural ball in 1813, helping to make it a fashionable dessert in Washington. Which president was he?",
+      "o": [
+        "James Madison",
+        "Thomas Jefferson",
+        "James Monroe",
+        "John Adams"
+      ],
+      "a": 0,
+      "w": "James Madison, the fourth president. Dolley was his famously sociable wife, whose parties set the tone of the capital.",
+      "more": "Thomas Jefferson had served ice cream to guests at the White House before that and had his own recipe for it, written in his hand. At the time, making ice cream was laborious, requiring a pot of salt and ice and a great deal of stirring. Dolley Madison is also remembered for saving a portrait of George Washington when British troops burned the White House in 1814."
+    },
+    {
+      "d": "medium",
+      "q": "Which brand of tiny beads of ice cream, frozen in liquid nitrogen at around minus 250 degrees Fahrenheit, was invented in 1987 by a Kentucky microbiologist and marketed as 'the ice cream of the future'?",
+      "o": [
+        "Dippin' Dots",
+        "Mister Softee",
+        "Klondike",
+        "Magnum"
+      ],
+      "a": 0,
+      "w": "Dippin' Dots, created by Curt Jones, who had been freezing animal feed in liquid nitrogen. The beads have to be stored at very low temperatures and cannot be kept in an ordinary freezer.",
+      "more": "Jones has said that the product started life as an attempt to make a frozen treat for his father's cattle farm. The company later fell into bankruptcy in 2020 and was bought out of it. The beads are mostly sold at theme parks, ball parks and zoos, where there is no way to melt them first."
+    },
+    {
+      "d": "hard",
+      "q": "Under United States federal rules, a frozen dessert can be sold as 'ice cream' only if it contains at least what percentage of milk fat?",
+      "o": [
+        "10",
+        "5",
+        "15",
+        "20"
+      ],
+      "a": 0,
+      "w": "10 per cent. The rule also requires a minimum weight per gallon, to keep makers from filling it with too much air.",
+      "more": "Premium brands contain 14 to 18 per cent milk fat, while mass-market ice cream hovers close to the legal minimum. Anything below the cut-off must be labelled 'frozen dairy dessert' or similar."
+    },
+    {
+      "d": "hard",
+      "type": "order",
+      "q": "Put these ice cream milestones in order, earliest first.",
+      "o": [
+        "The first recipe for ice cream is printed in English",
+        "The ice cream cone becomes a craze",
+        "The first chocolate-coated ice cream bar is launched",
+        "The first Dairy Queen store opens"
+      ],
+      "w": "The first English recipe in 1718, the ice cream cone around 1904, the first chocolate-coated bar, the Eskimo Pie, in the early 1920s and the first Dairy Queen in 1940.",
+      "more": "The 1718 recipe appeared in a cookbook by Mrs Mary Eales, who had been confectioner to Queen Anne. The cone is credited to several vendors at the 1904 World's Fair, where an ice-cream seller ran out of dishes and a neighbour rolled up waffles. The Eskimo Pie's inventor, a Danish-born schoolteacher and confectioner, got the idea from a boy who couldn't choose between chocolate and ice cream."
+    },
+    {
+      "d": "hard",
+      "type": "select",
+      "q": "Which of these frozen desserts come from Italy? Select all that apply.",
+      "o": [
+        "Granita",
+        "Semifreddo",
+        "Spumoni",
+        "Kulfi",
+        "Halo-halo",
+        "Dondurma"
+      ],
+      "a": [
+        0,
+        1,
+        2
+      ],
+      "w": "Granita, semifreddo and spumoni are all Italian. Kulfi is from India, halo-halo from the Philippines and dondurma from Turkey.",
+      "more": "Granita is a coarse, icy dessert from Sicily, traditionally eaten for breakfast with a brioche. Semifreddo, 'half cold', is a partly frozen mousse. Dondurma is a stretchy, chewy ice cream thickened with mastic resin and salep, and the street vendors who sell it are known for teasing customers with tricks as they hand over the cone."
+    }
+  ]
+}

@@ -1,0 +1,167 @@
+{
+  "id": "best-in-show",
+  "name": "Best in Show",
+  "subject": "Dogs",
+  "tagline": "Eleven questions on man's best friend, from the fastest breed to a faithful Akita who waited at a station. Starts easy, ends hard.",
+  "draft": true,
+  "emblem": "🐕",
+  "theme": {
+    "font": "Baloo 2",
+    "accent": "#B45309",
+    "accent2": "#0E7490",
+    "accentDark": "#FCD34D",
+    "accent2Dark": "#67E8F9"
+  },
+  "questions": [
+    {
+      "d": "easy",
+      "q": "Which breed was the most popular in America for 31 years in a row until the French bulldog overtook it in 2022?",
+      "o": [
+        "The Labrador retriever",
+        "The German shepherd",
+        "The golden retriever",
+        "The beagle"
+      ],
+      "a": 0,
+      "w": "The Labrador retriever, which topped the American Kennel Club's list from 1991. Friendly, trainable and good with children, it is also the most common breed used as a guide dog.",
+      "more": "Despite the name, the Labrador was developed in Newfoundland, and was taken to England in the 1800s, where it was refined into a gundog. They come in three main colours: black, yellow and chocolate. Their coats are water-repellent, and their webbed toes make them strong swimmers."
+    },
+    {
+      "d": "easy",
+      "q": "Which sleek breed is the fastest dog in the world, able to reach about 45 miles an hour?",
+      "o": [
+        "The greyhound",
+        "The whippet",
+        "The saluki",
+        "The Afghan hound"
+      ],
+      "a": 0,
+      "w": "The greyhound, bred for thousands of years to chase hares by sight. Its deep chest and flexible spine let it cover about seven metres in a single stride.",
+      "more": "Greyhound racing was once a hugely popular spectator sport but has been banned in many American states and several countries over welfare concerns. Retired racers are adopted out in large numbers and are famously calm, spending much of their day asleep. The whippet is a smaller cousin that was bred for racing the poor man's version."
+    },
+    {
+      "d": "easy",
+      "q": "Which low-slung breed, whose German name means 'badger dog', was developed to hunt animals in their burrows?",
+      "o": [
+        "The dachshund",
+        "The basset hound",
+        "The corgi",
+        "The Scottish terrier"
+      ],
+      "a": 0,
+      "w": "The dachshund, bred in Germany in the 1600s to go underground after badgers. Its long body and short legs let it squeeze into tunnels, and its big chest gives it a deep bark.",
+      "more": "The nickname 'sausage dog' comes from the shape, and the breed's name is often shortened to 'doxie'. Dachshund races are held in several countries. They also have a notorious tendency to back problems because of the length of their spines."
+    },
+    {
+      "d": "easy",
+      "q": "Which fictional collie, who always rescued a farm boy from trouble, was played over the decades by male dogs, beginning with one named Pal in 1943?",
+      "o": [
+        "Lassie",
+        "Rin Tin Tin",
+        "Benji",
+        "Old Yeller"
+      ],
+      "a": 0,
+      "w": "Lassie. Male collies were chosen for the role because they are larger than females and keep their full coats all year round.",
+      "more": "The character was created in a 1938 short story by Eric Knight, who later expanded it into a novel. Pal was the first of a line of descendants who played Lassie for generations, and the television series ran for 19 years from 1954. Pal was originally a rejected dog, sent for training by an owner who couldn't control him."
+    },
+    {
+      "d": "easy",
+      "q": "Which Moscow street dog became the first living creature to orbit the Earth when she was launched aboard Sputnik 2 in 1957?",
+      "o": [
+        "Laika",
+        "Belka",
+        "Strelka",
+        "Zvezdochka"
+      ],
+      "a": 0,
+      "w": "Laika, a stray found on the streets and trained for the flight. She died in orbit within hours, from overheating, although Soviet officials said for decades that she had lived for days.",
+      "more": "The Soviet Union had no way to bring the capsule back, so she was always going to die. The truth about her death was only revealed in 2002. Two other dogs, Belka and Strelka, flew in 1960 and returned alive, and Strelka's puppy was later given to President Kennedy's family."
+    },
+    {
+      "d": "medium",
+      "q": "Which breed, the smallest in the world, is named after a Mexican state?",
+      "o": [
+        "The Chihuahua",
+        "The Pomeranian",
+        "The Yorkshire terrier",
+        "The papillon"
+      ],
+      "a": 0,
+      "w": "The Chihuahua, which weighs about one to three kilograms. It is thought to descend from a sacred dog of the Toltec, the Techichi, kept by pre-Columbian Mexican societies.",
+      "more": "The breed became fashionable in the United States in the early 1900s, after dogs were sold to American tourists on the Mexican border. They have a famously large personality and are prone to a soft spot on the head called a molera, which is open in puppies. A Chihuahua named Miracle Milly was measured as the smallest dog ever, at under ten centimetres tall."
+    },
+    {
+      "d": "medium",
+      "q": "Which breed, with long droopy ears and wrinkled skin, has a nose so sensitive that its tracking is admitted as evidence in some American courts?",
+      "o": [
+        "The bloodhound",
+        "The beagle",
+        "The basset hound",
+        "The coonhound"
+      ],
+      "a": 0,
+      "w": "The bloodhound, which has up to 300 million scent receptors, against about five million in a human. Its name has nothing to do with blood and refers to its 'blooded', or aristocratic, breeding.",
+      "more": "A bloodhound can follow a trail more than 300 hours old and for over 100 miles. It was bred by monks in Belgium and later refined in Britain. The long ears are thought to sweep scent up from the ground, and the wrinkles trap it around the face."
+    },
+    {
+      "d": "medium",
+      "q": "In J. M. Barrie's Peter Pan, the Darling children's nursemaid, Nana, is which breed of giant dog?",
+      "o": [
+        "A Newfoundland",
+        "A St. Bernard",
+        "A Great Dane",
+        "An Old English sheepdog"
+      ],
+      "a": 0,
+      "w": "A Newfoundland, a huge, gentle breed with webbed feet that was bred to help fishermen haul nets. Barrie based Nana on his own Newfoundland, Luath.",
+      "more": "The breed is famous for rescuing drowning people, and a Newfoundland named Boatswain is said to have inspired Lord Byron to write an epitaph for a dog. In stage productions Nana is traditionally played by an actor in a costume. Newfoundlands can weigh up to 70 kilograms and drool prodigiously."
+    },
+    {
+      "d": "hard",
+      "q": "Which Akita waited every day at Shibuya Station in Tokyo for nearly ten years after his owner died in 1925, and now has a bronze statue there?",
+      "o": [
+        "Hachikō",
+        "Shiro",
+        "Taro",
+        "Jiro"
+      ],
+      "a": 0,
+      "w": "Hachikō. His owner, a professor, died at work, and the dog kept coming to the station at the time his train was due until his own death in 1935.",
+      "more": "His statue outside the station is Tokyo's most popular meeting point, and the dog's remains are preserved at a museum in the city. The 2009 film Hachi: A Dog's Tale, starring Richard Gere, retold the story in America. Akitas are a native breed of the cold north of Japan."
+    },
+    {
+      "d": "hard",
+      "type": "order",
+      "q": "Put these famous screen dogs in the order they first appeared, earliest first.",
+      "o": [
+        "Snoopy in the Peanuts comic strip",
+        "Lady and the Tramp",
+        "The 101 Dalmatians",
+        "Beethoven the St. Bernard"
+      ],
+      "w": "Snoopy in 1950, Lady and the Tramp in 1955, 101 Dalmatians in 1961 and the film Beethoven in 1992.",
+      "more": "Snoopy began as a fairly ordinary pet beagle and gradually acquired a fantasy life as a World War I flying ace and a novelist. In Lady and the Tramp, a spaghetti dinner turns into one of the best-known kisses in animation. The Beethoven films spawned several sequels, all built around a St. Bernard who drools on cue."
+    },
+    {
+      "d": "hard",
+      "type": "select",
+      "q": "Which of these breeds belong to the herding group? Select all that apply.",
+      "o": [
+        "Border collie",
+        "Pembroke Welsh corgi",
+        "Australian cattle dog",
+        "Beagle",
+        "Pug",
+        "Rottweiler"
+      ],
+      "a": [
+        0,
+        1,
+        2
+      ],
+      "w": "Border collie, Pembroke Welsh corgi and Australian cattle dog. The beagle is a hound, the pug a toy breed and the Rottweiler a working breed.",
+      "more": "The border collie is often named the most intelligent breed, and one called Chaser learned more than a thousand words. Corgis herded cattle by nipping at their heels, which their low build kept them out of the way of kicks. The Queen's love of corgis made them famous around the world."
+    }
+  ]
+}
