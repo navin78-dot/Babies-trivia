@@ -347,7 +347,7 @@
       "roundsDir": "games/hamps/rounds",
       "today": "2026-11-17",
       "season": 8,
-      "queueCount": 5,
+      "queueCount": 6,
       "target": 5,
       "fill": 0,
       "queue": [
@@ -390,6 +390,14 @@
           "onPollSince": "2026-11-15",
           "retired": false,
           "requestId": null
+        },
+        {
+          "id": "wrapped-up",
+          "name": "Wrapped Up",
+          "subject": "Candy bars, round two",
+          "onPollSince": null,
+          "retired": false,
+          "requestId": "hamps:oLARKID5Zoq9c9Hzz344"
         }
       ],
       "poll": {
@@ -408,9 +416,9 @@
       "upcoming": [
         {
           "day": "2026-11-19",
-          "id": "req:oLARKID5Zoq9c9Hzz344",
-          "name": null,
-          "how": "unwritten"
+          "id": "wrapped-up",
+          "name": "Wrapped Up",
+          "how": "theme"
         },
         {
           "day": "2026-11-21",
@@ -625,21 +633,8 @@
           "how": "theme"
         }
       ],
-      "requestsWaiting": [
-        {
-          "id": "hamps:oLARKID5Zoq9c9Hzz344",
-          "theme": "Candy bars",
-          "by": "Salil Gandhi",
-          "dropDay": "2026-11-19"
-        }
-      ],
-      "ideas": [
-        {
-          "id": "oLARKID5Zoq9c9Hzz344",
-          "theme": "Candy bars",
-          "by": "Salil Gandhi"
-        }
-      ],
+      "requestsWaiting": [],
+      "ideas": [],
       "existingSubjects": [
         "Art Attack (Art and artists)",
         "Best in Show (Dogs)",
@@ -683,10 +678,11 @@
         "Solar Flair (The planets)",
         "Table for Twenty (Hamptons restaurants)",
         "Trick or Treat (Halloween)",
-        "Turning Points (World history)"
+        "Turning Points (World history)",
+        "Wrapped Up (Candy bars, round two)"
       ],
-      "need": 1
+      "need": 0
     }
   },
-  "totalNeed": 3
+  "totalNeed": 2
 }
