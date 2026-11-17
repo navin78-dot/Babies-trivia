@@ -1,0 +1,107 @@
+{
+  "id": "wrapped-up",
+  "name": "Wrapped Up",
+  "subject": "Candy bars, round two",
+  "requestId": "hamps:oLARKID5Zoq9c9Hzz344",
+  "tagline": "A second helping of sweets, this time from the other side of the Atlantic: purple wrappers, a Friday feeling and a square that fits in your pocket. A theme the crew voted for.",
+  "draft": true,
+  "emblem": "🍬",
+  "theme": {
+    "font": "Lobster Two",
+    "accent": "#7C3AED",
+    "accent2": "#EA580C",
+    "accentDark": "#C4B5FD",
+    "accent2Dark": "#FDBA74"
+  },
+  "questions": [
+    {
+      "d": "easy",
+      "q": "Which purple-wrapped British chocolate bar, launched in 1905, was famously advertised as containing a glass and a half of full-cream milk in every half-pound?",
+      "o": ["Dairy Milk", "Galaxy", "Bournville", "Fruit & Nut"],
+      "a": 0,
+      "w": "Dairy Milk, made by Cadbury, which was created to compete with Swiss milk chocolate. It became Britain's best-selling bar within a few years of launch.",
+      "more": "The 'glass and a half' slogan arrived in 1928 and was drawn as a glass of milk pouring into a bar. Cadbury registered its shade of purple, called Pantone 2865c, as a trademark, which led to a long court fight with Nestlé over the colour. Queen Victoria granted the company a royal warrant in 1854."
+    },
+    {
+      "d": "easy",
+      "q": "Which bar of nougat and caramel under milk chocolate, developed by Forrest Mars in Slough in 1932, later promised to help you 'work, rest and play'?",
+      "o": ["The Mars bar", "The Milky Way", "The Bounty", "The Topic"],
+      "a": 0,
+      "w": "The Mars bar. Forrest Mars had learned his trade in Switzerland and came to England to build a business of his own, after a falling out with his father over the family firm.",
+      "more": "It was sold across Britain within a few years and became the company's most successful product there. The slogan 'A Mars a day helps you work, rest and play' appeared in the 1960s. The deep-fried Mars bar, a Scottish takeaway novelty, has been reported since the 1990s."
+    },
+    {
+      "d": "easy",
+      "q": "Which Cadbury bar, a golden honeycomb centre inside milk chocolate, has been associated with a 'Friday feeling' in its adverts since the 1980s?",
+      "o": ["Crunchie", "Wispa", "Curly Wurly", "Boost"],
+      "a": 0,
+      "w": "Crunchie. The honeycomb inside is a type of toffee made by adding bicarbonate of soda to boiling sugar, which makes it bubble and set full of air.",
+      "more": "The bar was first made in 1929 and it has long been a favourite for dropping into a glass of milk or ice cream. A version called the Crunchie Bar went to Australia and Canada. It was popular enough that the company's 1980s advertisements, with workers dancing out of their offices at the weekend, are still remembered."
+    },
+    {
+      "d": "easy",
+      "q": "Which golden-wrapped ball of hazelnut and chocolate was famously advertised in the 1990s by an ambassador's reception, with the line 'Monsieur, with these you're really spoiling us'?",
+      "o": ["Ferrero Rocher", "Lindt Lindor", "Maltesers", "Kinder Bueno"],
+      "a": 0,
+      "w": "Ferrero Rocher. Each one has a whole hazelnut inside a wafer shell, wrapped in chocolate and chopped hazelnut, and the gold foil is part of its look.",
+      "more": "The advertising campaign aired in Britain in the early 1990s and was so widely parodied that it became part of the language. The name Rocher comes from the French word for 'rock', after the grotto at Lourdes, to which the founder's wife was devoted. The Ferrero family also makes Nutella and Kinder."
+    },
+    {
+      "d": "easy",
+      "q": "Which German brand's chocolate comes in a square bar, with the slogan 'Quadratisch. Praktisch. Gut.', meaning 'square, practical, good'?",
+      "o": ["Ritter Sport", "Milka", "Haribo", "Merci"],
+      "a": 0,
+      "w": "Ritter Sport. The square shape was the idea of the founder's wife, Clara Ritter, in 1932, because a square fits in a jacket pocket without breaking.",
+      "more": "It is made in Waldenbuch, near Stuttgart, and the company is still in family hands. The bars come in dozens of flavours, with a long-running Ritter Sport fan favourite being marzipan. Its square wrappers come in a colour for each flavour."
+    },
+    {
+      "d": "medium",
+      "q": "Which Swiss chocolate maker invented milk chocolate in 1875 by combining cocoa with condensed milk from his neighbour Henri Nestlé?",
+      "o": ["Daniel Peter", "Rodolphe Lindt", "Jean Tobler", "Philippe Suchard"],
+      "a": 0,
+      "w": "Daniel Peter, a candle maker turned chocolatier in Vevey, who spent eight years working out how to remove the water from the milk so that the chocolate wouldn't spoil.",
+      "more": "Henri Nestlé had invented condensed milk and, as a neighbour, was Peter's first supplier and later his partner, forming the Nestlé company. Peter's early bars sold as 'Gala Peter'. His invention changed the sweetness of chocolate for good, since dark chocolate had been all there was."
+    },
+    {
+      "d": "medium",
+      "q": "Which Easter treat, a chocolate shell with a white and yellow fondant filling that looks like an egg, is advertised in Britain with the question 'How do you eat yours?'",
+      "o": ["The Cadbury Creme Egg", "The Mini Egg", "The Kinder Egg", "The Easter bunny"],
+      "a": 0,
+      "w": "The Cadbury Creme Egg. Cadbury makes about 500 million of them a year, and the company says it sells them only between New Year's Day and Easter.",
+      "more": "Fry's introduced an earlier version in 1963 and it was renamed Creme Egg in 1971. The fondant is made from sugar syrup and glucose, tinted yellow in the centre to look like a yolk. Cadbury's factory in Bournville makes millions every day in the weeks before Easter."
+    },
+    {
+      "d": "medium",
+      "q": "The name of the gummy bear maker Haribo is a contraction of its founder's name and the German city where it began in 1920. Which city?",
+      "o": ["Bonn", "Berlin", "Hamburg", "Bremen"],
+      "a": 0,
+      "w": "Bonn. The name is HAns RIegel BOnn. Hans Riegel started the business as a one-man firm, making sweets at his kitchen stove, and sold them from a bicycle.",
+      "more": "His first great success was a dancing bear made of fruit gum, launched in 1922, which became the Goldbär, or gold bear. Haribo sells more than a hundred million gummy bears a day around the world. The company's slogan, 'Haribo makes children happy, and adults too', was first used in German in 1962."
+    },
+    {
+      "d": "hard",
+      "q": "Which aerated Cadbury bar, discontinued in 2003, returned in 2007 after a campaign by fans organised largely on social media sites such as Facebook and Bebo?",
+      "o": ["Wispa", "Aero", "Boost", "Twirl"],
+      "a": 0,
+      "w": "Wispa, launched in 1981 and so popular that it became one of the first products ever revived by a social-media campaign.",
+      "more": "Cadbury had withdrawn it because it was cannibalising sales of other products. Fans formed online groups with tens of thousands of members, and when the bar came back in 2007 it sold out within days. Its comeback is now cited in marketing courses as a lesson in listening to customers."
+    },
+    {
+      "d": "hard",
+      "type": "order",
+      "q": "Put these chocolate milestones in the order they happened, earliest first.",
+      "o": ["Fry's makes the first solid chocolate bar", "Hershey's Kisses are introduced", "The Kinder Surprise egg is launched", "The Kinder Bueno bar is launched"],
+      "w": "Fry's in 1847, Hershey's Kisses in 1907, the Kinder Surprise in 1974 and Kinder Bueno in 1990.",
+      "more": "Fry's of Bristol was a Quaker firm, like Cadbury and Rowntree. Kinder Surprise eggs are sold in many countries but are banned in the United States, because a toy inside a food product breaks federal safety law; the company made a safe-for-America version called the Kinder Joy. Kinder Bueno was launched after Ferrero decided to add a bar to its line of Kinder treats."
+    },
+    {
+      "d": "hard",
+      "type": "select",
+      "q": "Which of these British chocolate bars are made by Cadbury? Select all that apply.",
+      "o": ["Twirl", "Flake", "Curly Wurly", "Aero", "Rolo", "Lion bar"],
+      "a": [0, 1, 2],
+      "w": "Twirl, Flake and Curly Wurly are all Cadbury. Aero, Rolo and the Lion bar are made by Nestlé.",
+      "more": "Flake is known for crumbling, and Cadbury advertised it for decades with women eating one in unlikely places. Curly Wurly, launched in 1970, is a rope of toffee in chocolate that used to be the cheapest bar in the shop. Aero and Rolo came from Rowntree's, which Nestlé bought in 1988."
+    }
+  ]
+}
