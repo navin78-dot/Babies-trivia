@@ -1,11 +1,11 @@
 {
   "game": "babies",
   "roundsDir": "rounds",
-  "today": "2026-11-16",
+  "today": "2026-11-17",
   "season": 9,
-  "queueCount": 4,
+  "queueCount": 3,
   "target": 5,
-  "fill": 1,
+  "fill": 2,
   "queue": [
     {
       "id": "golden-age",
@@ -30,33 +30,25 @@
       "onPollSince": "2026-10-13",
       "retired": true,
       "requestId": null
-    },
-    {
-      "id": "two-to-tango",
-      "name": "Two to Tango",
-      "subject": "Dance",
-      "onPollSince": "2026-11-14",
-      "retired": false,
-      "requestId": null
     }
   ],
   "poll": {
-    "key": "2026-11-15",
-    "closes": "2026-11-17",
-    "decides": "2026-11-19",
+    "key": "2026-11-17",
+    "closes": "2026-11-19",
+    "decides": "2026-11-21",
     "options": []
   },
   "upcoming": [
     {
-      "day": "2026-11-17",
-      "id": "two-to-tango",
-      "name": "Two to Tango",
-      "how": "poll"
-    },
-    {
       "day": "2026-11-19",
       "id": "golden-age",
       "name": "Golden Age",
+      "how": "queue"
+    },
+    {
+      "day": "2026-11-21",
+      "id": "last-call",
+      "name": "Last Call",
       "how": "queue"
     }
   ],
@@ -282,6 +274,12 @@
       "id": "party-time",
       "name": "Party Time",
       "how": "poll"
+    },
+    {
+      "day": "2026-11-17",
+      "id": "two-to-tango",
+      "name": "Two to Tango",
+      "how": "poll"
     }
   ],
   "requestsWaiting": [],
@@ -342,14 +340,14 @@
     "Where On Earth (Geography)",
     "Wild Things (Animals)"
   ],
-  "need": 1,
+  "need": 2,
   "games": {
     "hamps": {
       "game": "hamps",
       "roundsDir": "games/hamps/rounds",
-      "today": "2026-11-16",
+      "today": "2026-11-17",
       "season": 8,
-      "queueCount": 6,
+      "queueCount": 5,
       "target": 5,
       "fill": 0,
       "queue": [
@@ -392,45 +390,32 @@
           "onPollSince": "2026-11-15",
           "retired": false,
           "requestId": null
-        },
-        {
-          "id": "brain-freeze",
-          "name": "Brain Freeze",
-          "subject": "Ice cream",
-          "onPollSince": null,
-          "retired": false,
-          "requestId": "hamps:HkjvKq9eoXgKyhBblSsP"
         }
       ],
       "poll": {
-        "key": "2026-11-15",
-        "closes": "2026-11-17",
-        "decides": "2026-11-19",
+        "key": "2026-11-17",
+        "closes": "2026-11-19",
+        "decides": "2026-11-21",
         "options": [
           {
             "id": "peak-performance"
           },
           {
             "id": "best-in-show"
-          },
-          {
-            "id": "req:oLARKID5Zoq9c9Hzz344",
-            "theme": "Candy bars",
-            "by": "Salil Gandhi"
           }
         ]
       },
       "upcoming": [
         {
-          "day": "2026-11-17",
-          "id": "brain-freeze",
-          "name": "Brain Freeze",
-          "how": "theme"
-        },
-        {
           "day": "2026-11-19",
           "id": "req:oLARKID5Zoq9c9Hzz344",
           "name": null,
+          "how": "unwritten"
+        },
+        {
+          "day": "2026-11-21",
+          "id": "peak-performance",
+          "name": "Peak Performance",
           "how": "leading"
         }
       ],
@@ -632,9 +617,22 @@
           "id": "say-cheese",
           "name": "Say Cheese",
           "how": "poll"
+        },
+        {
+          "day": "2026-11-17",
+          "id": "brain-freeze",
+          "name": "Brain Freeze",
+          "how": "theme"
         }
       ],
-      "requestsWaiting": [],
+      "requestsWaiting": [
+        {
+          "id": "hamps:oLARKID5Zoq9c9Hzz344",
+          "theme": "Candy bars",
+          "by": "Salil Gandhi",
+          "dropDay": "2026-11-19"
+        }
+      ],
       "ideas": [
         {
           "id": "oLARKID5Zoq9c9Hzz344",
@@ -687,8 +685,8 @@
         "Trick or Treat (Halloween)",
         "Turning Points (World history)"
       ],
-      "need": 0
+      "need": 1
     }
   },
-  "totalNeed": 1
+  "totalNeed": 3
 }
