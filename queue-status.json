@@ -1,7 +1,7 @@
 {
   "game": "babies",
   "roundsDir": "rounds",
-  "today": "2026-11-17",
+  "today": "2026-11-18",
   "season": 9,
   "queueCount": 3,
   "target": 5,
@@ -345,7 +345,7 @@
     "hamps": {
       "game": "hamps",
       "roundsDir": "games/hamps/rounds",
-      "today": "2026-11-17",
+      "today": "2026-11-18",
       "season": 8,
       "queueCount": 6,
       "target": 5,
