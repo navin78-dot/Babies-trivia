@@ -1,20 +1,12 @@
 {
   "game": "babies",
   "roundsDir": "rounds",
-  "today": "2026-11-18",
+  "today": "2026-11-19",
   "season": 9,
-  "queueCount": 3,
+  "queueCount": 2,
   "target": 5,
-  "fill": 2,
+  "fill": 3,
   "queue": [
-    {
-      "id": "golden-age",
-      "name": "Golden Age",
-      "subject": "Old Hollywood, 1930 to 1960",
-      "onPollSince": "2026-10-04",
-      "retired": true,
-      "requestId": null
-    },
     {
       "id": "last-call",
       "name": "Last Call",
@@ -33,22 +25,22 @@
     }
   ],
   "poll": {
-    "key": "2026-11-17",
-    "closes": "2026-11-19",
-    "decides": "2026-11-21",
+    "key": "2026-11-19",
+    "closes": "2026-11-21",
+    "decides": "2026-11-22",
     "options": []
   },
   "upcoming": [
     {
-      "day": "2026-11-19",
-      "id": "golden-age",
-      "name": "Golden Age",
-      "how": "queue"
-    },
-    {
       "day": "2026-11-21",
       "id": "last-call",
       "name": "Last Call",
+      "how": "queue"
+    },
+    {
+      "day": "2026-11-22",
+      "id": "hail-to-the-chief",
+      "name": "Hail to the Chief",
       "how": "queue"
     }
   ],
@@ -280,6 +272,12 @@
       "id": "two-to-tango",
       "name": "Two to Tango",
       "how": "poll"
+    },
+    {
+      "day": "2026-11-19",
+      "id": "golden-age",
+      "name": "Golden Age",
+      "how": "queue"
     }
   ],
   "requestsWaiting": [],
@@ -340,14 +338,14 @@
     "Where On Earth (Geography)",
     "Wild Things (Animals)"
   ],
-  "need": 2,
+  "need": 3,
   "games": {
     "hamps": {
       "game": "hamps",
       "roundsDir": "games/hamps/rounds",
-      "today": "2026-11-18",
+      "today": "2026-11-19",
       "season": 8,
-      "queueCount": 6,
+      "queueCount": 5,
       "target": 5,
       "fill": 0,
       "queue": [
@@ -380,7 +378,7 @@
           "name": "Peak Performance",
           "subject": "Mountains and climbing",
           "onPollSince": "2026-11-14",
-          "retired": false,
+          "retired": true,
           "requestId": null
         },
         {
@@ -390,41 +388,26 @@
           "onPollSince": "2026-11-15",
           "retired": false,
           "requestId": null
-        },
-        {
-          "id": "wrapped-up",
-          "name": "Wrapped Up",
-          "subject": "Candy bars, round two",
-          "onPollSince": null,
-          "retired": false,
-          "requestId": "hamps:oLARKID5Zoq9c9Hzz344"
         }
       ],
       "poll": {
-        "key": "2026-11-17",
-        "closes": "2026-11-19",
-        "decides": "2026-11-21",
-        "options": [
-          {
-            "id": "peak-performance"
-          },
-          {
-            "id": "best-in-show"
-          }
-        ]
+        "key": "2026-11-19",
+        "closes": "2026-11-21",
+        "decides": "2026-11-22",
+        "options": []
       },
       "upcoming": [
-        {
-          "day": "2026-11-19",
-          "id": "wrapped-up",
-          "name": "Wrapped Up",
-          "how": "theme"
-        },
         {
           "day": "2026-11-21",
           "id": "best-in-show",
           "name": "Best in Show",
-          "how": "leading"
+          "how": "poll"
+        },
+        {
+          "day": "2026-11-22",
+          "id": "money-talks",
+          "name": "Money Talks",
+          "how": "queue"
         }
       ],
       "dropped": [
@@ -631,6 +614,12 @@
           "id": "brain-freeze",
           "name": "Brain Freeze",
           "how": "theme"
+        },
+        {
+          "day": "2026-11-19",
+          "id": "wrapped-up",
+          "name": "Wrapped Up",
+          "how": "theme"
         }
       ],
       "requestsWaiting": [],
@@ -684,5 +673,5 @@
       "need": 0
     }
   },
-  "totalNeed": 2
+  "totalNeed": 3
 }
