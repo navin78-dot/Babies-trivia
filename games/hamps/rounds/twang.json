@@ -1,0 +1,167 @@
+{
+  "id": "twang",
+  "name": "Twang",
+  "subject": "Country music",
+  "tagline": "Eleven questions on three chords and the truth, from a Nashville radio barn to a prison concert and a jukebox that never stopped. Starts easy, ends hard.",
+  "draft": true,
+  "emblem": "🤠",
+  "theme": {
+    "font": "Rye",
+    "accent": "#B45309",
+    "accent2": "#1E3A8A",
+    "accentDark": "#FCD34D",
+    "accent2Dark": "#93C5FD"
+  },
+  "questions": [
+    {
+      "d": "easy",
+      "q": "Which Tennessee city, nicknamed Music City, is the home of country music and of its long-running radio show, the Grand Ole Opry?",
+      "o": [
+        "Nashville",
+        "Memphis",
+        "Knoxville",
+        "Chattanooga"
+      ],
+      "a": 0,
+      "w": "Nashville. The Opry began as a Saturday-night radio programme in 1925 and is the longest-running radio show in American history.",
+      "more": "Country music's business cluster, with its record labels and publishers, sits on a stretch known as Music Row. The Opry moved in 1974 from the Ryman Auditorium, nicknamed the Mother Church of Country Music, to a purpose-built hall outside the city. It is still broadcast live, and being invited to join its cast is among the highest honours in the genre."
+    },
+    {
+      "d": "easy",
+      "q": "Which singer, nicknamed the Man in Black, recorded a famous live album at Folsom State Prison in California in 1968?",
+      "o": [
+        "Johnny Cash",
+        "Merle Haggard",
+        "Kris Kristofferson",
+        "Charley Pride"
+      ],
+      "a": 0,
+      "w": "Johnny Cash. At Folsom Prison opens with his greeting 'Hello, I'm Johnny Cash' and the cheers of the inmates, and it revived a career that had slipped.",
+      "more": "Cash said he wore black for the poor and the prisoner, and for those who had lost their way. The album was followed by another recorded at San Quentin the next year, which gave him a number one hit with 'A Boy Named Sue'. He had visited prisons for more than a decade and was a lifelong campaigner for prisoners' rights."
+    },
+    {
+      "d": "easy",
+      "q": "Which star's 1990 hit 'Friends in Low Places' tells the story of a man who crashes his ex's wedding in his boots and drinks the party's champagne?",
+      "o": [
+        "Garth Brooks",
+        "George Strait",
+        "Alan Jackson",
+        "Kenny Chesney"
+      ],
+      "a": 0,
+      "w": "Garth Brooks, from his album No Fences, which went on to become the best-selling country album of its decade. The song is a staple of karaoke bars across America.",
+      "more": "Brooks was on top of the country world through the 1990s and has sold more than 160 million records in the United States, second only to the Beatles. His concerts were famous for his flying across the stage on wires. He took a break from music in the early 2000s to raise his daughters."
+    },
+    {
+      "d": "easy",
+      "q": "Which five-string instrument, played in a fast rolling style popularised by Earl Scruggs, gives bluegrass its signature sound?",
+      "o": [
+        "The banjo",
+        "The mandolin",
+        "The fiddle",
+        "The dobro"
+      ],
+      "a": 0,
+      "w": "The banjo. Scruggs developed a three-finger picking style in the 1940s when he joined Bill Monroe's band, and it came to be called Scruggs style.",
+      "more": "Bill Monroe is called the father of bluegrass, which takes its name from his band, the Blue Grass Boys. The banjo itself came to America from West Africa, where similar instruments were played, and was brought by enslaved people. Its prominence in the soundtrack of the 1967 film Bonnie and Clyde, with Scruggs's 'Foggy Mountain Breakdown', made the sound known worldwide."
+    },
+    {
+      "d": "easy",
+      "q": "Which singer's 1961 recording of 'Crazy', a song written by Willie Nelson, became one of the most-played songs in jukebox history?",
+      "o": [
+        "Patsy Cline",
+        "Tammy Wynette",
+        "Loretta Lynn",
+        "Reba McEntire"
+      ],
+      "a": 0,
+      "w": "Patsy Cline, whose rich voice and crossover appeal made her country's first major female star. She died in a plane crash in 1963 at the age of 30.",
+      "more": "Cline reportedly disliked the song at first, finding it too difficult to sing, and her producer made her record it in a single take. She and Loretta Lynn were close friends. Her records have never been out of print, and her story was told in the 1985 film Sweet Dreams."
+    },
+    {
+      "d": "medium",
+      "q": "Which outlaw country star, known for his braids and a battered guitar called Trigger, wrote 'On the Road Again' and 'Crazy'?",
+      "o": [
+        "Willie Nelson",
+        "Waylon Jennings",
+        "Merle Haggard",
+        "Kenny Rogers"
+      ],
+      "a": 0,
+      "w": "Willie Nelson, who wrote hits for other singers in Nashville before he left in the 1970s for Texas and made his own name there.",
+      "more": "Trigger, a Martin acoustic guitar he has played since 1969, now has a hole worn right through its body. Nelson organised the first Farm Aid concert in 1985 to help American family farmers. He has toured well into his nineties and has said he plans to carry on until he can't."
+    },
+    {
+      "d": "medium",
+      "q": "Which singer-songwriter, who wrote 'Your Cheatin' Heart' and 'I'm So Lonesome I Could Cry', died aged 29 in the back of his car on New Year's Day 1953?",
+      "o": [
+        "Hank Williams",
+        "Jimmie Rodgers",
+        "Ernest Tubb",
+        "Roy Acuff"
+      ],
+      "a": 0,
+      "w": "Hank Williams, whose short life was marked by pain from a spinal condition and heavy drinking. He was on his way to a concert in Ohio when his driver noticed he had died.",
+      "more": "He was elected to the Country Music Hall of Fame in 1961, one of the first three inductees. His songs have been recorded by hundreds of artists, from Elvis Presley to Norah Jones. His grandson, Hank III, and his son, Hank Jr., both became country performers."
+    },
+    {
+      "d": "medium",
+      "q": "Loretta Lynn's song 'Coal Miner's Daughter', which became an Oscar-winning 1980 film with Sissy Spacek, tells of growing up in poverty in the hills of which state?",
+      "o": [
+        "Kentucky",
+        "West Virginia",
+        "Tennessee",
+        "Virginia"
+      ],
+      "a": 0,
+      "w": "Kentucky, in a mining hollow in Butcher Hollow, Johnson County. Her father was a coal miner and she was married at thirteen.",
+      "more": "Spacek won the Academy Award for best actress for her performance and sang all the songs herself. Lynn was among the first women in country to write her own songs, many of them blunt about marriage and the pill. 'The Pill' was banned by a lot of radio stations in 1975."
+    },
+    {
+      "d": "hard",
+      "q": "The 1927 Bristol Sessions, called the 'big bang of country music', launched the careers of the Carter Family and Jimmie Rodgers. Bristol straddles the border between which two states?",
+      "o": [
+        "Tennessee and Virginia",
+        "Tennessee and Kentucky",
+        "Virginia and North Carolina",
+        "Georgia and Alabama"
+      ],
+      "a": 0,
+      "w": "Tennessee and Virginia. A producer from the Victor record company set up a temporary studio in an empty hat warehouse and recorded local musicians for a few dollars each over twelve days.",
+      "more": "Jimmie Rodgers, the Singing Brakeman, went on to sell millions of records with his yodelling blues before dying of tuberculosis at 35 in 1933. The Carter Family's songs, including 'Will the Circle Be Unbroken', became the foundation of the country songbook. Bristol's main street is painted with the state line, and the town calls itself the birthplace of country music."
+    },
+    {
+      "d": "hard",
+      "type": "order",
+      "q": "Put these country milestones in order, earliest first.",
+      "o": [
+        "The Grand Ole Opry's first radio broadcast",
+        "Loretta Lynn's 'Coal Miner's Daughter' is released",
+        "Alan Jackson's 'Chattahoochee' is released",
+        "Shania Twain's Come On Over is released"
+      ],
+      "w": "The Opry in 1925, 'Coal Miner's Daughter' in 1970, 'Chattahoochee' in 1993 and Come On Over in 1997.",
+      "more": "Come On Over became the best-selling album by a female artist of all time, with more than forty million copies sold. 'Chattahoochee' is about a river that runs through Georgia and Alabama,. The Opry began as the WSM Barn Dance, and took its present name in 1927."
+    },
+    {
+      "d": "hard",
+      "type": "select",
+      "q": "Which of these country singers were born in Texas? Select all that apply.",
+      "o": [
+        "Kris Kristofferson",
+        "George Strait",
+        "Waylon Jennings",
+        "Dolly Parton",
+        "Johnny Cash",
+        "Hank Williams"
+      ],
+      "a": [
+        0,
+        1,
+        2
+      ],
+      "w": "Kris Kristofferson was born in Brownsville, George Strait in Poteet and Waylon Jennings in Littlefield. Parton is from Tennessee, Cash from Arkansas and Williams from Alabama.",
+      "more": "Kristofferson was a Rhodes scholar and army helicopter pilot before he moved to Nashville and wrote 'Me and Bobby McGee' and 'Sunday Mornin' Comin' Down'. George Strait, nicknamed the King of Country, has had more number-one country hits than any other artist. Jennings and Willie Nelson formed the core of the outlaw movement in the 1970s."
+    }
+  ]
+}
