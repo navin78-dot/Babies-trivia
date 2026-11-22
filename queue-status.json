@@ -1,36 +1,27 @@
 {
   "game": "babies",
   "roundsDir": "rounds",
-  "today": "2026-11-21",
-  "season": 9,
-  "queueCount": 1,
+  "today": "2026-11-22",
+  "season": 10,
+  "queueCount": 0,
   "target": 5,
-  "fill": 4,
-  "queue": [
-    {
-      "id": "hail-to-the-chief",
-      "name": "Hail to the Chief",
-      "subject": "US presidents",
-      "onPollSince": "2026-10-13",
-      "retired": true,
-      "requestId": null
-    }
-  ],
+  "fill": 5,
+  "queue": [],
   "poll": {
-    "key": "2026-11-21",
-    "closes": "2026-11-22",
-    "decides": "2026-11-24",
+    "key": "2026-11-22",
+    "closes": "2026-11-24",
+    "decides": "2026-11-26",
     "options": []
   },
   "upcoming": [
     {
-      "day": "2026-11-22",
-      "id": "hail-to-the-chief",
-      "name": "Hail to the Chief",
-      "how": "queue"
+      "day": "2026-11-24",
+      "id": null,
+      "name": null,
+      "how": "nothing"
     },
     {
-      "day": "2026-11-24",
+      "day": "2026-11-26",
       "id": null,
       "name": null,
       "how": "nothing"
@@ -276,6 +267,12 @@
       "id": "last-call",
       "name": "Last Call",
       "how": "queue"
+    },
+    {
+      "day": "2026-11-22",
+      "id": "hail-to-the-chief",
+      "name": "Hail to the Chief",
+      "how": "queue"
     }
   ],
   "requestsWaiting": [],
@@ -336,25 +333,17 @@
     "Where On Earth (Geography)",
     "Wild Things (Animals)"
   ],
-  "need": 4,
+  "need": 5,
   "games": {
     "hamps": {
       "game": "hamps",
       "roundsDir": "games/hamps/rounds",
-      "today": "2026-11-21",
-      "season": 8,
-      "queueCount": 5,
+      "today": "2026-11-22",
+      "season": 9,
+      "queueCount": 4,
       "target": 5,
-      "fill": 0,
+      "fill": 1,
       "queue": [
-        {
-          "id": "money-talks",
-          "name": "Money Talks",
-          "subject": "Money, markets and economics",
-          "onPollSince": "2026-10-04",
-          "retired": true,
-          "requestId": null
-        },
         {
           "id": "high-seas",
           "name": "High Seas",
@@ -389,26 +378,22 @@
         }
       ],
       "poll": {
-        "key": "2026-11-21",
-        "closes": "2026-11-22",
-        "decides": "2026-11-24",
-        "options": [
-          {
-            "id": "twang"
-          }
-        ]
+        "key": "2026-11-22",
+        "closes": "2026-11-24",
+        "decides": "2026-11-26",
+        "options": []
       },
       "upcoming": [
         {
-          "day": "2026-11-22",
+          "day": "2026-11-24",
           "id": "twang",
           "name": "Twang",
-          "how": "queue"
+          "how": "poll"
         },
         {
-          "day": "2026-11-24",
-          "id": "money-talks",
-          "name": "Money Talks",
+          "day": "2026-11-26",
+          "id": "high-seas",
+          "name": "High Seas",
           "how": "queue"
         }
       ],
@@ -628,6 +613,12 @@
           "id": "best-in-show",
           "name": "Best in Show",
           "how": "poll"
+        },
+        {
+          "day": "2026-11-22",
+          "id": "money-talks",
+          "name": "Money Talks",
+          "how": "queue"
         }
       ],
       "requestsWaiting": [],
@@ -679,8 +670,8 @@
         "Twang (Country music)",
         "Wrapped Up (Candy bars, round two)"
       ],
-      "need": 0
+      "need": 1
     }
   },
-  "totalNeed": 4
+  "totalNeed": 6
 }
