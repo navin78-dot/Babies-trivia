@@ -1,0 +1,106 @@
+{
+  "id": "rock-around-the-clock",
+  "name": "Rock Around the Clock",
+  "subject": "Rock and roll",
+  "tagline": "Eleven questions on the music that made parents nervous, from a duck-walking guitarist to a plane crash in an Iowa cornfield. Starts easy, ends hard.",
+  "draft": true,
+  "emblem": "🎸",
+  "theme": {
+    "font": "Bangers",
+    "accent": "#B91C1C",
+    "accent2": "#111827",
+    "accentDark": "#FCA5A5",
+    "accent2Dark": "#D1D5DB"
+  },
+  "questions": [
+    {
+      "d": "easy",
+      "q": "Which rock and roll pioneer, famous for his duckwalk across the stage, wrote 'Johnny B. Goode' and 'Roll Over Beethoven'?",
+      "o": ["Chuck Berry", "Little Richard", "Fats Domino", "Bo Diddley"],
+      "a": 0,
+      "w": "Chuck Berry, who joined the blues of Chicago to the rhythm of country and wrote lyrics about cars, school and teenage life. 'Johnny B. Goode' was among the music sent into space on the Voyager probes in 1977.",
+      "more": "John Lennon once said that if you tried to give rock and roll another name you might call it Chuck Berry. Berry, from St. Louis, was a hairdresser before his first hit in 1955, and played a hollow-body Gibson guitar that he kept in tune with a sharp ear. He was still touring in his late eighties."
+    },
+    {
+      "d": "easy",
+      "q": "Which band, fronted by Mick Jagger and Keith Richards, took its name from a Muddy Waters song and has billed itself as 'The Greatest Rock and Roll Band in the World'?",
+      "o": ["The Rolling Stones", "The Who", "The Kinks", "The Animals"],
+      "a": 0,
+      "w": "The Rolling Stones, formed in London in 1962 and still touring after six decades. Their name comes from Waters's blues song 'Rollin' Stone'.",
+      "more": "The band's lips-and-tongue logo, created in 1970 by a design student paid about 50 pounds, is one of the most recognisable in rock. They were marketed as the dangerous alternative to the Beatles. Original member Brian Jones died in 1969, and the line-up has changed since."
+    },
+    {
+      "d": "easy",
+      "q": "Which guitarist set fire to his instrument at the Monterey Pop Festival in June 1967, a moment that made him a star in America?",
+      "o": ["Jimi Hendrix", "Eric Clapton", "Pete Townshend", "Carlos Santana"],
+      "a": 0,
+      "w": "Jimi Hendrix, who played his guitar left-handed upside down and strung the other way. He knelt over the burning instrument, pouring lighter fluid on it before setting it alight.",
+      "more": "He had been a backing guitarist for acts such as the Isley Brothers and Little Richard before moving to London and forming the Jimi Hendrix Experience. His career lasted only four years; he died in London in 1970 aged 27. His version of the 'Star-Spangled Banner' at Woodstock is one of the best-known guitar solos in history."
+    },
+    {
+      "d": "easy",
+      "q": "Which 1969 music festival, held on a dairy farm in upstate New York, drew around 400,000 people for three days of peace, rain and mud?",
+      "o": ["Woodstock", "Altamont", "Monterey Pop", "The Isle of Wight"],
+      "a": 0,
+      "w": "Woodstock, which was held in Bethel, about 60 miles from the town it was named for. Organisers had expected about 50,000 people, and the roads were jammed for miles.",
+      "more": "The festival was meant to be a money-maker and lost a fortune because the fences came down and the crowd got in free. Acts included Jimi Hendrix, Janis Joplin, The Who and Santana. A 1970 film of it won an Oscar for best documentary."
+    },
+    {
+      "d": "easy",
+      "q": "Which band's 1973 album The Dark Side of the Moon, with its prism on the cover, spent more than 900 weeks on the Billboard 200 chart in total?",
+      "o": ["Pink Floyd", "Led Zeppelin", "Genesis", "Yes"],
+      "a": 0,
+      "w": "Pink Floyd. The album has sold around 45 million copies and is among the best-selling records ever made.",
+      "more": "The band spent a year working in Abbey Road studios on it, using tape loops, cash registers and a heartbeat as part of the sound. The prism on the sleeve was designed by Storm Thorgerson of the firm Hipgnosis. Fans have long said it fits closely with the film The Wizard of Oz if both are played at once."
+    },
+    {
+      "d": "medium",
+      "q": "Buddy Holly, Ritchie Valens and J. P. 'The Big Bopper' Richardson died in a 1959 plane crash in an Iowa field. Which 1971 Don McLean song calls it 'the day the music died'?",
+      "o": ["American Pie", "Bye Bye Miss American Pie", "Crocodile Rock", "Vincent"],
+      "a": 0,
+      "w": "'American Pie', a song of more than eight minutes whose lyrics McLean has never fully explained. It was a number one hit and the longest song ever to top the American chart at the time.",
+      "more": "Holly was 22, and wrote and produced his own records at a time when few artists did. The three had been on a tour of the Midwest and chartered a small plane to avoid a bus with a broken heater. McLean's original handwritten manuscript of the lyrics sold at auction in 2015 for more than 1.2 million dollars."
+    },
+    {
+      "d": "medium",
+      "q": "Which Memphis record producer, the founder of Sun Records, first recorded Elvis Presley, Johnny Cash and Jerry Lee Lewis?",
+      "o": ["Sam Phillips", "Berry Gordy", "Phil Spector", "Ahmet Ertegun"],
+      "a": 0,
+      "w": "Sam Phillips, who ran his small studio on Union Avenue and is said to have remarked that if he could find a white man with the Black sound and feel, he could make a billion dollars.",
+      "more": "In 1954 Presley recorded 'That's All Right' for him, and sold his contract to RCA the following year for 35,000 dollars, which Phillips used to keep the company going. The studio is now a museum. In December 1956 Presley, Cash, Lewis and Carl Perkins gathered there for an impromptu session now known as the Million Dollar Quartet."
+    },
+    {
+      "d": "medium",
+      "q": "Which band's untitled fourth album, released in 1971 with a symbol on each sleeve for each member, includes the epic 'Stairway to Heaven'?",
+      "o": ["Led Zeppelin", "Deep Purple", "Black Sabbath", "Cream"],
+      "a": 0,
+      "w": "Led Zeppelin. The album is often called Led Zeppelin IV, though it has no title, and it is one of the best-selling records of all time.",
+      "more": "The band, from England, was formed in 1968 by the guitarist Jimmy Page, with Robert Plant, John Paul Jones and John Bonham. 'Stairway to Heaven' was never released as a single, yet became the most requested song on American rock radio. It lasts just over eight minutes."
+    },
+    {
+      "d": "hard",
+      "q": "Which Ohio city is home to the Rock and Roll Hall of Fame, in a glass pyramid beside Lake Erie designed by I. M. Pei?",
+      "o": ["Cleveland", "Cincinnati", "Columbus", "Akron"],
+      "a": 0,
+      "w": "Cleveland, which won the museum over bids from other cities because its radio DJ Alan Freed popularised the phrase 'rock and roll' there in the early 1950s.",
+      "more": "The museum opened in 1995, with the Hall of Fame's first class of inductees having been chosen in 1986. It holds guitars, handwritten lyrics and stage costumes, including Elvis Presley's. Pei, who also designed the glass pyramid at the Louvre, worked on it as one of his later projects."
+    },
+    {
+      "d": "hard",
+      "type": "order",
+      "q": "Put these rock and roll moments in order, earliest first.",
+      "o": ["Elvis Presley records 'Heartbreak Hotel'", "The Beatles appear on The Ed Sullivan Show", "Bob Dylan plays an electric set at the Newport Folk Festival", "Live Aid is staged in London and Philadelphia"],
+      "w": "'Heartbreak Hotel' in 1956, the Beatles on Ed Sullivan in February 1964, Dylan's electric set in July 1965 and Live Aid in July 1985.",
+      "more": "About 73 million Americans watched the Beatles on Ed Sullivan, among the biggest television audiences to that time. Dylan was reportedly booed at Newport for plugging in, although accounts of the crowd's reaction differ. Live Aid was organised by Bob Geldof in a matter of weeks and watched by an estimated 1.9 billion people."
+    },
+    {
+      "d": "hard",
+      "type": "select",
+      "q": "Which of these musicians died at the age of 27? Select all that apply.",
+      "o": ["Janis Joplin", "Jim Morrison", "Amy Winehouse", "Elvis Presley", "John Lennon", "Buddy Holly"],
+      "a": [0, 1, 2],
+      "w": "Janis Joplin in 1970, Jim Morrison in 1971 and Amy Winehouse in 2011, all at 27. Elvis Presley died at 42, John Lennon at 40 and Buddy Holly at 22.",
+      "more": "Jimi Hendrix, who died in 1970, and Kurt Cobain, in 1994, were also 27, and the group is known as the 27 Club. Researchers who have looked at the statistics say there is no spike at that age and it is a myth built on a few famous cases. Joplin died of a heroin overdose and Morrison probably of heart failure, in a bath in Paris."
+    }
+  ]
+}
