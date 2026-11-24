@@ -1,5 +1,5 @@
 {
-  "asOf": "2026-11-24T00:25:48.313Z",
+  "asOf": "2026-11-24T22:47:43.291Z",
   "cycle": {
     "start": "2026-11-21",
     "end": "2026-12-21"
@@ -10,7 +10,7 @@
     "babies": {
       "domain": "babiestrivia.netlify.app",
       "productionDeploys": 0,
-      "cancelledOrFailed": 9,
+      "cancelledOrFailed": 13,
       "byDay": {},
       "lastDeploy": null
     },
