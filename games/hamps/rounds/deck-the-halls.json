@@ -1,0 +1,167 @@
+{
+  "id": "deck-the-halls",
+  "name": "Deck the Halls",
+  "subject": "Christmas",
+  "tagline": "Eleven questions on the red-nosed, tinsel-covered, mistletoe-hung season, from a reindeer born in a department store to a carol first sung with a guitar. Starts easy, ends hard.",
+  "draft": true,
+  "emblem": "🎄",
+  "theme": {
+    "font": "Mountains of Christmas",
+    "accent": "#166534",
+    "accent2": "#B91C1C",
+    "accentDark": "#86EFAC",
+    "accent2Dark": "#FCA5A5"
+  },
+  "questions": [
+    {
+      "d": "easy",
+      "q": "Which reindeer with a glowing red nose was created in 1939 as a promotion for a Chicago department store, and later became the star of a famous song?",
+      "o": [
+        "Rudolph",
+        "Dasher",
+        "Comet",
+        "Blitzen"
+      ],
+      "a": 0,
+      "w": "Rudolph, invented by Robert L. May, a copywriter at Montgomery Ward, who wrote the story as a booklet to give to shoppers.",
+      "more": "The store handed out around 2.4 million copies in the first year. May's brother-in-law, the songwriter Johnny Marks, turned it into a song, which Gene Autry recorded in 1949 and which became one of the best-selling Christmas singles. The other eight reindeer come from an 1823 poem, and Rudolph was the only one added later."
+    },
+    {
+      "d": "easy",
+      "q": "In Dr. Seuss's 1957 story, which green, grumpy creature living on Mount Crumpit tries to stop Christmas coming to Whoville?",
+      "o": [
+        "The Grinch",
+        "The Lorax",
+        "The Cat in the Hat",
+        "Horton"
+      ],
+      "a": 0,
+      "w": "The Grinch, who steals the Whos' presents and trees, then discovers that Christmas comes anyway and that his heart has grown three sizes.",
+      "more": "The book, How the Grinch Stole Christmas!, was turned into a 1966 television special narrated by Boris Karloff, and the song 'You're a Mean One, Mr. Grinch' was sung by Thurl Ravenscroft, who was not credited at first. Jim Carrey played him in a 2000 film. Dr. Seuss, whose real name was Theodor Geisel, said he wrote it in part because he was fed up with the commercialism of the holiday."
+    },
+    {
+      "d": "easy",
+      "q": "Which creamy winter drink, made from milk, cream, sugar and beaten eggs, is often spiked with rum, brandy or bourbon at Christmas parties?",
+      "o": [
+        "Eggnog",
+        "Mulled wine",
+        "Hot buttered rum",
+        "Wassail"
+      ],
+      "a": 0,
+      "w": "Eggnog, which probably descends from a medieval British drink called posset and became popular in America because milk and eggs were plentiful.",
+      "more": "Colonial Americans swapped the English brandy or sherry for rum, which was cheaper, and later for whiskey. George Washington is said to have had his own recipe, which used rye, rum and sherry. In 1826 West Point cadets rioted over a batch smuggled in against the rules, an episode known as the Eggnog Riot."
+    },
+    {
+      "d": "easy",
+      "q": "Which parasitic plant, with white berries, is hung in doorways at Christmas as an invitation to kiss?",
+      "o": [
+        "Mistletoe",
+        "Holly",
+        "Ivy",
+        "Poinsettia"
+      ],
+      "a": 0,
+      "w": "Mistletoe. The tradition of kissing beneath it is recorded in England by the 1700s, and the berries are poisonous to people.",
+      "more": "It grows on the branches of host trees, taking water and nutrients from them, and is spread by birds that eat the sticky berries. The ancient Celts and Norse both gave it a place in their stories. Some say the kissing custom began with servants, who were allowed to kiss under it before a master would object."
+    },
+    {
+      "d": "easy",
+      "q": "The decorated Christmas tree became popular in Britain in the 1840s thanks to Queen Victoria's husband, Prince Albert, who brought the custom from which country?",
+      "o": [
+        "Germany",
+        "France",
+        "Sweden",
+        "Russia"
+      ],
+      "a": 0,
+      "w": "Germany, where families had brought evergreens indoors and decorated them from at least the 1500s.",
+      "more": "An engraving of Victoria, Albert and their children around a tree at Windsor Castle appeared in the Illustrated London News in 1848 and set a trend that quickly crossed the Atlantic. Albert was born in the German state of Saxe-Coburg and Gotha. The earliest decorations on German trees included apples, nuts and paper roses."
+    },
+    {
+      "d": "medium",
+      "q": "In the 1946 film It's a Wonderful Life, what happens every time a bell rings, according to George Bailey's young daughter Zuzu?",
+      "o": [
+        "An angel gets his wings",
+        "Santa leaves a present",
+        "A wish comes true",
+        "Snow starts falling"
+      ],
+      "a": 0,
+      "w": "An angel gets his wings. The line sets up Clarence, George's guardian angel, earning his wings at the end of the film.",
+      "more": "Frank Capra's film, starring James Stewart, was nominated for five Oscars but lost money on its release. It turned into a Christmas fixture in the 1970s after its copyright lapsed in 1974, which let television stations show it freely and often. Capra later called it his favourite of all his films."
+    },
+    {
+      "d": "medium",
+      "q": "Which red-leaved plant, native to Mexico, is the best-selling potted flowering plant in the United States and a fixture of Christmas displays?",
+      "o": [
+        "The poinsettia",
+        "The amaryllis",
+        "The Christmas cactus",
+        "The holly"
+      ],
+      "a": 0,
+      "w": "The poinsettia, which the Aztecs called cuetlaxochitl and used for dye and medicine.",
+      "more": "It is named for Joel Roberts Poinsett, the first American ambassador to Mexico, who sent cuttings home to South Carolina in the 1820s. National Poinsettia Day on 12 December marks the date Poinsett died. The red 'petals' are leaves, and the real flowers are the tiny yellow buds in the middle."
+    },
+    {
+      "d": "medium",
+      "q": "Which carol, first performed on Christmas Eve 1818 in a village church near Salzburg, was written by the priest Joseph Mohr with music by the organist Franz Gruber?",
+      "o": [
+        "Silent Night",
+        "O Holy Night",
+        "Away in a Manger",
+        "Hark! The Herald Angels Sing"
+      ],
+      "a": 0,
+      "w": "'Silent Night', whose words Mohr had written two years earlier and which was first sung in the church of St Nicholas in Oberndorf.",
+      "more": "The story goes that the church organ was broken, which is why it was written for guitar. The church was later pulled down after flooding and a small chapel now marks the spot. The song has been translated into well over 300 languages and dialects, and in 2011 Austria had it added to UNESCO's list of intangible cultural heritage."
+    },
+    {
+      "d": "hard",
+      "q": "In 1087, sailors carried the relics of Saint Nicholas away from Myra to which Italian port city, where a basilica still holds them?",
+      "o": [
+        "Bari",
+        "Naples",
+        "Genoa",
+        "Venice"
+      ],
+      "a": 0,
+      "w": "Bari, on the Adriatic coast of Puglia. The sailors took the bones partly to beat Venice to them.",
+      "more": "Nicholas was a fourth-century bishop of Myra, in what is now Turkey, and became the patron saint of sailors, children and pawnbrokers. Bari's Basilica di San Nicola was built to house the relics and is a major pilgrimage site for both Catholic and Orthodox Christians. Dutch settlers carried the name Sinterklaas to New York, and 'Santa Claus' is an English attempt to say it."
+    },
+    {
+      "d": "hard",
+      "type": "order",
+      "q": "Put these Christmas milestones in order, earliest first.",
+      "o": [
+        "The first commercial Christmas card is sold in London",
+        "Christmas becomes a US federal holiday",
+        "Bing Crosby records 'White Christmas'",
+        "Mariah Carey releases 'All I Want for Christmas Is You'"
+      ],
+      "w": "The first card in 1843, the federal holiday under President Ulysses S. Grant in 1870, Crosby's 'White Christmas' in 1942 and Mariah Carey's song in 1994.",
+      "more": "Henry Cole, a civil servant and the first director of the V&A, ordered the 1843 card, which sold about a thousand copies. Irving Berlin wrote 'White Christmas' for the 1942 film Holiday Inn, and Crosby's recording is often called the best-selling single ever. Carey's song, written with Walter Afanasieff, has returned to the top of the American chart almost every December since 2019."
+    },
+    {
+      "d": "hard",
+      "type": "select",
+      "q": "Which of these are among the gifts in 'The Twelve Days of Christmas'? Select all that apply.",
+      "o": [
+        "Turtle doves",
+        "Swans a-swimming",
+        "Pipers piping",
+        "Peacocks preening",
+        "Ravens roosting",
+        "Fiddlers fiddling"
+      ],
+      "a": [
+        0,
+        1,
+        2
+      ],
+      "w": "Turtle doves, swans a-swimming and pipers piping. There are no peacocks, ravens or fiddlers.",
+      "more": "The song was first printed in England in 1780, in a children's book called Mirth Without Mischief. The 'calling birds' were once 'colly birds', an old word for blackbirds. The twelve days run from Christmas Day to 5 January, and the whole set of gifts adds up to 364 items."
+    }
+  ]
+}
