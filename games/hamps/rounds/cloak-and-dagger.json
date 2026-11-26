@@ -1,0 +1,167 @@
+{
+  "id": "cloak-and-dagger",
+  "name": "Cloak and Dagger",
+  "subject": "Spies and espionage",
+  "tagline": "Eleven questions on secret agents, double lives and codebreakers, from a licence to kill to a Berlin bridge where prisoners were swapped in the fog. Starts easy, ends hard.",
+  "draft": true,
+  "emblem": "🕵️",
+  "theme": {
+    "font": "Special Elite",
+    "accent": "#1F2937",
+    "accent2": "#B45309",
+    "accentDark": "#9CA3AF",
+    "accent2Dark": "#FBBF24"
+  },
+  "questions": [
+    {
+      "d": "easy",
+      "q": "In spy slang, what is a 'mole'?",
+      "o": [
+        "An agent planted deep inside the enemy's own organisation",
+        "A courier who carries messages across borders",
+        "A hidden room used to meet agents",
+        "A codebreaker who works underground"
+      ],
+      "a": 0,
+      "w": "An agent who has burrowed deep inside the other side's organisation, often for years, and passes secrets back.",
+      "more": "The word was used for such agents long before spy fiction made it famous, but John le Carré's novels, above all Tinker Tailor Soldier Spy, spread it to the general public. Famous real moles include Kim Philby in British intelligence and Aldrich Ames and Robert Hanssen in American agencies. A mole is different from a defector, who changes sides openly."
+    },
+    {
+      "d": "easy",
+      "q": "Which American agency, headquartered in Langley, Virginia, gathers intelligence on foreign governments and carries out covert operations overseas?",
+      "o": [
+        "The CIA",
+        "The FBI",
+        "The NSA",
+        "The Secret Service"
+      ],
+      "a": 0,
+      "w": "The Central Intelligence Agency, set up in 1947 and based in Langley, just outside Washington, D.C.",
+      "more": "Its predecessor was the Office of Strategic Services, the wartime spy agency, which was disbanded in 1945. The CIA's mandate is overseas, while the FBI handles domestic counterintelligence, a division that has been a source of friction since the beginning. The agency's headquarters in Langley is named after former director George H. W. Bush."
+    },
+    {
+      "d": "easy",
+      "q": "Which Dutch exotic dancer, executed by a French firing squad in 1917 on charges of spying for Germany, has become a byword for the seductive female spy?",
+      "o": [
+        "Mata Hari",
+        "Belle Boyd",
+        "Nancy Wake",
+        "Violette Szabo"
+      ],
+      "a": 0,
+      "w": "Mata Hari, the stage name of Margaretha Zelle, who was shot at Vincennes, outside Paris, in October 1917.",
+      "more": "The name is Malay for 'eye of the day', meaning the sun. Historians have long doubted the evidence against her, which was thin, and some think the French needed a scapegoat during a bad year for the war. She is said to have refused a blindfold and blown a kiss to the firing squad."
+    },
+    {
+      "d": "easy",
+      "q": "Which crossing point on Berlin's Friedrichstrasse, a symbol of the Cold War, was the main gateway between the American and Soviet sectors of the divided city?",
+      "o": [
+        "Checkpoint Charlie",
+        "The Brandenburg Gate",
+        "Glienicke Bridge",
+        "Bornholmer Strasse"
+      ],
+      "a": 0,
+      "w": "Checkpoint Charlie, named for the third letter of the NATO phonetic alphabet, after checkpoints Alpha and Bravo on the route through East Germany.",
+      "more": "In October 1961 American and Soviet tanks faced each other there for about sixteen hours in a tense standoff. Foreigners and diplomats were allowed through, while most East Germans were not, and several people were shot dead trying to escape nearby. The booth was removed in June 1990, and a replica now stands in the street as a tourist attraction."
+    },
+    {
+      "d": "easy",
+      "q": "Which Buckinghamshire country house was the secret wartime home of Britain's codebreakers, where Alan Turing and thousands of others worked?",
+      "o": [
+        "Bletchley Park",
+        "Blenheim Palace",
+        "Chequers",
+        "Highclere Castle"
+      ],
+      "a": 0,
+      "w": "Bletchley Park, home of the Government Code and Cypher School, which broke German military ciphers during the Second World War.",
+      "more": "Roughly three-quarters of its staff at its peak were women, many of them young, and all of them were bound by the Official Secrets Act, which kept the work hidden for about thirty years after the war. The site also built Colossus, among the first programmable electronic computers, to crack a German teleprinter cipher. Historians estimate that the intelligence it produced shortened the war by years, though the figure is a matter of debate."
+    },
+    {
+      "d": "medium",
+      "q": "In John le Carré's Tinker Tailor Soldier Spy, which retired, owlish intelligence officer is called back to find a Soviet mole at the top of the British Secret Service, known as the Circus?",
+      "o": [
+        "George Smiley",
+        "Alec Leamas",
+        "Peter Guillam",
+        "Jim Prideaux"
+      ],
+      "a": 0,
+      "w": "George Smiley, who spends the book quietly working out which of four senior men is the traitor.",
+      "more": "Le Carré, whose real name was David Cornwell, had worked for both MI5 and MI6 before he became a writer, and his spies are tired, compromised people rather than glamorous ones. The 1979 BBC adaptation starred Alec Guinness, and a 2011 film starred Gary Oldman. Smiley's Soviet opponent in the books is a spymaster called Karla."
+    },
+    {
+      "d": "medium",
+      "q": "Which senior MI6 officer, secretly working for the Soviet Union since the 1930s, was exposed in 1963 and fled to Moscow, becoming the most notorious of the Cambridge spies?",
+      "o": [
+        "Kim Philby",
+        "Guy Burgess",
+        "Anthony Blunt",
+        "Klaus Fuchs"
+      ],
+      "a": 0,
+      "w": "Kim Philby, who vanished from Beirut in January 1963 and surfaced in Moscow months later.",
+      "more": "He had risen to head MI6's anti-Soviet section, which meant he was passing on what Britain knew about Soviet intelligence to the Soviets themselves. The other Cambridge spies included Burgess, Maclean, Blunt and Cairncross. Philby lived in Moscow until his death in 1988 and appeared on a Soviet postage stamp."
+    },
+    {
+      "d": "medium",
+      "q": "Which American U-2 pilot, shot down over the Soviet Union in May 1960, was exchanged for a Soviet spy on a bridge between East and West Germany in 1962?",
+      "o": [
+        "Francis Gary Powers",
+        "Neil Armstrong",
+        "Chuck Yeager",
+        "Gus Grissom"
+      ],
+      "a": 0,
+      "w": "Francis Gary Powers, whose plane was brought down by a surface-to-air missile near Sverdlovsk.",
+      "more": "The United States first claimed that it was a weather research flight, until the Soviets produced the wreckage and the pilot. He was traded for Rudolf Abel, a KGB colonel, on the Glienicke Bridge, which links Berlin and Potsdam. The story was retold in the 2015 film Bridge of Spies, in which Mark Rylance won an Oscar as Abel."
+    },
+    {
+      "d": "hard",
+      "q": "Which Polish mathematician first broke the German Enigma cipher, in 1932, years before the British took up the problem?",
+      "o": [
+        "Marian Rejewski",
+        "Stanisław Ulam",
+        "Alfred Tarski",
+        "Wacław Sierpiński"
+      ],
+      "a": 0,
+      "w": "Marian Rejewski, who worked in Poland's Cipher Bureau with two other young mathematicians, Jerzy Różycki and Henryk Zygalski.",
+      "more": "He worked out the wiring of the machine's rotors using mathematics and a few leaked documents, without ever having seen an Enigma. In July 1939, weeks before the invasion of Poland, the Poles shared their methods and replicas with British and French intelligence, which became the foundation of Bletchley Park's work. Rejewski died in 1980."
+    },
+    {
+      "d": "hard",
+      "type": "order",
+      "q": "Put these espionage events in order, earliest first.",
+      "o": [
+        "Mata Hari is executed in France",
+        "Julius and Ethel Rosenberg are executed in New York",
+        "The KGB is created",
+        "CIA officer Aldrich Ames is arrested as a Russian spy"
+      ],
+      "w": "Mata Hari in 1917, the Rosenbergs in 1953, the creation of the KGB in 1954 and the arrest of Aldrich Ames in 1994.",
+      "more": "The Rosenbergs were put to death at Sing Sing in June 1953 for passing atomic secrets to the Soviets, the only American civilians executed for espionage during the Cold War. The KGB was formed in March 1954 and lasted until the collapse of the Soviet Union in 1991. Ames, an officer who had spent years passing names of CIA sources to Moscow, was arrested in February 1994 and given a life sentence."
+    },
+    {
+      "d": "hard",
+      "type": "select",
+      "q": "Which of these were real people who worked in intelligence? Select all that apply.",
+      "o": [
+        "Virginia Hall",
+        "Julia Child",
+        "Josephine Baker",
+        "Jason Bourne",
+        "Harry Palmer",
+        "Jack Ryan"
+      ],
+      "a": [
+        0,
+        1,
+        2
+      ],
+      "w": "Virginia Hall, Julia Child and Josephine Baker were real. Jason Bourne, Harry Palmer and Jack Ryan are fictional.",
+      "more": "Hall, an American who lost part of a leg in a hunting accident, ran networks for British and American intelligence in occupied France and was nicknamed 'the limping lady' by the Gestapo. Child, the future television cook, worked for the OSS in Ceylon and China, where one of her jobs was developing a shark repellent. Baker, the Paris cabaret star, carried information for the French Resistance, and is said to have written messages in invisible ink on her sheet music."
+    }
+  ]
+}
