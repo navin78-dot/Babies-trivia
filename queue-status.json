@@ -340,9 +340,9 @@
       "roundsDir": "games/hamps/rounds",
       "today": "2026-11-26",
       "season": 9,
-      "queueCount": 4,
+      "queueCount": 5,
       "target": 5,
-      "fill": 1,
+      "fill": 0,
       "queue": [
         {
           "id": "high-seas",
@@ -375,13 +375,25 @@
           "onPollSince": "2026-11-24",
           "retired": false,
           "requestId": null
+        },
+        {
+          "id": "cloak-and-dagger",
+          "name": "Cloak and Dagger",
+          "subject": "Spies and espionage",
+          "onPollSince": "2026-11-26",
+          "retired": false,
+          "requestId": null
         }
       ],
       "poll": {
         "key": "2026-11-26",
         "closes": "2026-11-28",
         "decides": "2026-11-29",
-        "options": []
+        "options": [
+          {
+            "id": "cloak-and-dagger"
+          }
+        ]
       },
       "upcoming": [
         {
@@ -392,9 +404,9 @@
         },
         {
           "day": "2026-11-29",
-          "id": "high-seas",
-          "name": "High Seas",
-          "how": "queue"
+          "id": "cloak-and-dagger",
+          "name": "Cloak and Dagger",
+          "how": "leading"
         }
       ],
       "dropped": [
@@ -644,6 +656,7 @@
         "By the Numbers (Maths, numbers and measurement)",
         "Campaign Trail (US elections and voting)",
         "Chart Toppers (Pop music)",
+        "Cloak and Dagger (Spies and espionage)",
         "Concrete Jungle (New York City)",
         "Creature Feature (Animals)",
         "Crowned Heads (Royals through history)",
@@ -684,8 +697,8 @@
         "Twang (Country music)",
         "Wrapped Up (Candy bars, round two)"
       ],
-      "need": 1
+      "need": 0
     }
   },
-  "totalNeed": 6
+  "totalNeed": 5
 }
