@@ -1,0 +1,167 @@
+{
+  "id": "all-that-glitters",
+  "name": "All That Glitters",
+  "subject": "Gems and jewellery",
+  "tagline": "Eleven questions on the stones that start wars and engagements, from a lump of carbon to a Russian egg. Starts easy, ends hard.",
+  "draft": true,
+  "emblem": "💎",
+  "theme": {
+    "font": "Cinzel",
+    "accent": "#0E7490",
+    "accent2": "#7C3AED",
+    "accentDark": "#67E8F9",
+    "accent2Dark": "#C4B5FD"
+  },
+  "questions": [
+    {
+      "d": "easy",
+      "q": "Which gemstone, the birthstone for October, shimmers with flashes of every colour of the rainbow and is mined at Coober Pedy and Lightning Ridge?",
+      "o": [
+        "Opal",
+        "Turquoise",
+        "Moonstone",
+        "Jade"
+      ],
+      "a": 0,
+      "w": "Opal, a form of silica with tiny spheres inside it that split light into colours. Australia produces the vast majority of the world's precious opal.",
+      "more": "The best-known fields are at Coober Pedy and Lightning Ridge, and Coober Pedy is so hot that many of its residents live underground in 'dugouts'. Opal contains up to around ten per cent water, and a stone that dries out too fast can crack. Some jewellers superstitiously considered it unlucky, a reputation that is often blamed on Walter Scott's 1829 novel Anne of Geierstein."
+    },
+    {
+      "d": "easy",
+      "q": "Which green gemstone, a variety of the mineral beryl, was mined in ancient Egypt and is associated with Cleopatra?",
+      "o": [
+        "Emerald",
+        "Peridot",
+        "Jade",
+        "Malachite"
+      ],
+      "a": 0,
+      "w": "Emerald. Its green comes from traces of chromium, and sometimes vanadium, in the crystal.",
+      "more": "Cleopatra is said to have loved them so much that she claimed the mines in the Egyptian desert as her own. Today the finest come from Colombia, near the town of Muzo. Almost all natural emeralds have tiny flaws, which jewellers call the jardin, or garden, and a flawless one is rare enough to be suspect."
+    },
+    {
+      "d": "easy",
+      "q": "Gemstones are weighed in carats. How much is a single carat?",
+      "o": [
+        "Two-tenths of a gram, or 200 milligrams",
+        "One gram",
+        "Two grams",
+        "Two-hundredths of a gram"
+      ],
+      "a": 0,
+      "w": "200 milligrams, about the weight of a small paperclip.",
+      "more": "The word comes from the carob tree, whose seeds were once used as weights by traders in the Mediterranean because they were thought to be uniform. The metric carat was agreed internationally in 1907. Karat with a K is a different measure, used for the purity of gold, where 24 karat is pure."
+    },
+    {
+      "d": "easy",
+      "q": "Which New York jeweller, founded in 1837, is famous for its robin's-egg-blue boxes tied with white ribbon, and for a 1961 film in which Audrey Hepburn eats a pastry outside its Fifth Avenue window?",
+      "o": [
+        "Tiffany & Co.",
+        "Cartier",
+        "Harry Winston",
+        "Van Cleef & Arpels"
+      ],
+      "a": 0,
+      "w": "Tiffany & Co., founded by Charles Lewis Tiffany and John Young on Broadway.",
+      "more": "The company trademarked its pale blue, known as Tiffany Blue, and in 1886 introduced the six-prong solitaire setting that became the standard engagement ring. The film was based on a Truman Capote novella of 1958. In 2021 the luxury group LVMH bought Tiffany for about 15.8 billion dollars."
+    },
+    {
+      "d": "easy",
+      "q": "Which blue gemstone, the same mineral as a ruby but in a different colour, is set in the engagement ring that Prince Charles gave Diana and that Prince William later gave to Catherine?",
+      "o": [
+        "Sapphire",
+        "Aquamarine",
+        "Lapis lazuli",
+        "Tanzanite"
+      ],
+      "a": 0,
+      "w": "A sapphire. Both sapphire and ruby are corundum, and the only difference is which trace elements colour them.",
+      "more": "The ring has a 12-carat oval sapphire from Ceylon, now Sri Lanka, surrounded by 14 diamonds. Diana chose it herself from a catalogue at the jeweller Garrard in 1981. William proposed to Catherine with it in Kenya in 2010, after carrying it in his rucksack for weeks."
+    },
+    {
+      "d": "medium",
+      "q": "Which company's 1947 advertising slogan, 'A Diamond Is Forever', turned the diamond engagement ring into an American custom?",
+      "o": [
+        "De Beers",
+        "Tiffany & Co.",
+        "Rolex",
+        "Swarovski"
+      ],
+      "a": 0,
+      "w": "De Beers, the South African mining firm founded in 1888, which at one point controlled most of the world's diamond supply.",
+      "more": "The line was written by a young copywriter, Frances Gerety, at the advertising agency N. W. Ayer, and the trade magazine Advertising Age later called it the best slogan of the twentieth century. Before the campaign, few American engagement rings had diamonds. The company has since cut back its control of the market as new mines and lab-grown stones arrived."
+    },
+    {
+      "d": "medium",
+      "q": "Which giant diamond, whose Persian name means 'Mountain of Light', sits in a British crown and is claimed by India, Pakistan, Iran and Afghanistan?",
+      "o": [
+        "The Koh-i-Noor",
+        "The Cullinan",
+        "The Hope Diamond",
+        "The Regent"
+      ],
+      "a": 0,
+      "w": "The Koh-i-Noor, a stone of about 105 carats that is now among the Crown Jewels in the Tower of London.",
+      "more": "It passed between Mughal, Persian, Afghan and Sikh rulers before the British annexed the Punjab in 1849 and presented it to Queen Victoria in 1850. It was recut to its present shape on the instructions of Prince Albert. It is set in a crown made in 1937 for Queen Elizabeth, the Queen Mother, and by tradition is worn only by queens, not kings."
+    },
+    {
+      "d": "medium",
+      "q": "Which French jeweller, called 'the jeweller of kings and the king of jewellers' by Edward VII, makes the Tank watch and the panther-shaped Panthère jewellery?",
+      "o": [
+        "Cartier",
+        "Boucheron",
+        "Van Cleef & Arpels",
+        "Chaumet"
+      ],
+      "a": 0,
+      "w": "Cartier, founded in Paris in 1847 by Louis-François Cartier.",
+      "more": "The Tank watch, inspired by the tracks of First World War tanks, was introduced in 1917. The panther first appeared in Cartier's designs in 1914 and became a symbol of the house, helped by the designer Jeanne Toussaint, who was nicknamed 'the Panther'. The firm has branches in London and New York, run by the founder's grandsons."
+    },
+    {
+      "d": "hard",
+      "q": "The fifty Imperial Easter eggs made for the Russian tsars, the first in 1885, were created by which jeweller?",
+      "o": [
+        "Peter Carl Fabergé",
+        "Louis Comfort Tiffany",
+        "René Lalique",
+        "Harry Winston"
+      ],
+      "a": 0,
+      "w": "Peter Carl Fabergé, court jeweller to the Romanovs, whose workshop in St Petersburg made the first one for Tsar Alexander III to give to his wife, Maria Feodorovna.",
+      "more": "Each egg held a surprise inside, such as a golden hen or a miniature coach, and the designs were kept secret even from the tsar until delivery. Forty-three of the fifty are known to survive, and the rest are lost. After the Revolution of 1917 the workshop was nationalised and Fabergé fled, and many eggs were sold by the Soviet government for hard currency."
+    },
+    {
+      "d": "hard",
+      "type": "order",
+      "q": "Put these diamond milestones in order, earliest first.",
+      "o": [
+        "The Eureka diamond is found in South Africa",
+        "The Cullinan diamond is found at the Premier Mine",
+        "The Hope Diamond is donated to the Smithsonian",
+        "The Kimberley Process is launched to stop 'blood diamonds'"
+      ],
+      "w": "The Eureka diamond in 1867, the Cullinan in 1905, the Hope Diamond's donation in 1958 and the Kimberley Process in 2003.",
+      "more": "The Eureka, a 21-carat stone picked up by a child beside a river, sparked the South African diamond rush. The Cullinan, at 3,106 carats, is the largest gem-quality rough diamond ever found. Harry Winston sent the Hope Diamond to the Smithsonian by registered mail, and the postage was about 2.44 dollars."
+    },
+    {
+      "d": "hard",
+      "type": "select",
+      "q": "Which of these gemstones are varieties of quartz? Select all that apply.",
+      "o": [
+        "Amethyst",
+        "Citrine",
+        "Rose quartz",
+        "Topaz",
+        "Garnet",
+        "Peridot"
+      ],
+      "a": [
+        0,
+        1,
+        2
+      ],
+      "w": "Amethyst, citrine and rose quartz. Topaz, garnet and peridot are separate minerals.",
+      "more": "Amethyst is purple quartz and citrine is yellow to orange, and heating amethyst can turn it into citrine. Quartz is one of the most common minerals in the Earth's crust and the reason it is so cheap compared with other gems. Peridot is a gem form of olivine, and some of it has been found in meteorites."
+    }
+  ]
+}
